@@ -1,0 +1,216 @@
+\letter{541}
+\from{Kemmer}
+\date{April 6, 1939}
+\location{London}
+\tags{beta-gymnastics spinor-calculus}
+
+\nc{\D}{\partial}
+
+Dear Herr Professor!
+
+What do you think of the following formalism? There is \textit{nothing} fundamentally new, but it clarifies my ideas on many connections and is very convenient for many calculations. In the typical formulations of Bose theories, the \textit{field} side is emphasized rather than the \textit{particle} side. The following shows that this need \textit{not} be regarded as the essential nature of things.
+
+I consider the wave equation
+\nequ{
+\partial_\mu \beta_\mu \Y + \kappa\Y = 0,\quad
+\left(\partial_\mu = \pddX{}{x_\mu}, \kappa = \frac{mc}{\hbar}\right),
+}{1}
+where the $\beta$-operators satisfy the commutation relations:
+\nequ{
+\beta_\mu\beta_\nu\beta_\rho = \beta_\rho\beta_\nu\beta_\mu = 
+\delta_{\mu\nu}\beta_\rho + \delta_{\rho\nu}\beta_{\mu}.
+}{2}
+
+If we put $\Y^+ = i\Y^*(2\beta^2_4 - 1)$, then
+\nequ{
+\partial_\mu\Y^u\beta_\mu - \kappa\Y^+ = 0.
+}
+There are no boundary conditions, though
+\uequ{
+\partial_\mu\partial_\rho\beta_\mu\beta_\nu\beta_\rho\Y =
+-\kappa\partial_\mu\beta_\mu\beta_\nu\Y,
+}
+thus
+\nequ{
+\partial_\nu\partial_\mu\beta_\mu\Y = -\kappa\partial_\mu\beta_\mu\beta_\nu\Y,\\
+\partial_\nu\Y = \partial_\mu\beta_\mu\beta_\nu\Y,
+}{4}
+and analogously
+\nequ{
+\partial_\nu\Y^+ = \partial_\mu\Y^+\beta_\nu\beta_\mu.
+}{5}
+It follows immediately from (1) and (4) that
+\nequ{
+\partial_\nu\partial_\nu\Y = \kappa^2\Y
+}{4'}
+and likewise
+\nequ{
+\partial_\nu\partial_\nu\Y^+ = {\kappa'}^2\Y^+.
+}{5'}
+The behavior under Lorentz transformation will later \?{fall into place}; (1) and (4) are \textit{individually} invariant. Incidentally (1) and (2) was initially given by Duffin, Physical Review, December 15th.
+
+(1) and (3) immediately imply
+\nequ{
+\partial_\mu s_\mu = 0,\quad s_\mu = \Y^+\beta_\mu\Y.
+}{6}
+With this, $\inv{i}\Y^+\beta_4\Y$ is the particle density, and \?{we seek to assign operators $\omega$ to physical quantities such that}
+\nequ{
+\overline{\omega} = \inv{i}\int{dV}\Y^+\beta_4\omega\Y
+}{7}
+are the associated expectation values which are derived field-theoretically. (If $\omega$ does not commute with $\beta_4$, (7) \?{must be} symmetrized.) Now $\beta_4$ has no inverse, so the possibility of the representation (7) is not trivial. However, it will be proven that, for the most important quantities which have an intuitive interpretation in particle form, a representation (7) can be found.
+
+For instance, we seek to define the energy-momentum vector as
+\uequ{
+\overline{p}_\mu = \inv{i}\int{dV}\Y^+\beta_4\inv{i}\D_\mu\Y,
+}
+resp. the energy-momentum tensor as
+\nequ{
+T_{\mu\nu} = \inv{2i}\left(\Y^+\beta_\nu\D_\mu\Y - \D_\mu\Y^+\beta_\nu\Y\right).
+}{8}
+($\hbar$ and $e$ are always left out for brevity.)
+
+The equation
+\nequ{
+\pddX{T_{\mu\nu}}{x_\nu} = 0
+}{9}
+is easily proven, so the definition (8) is possible. Then, symmetrizing analogously to Tetrode,
+\uequ{
+T_{\mu\nu} = \inv{2i}\left(\Y^+\beta_\nu\delta_{\rho\mu}\D_\rho\Y - 
+\D_\rho\Y\Y^+\beta_\nu\delta_{\rho\mu}\Y\right),
+}
+according to (2),
+\uequ{
+ = \inv{2i}&\left\{\Y^+\left(\beta_\nu\beta_\mu\beta_\rho + \beta_\rho\beta_\mu\beta_\nu\right)\D_\rho\Y -
+\D_\rho\Y^+ \left(\beta_\rho\beta_\mu\beta_\nu + \beta_\nu\beta_\mu\beta_\rho\right)\Y\right.\\
+&\left. - \delta_{\mu\nu}\Y^+\beta_\rho\D_\rho\Y + \delta_{\mu\nu}\D_\rho\Y\beta_\rho\Y\right\};
+}
+thus 
+
+cause of (1)
+\uequ{
+ = -\frac{x}{i}\left\{\Y^+(\beta_{\nu\mu}+\beta_{\mu\nu})\Y - \delta_{\mu\nu}\Y^+\Y\right\}
+ - \inv{2i}\frac{d}{dx_p}\left\{\Y^+(\beta_\nu\beta_\mu\beta_\rho - 
+ \beta_\rho\beta_\mu\beta_\nu)\right\}.
+}
+With this, $\pddX{\theta_{\mu\nu}}{x_\nu} = 0$, where
+\nequ{
+\theta_{\mu\nu} = -\frac{x}{i}\left[\Y^+(\beta_\nu\beta_\mu + \beta_\mu\beta_\nu)\Y
+ - \delta_{\mu\nu}\Y^+\Y\right],
+}{10}
+and $\theta_{\mu\nu}$ is symmetrical.
+
+But in accordance with the definition of $\Y^+$
+\nequ{
+\theta_{44} = -x\Y^*\Y,
+}{11}
+so the energy density in this representation is positive-definite.
+
+But, $\theta_{\mu\nu}$ is \textit{not} $\inv{2}(T_{\mu\nu} + T_{\nu\mu})$!
+
+However, the relation $\pddX{}{x_\nu}T_{\nu\mu}=0$ can also be derived in the field-free case so that $\theta'_{\mu\nu}=\inv{2}(T_{\mu\nu}+T_{\nu\mu})$ enters as the energy-momentum tensor, but then the energy density $-T_{44}$ is not necessarily positive!
+
+Now if the angular momentum is defined as
+\uequ{
+P_{ik} = \inv{i}\int{dV}(x_i\theta_{k4} - x_k\theta_{i4}),
+}
+it is shown with a little "$\beta$-gymnastics" that
+\nequ{
+P_{ik} = +\inv{i}\int\Y^+\beta_4\left(x_i\frac{\D_k}{i} - k_k\frac{\D_i}{i}\right)\Y\,{dV}
+ - \int\Y^+\beta_4\left(\beta_i\beta_k - \beta_k\beta_i\right)\Y\,{dV}.
+}{12}
+Hence the operator $-i(\beta_i\beta_k-\beta_k\beta_i)$ (commutable with $\beta_4$) defines the \textit{spin}!
+
+Now one has the freedom to use $\theta'_{\mu\nu}$ as well as $\theta_{\mu\nu}$ in the definition of the angular momentum. In this way another expression is found:
+\uequ{
+{P''}_{ik} &= \inv{i}\int\Y^+\beta_4\left(x_i\frac{\D_k}{i} - x_k\frac{\D_i}{i}\right)\Y\,{dV}
+ + \inv{2}\int\Y^+\beta_i\beta_4\beta_k\Y\,{dV}\\
+&\left(P'_{ik} = \frac{P_{ik} + {P''}_{ik}}{2}\right).
+}
+
+But this latter "spin" supplies no "operator" according to our definition.
+
+Further, the Gordon \WTF{current decomposition}{Stromaufspaltung} can be carried out:
+\uequ{
+s_\mu = \Y^+\beta_\mu\Y &= \inv{2\kappa}\left[\D_\nu\Y^+\beta_\nu\beta_\mu\Y
+ - \Y^+ \beta_\mu\beta_\nu\D_\nu\Y\right]\\
+&= \inv{2\kappa}\left[\frac{d}{dx_\nu}\left\{\Y^+(\beta_\nu\beta_\mu - \beta_\mu\beta_\nu)\Y\right\}
+- \Y^+\beta_\nu\beta_\mu\D_\nu\Y + \D_\nu\Y^+\beta_\mu\beta_\nu\Y\right],
+}
+and thus according to (4) and (5)
+\uequ{
+s_\mu = \inv{2\kappa}\left[\D_\mu\Y^+\Y - \Y^+\D_\mu\Y\right] +
+\inv{2\kappa}\frac{d}{dx_\nu}\Y^+(\beta_\nu\beta\mu - \beta_\mu\beta_\nu).
+}
+Hence for the magnetic moment:
+\uequ{
+M_{ik} = \inv{2\kappa}\left[
+\inv{i}\int\Y^+\left(x_i\frac{\D_k}{i} - x_k\frac{\D_i}{i}\right)\Y\,{dV}
+- \int\Y^+(\beta_i\beta_k - \beta_k\beta_i)\Y\,{dV}\right];
+}
+thus the anomolous factor of $\inv{2}$ in the spin term disappears in this theory, otherwise everything is the same as with Dirac. \textit{But the magnetic moment} has no \textit{operator in the particle form!} \?{It is probably also intuitive that the magnetic moment is not as immediately connected with the particle probability density as the mechanical moment}. \?{So much for} the field-free case; if now an electromagmetic field is introduced, then it is \textit{free of contradictions} and \textit{invariant} to introduce it in (1) by $\D_\mu \to \D_\mu^- = \D_\mu - iA_\mu$ and in (3) by $\D_\mu \to \D^+\mu = \D_\mu + iA_\mu$; now instead of (4) we only then have
+\nequ{
+\D_\nu^-\Y = \D_\mu^-\beta_\mu\beta_\nu\Y + 
+\frac{i}{2\kappa}F_{\mu\rho}(\beta_\rho\beta_\nu\beta_\mu - \delta_{\rho\nu}\beta_\mu)\Y,
+}{4a}
+and instead of (5)
+\nequ{
+\D_\nu^+\Y^+ = \D_\mu^+\Y^+\beta_\nu\beta_\mu + 
+\frac{i}{2\kappa}F_{\mu\rho}(\beta_\mu\beta_\nu\beta_\rho - \beta_\mu\delta_{\nu\rho}),
+}{5a}
+and instead of (4') and (5')
+\nequ{
+\D_\nu^- \D_\nu^- \Y &= \kappa^2\Y + iF_{\mu\nu}\Y + 
+\frac{i}{2\kappa}\D_\nu^-F_{\mu\rho}(\beta_\rho\beta_\nu\beta_\mu - \delta_{\rho\nu}\beta_\mu)\Y\\
+\D_\nu^+ \D_\nu^+ \Y &= \kappa^2\Y - iF_{\mu\nu}\Y^+\beta_\nu\beta_\mu + 
+\frac{i}{2\kappa}\D_\nu^+F_{\mu\rho}\Y^+(\beta_\mu\beta_\nu\beta_\rho - \beta_mu\delta_{\nu\rho})
+}{4'a}
+Thus there is a field interaction of the electric and magnetic moment as in the Dirac theory + a peculiar additional part.
+
+Thus in the presence of fields $T_{\mu\nu}$ can be defined as before (only with $\D^+$ and $\D^-$) and $\theta_{\mu\nu}$ remains exactly the same; only $\theta'_{\mu\nu} = \inv{2}(T_{\mu\nu} + T_{\nu\mu})$ is no longer a permissable tensor, since $\pddX{\theta'_{\mu\nu}}{x_\nu} \neq F_{\mu\nu}s_\nu$, while for $T_{\mu\nu}$ and $\theta_{\mu\nu}$ the equation is true.
+
+With this the uniqueness is again established, and we \textit{must} choose the form
+\uequ{
+P_{ik} = +\inv{i}\int\Y^+\beta_4\left(x_i\frac{\D_k^-}{i} + x_k\frac{\D_i^-}{i}\right)\Y\,{dV}
+ - \int\Y^+\beta_4(\beta_i\beta_k - \beta_k\beta_i)\Y\,{dV}
+}
+for the angular momentum.
+
+The Gordon current decomposition now becomes interesting, since it now reads
+\uequ{
+s_\mu &= \inv{2\kappa}[\D_\mu^+\Y^+\Y - \Y^+\D_\mu^-\Y] + 
+\inv{2\kappa}\frac{d}{dx_\nu}[\Y^+(\beta_\nu\beta_\mu - \beta_\mu\beta_\nu)]\\
+&+ \frac{i}{2\kappa^2}F_{\nu\rho}\Y^+(\beta_\rho\beta_\mu\beta_\nu)\Y.
+}
+
+The occurance of this last term is apparently connected with the additional term in (4'a, 5'a), \?{and} I don't see any simple interpretation for it. There is also an addendum for $\overline{M}_{ik}$:
+\uequ{
+M_{ik} = &\inv{2k i}\int\Y^+\left(x_i\frac{\D_k^-}{i} - x_k\frac{\D_i^-}{i}\right)\Y\,{dV}\\
+ -& \inv{2k}\int\Y^+(\beta_i\beta_k - \beta_k\beta_i)\Y\,{dV}\\
+ +& \inv{4\kappa^2}\int{dV}\,F_{\mu\nu}\Y^+(\beta_\nu\beta_k\beta_\mu x_i 
+ - \beta_\nu\beta_i\beta_\mu x_k).
+}
+Now, what do you think of all this? I know the following representations of $\beta_i$: $\beta_i = \frac{\gamma_i+\gamma'_i}{2}$, where the $\gamma_i$ are Dirac matrices and $\gamma'_i$ are the same but acting on a different index. This representation is reducible (see my old Helvetica Physica Acta paper) and indeed it decomposes into a ten-rowed, a five-rowed and a trivial one-rowed irreducible representation. Inserting the ten-rowed representation into the above gives the Proca theory. The five-rowed (written linearly) \?{gives} the relativistic Schr\"odinger equation (in the latter case namely $\beta_\mu\beta_\nu\beta_\rho=0$, $\mu\neq\nu\neq\rho$) resp. the \?{reflected} theories, and indeed it is so since with a consistent definition of the reflection character \textit{before the reduction}, the Proca theory is connected with the \textit{pseudo}scalars, \?{like Møller has suggested}! (See also Belinfante, Nature from 2-3 months ago.)
+
+It is easy to see that on second quantization the commutation relations can be written
+\uequ{
+[\Y_\alpha^+\,\beta_{4\alpha\beta}\Y_\gamma]_- = i\delta(x-x')(\beta_4)^2_{\beta\gamma},
+}
+or
+\uequ{
+[\Y_\alpha^+\,\beta_{4\beta\gamma}\Y_\gamma]_- = i\delta(x-x')(\beta_4)^2_{\alpha\beta},
+}
+and that the non-relativistic limiting case is derived from the relations
+\uequ{
+\beta_4\D_4\Y+\kappa\Y+\beta_k\D_k Y &= 0\\
+i(\beta_4^2 - 1)\D_4\Y + \D_k\beta_k\beta_4\Y &= 0,
+}
+if $\beta_4$ is made diagonal. The "large components" are in two two representations naturally a vector resp. a scalar (in 3 dimensions).
+
+This representation is essentially different from Dirac's with its Hamiltonian function, and indeed this distinction can be characterised so that Dirac starts from the $\alpha$-form and I start from the $\gamma$-form of the equation, which here cannot so immediately be transformed into one another. The $\gamma$-form has, as I've said, already been recently given by Duffin, but he has done nothing further with it, as he wrote me. But I find it a but funny that everything is so analogous, \?{and I enjoy the $\beta$-gymnastics}. The representation is also perhaps of pedagogical interest, since it gives an example of the operator calculus that can be written just as well in the tensor form, and hence can be better-understood than the Dirac equation by many. I have not been able to do anything more important in recent times, since I've been quite overloaded with classes.
+
+Best greetings and a happy Easter to you, your wife and \textit{all the Zurichers},
+
+Your devoted N. Kemmer
+
+I beg you pass this letter along to Wentzel.
+%thhe $eand eben

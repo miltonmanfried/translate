@@ -1,0 +1,959 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{marginnote}
+\renewcommand*\rmdefault{ppl}
+
+
+\newcommand{\tn}[1]{\footnote{\textbf{Translator note:} #1}}
+
+\newcommand{\WTF}[1]{\footnote{\textbf{???} #1}}
+%\newcommand{\WTF}[1]{#1}
+
+\newcommand{\footcite}[3]{\textsc{#1}, \textit{#2}, #3}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\newcommand{\nequ}[2]{
+\begin{align*}
+#1
+\tag{#2}
+\end{align*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{align*}
+#1
+\end{align*}
+}
+
+\newcommand{\TN}[1]{
+\footnote{\sc{Translator note}: #1}
+}
+
+\nc{\sic}{\TN{sic}}
+
+\newcommand{\var}[1]{#1}
+\newcommand{\vect}[1]{\vec{\var{#1}}}
+\newcommand{\coord}[1]{#1}
+\newcommand{\const}[1]{#1}
+\newcommand{\op}[1]{
+\mathcal{#1}
+}
+
+\nff{\nv}{\nc{#1}{\var{#2}}}
+\nff{\rv}{\rc{#1}{\var{#2}}}
+
+\nff{\nvect}{\nc{#1}{\vect{#2}}}
+
+\newcommand{\primed}[1]{{#1^{\prime}}}
+\newcommand{\pprimed}[1]{{#1}^{\prime\prime}}
+\newcommand{\CC}[1]{{#1^{*}}}
+\newcommand{\HC}[1]{{#1^{+}}}
+
+\nf{\opdiff}{d{#1}}
+
+\newcommand{\unit}[1]{#1}
+\newcommand{\dotddt}[1]{\dot{#1}}
+\nc{\opddt}{\frac{d}{dt}}
+\newcommand{\inv}[1]{\frac{1}{#1}}
+\newcommand{\opinv}[1]{{#1}^{-1}}
+
+\newcommand{\oppddX}[1]{
+\frac{\partial}{\partial{#1}}
+}
+\nc{\oppddxk}{\oppddX{\xk}}
+\nc{\oppddx}{\oppddX{\x}}
+
+\newcommand{\pddt}[1]{\pdXdY{#1}{\t}}
+
+\newcommand{\dXdY}[2]{
+\frac{d{#1}}{d{#2}}
+}
+
+\newcommand{\ddt}[1]{\dXdY{#1}{\t}}
+
+\newcommand{\pdXdY}[2]{
+\frac{\partial {#1}}{\partial {#2}}
+}
+\newcommand{\pddXdYY}[2]{
+\frac{\partial^2 {#1}}{\partial {#2}^2}
+}
+\newcommand{\pddtt}[1]{\pddXdYY{\qr}{\t}}
+
+\newcommand{\barred}[1]{
+\overline{#1}
+}
+
+\newcommand{\hatted}[1]{\widehat{#1}}
+
+\newcommand{\func}[1]{\pmb{#1}}
+\newcommand{\WF}[1]{\var{#1}}
+
+\renewcommand{\it}[1]{\textit{#1}}
+\renewcommand{\sc}[1]{\textsc{#1}}
+
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumk}{\underset{k}{\sum}}
+\newcommand{\suml}{\underset{l}{\sum}}
+\newcommand{\sumr}{\underset{r}{\sum}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+\nc{\sumv}{\sumX{\nu}}
+\newcommand{\prodX}[1]{\underset{#1}{\prod}}
+\nc{\prodk}{\prodX{k}}
+\nc{\prodl}{\prodX{l}}
+\nf{\Nth}{{#1}^{\text{th}}}
+
+\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+
+\renewcommand{\exp}[1]{\const{e}^{#1}}
+\newcommand{\ddelta}{\func{\delta}}
+
+\nff{\deltaLL}{\var{\delta}_{{#1}{#2}}}
+\nc{\deltauv}{\deltaLL{\mu}{\nu}}
+
+%%%%% constants %%%%%
+\rc{\c}{\const{c}}
+\nc{\h}{\const{h}}
+\rc{\i}{\const{i}}
+\nc{\emass}{\const{\mu}}
+\nc{\e}{\const{e}}
+\nc{\G}{\const{G}}
+\nc{\Gp}{\primed{\const{G}}}
+\nc{\Z}{\const{Z}}
+
+%%%%% variables %%%%%
+
+\nv{\Y}{\psi}
+\nc{\YHC}{\HC{\psi}}
+\nc{\YCC}{\CC{\Y}}
+\nv{\eY}{\varphi}
+\nc{\eYj}{\eY^j}
+\nv{\g}{g}
+\nc{\eYjHC}{\HC{{\eYj}}}
+\nv{\x}{x}
+\nv{\y}{y}
+\nv{\dd}{d}
+\nvect{\vd}{d}
+\nc{\ddp}{{\primed{\dd}}}
+\nc{\dvx}{d\vx}
+\nc{\dx}{\opdiff{\x}}
+\nc{\dy}{\opdiff{\y}}
+\nc{\dk}{d\k}
+\nc{\dvk}{d\vk}
+\nc{\dvkp}{{d\vkp}}
+\rv{\t}{t}
+\nc{\tp}{\primed{\t}}
+\rv{\k}{k}
+\nc{\kp}{\primed{\k}}
+\nv{\p}{p}
+\nv{\s}{s}
+\nc{\kt}{{\k}_{t}}
+\rv{\r}{r}
+\nc{\dr}{d\r}
+\rv{\l}{l}
+\nc{\dl}{d\l}
+\nf{\lL}{\l_{#1}}
+\nc{\lx}{\lL{1}}
+\nc{\ly}{\lL{2}}
+\nc{\lz}{\lL{3}}
+\nc{\lt}{\lL{4}}
+\nv{\m}{m}
+\rc{\mp}{\primed{\m}}
+\nvect{\vl}{\l}
+\nc{\dvl}{d\vl}
+\nc{\dvlz}{{d\vect{\l^0}}}
+\nc{\lbar}{\barred{\l}}
+\nc{\lpbar}{{\primed{\lbar}}}
+\nc{\ltbar}{{\lbar}_{0}}
+\nc{\dw}{d\omega}
+\nc{\dm}{d\m}
+\nc{\ds}{d\s}
+\rv{\v}{v}
+\nvect{\vv}{v}
+\nc{\vvp}{\primed{\vect{\v}}}
+\nc{\vkp}{\primed{\vect{\k}}}
+\nc{\vmp}{\primed{\vect{\m}}}
+\nc{\kpt}{{\primed{\k_0}}}
+\nc{\mpt}{{\primed{\m_0}}}
+
+\nvect{\vmu}{\mu}
+
+\nv{\J}{J}
+\nv{\OXi}{\Xi}
+\nv{\Omeg}{\Omega}
+\nc{\OmegHC}{\HC{\Omega}}
+
+\nv{\V}{V}
+\nf{\VU}{{\V^{#1}}}
+\nf{\VL}{{\V_{#1}}}
+\nc{\Vi}{\VU{i}}
+\nc{\ViHC}{\HC{\Vi}}
+\nc{\Vl}{\VU{L}}
+\nc{\Vt}{\VU{t}}
+\nc{\VtHC}{\HC{\Vt}}
+\nc{\Vk}{{\V}_{k}}
+\nc{\Vp}{\VL{p}}
+
+\nv{\T}{T}
+\nf{\TL}{\T_{#1}}
+\nc{\Tk}{\TL{k}}
+
+\rv{\L}{L}
+\nc{\Lp}{\primed{\L}}
+
+\nv{\M}{M}
+\nf{\ML}{\M_{#1}}
+\nc{\Mk}{\ML{k}}
+
+\nv{\W}{W}
+
+\rv{\a}{a}
+
+\nv{\A}{A}
+\nf{\AU}{\A^{#1}}
+\nc{\Aj}{\AU{j}}
+\nc{\Ai}{\AU{i}}
+
+\nv{\B}{B}
+\nf{\BU}{\B^{#1}}
+\nc{\Bj}{\BU{j}}
+\nc{\BjHC}{\HC{{\BU{j}}}}
+
+\nv{\C}{C}
+\nv{\D}{D}
+\nc{\Dk}{\D_\k}
+\nc{\Dm}{\D_\m}
+
+\nv{\E}{E}
+
+\nv{\F}{F}
+
+\rv{\S}{S}
+
+\rv{\H}{H}
+\nv{\K}{K}
+\nv{\R}{R}
+
+\nv{\qrho}{\varrho}
+\nf{\qU}{\qrho^{#1}}
+\nc{\qj}{\qU{j}}
+
+\nv{\freq}{\nu}
+\nv{\dirac}{\gamma}
+\nc{\diract}{{\dirac}_{4}}
+\nf{\diracL}{{{\dirac}_{#1}}}
+\nf{\diracLHC}{{\HC{{\dirac}_{#1}}}}
+\nc{\diracu}{\diracL{\mu}}
+\nc{\diracv}{\diracL{\nu}}
+\nc{\diracuHC}{\diracLHC{\mu}}
+\nc{\diracvHC}{\diracLHC{\nu}}
+\nv{\dbeta}{\beta}
+
+\nv{\spin}{\sigma}
+\nf{\spinU}{\sigma^{#1}}
+\nc{\spink}{\spinU{k}}
+\nc{\spinp}{\spinU{p}}
+\nvect{\vspin}{\spin}
+\nvect{\vspink}{\spink}
+\nc{\spinkt}{\spink_{4}}
+
+\nf{\createL}{\var{\Gamma}_{#1}}
+\nf{\destroyL}{\HC{\createL{#1}}}
+\nc{\createk}{\createL{k}}
+\nc{\destroyk}{\destroyL{k}}
+\nc{\createmk}{\createL{-k}}
+\nc{\destroymk}{\destroyL{-k}}
+
+\nv{\N}{N}
+\nff{\NUL}{{\N^{#1}_{#2}}}
+\nf{\NU}{\N^{#1}}
+\nf{\NL}{\N_{#1}}
+\nc{\Nj}{\NU{j}}
+\nc{\Ni}{\NU{i}}
+\nc{\Nk}{\NL{k}}
+\nf{\NjL}{\NUL{j}{#1}}
+\nc{\Njk}{\NUL{j}{k}}
+
+\nv{\n}{n}
+\nf{\nU}{\n^{#1}}
+\nc{\nj}{\nU{j}}
+
+\rv{\P}{P}
+\nf{\PL}{\P_{#1}}
+\nc{\Pk}{\P_{k}}
+\nc{\Pkij}{\P_{kij}}
+
+\nv{\Q}{Q}
+\nv{\q}{q}
+\nc{\dQ}{\opdiff{\Q}}
+\nc{\dq}{\opdiff{\q}}
+\nvect{\vq}{q}
+
+\rv{\u}{u}
+\nc{\uNj}{\u(\Nj)}
+
+\nvect{\va}{a}
+\nvect{\vb}{b}
+\nvect{\vk}{k}
+\nvect{\vx}{x}
+\nvect{\vm}{m}
+
+%%%% abbreviations %%%%
+
+\nc{\eikx}{\exp{\i(\k, \x)}}
+\nc{\emikx}{\exp{-\i(\k, \x)}}
+\nc{\eilx}{\exp{\i(\l, \x)}}
+\nc{\emilx}{\exp{-\i(\l, \x)}}
+
+\title{Stueckelberg - 1934 - Relativistically invariant perturbation theory of Dirac electrons}
+
+\begin{document}
+
+\section{Introduction and overview}
+
+The usual perturbation theory of quantum mechanica develops the perturbed solutions as eigenfunctions of the unperturbed system and defines the time dependence through an approximation method with \it{variable expansion coefficients}.
+
+The elastic impact between an electron and a nucleus (via its electromagnetic field) will be given for high velocities in the first approximation, and its radiation output through the second approximation \WTF{wird dann fur hohe Geschwindigkeit durch die erste Naherung, und seine Ausstrahlung in einem elektromagnetischen Felde durch die zweite Naherung gegeben}, when a free electron is considered as the zeroth approximation. If the dperturbingfield is e.g. that of a light wave, the Klein-Nishna formula (KNF) will be recovered; if the field is that of a nucleus, the Bremsstrahlung formula will be recovered.
+
+
+For many procedures it is now advantageous to write invariant expressions for the motion and radiation of electrons derived from perturbation theory. This will be accomplished through developing the variable coefficients in a time Fourier expansion\WTF{durch eine Fourierentwicklung der variablen Koeffizienten nach der Zeit}. The solution is then written as a four-dimensional Fourier series with \it{constant coefficients}, which will be defined through the approximation method. Because time and space enter into thr calculation in the same way, the result is relativistically invariant, and one thus bypasses e.g. the Lorentz-transformation problem in calculating the KNF for moving electrons from those at rest (see section 5\cite{1}).
+
+The Bremmstrahlung of an electron in an arbitrary electromagnetic field can be derived through a gauge- and Lorentz-transformation of the generalized KNF, \WTF{wenn in deren Ableitung die Lichteigenschaften der Primärwellen nicht benützt werden} if in the derivation the light-characteristics of the primary wave (light-speed and transversality) are not used. This result agres with those of Bethe \& Heitler and with Sauter\cite{2}. For large electron velocities the nonop-transversality and sub-light-speed may be neglected (see sections 6 and 7). The application of this method to the problem of pair creation will follow in a \it{second part}.
+
+\section{The wave equation}
+We write the wave equation in the form\footnote{See e.g. Pauli, Handbuch der Physik XXIV, formula II page 220. The $\diracu$ used here are Pauli's $\diracu$ multiplied by $\i$}:
+
+\nequ{
+\left[
+\inv{\i}\left(\dirac, \oppddx \right) + \C + \V(\x)
+\right]\Y(\x) = 0.
+}{1.1}
+
+Here and in the following lowercase letters $a, b, ...$ indicate world vectors (e.g. $\x = (\x_1, \x_2, \x_3, \x_4)$; $\x_4 = \i\c\t$) with an imaginary time component. $(a, b)$ is a scalar product. $\va = (a_1, a_2, a_3)$ represents the spatial components of $a$ in a given Lorentz frame. $(\va, \vb)$ is the spatial scalar product. The real value $a_0$ is the time component of $a$, divided by the imaginary unit. $\dirac$ is the world vector built out the hermitian Dirac operators:
+\uequ{
+\dirac = (\dbeta\va; \i\dbeta).
+}
+Its components satisfy the relations
+\nequ{
+\diracu\diracv + \diracv\diracu = -2\deltauv,\\
+\diracuHC = -\diracu.
+}{1.2}
+
+$\HC{\quad}$ denotes a "hermitian conjugate".
+
+$\V$ is the interaction energy between electron and field (divided by $\hbar\c$) when the field energy is eliminated\WTF{wenn die Feldenergie eliminiert wird} and $\C=\frac{\emass\c}{\hbar}$ is the reciprocal Compton wavelength. ($\hbar$ is the Planck constant divided by $2\pi$, $\emass$ is the electron mass, and $\c$ is the speed of light). As usual, we only treat the transverse field components quantum-electrodynamically, giving rise to the operators $\createk$ and $\destroyk$\WTF{Beschreiben wir in der üblichen Weise nur den transversalen Feldanteil durch die Quantenelektrodynamik, so treten dort die Operatoren $\createk$ und $\destroyk$ auf.}. If one supposes that $\Y$ is developed in a series of eigenfunctions $\uNj$ of the radiation field, where
+\uequ{
+\Nj = (\NjL{1},...,\Njk,...)
+}
+represents the total number of photons with each wave number $k$\WTF{die Gesamtheit der Photonenzahlen in der durch $k$ numerierten Lichtwellen darstellt}, and the index $j$ runs over the possible distributions, so that
+\nequ{
+\Y=\sumX{j}\eYj(x)\uNj.
+}{1.3}
+The operators are defined through
+\uequ{
+\createk\u(\NU{1},...,\Nk,...) = \sqrt{\Nk}\u(\NU{1},...,\Nk+1,...),\\
+\destroyk\u(\NU{1},...,\Nk,...) = \sqrt{\Nk+1}\u(\NU{1},...,\Nk-1,...).
+}
+The Fourier decomposition of the transverse components of $\V$ read as
+\nequ{
+\Vi + \ViHC = \sumX{\vk}\Tk(\spink, \dirac)\lbrack\createk\eikx + \destroyk\emikx\rbrack.
+}{1.4}
+
+The summation ranges over a four-dimensional area, and
+\nequ{
+(\k, \k) = 0; {\k}_0 > 0
+}{1.5}
+always applies, and over two mutually-perpendicular (and perpendicular to $\k$) polarization directions $\spink$. We thus have
+\nequ{
+(\k,\spink) =0.
+}{1.6}
+We choose
+\uequ{
+(\spink, \spink) =1
+}
+and suppose the Fourier decomposition is performed in a given Lorentz frame, so that we get (with $\G$ signifying the spatial periodicity\WTF{so wird, wenn $\G$ dort einen räumlichen Periodizitätsbereich} and $\e$ the elementary electrical charge):
+\nequ{
+\Tk^2 = \frac{2\pi\e^2}{\G{\k}_0\c\hbar}.
+}{1.7}
+The part due to the charge can be represented by
+\nequ{
+\Vl = \sumX{\vk}\Mk(\spink, \gamma)\eikx.
+}{1.8}
+
+If the summation is carried out in a Lorentz system where this part is represented by a spherically-symmetrical scalar potential
+\uequ{
+\frac{\Z\e}{\r}f(\r),
+}
+then $\vspink = 0, \spinkt = \i$, and
+\nequ{
+\Mk = \frac{4\pi\Z\e^2}{\G|\vk|^2\hbar\c}g(|\vk|^2),\\
+g(|\vk|) = \lim_{a=0}\intXY{0}{\infty}\exp{-a\r}f(\r)|\vk|\sin |\vk|\r \dr.
+}{1.9}
+For a Coulomb field we have $f = g = 1$.
+
+\section{The perturbation theory}
+
+We express the Fourier transform of the fields $\Vt, \VtHC, \Vl$ together as $\Vk$, the operators $\createk$, $\destroymk$ and $1$ and $\Pk$, and define the matrix elements as:
+\nequ{
+\Pk\u(\Nj) = \sumX{i}\u(\Ni)\Pkij
+}{2.1}
+(e.g. in the case of $\Vt$: $\Pk = \createk$; $\Pkij = \sqrt{\Njk}$, when the distribution $\Ni$ differs from $\Nj$ by the increase of a single light-quantum at $\k$. In all other cases $\Pkij=0, \Vk=\Tk$).
+
+The wave function $\Y$, written as a four-dimensional series, is
+\nequ{
+\Y(\x,\N) = \sumX{j}\int\dl^4\eilx\Aj(l)\u(\Nj) =
+\sumX{j}\eYj(\x)\u(\Nj)
+}{2.2}
+where $\int\dl^4$ is the four-fold integral ranging over $\lx, \ly, \lz, \lt$. $\int\dvl^3$ is the symbol for integration over $\lx, \ly, \lz$. We now define the operators:
+\nequ{
+&\H(\l) = (\l, \dirac) + \C,\\
+&\K(\l) = -(\l, \dirac) + \C,\\
+&\K(\l)\H(\l) = \H(\l)\K(\l) = \R(\l) = (\l, \l) + \C^2
+}{2.3}
+and put (2.2) into the wave equation (1.1), giving:
+\nequ{
+\sumX{j}\int\dl^4\eilx\u(\Nj)\lbrack\H(\l)\Aj(\l) \\
+\sumX{k, i}\Vk\Pkij(\spink, \gamma)\Ai(\l - \k)
+\rbrack = 0.
+}{2.4}
+For the zero-th approximation we choose the unperturbed eigenfunctions ($\V=0$), where the fourier coefficients for each $\j$ must satisfy
+\nequ{
+\int\dl^4=\eilx\H(\l)\Aj(\l)=0.
+}{2.5}
+The $\Aj(\l)$ are spinors. (2.5) fulfills the requirement
+\uequ{
+\H(\l)\Aj(\l)=0
+}
+corresponding to four homogenous equations with four unknowns. In order for its determinant to vanish, in (2.3) we must define
+\nequ{
+\R(\l)=0.
+}{2.6}
+In real $\l$ space, these points lie on a two-shelled hyperboloid\WTF{Hyperrotationshyperboloid}, corresponding to the possible states of the Dirac electron with positive and negative energy. The three-dimensional manifold of vectors fulfilling (2.6) is denoted by $\lbar$ (???of each shell???\WTF{Die dreidimensionale Mannigfaltigkeit der (2,3) erfüllenden Vektoren der einen Schale sei mit $\lbar$ bezeichnet.}). Then
+\nequ{
+\Aj(\l)=\inv{\pi}\frac{\Bj(\l)}{\R(\l)},
+}{2.7}
+which is singular on the hyperboloid, satisfies (2.5) if $\Bj(\x)$ is, for real $\vl$ and $\lt$, a nonsingular continuous function which satisfies
+\nequ{
+\H(\lbar)\Bj(\lbar)=0
+}{2.8}
+on the hyperboloid-shell $\lt=\lbar_4(\vl)$ and vanishes sufficiently quickly at large distances\footnote{$\lbar$ signifies the four-vector with the components $\lx,\ly,\lz$ and $\lbar_4=\lbar_4(\vl)=\i\ltbar(\vl)=\pm\i\sqrt{\C^2+(\vl,\vl)}$. Depending on the choice of sign the $\ltbar$ runs through the either positive or negative values (e.g. the possible states of the Dirac electron).}. Then the integration over $\dl_4$ may be carried out through contour integration\WTF{Ausweichen} in the complex $\lt$-plane\footnote{When integrating for positive times the point $\l_0=\ltbar$ in the complex $\l_0$-plane must be bypassed in the positive sense when $\ltbar$ is positive, and in the negative sense when $\ltbar$ is negative. Performing this bypass in the opposite sense gives the integral a null value.}:
+\uequ{
+\int\dl_4\exp{\i\l_4\x_4}\Aj(\l)=\frac{\Bj(\lbar)}{\ltbar}\exp{\i\lbar_4\x_4},
+}
+(2.7) also fulfills (2.5). The spatial Fourier transform reads as
+\nequ{
+\eYj = \int\dvl^3\exp{\i(\lbar,\x)}\frac{\Bj(\lbar)}{\ltbar}.
+}{2.9}
+The particle number is:
+\nequ{
+\nj = \int\qj\dvx^3 = \inv{\i}\int\eYjHC\diract\eYj\dvx^3 
+    = \frac{(2\pi)^3}{\i}\int\dvl^3\frac{\HC{\Bj(\lbar)}}{\ltbar}\diract\frac{\Bj(\lbar)}{\ltbar}
+}{2.10}
+and is (always\WTF{immer} in the zero-th approximation) manifestly invariant.
+
+For our problem we shall specifically choose such a solution for the zeroth approximation for which the $\Aj(\l)$ is null for all distributions $j$, except for a given one characterized by the index $\j = 0$. With $j=0$ (2.4) will then become in (2.5) the zeroth approximation.
+
+To the first approximation\WTF{Größen erster Näherung} the the first term of (2.4) are summed over $j \neq 0$, and the second part over those summands for which $i=0$\WTF{...sind dann das erste Glied von (2.4) summiert über $j\neq 0$, und im zweiten Glied diejenigen Summanden, für welche $i=0$ ist}. The $\Aj (j \neq 0)$ will be defined in the first approximation by the known value $\AU{0}$ when the bracket in (2.4) is set to zero. If the operators from (2.3) are applied, the to a first approximation:
+\nequ{
+\Aj(\l) = -\inv{\R(\l)}\K(\l)\sumX{\k}\Vk\PL{kj0}(\spink, \gamma)\AU{0}(\l-\k).
+}
+If we write this in the form of (2.7), then $\Bj(\l)$ now has in the first approximation its singular hyperboloid $\R(\l - \k)=0$ shifted by a fixed $\k$. The three-dimensional Fourier coefficients $\eYj$ therefore depend on time. The significance of (2.11) is shown in Fig. 1:
+
+??? Figure 1 ???
+$\l_0,\l_3$ graph of the (real) energy-momentum space. The perturbation generated by the $\k^{\text{th}}$ Fourier component is portrayed in the first approximation as the region from $\l^0$ to the region $\l^j=\l_0+\k$\WTF{Die...Fourierkomponente hervorgerufene Störung bildet in erster Näherung das Gebiet $\l^0$ auf das Gebiet $\l^j=\l^0+\k$ ab}. Only when $\l^j$ lies on the hyperbola ${\l_0}^2 - {\l_3}^2 = \C^2$ does a perturbation occur in the first approximation.
+
+%%% Check your superscripts and subscripts on e.g. l (superscript=wave number, subscript=component)
+The real $\vl, \lt$-space is cut down to $\l_3,\lt$. We consider only the disturbance caused by the $\k^{\text{th}}$ wave field. The area in which $\AU{0}$ differs substantially from zero lies (because of $\R(\l)$ in (2.7)) on the hyperboloid.
+The zeroth approximation represents a wavepacket with mean momentum $\vl^0$ and mean energy $\l^0_0$, thus $\AU{0}$ is only different from zero in the vicinity of $\l^0$. Then (2.11) says that $\Aj(\l)$ can only assume nonzero values in the vicinity of $\l=\l^j=\l^0+\k$. However, because of $\R(\l)$ in (2.11), this value is infinitely greater when $\l^j$ lies on the hyperboloid than when this is not the case. If the perturbing field in the space-time diagram is a temporally-static field then this area $\l^j$ (generated by the set of all $\k$ in $\l^0$\WTF{durch die Gesamtheit aller $\k$ aus $\l^0$ erzeugte}) lies, because $\k_4=0$, on the hyperplane through $\l^0$ with the hypersphere generated by the hyper-hyperboloid\WTF{mit dem Hyperhyperboloid erzeugten Hyperkreis}.
+This corresponds to the elastic ($\l^j_4 = \l^0_4$) scattering of the electron. The $\k^{\text{th}}$ wave-vector, is parallel to the cone-element of the asymptotic hypersphere of the hyper-hyperboloid (because $(\k, \k)=0$), so none of the regions $\l^0+\k$ lie on the hyper-hyperboloid\WTF{...}. An interaction between light and electron thus does not occur in the first approximation.
+
+We arrive at the second approximation from the first in the same manner as the first was developed from the second\TN{sic? Says "zweiten", should be "nullte"?}
+\nequ{
+\Aj(\l) = \inv{\R(\l)}\sumX{\p\k}\Vp\Vk\PL{\p j i}\PL{\k i 0}\Omeg(\l^0)\AU{0}(\l^0),
+}{2.12}
+\nequ{
+\Omeg(\l^0)=\K(\l)\left\{
+\frac{(\spinp, \dirac)\K(\l-\p)(\spink, \dirac)}{\R(\l-\p)} + 
+\frac{(\spink, \dirac)\K(\l-\k)(\spinp, \dirac)}{\R(\l-\k)}
+\right\}
+}{2.13}
+with $\l^0=\l-\k-\p$.
+
+Figure 2 shows the connection with formula (2.12)
+??? Figure 2 ????
+See fig. 1\WTF{Wie Fig. 1} The perturbation generated by the $\Nth{\k}$ and $\Nth{\p}$ Fourier component is portrayed as the region $\l^0$ to the region $\l^j=\l_0+\k+\p$\WTF{See note in fig 1}. Only when $\l^j$ lies on the hyperbola does a perturbation occur in the second approximation. The intermediate states$\l^{i_1} = \l^0 + \k$ and $\l^{i_3} = \l + \p$ do \it{not} lie on the hyperbola (the symbols $\l^i$ for the intermediate states do not appear in the figure).
+ 
+Here also $\Aj(\l)$ is infinitely greater on the hyper-hyperboloid than in other areas. The two legs in figure two correspond to the two terms in the operator $\Omeg$. The extraction of the matrices of the $\P$-operators from the sum is allowed, because $\PL{\p j i_1}\PL{\k \i_1 0} = \PL{\k j \i_2}\PL{\p i_2 0}$ is always true. The summation over $i$ can be omitted in (2.12), because for each $\k$ only \it{one} matrix element $\PL{kji}$ exists.
+ 
+The time-dependent coefficients of the three-dimensional Fourier decomposition can be yielded from the relation
+\nequ{
+\frac{\Bj(\lbar;\x_4)}{\ltbar}=\int\dl_{4}\exp{\i(\l_{4}-\lbar_{4})\x_4}\Aj(\l)
+}{2.14}
+by performing the integration in the complex plane\footnote{See for example the second remark on page 371???}. (Applying the relation (2.14) to $\AU{0}$ trivially gives $\BU{0}(\lbar;\x_{4})=\BU{0}(\l)$.)
+
+From (2.12) follows:
+\nequ{
+\frac{\Bj(\lbar;\x_4)}{\ltbar} = \sumX{\k\p}\Vk\Vp\PL{\k j i}\PL{\p i 0}
+\frac{1-\exp{\i\s_4\x_4}{\s_4}}{\s_4}\frac{\Omeg(\lbar^0)}{\lbar_4}\frac{\BU{0}(\lbar^0)}{\ltbar^0}
+}{2.15}
+with
+\nequ{
+\s_4=\lbar_4 - (\lbar^0_4 + \k_4 + \p_4).
+}{2.16}
+
+The time-dependent particle number becomes in the state $j$
+\nequ{
+\nj(\x_4) = \inv{\i}\int\dvx^3\eYjHC + \dirac_4\eYj
+ = \frac{(2\pi)^3}{\i}\int\dvl^3\frac{\Bj(\lbar;\x_4)}{\lbar_0}\dirac_4\frac{\Bj(\lbar;\x_4)}{\lbar_0}.
+}{2.17}
+
+\section{Light scattering by free particles (generalized KNF)}
+
+The distribution function
+\uequ{
+\N^0=(0,0,0,...0, \N_{\k}, 0, ...)
+}
+
+is chosen for the zeroth approximation and determines\WTF{bestimmt} the number of particles belonging to
+\uequ{
+\N{^jm} = (0, 0, 0, ... 0, 1_m, 0, ... 0, \N_{\k} - 1, 0, ... ).
+}
+The corresponding intermediate states are
+\uequ{
+\N^i(0,0,0,...,\N_k-1, 0,...)\text{ and } (0,0,0,...,1_m,...,\N_k,0,...).
+}
+In (2.15) $\k$ and $-\p=\m$ are light vectors. This is the only possible perturbation when transitions to states off the hyper-hyperboloid shells are not considered. (States of positive energy are obtained from states of negative energy when $-k$ and $-p$ are light vectors\WTF{Why only then?}. The process corresponds in the Dirac theory of positive electrons to the recombination radiation [emission of two light quanta] of positive and negative electrons, where an unoccupied negative energy state is considered as a positive electron). The matrixes $\PL{\k j i}\PL{\p i 0}$ become equal to $\sqrt{\N_\k}$.
+
+In place of $\p$ we write $-\m$, so that $\k$ and $\m$ are light vectors: $(\m, \m)=(\k,\k)=0$; $\m_0$ and $\k_0$ are $>0$. The "initial state" then corresponds to $\N_\k$ quanta in the $\Nth{\k}$ light wave, which gives rise to a current density $\N_\k \c / \G$ light quanta of frequency $\freq_{\k} = \k_0\c$ in the direction $\vk$. To the "final state" corresponds the existence of $\N_\k-1$ quanta in $\k$ and one quantum in $\m$. The summation over $\k$ and $\p$ resp. $\m$ is therefore omitted\WTF{falls away? fällt daher weg}. If we want to the number of particles which corresponds to the occurance of a light quantum of a given polarization $\spin^m$ in a solid angle $\dw_\m$, ??? $\n^{j_\m}(\x_4)$ in (2.17) is summed over all $\m$ lying in $\dw_\m$. This summation corresponds to an integration over $(2\pi)^{-3}\G\m_0^2\dm_0\dw_\m$.
+If we first replace $\dm_0$ by $\ds_4$ and then $\dvl^3$ by $\dvlz^3$, whereby the functional determinants
+\nequ{
+\frac{\dm_0}{\ds_4}=\frac{\lbar^0_4 \m_0}{(\lt^0,\m}
+}{3.1}
+and (with $\vl=\vl^0+\vk-\vm$, with fixed $\vk$ and $\vm_0$)
+\nequ{
+\frac{\dvl^3}{\dvlz^3}=\frac{\lbar_4}{\lbar^0_4}\frac{(\lbar^0,\m)}{(\lbar,\m)}
+}{3,2}
+occur and are integrated, one obtains because of the integration over resonant denomonator $|\s_4|^2$ a linear increase in the particle number with the time $\x_4$. However, the increase of this value in the unit time (times the energy of the individual quanta $\h\c\m_0$) is the energy current $\J^\m$ of frequency $\freq_\m = \m_0\c$ spread over the solid angle $\dw_\m$\WTF{Die Zunahme dieser Größe in der Zeiteinheit mal der Energie $\h\c\m_0$ des einzelnen Quantes ist aber der in den Raumwinkel $\dw_\m$ gestreute Energiestrom $\J^\m$ der Frequenz $\freq_\m=\m_0\c$.} By inserting the variables $\T_\k$ and $\T_m$ and the energy-current density
+\nequ{
+\S^\k = \frac{\N_\k\h\c^2\k_0}{\G}
+}{3.3}
+one obtains the KNF in the usual form.
+\nequ{
+\J^\m \dw_\m = \dw_\m \S^\k \n^0 \frac{\e^4}{2\emass\c^4}\frac{\m_0^3 \C^2 \barred{(\gamma_4\OmegHC\Omeg)}}{2\k_0^2\l_0|(\lbar,\m)|}.
+}{3.4}
+The barred\WTF{überstrichene} operator represents the expectation value of the unperturbed state (c.f. formula (3.5) and section 4 below). (3.4) follows directly from (2.15) (and its adjoint equation $\BjHC(\lbar;\x_4)$), (2.16) and (2.17) by the usage of (3.1), (3.2) and the definitions (1.7) and (3.3). $\n^0$ is the particle number in the initial state following from (2.10).
+
+In the equation adjoint to (2.15) the definition of $\HC{\A(\l)}$ resp. $\HC{\B(\l)}$. The Dirac equation in the form (1.1) defines a four-component (spinor) wave function $\Y$, whose adjoint $\YHC$ is defined as
+\uequ{
+\YHC = \CC{\Y}\dirac_4.
+}
+$\YCC$ is a four-component function whose components are the complex conjugates of those in $\Y$. Then, naturally, we also have for the spinor B
+\uequ{
+\HC{\B} = \CC{\B}\dirac_4; \CC{\B} = -\HC{\B}\dirac_4.
+}
+
+In the equation adjoint to (2.15) the factor $\HC{(\Omeg\B^0)}$ appears, where the operator $\Omeg$ (2.13) denotes a four-dimensional quadratic matrix. Thus we have\footnote{For an operator, the symbol $\HC{\quad}$ denotes the "Hermitian conjugate", and for a spinor the "adjoint".}:
+\uequ{
+\HC{(\Omeg\B^0)} = \CC{(\Omeg\B^0)}\dirac_4 = \CC{{\B^0}}\OmegHC\dirac_4 = -\HC{{\B^0}}\dirac_4\OmegHC\dirac_4.
+}
+The expectation value of the operator $\dirac_4\OmegHC\Omeg$ then appears in the expression for the particle number in the zeroth approximation\WTF{Not clear which phrase "in nullter Näherung" modifies; the verb? The expression? The expectation value? The operators? Google says the operator...}:
+\nequ{
+\barred{\dirac_4\OmegHC\Omeg} &= \inv{\n^0}\int\dvx^3\HC{{\eY^0}}\dirac_4\OmegHC\Omeg\eY^0\\
+ &= \frac{(2\pi)^3}{\n^0}\int\dvl^3
+ \frac{\HC{\B^0(\lbar^0)}}{\lbar^0_0}
+ \dirac_4\OmegHC(\lbar^0)\Omeg(\lbar^0)
+ \frac{\B^0(\lbar^0)}{\lbar^0_0}
+}{3.5}
+This expectation value, which occurs in all problems, is calculated in the following paragraphs.
+
+It should however be notes that the intermediate states do \it{not} correspond to those of Waller\cite{5}. For the e.g. backscattering\WTF{Rückwärtsstreuung} which the intermediate states $i_1$ and $i_2$ would contribute on their own, their absolute values would be almost equal. Their phases however differ by almost $\pi$. Their superposition yields a value which is smaller than that of their individual contributions.
+For obvious reasons, we want to give a second derivation of the KNF. This derivation\WTF{Specifically, korrespondenzmäßige Ableitung -- correspondence-principle-like derivation?} represents the primary wave $\k$ classically via an electromagnetic field of the type
+\nequ{
+\W = \M_\k (\spink,\dirac) 2\cos(\k,\x).
+}{3.6}
+For the initial state we choose $\N^0 = (0,0,...,0)$, e.g. it has no light quanta. Through the development of the perturbation $\W$ will the light quanta be emitted.
+The calculation proceeds entirely analogously to the above-cited quantumoelectrodynamical treatment. All instances of $\sqrt{\Nk}\Tk$ are replaced by $\M_\k$. The perturbation $\W$ is the interaction between the electron and an electromagnetic wave with the four-vector potential:
+\nequ{
+\a^\k = \frac{2\hbar\c}{\e}\M_\k\spink\cos(\k,\x).
+}{3.7}
+We now calculate the number of light quanta which will be scattered in the solis angle $\dw_m$ under the influence of this potential, thus yielding instead of (3.5)
+\nequ{
+\frac{\J_\m}{\dw_\m}{\hbar\freq_\m}=\m^2_0\dw_\m\n^0\M^2_\k\frac{\e^2}{8\pi\hbar}
+\frac{\barred{\dirac_4\OmegHC\Omeg}}{\lbar_0|(\lbar,\m)|}.
+}{3.8}
+We shall call the form of the KNF in which the \it{amplitude of the primary wave}, and not the \it{energy current density}, is on the right-hand side the \it{generalized KNF}. The time-average of the energy-current density of the primary wave is:
+\nequ{
+\S^\k=\frac{\hbar^2\c^3\M^3_\k}{2\pi\e^2}\left\{
+\k_0 \left[ \vspink, \left[ \vk, \vspink \right] -\spink_0 \right]\vk,
+\left[\vk,\vspink\right]
+\right\}
+}{3.9}
+$\left[\va,\vb\right]$
+denotes the vector product of $\va$ and $\vb$.
+
+If $\k$ is a light wave ($(\k,\k)=(\spink,\k)=0$) and $(\spink, \spink)=1$, then we have
+\nequ{
+\M^2_\k = \frac{2\pi\e^2\S^\k}{\hbar^2\c^3\k_0^2} = \S^\k\frac{\e^2}{2\emass^2\c^4}
+\frac{4\pi\C^2}{\c\k_0^2}.
+}{3.10}
+If this expression is inserted into the generalized KNF, then we get back (3.4). One recognizes that (3,8) is a more general form of the KNF, which first passes through the relation (3.10), which is valid for light, to the usual form of the KNF (3.4).
+
+\section{The expectation value of $\dirac_4\OmegHC\Omeg$}
+
+From the commutation relations (1.2) immediately follow the relations
+\nequ{
+(\a,\dirac)(\b,\dirac)+(\b,\dirac)(\a,\dirac)=-2(\a,\b),\\
+\K(\l)(\a,\dirac)=(\a,\dirac)\H(\l) + 2(\a,l),\\
+(\a,\dirac)\K(\l)=\H(\l)(\a,\dirac) + 2(\a,l)
+}{4.1}
+and from the relation $\HC{\diracu}=-\diracu$ in (1.2)
+\nequ{
+\K(\l)\dirac_4=\dirac_4\HC{\K(\l)},\\
+(\a,\dirac)\dirac_4 = \dirac_4\HC{(\a,\dirac)}.
+}{4.2}
+Further, because of (2.8), we always have
+\nequ{
+\H(\lbar^0)\B^0(\lbar^0)=\HC{\B^0(\lbar^0))}\H(\lbar^0)=0.
+}{4.3}
+If one takes the operator $\OmegHC$ (the Hermitian conjugate to (2.13)), at the end one has $\HC{\k(\lbar)}$. Now it is however because of (1.2) and while $\lbar$ is imaginary
+\uequ{
+\HC{\K(\l)} = \H(\l) - 2\l_4\dirac_4.
+}
+If one now writes $\dirac_4\OmegHC\Omeg$ and considers the last equation in (2.3) and that $\R(\l)=0$, one obtain the following by pulling the $\dirac_4$ from the "middle" (4.2) to the front:
+\nequ{
+\inv{2}\dirac_4\OmegHC\Omeg = \\
+\lbar_4\left\{
+\frac{(\spin^m,\dirac)\K(\lbar^0-\m)(\spink,\dirac)}{\R(\lbar^0-\m)} + 
+\frac{(\spin^k,\dirac)\K(\lbar + \m)(\spin^m,\dirac)}{\R(\lbar+\m)}
+\right\}\\ 
+\K(\lbar)\left\{
+\frac{(\spin^k,\dirac)\K(\lbar^0-\m)(\spin^m,\dirac)}{\R(\lbar^0-\m)} + 
+\frac{(\spin^m,\dirac)\K(\lbar + \m)(\spink, \dirac)}{\R(\lbar+\m)}
+\right\}.
+}{4.4}
+(4.4) will be transformed with the help of the relations (4.1). Therefore becausd of (4.3) such terms in which $\H(\lbar^0)$ is the first or the last factor can be omitted. Further, $\R(\lbar)$ is taken into account. For simplicity, we have so far assumed that
+\nequ{
+(\m,\m)=(\m,\spin^\m)=0; (\sigma^\m,\sigma^\m)=1.
+}{4.5}
+For the primary wave $\k$ we do \it{not} want to have this constraint. By means of the transformation can finally yield an operator which only contains the $\diracu$ in the first power\WTF{Durch die Umformung kann erreicht werden, daß der Operator schließlich die $\diracu$ nur noch in erster Potenz enthält}.
+
+If the wave packet has a large zero-order linear expanse and thus a sharply-defined momentum $\vl^0$ and energy $\l^0_0$, the the expectation value of $\diracu$ ($\mu=1,2,3$)
+\uequ{
+\barred{\diracu} = \frac{\l^0_\mu}{\lbar^0_0} = \frac{\v_\mu}{\c}; \barred{\dirac_4}=1,
+}
+where $\vv$ is the velocity of the wave packet in the chosen Lorentz system. One thus obtains the expression:
+\nequ{
+  &\frac{\l^0_4}{2\l_4}\barred{\dirac_4\OmegHC\Omeg}\\
+= &\frac{(\spin^\m,\l^0)^2}{(\m,\l^0)^2}\left\{
+2(\spink,\l)^2+\inv{2}(\spink,\spink)(\k,\k)-2(\spink,\l)(\spink,\k)
+\right\}\\
++ &\frac{(\spin^\m,\l)^2}{(\m,\l)^2}\left\{
+2(\spink,\l^0)^2+\inv{2}(\spink,\spink)(\k,\k)+2(\spink,\l^0)(\spink,\k)
+\right\}\\
++ &2\frac{(\spin^\m,\l^0)(\spin^\m,\l}{(\m,\l^0)(\m,\l)}
+\left\{
+2(\spink,\l)(\spink,\l)+\inv{2}(\spink,\spink)(\k,\k)-2(\spink,\m)(\spink,\k)
+\right\}\\
++ &2\frac{(\spin^\m,\l^0)}{(\m,\l^0)}(\spin^\m,\spink)(\spink,2\l-\k)
+- 2\frac{(\spin^\m,\l)}{(\m,\l)}(\spin^\m,\spink)(\spink,2\l^0+\k) + 2(\spink,\spin^\m)^2\\
++ &\inv{2(\m,\l^0)(\m,\l)}\left\{
+(\spink,\spink)(\m,\k)^2 - 2(\spink,\m)(\spink,\k)(\m,\k) + (\spink,\m)^2(\k,\k)
+\right\},
+}{4.6}
+where $\l$ is written instead of $\lbar$. The following relation was used:
+\nequ{
+\l^0+\k    =& \l+\m,\\
+\R(\l+\m)  =& 2(\l,\m),\\
+\R(\l^0-\m)=& -2(\l^0,\m),\\
+(\l,\m)    =& (\l^0,\k) + \inv{2}(\k,\k),\\
+(\l^0,\m)  =& (\l,\k) - \inv{2}(\k,\k).
+}{4.7}
+Here and in the following section 5 $\l$ will be understood as $\lbar$. The right side of (4.6) is manifestly Lorentz-invariant, because only scalar products of world-vectors occur. They must also me gauge-invariant, e.g. with it is invarint with respect to either of the two substitutions
+\uequ{
+\spin^{\k 0} = \spink + \text{ const }\times\k
+}
+and
+\uequ{
+\spin^{\m 0} = \spin^\m + \text{ const }\times\m.
+}
+This last invariance presents a mechanism to avoid errors in the calculation of (4.6).
+
+\section{The Klein-Nishina-Formula for moving electrons}
+If, following Pauli, we use the abbreviations
+\uequ{
+\Dk = 1 - \inv{\c}(\frac{\vk}{\k_0},\vv)
+}
+(and $\Dm$ correspondingly\WTF{und $\Dm$ entsprechend ein}), then one obtains the KNF for an electron moving with velocity $\vv$ by averaging over the polarization directions $\spink$ and summing over the $\spin^\m$, is the following
+simple manner:\WTF{am einfachsten auf folgende Weise}
+
+We choose\WTF{einfachen - gauge} $\spink$ and $\spin^\m$ so that $(\spink,\l^0)=(\spin^m,\l^0)=0$ (transversality in the rest system of the electron). Further, $(\k,\k)=(\spink,\k)=0;(\spink,\spink)=1$. Then, the first five terms of (4.5) vanish. The last term is due to the first and last relations in (4.7) and since
+\uequ{
+(\l^0,\m)=-\l^0_0\m_0\Dm
+}
+is
+\uequ{
+\frac{\freq_m\Dm}{\freq_\k\Dk} + \frac{\freq_k\Dk}{\freq_\m\Dm} - 2.
+}
+In the primed Lorentz-system, where the electron is at rest, the second-last term becomes:
+\uequ{
+2\frac{(\vkp,\vmp)^2}{\kpt^2\mpt^2} = 2\cos^2\primed{\vartheta}.
+}
+This can, however, be easily transformed, because
+\uequ{
+\frac{(\vkp,\vmp)}{\kpt\mpt}=\frac{(\k,\m)(\l^0,\l^0)}{(\k,\l^0)(\m,\l^0)}-1
+= \frac{\C^2}{\l^0_0}\left(\inv{\m_0\Dm}-\inv{\k_0\Dk}\right) - 1.
+}
+The formula then reads
+\nequ{
+\J = \dw_\m = \dw_\m \S^\k \n^0 \frac{\e^4}{2\m^2\c^4}
+\left(\frac{\m\c^2}{\E^0}\right)^2\inv{\Dk}\left(\frac{\freq_m}{\freq_\k}\right)^2\\
+\left\{
+\frac{\freq_\m\Dm}{\freq_\k\Dk} + \frac{\freq_\k\Dk}{\freq_m\Dm} - 2\sin^2\primed{\vartheta}
+\right\}
+}{5.1}
+with
+\uequ{
+\sin^2\primed{\vartheta} 
+ \frac{(\m\c^2)^2}{\hbar\E^0}\left(
+ \inv{\freq_\m\Dm} - \inv{\freq_k\Dk}
+\right)\left[
+2 - \frac{(\m\c^2)^2}{\hbar\E^0}
+    \inv{\freq_\m\Dm} - \inv{\freq_k\Dk}
+\right].}
+
+$\E^0$ is the electron energy before the scattering process. This formula corresponds, by means of a Lorentz transformation, to formulae (19) and (22) in Pauli\cite{1}. When comparing, one must however ensure that Pauli's formula (22) (because of his formula (7)) must be multiplied by $\Dk$ to be compared with out expression.
+
+\section{The derivation of the Bremsstrahlung from the generalized Klein-Nishina-Formula}
+
+The Bremmstrahlung formula in the electrostatic field was derived by Bethe \& Heitler and by Sauter\cite{2} to a second approximation. Through qualitative reasoning von Weizsäcker\cite{3} arrived an approximation formula, which for large initial electron energies and large emitted light-quantum energies (compared with $\emass\c^2$) corresponds to that of Bethe and Heitler. This reasoninv can in our formalism be represented as follows:
+
+In a space-time-system in which the field appears to be static (that is where e.g. the nucleus is at rest), Fourier-decompose the fields (1.8) into stationary partial waves. This system will be called the \it{nucleus system}. The electron moves in the nucleus system with a velocity $\vv$. World-vectors in this system will be denoted by unprimed components. $\k$ in (1.8) thus only has nonzero spatial components.
+
+In the space-time system, where the electron is initially at rest (briefly, the \it{electron system} and denoted by primed components), the partial waves then move with a velocity $\vvp = -\vv$. If the initial energie is $\gg \emass\c^2$, then $\vv$ is \it{almost} equal to $\c$. A gauge transformation of the polarization vector $\spink$, which in accordance with section 2 has only one component different from zero, into a world-vector $\spin^{\k 0}$, which in the electron system is purely spacelike, yields for the most important partial waves with small $\k$ \it{almost} transverse waves.
+
+Von Weiszäcker simply applies the KNF for resting electrons (with $\Dm = \Dk = 1$) to these quasi-light-waves in the electron system.
+
+The relation (3.9) between the amplitude and the energy-current density in fact also \it{nearly} holds for the lightowaves (3.10), because $(\k,\spink) \approx 0$ and $|\vk|^2 - \k_0^2 \approx 0$. On the right side of (3.10), however, $(\spin^{\k 0}, \spin^{\k 0})^{-1}$ still appears. However, because $\barred{\dirac_4\OmegHC\Omeg}$ is bilinear in $\spink$, the occurrence of this factor simply means that in $\barred{\dirac_4\OmegHC\Omeg}$, $\spink$ should be chosen as a unit vector\WTF{daß in $\barred{\dirac_4\OmegHC\Omeg}$ $\spink$ als Einheitsvektor zu wählen ist.}.
+
+The Bremsstrahlung in the electron then appears as the incoherent superposition of the scattering radiation of the individual primary partial waves $\k$.
+
+That we only need to consider here the incoherent superposition arises from the fact that we average over the wave packets that are large in comparison to the nuclear field. By this qveraging process the coherent effects arise through interference\WTF{Bei deiser Mittelung heben sich die kohärenren Effekte durch Interferenz weg} (The proof is found in section 7).
+
+In this section it will be demonstrated how the exact Bremsstrahlung formula can be derived (to this approximation\WTF{wie die genaue Bremsformel dieser Näherung aus...(3.8) auf gleiche Weise abgeleitet werden kann}) from the generalized KNF (3.8) in the same manner as the high velocity approximation was obtained by von Weizsäcker from the usual KNF (35).
+
+For this purpose, we first construct the partial waves in the electron system. If in (1.8) the summation in the nucleus system over the purely spatial $\k$ is replaced by an integration, then
+\nequ{
+\V^L = (2\pi)^{-3}\int\M_\k\G(\spink,\dirac)\exp{\i(\k,\x)}\dvx^3.
+}{6.1}
+Here everything except for $\k$ is invariant, because ??? $\G$ falls away in the ground state of the nuclear system \WTF{das Grundgebiet des Kernsystems $\G$ herausfällt} and $\M_\k$ only depends on $(\k,\k)$. $\dvk^3$ can however be written by using the invariant $\ddelta$-function:
+\uequ{
+\dvk^3=\ddelta(\k_4)\dk^4.
+}
+$\dk^4$ is invariant. The Lorentz transformation for the fourth component gives
+\uequ{
+\k_4 = \left(1-\frac{|\vv|^2}{\c^2}\right)^{-\inv{2}}
+\left(-\frac{\i}{\c}(\vvp,\vkp) + \kp_4\right).
+}
+From which follows
+\nequ{
+\dvk^3 = \left(1-\frac{|\vv|^2}{\c^2}\right)^{\inv{2}}\dvkp^3
+}{6.2}
+and, if instead of an integration over $\dvkp^3$, a summation over $\kp$ in the periodic domain $\Gp$ is performed,
+\uequ{
+\V^L = \sumX{\vkp}\M_{\kp}(\spink,\dirac)\exp{\i(\k,\x)}.
+}
+
+Because of (1.9) and (6.2),
+\nequ{
+\M_{\kp} = \frac{4\pi\Z\e^2\g(\sqrt{(\k,\k)})}{\Gp(\k,\k)\hbar\c}
+           \left(1-\frac{|\vvp|^2}{\c^2}\right)^{\inv{2}}.
+}{6.3}
+If one puts this amplitude into the generalized KNF in the electron system and sums (resp. integrates) over the incoherent partial waves\WTF{und summiert inkohärent (bzw. integriert) über alle Partialwellen}, then one obtains the total number of perturbed light quanta (of all frequencies) in the time span $\tp$ and the solid angle $\dw_\m$:
+\nequ{
+\sumX{\vkp}\frac{\J^{\mp}\dw_{\mp}\tp}{\hbar\freq_\mp}
+ = \tp\left(1-\frac{|\vv|^2}{\c^2}\right)^{\inv{2}}
+   {\mp_0}^2\dw_\mp \left(\frac{\c\n^0}{\Gp\lpbar^0_0}\right)
+   \frac{\Z^2\e^6}{4\pi^2\hbar^3\c^3}\\
+   \int\left(1-\frac{|\vv|^2}{\c^2}\right)^{\inv{2}}\dvkp^3
+   \frac{\g^2}{(\k,\k)^2}\left\{
+   \inv{|(\lbar,\m)|}\frac{\lpbar^0_0}{\lpbar_0}\barred{\dirac_4\OmegHC\Omeg}
+   \right\}
+}{6.4}
+If (6.3) is inserted into the square\WTF{Wenn (6.3) im Quadrat eingesetzt wird}, and the summation over $\vkp$ is replaced by an integration, then in (6.4) a $\Gp$ remains in the denominator. This has the character of a normalization factor, representing a volume in the electron system. In section 7 it will be shown that this volume is identical to the volume $\Lp_1\Lp_2\Lp_3$ of the wave packets. For the time $\tp$ we choose the time which the nucleus needs to cancel the velocity $\vvp$ through to the wave packet of the resting electron\WTF{Als Zeit wählen wir die Zeit, welche der Kern braucht, um mit der Geschwindigkeit $\vvp$ durch das Wellenpaket des ruhenden Elektrons hindurchzustreichen.}. If the wave packet has a large linear extension compared to the nuclear field, then a uniform emission of quanta takes place, and only during this time. The expression (6.4) is thus an invariant.
+
+In the nucleus system $\t$ is the time during which the (contracted) wave packet moving with velocity $\vv=-\vvp$ surrounds the nuclear field. This time is likewise contracted in the direction of the motion. It is thus
+\nequ{
+\t=\tp\left(1-\frac{|\vv|^2}{\c^2}\right)^{\inv{2}}.
+}{6.5}
+Further, (6.2) applies, and
+\nequ{
+\m_0^2\dw_\m=\mp_0^2\dw_\mp.
+}{6.6}
+The value $\inv{\n^0}{\Gp}$ is, when one identifies $\Gp$ with the volume of the wave packet, the electron-density in the electron system. $\frac{\c\n^0}{\Gp}$ is thus the real fourth component $\ddp^0_0$ of the particle-density four-vector $\dd^0$, to which by definition parallel to the four-velocity and therefore to the four-vector $\l^0$. Thus we also have
+\nequ{
+\frac{|\vd^0|}{|\vl^0|} = \frac{\dd^0_0}{\lpbar^0_0} = \frac{\c\n^0}{\Gp\lpbar^0_0}.
+}{6.7}
+The last bracket in (6.4) is because of (4.6) invariant.
+
+If the barred values in (6.4) are expressed in unbarred values by means of (6.2), (6.5), (6.6), and (6.7) and the bars in the last bracket are omitted (because of (4.6)), then (6.4) divided by $\t$ represents the number of light quanta, which an electron current with current density $\vd^0$ will emit via Bremsstrahlung in the unit time in the solid angle $\dw_\m$. If we divide by $|\vd^0|$, we will obtain the interaction cross section.
+
+To obtain the Bethw-Heitler form, we replace the integration over $\dvk^3$ with that over $\dvl^3$ with fixed $\l^0$ One finds for the functional determinant (with $\vl=\vl^0+\k-\m$ and the constraint $\m_0=\lbar^0_0-\lbar^0$):
+\uequ{
+\frac{\dvk^3}{\dvl^3} = \frac{(\lbar,\m)}{\lbar_0\m_0}.
+}
+From $\R(\lbar)=0$ and the constraint follows, where $\dw_\l$ denotes the solid angle in which the electron will be scattered:
+\uequ{
+\dvl^3 = \dw_l|\vl|^2\opdiff{|\vl|} = |\vk|\lbar_0\dw_\l\dm_0.
+}
+
+If these values are inserted into the transformation (6.4), then we obtain the differential interaction cross-section $\dQ$ of a spherically-symmetrical force field on an electron of energy $\lbar^0_0$, which brings about the emission of quanta of a certain polarization in a frequency range between $\m_0$ and $\m_0+\dm_0$ and the simultaneous diversion of electrons into the solid angle $\dw_\l$:
+\nequ{
+\dQ = \dw_\m\dw_\l\frac{\dm_0}{\m_0}\frac{|\vl|}{|\vl^0|}
+      \frac{\Z^2\e^4}{(2\pi^2)\times 137\times\hbar^2\c^2}
+      \frac{\g^2(|\vk|)}{|\vk|^4} \\
+      \times\left\{
+      \m_{0}^2 \,\frac{\l^0_4}{\l_{4}}\,\barred{\dirac_4\OmegHC\Omeg}
+      \right\}.
+}{6.8}
+Here and in the following formulae $\lbar$ again replaces $\l$. The expression in braces is taken from (4.6). We choose the gauge so that in the nucleus system $\spin^\m$ is purely spacelike and $\spink$ is purely timelike. Then the $\Nth{4}$, $\Nth{5}$ and $\Nth{6}$ parts of (4.6) vanish. If one then sums over just\WTF{Summiert man noch über die beiden...} both polarization directions $\vspin^\m$ ($\perp \vm$) and inserts $\vmu$ (the spacelike unit vector in the direction of $\vm$), then the last factor in (6.3) becomes
+\nequ{
+\m_0^2\,\frac{\l_4^0}{\l_4}\,\barred{\dirac_4\OmegHC\Omeg} = 
+ & \frac{|\lbrack \vmu,\vl^0 \rbrack|^2(4\l_0^2 - |\vk|^2)}{(\l^0_0 - (\vmu,\vl^0))^2}\\
++& \frac{|\lbrack \vmu,\vl \rbrack|^2(4{\l^0_0}^2 - |\vk|^2)}{(\l_0 - (\vmu,\vl^0))^2}\\
+-& \frac{2(\lbrack \vmu,\vl^0 \rbrack, \lbrack \vmu, \vl \rbrack)
+          (4\l^0\l - |\vk|^2)}
+        {(\l^0_0 - (\vmu,\vl^0))(\l_0 - (\vmu,\vl))}\\
++& \frac{2|\lbrack \vm, \vl^0-\vl \rbrack|^2}
+        {(\l^0_0 - (\vmu,\vl^0))(\l_0 - (\vmu,\vl))}
+}{6.9}
+
+(6.8) and (6.9) is already exactly the formula found by Bethe \& Heitler and by Sauter\cite{2}. The quantative implementation\WTF{Verschärfung - increase? Intensification? Tightening?} of von Weizsäcker's idea thus leads to the correct second approximation of the perturbation method.
+
+See Bethe \& Heitler\cite{2} for the integration as well as discussion of the Bremsstrahlung formula.
+
+We obtain the von Weizsäcker approximation by choosing a gauge so that in the electron system ($\l^0 purely timelike$) $\spin^{\k 0}$ appears totally spacelike. If $\spink$ is in the nucleus system a spacelike vector with magnitude $(\spink,\spink)=-1$, then
+\nequ{
+\spin^{\k 0} = \spink = \frac{(\spink,\l^0)}{(\k,\l^0)}\k.
+}{6.10}
+
+If one calculates in the electron system, as von Weizsäcker does, then for high velocities the vector ${\vspin}^{\k 0 \prime}$ is almost perpendicular to $\vkp$.
+
+The meaning of the quasi-transversality in the electron system permits the following approximation in the nuclear system\WTF{Die Bedeutung der Quasitransversalität im Electronsystem bedeutet im Kernsystem folgende Näherung}:
+
+If the $\spin^{\k 0}$ defined in (6.10) is inserted (neglecting $(\k,\k)$ and $(\spin^{\k 0}, \k)$) into the gauge- and Lorentz-invariant expression (4.6) is evaluated in the nucleus system, then it will coincide with (6.9) when:
+\begin{enumerate}
+  \item $(\k,\k)$ can be neglected with respect to ${\l^0_0}^2$, and
+  \item $\frac{(\spink,\m)^2}{(\k,\m)^2} = \frac{(\spink,\l^0)^2}{(\k,\l^0)^2}$.
+\end{enumerate}
+The first requirement is fulfilled (because $(\k,\k)^{-2}$ dominates\WTF{hauptsächlich wirksamen} (6.8)) for long wavelengths of the Coulomb field's Fourier decomposition for large energies $\l^0_0$ and $\m_0$. The second requirement is likewise fulfilled. It namely requiees that in the nucleus system $\vm$ and $\vl^0$ are nearly parallel, and that $\l^0$ is almost a lightlike vector. This is actually the case, to a high degree of approximation, at high energies $\l^0_0$ and small $(\k,\k)$.
+
+\section{Rigorous derivation of the Bremsstrahlung formula}
+
+It the previous sections' derivation of the Bremsstrahlung formula from the generalized KNF, two points require justification:
+
+First, the identification of normalization factor $\Gp$ with the volume of the wavepacket $\Lp_1\Lp_2\Lp_3$ in the amplitudes of individual partial waves,
+and second the incoherent superposition of their effects.
+
+Their correctness is given by the following:
+
+In (2.15) we put $\Vk=\Mk$, $\Pk=1$ and $\V_{-\p} = \T_\m$. For the distribution $\N^0$ we choose $(0,0,0,...)$ (no light quanta available). The final distribution and the distribution in the intermediate states is $(0,0,0, ..., 1_\m, ..., 0)$. Thus will $\P_{-\m\i 0}=1$.
+
+We replace the summation over $\vk$ by an integral and further put, because $\s_40\lbar_4-\lbar^0_4+\m_4$ and $\l^0_3 = \l_3 - \k_3 + \m_3$,
+\uequ{
+\dk_3 = \left(\frac{-\lbar^0_4}{\lbar^0_3}\right)\ds_4.
+}
+
+If the integration is now carried out over $\ds_4$ in (2.15) for times which are large with respect to $\t=\frac{\L_3}{\v_3}$ ($\L_3$ is the extent of the wavepacket in the direction of motion [the $x_3$ axis]), then
+\nequ{
+\frac{\B^{\j\m}(\lbar,\infty)}{\lbar_0} =
+ -\frac{\T_\m\pi}{(2\pi)^3}\int\int\dk_1\dk_2\frac{\lbar^0_4}{\l^0_3}
+  \frac{\M_\k\G\Omeg(\lbar^0)\B^0(\lbar_0)}{\lbar_4\lbar^0_0}
+}{7.1}
+will be a constant.
+
+According to (2.7) this constant corresponds to a time-independent partical number in the final state: the wave packet has completely passed through the nuclear field\WTF{Das Wellenpaket hat das Kernfeld vollständig passiert.}.
+
+In the interval $\dw_\m$ the particle number is then
+\uequ{
+\dw_\m\int\n^{\j\m}(\infty)\frac{\G}{(2\pi)^3}\m_0^2\dm_0 =
+ \sumX{\m}\frac{\J^\m\dw_\m\t}{\h\freq_\m}.
+}
+
+Because the $\B^{\j\m}$ themselves are integral over $\dk_1\dk_2$\WTF{Da die $\B^{\j\m}$ selbst Integrale über $\dk_1\dk_2$ sind}, their effects of the individual partial waves are for now\it{coherently} added. To get to the destination formula\WTF{Ausgangsformel} from the previous sections, we replace $\dm_0$ by $\dk_3$ at fixed $\lbar$:
+\uequ{
+\dm_0=\frac{\m_0\l^0_3}{(\m,\lbar^0)}\dk_3.
+}
+The integration over $\dvl^3$ in (2.17), we can again as above be replaced by ${\dvl^0}^3$ by means of (3.2) by holding $\k$ fixed. Then the particle number becomes:
+\nequ{
+\sum\frac{\J^\m\dw_\m\t}{\h\freq_\m}
+ = \m_0^2\dw_\m\frac{\Z^2\e^6}{4\pi^2\hbar^3\c^3}\int\dvk^3\frac{\g(|\vk|)}{(\k,\k)}\\
+ \times (2\pi)^3\inv{4\pi^2}\int\dq_1\dq_2\int{\dvl^0}^3\frac{\HC{\B^0(\lbar^\q)}}{\lbar^\q_0}\\
+ \times \frac{\g(|\vq|)}{\l^\q_3(\q,\q)}\frac{\lbar^\q_4}{|(\lbar,\m)|\lbar_4}
+        \dirac_4\OmegHC(\lbar^\q)\Omeg(\lbar^0)\frac{\B^0(\l^0)}{\lbar^0_0}.
+}{7.2}
+$\q$ has the same meaning as $\k$ in the equation adjoint to (7.1), that is, $\q=(\q_1,\q_2,\k_3,0)$, when $\k=(\k_1,\k_2,\k_3,0)$. Further, $\l^\q = \l-\q+\m$ is analogous to $\l^0=\l-\k+\m$. (7.2) is diatinguishes from (6.4) by the \it{coherent} superposition of the effects of the partial waves. If we give the $\n^0$-normalized wave packet a rectangular cross-section $\L_1\L_2$ and align its (longitudinal) axis with the nucleus, the dependency of the three-dimensional Fourier coefficient $\B^0(\lbar^0)/\lbar^0_0$ on $\l^0_1$ becomes:
+\nequ{
+\frac{\B^0(\lbar^0)}{\lbar^0_0} = \frac{\sin{\frac{\l^0_1\L_1}{2}}}{\sqrt{\L_1}\l^0_1}\F,
+}{7.3}
+where the spinor $\F$ only depends on $\l_2$ and $\l_3$, and $\H(\lbar)\F=0$ is satisfied. We call the integral over the right side of (3.5) which occurs in (6.4) the incoherent expectation value. In place of the operators $\dirac_4\OmegHC\Omeg$ in (3.5) which only depend on $\lbar^0$ we choose the corresponding operator $\OXi(\l^\q_1,\l^0_1)$ from (7.2) which depends on the two vectors $\l^\q$ and $\l^0$. The integration over $\l^0_1$ (via (7.3)) the yields as the \it{incoherent expectation value}:
+\nequ{
+\int\dl^0_1 \frac{\HC{\B^0(\lbar^0)}}{\lbar^0_0}\OXi(\l^0_1,\l^0_1)\frac{\B^0(\lbar^0)}{\lbar^0_0}
+ = \inv{2}\int\dx\frac{\sin^2\x}{\x^2}\HC{\F}\OXi(\frac{2\x}{\L_1},\frac{2\x}{\L_1})\F.
+}{7.4}
+When in place of $\q_1$, $\l^\q_1 = \k_1 - \q_1$ is used (with fixed $\k$) as an integration variable, the coherent expectation value in (7.2) becomes:
+\nequ{
+\inv{2\pi} \int\int\dl^\q_1\dl^0_1 
+      \frac{\HC{\B^0(\lbar^\q)}}{\lbar^\q_0}
+      \OXi(\l^\q_1,\l^0_1)
+      \frac{\B^0(\lbar^0)}{\lbar^0_0}\\
+ = \inv{2\pi\L_1}\int\int\dx\dy\frac{\sin\x\sin\y}{\x\y}\HC{\F}\OXi(\frac{2\x}{\L_1},\frac{2\y}{\L_1})\F.
+}{7.5}
+Because $\int\frac{\dx\sin\x}{\x}=\int\frac{\dx\sin^2\x}{\x^2} = \pi$, in the limit $\L_1 = \infty$\footnote{The usage of the Dirichlet integrals in the limit $\L_1=\infty$ means: "$\L_1$ large with respect to the range of the nuclear field"} where the wave packet has an infinite cross-section and a sharply-defined momentum ($\l^0_1=0$), the coherent expectation value (7.5) is equal to the incoherent expectation value (7.4) divided by $\L_1$. The same arguments apply for the $\x_2$-direction. If the wave packet has in the $\x_3$-direction\WTF{Bewegungs-($\x_3$)-Richtung} a linear extension $\L_3$ that is large in comparison with the range of the nuclear field, then light quanta will be uniformly radiated during the time $\t=\frac{\L_3}{\v_3}=\frac{\L_3\lbar^0_0}{\c\l^0_3}$. Thus, the incoherent superposition arises from the fact that in the longitudinal direction (7.1) as  well as in both transverse directions, (7.5) is averaged over an area (a wave packet) which is large in comparison with the range of the nuclear field.
+
+If one eliminates the $\l^0_3$ in the denominator of (7.2) with\WTF{durch} $\t$ and inserts the expectation value of the coherent superposition from (3.5), then one actually obtains (putting $\l^\q=\l^0$ and $\q=\k$) the formula (6.2) with un-barred (nucleus system!) variables, because $\left(\frac{\c\n^0}{\L_1\L_2\L_3}\right) = \dd^0_0$\footnote{The calculations in this section can just as well be carried out in the (barred) electron system.aThe parallels with the preceding sections would be expressed better, but the notation would be slightly more complicated}. $\L_1\L_2\L_3$ thus appears in the denominator of this section's rigorous derivation where in the previous sections the normalization factor $\G$ (resp. $\Gp$ in the electron system) appeared. Thus is demonstrated the derivation of the previous paragraphs, in specific the justification\WTF{Berechtigung} of the incoherent superposition and the identification of $\Gp$ with $\Lp_1\Lp_2\Lp_3$.
+
+Because in the calculations, specifically in formula (4.6), we never specialize to positie energies, we can calculate the following three problems related to the Dirac interpretation of negative energies\WTF{Da in den Rechnungen, inbesondere in Formel (4.6) eine Spezialisierung auf positive Energien nirgends erfolgt ist, lassen sich noch folgende drei Probleme auf Grund der Diracschen Deutung der Zustände negativer Energie berechnen}:
+\begin{enumerate}
+    \item The \it{creation of a pair of electrons from two light quanta}. This case is handled entirely analogously to the derivation of the KNF in section 3. $\l^0$ then represents a $\it{negative-energy}$ state and in place of $\m$ we have the light-vector $\p=-\m$.
+    \item The \it{creation of a pair of electrons from the mutual interaction of a light quantum and the nuclear field}. This is, as Bethe \& Heitler\cite{2} have shown, the inverse process of a "Bremsstrahlung", in which the final state $\lbar$ is a negative-energy state.
+    \item The \it{creation of a pair of electrons from the scattering of a fast particle off of the nuclear field}. If the field of the scattering particle is Fourier-decomposed, and the pair-creation is calculated for each partial wave as in 2. The incoherent superposition of the values of the individual waves gives the desired result, so long as one only permits collisions in which the change in momentum in the scattering particles is small in comparison with the initial momentum.
+\end{enumerate}
+
+These suggestioned calculations will be carried out in a \it{second part}.
+
+At this point I would like to express my gratitude to Herrn Prof. G. Wentzel, who I thank for the stimulus for working out the present invariant perturbation theory.
+
+\begin{thebibliography}{9}
+\bibitem{1}
+  W. Pauli, Helv. Phys. Acta \emph{6}, 279, 1934.
+\bibitem{2}
+  H. Bethe and W. Heitler, Proc. Roy. Soc. A \emph{146}. 83. 1934.
+\bibitem{3}
+   C. F. v. Weizsäcker, Ztschr. f. Phys. \emph{88}. 612. 1934.
+\bibitem{4}
+   See e.g. P.A.M. Dirac, V.A. Fock and B. Podolsky, Sow. Phys. \emph{2}, 468. 1932.
+\bibitem{5}
+   L. Waller, Ztschr. f. Phys. \emph{61}. 837. 1930.
+
+\end{thebibliography}
+
+
+\end{document}

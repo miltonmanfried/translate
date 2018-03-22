@@ -1,0 +1,93 @@
+\letter{700}
+\from{Jauch}
+\date{August 26, 1944}
+\location{Principle}
+
+\nc{\Hbar}{\overline{H}}
+
+Dear Herr Professor!
+
+Your letter to Lopes arrived yesterday, and your discovery that the Lopes integral operator is not Hermitian has alarmed me. I am ashamed that I myself had not seen that. Luckily however I quickly found the error. The correct expression is what obtained from Lopes's via \?{Hermitization}. From this I have convinced myself of the following.
+
+Let $H = H_0 + fH_1$. Since the assertion we are proving has nothing to do with the specific nature of the problem, I have treated it entirely generally.
+
+Let $(k|H_0|l)=\delta_{kl}E_k$ and $(k|H_1|l)$ be the matrix elements of $H_0$ and $H_1$. $H_0$ is already diagonal. We perform a canonical transformation, which transforms away the parts of $H$ linear in $f$.
+\uequ{
+\Hbar \text{ equals } SHS^{-1} = H_0 + f^2 V + \dots.
+}
+For $S$ we put:
+\uequ{
+S = I + fS_1 + F^2 S_2 + \dots.
+}
+$S$ should be unitary, so that the transformed $H$ is also unitary. The conditions for this are
+\nequ{
+S_1 + S_1^\dagger = 0, \quad
+S_2 + S_2^\dagger
++ S_1 S_1^\dagger = 0.}{1}
+
+
+For the Hamiltonian function we then obtain:
+\nequ{
+\Hbar = (I &+ fS_1 f^2S_1 + \dots)(H_0 + fH_1)(I + fS_1^\dagger + fS_2^\dagger + \dots)\\
+= H_0 &+ f(H_1 + S_1 H_0 + H_0 S_1 S^\dagger)\\
+&+ F^2\left\{S_1 H_1 + H_1 S_1^\dagger + S_1 H_0 S_1^\dagger 
++ S_2 H_0 + H_0 S_2^\dagger \right\} + \dots, \left\{\dots\right\} = V.
+}{2}
+The coefficient $f$ should be zero, so
+\uequ{
+H_1 + S_1 H_0 + H_0 S_1^\dagger = 0.
+}
+
+From this follow, using (1), the matrix elements of $S$
+\nequ{
+(k|S_1|l) = \frac{(k|H_l|l)}{E_k - E_l}.
+}{3}
+To calculate $V$, we still need to know $S_2$. Now we have only the condition (1) for the determination of $S_2$
+ That is not enough. Thus it is still undetermined. I put
+\nequ{
+S_2 = U+W,
+}{4}
+where $U^\dagger = U$. This decomposition is unique. Then, because of (1), $U = \inv{2}S_1^2$, and $W$ is an arbitrary anti-Hermitian matrix.
+
+Then we have for $V$:
+\nequ{
+V = [S_1 H_1] - S_1 H_0 S_1 + \inv{2}\left(S_1^2 H_0 + H_0 S_1^2\right) + [WH_0].
+}{5}
+
+The first three terms together give exactly the Hermitized Lopes expression
+\uequ{
+[S_1 H_1] &= \left(\inv{E_k - E_m} + \inv{E_l-E_m}\right)(k|H_1|m)(m|H_1|l) - S_1 H_0 S_1\\
+&= \frac{E_m}{(E_k-E_m)(E_m-E_l)}(k|H_1|m)(m|H_1|l)\\
+\inv{2}\left(S_1^2 H_0 + H_0 S_1^2\right) &= 
+\inv{2}\frac{E_l - E_k}{(E_k - E_m)(E_m - E_l)}(k|H_1|m)(m|H_1|l)\\
+\text{Sum } &= \left[\inv{E_k-E_m}+\inv{E_l-E_m} - \frac{E_m}{(E_k-E_m)(E_m-E_l)}\right.\\
+&\left.+ \inv{2}\frac{E_l-E_k}{(E_k-E_m)(E_m-E_l)}\right](k|H_1|m)(m|H_1|l)\\
+&=\left[\inv{E_k-E_m} + \inv{E_l-E_m}\right](k|H_1|m)(m|H_1|l).
+}
+
+The last expression in $V$: $[WH_0]$ still depends on the arbitrary matrix $W$. If we put $W=0$, we get the above-announced result. But the indeterminancy remains. What does that mean? I have the feeling that for some reason which I haven't yet found, $W$ must be equal to 0. In my representation, we would obtain $(i[W, H_0]k) - (E_k - E_i)(i|W|k)$ for the additional term.
+
+This term disappears if the recoil is ignored, since namely then $E_i=E_k$ for those states $i$, $k$ which correspond to the same number of quanta.
+
+It is also unquestionable that the interaction operator is Hermitian, since this additional term is Hermitian. Physically, however, it seems to be that this term is meaningless. \?{How is that in the perturbation theory?} I want to consider that more, but write you as it is now, so that you have it soon.
+
+For your encouragung words as regards my own calculation I thank you warmly. That always helps, and now I am again making orderly progress.The reason for the discrepancy was not an error in the numerical calculations, but rather lay in the inexactitude of the calculation. Namely it arises from the fact that the phases $\eta$ of one component always become very small and can accordingly only be very inexactly determined, since they arise as a difference between two greater terms. That makes the phase relation very inconvenient for a control. I am convinced that the error is entirely attributable to this imprecision. But for the calculation of the scattering cross section, the exact value of the $\eta$ plays no role. It suffices to know that they are small.
+
+The Summer semester ends at the end of October, and the Winter semester begins on the 1st of November. So if you come at the end of September, then you will still have a whole month before you have to start with your lectures. I am taking 10 days of vacation on the 15th of September in order to bring my family to Princeton.
+
+Many thanks for the letter from Frau Pauli and her well-wishes. Today I met the young Baer and his mother as he had his audience with the "Director of admission" Dean Radcliffe Heermance. The decision still depends on the exams, and will be made by a committee, of which Heermance is president. He was very optimistic, since they have very little \?{civillian registration} now. If you want to write to the man, send your letter to 302 Nassau Hall, where he has his office.
+
+With best greetings,
+
+Your J.M. Jauch
+
+P.S. I have just noticed that there is no indeterminancy if one puts for $S$
+\uequ{
+S = \exp{fS} = I + fS_1 + \inv{2}f^2 S_1^2 + \dots \text{etc},\quad S_1^\dagger = -S_1
+}
+
+Since this \textit{Ansatz} can be done for every unitary operator, it seems to me that the question is solved with it. The apparent indeterminancy must vanish if the higher powers in $f^2$ of $SS^\dagger$ are set equal to zero.
+
+P.P.S. I have found the supplement in the New York Times today. What the critics have to say about Huxley will interest you.
+
+% hof eDewey Cox

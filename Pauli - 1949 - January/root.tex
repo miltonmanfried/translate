@@ -1,0 +1,447 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\renewcommand*\rmdefault{ppl}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{marginnote}
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+
+\nff{\WTF}{#1 (\textit{#2})}
+
+\nf{\translator}{\footnote{\textbf{Translator note:}#1}}
+\nc{\sic}{{}^\text{(\textit{sic})}}
+
+\newcommand{\nequ}[2]{
+\begin{align*}
+#1
+\tag{#2}
+\end{align*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{align*}
+#1
+\end{align*}
+}
+
+\nf{\sskip}{...\{#1\}...}
+\nff{\iffy}{#2}
+\nf{\?}{#1}
+\nf{\tags}{#1}
+
+\nf{\limX}{\underset{#1}{\lim}}
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+%\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+\nff{\intXY}{\underset{#1}{\overset{#2}{\int}}}
+
+\nc{\fluc}{\overline{\delta_s^2}}
+
+\rf{\exp}{e^{#1}}
+
+\nc{\grad}{\operatorfont{grad}}
+\rc{\div}{\operatorfont{div}}
+
+\nf{\pddt}{\frac{\partial{#1}}{\partial t}}
+\nf{\ddt}{\frac{d{#1}}{dt}}
+
+\nf{\inv}{\frac{1}{#1}}
+\nf{\Nth}{{#1}^\text{th}}
+\nff{\pddX}{\frac{\partial{#1}}{\partial{#2}}}
+\nf{\rot}{\operatorfont{rot}{#1}}
+\nf{\spur}{\operatorfont{spur\,}{#1}}
+
+\nc{\lap}{\Delta}
+\nc{\e}{\varepsilon}
+\nc{\R}{\mathfrak{r}}
+
+\nc{\Y}{\psi}
+\nc{\y}{\varphi}
+
+\nf{\from}{From: #1}
+\nf{\rcpt}{To: #1}
+\rf{\date}{Date: #1}
+\nf{\letter}{\section{Letter #1}}
+\nf{\location}{}
+
+\title{Pauli - 1949 - January}
+
+\begin{document}
+
+\letter{1000}
+\rcpt{Wentzel}
+\date{January 22, 1949}
+\location{Zurich}
+\tags{}
+
+Dear Gregor!
+
+I have written a long letter to Schwinger, which is now being typed, and which I shall send in the next few days. Now in possession of an authentic text from Schwinger, namely his "Part II", the copy of which I received from him on Christmas, it now seems important to enter into the discussion. I've made a first attempt to \WTF{convince}{überzeugen} Schwinger. This seems promising, since I accept all of his results; what I reject are some of his "proofs" and the pseudo-deductive form of certain arguments. You will soon have a copy of my letter to Schwinger, but I would like to share the main contents of it with you now, since \?{it has essentially to do with seeking out such preconditions as exclude the derivation of such conclusions as in your paper on the photon self-energy}. Naturally your paper was an important inducement to the clarification of the mathematical foundations of the theory.
+\nc{\Dbar}{\overline{\Delta}}
+\nc{\Done}{\Delta^{(1)}}
+
+1. It is again about the tensor
+\nequ{
+K_{\mu\nu} = \pddX{\Dbar}{x_\mu}\pddX{\Done}{x_\nu} + \pddX{\Dbar}{x_\nu}\pddX{\Done}{x_\mu} 
+ - \delta_{\mu\nu}\left(\pddX{\Dbar}{x_\lambda} \pddX{\Done}{x_\lambda} + m^2 \Dbar\Done \right)
+}{1}
+where
+\nequ{
+\Dbar = \epsilon(x)\Delta;\quad &(\square - m^2)\Dbar = -\delta(x) \text{(4-dimensional delta function)};\\
+&(\square - m^2)\Done = 0.
+}{2}
+$K_{\mu\nu}$ determines the polarization of the vacuum according to
+\nequ{
+j_\mu(x) \approx \int K_{\mu\nu}(x-x')A_\nu(x') {d^4 x'}.
+}{3}
+
+I will only later specialize $A_\nu$ as the potential of a light field, which then yields the photon self-energy. The gauge-invariance of (2) demands
+\nequ{
+\pddX{K_{\mu\nu}}{x^\nu} = 0.
+}{4}
+Schwinger gives in his Part II a cramped pseuso-proof for this condition. In reality, with the help of (2) one easily finds
+\nequ{
+\pddX{K_{\mu\nu}}{x^\nu} = -\delta(x)\pddX{\Done}{x^\mu}.
+}{4'}
+Since $\pddX{\Done}{x^\nu}$ has a singuarity of the type $\frac{x}{(x_\lambda x_\lambda)^2}$ on the light cone, the right side is undetermined, indeed even not defined. In Schwinger's pseudo-deduction the poasibility that the origin ($x=0$) can give a contribution is covered up.
+
+\nc{\varx}{\mathfrak{x}}
+
+2. In order to define expressions such as (4') as well as $K_{\mu\nu}$ itself on the light cone (only thereby does the integral in (3) become meaningful), one must introduce new assumptions which specify \textit{how} $K_{\mu\nu}$ should be interpreted as the limiting case of functions $\widetilde{K}_{\mu\nu}$ that are regular on the light cone. \?{Like Stueckelberg and Feynman, one can here utilize the dependence of $K_{\mu\nu}$ on the rest mass $m$.} I found it convenient to go back to a proposal from \textit{Rayski}, which he made last summer in the course of his calculations on the photon self energy of bosons. With $\varx$ I denote \WTF{a variable offset by the \textit{square} of the mass}{eine an die Stelle des Quadrates der Masse gesetzte Variable}, where it is not necessary to constrain $\varx$ to positive values. Rayski's remark was that for
+\nequ{
+\widetilde{K}_{\mu\nu} = \int K_\mu (x, \varx)\varrho(\varx){d\varx}
+}{5}
+-- in contrast to a regularization of the individual factors in (1) -- it is easy to fulfill the condition (4) $\left(\pddX{K_{\mu\nu}}{x^\nu} = 0\right)$. For this it suffices that the factor of $x_\mu \delta(x)$ in (4') is regular on the light cone. This is the case when
+\nequ{
+\int\varrho(\varx){d\varx} = 0 \quad \text{and} \quad \int\varx\varrho(\varx){d\varx} = 0.
+}{6}
+
+The limiting process is carried out so that
+\uequ{
+\varrho(\varx) \to \delta(\varx - m^2)
+}
+and indeed so that the values of $\varx$ for which the $\varrho(\varx)$ deviate noticeably from $\delta(\varx - m^2)$ \?{become ever larger and recede towards infinity}. Naturally one must also allow negative values of $\varrho$. \{N.B. Feynman chooses a special $\varrho(\varx) = \delta(\varx - m^2) - \delta(\varx - M^2)$, where only the first condition in (6) is fulfilled. Stueckekberg puts more generally $\varrho(x) = \sumX{i} C_i \delta(\varx - M_i^2)$; with $C_0=1$, $M_0=m$; $\sumX{i}C_i = 0$, $\sumX{i}C_i M_i^2 = 0$ fulfill (6).\}
+
+3. The calculation of
+\uequ{
+\int\widetilde{K}_{\mu\nu}(x - x')A_\nu(x') {d^4 x'}
+}
+can be accomplished with elementary means in momentum space. It is however instructive to apply the Schwinger \WTF{integral representation}{Integralstellung} for the regularized function $\widetilde{K}_{\mu\nu}$ as well. For this purpose it is convenient to utilize the Fourier decomposition of the "regulator" $\varrho(\varx)$:
+\nequ{
+\varrho(\varx) = \inv{2\pi}\int R(a)\exp{-i\varx a}{da},\quad
+R(a) = \int\varrho(\varx)\exp{i\varx a}da\sic.
+}{7}
+
+The conditions (6) then become
+\nequ{
+R(0) = 0;\quad \left(\frac{{dR}}{{da}}\right)_{a=0} \equiv R'(0) = 0.
+}{6a}
+
+Now one can repeat your calculation from the November issue of the Physical Review, but under these more general preconditions (Regularization; Field $A_\mu = C_\mu\exp{ip\nu x_\nu}$ where $\varrho_\nu$ is not necessarily a null vector).
+
+Notation:
+
+In place of your $\alpha, \beta, z, \mu^2, \varx_\nu$ I write $\inv{4a}, \inv{4b}, m^2 z, m^2, p_\nu
+$; $\sigma(a) = \frac{a}{|a|}$.
+
+The transition from $K_{\mu\nu}$ to $\widetilde{K}_{\mu\nu}$ is easily arranged, since $R(a+b)$ can simply be put in place of $\exp{i(a+b)m^2}$ and $R'(a+b)$ in place of $im^2\exp{i(a+b)m^2}$. The fact that the sum $a+b$ occurs as the argument of $R$ corresponds to the precondition that not onlybthe individual factors in (1) are regularized, but rather that the entire expression is regularized. (I left off constant factors like $\inv{2},\pi$, etc.)
+
+For the Fourier component $\widetilde{K}_{\mu\nu}(p)$ of $\widetilde{K}_{\mu\nu}(x)$ corresponding to the field $A_\mu(x) = C_\mu \exp{i p_\nu x_\nu}$ one gets
+\nequ{
+\widetilde{K}_{\mu\nu}(p) = \int\int\frac{{da}\,{db}}{(a+b)^2}\left[\sigma(a)+\sigma(b)\right]
+\sigma(a+b)\left\{R(a+b)\right.\\
+\left[\delta_{\mu\nu}\frac{-i}{a+b} + (p_\lambda p_\lambda) \frac{ab}{(a-b)^2} - 
+\frac{2ab}{(a+b)^2}p_\mu p_\nu\right]\left. + i\delta_{\mu\nu}R'(a+b)\right\} \exp{iab/(a+b)(p_\lambda, p_\lambda)}
+}{8}
+and with $a=\inv{2}z(1+y)$, $b=\inv{2}z(1-y)$,
+\nequ{
+\widetilde{K}_{\mu\nu}(p) = \intXY{-1}{+1}{dy}
+\intXY{-\infty}{+\infty}\frac{{dz}\sigma(z)}{z}R(z)\left[\delta_{\mu\nu}\left(
+\frac{-i}{z} \right.\right.&\left.\left.+ (p_\lambda,p_\lambda)\inv{4}(1-y^2)\right)
+- \inv{2}(1-y^2)p_\mu p_\nu \right. \\
+&\left.+ \delta_{\mu\nu} i R'(z)\right] \exp{i(1/4)z(1-y^2)(p_\lambda,p_\lambda)}.
+}{9}
+Now one uses
+\uequ{
+&\frac{d}{{dz}}\left\{\frac{R(z)}{z}i\exp{i(1/4)z(1-y^2)(p_\lambda,p_\lambda)}\right\}\\
+& = \left\{\left[\frac{-i}{4} - \inv{4}(1-y^2)(p_\lambda,p_\lambda)\right]
+\frac{R(z)}{z} + i\frac{R'(z)}{z}\right\}
+\exp{i(1/4)z(1-y^2)(p_\lambda, p_\lambda)}
+}
+and does a partial integration: the upper limit $z=\pm \infty$ gives nothing, but the lower $z=0$ (because of the $\sigma(z)$-factors): $i\left.\frac{R(z)}{x}\right|_{z=0} = iR'(0) = 0$ \textit{according to (6a)}.
+(Carrying out the same calculation with $\exp{im^2z}$ instead of $R(z)$ of course gives, for $p_\lambda p_\lambda=0$, your result!) Now, rescued by (6), (6a), one obtains
+\uequ{
+\widetilde{K}_{\mu\nu} \approx \left[(p_\lambda, p_\lambda)\delta_{\mu\nu} - p_\mu p_\nu\right]
+\intXY{-1}{+1}(1-y^2){dy}\intXY{-\infty}{+\infty}\frac{{dz}\sigma(z)}{z}R(z)
+\exp{i(1/4)z(1-y^2)(p_\lambda, p_\lambda)}.
+}
+
+Here one can, following Schwinger, do a partial integration with $y$ according to $(1-y^2){dy} = {d\left(y-\frac{y^3}{3}\right)}$ and obtain
+\nequ{
+\widetilde{K}_{\mu\nu}(p) \approx [(p_\lambda,p_\lambda)\delta_{\mu\nu}] - p_\mu p_\nu][A + F(L)],
+}{10}
+where
+\nequ{
+L=\inv{4}(p_\lambda, p_\lambda),\quad
+A=\frac{4}{3}\intXY{-\infty}{+\infty}\frac{{dz}\sigma(z)}{z}R(z)
+\approx \int\varrho(\varx)\log{|\varx|}{d\varx}
+}{11}
+and
+\uequ{
+F(L) = -L\intXY{-1}{+1}{dy}\left(y^2 - \frac{y^4}{3}\right)
+\int {dz}\,\sigma(z)R(z)(-i)2\exp{iz(1-y^2)}.
+}
+
+The $\int$ over $z$ remains convergent if $R(z)$ is again replaced by $\exp{im^2 z}$ and gives
+\nequ{
+\intXY{0}{\infty}{dz}\,\sin{z}[m^2 + L(1-y^2)] =
+P\inv{m^2 + L(1-y^2)}, \text{P denotes "\WTF{main value}{Hauptwert}"},
+}{12}
+thus
+\uequ{
+F(L) \approx L(P) \intXY{-1}{+1}{dy}\,\left(y^2 - \frac{y^4}{3}\right)\inv{m^2 + L(1-y^2)}.
+}
+
+This coincides with the expression given by Rose and me \{Physical Review 49, 462, 1936; there we put $m \approx 1$, but the same definition for $L$. See equation (21a)\}.
+
+The charge renormalization demands the simple condition $A=0$ for the "regulator".
+
+4. We are however not entirely done, but in order to proof that the calculations are free of contradictions, there is still one more important point to be clarified. I have already calculated with the "regulator" before, I "calculated" aith exactlty the same means with which you have evaluates the self-energy of the photon, the expression
+\nequ{
+\int\Dbar(x'-x)(\square\Done - m^2 \Done)_{(x'-x')}\exp{ip_\nu {x'}_\nu}{d^4 x'}
+}{13}
+for a null vector $p_\lambda p_\lambda = 0$. This expression must still be \textit{null} because of the second equation (2). However, it is not, it furthermore yields a diverging integral! This was made things easier for me, since it proved the foundations of your calculation (and so naturally also Schwinger's earlier calculations) were contradictory. It is indeed pure chance whether one has utilized the identity $\lambda^{(1)} \equiv m^2 \Done$ in the evaluation of an expression or not!
+
+Now I repeat this "check" \textit{with} the "regulator". For $p_\lambda p_\lambda \neq 0$ it emerges immediately that the conditions (6) or (6a) suffice in order to guarantee the vanishing of the expression (13). For $(p_\lambda,p_\lambda) = 0$ however a strange discontinuity appears if the further condition
+\nequ{
+\int\frac{{dz}}{z^2}\sigma(z)R(z) \approx 
+\int\varrho(\varx)\varx\log{|\varx|}{d\varx}.
+}{14}
+is \textit{not} fulfilled. The same discontinuity also supplies the elementary \WTF{account}{Rechung} if one only initially requires (6). It is a matter of taste, whether one takes the condition (14) in order that the vanishing of the photon self-energy be entirely certain, or whether, utilizing (6) and (6a) alone, the photon self-energy is \textit{defined} as the limit of the polarization of the vacuum for $(p_\lambda, p_\lambda) \to 0$.
+
+5. You will find more about this last control-calculation and about the self-energy of the electron in my letter to Schwinger. In cases where the gauge group is not in play, it doesn't matter whether one regularizes the whole expression or only individual factors. However it is essential that the various summands in a total expression must always be handled with the \textit{same} regulator. Through this a pecular connection of the $\Dbar$ (resp. $\overline{D}$ for photons) and $\Done$ (resp. $D^{(1)}$) emerges, which must nkt be changed by regularization. Then one manages however with the conditions (6). Preliminary results from Villars and me seem to show that this rule suffices in order to substantiate Schwinger's value for the correction to the magnetic moment of the electron. (There is nothing aboht this in my letter to Schwinger.) If one wants to be malicious, one could indeed get another value, but the one must not only destroy the correlation between the regularization of $\Dbar$ (resp. $\overline{D}$) and the $\Done$ (resp. $D^{(1)}$) function, but also introduce arbitrary numerical constants into the regulization conditions. I am thus now somewhat reassured on this point. The paradoxical result is then this: since I have eliminated Schwinger's pseudo-proof, I believe \textit{much more}in the physical correctness of his results.
+
+What this all means in the end is still very murky. I only consider the "regulator" to be a technical means of constructing a contradiction-free calculation method. The final physics will certainly look different.
+
+The papers of Jost and Schafroth on the Compton effect only move forward slowly. Luttinger calculates a lot about the magnetic moments of the proton and neutron, but it does \textit{not} agree with experiment!
+
+The new Kodak plates in England, with which electrons can be photographed, are a great step forward. Powell is now measuring the energy spectrum of the decay electrons of $\mu$-mesons.
+
+Heitler was here \?{for a negotiation} and we hope to have a decision soon for him and Staub.
+
+Many greetings from us both, to you and your wife. I am very content here.
+
+Always,
+
+Your Wolfgang
+
+Write, please, as soon as you get to see my letter to Schwinger.
+
+\letter{1033}
+\from{Fierz}
+\date{June 17, 1949}
+\location{Basel}
+\tags{renormalization, regularization}
+
+Dear Herr Pauli!
+
+Today the Basel University in Muenster held a Goethe comemoration. \?{Herr Jaspers will probably now preach Goethe's humanify from the pulpit}. I used the opportunity to write you and to leave Muenster, Goethe and Jaspers where they are.
+
+Whether I can shed light on the benefits and value of the $D_c$-functions, you yourself must judge.
+
+We have seen how, with Dyson, one can write the formulae of field theory so that $D_c$ occurs in the matrix elements or the transition probabilities. Then one essentially uses the commutations, i.e. the $q$-number character of the $\psi$-functions. The formulae which then emerge after the Dyson operation no longer contain the $q$-numbers.
+
+In Feynman's paper there is now no talk of $q$-numbers. Rather, he acts as if his fields were everyday $c$-number fields. That is however only conditionally true, since in the case of several particles a configuration space is used, \?{since indeed $K(3,4; 1, 2)$ can occur}. However the space is treated as if the number of dimensions of this space was fixed, i.e. there are no operators which create or annihilate particles. Since the particle number is actually only fixed in the force-free case, there is in general no fixed configuration space either, as Feynman himself Established (Space-time approach to non-relativistic quantum mechanics, page 9). He even puts there at the end of the page: "If we can make the approximation of assuming a meaning to $K(3,4: 1,2)$..."
+
+In the "causal interpretation" the formulae are also treated as if the configuration space were an ordinary space, which I find most bewildering. Stueckelberg also found the same.
+
+If one however doesn't take this interpretation seriously, but rather recognizes it as only a heuristic viewpoint for the private use \?{by certain natures}, \?{then that seems to be the thing}!
+
+Instead of applying a quantized field theory, one calculates as if the field were a $c$-number field in configuration space, which satisfies a certain differential equation. However one needs one further rule, how the positive and negative portions of the frequency in $\psi$ are treated and further how transition probabilities are to be formed. That is very similar to O. Klein's correspondence prescriptions in the radiation theory.
+
+That such a rule can replace the actual quantization is connected with the following:
+
+Let
+\uequ{
+\psi(x,t) = \psi_{+}(x,t) + \psi^*_{-}(x,t)
+}
+where $\psi_{+}$ contains only positive frequencies, and $\psi^*_{-}$ contains only negative energies. In the $Q$-number theory $\psi_{+}$ is e.g. an operator which annihilates particles of positive charge, and $\psi^*_{-}$ is one that creates particles of negative energy. That is the case in the hole theory as well as in the scalar theory. \?{With the fact that one treats the fields with positive and negative frequencies differently in some ways with the help of $K_{+}$, taking into account their quantum-theoretical differences, if one afterwards calculates transition probabilities.}
+
+One can, or better, I can however not readily see that one must proceed as Feynman suggests. Still that is probably impossible; since Klein's rules are also incomprehensible by themselves.
+
+However, in his appendix (Theory of Positrons, page 25), Feynman has proved that his theory is identical with the quantum theory, and I find his proof quite instructive.
+
+Since it is now proven that Feynman's procedure is identical with the usual field theory, I see no deep meaning behind it. In particular, \?{I cannot quite imagine that his prescriptions could serve me better in inventing a new field theory.} His heuristic viewpoint does not withstand an honest critique and so far as his ideas can be justified, they are exactly the same as quantum electrodynamics.
+
+Currently I have the strong impression \?{that we shall come to regret} that in field theory we start with "force-free" solutions, i.e. with such solutions where all fields are regarded as independent. This theory exists, and in it the number of particles present is a definable quantity, although already at this stage this concept is entirely meaningless. Now imagine switching on the interactions, whereupon a \WTF{huge salas ensues}{worauf ein gewaltiger Salat entsteht}. With Feynman that is now the same, indeed he benefits from the fact that in the force-free case the particle-number can be defined, \WTF{?}{noch besonders aus}.
+
+\letter{1035}
+\rcpt{Fierz}
+\date{June 21, 1949}
+\location{Zurich}
+\tags{}
+
+Dear Herr Fierz!
+
+I have indeed read your letter of the 17th, but I couldn't get anything out of it, on the contrary it seems to only increase the murkiness. Yesterday and today however I have started putting together some reflections on the positron part of Feynman's paper\footnote{It made things easier on me that I had not read Feynman's manuscript at all.}, which I would like to write you. It considers only the case of spin-1/2 particles with + and - charge in an external field that os treated as a $c$-number. I still can't \?{find} the corresponding for bosons (including photons).
+
+The artifice that I propose is to take seriously Feynman's remark, that one should follow the charge, but not the particles -- in contrast to Feynman himself. Thus I imagine an observer or physicist, which I describe as "particle blind", and define in the following way: they could follow the charge arbitrarily exactly in space and time, they could in general find which "state" the charge is found at an arbitrary time. ("state" is defined by an arbitrary complete orthogonal system -- for fixed $t$, \?{for} plane waves as well as spatial $\delta$-functions.) Each of these states -- specified with respect to the spin -- has a "charge number", which can assume the values $0,+1,-1$. The particle-blind observer recognizes the exclusion principle in this form. The particle-blind observer however has no concept of energy-momentum in the usual sense. Namely he cannot perceive a neutral pair moving in the same direction like
+
+TODO image 
+ (.+)
+-(--)->
+ (.-)
+TODO image.
+
+(One imagines e.g. he uses only ionization effects, Farady cages, etc.) Although according to the ordinary interpretation such a pair is distinguished from the \WTF{void}{Nichts} by energy and momentum, for the "blind" it remains an imperceptible "void point".
+
+Hence the particle-blind can not directly distinguish e.g. the following processes:
+
+\begin{tabular}{llll}
+1 & Positron Compton effect  & Start  & Charge $+1$, Energy-momentum $p_\nu^I$ \\
+  & $p_\nu^I \to p_\nu^{II}$ & Finish & Charge $+1$, Energy-momentum $p_\nu^{II}$ \\
+2 & Negatron Compton effect  & \textit{Start}    & Charge $+1$, $p_\nu^I$ \\
+  & $p_\nu^{II} \to p_\nu^{I}$ & \textit{and}    & Charge $-1$, $p_\nu^{II}$: "void" \\
+  &                            & \textit{finish} & Charge $+1$, $p_\nu^{II}$: "void" \\
+  &                            &                 & Charge $+1$, $p_\nu^{II}$ \\
+  &                            &                 & Charge $+1$, $p_\nu^{I}$: "void" \\
+  &                            &                 & Charge $-1$, $p_\nu^{I}$: "void" \\
+3 & Pair production            & \textit{Start}  & Charge $+1$, $p_\nu^{I}$\\
+  &                            & \textit{Finish} & Charge $+1$, $p_\nu^{II}$\\
+  & $(+e):p_\nu^{II}$          &                 & Charge $+1$, $p_\nu^{I}$\\
+  & $(-e):p_\nu^{I}$           &                 & Charge $-1$, $p_\nu^{II}$\\
+4 & Similarly for pair annihilation &            &
+\end{tabular}
+
+The particle-blind will however find that processes 3 and 4 are produced from external fields of different frequencies and wavelengths, namely $(p_\nu^I + p_\nu^{II})$, than 1 and 2, for which a wavevector $(p^{II}_\nu - p^{II}_\nu)$ is needed.
+
+Conversely, he will not be able to distinguish 1 and 2 (likewise 3 and 4) from one another (I assume: the "blind" make no energetic measurements in the classical electromagnetic field). \textit{The signs of all changea in energy-momentum thus remain indeterminate for the "blind"}.
+
+The amazing thing is, that the "particle blind" observer can now carry on all sorts of well-defined phyaics. He can e.g. find the frequencies of pair production quite well, he merely cannot distinguish the pair-production $\left(p_{\nu(+)}^{I}, p_{\nu(-)}^{II}\right)$ from the pair-annihilation $\left(p_{\nu(+)}^{I}, p_{\nu(+)}^{I}\right)$, since the one process goes over to the other by addition of "void points".
+
+Now the "particle-blind" observer rejects woth jeers all scruples of the seeing (he will not call them that, but rather something like "those who hear the grass grow") about the application of space and time \?{in the small} -- but will at the same time energetically protest against the splitting of the values $\psi$ or $K$ into parts $\psi_+,\psi^*_-$ resp. $K_+,K_-$ \?{which are used in certain epistulis obscurorum virorum}. He does not need such decompositions at all. He can now directly work out the space-time-specialized transition probabilities of the charges which accompany the external electromagnetic field.
+
+In one such case he finds in the case of a total charge of 0 e.g. a finite probability for the charge 1 emerging at the space-time point 1 and simultaneously vanishing at the space-time point 2, when there is a field present at the space-time point 3. This is determined by a matrix element of the form
+\uequ{
+\int{d^4 x(3)}\,A_\nu(3) K_\nu(132).
+}
+However, he can not distinguish the cases
+
+\begin{tabular}{ll|ll}
+(1) Initial: & No particles & (2) Initial: Charge & -1 in 1 \\
+             &              &  and                & +1 in 1 \\
+             &              &  and                & +1 in 2 \\
+             &              &  and                & -1 in 2 \\
+\hline
+Final: Charge &        +1 in 1 & Final:            & +1 in 1 \\
+              &        -1 in 2 &                   & -1 in 2
+\end{tabular}
+
+However then $K(132)$ can only differ from zero when, moving at less than the speed of light, either (1,2) is reachable from 3, (3, 1) is reachable from 2, or (2, 3) is reachable from 1.
+
+The learned ones here claim that this was also so, I hope to know more about it when we see eachother on Sunday or Monday. (Monday the 27th is a seminar \WTF{???}{von [Neu] vorgetragen}, as usual you'll get an invitation). \?{The notation with the $\Delta_C$-functions only seems to hide it.}
+
+So far, so good. However I am having difficulties doing the equivalent with photons (or neutral mesons with Bose statistics). Indeed they can't be localized; one could however eliminate them and only speak of the space-time positions of the effects on the charges. What do you think? (You see, the only positive \WTF{lead}{Anhaltspunkte} from your letter is exactly the \?{Ouroboros-ish} "void point" and the end of it!)
+
+$C+A=F$ is according to my experience of recent times practically unreachable for \textit{me} because of overworking and lack of time \?{on his part}. I believe it would be best \?{if you would write
+\textit{him} as well on account of Sunday evening}, adding that I was in agreement with everything and he should get in contact with me!
+
+I have meanwhile seen Weyl: he has strong objections against Jung (archetypes, anima, and such concepts), is very much in favor of Jaspers, but \textit{not} for Heidegger. He also finds "Das Nichts nichtet" very comical, and he had much fun at the expense of my related remark: "\WTF{Why then has it rushed in the forest}{Warum hat es denn im Walde so gerauscht}?..."
+
+Many greetings,
+
+Your W. Pauli
+
+\letter{1039}
+\rcpt{Peierls}
+\date{July 10, 1949}
+\location{Zurich}
+\tags{}
+
+Dear Herr Peierls!
+
+I am only answering your letter of the 10th of June today because I wanted to await some more results on it. I would like to say the following to the questions you raised:
+
+1. I now know that all ambiguities concerning commutators of physical quantities (four-current, \textit{density} of the interaction energy) in points connected by a spacelike line fall into a fixture of "\WTF{actually}{effectively}" charged electrons and charged spin-0 bosons, if the following conditions are fulfilled:
+\uequ{
+\sum{C_i} = 0,\quad \sum{C_i M_i^2} = 0
+}
+(this is therefore sufficient for the gauge invariance of the result) with the \textit{special values $C_i=1$ for all spin-1/2 particles, $C_i=-1/2$ for all spin-0 particles}.\footnote{This result (for the first approximation in $\frac{e^2}{\hbar c}$) was disovered independently by Rayski and Jost [Jost and Rayski (1949)], Uhlenbeck and Pais [Pais and Uhlenbeck (1949)], and Umezawa, Yukawa and Yamada [(1948)] (after brief participation by Tomonaga).}
+
+This \textit{"realistic" standpoint} should also suffice in order to \textit{compensate} the zero-point energy, since this is indeed negative for the electron-positron pair\footnote{That is an old idea from Pais and Bohr (1946)}. (One should demand compensation for the zero-point-energy-\textit{density} in all space-time points. \?{These are} expressions of the form $\sumX{i}{C_i \left(\frac{\partial^2\Done}{\partial x_\mu \partial x_\nu}\right)_{x<0}}$ with different masses.) But I don't know off-hand whether the numerical values $C_i=1$ for spin 1/2, $C_i=-1/2$ for spin zero are also correct here, but I suspect so.
+
+2. \textit{However}: This "realistic" standpoint \textit{fails} for the \textit{self-charge}. This (logarithmically-infinife) constant has the same sign for spin 1/2 and spin 0 particles (on physical grounds I suspect that it is the same for \textit{all} values) and a compensation is \textit{impossible}. This fact causes me the greatest distress (but see below under sub 5). (Jost calls the self-charge the 'top-nonsense' of the present theory.)
+
+3. As \textit{concerns particles with higher spin}, I have always suspected up to now that, for charged particles with higher spin in an external (not quantized) electromagnetic field, the components of the four-current actually do \textit{not} commute at ppints connected by a spacelike line (and are not only ambiguous). (\textit{Do you know anything more definite about this?}) I was for this reason inclined to exclude particles with spin > 1 (since around 1940).
+
+One of my students, however, has made me attentative of the fact that this result is not conclusive, since a mixture of charged particles with higher integer \textit{and} half-integer spin could exist, for which the vacuum expectation value of the commutator of the components of the total-current is actually zero at points with a spacelike connecting line. Perhaps we will investigate that further here.
+
+4. A Swede from Lund named K\"all\'en, who is now in Zurich, has treated the problem you raised during my visit to Birmingham of \textit{higher approximations of the vacuum polarization} (i.e. not linear in the external field) with great success. (For the time being, he did not quantize the electromagnetic field.) From this it emerged that for electrons, the divergence becomes ever \textit{weaker} with successive approximations. In the next-higher approximation there is only one logarithmic divergence (which destroys the gauge invariance) present, which formally goes away with $\sumX{i}{C_i} = 0$, and all following approximations (starting from $e^6$) automatically converge. -- K\"all\'en is now also calculating the same for bosons (spin 0). I \textit{suspect} that the above-described mixture -- \textit{up to the infinite self-charge!} -- \textit{converges in all approximations!}
+
+5. The electromagnetic remains, as mentioned, \textit{un}quantized. The other problem, where one is conversely constrained to the approximation \textit{linear} in the \textit{external} field,
+\?{for which however} the higher-order corrections resulting from the quantization of the electromagnetic radiation field are calculated, is being treated here by the two Poles, Rayski and Weyssenhof. (Rayski has just gone home but Weyssenhof -- the better physicist of the two, who is also very devoted -- remains here until Autumn.) In this problem there are naturally corrections to the self-charge. I am very curious as to which sign these corrections shall have in the next-higher approximation, and hope that it is negative.
+
+\?{\WTF{I've been considering}{Es schwebt mir nämlich...vor} -- as a last way out of the self-charge problem -- a rather vague way of determing $\frac{e^2}{\hbar c}$ from the condition of the vanishing of the self-charge}. Naturally it is then very undesirable that one should expand in powers of $\frac {e^2}{\hbar c}$. \{However I only imagine that as a replacemenf for the treatmemt of the rigorous equation $f(\frac{e^2}{\hbar c}, m_1, m_2, \dots) = 0$, where one just expands $f(.)$ in the variables $\frac{e^2}{\hbar c}$.\} One must naturalky first see whether the terms in the next approximation in $\frac{e^2}{\hbar c}$ for the self-charge are logarithmically-divergent. The weakest point is probably the fact that from the outset it is not clear why the conditions for the vanishing of the self-charge in electrons and in charged bosons should be compatible. (Of course the neutral scalar \?{helper-fields} with $m \neq 0$ needed to compensate the self-energy of the charged particles will also give a contribution to the self-charge in this approximation.)
+
+I would be interested in hearing your critique of my current standpoint. It is worth noting that I can always learn very much more from your critiques than from your papers (or the papers of your students).
+
+My general idea is that \textit{for physical quantities which are definable in arbitrarily-small space-time regions (total energy-momentum density, total-four-current), no specification of the masses and spins of the particles involved can be allowed} (see what was said about the zero-point energy above under 1).
+
+With many greetings to you and your family (how is the baby?)
+
+Always yours,
+
+W. Pauli
+
+P.S.
+
+1. The Indian Vachaspati must first get used to the European surroundings, and has for the time being still not succeeded. He should, I think, stay quiet here for now and learn enough German so that he can attend lectures, instead of moving around again. If by Fall he still doesn't understand, then he must be sent home, but I haven't yet given up hope on him.
+
+2. A student of Schwinger has written me a long (but in no way \?{content-rich}) letter concerning my controversy with his learned teacher. The diplomacy here consists in the fact that Schwinger did indeed allow him to write to me, but has refused to read his student's letter himself! Content-wise I couldn't take anything from the long speech other than that Schwinger has had a type of revelation (on some Mount Sinai): And the Lord spoke: "Always put $\pddX{\Done}{x_\nu}=0$ for $x=0$, but don't do it for $\pddX{}{x_\nu}\delta^{(4)}(x)$, despite the same symmetry characteristics." Here we call the associated rule "The Revelation". -- What Schwinger makes of the zero-point energy (in contrast to my attempt at compensation) is naturally entirely similar.
+
+\letter{1059}
+\rcpt{Jauch}
+\date{December 1, 1949}
+\location{Princeton}
+\tags{longitudinal photons}
+
+Dear Herr Jauch!
+
+I arrived here on the 29th of November and then found your letter. In Zurich the official request for your fellowship came in, which I have warmly recommended. I must be back in Zurich for the Summer semester (May 1st at the latest), until then my address is this institute. I thank you very much for your friendly invitation to come to Iowa City, but for now I have no desire to travel again. The main attraction for me here is just that I don't have to hold any lectures; now I can properly reflect on my further work.
+
+Now to your question about the longitudinal photons. There is extensive literature on the topic (see also Ma's "Letter" in the Physical Review, where the indefinite metric is applied in Hilbert space -- is is however in my view not important). I have also undertaken to send you a copy of the paper by Kroll and Karpus, where this question is extensively treated in the appendix. Happily, a letter just arrived from Dyson in England which -- it seems to me -- contains a definitive and simple solution to this problem: one should not, like Schwinger, utilize such constraints as $a\psi_0 = 0$, but rather only make statements about the vacuum expectation value of $a_\mu a^*\nu$. Copies of Dyson's letter are being made here and you shall get one as soon as they are ready. Hence I won't go into it any further now.
+
+What interests me very much at the moment is the fact that the principle of "renormalization" for mass and charge only suffices to make the results convergent and unique for certain interactions. It certainly does \textit{not} for charged particles with spin 1 and electromagnetic interactions with the radiation field and with many meson theories, it might suffice for the case of electromagnetic interaction of spin-0 particles (that is the most important still-undecided question) and it certainly goes for the positron theory (i.e. spin-1/2 particles). That it sometimes works at all is viewed in the present state of the theory as "\WTF{more luck than reason}{mehr Glück als Verstand}". It is something that we still don't entirely understand. It is again like before the discovery of wave mechanics, where one can \textit{guess} the correct results without already having a complete theory, thus a provisional, but hopeful situation.
+
+Another open question is whether the space-time concept must be modified at all in the small, or whether there are always quantities which remain continuous space-time functions, \?{but so that they perhaps are complementary to the disjunction of various particle types}.
+
+So please let us hear from you again, and warm greetings,
+
+From your W. Pauli
+
+P.S. Should I later get the desire to travel, I will write you again.
+
+
+\end{document}
+ 

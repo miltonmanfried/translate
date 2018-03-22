@@ -1,0 +1,58 @@
+\subsection*{31.}
+
+We return to the general case. Can formulae on the manifold with an affine connection under consideration be found which play the same role as the formulae (2) in an affine space proper? They can be obtained by following a procedure analogous to that which led, at the start of the chapter, to the formulae (2).
+
+We consider in the manifold a closed contour starting at a point $\m_0$ and returning there, and consider the integral $\int d\m$ extending over this closed contour. We can make sense of this integral \?{as a way of identifying all the infinitely-small vectors which it represents the geometric sum with respect to the same affine space}{à condition de repérer tous les vecteurs infiniment petits dont elle représente la somme géométrique par rapport à un même espace affine}. The considerations of the preceding sections permit making this identification step-by-step with respect to the affine space tangent to $\m_0$. We return later on to this procedure, which is valid for any contour, but is not without serious-enough difficulties in practice, if one wants to be rigorous.
+
+We now rather apply a second procedure, which will have the advantage of extending to multiple integrals with vectors, \textit{but which essentially assumes an infinitely-small contour}. We take a fixed point $\xa$ once and for all, and which is infinitely close to all of the points of the contour, \textit{and we \?{measure}{repérons} all of the infinitely-small vectors $d\m$ with respect to the affine space tangent to $\xa$}, which is possible to an infinitely-small second-order distance: this circumstance, as is known, has no influence on the calculation of a definite integral.
+
+Thus let $u_0^i$ be the (curvilinear) coordinates of the point $\xa$, and $u^i$ those of a point $\m$ on the contour. In addition, we posit
+\uequ{
+\omega^i = \gamma_k^i du^k, \quad \omega_i^j = \gamma_{ik}^j du^k.
+}
+
+Calling $(\e_i)_0$ the reference vectors at $\xa$, we have
+\uequ{
+\e_i = (\e_i)_0 + \omega_i^j(\e_j)_0 = (\e_i)_0 + (\gamma_{ik}^j)_0(u^k -u_0^k)(\e_j)_0,
+}
+and finally
+\uequ{
+d\m = \omega^i \e_i = [ \omega^i + (\omega_{jk}^i)_0(u^k-u_0^k)\omega^j](\e_i)_0.
+}
+
+The components of the vector $d\m$ in the affine space tangent to $\xa$ are thus
+\uequ{
+\omega^i + (\gamma_{jk}^i)_0(u^k - u^k_0)\omega^j,
+}
+calling the value of the variable coefficient $\gamma_{jk}^i$ at $\xa$ $(\gamma_{jk}^i)$.
+
+Then, the integral of $d\m$ of the length of the closed contour will have for the $i^\text{th}$ component, in the affine space tangent to $\xa$,
+\uequ{
+\int\omega^i + (\omega_{jk}^i)_0(u^k - u_0^k)\omega^j
+ = \int\int (\omega^i)' + (\omega_{jk}^i)_0 du_k \omega^j + (\gamma_{jk}^i)_0(u^k - u_0^k)(\omega^j)'.
+}
+
+The second part is modified by suppressing the third part, which infinitely-small compared to the rest, and by replacing in the second the constant coefficient $(\gamma_{jk}^i)_0$ by its variable value $\gamma_{jk}^i$. We finally arrive, \textit{for an infinitely-small closed contour}, at the formula
+\uequ{
+\int d\m = \int\int \left[(\omega^i)' - \omega^j \omega_j^i \right]\e_i,
+}
+identical to the formula found in the case of a proper affine space. Here the vectors $\e_i$ of the second part are relative to an arbitrary point $\xa$, provided that it is infinitely close to the contour; replacing the point $\xa$ by another only alters the result by an infinitely-small quantity.
+
+The coefficients of $\e_1, \e_2, \e_3$ in the second part are the elements of the double integral which, according to the nature of the question, only involve $du^1, du^2, du^3$, even if the reference system depends on arbitrary parameters other than $u^1, u^2, u^3$. We will put
+\uequ{
+\Omega^i = (\omega^i)' - [\omega^k \omega_k^i] = \Lambda_{jk}^i [\omega^j \omega^k],
+}
+where the last part is to be regarded as a sum over all pairs $(jk)$ of the indices $1,2,3$.
+
+With this notation,
+\uequ{
+\int d\m = \int\int \Omega^1 \e_1 + \Omega^2 \e_2 + \Omega^3 \e_3,
+}
+which may also be written
+\uequ{
+(d\m)' = \Omega^1 \e_1 + \Omega^2 \e_2 + \Omega^3 \e_3,
+}
+designating as usual by $(d\m)'$ the bilinear covariant of the Pfaffian expression $d\m$: \textit{this last expression is thus not to be regarded in general as an exact differential}.
+
+The vector $\Omega^1 \e_1 + \Omega^2 \e_2 + \Omega^3 \e_3$ defines what may be called the \textit{torsion} of the given manifold with affine connection. This torsion is zero, as it must be, if the geometric sum of an infinitely-small closed contour is zero.
+%

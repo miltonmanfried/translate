@@ -1,0 +1,97 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\renewcommand*\rmdefault{ppl}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{marginnote}
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+
+\nff{\WTF}{#1 (\textit{#2})}
+
+\nf{\translator}{\footnote{\textbf{Translator note:}#1}}
+
+\newcommand{\nequ}[2]{
+\begin{align*}
+#1
+\tag{#2}
+\end{align*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{align*}
+#1
+\end{align*}
+}
+
+\nff{\iffy}{#2}
+\nf{\?}{#1}
+
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+
+\nc{\fluc}{\overline{\delta_s^2}}
+
+\rf{\exp}{e^{#1}}
+
+\nc{\grad}{\operatorfont{grad}}
+\rc{\div}{\operatorfont{div}}
+\nc{\atan}{\operatorfont{arctan}}
+
+\nf{\pddt}{\frac{\partial{#1}}{\partial t}}
+\nf{\ddt}{\frac{d{#1}}{dt}}
+
+\nf{\inv}{\frac{1}{#1}}
+\nf{\Nth}{{#1}^\text{th}}
+\nff{\pddX}{\frac{\partial{#1}}{\partial{#2}}}
+\nff{\ddX}{\frac{{d#1}}{{d#2}}}
+\nf{\rot}{\operatorfont{rot}{#1}}
+
+\nc{\lap}{\Delta}
+\nc{\e}{\varepsilon}
+\nc{\R}{\mathfrak{r}}
+
+\nc{\Y}{\psi}
+\nc{\y}{\varphi}
+
+\nf{\from}{From: #1}
+\nf{\rcpt}{To: #1}
+\rf{\date}{Date: #1}
+\nf{\letter}{\section{Letter #1}}
+\nf{\location}{}
+
+\title{Pauli 1926}
+
+\begin{document}
+
+\include{subfiles/115}
+\include{subfiles/116}
+\include{subfiles/118}
+\include{subfiles/143}
+\include{subfiles/144}
+\include{subfiles/145}
+\include{subfiles/150}
+\include{subfiles/151}
+
+\end{document}

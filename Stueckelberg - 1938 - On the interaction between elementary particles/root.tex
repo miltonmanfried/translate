@@ -1,0 +1,240 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{caption}
+
+\renewcommand*\rmdefault{ppl}
+
+\newcommand{\tn}[1]{\footnote{\textbf{Translator note:} #1}}
+
+\newcommand{\footcite}[3]{\textsc{#1}, \textit{#2}, #3}
+
+%\newcommand{\var}[1]{\pmb{#1}}
+%\newcommand{\coord}[1]{\var{#1}}
+%\newcommand{\const}[1]{#1}
+%\newcommand{\operator}[1]{\var{#1}}
+
+\newcommand{\var}[1]{#1}
+\newcommand{\coord}[1]{#1}
+\newcommand{\const}[1]{#1}
+\newcommand{\operator}[1]{#1}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+\newcommand{\barred}[1]{
+\overline{#1}
+}
+
+\newcommand{\inv}[1]{{#1}^{-1}}
+\newcommand{\func}[1]{\pmb{#1}}
+
+\newcommand{\comp}[1]{{#1}}
+
+\newcommand{\primed}[1]{{#1^{\prime}}}
+
+
+\newcommand{\unit}[1]{#1}
+%\newcommand{\ddt}[1]{\frac{d#1}{dt}}
+\newcommand{\ddt}[1]{\dot{#1}}
+\nc{\opddt}{\frac{d}{dt}}
+
+\newcommand{\dXdY}[2]{
+\frac{d{#1}}{d{#2}}
+}
+
+\newcommand{\pdXdY}[2]{
+\frac{\partial {#1}}{\partial {#2}}
+}
+\newcommand{\pddXdYY}[2]{
+\frac{\partial^2 {#1}}{\partial {#2}^2}
+}
+\newcommand{\pddtt}[1]{\pddXdYY{\qr}{\t}}
+
+
+\nc{\pk}{{\var{p}_\comp{k}}}
+\nc{\qk}{{\var{q}_\comp{k}}}
+\nc{\mk}{{\var{m}_\comp{k}}}
+
+\rc{\b}{\operator{b}}
+
+\rc{\c}{\const{c}}
+\nc{\cc}{\c^2}
+\nc{\dx}{\coord{dx}}
+\nc{\dy}{\coord{dy}}
+\nc{\dz}{\coord{dz}}
+\nc{\dt}{\coord{dt}}
+
+\nc{\e}{\var{\varepsilon}}
+\nc{\ee}{\e^2}
+\nc{\er}{\e^\comp{r}}
+\nc{\es}{\e^\comp{s}}
+\nc{\eir}{\e_\comp{i}^\comp{r}}
+
+\nc{\h}{\const{h}}
+
+\rc{\l}{\var{l}}
+\nc{\m}{\const{m}}
+
+\nc{\p}{\var{p}}
+\nc{\pBar}{\barred{\p}}
+\nc{\pr}{\p^\comp{r}}
+\nc{\prBar}{\pBar^\comp{r}}
+\nc{\ps}{\p^\comp{s}}
+
+\nc{\pir}{\var{\pi}^\comp{r}}
+\nc{\pirBar}{\barred{\var{\pi}}^\comp{r}}
+
+\nc{\q}{\var{q}}
+\nc{\qBar}{\barred{\q}}
+\nc{\qr}{\q^\comp{r}}
+\nc{\qrBar}{\barred{\q}^\comp{r}}
+\nc{\qs}{\q^\comp{s}}
+
+\rc{\t}{\coord{t}}
+\nc{\spinir}{\var{\sigma}^\comp{r}_\comp{i}}
+\nc{\tir}{\tau^\comp{r}_\comp{i}}
+
+\nc{\A}{\var{A}}
+\nc{\Along}{\var{A}^{long}}
+\nc{\AlongBar}{\barred{\A}^{long}}
+
+\nc{\B}{\var{B}}
+\nc{\BBar}{\barred{\B}}
+
+\rc{\H}{\var{H}}
+\nc{\J}{\var{J}}
+\nc{\JBar}{\barred{\J}}
+\nc{\Ji}{\J_\comp{i}}
+\nc{\JiBar}{\barred{\J}_\comp{i}}
+\nc{\Jv}{\J_\comp{v}}
+\nc{\JvBar}{\barred{\J}_\comp{v}}
+\nc{\Jr}{\J^\comp{r}}
+\nc{\JrBar}{\barred{\J}^\comp{r}}
+
+\rc{\P}{\var{P}}
+\nc{\PBar}{\barred{\P}}
+
+\nc{\Q}{\var{Q}}
+\nc{\QBar}{\barred{\Q}}
+\nc{\Qi}{\Q_\comp{i}}
+
+\rc{\S}{\var{S}}
+
+\nc{\V}{\var{V}}
+
+\nc{\x}{\coord{x}}
+\nc{\y}{\coord{y}}
+\nc{\z}{\coord{z}}
+
+\nc{\del}{\operator{\nabla}}
+\nc{\lap}{\del^2}
+\rc{\div}{\operator{div}}
+\nc{\grad}{\operator{grad}}
+\renewcommand{\exp}[1]{\const{e}^{#1}}
+\newcommand{\dirac}[1]{\func{\delta}{#1}}
+
+\renewcommand{\it}[1]{\textit{#1}}
+
+\newcommand{\nequ}[2]{
+\begin{equation*}
+#1
+\tag{#2}
+\end{equation*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{equation*}
+#1
+\end{equation*}
+}
+
+\begin{document}
+
+\title{On the interaction between elementary particles}
+\author{Ernest C. G. Stueckelberg}
+\date{18 August 1938}
+\maketitle
+
+Let $\Q(\x)$ be a force field satisfying a generalized D'Alembert equation:
+
+\nequ{
+\b = -\inv{(4\pi)}(\lap - \l^2), \left[ \b + (4\pi\cc)\frac{\partial^2}{\partial \t^2} \right]\Q = \J.
+}{1}
+
+In the static case one has a solution such as
+
+\nequ{
+\Q(\x) = \inv{\b}\J = \int\dy\J(\y)\exp{-\l |\x - \y|}\inv{|\x - \y|}.
+}{2}
+
+The \it{charge density} $\J$ producing the field $\Q$ is given by the presence of particles of \it{charge} $\er$ at the position $\qr$
+
+\nequ{
+\J(\x) = \sum\Jr = \sum\er\dirac(\x - \qr).
+}{3}
+
+The movement of particles in the influence of the field obeys the equation
+
+\nequ{
+\m\pddtt{\qr} = \int\dx\Jr\grad\Q.
+}{4}
+
+The equations (1) and (4) result in a Hamiltonian
+
+\nequ{
+2\H = \sum\inv{\m}(\pr)^2 + \int\dx \left[ \Q(\b\Q) + 4\pi\cc\P^2 - 2\Q\J \right],
+}{5}
+
+$\pr$ and $\P(\x)$ are the momenta conjugate to $\qr$ and $\Q(\x)$. The field gives rise to an interaction energy between the particles which one generally finds by applying the \it{perturbation method}. The first approximation furnishes a \it{static interaction of first order in $\ee$}
+
+\nequ{
+2\V(...\qr...) = -\int\dx\J(\inv{\b}\J) = -\sum\sum\er\es\exp{-\l|\qr-\qs|}\inv{|\qr-\qs|} - \text{const}.
+}{6}
+
+The following fashion in which the result (6) is obtained seems to show that we should apply it only as a \it{perturbation acting on the motion of free particles}. Thus we could never use (6) to calculate the \it{energy levels of an assembly of particles} (atoms, atomic nuclei).
+
+We propose to show in this Note that the static interaction (6) can be taken \it{in all rigor} to calculate the energy levels. That is to say
+
+\nequ{
+\S = \exp{\left( \frac{i}{\h} \right)\int\dx\PBar(\inv{\b}\JBar)}
+}{7}
+
+a contact transformation which transforms the canonical variables $\p$, $\q$, $\P$ and $\Q$ into the new variables $\pBar$, $\qBar$, $\PBar$ and $\QBar$: $\p = \S\pBar\inv{\S}$, etc.
+
+The Hamiltonian thus takes the form
+\nequ{
+2\H = \sum\inv{\m}\left( \pirBar \right)^2 + 2\V(...\qrBar...) + \int\dx\left[ \QBar(\b\QBar) + 4\pi\cc\PBar^2\right],
+}{8}
+
+with
+
+\nequ{
+\pirBar = \prBar - \int\dx\left( \frac{\JrBar}{\c} \right) \BBar, \BBar = \BBar = \c\grad(\inv{\b}\PBar).
+}{9}
+
+The transformed problem (8), which explicitly contains the static interaction to first order in $\ee$, may be resolved approximately (by ignoring the interaction of the particles with the vector potential $\BBar$). One thus finds the energy levels in a first approximation. It is upon these states which one must calculate the influence of the perturbation due to $\BBar$. We will calculate this influence to the order of (particle speed : speed of light) \footnote{\it{Proc. Roy. Soc.}, 166, 1938, p. 154} smaller than the static interaction, that is to say it is a \it{dynamic interaction}.
+
+\subsection{Electrodynamics}
+
+In \it{electrodynamics} ($\l = 0$), (6) is the Coulomb potential energy. $\Q$ represents the scalar potential (the sign of the integrals in (5) and (8) must be reversed). The vector potential enters into the material part of (5) by substituting $\pr$ with
+
+\nequ{
+\pir = \pr - \int\dx\frac{\Jr}{\c}\A.
+}{10}
+
+Substituting the Lorentz \tn{sic} condition $\c\div\A = -\pdXdY{\QBar}{t} = 4\pi\cc\PBar$ into (9) gives $\BBar = -\AlongBar$ (= the longitudinal part of $\A$). For the $\pirBar$ one will find therefore the expression analogous to (10), but containing only the \it{transversal part} of $\A$.
+
+\subsection[b]{Nuclear Forces}
+
+In the \it{theory of nuclear forces} ($\l = 1/(\text{Compton wavelength of Yukawa particles})$ \footnote{\textsc{Yukawa, Sakata, and Taketani}\it{Proc. Phys. Math. Soc. Japan}, 20, number 4, 1938, \textsc{Stueckelberg}, \it{Hel. Phys. Acta}, 11, 1938, p. 225, 229 and 312; \textsc{Kemmer}, \textit{Proc. Roy, Soc.}, 166, 1938, p. 127 \textsc{Bhaba}, \textit{Proc. Roy. Soc.}, 166, 1938, p. 501} one has a field $\Qi(\x)$ of many components which each satisfy an equation analogous to (1). For the \it{charge densities} $\Ji$ one has the expressions (3) and the derivatives of (3). The $\eir$ are the non-commuting matrices between them (constructed as the direct products of the \it{spin} matrices $\spinir$ and the \it{isotopic spin} matrices $\tir$). A transformation analogous to (7) leads to a Hamiltonian analogous to (8) containing the static interactions of the form (6) and their derivatives (that is to say the same terms which one would obtain with the perturbatative method). On the other hand, via the noncommutability of $\JiBar$ with $\JvBar$, one finds in addition to the dynamic interaction a \it{static perturbation of second order in $\ee$} (these terms are different from the expressions of the same order found in Frölich, Heitler \& Kemmer).
+
+The conclusion is the following:
+\it{One must rigorously resolve the problem of interaction between the elementary products by taking account of the static interaction terms of first order in $\ee$}. The influence of the supplementary terms (the dynamic interaction, the static interaction of second order in $\ee$, etc) can be cobsideres as taking the first approximation ofnthe perturbative method for each term.
+This rule is the generalization of the data given by Bethe \footnote{\it{Handbuch der Physik}, vol. 24, 2nd edition, Springer, Berlin, 1933, p. 374.} for the solution of the Breit equation containing the relativistic interaction of two Dirac electrons.
+
+\end{document}

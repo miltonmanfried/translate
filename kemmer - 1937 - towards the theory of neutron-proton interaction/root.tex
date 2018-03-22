@@ -1,0 +1,417 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{multirow}
+\renewcommand*\rmdefault{ppl}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{marginnote}
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+
+\nff{\WTF}{#1 (\textit{#2})}
+
+\nf{\translator}{\footnote{\textbf{Translator note:}#1}}
+\nc{\sic}{{}^\text{(\textit{sic})}}
+
+\newcommand{\nequ}[2]{
+\begin{align*}
+#1
+\tag{#2}
+\end{align*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{align*}
+#1
+\end{align*}
+}
+
+\nf{\sskip}{...\{#1\}...}
+\nff{\iffy}{#2}
+\nf{\?}{#1}
+\nf{\tags}{#1}
+
+\nf{\limX}{\underset{#1}{\lim}}
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+%\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+\nff{\intXY}{\underset{#1}{\overset{#2}{\int}}}
+
+\nc{\fluc}{\overline{\delta_s^2}}
+
+\rf{\exp}{e^{#1}}
+
+\nc{\grad}{\operatorfont{grad}}
+\rc{\div}{\operatorfont{div}}
+\nc{\spur}{\operatorfont{spur}}
+
+\nf{\pddt}{\frac{\partial{#1}}{\partial t}}
+\nf{\ddt}{\frac{d{#1}}{dt}}
+
+\nf{\inv}{\frac{1}{#1}}
+\nf{\Nth}{{#1}^\text{th}}
+\nff{\pddX}{\frac{\partial{#1}}{\partial{#2}}}
+\nf{\rot}{\operatorfont{rot}{#1}}
+
+\nf{\Elt}{\operatorfont{#1}}
+
+\nff{\MF}{\nc{#1}{\mathfrak{#2}}}
+
+\MF{\fD}{D}
+\MF{\fY}{Y}
+\MF{\fX}{X}
+\MF{\fZ}{Z}
+
+\nc{\fYm}{\fY^{(m)}}
+\nc{\fXm}{\fX^{(m)}}
+\nc{\fZm}{\fZ^{(m)}}
+
+\nff{\MV}{\nc{#1}{\vec{#2}}}
+
+\MV{\vp}{p}
+\MV{\valpha}{\alpha}
+\MV{\vx}{x}
+\MV{\vsigma}{\sigma}
+
+\nc{\Y}{\psi}
+\nc{\y}{\varphi}
+
+\title{Towards the theory of neutron-proton interaction}
+\author{N. Kemmer}
+\date{Dexember 16, 1936}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+To describe a dynamical system consisting of a proton and a neutron a wave equation is proposed with is based on the Dirac equation from the one-body problem. The mathematical characteristics of the equation are investigated. The proposal is only relativistically invariant when the spatial dependence of the interaction has the form of a $\delta$-function (local interaction). For potential functions of finite extent the calculations give only a rough approximation of the relativistic corrections, but have the advantage over analogous previously-made\cite{1} approximations that they take the spin into account in a relativistically-consistent manner. However, even here the relativistic corrections for the usually-assumed \WTF{range of the force}{Kraftreichweiten} are very small. However, in the transition to \textit{\WTF{the near-field}{Nahekraft}} the results change considerably; for this reason, \textsc{Thomas}'s\cite{2} non-relativistic calculations, which proved the incompatibility of the assumption of local interactions with the experimentally-known values of the binding energies of light nuclei, cannot be regarded as decisive. While we do not undertake the relativistic extension of Thomas's calculations for $\Elt{H}^3$, it is pointed out that here as with Thomas the assumption of \textit{normalizable} $\delta$-functions for the interaction is already incompatible with a finite binding energy for the deuteron, so that a formally-satisfactory representation of the N.-P.-interaction as a local interaction seems to not be possible anyway.
+\end{abstract}
+
+\section*{§1.General approach}
+
+We consider a two-particle system that consists of a neutron ($N$) and a proton ($P$), whose masses we assume are both equal to $M$. As in the Dirac equation, the neutron will be assigned the momentum vector $p^N_i$ and the matrix vector $\alpha^N_i$, where the $\alpha^N_i$ together with $\alpha^N_4 = \beta^N$ satisfy the usual commutation relations
+\uequ{
+\alpha^N_\mu \alpha^N_\nu + \alpha^N_\nu \alpha^N_\mu = 2\delta_{\mu\nu} (\mu, \nu = 1,\dots, 4).
+}
+The quantities $p^P_i$, $\alpha^P_i$ and $\alpha^P_4 = \beta^P$ are defined accordingly for the proton. Likewise we have
+\uequ{
+\alpha^P_\mu \alpha^P_\nu + \alpha^P_\nu \alpha^P_\mu = 2\delta_{\mu\nu} (\mu, \nu = 1,\dots, 4).
+}
+all $N$-operatots commute with all $P$-operators, so in particular
+\uequ{
+\alpha^N_\mu \alpha^P_\nu - \alpha^P_\nu \alpha^N_\mu = 0.
+}
+
+If we start from the usual four-rowed representation for each of the two systems of matrices, we immediately get a 16-rowed representation of the total system. Accordingly our wavefunction $\Y$ will possess 16 components $\Y_{\alpha\beta}$, ($\alpha=1,\dots,4$; $\beta=1,\dots,4$), which will transform like the product of the components of two solutions of the Dirac equation, $\Y^{(1)}_\alpha \Y^{(2)}_\beta$.
+
+This $\Y$ should now satisfy the wave equation
+\nequ{
+[-E + H]\Y(x^N, x^P) &= \\
+[-E + (\vp^N \valpha^N) + (\vp^P \valpha^P) + ](\beta^N + \beta^P) + \Omega
+\Y(x^N,x^P) &= 0,}{1}
+where $\Omega$ symbolizes the interaction term. (In our notation, $E$, $p$, $M$ all have the dimensions of length; they differ by $\hbar c$ resp. $\hbar$ resp. $\hbar c^{-1}$ from the corresponding quantities measured in CGS units.) It is well-known that
+\uequ{
+\int{{d\vx^N}\,{d\vx^P}\left\{\Y^* H \Y\right\}}
+}
+must now transform as the 44 components of a tensor. Apart from the term with $\Omega$ this is automatically guaranteed for all terms; for the interaction, however, only the 5 following Ansatzes (and their linear combinations) are left open\cite{3}:
+\nequ{
+\Omega = -\text{const.}\times\omega_i \times \delta(x^N - x^P).\\
+\omega_1 &= \beta^N \beta^P\\
+\omega_2 &= 1 - (\valpha^N \valpha^P)\\
+\omega_3 &= \beta^N \beta^P\left[
+            \left(\vsigma^N \vsigma^P\right) + \left(\valpha^N \valpha^P\right)\right]\\
+\omega_4 &= \left(\vsigma^N \vsigma^P \right) - \Gamma^N \Gamma^P\\
+\omega_5 &= \beta^N \beta^P \Gamma^N \Gamma^P
+}{2}
+
+Where
+\uequ{
+\sigma_l = -i\alpha_i \alpha_k \text{($i$,$k$,$l$ cyclic)}
+}
+and
+\uequ{
+\Gamma = -i\alpha_1 \alpha_2 \alpha_3.
+}
+
+It is essential that nothing other than the $\delta$-function can be taken as the distance function in the interaction, without destroying relativistic invariance. It is well-known that an interaction can in general only be described in a relativistically-invariant manner by means of an intermediary field (retardation). It has however been pointed out by \textsc{Stueckelberg}\cite{4} \?{that there is still a possibility for some local interaction approach}\footnote{In the above local interaction approach there is no longer a distinction between ordinary forces and Heisenberg-Majorana exchange forces, as they appear essential to the understanding of the mass defects of heavy nuclei. This is already one reason to reject this approach; however, we prefer to arrive at the same result without utilizing the theory of heavy nuclei.}.
+
+In the sense of the considerations of \textsc{Blochnizew}, \textsc{Margenau}, and \textsc{Feenberg}\cite{1} however, this equation could also give, with a nonsingular interaction function, an approximation for the order of magnitude of the relativistic corrections which occur at the usually-assumed range of force. In any case, it is convenient for now to replace the $\delta$-function by a regular function without concern for the lack of invariance. We write generally
+\uequ{
+\Omega_i = -V(r)\omega_i,\quad\text{($r=|x^N-x^P|$)}
+}
+but still constrain ourselves to the case that $V$ is significantly different from zero only in a small region $r \leq \varrho$. Specifically, the "box potential"
+\nequ{
+V(r) = \begin{cases}
+ V & \text{for}\quad r \leq \varrho\\
+ 0 & \text{for}\quad r > \varrho
+ \end{cases}.
+}{3}
+will be used in the following. In order to arrive at the relativistically-invariant limiting case, one puts $V=\text{const.}\times\varrho^{-3}$ and takes the limit $\varrho \to 0$.
+
+\section*{§2. Reduction and separation of the wave equation}
+
+We consider the operator
+\uequ{
+H = (\vp^N\valpha^N) + (\vp^P\valpha^P) + M(\beta^N + \beta^P) - \omega V(r).
+}
+
+The center-of-mass momentum $p^N+p^P$ commutes with $H$, and is thus an integral; henceforth we take into account only those states in which it has an eigenvalue of zero, and thus work in the center-of-mass system. We could then limit ourselves to the form
+\nequ{
+H = (\valpha\vp) + \beta M - \omega V(r),
+}{4}
+where
+\nequ{
+&x_i = x^N - x^P, &\alpha_i = \alpha^N_i - \alpha^P_i\\
+&p_i = \inv{2}(p^N_i - p^P_i) = p^N_i = -p^P_i,  &\beta = \beta^N + \beta^P.
+}{5}
+A further integral is then the angular momentum
+\uequ{
+M_i = m_i + s_i
+}
+with
+\uequ{
+m_i = x_k p_l - x_l p_k \quad \text{($i,k,l$ cyclic)}
+}
+and
+\uequ{
+s_i = \hbar/2 i (\alpha^N_k \alpha^N_l + \alpha^P_k \alpha^P_l) \quad \text{($i,k,l$ cyclic)}.
+}
+
+We note that $s_i$ can also be written as
+\uequ{
+s_i = \hbar/4 i (\alpha_k \alpha_l - \alpha_l \alpha_k),
+}
+and that additionally, because of
+\uequ{
+\alpha^N_i \alpha^P_i = 1 - \inv{2}\alpha^2_i
+}
+and
+\uequ{
+\beta^N \beta^P = \inv{2}\beta^2 - 1
+}
+all $\omega_i$ can also be expressed as functions of the matrices $\alpha_i$ and $\beta_i$ alone; hence in the following we shall only have to deal with this system of just four 16-rowed matrices. It is easy to see that it is reducible.
+
+For this it is sufficient to specify a non-unit matrix that commutes with all four matrices\footnote{I owe great thanks to Herrn Dr. \textsc{V. Bargmann} for the mentioned reducibility-proof as well as invigorating discussions.}. If we put
+\uequ{
+& \gamma^N_i = -i\beta^N \alpha^N_i & \gamma^P_i = -i\beta^P\alpha^P_i\\
+& \gamma^N_4 = \beta^N & \gamma^P_4 = -\beta^P
+}
+then one such is given by
+\uequ{
+\chi = \Gamma^N \Gamma^P\left(\sumXY{\mu=1}{4}{\gamma^N_\mu\gamma^P_\mu + 1}\right),
+}
+as is easy checked. A closer examination gives for the 16 eigenvalues of this matrix the numbers
+\uequ{ 
+&+1\dots 10\text{ times}\\
+&-3\dots 5\text{ times}\\
+&+5\dots 1\text{ time},
+}
+from which it follows group-theoretically that our 16-rowed matrix can be decomposed into a 10-, 5- and one-rowed subsystem. The submatrices turn out to be irreducible. Because of $\spur{(\alpha_i)} = \spur{(\beta)} = 0$, in the one-rowed system all four matrices are zero; for the other two representations it would be easy to \?{write down} the matrices. But, for the following it is more convenient to only specify those combinations of $\Y_{\alpha\beta}$ \?{which lead to decays, and for the rest to resort to applying the $\alpha$-operators to definition (5) as well as the usual representation}
+\uequ{
+\alpha^{N,P}_i = \left(\begin{matrix}
+0 & \sigma^{N,P}_i
+\sigma^{N,P}_i & 0
+\end{matrix}
+\right); \beta^{N,P} = \left(\begin{matrix}
+I & 0\\
+0 & -I
+\end{matrix}\right),
+}
+and of course it is understood that $\alpha^P_\mu$ acts on the first index, and $\alpha^N_\mu$ acts on the second index of $\Y_{\alpha\beta}$.
+
+In the below table, the $u_a$ denote the components belonging to the ten-system (I), the $v_a$ denote those of the five-system (II), finally $w$ denotes the single sixteenth component. The specified transformation of the $\Y_{\alpha\beta}$ also has the property that the subsystem of three matrices $s_i$ that describe the infinitesimal rotation of the spin-space appear still further reduced: by rotating the spin-space, three adjacent components transform according to the irreducible representation $\fD_1$ of the rotation group, while any isolated components go over into themselves (representation $D_0$). This is highlighted in the fifth column of the table. In the following column are the eigenvalues of the matrix $\inv{2}\beta^2 - 1 = \omega_1$ associated with the respective component group, which assumes the diagonal form and describes a reflection in spin space. Finally, the above choice of $u,v,w$ also has the property that the other four $\omega_i$ are in the diagonal form; their eigenvalues are specified in the following columns. The last column finally gives the abbreviations which we use for products of these eigenvalues with $V$, \?{in order that the following representation be independent of the specific differences of the various $\omega_i$}.
+
+We now seek a solution to our wave equation which has the angular momentum quantum number $j$. Additionally, the solution should have either 
+
+(a) the reflection character $(-1)^{j+1}$
+
+or
+
+(b) the reflection character $(-1)^{j}$.
+
+
+\centerline{
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$\,$ & $\,$ & $\,$ & $\,$ & $\,$ & $\omega_1$ & $\omega_2$ & $\omega_3$ & $\omega_4$ & $\omega_5$ & $V\omega_i$ \\
+\hline
+\multirow{4}{*}{I} & 
+$u_1 = \inv{\sqrt{2}}(\Y_{11} + \Y_{33})$ & 
+$u_2 = \inv{2}(\Y_{12} + \Y_{21} + \Y_{34} + \Y_{43})$ &
+$u_3 = \inv{\sqrt{2}}(\Y_{22} + \Y_{44})$ & 
+$\fD_1$ & $1$ & $0$ & $2$ & $0$ & $1$ & $a$ \\
+\cline{2-11}
+ & 
+ & 
+$u_4 = \inv{2}(\Y_{14} - \Y_{41} - \Y_{23} + \Y_{32})$ &
+ & 
+$\fD_0$ & $-1$ & $4$ & $6$ & $-4$ & $-1$ & $d$ \\
+\cline{2-11}
+ & 
+$u_5 = \inv{\sqrt{2}}(\Y_{11} - \Y_{33})$ & 
+$u_6 = \inv{2}(\Y_{12} + \Y_{31} - \Y_{34} - \Y_{43})$ &
+$u_7 = \inv{\sqrt{2}}(\Y_{22} - \Y_{44})$ & 
+$\fD_1$ & $1$ & $2$ & $0$ & $2$ & $-1$ & $b$ \\
+\cline{2-11}
+ & 
+$u_8 = \inv{\sqrt{2}}(\Y_{13} - \Y_{31})$ & 
+$u_9 = \inv{2}(\Y_{14} - \Y_{41} + \Y_{23} - \Y_{32})$ &
+$u_{10} = \inv{\sqrt{2}}(\Y_{24} - \Y_{42})$ & 
+$\fD_1$ & $-1$ & $2$ & $0$ & $2$ & $1$ & $c$ \\
+\hline
+\multirow{3}{*}{II} & 
+ & 
+$v_1 = \inv{2}(\Y_{12} - \Y_{31} + \Y_{34} - \Y_{43})$ &
+ & 
+$\fD_0$ & $1$ & $4$ & $-6$ & $-4$ & $1$ & $f$ \\
+\cline{2-11}
+ & 
+$v_2 = \inv{\sqrt{2}}(\Y_{13} + \Y_{31})$ & 
+$v_3 = \inv{2}(\Y_{14} + \Y_{41} + \Y_{23} + \Y_{32})$ &
+$v_4 = \inv{\sqrt{2}}(\Y_{24} + \Y_{42})$ & 
+$\fD_1$ & $-1$ & $0$ & $-2$ & $0$ & $-1$ & $h$ \\
+\cline{2-11}
+ & 
+ & 
+$v_5 = \inv{2}(\Y_{12} - \Y_{21} - \Y_{34} + \Y_{43})$ &
+ & 
+$\fD_0$ & $1$ & $-2$ & $0$ & $-2$ & $-1$ & $g$ \\
+\hline
+III & 
+ & 
+$w = \inv{2}(\Y_{14} + \Y_{41} - \Y_{32} - \Y_{23})$ &
+ & 
+$\fD_0$ & $-1$ & $-2$ & $0$ & $-2$ & $1$ & $k$ \\
+\hline
+\end{tabular}
+}
+
+Since we can see from the table the behavior of the individual components under rotation and reflection in spin space, we can, according to well-known formulae\footnote{C.f. \textsc{B. L. v. d. Waerden}, The group-theoretical methods in quantum mechanics, Leipzig, Springer, 1932, p. 70.} immediately specify the associated space functions which lead to a solution with the known characteristics. To this end we introduce the following abbreviations:
+\nequ{
+\fYm_j &= \left(-\sqrt{\frac{(j+m)(j-m+1)}{2}}Y^{(m-1)}_j;\right.\\
+&\left. -mY^{(m)}_j; + \sqrt{\frac{(j+m+1)(j-m)}{2}}Y^{(m+1)}_j\right)\\
+\sqrt{2j+1}\fXm &= \left(+\sqrt{\frac{(j+m)(j+m+1)}{2}}Y^{(m-1)}_j;\right.\\
+&\left. - \sqrt{(j+m+1)(j-m+1)}Y^{(m)}_j; + 
+\sqrt{\frac{(j-m)(j-m+1)}{2}}Y^{(m+1)}_j\right)\\
+\sqrt{2j+1}\fZm &= \left(+\sqrt{\frac{(j-m)(j-m+1)}{2}}Y^{(m-1)}_j;\right.\\
+&\left. - \sqrt{(j+m)(j-m)}Y^{(m)}_j; + 
+\sqrt{\frac{(j+m)(j+m+1)}{2}}Y^{(m+1)}_j\right)
+}{6}
+
+Here the $Y^{(m)}_j$ are the normalized spherical harmonic functions in the usual notation. Then we get the following \?{potential solutions}:
+
+1a)
+\nequ{
+(u_1; u_2; u_3) &= \fXm_{j-1}\frac{A^1(r)}{r} + \fZm_{j+1}\frac{A^2(r)}{r}\\
+u_4 &= Y^{(m)}_j\frac{D(r)}{r}\\
+(u_5; u_6; u_7) &= \fXm_{j-1}\frac{B^1(r)}{r} + \fZm_{j+1}\frac{B^2(r)}{r}\\
+(u_8; u_9; u_{10}) &= \fYm_j\frac{C(r)}{r}\\
+}{7}
+
+Ib)
+\nequ{
+(u_1; u_2; u_3) &= \fYm_j\frac{A(r)}{r}\\
+u_4 &= 0\\
+(u_5; u_6; u_7) &= \fYm_j\frac{B(r)}{r}\\
+(u_8; u_9; u_{10}) &= \fXm_{j-1}\frac{C^1(r)}{r} + \fZm_{j+1}\frac{C^2(r)}{r}
+}{8}
+
+IIa)
+\nequ{
+v_1 &= 0\\
+(v_2; v_3; v_4) &= \fYm_j \frac{H(r)}{r}\\
+v_5 &= 0
+}{9}
+
+IIb)
+\nequ{
+v_1 &= Y^{(m)}_j\frac{F(r)}{r}\\
+(v_2; v_3; v_4) &= \fXm_{j-1} \frac{H^1(r)}{r} + \fZm_{j+1}\frac{H^2(r)}{r}\\
+v_5 &= Y^{(m)}_j\frac{G(r)}{r}\\
+}{10}
+
+III
+\nequ{
+w &= Y^{(m)}_j \frac{K(r)}{r}\\
+w &= 0
+}{11}
+
+Then insertion into the wave equation leads to following the differential equations for the various radial components:
+
+Ia)
+\nequ{
+&(E+d)D + \frac{2j}{\sqrt{2j+1}} i \left(\frac{d}{{dr}} - \frac{j}{r}\right)&A^1 -
+\frac{2(j+1)}{\sqrt{2j+1}} i \left(\frac{d}{{dr}} + \frac{j+1}{r}\right)A^2 &= 0\\
+&(E+a)jA^1  - 2Mj &B^1 +
+\frac{2j}{\sqrt{2j+1}} i \left(\frac{d}{{dr}} + \frac{j}{r}\right)D &= 0\\
+&(E+a)(j+1)A^2 - 2M(j+1)&B^2 -
+\frac{2(j+1)}{\sqrt{2j+1}} i \left(\frac{d}{{dr}} - \frac{j+1}{r}\right)D &= 0\\
+&(E+c)j(j+1)C - \frac{2j(j+1)}{\sqrt{2j+1}} i \left(\frac{d}{{dr}} - \frac{j}{r}\right)&B^1
+\frac{2j(j+1)}{\sqrt{2j+1}} i \left(\frac{d}{{dr}} + \frac{(j+1)}{r}\right)B^2 &= 0\\
+&(E+b)jB^1  - 2Mj &A^1 +
+\frac{2j(j+1)}{\sqrt{2j+1}} i \left(\frac{d}{{dr}} + \frac{j}{r}\right)C &= 0\\
+&(E+b)(j+1)B^2 - 2M(j+1) &A^1 +
+\frac{2j(j+1)}{\sqrt{2j+1}} i \left(\frac{d}{{dr}} - \frac{(j+1)}{r}\right)C &= 0\\
+}{12}
+
+Ib)
+\nequ{
+&(E+b)j(j+1)B &- 2Mj(j+1) A^1 - 
+\frac{2j(j+1)}{\sqrt{2j+1}} i \left(\frac{d}{{dr}} + \frac{j}{r}\right)C^1\\
+& &- \frac{2j(j+1)}{\sqrt{2j+1}} i \left(\frac{d}{{dr}} + \frac{(j+1)}{r}\right)C^2 &= 0\\
+&(E+c)jC^1 &- \frac{2j(j+1)}{\sqrt{2j+1}} i \left(\frac{d}{{dr}} + \frac{j}{r}\right)B &= 0\\
+&(E+c)(j+1)C^2 &- \frac{2j(j+1)}{\sqrt{2j+1}} i \left(\frac{d}{{dr}} + \frac{j+1}{r}\right)B &= 0\\
+&(E+a)j(j+1)A &- 2Mj(j+1) B &= 0
+}{13}
+
+IIa)
+\uequ{
+(E+h)H = 0
+}
+
+IIb)
+\nequ{
+&(E+f)F - 2MG &+ \frac{2j}{\sqrt{2j+1}} i \left(\frac{d}{{dr}} - \frac{j}{r}\right)H^1\\
+& &- \frac{2j(j+1)}{\sqrt{2j+1}} i \left(\frac{d}{{dr}} + \frac{(j+1)}{r}\right)H^2 &= 0\\
+&(E+h)jH^1 &+ \frac{2j}{\sqrt{2j+1}} i \left(\frac{d}{{dr}} + \frac{j}{r}\right)F &= 0\\
+&(E+h)(j+1)H^2 &- \frac{2(j+1)}{\sqrt{2j+1}} i \left(\frac{d}{{dr}} - \frac{j+1}{r}\right)F &=0\\
+&(E+g)G - 2MF & & = 0
+}{14}
+
+IIIa)
+\uequ{
+(E+k)K = 0
+}
+
+[IIIb) --]
+
+The meaning of the "potential constants" $a,b,\dots,k$ was explained in the table on page 52. The differential equations are even valid for the case $j=0$; for this reason, \?{the shortening by $j$} has been avoided in some equations. On symmetry grounds an analogous factor of $(j+1)$ is also often allowed to stand.
+
+The two cases IIa) and IIIa) give rise to trivial equations which, as is found later, are of little interest. Thus we obtain essentially three systems of radial differential equations, whose solution we shall carry out in the special case of the box potential in the next section.
+
+\section*{§3. Integration of the radial differential equations in the case of the box potential}
+\sskip{Yadda}
+
+
+\include{subfiles/bib} \end{document}

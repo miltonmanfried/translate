@@ -1,0 +1,237 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\renewcommand*\rmdefault{ppl}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{marginnote}
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+
+\nff{\WTF}{#1 (\textit{#2})}
+
+\nf{\translator}{\footnote{\textbf{Translator note:}#1}}
+\nc{\sic}{{}^\text{(\textit{sic})}}
+
+\newcommand{\nequ}[2]{
+\begin{align*}
+#1
+\tag{#2}
+\end{align*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{align*}
+#1
+\end{align*}
+}
+
+\nf{\sskip}{...\{#1\}...}
+\nff{\iffy}{#2}
+\nf{\?}{#1}
+\nf{\tags}{#1}
+
+\nf{\limX}{\underset{#1}{\lim}}
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+%\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+\nff{\intXY}{\underset{#1}{\overset{#2}{\int}}}
+
+\nc{\fluc}{\overline{\delta_s^2}}
+
+\rf{\exp}{e^{#1}}
+
+\nc{\grad}{\operatorfont{grad}}
+\rc{\div}{\operatorfont{div}}
+
+\nf{\pddt}{\frac{\partial{#1}}{\partial t}}
+\nf{\ddt}{\frac{d{#1}}{dt}}
+
+\nf{\inv}{\frac{1}{#1}}
+\nf{\Nth}{{#1}^\text{th}}
+\nff{\pddX}{\frac{\partial{#1}}{\partial{#2}}}
+\nf{\rot}{\operatorfont{rot}{#1}}
+
+\nff{\Elt}{\operatorfont{#1}_{#2}}
+
+\nff{\MF}{\nc{#1}{\mathfrak{#2}}}
+
+\nff{\MV}{\nc{#1}{\mathbf{#2}}}
+
+\MV{\vrho}{\varrho}
+\MV{\vsigma}{\sigma}
+
+\nc{\Y}{\psi}
+\nc{\y}{\varphi}
+
+\title{iwanenko - 1938 - remarks on the theory of interaction}
+
+\begin{document}
+
+\begin{abstract}
+Various possibilities for the transmission of interactions by Fermi- or Bose particles is discussed, and a comparison between the Dirac and the Fermi models of particle creation is outlined.
+\end{abstract}
+
+The development of the theory of $\beta$-radiation has apparently entered a new stage. Fermi's original form of the coupling of a heavy particle with the field of the electrons and neutrinos does not suffice to reproduce the correct form of the spectrum, the Konopinski-Uhlenbeck (K-U) Ansatz, with the first derivative of the neutrino wave function, seems to be well-confirmed empirically, but runs into formal difficulties when carrying out second quantization. The whole complex of questions on the \?{derivation} of nuclear forces, as well as the magnetic moments of the heavy particles and the Heisenberg theory of cosmic showers allow only a qualitative treatment. Conversely, some individual results of the \?{total} theory of $\beta$-radiation support the view that \WTF{it has a lot to offer}{dass hier sehr viel richtiges ausgesprochen wird}, and seems to make it desirable to discuss some special cases. In the following we discuss some simple case of the transmission of interactions in the sense of the theory of nuclear $\beta$-forces.
+
+1. In order to enable a better overview of the influence of statistics, we first consider the transmission of interactions by Bose particles. When the transmission occurs via individual particles which satisfy Bose statistics, then in the simplest case we have the d'Alembert equation for the scalar potential of the electromagnetic field
+\uequ{
+\square\y = 0,
+}
+which gives the Coulomb law for the interaction, when the coupling of the particles with the field of the -- longitudinal -- photons is given by $U=e\y$. However, if the wavefunction of the particles carrying the interaction satisfy the scalar relativistic equation of second order
+\nequ{
+\left(\square + k_0^2\right)\Y = 0
+}{1}
+(where $k_0=m_0 c/h$), then it can be shown that the interaction law between the two particles, as a solution of equation (1), must have the form $\exp{-k_0 r}/r$. Thus it can be easily recognized that both the purely classical Fermi method of the elimination of the longitudinal portion\footnote{See Heitler's Theory of Radiation, p.51.} and the quantum-electrodynamical method of the calculation of the second approximation reproduce the Green function of the relevant field equation.
+
+If we e.g. apply the Dirac method of quantum electrodynamics, then we obtain the interaction law in the form
+\nequ{
+V = U_1\frac{U_2}{S} + U_2\frac{U_1}{S},
+}{2}
+where $S$ denotes the operator of the Schr\"odinger equation, $U$ denotes the interaction energy of one of the particles with the field. We put the latter in the form
+\uequ{
+U = e_1(\Y_1 + \Y_1^+) + e_2(\Y_2 + \Y_2^+),
+}
+with the usual Fourier decomposition for $\Y$:
+\nequ{
+\Y = \inv{(2\pi)^{\frac{3}{2}}}
+\int{({dk})\left\{a(k)\exp{-icKt + i(kr)} + b^+(k)\exp{+icKt + i(kr)}\right\}},\\
+K^2 = k^2 + k_0^2.
+}{2a}
+
+If one assumes the Bose commutation relations (CR)
+\nequ{
+a(k)a^+(k') - a^+(k')a(k) = \frac{hc}{2K}\delta(k-k'), \text{etc.}
+}{2b}
+and the initial condition of the absence of particles of either sort, i.e. $a^+(k)a(k)=0$, etc., then we get after integration
+\nequ{
+V = \frac{\text{const}}{r}\intXY{0}{\infty}\frac{k\,{dk}}{k^2+k_0^2}\sin{kr}.
+}{3}
+For $k_0 = 0$ the Coulomb law applies, her on the other hand one gets:
+\nequ{
+V=\frac{\text{const}}{r}\exp{-k_0 r}.
+}{4}
+Although the well-known bilinear decomposition now contains the eigenvalue $\lambda_k$ in the denominator, which is equal to $K^2$ here, but in the formula (2) the denominator has the operator $S$, which \WTF{decreases in proportional to $K$}{proportional $K$ ausfällt}, -- the CR nevertheless add a second $K$. In this way one intuitively sees the \WTF{return of}{Wiederkommen} the Green function as a consequence of the quite complicated quantum-electrodynamical calculations. Recently Oppenheimer and Serber have put forward, building on an old idea of Yukawa's, a law of the form (4) as the nuclear force between neutron and proton. It must however be stressed that this potential is realized by Bose particles, which is a characteristic that perhaps does not apply to the hypothetical interaction-carrying "half-heavy" electrons ($m>m_\text{el}$).
+
+If we are dealing with a real scalar $\Y$, then on grounds of relativistic covariance the coupling with the field must not take the form $e\Y$, but rather something like
+\nequ{
+U = \sumX{s=1,2}{e_s\left(\pddX{\Y}{t} + \pddX{\Y^+}{t}\right)_s},
+}{5}
+\?{since it should represent the time component of a vector}. Then we get an interaction kf the form $r^{-3}$, \WTF{but with a factor that is equal to zero}{mit einem Faktor, der aber gleich Null ist}. The individual quanta of a scalar field are thus unable to realize an interaction which is in harmony with the requirement of gauge invariance in the second approximation.
+
+In the case of an interaction transmitted by two Bose particles, it is natural to take for the coupling of the interacting particles with the field of the pair of Bose-particles the expression of the fourth component of the mixed current of the scalar second-order relativistic equation:
+\nequ{
+U = g'\left(\y_2^+\pddX{\y_1}{t} - \y_1\pddX{\y_2}{t}\right) + \text{c.c.}
+}{6}
+It is well-known that the scalar relativistic equation only allows symmetric statistics. Now using the quantum-electrodynamical perturbation calculation, in the second approximation an interaction law of the form
+\nequ{
+V = \text{const}\times r^{-5}.
+}{7}
+Thus the same dependence on $r$ as with interactions transmitted by two Fermi particles, e.g. electron and nuetrino, when the coupling of a heavy particle with the field is given by $U=g\Y^+_e \Y_n$. Although the coupling (6) contains the derivative, we obtain an $r^{-5}$ law and not an $r^{-7}$ law which would follow from the KU formula $U=g'\Y^+_e\pddX{\Y_n}{t}$. The reason for this lies in the compensation of the Konopinski-Uhlenbeck factor $E_\text{neutrino} = hcK$ in the numerator by exactly the same factor in the denominator as a consequence of the Bose commutation relations for Fourier coefficients (2b); the factor $K^{-1}$ is indeed missing in the Fermi commutation relations. The calculations which lead to (7) are entirely analogous to the case of the Fermi theory and give rise to almost identical integrals, which must be evaluates by means of an \?{auxilliary} factor $\exp{-\alpha r}$ ($\alpha \to 0$).
+
+2. If the particles transmitting the interaction satisfy Fermi statistics, then relativistic invariance already demands the introduction of a second particle, since an individial electron cannot be emittes alone. In fact, \?{an individual spinor cannot be used to form a vector linear in $\Y$ to allow the coupling of the field with the electrons as the fourth component of such a vector}. Although one might still be inclined to further investigate this situation by introduction of a differential spinor operator $\partial_\lambda$, the conservation laws lead to the well-known argument, independently of these formal grounds, to the hypothesis of the simultaneous emission of neutrinos and electrons.
+
+As regards the derivation of the nuclear forces, which were already discussed by many authors, we only remark here that the simplest and probably most intuitive method consists in the introduction of the \?{doubled Fourier decomposition}:
+\nequ{
+\Y \to \Y_\text{el.} + \Y_\text{pos.}; \quad
+\y \to \y_\text{neutr.} + \y_\text{antineurt.},
+}{8}
+or more precisely
+\uequ{
+\Y_s = (2\pi)^{-\frac{3}{2}}\int({dk})\left\{
+a^s(k)\exp{-icKt + i(kr)} + {b^s}^+(k)\exp{+icKt + i(kr)}
+\right\},
+}
+whee $a^s(k)$ describe the electrons and $b^s(k)$ describe the positrons, and analogously $c^s(k)$ neutrinos and $d^s(k)$ antineutrinos. Such decompositions have already been profitably applied in second quantization and the investigation of the neutrino theory of light.\footnote{D. Iwanenko and A. Sokolow, Sow. Phys. 11, 590. 1937. A. Sokolow, ibid, 12, 148, 1937.} In calculating the second approximation the terms which correspond to the emission of an electron-antineutrino pair by the first heavy particle and its absorbtion by the second heavy particle are quite intuitively selected. Analogously the terms which correspond to the emission and absorbtion of a positron-neutrino pair are singled out. Hence if one considers the initial condition of the absence of light particles, then only terms of the form $aa^+, bb^+, cc^+, dd^+$ are left.
+
+The summation over the two possible spin states is easily carried out without the Casimir method and we come, without any mention of states of negative energy, to the expression for the interaction:
+\uequ{
+V = &\frac{(2\pi)g^2}{(2\pi)^6}Q_1 Q_2^+ \int\int\frac{({dk})({dl})}{k+l}\left[
+1 - \cos{(kl)}\right]\times\\
+&\times \left\{
+\exp{-i(\overrightarrow{k+l})\vec{r}} + \exp{+i(\overrightarrow{k+l})\vec{r}}
+\right\} + \text{c.c.} 
+}
+Hence the coupling of the heavy particles with the field of the electrons and neutrinos is given by the Fermi form
+\nequ{
+U=\sumX{s=1,2}{g_s\left(\Y^+\y Q + \text{c.c.}\right)_s},
+}{10}
+where $Q$ denotes the Heisenberg operator for the transformatiom of a neutron into a proton and $s=1,2$ indexes the 1st and 2nd heavy particles.
+
+The complex-conjugated (c.c.) terms in (10) correspond to the postitron \WTF{"anti"-decay}{"Gegen"-Zerfall} and yield (in our approximation) the same results as the electron terms, which is also immediately physically comprehensible. The integration of (10) gives the well-known result:\footnote{C.f. Ig. Tamm, Sow. Phys. 10, 567, 1937; C. Weizs\"acker, ZS. f. Phys. 102, 572, 1936.}
+\nequ{
+V=\frac{g^2}{hcr^5}\inv{2\pi^2}\left(Q_1 Q_2^+ + Q_2 Q_1^+\right).
+}{11}
+
+The earlier result\footnote{D. Iwanenko and A. Sokolow, ZS. f. Phys. 102, 119, 1936.} was derived by ignoring the factor $[1-\cos{(kl)}]$ arising from the spin and thus coincides with the spinless portion of the total result (Weizs\"acker's part $d$).
+
+Since it is known that the interaction (11) provides a too-small nuclear force, it has been attempted to work with the KU Ansatz with derivatives in the coupling (10). The introduction of the first derivative is indeed sufficient for first-order effects, but not second-order effects; these require the introduction of derivatives with \WTF{total order}{Gesamtordnung} three. \?{The assumption of the emission of not two, but several particles also leads to the same result, where apparently the next-smallest number is equal to four.}
+
+The coupling of the form
+\nequ{
+U\approx g'\Y\y^3,
+}{12}
+in place of (10) yields an interaction of the form $r^{-11}$, and with some hindsight, is equivalent to the introduction of a third-order derivative of the neutrino function. Our hypothesis is rather unaffected by the recent experiment by Nagendra Nath\footnote{Nagendra Nath, Nature 140, 501, 1937.}, which indeed only assumes the primary emission of a pair, yet cites grounds for the secondary \?{intensive} emission of a neutrino by the $\beta$-electron.
+
+From a theoretical standpoint it would be more satisfactory to regard all these generalizations of Fermi's approach \?{as initial the terms of an expansion in a new constant}. Recently, among others, Richardson\footnote{H.O.W. Richardson, Proc. Roy. Soc. A 161, 447, 1937.} has had success using the sum of the Fermi and KU approaches for the empirical interpretation of the $\beta$-spectrum, \?{the possibility of the introduction of the second constant and a double-parted formula had also been discussed by Tamm}. Hence the initial terms give the form of the spectrum, but the higher terms (with higher derivatives, or the terms corresponding to several particles) give back the nuclear forces in the correct order of magnitude. The situation seems broadly analogous to the relationship of Born's nonlinear theory to the Maxwell theory. The usual radiation theory with coupling to the electromagnetic field of the form $U=e\y$ allows in the first approximation the emission of only one photon (for brevity have have not distinguished between transverse and longitudinal photons). The Born theory however interprets the Maxwell potential as only the first term of an expansion in the quantity $r_0^4$, and allows even in the first approximation of the perturbation theory (\?{in higher approximations however the decomposition in $r^4_0$ or $1/b^2$}) the emission of many photons.
+
+It may also be useful to consider, instead of the primary Fermi coupling (11), the sum of the form
+\nequ{
+U \approx g_1 \Y\y + g_2 \Y\pddX{\y}{t} + \dots + g_{nm}\frac{\partial^m\Y}{\partial t^m}
+\frac{\partial^n\y}{\partial t^n}
+}{13}
+or the form
+\nequ{
+U \approx g_1 \Y\y + g_2 \Y\y^3 + \dots,
+}{13a}
+and even introducing the closed form of the decomposition (13) from the start, whete one imagines this latter as \WTF{approaching an individual constant}{nach einer einzigen Konstante schreitend} (to a specific new length, or to a "maximal density" of light particles).
+
+3. To conclude we couls like to give some remarks on the comparison of Dirac and Fermi methods of describing particle production. The matrix element of the "immediate" emission of a pair according to the Fermi theory
+\nequ{
+g'\int{\chi_m^+(\Y^+\y)\chi_m{d\tau}}
+}{14}
+(where $\chi$ denotes the wavefunctions of the heavy particles) and the matrix element for the creation of an electron-positron pair under the influence of a $\gamma$-photon (\?{internal conversion}) according to Dirac
+\nequ{
+e\int{{\Y^+_\text{el}}_n (vA){\Y_\text{pos}}_m {d\tau}}
+}{15}
+differ in appearance in many respects. But if second quantization is introduced for all particles, then the difference between radiating and radiated particles vanishes, since all partixles undergo a certain transition. Hence it is convenient to apply the above-mentioned double-decomposition for $\Y$ (8); equation (15) then appears to be precisely identical with the usual expression for the emission (absorbtion) of light during the transition $m \to n$. Then the only remaining difference is the emission of two particles in (14) and one particle (the photon) in (15). If one subscribes to the neutrino theory of light, then an expression bilinear in the neutrino wavefunctions can be put in place of $A$. Conversely one can also get to the form (15) starting from the Fermi expression (14).
+
+We have already mentioned above that the Konopinski-Uhlenbeck introduction of derivatives corresponds to some extent to the assumption of the emission of many particles, \?{and in this way leads to an increase in the independence between particles}. The introduction of the inverse operators, hence  integration instead of differentiation, must reduce the effective number of equivalent independent particles (two in the Fermi case), or introduce a certain degre of dependence or "coherence" between the particles. If e.g. the inverse d'Alembertian operator $\square^{-1}$ is applied to the Fermi approach (11), the covariance character of the Fermi coupling -- the time component of the vector
+\nequ{
+U = g'\chi^+ \frac{\Y^+\y}{\square}\chi \to g'\chi^+\int{d\tau}\frac{\Y^+\y}{r}\chi_{t' = t - r/c}
+}{16}
+-- is not changed. One such coupling between the field of the heavy particles and the field of the pair leads in fact to the interaction law $r^{-3}$ as opposed to $r^{-5}$, and it can be expected that further integration will give rise to still stronger dependence between the $\Y$ and $\y$ particles and will lead to some $r^{-1}$ law. Thus the components of the pair in (14), (16), etc can be considered as either electron-positron, electron-neutrino, or even neutrino-antineutrino. In his recent paper, A. Sokolow has, from an analogous standpoint, investigated the emission of an electron positron pair and two neutrinos. It results in the fact, though after a still-provisional investigation, that with an additional integration of (16) the two emitted neutrinos can be \?{made parallel}, which is precisely what is required for two "coherent" neutrinos to fuse into a photon; however, the photons lead to the Coulomb $r^{-1}$ law.
+
+If we compare the formula (16), which can be written most conveniently in Fourier components, with the Dirac formula for pair-production, then we notice a certain reciprocity. Namely, the vector potential $A$ in the matrix element (15) can be imagined as arising from the transition of heavy particles, and thus we can write
+\nequ{
+\square A &= e\chi^+ v \chi,\\
+A &= \frac{e\chi^+ v \chi}{\square}.
+}{17}
+In formula (16) (which only represents the coupling with the field and not the matrix element of the emission probability) however we see the operator $\square^{-1}$ applied not on the heavy, but rather on the light particles. Also, conversely one needs to replace the density of the heavy particles in the Fermi formulae (14), (16), etc by the associated potential. The closer investigation of this "reciprocity", which is formally connected with the \WTF{placement}{Verschieben} of the $\square$-operator, must above all specify the cases for which the "immediate" direct or Fermi probability for emission of the pair on the one hand, and the ordinary or Dirac emission on the other, become equal, and thus "reciprocity" becomes identity. \?{Since the constant $g'$ and the choice of the degree of coherence, i.e, the formulae (14), (16) or something like the K.U. Ansatz, are still undefined, the immediate pair-production at some millions of volts is rather less intensive, and at very high energies is more intensive than the Dirac}.
+
+The hypothesis that a proton can directly emit a pair instead of a photon $h\nu \ge 2mc^2$ leads to the possibility of explosive showers of electrons and positrons formed by protons, exactly analogously to Heisenberg's electron-neutrino showers. It seems \?{sensible} to also consider an analogous "immediate" pair-production by the electron itself, which would lead to a non-linear wave equation for the electron (additional term of the form $g'\Y^3$), and \WTF{permits via quantum-electrodynamical multiplication}{neben quantenelektrodynamischen multiplikativen gestattet} the formation of nonlinear explosive showers.\footnote{C.f. our earlier remarks: D. Iwanenko and A. Sokolow, Verh. Sibir. Phys.-techn. Inst. 4, 70, 1936 (russ.).}
+
+We shall however defer these questions, which are rather closely tied to the more precise description of the two heavy particles (whether these is an anti-proton, or if the neutron plays this role) to a later discussion.
+
+Siberian Physical-technical Institute, Tomsk.
+
+\end{document}

@@ -1,0 +1,371 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\renewcommand*\rmdefault{ppl}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{marginnote}
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+
+\nff{\WTF}{#1 (\textit{#2})}
+
+\nf{\translator}{\footnote{\textbf{Translator note:}#1}}
+\nc{\sic}{{}^\text{(\textit{sic})}}
+
+\newcommand{\nequ}[2]{
+\begin{align*}
+#1
+\tag{#2}
+\end{align*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{align*}
+#1
+\end{align*}
+}
+
+\nf{\sskip}{...\{#1\}...}
+\nff{\iffy}{#2}
+\nf{\?}{#1}
+\nf{\tags}{#1}
+
+\nf{\limX}{\underset{#1}{\lim}}
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+%\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+\nff{\intXY}{\underset{#1}{\overset{#2}{\int}}}
+
+\nc{\fluc}{\overline{\delta_s^2}}
+
+\rf{\exp}{e^{#1}}
+
+\nc{\grad}{\operatorfont{grad}}
+\rc{\div}{\operatorfont{div}}
+
+\nf{\pddt}{\frac{\partial{#1}}{\partial t}}
+\nf{\ddt}{\frac{d{#1}}{dt}}
+
+\nf{\inv}{\frac{1}{#1}}
+\nf{\Nth}{{#1}^\text{th}}
+\nff{\pddX}{\frac{\partial{#1}}{\partial{#2}}}
+\nf{\rot}{\operatorfont{rot}{#1}}
+\nf{\spur}{\operatorfont{spur\,}{#1}}
+
+\nc{\lap}{\Delta}
+\nc{\e}{\varepsilon}
+\nc{\R}{\mathfrak{r}}
+
+\nff{\Elt}{\operatorfont{#1}_{#2}}
+
+\nc{\Y}{\psi}
+\nc{\y}{\varphi}
+
+\nf{\from}{From: #1}
+\nf{\rcpt}{To: #1}
+\rf{\date}{Date: #1}
+\nf{\letter}{\section{Letter #1}}
+\nf{\location}{}
+
+\title{Pauli - July 1933}
+
+\begin{document}
+
+\letter{314}
+\rcpt{Heisenberg}
+\date{July 14, 1933}
+\location{Zurich}
+\tags{Hole theory,exchange forces,nuclear forces}
+
+Many thanks for your report on the nucleus, which I received almost simultaneously with the invitation to the Solvay Congress (though truly I have achieved nothing in the domain of nuclear physics). I very much look forward to seeing you there and finally being able to speak again in detail.
+
+First, some remarks, which are not yet ripe, but lie at the heart of nuclear physics. On page 26 you mention my suspicion that in $\beta$-decay, energy leaves the nucleus in a yet-unknown form as penetrating radiation. I openly confess to this view, but I would leave it open whether this radiation consists in neutrinos or in some still-unknown X.
+
+Almost more important than the conservation laws for energy and momentum in the nucleus are however the conservation of all discrete quantized quantities, thus
+
+1. The total angular momentum should always be conserved in nuclear processes. Since the orbital angular momenta and the light-quantum-spin are integers, it follows that the half resp. whole integer-ness of the total spin of all material particles taking part in nuclear processes should remain the same in the nuclear processes.
+
+2. The symmetry character of the \textit{total} system (Fermi or Bose statistics) should not change in nuclear processes (construction or destruction).
+
+I would initially like to hold to these assumptions \textit{unconditionally} as working-hypotheses, and follow them in their consequences before amending them.
+
+Initially I come to a conclusion which is in opposition to your view. -- If it is true that the neutron has spin 1/2 and Fermi statistics (and it is indeed probably difficult to understand the empirical results about the nuclear spin with other assumptions), then it follows that \textit{a neutron can never be decomposed into an electron and a proton via external fields (or otherwise). (\{On which I shall insist in Brussels}.) (Since indeed electron + proton has an integral spin.) I see \textit{support for} this interpretation and \textit{for the validity of angular-momemtum-conservation} in nuclear processes in the empirical fact that \textit{the H-atom is stable} and does not spontaneously transform (by emission of light) into a neutron. -- It is of course not true that this process would be \textit{a priori} improbable if a specific selection rule didn't hinder it. \{One would expect something like $\int{\psi_1 \psi_0 x {dV}}$, with $\psi_1$ an eigenfunction of the electron in the ground state, $\psi_0$ an eigenfunction in the neutron state (only significantly different from zero at a distance $\frac{e^2}{mc^2}$), for these processes. I recall that I once estimated this and arrived at a lifetime of about $10^{-2}$ to $10^{-3}$ seconds for the H-atom. \}
+
+Whether exchange forces between a neutron and proton exist as you assume must probably be decided by experiments on (elastic) \textit{collisions between neutrons and protons} and particularly on the angular distribution after the collision. Frl. Meitner reported in Zuricb about an experiment where the angular distribution in the center-of-mass system is isotropic. It seems to me that this rather speaks against exchange forces. Namely, in the absence of such \?{forces} every force-field, whose dimension (thus the "neutron radius") is small with respect to the wavelengths of the matter-waves of the particles, supplies an isotropic scattering\footnote{Casimir has drawn my attention to the fact that this rule applies even with non-isotropic force fields, which is amusing.}. (c.f. also Wigner, Zeitschrift für Physik). \textit{I would be interested in what your exchangw forces give for an angular distribution in this case}.
+
+In order to further discuss such exchange forces from the standpoint of angular momentum conservation, we must bring the following into consideration:
+
+(a) Though a neutron can never decay into an electron and a proton, it probably can decay, in a complex manner e.g. into a proton, an electron and a neutrino.
+
+or
+
+(b) A proton can decay into a neutron and a positive electron (\textit{Anderson}).\footnote{The discussion with the experimental physicists in Zurich has given that the mass of the neutron is still so imprecisely known that one cannot say whether the sum of the electron and a neutron is really greater than that of the proton, as it should be according to Anderson.}
+
+If one of these two possibilities is correct, then it certainly must give your postulated exchange forces between protons and neutrons, and my explanation for the stability of the H-atom would \textit{also} be correct.
+
+I have believed this for some time. But now it must be noted that the application of the conservation laws to the processes formulated in (a) and (b) immediately yields that they are only possible if the positive electron has Bose-Einstein statistics and whole-numbered spin (\textit{Elsasser}).
+
+If on the other hand one believes in the hole theory or a reformed surrogate for the same -- and I am now rather inclined to do this (see below) -- then one must postulate a far-reaching symmetry betweem the positive electron and the negative electron, specifically the spin, statistics and rest masses of the two must be assumed to be exactly the same. -- In this case, under the assumption of the conservation laws, a complicated decay of the proton into a neutron + other particle, or neutron into proton + other particle is not at all possible unless among the other particles there is something entirely new and previously unknown.
+
+\textit{Thus if the basic idea of the hole theory is correct, I would expect that the exchange forces postulated by you and Majorana bewteen neutrons and protons are not present}, or, if present, have a totally different cause than the "exchange" (see below). The collision experiment should be able to decide.
+
+I now add one more hypothetical, non-fundamental consideration, to which I in no way attach exaggerated value, which however seems amusing to me and can contribute somewhat to the still-murky question of the magnetic moment of the nucleus. The idea stems essentially from Casimir, Bacher has now published something similar (Physical Review, June 15th) on the occasion of the determination that the \textit{magnetic moment of the $\Elt{N}{14}$ nucleus is practicallt zero, although its angular momentum is $i=1$.} Since $\Elt{N}{14}$ = 3 $\alpha$-particles + 1 neutron + 1 proton, I have come to the following suspicions:
+
+1. The isotope $\Elt{Li}{6}$ ($\alpha$ particle + 1 neutron + 1 proton) empirically has, with greater precision, a nuclear \textit{magnetic} moment of 0, from which I concluded (with G\"uttinger) $i=0$. \textit{But now I believe that $i=1$} with $\Elt{Li}{6}$. It is empirically testable from intensity changes in the band spectrum of the $\Elt{Li}{8}-\Elt{Li}{6}$ molecule or with Rabi's molecular beam method.
+
+2. According to Lewis, the $\Elt{H}{}$-isotope with mass 2 ($\Elt{H}{2}$ = 1 proton + 1 neutron) has $i=1$. I suspect that it will have a magnetic moment of 0. Should be tested by Stern.
+
+The interpretation is suggested that in all three cases the spin angular momentum of the proton and neutron (without orbital angular momentum) are \WTF{directed in parallel}{parallelgleichgerichtet} and that \textit{the neutron has a magnetic moment that is exactly opposite to that of the proton (Bacher)}(\?{other signs mean: with the neutron it is anti-parallel to the angular momentum if, with the proton it is parallel with the angular momentum}, \textit{or vice-versa}).
+
+Now to the question of the \textit{hole theory}. -- I believe that the games with the concept of infinity in the present version of the theory are unacceptable and will eventually lead to contradictions. In particular, I don't see
+what becomes of the Coulomb interaction energy of the infinitely-many occupied states resp. how it can be uniquely stripped away without any arbitrariness. \textit{How is that \?{handled} in the scheme that you have been considering?} Then of course the still infinitely-large self-energy is still exceedingly unacceptable. Nevertheless I still hold it to be possible that it could become possible to somehow eliminate the \textit{abuse of the concept of infinity} from the present version of the theory and later to reach a formulation of the theory where no negative-energy states are present, but rather instead of those (while safeguarding relativistic invariance) the possibility of the birth and death of a pair of $+e$ and $-e$ particles with the exact same characteristics.
+
+Since it does indeed seem that such a birth actually takes place from \textit{one} $\gamma$-light-quantum, wherein the presence of the nucleus is without influence on the \textit{energy balance} of the process, and only serves to absorbe the (linear) \textit{momentum}. (Without the nucleus it is well-known that at least two light-quanta are needed, which will only happen much more seldomly.) -- Naturally through the inverse process the positive electron will again be annihilated with light emission in the negative electron shell of the same or a different atom.
+
+The hoke theory is if particular interest however with regard to the anomalous nuclear scattering of $\gamma$-rays. Delbr\"uck and Peierls have namely proven independently of one another that this can perhaps provide a simple explanation. In it one arrives either at the general structure of the nucleus, or your favorite idea (which I despise) that the neutron can decay into a proton and an electron, as the basis for explanation. Now I must note that Frl. Meitner has reported on an experiment from which emerges the unambiguous existence of an additional scattered radiation of unchanged wavelength from all anamolously-scattering nuclei. (Gray's and Farrant's arrangement contained experimental errors.)
+
+Now, initially expressed in the infinity-terminology of hole theory, in the presence of a nucleus, the occupied infinite continuum of the negative-energy states corresponding to the hyperbolic orbits always give a scattered radiation with unchanged wavelength with significant intensity when the states deviate significantly from the force-free states.
+
+I believe that even disregarding the infinity-terminology (which I don't take seriously), such an effect must be present, since it corresponds to the so-to-say unobservable intermediate state of the birth of a $+e, -e$ pair and its subsequent recombination, and since the momentum law can then be fulfilled in the presence of a nucleus (and only then).
+
+Whether the hole-theory is already at present free-enough of contradictions to enable a quantitative calculation of this effect (angular distribution, dependence of the nuclear charge and frequency of the incoming radiation), I am not sure. Peierls seems to hope so and is attempting a quantitative calculation of this and other effects.
+
+On these grounds I am thus not disinclined to believe in a type of reformed hole theory. Since for the time being I am still much less willing to give up the empirical validity of the conservation law for charge than even the conservation laws for energy and momentum and those for other discrete quantized quantities, and since additionally the stability of the neutron from decay into a proton and electron \!{is almost empirically certain from the lack of the combination of the two} ($\Elt{H}{}-\text{atom} \to \text{neutron}$) -- I now sit with the neutron in the nettles. If it is true that both the positive electron and neutron have spin-1/2 and Fermi statistics, then the idea that seemed tempting earlier, your exchange forces between protons and neutrons leading back to Anderson's postulated decayability of the proton into neutron + positive electron, is cut off.
+
+Where now do the forces between proton and neutron come from? (one could hardly get by with the magnetic spin forces \textit{alone} -- I assume, you will know better -- to explain the empirical colliaion cross-section.) It would indeed be quite unpleasant to assume that \textit{both} particles were totally stable. Even Stern's value of the magnetic moment of the proton speaks to the complex nature of the proton. Perhaps the proton as well as the neutron contains an as-yet-unisolated lighter particle? -- We are still somehow missing vital information. -- The $\beta$-decay also hovers as a great $X$ over all theories.
+
+Thus I end with a big question mark, and that the neutron can never decay into a proton and electron seems to be one of the few things that I can say with some certaianty -- that is, if the hole theory is true, and if the positive electron has Bose statistics and integral spin, as Eslasser assumes.
+
+Excuse the long-windedness, but I wanted to try to at least give a provisional ordering to the facts.
+
+I am curious what your answer will be!
+
+Warmly, your old W. Pauli
+
+\letter{316}
+\from{Heisenberg}
+\date{July 17, 1933}
+\location{Leipzig}
+\tags{hole theory, 314, exchange forces, qed}
+
+Dear Pauli!
+
+Many thanks for your interesting and learnes letter. First I would like to briefly write down my reflections on the hole theory.
+
+If one starts from the Hamiltonian function of quantum electrodynamics:
+\nequ{
+E&=\sum{N_s E_s} + \sum{M_{r\lambda}h\nu_{r\lambda}} + \sum{\pi\nu_r(P^r_3)^2}\\
+ &+ ie\sqrt{\frac{h}{4\pi}} \sum{c^{r\lambda}_{st} N_s \Delta_s \nu_s \nu_t \Delta_t N_t(
+   M^{\frac{1}{2}}_{r\lambda}\Delta^{-}_{r\lambda} -
+   \Delta^{+}_{r\lambda}M^{\frac{1}{2}}_{r\lambda})},\\
+P^r_3 &= -e\sum{N_s \Delta_s \nu_s \nu_t \Delta_t N_t d^r_{st}},
+}{1}
+(the notation is the same as in our paper), then one can initially split the sum over $s$ into a sum over positive energies (from now on: indices $s,t$) and one over negative energies (indices $\alpha,\beta$). If one further replaces the number $N_\alpha$ by $1-N'_\alpha$ - this is a pure relabelling - then one gets
+\nequ{
+TODO.
+}{2}
+The \WTF{stripping away}{Wegstreichen} of the effects of the infinite charge now happens simply through the omission of $\sum{E_\alpha}$ and \textit{through the changing the order of the last part of both equations}:
+\nequ{
+TODO.
+}{3}
+The omission of $\sum{E_\alpha}$ is probably harmless here, like the electrostatic self-energy. It is questionable however whether the change of the order of the last term \{i.e. the omission of an expression of the form
+\uequ{
+\sumX{\alpha}c^{r\lambda}_{\alpha\alpha}(
+  M^{\frac{1}{2}}_{r\lambda}\Delta^{-}_{r\lambda} -
+  \Delta^{+}_{r\lambda}M^{\frac{1}{2}}_{r\lambda})
+}
+destroys the relativistic invariance. I am not at all clear on this. But certainly it seems that we have the following: assuming we write in (3) not only the electrons but also the protons (quantities $L_s$ and $L_\alpha$, interaction-terms $C^r_{st}$ and $D^r_{st}$), then instead of (3) we get
+\nequ{
+TODO.
+}{4}
+This expression is distinguished from that of normal quantum electrodynamics, besides by $\sum{E_\alpha} + \sum{E^p_\alpha}$, only by
+\uequ{
+\left(\sum{c^{r\lambda}_{\alpha\alpha}} - \sum{C^{r\lambda}_{\alpha\alpha}}
+\right)\left(M^{\frac{1}{2}}_{r\lambda} \dots \right)
+}
+in $P^r_3$ there is the corrsponding term
+\uequ{
+\sum{d^{r\lambda}_{\alpha\alpha}} - \sum{D^{r\lambda}_{\alpha\alpha}}.
+}
+But now $d_{\alpha\alpha}=D_{\alpha\alpha}$, so the sum \WTF{is no longer necessary}{fällt weg} when one \WTF{performs a termwise-subtract}{gliedweise subtrahiert}, the same for $\sum{\left(c^{r\lambda}_{\alpha\alpha} - C^{r\lambda}_{\alpha\alpha}\right)}$, where here however it must be taken into account that the momentum vectors could be in all directions. In other words: If one takes the electrons and protons together, then with "\WTF{well-wishing}{wohlwollender}" summation the values of the infinite charges cancel eachother (which is also intuitively evident). So I believe, the swindle that lies within it, that one replaces (2) by (3), is not worse than any other swindle in quantum mechanics (self-energy!), and the form (3) seems just as firmly-(or un-firmly-) grounded as the whole quantum electrodynamics. Hence I believe rather strongly in the hole theory and think that in the future all problems, e.g. the scattering of gamma rays on nuclei, should be calculated with the schema (3).
+
+This schema regards the self-energy of a particle essentially differently than the present. E.g. instead of
+\uequ{
+\frac{e^2}{2}\int {u^s_\rho}^*(P) u^s_\sigma(P)
+    \inv{r_{pp'}} {u^t_\sigma}^*(P')u^t_\rho(P)\,d\tau d\tau'
+}
+now we have the formula
+\uequ{
+\frac{e^2}{2}\int {u^s_\rho}^*(P) u^s_\sigma(P)\inv{r_{pp'}}\left(
+ {u^t_\sigma}^*(P')u^t_\rho(P) - 
+ {u^\alpha_\sigma}^*(P') u^\alpha_\rho(P)\right)\,d\tau d\tau'.
+}
+Unfortunately, however, this does not prevent the self-energy from becoming infinite \?{when one encounters the corresponding change in Waller}.
+
+I will let the consequences of equation (3) be worked out by a clever doctorate student and would be grateful to know what has already been done by Landau and Peierls. Incidentally there will probably have to be detailed discussion about holes in Brussels. Has no one wrote a report on it?
+
+To the other questions in your letter: in scattering experiments with protons and neutrons, as Wick has \?{shown}, both exchange(Austausch) forces and normal forces are isotropic. The only difference between exchange- and normal forces is namely that after the collision, the two particles are exchanged (vertauscht). Only for very fast neutrons, with wavelength comparable to the dimensions of the nucleus, do the normal forces a maximum for the scattered neutrons at small angles, while the exchange forces give a maximum for the scattered \textit{protons} at small angles. Unfortunately, this is not known experimentally.
+
+Regarding the decay of neutrons into an electron and proton, I think: from the standpoint of your theory, one would always say: decay into electron, proton, neutrino, where the latter must be an elementary particle with spin 1/2. Even then exchange forces must enter. I don't believe Elsasser and Anderson at all. How far I believe in the conservation laws, I don't exactly know. \textit{The energy balance in $\beta$-decay empirically seems to me to probably be decisive for stability}.
+
+That the $Li_6$-nucleus has $i=1$ also seems plausible to me. Still, the assumption that the neutron's spin is oriented opposite the proton's, which I have discussed at length with Bloch (Bloch has already considered this thesis) has many difficulties. \?{The $g$-values of the other nuclei point much more (c.f. Fermi and Segr\'e) to the neutron having a magnetic moment of zero}.
+
+So, that is all that I know about the nucleus, unfortunately. I look forward to the discussions in Copenhagen and Brussels. Are you in Zurich this summer? If so, I'll perhaps come, as long as it is compatible with the new laws in Germany, for a few days.
+
+Warm greetings,
+Your W. Heisenberg
+
+\letter{317}
+\from{Peierls}
+\date{July 17, 1933}
+\location{Cambridge}
+\tags{hole theory}
+
+Dear Herr Pauli!
+
+I am not entirely as pessimistic as you concerning the question as to how far Dirac's hole model can be formulated so that it supplies unique answers. Namely it seems to me to be in a similar position as quantum electrodynamics, insofar as to the first approximation in the interactions, one can come to reasonable results, while higher approximations diverge. That applies in the case of the Dirac model, as I will elaborate further, and particularly with respect to the interaction with a potential field. In quantum electrodynamics, one previously got by with the principle that those effects for which one gets non-diverging results also correspond to reality. Hence I would suspect that kt is reasonable to try the same in the hole model. Then one of the most secure effects would certainly be the production of electron-pairs by light, since the formalism of calculating is so closely bound up with the photo-effect, that it is impossible that one could be false and the other correct, os far as one accepts the whole Dirac idea at all. (i.e. the hypothesis that there are annihilation processes, and that their existence is connected with the non-existence of states of negative energy.)
+
+So far as one constrains oneself to such effects in the first approximation, the theory can be formulated so that no infinities occur. (Since the self-energy is indeed a second-order effect.) One can do that in a similar fashion as we did it in our reflections.
+
+But, one does not arrive at a complete formalism in this manner, but rather only a heuristic scheme for calculating, since a decent formalism must be applicable at every order of approximation. In higher approximations, however, all sorts of \WTF{piggishness}{Schweinereien} occurs.
+
+The first question that you raised in your letter is however not a grave difficulty, since one shouldn't strike out the infinite Coulomb interaction energy of the electrons in negative states at all, but rather the equations should be written so that this infinite charge density produces no electrical field at all. That this is possible without contradiction can be intuitively seen by saying that one simply adds a just-as-large infinite positive charge density. To calm anxious minds, one can even interpret this as the charge density of -- doubtlessly also existing -- \textit{protons} in negative states. Hence I believe that in the force-free case, everything is in order. Naturally one must take into account the interactions between particles insofar as in the process of the creation of a pair of particles one must consider the interaction of these two particles on one another. But that causes only a presumably small and in any case finite correction.
+
+The Delbr\"uck argument, with the change of the particle density by the action of a potential field, is not new, Fermi found it as soon as he heard of the theory. If one wants to consider the effect in the Dirac picture with the infinitely-many negative electrons, then one gets no unique result. Namely, one can, remaining initially in the quasi-classical approximation, proceed in two ways: either one calculates the difference at a certain point in space of the density which arises from the electrons in negative states, by comparing the density arising from electrons from a certain energy interval $E,E+{dE}$ at the point with or without potential, and integrating this difference over $E$. In this case one gets an infinite effect, and indeed \?{in this sense} a strengthening of the potential field. For if one assumes e.g. the field of a positive charge, \WTF{then it indeed repels the electrons in negative states, the density associated with each electron is thus reduced by the potential field, one thus gets a new positive charge which is also, as one can easiky work out, infinite at every point}{so wirkt es ja auf die Elektronen in negativen Zustände abstoßend, die zu jedem Elektron gehörende Dichte wird also durch das Potentialfeld verringt, man bekommt also eine neue positive Ladung, die noch dazu, wie man leicht nachrechnen kann, an jedem Punkt unendlich wird}.
+
+The second possibility is that one conpares the density at a certain point $x$ arising from electrons with the energy $E$ with the density which, in the case of the potential field, is produced by electrons with the energy $E - V(x)$ -- hence with the same kinetic energy -- at the same point. However, this difference vanishes at the approximation considered here, since the two intervals belong to the same element in phase space, and when they are integrated over $E$, they remain zero. Thus with this approach, one gets in the quasi-classical approximation no change in the charge distribution, so one could only expect quantum effects.
+
+This ambiguity must naturally be remedied in any theory in which no explicit infinities occur. \?{Now fornunately it can generally be said what must emerge from such a theory, without explicitly specifying it}. Thus it happens that the \textit{second} approach is the correct one. This can be seen in the following fashion: we consider a case in which the potential can be treated as a small perturbation. Then without a potential there is no charge present, and switching on the potential $V$ a charge-density $\rho$ arises. Since the space integral of this density vanishes, the next-simplest quantity that can be calculated is $\int{\rho V {d\tau}}$. But this quantity is none other than the second-order \WTF{eigenvalue perturbation}{Eigenwertstörung} for the total system, and from which it is known that it must be negative, since the system is in a relatively-low state. (There are naturally still lower states, which can be described by shifting every negative electron a bit lower on the energy scale,V\?{but of course these are not reachable with the help of a nonvanishing matrix element}.) Thus so far as there is a contradiction-free way of writing the theory without explicit singularities, which satisfies the usual transfornation theory (or at least can be derived from a variational principle), $\int{\rho V{d\tau}}$ must be \textit{negative}. That means, however that the charge has opposite signs from the potential field, and has the tendency to compensate it. Thus, the result of the first reflection on the previous page can \textit{not} emerge from a decent theory.
+
+This argument can be put more precisely: if the potential is a small perturbation, then one gets (in understandable notation) for the eigenfunctions in the first approximation for every individual electron in negative state $i$:
+\uequ{
+u_i + \sumX{k}{\frac{V_{ik}}{E_i - E_k}u_k}.
+}
+There $k$ runs through negative as well as positive values. Thus the total change in the density distribution becomes:
+\uequ{
+\rho = \sumX{-i}{\sumX{+k}{\inv{E_i - E_k}\left[
+u^*_i u_k V_{ik} + u_i u_k^* V_{ki}\right]}} +
+\sumX{-i}{\sumX{-k}{\text{formally equal terms}}}
+}
+where the first term denotes the partial sum in which $k$ runs over positive states, and the second with negative. $i$ of course always runs over negative states, since only these are occupied.In the second sum, any two terms ar equal and opposite, since the summand is antisymmetric in an exchange of $i$ and $k$. A reasonable theory must be set up so that these ambiguous sums do not occur, since all of these jumps of individual electrons from one negative state to another do not corrsespond to any possible or permissable (according to the Pauli principle) transition in the total system, and if quantum mechanics is correct, then any change of the expectation value of any physical quantity must be connected with a possible transition in the system.
+
+In contrast, the first sum \?{remains standing}. It can't be explained away, since it is connected with transitions which absolutely must occur in the theory, namely with the production of pairs of particles. It gives a contribution which always goes in the direction of compensating the potential field, since the numerator becomes, after multiplication by $V$ and integration over space, positive-definite, while the denominator is negative ($E_i < 0, E_k > 0$). Unfortunately, this sum now \textit{diverges}.
+
+More specifically, the behavior is as follows: if one wants to know the $\xi$-th component of $\rho$, they it can be shown in general that in this approximation it is proportional to the $\xi$-th Fourier component of the potential:
+\uequ{
+\rho(\xi) = -B(\xi)V(\xi).
+}
+Here $B$ is a definite integral over the positive and negative states, which logarithmically diverges at states of infinitely-high resp. infinitely low energy, for any value of $\xi$.
+
+On the other hand we have the potential equation, which takes the following form after Fourier decomposition:
+\uequ{
+\xi^2 V(\xi) = 4\pi[\rho(\xi) + \rho_0(\xi)],
+}
+where $\rho_0$ is the "external" charge, that produces the potential field. Thus together one gets:
+\uequ{
+V(\xi) = \frac{4\pi\rho(xi)}{\xi^2 + 4\pi B(\xi)}.
+}
+Thus if $B(\xi)$ is infinite for all values of $\xi$, then $V$ vanishes identically at all spatial points.
+
+This result naturally signifies a considerable difficulty for the Dirac theory. It is of the same type as the self-energy, \textit{though probably not as bad}, since to eliminate of the self-energy, one must do something that amounts to the matrix elements belonging to very short waves no longer having a field-producing effect. But then the $B$ will also be finite, and since they are only logarithmically divergent, certainly sufficiently small to not come into conflict with experiment.
+
+The divergence here however occurs even earlier than the self-energy, namely without field quantization; but I don't believe that that is a fundamental distinction.
+
+It could still be asked, how far these results depend on the fact that we have constrained ourselves to the first approximation with respect to the potentials. \?{This assumption is justified by the fact that in the end the potential gives zero, which is certainly small, lower states could be imagined due to the singularity of the Coulomb potential}. I have not really sufficiently thought this over, but I believe that the salvation is not to be sought there.
+
+In summary I would thus like to say that this difficulty makes a decent rewriting of the Dirac model impossible at the moment, and that this difficulty is only soluable together with the self-energy question. On the other hand this does not signify a serious deficiency in Dirac's idea, since it is likely to have the same range as any theory can have that does not eliminate the self-energy.
+
+With best greetings,
+
+Your R. Peierls
+
+\letter{318}
+\rcpt{Heisenberg}
+\date{July19, 1933}
+\location{Zurich}
+\tags{hole theory}
+
+Dear Heisenberg!
+
+Many thanks for your detailed letter, from which what interested me most was naturally your explanation of Dirac's hole theory. It covers to a large extend what Peiers and I had considered at the time of the appearance of Dirac's hole paper. At the moment I am rather inept at dealing with signs and even \WTF{sign functions}{Vorzeichenfunktionen} and for this reason I would beg you to help me \?{with Ixen's technique}, that you wrote down \textit{the same} equations for the \textit{material particles in configuration space}, \?{as the corresponding equation in our second paper}: thus in addition to the light-quantum numbers $M_{r,\lambda}$ and $P_{r,3}$, the coordinates $x^s$ of the particles, and thus the coordinates of the \textit{actual} particles, the holes and the negative electrons. Thus, as in the close of our second paper, a sequence of configuration spaces and corresponding $\psi$-functions must be introduced, where $\psi^0$ corresponds to no material particles, $\psi^s$ to one electron, $\psi^\alpha$ to one positron, $\psi^{st},\psi^{s\alpha}, \psi^{\alpha\beta}$ to resp. two +, one + and one -, two - particles.
+\uequ{
+\psi^0,\psi^{s\alpha},\dots;\quad
+\psi^\alpha,\psi^{s\alpha\beta},\dots;\quad
+\psi^{s'}, \psi^{st\alpha'}, \dots
+}
+will then become connected to one another via the Schr\"odinger equation (and the auxilliary condition $\div E = -\rho$).
+
+It just comes down to splitting the operators $\alpha^{(s)}_\nu \phi_\nu (x^{(s)})$; ($x^{(s)}$ = particle coordinates) and the $\delta$-function $\delta(x-x_s)$ into an even and an odd operator, and reinterpreting the latter as creating or annihilating a particle-pair. -- I feel too uncertain about the signs to have it in proper order by the end of the semester and also believe that all the signs are wrong in in old handwritten calculations with Peierls.
+
+Concerning the splitting of operators into even and odd parts I would like to refer you to p.229 to 231 (small print) of my Handbuch article. Particularly, it yields by means of the function $D(x)$ defined on p. 231:
+\uequ{
+\sumX{t}{\sumX{\alpha}{\left\{
+u^{t*}_\sigma(P') u^t_\rho(P) - u^\alpha_\sigma(P') u^{\alpha*}_\rho(P)\right\}}}\\
+= D(x-x')\left(\sumXY{k=1}{3}{
+\alpha^k_{\rho\sigma}\frac{h}{i}\pddX{}{x^k} + \beta_{\rho\sigma}mc
+}\right).
+}
+The formula for the electrostatic self-energy was known to Peierls and me.
+
+Now comes the second matter about which I would ask you, and which Peierls and I have \textit{not yet} done any calculations. In the usual theory, $P_{r,3}$ can indeed be exactly eliminated (cf e.g. Handbuch article, p.265 and 266). What I would very much like to know, is \textit{what the basic equations of hole theory look like after the elimination of $P_{r3}$}, specifically, what becomes of the Coulomb interaction energy of the holes. Is there a sum of the type
+\uequ{
+\sumX{\alpha}{u^{\alpha x}(xy1)u^{\alpha}(x^2)\frac{e^2}{r_{12}}{dx^1}\,{dx^2}}
+}
+over \textit{all} $\alpha$ for the self-energy of the in-reality-empty cavity, \textit{or does it disappear in the transition from schema (1) to schema (3)}?
+
+I would be \textit{very} happy if you could write me on this.
+
+It seems thoroughly artificial that you brought protons into the discussion. Indeed one must only demand that the two equations (that for $E$ and that for $P_{r,3}$) are compatible with one another and that the theory is relativistically invariant. -- Now the relativistic invariance of the usual quantum electrodynamics has become trivial in the Dirac-Fock-Podolsky form with multiple times. The hole theory would in this formulation would chiefly demand the decomposition of $\alpha_\nu \phi_\nu(x_\rho,t_\rho)$ and $\Delta(x-x_s)$ (in the auxilliary condition) into even and odd components. However, it is just the decomposition of an operator into even and odd components that \textit{does not behave simpy} with respect to Lorentz transformations. If the time-dependence of the eigenfunctions is not that of the force-free case, then the particle number (as opposed to the total charge) is not relativistically invariant in the hole theory. That means, if in reference system $K$ there is certainly e.g. one + and one - electron present, then in system $K'$ there is in general (i.e. unless the particles are free of forces) a nonzero probability of finding no material particles present. (A remarkable, but not necessarily nonsensical consequence.) The $\psi^0, \psi^{s\alpha},\dots$ (charge 0) must transform into one another by Lorentz transforms, likewise the $\psi^\alpha,\psi^{s\alpha\beta},\dots$ (charge -1), $\psi^s, \psi^{st\alpha}$ (charge +1).
+
+For this reason I am \textit{also} not certain that the relativistic invariance is safeguarded in the transition from (2) to (3).
+
+\?{From Peierls} there have so far been only vague assertions without proof. However he promised to write me estensively soon. It would be best, if you could inquire directly about itbin writing (Cavendish Laboratory, Cambridge).
+
+I know that the hole theory has some peculiarities (which are probably connected with the infinite self-energy) which I am uncomfortable with. e.g. there are no longer stationary solutions which correspond to a completely \textit{empty} (of radiation as well as material particles) cavity. (The terms with $c^r_{s\alpha}$ and $d^r_{s\alpha}$ hinder this.) That was at the time exceedingly unpleasant to me.
+
+So then I believe that even in schema (3), an exterior (say produced by a proton) electrostatic field in an actually-empty cavity ($N'_\alpha=0, N_s=0$) must brings forth a charge distribution.
+
+Herr Weisskopf just wrote me, it turns out that the charge density always completely cancels the original potential field!! -- However I don't know how or according to what schema this is calculated.
+
+All in all: I would not be surprised if a series of completely absurd consequences could be drawn from your schema (3).
+
+This would still not mean that the hole theory "in itself" is false; it would rather mean that all effects can only be reasonably quantitatively calculated when the difficulty of the infinite charge density is solved.
+
+You shoukd write to Langevin about a report on hole theory for the Solvay congress. Besides you, Dirac or Peierls could write one (I am out of the question). It would indeed only be natutal if Dirac himself were to write it.
+
+It would of course be \textit{very lovely} if you could come in Summer. In any case, in August I am not very far from Zurich, either in Ascona (Lago Maggiore) or at Comosee or in the vicinity of Bozen; at the latter I am provisionally going to meet Born and Schr\"odinger.
+
+In any case in August I will be somewher which is not as hard to reach for you as Zurich. Do you want an invitation from the university, in order to satisfy the laws?
+
+In September I am taking a private vacation, probably \textit{not} to Copenhagen. However, I'll definitely be in Brussels for the Solvay congress.
+
+So write about the hole theory again and visit the area in August!
+
+Warmly,
+
+Your W. Pauli
+
+
+
+
+\end{document}

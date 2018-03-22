@@ -1,0 +1,127 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\renewcommand*\rmdefault{ppl}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{marginnote}
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+
+\nff{\WTF}{#1 (\textit{#2})}
+
+\nf{\translator}{\footnote{\textbf{Translator note:}#1}}
+\nc{\sic}{{}^\text{(\textit{sic})}}
+
+\newcommand{\nequ}[2]{
+\begin{align*}
+#1
+\tag{#2}
+\end{align*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{align*}
+#1
+\end{align*}
+}
+
+\nf{\sskip}{...\{#1\}...}
+\nff{\iffy}{#2}
+\nf{\?}{#1}
+\nf{\tags}{#1}
+
+\nf{\limX}{\underset{#1}{\lim}}
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+%\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+\nff{\intXY}{\underset{#1}{\overset{#2}{\int}}}
+
+\nc{\fluc}{\overline{\delta_s^2}}
+
+\rf{\exp}{e^{#1}}
+
+\nc{\grad}{\operatorfont{grad}}
+\rc{\div}{\operatorfont{div}}
+
+\nf{\pddt}{\frac{\partial{#1}}{\partial t}}
+\nf{\ddt}{\frac{d{#1}}{dt}}
+
+\nf{\inv}{\frac{1}{#1}}
+\nf{\Nth}{{#1}^\text{th}}
+\nff{\pddX}{\frac{\partial{#1}}{\partial{#2}}}
+\nf{\rot}{\operatorfont{rot}{#1}}
+\nf{\spur}{\operatorfont{spur\,}{#1}}
+
+\nc{\lap}{\Delta}
+\nc{\e}{\varepsilon}
+\nc{\R}{\mathfrak{r}}
+
+\nc{\Y}{\psi}
+\nc{\y}{\varphi}
+
+\nf{\from}{From: #1}
+\nf{\rcpt}{To: #1}
+\rf{\date}{Date: #1}
+\nf{\letter}{\section{Letter #1}}
+\nf{\location}{}
+
+\title{Pauli - March - April 1934}
+
+\begin{document}
+
+\letter{363}
+\rcpt{Heisenberg}
+\date{March 2, 1934}
+\location{Zurich}
+\tags{hole theory}
+
+Dear Heisenberg!
+
+I can easily answer our letter from the 1st: \textit{You are totally right}. Dirac has overlooked checking his \textit{Ansatz} for the field-free space (that also already attracted my attention).
+
+One can however easily set it right. One puts
+\uequ{
+f=f_1 +(t-\alpha_s x_s)g
+}
+for the true values $f_1,g$ as well as for the Dirac ones.
+
+In the force-free case one knows $R^a$, and thus $(f^0_1)_\text{true}$, where here and in the following the index $0$ shall indicate that it deals with the force-free case. Now one \textit{defines}
+\uequ{
+(f_1)_\text{true} = (f_1)_\text{Dirac} - (f^0_1)_\text{Dirac} + (f^0_1)_\text{true},
+}
+and defines with \textit{this} $(f_1)_\text{true}$ the separation of $R$ into $R^a$ and $R^b$.
+
+Naturally this \textit{Ansatz} is indeed possible, but completely arbitrary. I don't believe one syllable, and I like the whole hole theory less the more I think about it. -- Monday I start the joint paper with my and Weisskopf's calculations. Please write with your address if you leave Leipzig.
+
+Warmly,
+
+Your W. Pauli
+
+\letter{367}
+\rcpt{Pauli and Weisskopf}
+\date{April 10, 1934}
+\location{Leipzig}
+\tags{hole theory}
+
+Dear Pauli and Dear Weisskopf!
+\end{document}

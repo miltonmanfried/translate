@@ -1,0 +1,82 @@
+\begin{paper}{1}
+\begin{header}
+\title{On the quantum-theoretical molecular binding emergies.}
+\author{Hermann Weyl}
+\location{Göttingen}
+\note{Presented in the meeting on the 21st of November, 1930.}
+\makeheader
+\end{header}
+
+\newcommand{\op}[1]{\mathbf{#1}}
+\nc{\opS}{\op{s}}
+\nc{\opA}{\op{a}}
+\nc{\opE}{\op{e}}
+\newcommand{\conj}[1]{\overline{#1}}
+\newcommand{\adj}[1]{\widetilde{#1}}
+\newcommand{\inv}[1]{{#1}^{-1}}
+
+\section{Preparatory mathematical remarks on symmetry operators and symmetric linear transformations of tensors.}
+
+On a function $\psi(x_1\dots x_f)$ of $f$ arguments $x$ running through the same range of values one may apply a permutation $\opS$; the resulting function will be denoted by $\opS\psi$. More generally, one can apply a \textit{symmetry operator} to $\psi$
+\uequ{
+\opA = \sum\limits_s a(s)\cdot \opS,
+}
+whereby from $\psi$ the function
+\uequ{
+\dot\psi = \opA\psi,\quad
+\dot\psi = \sum\limits_s a(s)\cdot \opS\psi
+}
+arises. Such symmetry operators can be added and multiplied, i.e. executed one after another. In fact,
+\uequ{
+\op{b}(\op{a}\psi) = \op{c}\psi
+}
+where the components of the product $\op{c}=\op{b}\op{a}$ are determined by
+\uequ{
+c(s) = \sum\limits_{(tt'=s)}b(t)a(t');
+}
+the sum stretches over all pairs of permutations $t,t'$ which give the product $tt'=s$.
+
+All functions $\psi'$ of the form
+\nequ{1}{
+\psi'= \opE\psi
+}
+form a \textit{symmetry class}; the fixed operator $\opE$ should here be \textit{idempotent}, namely the equation $\opE\opE=\opE$. That states that if the function $\psi'$ already possesses the desired symmetry (1), it is reproduced by application of the operator $\opE$: $\opE\psi'=\psi'$. So e.g. the \?{idempotent operators}{die Idempotente}
+\uequ{
+\opE = \frac{1}{f!}\sum\opS \quad\text{ resp. }\quad
+\opE = \frac{1}{f!}\sum\delta_s\cdot\opS
+}
+produce the class of symmetric resp. \?{skew-symmetric}{schiefsymmetrischen} functions. $\delta_s = \pm 1$ according to whether s is an even or odd permutation. The "functions with the symmetry $\opE$" are identified by the equation $\opE\psi=\psi$. The "primitive" idempotent operators, which produce the function classes of \textit{no longer increasing} symmetry, are complete such that any function can be additively put together from functions of those symmetry classes, first explicitly put forward by A. Young. F. Hund rediscovered them for the purpose of quantum physics in a well-known work.
+
+The conjugate $\adj{\opA}$ of a symmetry operator $\opA$ is introduced by the equation $\adj{a}(s)=\conj{a}(\inv{s})$; the overline denotes the transition to the complex conjugate. $\opA$ is \textit{real} if it coincides with its conjugate. The primitive idempotent $\opE$ producing the symmetry classes could be assumed real.
+
+A function $\psi(i_1\dots i_f)$, in which argument $i$ runs through the same range consisting of only \textit{finitely many values}, namely the $n$ values $i=1,2,\dots,n$, is called a $\Nth{f}$\textit{-degree tensor} in $n$-dimensional space $\mathfrak{R}_n$. An arbitrary linear transformation in $\mathfrak{R}_n$,
+\nequ{2}{
+\op{A}: x_i' = \sum\limits_{k=1}^n a(ik)x_k
+}
+gives rise to the transformation $A^{(f)}$ on the $\Nth{f}$-degree (in $\mathfrak{R}_n$) tensor:
+\nequ{3}{
+\psi'(i_1\dots i_f) = \sum\limits_{(k_1,\dots,k_f)}a(i_1k_1)\dots a(i_fi_k)\cdot\psi(k_1\dots k_f).
+}
+It is a special \textit{symmetric} transformation in the $n'$-dimensional linear manifold $\mathfrak{R}_n'$ of that tensor. Namely, I call the linear transformation
+\nequ{4}{
+\psi'(i_1\dots i_f) = \sum_{(k)}a(i_1\dots i_f; k_1\dots k_f)\cdot\psi(k_1\dots k_f)
+}
+in the tensor space symmetric when the coefficient $a$ does not change if the two series of indices $i_1\dots i_f$ and $k_1\dots k_f$ are simultaneously subject to the same permutation. Thus, it follows from (4) that
+\uequ{
+\opS\psi'(i_i\dots i_f) = \sum\limits_{(k)}a(i_1\dots i_f;k_1\dots k_f)\cdot \psi(k_1\dots k_f).
+}
+From that it emerges that the \?{relation}{Zusammenhang} (4) is invariant with respect to each symmetry operator acting on the tensor:
+\uequ{
+\op{c} = \sum\limits_s c(s) \opS;
+}
+i.e. if $\varphi=\op{c}\psi$ and at the same time $\varphi'=\op{c}\psi'$, there exists between $\varphi$ and $\varphi'$ the same relation (4) as between $\psi$ and $\psi'$. Conversely a relation of the form
+\nequ{5}{
+\varphi = \op{c}\psi,\quad
+\varphi = \sum\limits_s c(s)\cdot \opS\psi
+}
+is invariant with respect to every linear symmetric substitution (4). The matter before us can also be formulated by stating that the symmetric linear transformations (4) and the operators of the form (5) commute with one another. This finds a particular application to the special symmetric transformations (3) which are induced by the linear transformations of the space $\mathfrak{R}_n$ on the tensors\footnote{The precise correspondence that exists between the permutation group and the "algebra" of symmetric transformations is analyzed in an elementary manner in connection to a paper appearing in the Annals of Mathematics, 20, 1929, 499 in the upcoming 2nd edition of my book "Gruppentheorie und Quantenmechanik". Herr van der Waerden has noted that this theory can likewise be grounded in the commutability mentioned in the text: Mathem. Annalen 104, 1930, 92.}.
+
+\section{The eigenvalue problem in the space of spin tensors.}
+
+In the quantum physics, as long as spin is ignored, the state of a structure consisting of $f$ electrons is described by a "$\Nth{f}$-degree tensor" $\psi(P_1\dots P_f)$, in which each of the arguments $P$ varies freely in the region of all points of space. The eigenfunctions and associated terms decompose into symmetry classes; let $\psi$ be an eigenfunction for the term value $\nu$ and of symmetry $\opE: \opE\psi = \psi$, $\opE$ a primitive idempotent. If there are several atoms $a,b,c,\dots$ present, then, \textit{if the interaction between atoms is initially ignored} (reduced problem), from the-9[] given eigenfunctions $\psi_a,\psi_b,\psi_c,\dots$ of the individual atoms which are associated to the terms (eigenvalues) $\nu_a,\nu_b,\nu_c,\dots$ and the symmetries $\opE_a,\opE_b,\opE_c,\dots$, by multiplication of an eigenfunction of the molecule put together from the atoms we get:
+\end{paper]nn`. 

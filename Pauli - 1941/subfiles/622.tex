@@ -1,0 +1,95 @@
+\letter{622}
+\rcpt{Fierz}
+\date{February 12, 1941}
+\location{Princeton}
+
+\nc{\va}{\vec{a}}
+\nc{\vb}{\vec{b}}
+\nc{\vp}{\vec{p}}
+\nc{\valpha}{\vec{\alpha}}
+\nc{\vsigma}{\vec{\sigma}}
+\nc{\vGamma}{\vec{\Gamma}}
+\nc{\vP}{\vec{P}}
+
+Dear Herr Fierz!
+
+I it has greatly pleased me to hear from you again from cold dark Switzerland, and I would be happy to answer the main question of your letter. I had already done that earlier, but had run into an unexpected circumstance in the unitary representation of the Lorentz group for integral $j$ and $m$, which we still haven't been able to clarify (as you shall also see). I have already done the pure algebraic analysis of the commutation relations for the infinitesimal (\textit{Hermitian!}) operators $\va, \vb$ (in the Majorana notation from your letter) in Autumn, and I would summarize the result as follows: the eigenvalues of $J = \vb^2 - \va^2$ and $C = (\va, \vb)$ are related by
+\nequ{
+J=1-n^2 + \frac{C^2}{n^2}, n=1/2, 1, 3/2, \dots.
+}{I}
+
+The eigenvalues of $\va^2 = j(j+1)$ satisfy $j \ge n$. $C$ runs from $-\infty$ to $+\infty$. But for a representation which contains $j=0$, $C$ is necessarily $0$ and there is still a continuous spectrum $J\ge 0$:
+\nequ{
+J \ge 0, \quad C = 0, \quad J = 0, 1, 2, \dots.
+}{II}
+
+As far as I can see, that completely agrees with your statement. Incidentally \textit{Thomas} has published a paper\footnote{Annales of Mathematics \textbf{62} 113, 1941} in which the corresponding rather more incomprehensible analysis for the analysis for the infinitesimal transformations of the group of the de Sitter space 
+which corresponds to the invariance of $x_1^2 + \vec{x}^2 - x_0^2 = 1$, with one more dimension
+ and its unitary representations is carried through.
+ 
+Now the $\va, \vb$ can be specifically realized by differential operators on a hyperboloid $p_0^2 - p^2 = \epsilon$ 
+cases $\epsilon = -1, 0, \text{ or } +1$
+, possibly with recourse to the Dirac matrices in the half-integral case. The simplest case is that corresponding to the scalar wave equation, where we put
+\uequ{
+\va = +i\left(\partial/\partial\vec{p} \times \vec{p}\right), \quad
+\vb = -i\left(\partial/\partial p_0 \vec{p} \times \partial/\partial\vec{p}p_0\right).
+}
+But we have found \textit{that then the whole spectrum (II) is not obtained, but rather only thr part $J \ge 1$}. Even with all other more complicated realizations of $\va, \vb$, one of the parts $[0<J<1]$, $C=0$ is always missed -- \?{and precisely because of this one needs specifically $J=3/4$} for the Majorana equations. Up to now we have not succeeded in realizing the representation with $0<J<1$ with differential operators. But we don't even know what the point $J=1$ could mean group-theoretically. (What I wrote in my first letter on the notation of the Majorana equations with differential operators in the whole-numberes case has thus been proven to be incorrect.) Thus that is still an open problem.
+
+Here I want to address the answer of your earlier question as to the eigensolutions on the light cone. There one finds, with $p_0 \equiv \sqrt{\vec{p}^2} \equiv r$:
+
+\uequ{
+\vb^2 - \va^2 = -(r^2\partial^2/\partial r^2 + 3r\partial/\partial r)
+}
+(The terms with the derivatives by the angle functions $\vartheta$, $\varphi$ have fallen out. Hence the angular dependence \?{of the} $f(\vartheta, \varphi)$ of the eigenfunction is \textit{arbitrary}!!)\\
+Eigensolutions
+\uequ{
+u = f(\vartheta, \varphi)\frac{r^{i\alpha}}{r},
+}
+with $\alpha$ necessarily real -- since otherwise the function increases to strongly at infinity.\\
+Lorentz-invariant volume element:
+\uequ{
+{dV} = r{dr}{d\Omega} \text{(not $r^2{dr}{d\Omega}$)}
+}
+hence properly $u^*(\alpha)u(\alpha'){dV} = ff^*{d\Omega}\exp{i(\alpha'-\alpha)\log{r}}{d(\log{r})}$. Thus you could speak of spherical waves in the variable $\log{r}$. -- You immediately find $J=1+\alpha^2 \gg 1$. You see the typical behavior: at $J=1$ \?{something happens} in the eigensolutions, while in the representation matrices nothing happens there. Only for $J=0$ \?{do the representations themselves stop}. (N.B. this case of the light cone is very well-suited to explicitly specify the representation matrices for \textit{finite} Lorentz transformations.)
+
+Now for the half-integral case. There the Dirac equation
+\uequ{
+p_0 + (\va\vp) + \hx\beta = 0
+}
+(which is is interpreted here as a definition of $p_0$) with
+\uequ{
+\va &= +i\left(\pddX{}{\vp}\times\vp\right)+\inv{2}\vsigma\quad\sigma_1 = -i\sigma_2\sigma_3,\dots\\
+\vb &= -ip_0\pddX{\vp} + \inv{2}i\valpha,
+}
+($\vb$ is then Hermitian by virtue of the Dirac equation) supplies a lovely case, which incidentally is useful for the \?{adaptation} of the Majorana equation.
+
+Following Bargmann, the operator identity $J=3/4 + 4C^2$ ($C$ arbitrary) is applied here. That means $n=1/2$, $j=1/2,3/2,\dots$. Majorana's half-integral case corresponds to $J=3/4$, $C=0$, and is thus excluded. Bargmann has further found that the operators
+\nequ{
+-\Gamma^0 &= \Gamma_0 = \left\{+i \left(\left[\pddX{}{\vp}\times\vp\right]\cdot\vsigma\right) + 1\right\}\beta
+}{*}
+\uequ{
+\vGamma &= \left\{\valpha + ip_0\left[\pddX{}{\vp}\times\vsigma\right] + 
+\left[\pddX{}{\vp}\times\vp\right]\alpha_1\alpha_2\alpha_3\right\}\beta
+}
+fulfill the correct commutation relations with the $\va, \vb$, i.e. that they are a vector. However, they anticommute with $C$.
+\uequ{
+\Gamma C + C\Gamma = 0,\quad \vGamma C + C\vGamma = 0,
+}
+thus commute only with $C^2$ (and with $J$), i.e. they in general contain transitions from $+C$ to $-C$. Specifically it is however possible to postulate the auxilliary condition
+\uequ{
+C=0
+}
+as a differential equation. Then for the expression (*) could be inserted for the $\vGamma, \Gamma^0$ into the Majorana equations $\{\Gamma^0 P_0 + (\vGamma\vP) + \hx\}\psi = 0$, which now appear as equations in a $\{\vp, \vP + \text{Spinor (4 indices)}\}$-space.
+
+In the half-integral case we get all of the representations one would expect here (the theories with higher spin give the higher represenations), and the anomaly that a part of the spectrum is omittedis not present here.
+
+I enclose a letter from Weisskopf, which is not in agreement with your arguments on the change in volume of the nucleus with the creation of negative neutrons. Here the calculations of Christy-Kusaka have make quite an impression of us. There we only used the electromagnetic part of the theory (Proca) and \?{a reasonable cut-off}. At the moment I don't see how the assumption that cosmic ray mesons have spin 1 can be kept up. Weisskopf is for spin $1/2$ (but there one must assume the spontaneous decay of mesons into electron + photon
+, I am more for spin 0. Incidentally Schein and the entire Chicago group have done a further very painstaking experiment, specifically on the creation of mesons, which in any case don't seem to be electromagnetic. Herr Corben is now here and I will perhaps work with him on the meson theory. \{N.B. Corben is incidentally an Australian. \} -- I have a letter from Bhabha from India (Bangalore) from November. He \?{draws carefully} and hopes in addition to have completed a book on cosmic rays by Summer.
+
+In recent days I have worked with Weisskopf (who is now back again in Rochester) on the application of Wentzel's method to the positron theory. Please give Wentzel my greetings and I hope to write to him soon.
+
+Many greetings \?{from house to house} and also regards to your parents,
+
+Your devoted W. Pauli
+%But w careful with that \chi, eugene

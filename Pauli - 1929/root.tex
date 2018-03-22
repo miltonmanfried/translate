@@ -1,0 +1,394 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\renewcommand*\rmdefault{ppl}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{marginnote}
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+
+\nff{\WTF}{{#1}(\textit{#2})}
+
+\nf{\translator}{\footnote{\textbf{Translator note:}#1}}
+
+\newcommand{\nequ}[2]{
+\begin{align*}
+#1
+\tag{#2}
+\end{align*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{align*}
+#1
+\end{align*}
+}
+
+\nff{\iffy}{#2}
+\nf{\?}{#1}
+
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+
+\nc{\fluc}{\overline{\delta_s^2}}
+
+\rf{\exp}{e^{#1}}
+
+\nc{\grad}{\operatorfont{grad}}
+\rc{\div}{\operatorfont{div}}
+
+\nf{\pddt}{\frac{\partial{#1}}{\partial t}}
+\nf{\ddt}{\frac{d{#1}}{dt}}
+
+\nf{\inv}{\frac{1}{#1}}
+\nf{\Nth}{{#1}^\text{th}}
+\nff{\pddX}{\frac{\partial{#1}}{\partial{#2}}}
+\nf{\rot}{\operatorfont{rot}{#1}}
+
+\nc{\lap}{\Delta}
+\nc{\e}{\varepsilon}
+\nc{\R}{\mathfrak{r}}
+
+\nc{\Y}{\psi}
+\nc{\y}{\varphi}
+
+\nc{\E}{\mathfrak{E}}
+\rc{\H}{\mathfrak{H}}
+
+\nf{\from}{From: #1}
+\rf{\to}{To: #1}
+\rf{\date}{Date: #1}
+\nf{\letter}{\section{Letter #1}}
+\nf{\location}{}
+
+\title{Pauli correspondence - 1929}
+
+\begin{document}
+
+\letter{216}
+\to{Oskar Klein}
+\date{February 18, 1929}
+\location{Zurich}
+
+
+\nf{\Div}{\operatorfont{Div}{#1}}
+
+Dear Oskar!
+
+I would now like to finally explain my long-cherished view, to write to Copenhagen in detail once again. That I now write to you and not to Bohr has several reasons, 
+
+but this time \textit{not} from some misguided need to not trouble Bohr for an answer (I know that he is \?{only} happy when he gets a letter from me, \?{which is incidentally mutual}), but rather first it is because I believe that as a friend, I owe it to you to write you once again. Often I thought back to the cozy evenings that I spent in your home! Second, in the course of this letter, ther are quite learned mathematics; in Copenhagen, it is now you that is competent for this, and I would ask you to clarify these to Bohr (as always, show him this letter).
+
+At the start of this semester (Autumn 1928) I was rather distant from physics, I was very slothful (c.f. my last card to Bohr), but still very fresh and in good spirits. For my own amusement at that time I made a brief outline of a utopian novel, which should have the title "Gulliver's Travels to Uranus" and was conceived in the style of Swift as a political satire against the present democracy, namely against everything which even remotely smells of elections, parliaments, voting, and majorities! Entangled in such dreams, in January suddenly news arrived from Heisenberg that he, by means of artifice (explained in more detail in the following), could sidestep the formal difficulties which stood in the way of the completion of our quantum electrodynamics, so that the relativistic many-body problem is now in a certain sense solved! I travelled soon thereafter to Leipzig, where with Heisenberg a program of work for the still-failing calculations (meanwhile they were all completed) was agreed upon. So I was thrown from a period of dreamy sloth into one of such intensive work; the utopian outline has been buried deep in my desk, and there it is still (certainly a good thing), and the non-commutative space-time functions have emerged from there. Now I stand before the necessity of writing around 10 paragraphs of a paper with Heisenberg (in which I am already a little terrified by the many signs, as well as factors of $2$ or $1/2$ or $2\pi$ or $i$) -- since Heisenberg travels to America around March 1 (remaining over there until around October) and we absolutely still want to complete our publications beforehand and send them to the Zeitschrift! Naturally I will gladly ensure that a copy or correction is sentvto Copenhagen (where I modestly presume to be self-evident that there will be great interest in our paper there...).
+
+In order to now explain the aforementioned Heisenbergian artifice, I would like to put forward a report on the state of our thinking at the time, which I'd held for sbout a hear in Copenhagen. Given a Lagrangian $L$, one obtains for each field variable $Q_\alpha$ the conjugate momentum $P_\alpha$ by differentiation of $L$ by the time-derivative $\pddX{Q_\alpha}{t} \equiv \dot{Q}_\alpha$ of $Q_\alpha$:
+\nequ{
+P_\alpha = \pddX{L}{\dot{Q}_\alpha}.
+}{1}
+
+The canonical commutation relations (abbreviation: C.R.) of the field variables at two space points $P$ and $P'$ and \textit{the same point in time} then read
+\nequ{
+\{Q_\alpha(P), Q_\beta(P')\}=0,
+\{P_\alpha(P), P_\beta(P')\}=0,
+\{P_\alpha(P), Q_\beta(P')\}=\frac{h}{2\pi i}\delta_{\alpha\beta}\delta(P-P'),
+}{I}
+where $\delta$ is the usual Dirac singular function. The difficulty now lies in that these canonical C.R. could not be applied to the Lagrangian of vacuum electrodynamics
+\uequ{
+L=\inv{2}F_{\alpha\beta}F_{\alpha\beta},
+}
+since this $L$ does not contain the time-derivative $\dot{\phi}$ of the scalar potential, the momentum $P_4$ conjugate to $\phi$ thua vanishes identically. It is even worse with matter waves, since from the equation
+\uequ{
+\div{\E} = s_4(\Y^*,\Y)
+}
+it can be easily concluded that $\E^{(P)}$ cannot commute with $\Y^{(P')}$, even at \textit{finite} distance between $P$ and $P'$.
+
+This difficulties all vanish if adds to $L$ an auxiliary term
+\uequ{
+L'=\epsilon \inv{2}(\Div{\phi})^2,
+(\Div{\phi} = \sumXY{\alpha=1}{4}\pddX{\phi_\alpha}{x_\alpha})
+}
+(Heisenberg's artifice). The canonical C.R. (I) are applicable and the potentials and field strengths of the electromagnetic fields are \textit{commutable} with the variables $\Y$ and $\Y^*$ of the matter waves (always at the same point in \textit{time}). It is seen that one can work out all problems in this manner and in the end result one can go over to the limit $\epsilon \to 0$, where one then always arrives at physically-reasonable results.
+
+As applications of the theory, we have \?{been taking} as the most important (aside from retardation effects) a consideration of the Gamow model of the nucleus for the case where the radiation forces are considerable. It turns out that even with a sharp nuclear state, the outgoing electrons, as a consequence of \WTF{secondary}{zusätzlicher} $\gamma$-emission \textit{must} have a continuous velocity spectrum! I am even rather certain (Heisenberg not so confident) that the $\gamma$-rays must be the cause of the continuous spectrum of $\beta$-rays and that Bohr is on the \textit{completely wrong} track with his considerations on this about a violation of energy conservation! I also believe that the heat-measuring experimentors somehow cheated and the $\beta$-rays only escaped them up to now as a result of their clumsiness. But I understand too little of experimental physics to be able to prove this view (nor was I able to discuss this matter with Fraulien Meitner last time, which I would have liked to have done) \?{and so Bohr is in the pleasant position by utilizing my own general helplessness in the discussion of experiments and, citing Cambridge authorities (incidentally without supporting literature), to be able to make a fool of me}! Obviously you will always most zealously defend him, since you remarkably consider it your human duty with respect to Bohr to defend all of his momentary views \WTF{to the minutest points}{bis auf das Pünktchen auf dem i} \?{at first approach}, even regardlessly of whether you have understood Bohr's arguments at all!
+
+After this little insult-intermezzo (even if it should be pointed out, that I am factually wrong, it is, I believe, in any case pedagogically correct) I want to transition to the principle shortcomings of Heisenberg's theory and to discuss them. This theory can be described \WTF{by the correspondence principle}{korrespondenzmäßig}, insofar as indeed e.g. all expressions for the Lagrangian of the field are taken over directly or indirectly from the classical theory. And I believe that we have now come to the natural end of the force and the scope of the \WTF{correspondence idea}{Korrespondenzgedankens} to the basis of wave mechanics. Essentially, our theory fails everywhere where the classical models fail. Specifically, the following are problematic:
+
+1. Our expression of the energy of the electromagnetic field contains an additive, infinitely-large constant, namely the self-energy of the elementary particles (we can \textit{not} take this away like you and Jordan had done!) plus the zero-point energy of the radiation. Although this constant is \textit{common} to all stationary states and always falls out when comparing differnt states, so that one can practically calculate with our formulae, this nevertheless is a fundamental \WTF{ugliness}{Schönheitsfehler}.
+
+2. \?{Since} our theory takes over the treatment of the \textit{one}-body problem of the Dirac theory of the electron, all of its fundamental flaws are thus carried over to our theory. The grisly consequences of the two signs for the electron mass (runaway radiation, etc) thus also remain with us! ("In this connection it may be remarked" (I recognize this sentence from Bohr): it is simply a \textit{scandal} and a \WTF{lack of consideration}{Rücksichtlosigkeit} on your part with respect to the portion of your fellow men concerned with physics that you still have not published your thoughts on the reflection of electrons at boundary layers and their remarkable transit through these at high velocities!) Thus also no analysis of \WTF{annihilation processes}{Zerstrahlungprozesse} and the like!
+
+3. The symmetric and antisymmetric statistics of the electrical elementary particles formally appear \textit{a priori} as equally-justified possibilities. In one case we have
+\uequ{
+\Y_r(P)\Y^*_s(P') - \Y_s^*(P')\Y_r(P) = \delta(P-P')\delta_{rs},
+}
+in others
+\uequ{
+\Y_r(P)\Y^*_s(P') + \Y_s^*(P')\Y_r(P) = \delta(P-P')\delta_{rs},
+}
+otherwise everything is the same. One gets absolutely no explanation of the inner reasons for my exclusion principle. (Jordan has written great nonsense on this point in the last volume of the "Ergebnisse der Naturwissenschaften"!)
+
+4. We have three types of fields, which seem to be logically independent:
+\begin{enumerate}
+    \item The matter waves $(\Y,\Y^*)$ for protons,
+    \item the matter waves $(\Y,\Y^*)$ for electrons,
+    \item the electromagnetic field $(\phi_\alpha)$.
+\end{enumerate}
+
+Not only are the associates operators commutable, but the Langrangian function consists of three independent summands, between which a logical relation, I mean an inner connection, is not established. A uniform interpretation of all wave fields would in my opinion be absolutely welcome!
+
+I believe that there only totally new ideas could help us further. (Side note: I now hold Eddington's "136-paper" to be complete nonsense; more exactly: to be romantic poetry and not physics.) In the last card which Bohr wrote to me, there was the sentence "Klein diligently worked on the relativity problem in Autumn, and has some thoughts from which he expects a lot." I would be very happy to hear some more of your ideas, especially if they have anything to do with the four aforementioned points.
+
+How are you all otherwise? How is your wife? How are Bohr's young boys? \?{What of} Bohr's treatise? -- Is Nishina still in Copenhagen? Or has the legend that he would again return to Japan now become reality? -- Do a lot of dumb people again work in Bohr's institute? (If \textit{not}, I am always a bit uncomfortable there, and I have the feeling that something is missing!) -- From "Nature", I have gathered that \?{Rosseland}, under the pretext of doing scientific work there, has made a trip to the North Cape paid for by the state! I am quite envious of him about this, and wish that I could do the same!
+
+So, write me again soon, I long to hear more details from you all!
+
+Warmly, your old
+W. Pauli
+
+\letter{218}
+\to{Klein}
+\date{March 16, 1929}
+\location{Zurich}
+
+Dear Klein!
+
+Many thanks for your last letter. I could possibly come to Copenhagen rather earlier than the start of the conference. You've still however not announced a date for this. I would beg you to do this as soon as possible, and also write me as soon as possible as to what people are coming to this conference and what requirements as regards to lectures, etc are imposed on me (naturally it would be best if there were none at all). Incidentally, could I again stay at the institute, as always before? Please write me at the address: Wien XVIII, Weimarstrasse 31, ?{in Behr}, I am there from March 20 to April 1. Afterwards, my place of residence is still undefined. Probably I'll \?{stay} a couple of days in Berlin station, in order to observe Bonhoeffer's new experiments on ortho- and para- $\text{H}_2$ 
+which are distinguished by the value of the resulting spin-moments, c.f. the note appearing in "Naturwissenschaften", and to, if possible, to also speak to Frl. Meitner for the purpose of collecting empirical material against the Copenhagen mischief. So I could be in Copenhagen at the end of the week after Easter (April 5 to 7), but not earlier; if you want me to come later, please feel free to write me (I would however like to depart Copenhagen soon after April 15).
+
+In two days a copy of my and Heisenberg's paper is being sent to you, which you can gladly keep. (I've also arranged for Bohr to be sent corrections; he will and need not read them, but it will, as I know him, awaken pleasant moods in him if it were to arrive upon his desk). Much of the paper is very in need of improvement. So the $\delta$-terms in chapter III are a monstrosity of higher order and they only remain because there was no time to make it better (that is the curse of the America-travelling European physicist), the integration methods are still very inadequate and above all: it has the great danger that the self-energy of the electron, already in quantities of order $(v/c)^2$, completely ruin the theoretical results. I still want to discuss with you the still not totally clear question as to whether this self-energy can also be side-stepped in the new theory, similarly to in your and Jordan's paper, by a reordering of factors.
+
+Further I would like to demonstrate for you (without any connection to the new theory) an unsuccessful attempt of mine to get around the $\pm m_0$ difficulty of the Dirac theory, in hopes that you can nonetheless (at least piecewise) somehow salvage it. Also don't be embarassed to likewise write me about reflections which have not yet led to results, doing this rather as soon as possible, perhaps I can learn something from it!
+
+Herr Bloch has made progress in the theory of superconductivity; I still don't want to claim that he has already succeeded in finding a clarification of superconductivity, but his results up to now \?{give cause for hope}. In any case I now believe that Bohr's conjecturally-proposed path to the understanding of superconductivity from last Autumn is in the \textit{totally wrong} direction!
+
+Thus many greetings to you and to Bohr, and one of you (or both) please write me soon at the above address!
+
+Yours,
+W. Pauli
+
+\letter{225}
+\to{Sommerfeld}
+\date{May 16, 1929}
+\location{Zurich}
+
+Dear Herr Sommerfeld!
+
+Many thanks for your letter written between Pasadena and Chicago. I am glad that you have already had lovely impressions of your great trip, but I am even more glad that you are returning soon. Now we are really not very far from one another, and I hope in the future for closer contact between the Zurich and Munich physicists. It is a shame that you won't come to our little Roentgen-ray-physics congress, even Herr Scherrer regets this very much. But perhaps at the end of June you will have already rested, \WTF{and you will think it over again}{und Sie berlegen es sich doch noch}! But aside from that I would in any case, in the course of the Summer semester, to visit a \WTF{district conference}{Gautagung} in South Germany (Stuttgart) and perhaps I will see you there; possibly afterwards I can come to Munich.
+
+Provisionally however I must be satisfied with establishing contact between the Zurich and Munich physicists in a written manner. Is it very outrageous, if I begin with a criticism of your supplementary volume? -- Now, I have the lovely excuse, that you would have wanted it that way, since I can rely on your last letter. I would still however like to thank you for having sent me this volume. I am in complete agreement with your general attitude to the behavior of wave- and matrix-mechanics and wave-particle duality, and the criticism is only on mathematical details.
+
+I would first like to seize on a specific question, the direction-independence of the photo-electrons. For this, an essential role is played by the quantity
+\nequ{
+A(E') = \int \pddX{\Y_\alpha}{y} \Y^*(E') \exp{-2\pi i \frac{x}{\lambda}}\, d\tau
+}{*}
+(eq. (7), p. 212 and p. 216)
+
+I now have major concerns against the usage of asymptotic expressions of $\Y^*(E')$ for great $r$ (eq. (4), p. 210) in the calculation of $A(E')$. During a lecture, which I held in Hamburg, I saw that one arrives in this manner at entirely unreliable values for matrix elements \?{such as} $A(E')$. Namely, if one inserts for $\Y^*(E')$ the \textit{further} terms of the asymptotic expansion in powers of $\inv{r}$, then the corresponding values for $A(E')$ become in no way successively smaller, but rather are all of the same order of magnitude. That means, however, \textit{that it is essential} (contrary to the method used earlier by Wentzel) \textit{in carrying out the integration over $r$ in (*) to insert the exact expression for $\Y^*(E')$}. -- You will easily see that indeed the basis of the $I \approx \cos^2{\vartheta}$ law for long-wave light remains untouched, but that the factor of $\cos{\vartheta}$ in the brackets of eq. (19) on p.218 of your book can in reality have an entirely different value. At the moment one of Wentzel's doctoral students is busy carrying out the exact calculation.
+
+Luckily an exact calculation of expressions of the form $A(E')$ at least for Hydrogen-atom eigenfunctions are not too difficult. One gets a hypergeometric series for $A(E')$, which in the transition from discrete to continuous spectrum always \WTF{terminates}{abbricht} and in the \WTF{$K$-shell}{K-Schale} even consists of only one single term (with all sorts of exactly-specifiable factors). Independently of the \textit{direction}-distribution of the photo-electrons, such exact calculations for the magnitude of the absorption coefficient of the Roentgen-rays, as well as the \WTF{total yield of}{Gesamtausbeute an} the photo-electrons in long-wave light, have been carried out by Herren Rabi and Nishina with the result that with small values of the \WTF{atomic number}{Ordnungszahl} it does not coincide with \?{experiment}, with large values of $Z$ however it is quite good. A brief note about this appeared at the time in the Mitteilungen der Deutschen Physikalischen Gesellschaft 1928, p. 6; (no. 1). My suspiscion is that the \?{non-correspondence} with experiment leads back to the assumption of hydrogen-like eigenfunctions with small $Z$ is not allowed. Herr Rabi is now occupied with this here in Zurich, checking to see whether the results can be improved by taking into consideration the shielding of the nuclear charge by the external electrons.
+
+Now one remark on the theory of the Compton electron. Here one must take care with how the factor $\exp{2\pi i\frac{x}{\lambda}}$ is inserted. Namely, one must distinguish between the matrices
+\uequ{
+A_{jk} = \int{\pddX{\Y_k}{y}\Y^*_j \exp{2\pi i \frac{x}{\lambda}}}\,d\tau
+}
+and
+\uequ{
+Q_{jk} = \int{y\Y_k \Y^*_j \exp{2\pi i \frac{x}{\lambda}}}\,d\tau .
+}
+For small $\lambda$ there is no simple relation between the two, while for $\lambda \to \infty$
+\uequ{
+\int{\pddX{\Y_k}{y}\Y^*_j}\,d\tau = 
+\frac{4\pi^2 m}{\lambda^2}(E_\lambda - E_j)\int{y \Y^*_j \Y_k}\,d\tau.
+}
+A closer discussion shows that the general formula for the \?{Smekal jumps} for small $\lambda$ must be written so that only the $A_{jk}$ appear, and the $Q_{jk}$ do not. Your formula (36), p.207 is incorrect for small $\lambda$ (although it is true for the case that $\exp{2\pi i\frac{x}{\lambda}} \approx 1$). In Wentzel's earlier work the same mistake is made, the correct formula is in Waller (Naturwissenschaften and Philosophical Magazine).
+
+Perhaps we could discuss a few important points of your book face to face some time. Conversely I would still like to remark some more on the continuous Roentgen spectrum, since it came out from your last letter to Scherrer that you are working on it. The thing is thaf Herr Oppenheimer has done a paper with me in Zurich on the topic, which has already been in print for some time in the Zeitschrift f\"ur Physik. There, under the assumption of hydrogen-like eigenfunctions, he has worked out with unobjectionable methods probably everything that one could wish for. We didn't have much experimental data; what we did have is very mixed up with braking processes in the metal. If zherr Kulenkampff had new results with very thin foils, it would be very nice! On the basis of experiments with the absorption of Roentgen rays one can probably not know in advance how far the assumption of hydrogen-like eigenfunctions is true. The idea in Oppenheimer's paper was now those that in stars, where the outer electrons of the atoms are largely dissociated, this assumption must always be true. And he has achieved the positive result that the absorotion coefficient, which Eddington had used in his theory of stars, and which would not be true according to the old Kramer formula, \WTF{is now correct}{sich nun richtig ergibt}! -- \WTF{After giving back your letter to Scherrer we have arranged}{Auf Ihnen Brief an Scherrer hin haben wir veranlaßt} to have corrections of Oppenheimer's paper sent directly to you \?{by Scheel}. Hopefully this this paper won't thwart your own plans for work, we would all regret that!
+
+I now have a rather large \?{enterpeise} here in Zurich. Herr Bloch is for the time occupied with the elaboration of a theory of superconductivity. The thing is still not ready, but seems to be \WTF{coming along}{zu gehen}. Herr Peierls works on the theory of heat conduction in solid bodies. Myself, I want to pursue the path beaten out in my paper on Quantum electrodynamics with Heisenberg still further. Although I know how ridiculously scanty the results achieved up to now have been in comparison to the effort expended, I nonetheless believe that at least the \textit{methods} found in this work will prove useful in the future. Of Eddington's $\alpha=\frac{1}{136}$ I don't believe one syllable, and even Darwin's note in Nature seems to me to be hardly satisfactory.
+
+Once again, many thanks and many warm greetings (also from Scherrer) from your old
+W. Pauli
+
+Wentzel gives greetings and will write you soon. Yesterday evening I drank Schnaps with him until 12:00.
+
+\letter{227}
+\to{Weyl}
+\date{July 1, 1929}
+\location{Zurich}
+
+Dear Herr Weyl!
+
+Before me lies the April issue of the Proceedings of the National Society. It not only contains a paper of yours in the "Physics" section, but also \?{above your paper it says} that you are now at home in a "Physical Laboratory"; as I heard, you are even said to occupy a professorship for theoretical physics in America. I am amazed at your courage; since the final conclusion seems unavoidable that you, at least for a while, want to be judged not on the grounds of your achievements in the domain of pure mathematics, but rather on the grounds of your true, but unhappy love for physics. Forgive me if I \WTF{still}{auch weiterhin} consider you a mathematician; \?{otherwise I would have to investigate how the measure of your enthusiasm for physics compares with how your \WTF{reform programs}{Reformvorschläge} in physics have proven out so far}. I would rather not do that; since, if you are also a mathematician, then you are also one who knows what physics is, and what is going on in it now, and it is a matter of \?{deriving from this situation} the greatest-possible benefit for the progress of physics.
+
+This is why I'd like to discuss the above-mentioned papet with you in writing; its lyrical character is incidentalky totakky lost in the translation into English, and the remainder is onky the pure science exactly as in the work of an entirely ordinary, unpoetic \WTF{intellectual}{Gelehrten}.
+
+There are two points which I would especially like to discuss with you:
+
+1. the action function decomposes, in the current state of our knowledge, into two parts; one, which essentially contains the matter waves, and yields by varying the $\varphi_p$ the four-current, by varying the $e^p(x)$ (your notation) yields the energy-momentum density. Second, the Maxwell part $\H^2 - \E^2$ and the \WTF{curvature}{Krümmung} $R$ (if we remain with the gravitational theory of 1916). It was not formally clear to me how you wrote the latter with the $e^p(x)$ instead of the $g_{\mu\nu}$ and what arises from your variation by $e^p(x)$ instead of the $g_{\mu\nu}$. This would be my first question.
+
+2. The aforementioned second part of the action function supplies for matter-free fields the vacuum gravitation- and electromagnetic waves, in the presence of matter it supplies the laws for how the matter produces fields.
+
+\textit{In my opinion, it is this part of the Lagrangian function which is in most need of improvement and which causes all difficulties.}
+
+The $\int{(\E^2 + \H^2)}\,dV$ namely contains in addition to the zero-point energy of radiation the self-energy of the electrons. (Dirac's sign-difficulty seems also to be connected with the problem of the electron mass.)
+
+I suspect that the further development of quantum theory must primarily bring clarification to this point and indeed in the sense of a renunciation of the classical models.
+
+Conversely, I can in no way share your view\footnote{Naturally, I don't know whether you yourself still hold this view!} that the difficulty lies in the quantization of field equations. In my paper with Heisenberg there is now, I believe, a completely unique (the only ambiguity is: symmetric or antisymmetric statistics) recipe given which allows the quantization of any arbitrarily-given field theory. This recipe is in some places able to be mathematically-technically improved\footnote{I would like to send you a special print of my paper with Heisenberg, with notes appended at the specific places where I believe that you could essentially improve the mathematics (which we have been unable to bring about) - the trick with the $\epsilon$-terms will perhaps be able to be avoided.}, but the results will not change.
+
+In a future theory the action function will probably not decompose into several independent disconnected summands, but rather I hope for a unitary interpretation of the matter, electromagnetic, and gravitational fields.
+
+What ar your plans for the future? America \to Zurich \to Goettingen or America \to Goettingen? In any case, I have the theory that Goettingen will be the unavoidable end, and the hope that I will be able to again ambush you face to face in Zurich with my vicious remarks is scant. How do you like it over there, \?{and how do the Americans like what I have denoted "make-up" with you? Don't you quite miss the possibility of being able to beat the Lyra in German?}
+
+More than everything however I would like to know one thing. What do you believe: \textit{Is the whole of America more than the sum of its parts?} I definitely suspect: \textit{no}!
+
+With hearty greetings
+Your W. Pauli
+
+P.S. Regards to your wife. \?{She certainly now looks forward to the instant where she can fetch the children back from the box and dust herself off.}
+
+(P.S)' I completely share your skepticism regarding the Einsteinian Vierbein geometry. I visited Einstein in Berlin over the Easter holiday and found its insertion into modern quantum physics reactionary. We would always like to have more causility, determinism and corpuscules. But I myself don't believe that the future development of quantum physics will go in this direction.
+
+\letter{231}
+\to{Bohr}
+\date{July 17, 1929}
+\location{Zurich}
+
+Dear Bohr!
+
+Many thanks for your detailed letter, which has made me very happy. Hopefully meanwhile you have come back from your sailing tour \textit{well-recovered}.
+
+I liked the little note on the magnetic electron so well that I extraordinarily regret that it's not ready and sent off to the press. If I may give you some advice, then it is this: \textit{before anything else send this note out, and do this as soon as possible!} -- It's different with the note on $\beta$-rays: I must say that it satisfied me \textit{little}. It began so unpleasantly with the discussion of the nonsensical remarks of G.P. Thomson, and the Englishman will only draw false conclusions from it, that you hold these remarks to be important. Then comes the awkward introduction of the electron-diameter $d$. I don't think that that's precisely forbidden, but it is always a daring thing. One must then also consider that, for electrons moving close to the speed of light, because of the Lorentz contraction $d$ is much smaller than $\frac{e^2}{m_0 c^2}$, namely
+\uequ{
+\frac{e^2}{mc^2}\left(m=\frac{m_0}{\sqrt{1-\frac{v^2}{c^2}}}\right),
+}
+at least in the longitudinal direction.
+
+In Zuruch, Frl. Meitner has held a beautiful lecture on the experimental side of the question and ahe has \textit{almost} convinced me that one can \textit{not} explain the continuous $\beta$-spectrum through secondary processes ($\gamma$-emission, etc). Thus we really don't know what the solution is! You also don't know, can only give the reasons \textit{why} we don't understand it. Indeed you even write, the purpose of the note is to stress "how little basis we have for a theoretical threatment of the problem of $\beta$-decay." But here I must raise the question as to whether such a negative purpose can at all justify publishing a note! \textit{Thus in any case let the note lie for a while. And let the stars shine in peace!}
+
+Concerning the possibility of being able to say something \textit{new} about "Statistics and reciprocity in quantum mechanics", I am indeed somewhat skeptical, but I don't doubt that everything that you shall say about it will be nice and interesting\footnote{You see that I don't say "\WTF{brilliant}{geistreich} and interesting"} I also believe that you will be happier and more content after you have written the new treatment.
+
+I was quite satisfied with your article in the Planck issue \textit{precisely because} all physics was left out; that was something new, original and exciting! (Whether it is proper to judge on that I must also leave to the psychologists and philosophers, I myself feel there just as lay -- or perhaps even \textit{moreso} - as you.) I have nothing at all against the change in name to reciprocity instead of complimentarity, only I would have wanted a more detailed explanation in the article of the \textit{reasons} that have led you to it.
+
+I leave with Hecke for the south of Sweden probably at the start of August. Then the temptation to visit you around the middle of August at your house without plumbing (I would bring many candles with me!) is great. \textit{But I don't want to make any trouble for you, I could even stay a couple of days in the hotel in Tisvilde}! Incidentally I suspect that Klein will live in another house in your neighborhood without plumbing or light (excluding the case that the house belongs to Frau Maar); it would also make me very happy to see him.
+
+\?{With a shorter stay in Denmark, I could still \WTF{tie up}{verbinden} the other goal, writing a paper}, which Oppenheimer and I have worked on together in Zurich and which contains the continuation of the work Heisenberg and I did on quantum electrodynamics. I am \textit{not} very satisfied with the whole theory that Heisenberg and I worked on (although I already believe that it will have "certain \WTF{features}{Züges}" in common with a future correct theory). In particular the self-energy of the electron causes much greater difficulties than Heisenberg had thought at first. Even the \textit{new} results that our theory leads to are first of all very meager, and the danger lies near that the whole affair gradually loses contact with physics and degenerates into pure mathematics. (I would be very glad to hear what you think about it; then \textit{you} can criticize, and the reciprocity will be completely fulfilled!)
+
+Despite everything, I have the strong desire to think certain thought processes still further and to the end! What are your travel plans for the next year? What have you decided with respect to the trip to America? Many warm greetings from your
+
+W. Pauli
+
+Regards to your wife!
+
+\letter{232}
+\from{Heisenberg}
+\date{July 20, 1929}
+\location{USA}
+
+Dear Pauli!!
+
+Many thanks for your letter; I've spoken with Oppenheimer extensively over the whole question. I find your investigations very beautiful, all results seem very plausible, and the catastrophic interaction of the electron with itself does not bother me so very much, despite your reminders. You are of course correct that this interaction makes the theory unusable in the meantime; but that is already the case because of the \WTF{Dirac jumps}{Diracsprünge}. In any case the theory will still have many changes.
+
+Perhaps you can hammer out something for your interaction with my formulation without auxilliary terms. I have somewhat expanded and put together these reflections and set you a copy of them. I would ask for your criticism reading through it and either, if you don't understand it, send it back to Japan; or, if you do understand it, make a choice between the two following possibilities: the note, along with your reflections with Oppenheimer, can be published as a joint paper; or separately; in the last case, please send it to Scheel (my address from September 1-4: Japan, Physical Inatitute of the University of Tokyo). Both are exactly the same to me.
+
+When I have time to think it over (that will however only happen on the still ocean), I still want to pursue a track which seems rather hopeful to me: In order that the Dirac problem disappear, one must ensure that the energy essentially always remain positive. A certain means to this would be if one could write it as a square or a sum of squares. \?{Now the $\Y_\varrho$ are suitable operators to write as squares, because of the C.R. with the $+$ sign, exactly as the Dirac $\alpha_i$ are very good for it}. An off-the-cuff calculation shows that one can probably easily get all terms in the Hamiltonian with the exception of $\Y^* \Y \alpha_k \phi_k$. In place of the interaction terms there is then something else, as is naturally expected, if something reasonable is to come out of it.
+
+I've had a \WTF{tantrum}{Schandwut} over \?{Dr. Berliner} because of the Planck issue article. First, it is a scandal that he would bother you with such dung, \?{you have indeed not even stolen your time}, and second the whole \?{composition was smeared out in the train-car under unfavorable conditions}; I had sent it to Berliner with the explicit hope that I could add much more in the corrections, if I had sent the manuscript in so early (about 14 days before the deadline). After your letter I immediately tekegraphed Berliner, but up to now still have no answer (!). I find that Berlin's practices clash against every good custom, he has never confirmed the reciept of the manuscript. Hopefully you have made quite a few changes in the manuscript. I was rather anxious that in particular the influence of Bohr in the fundamental questions be clearly laid out and that the wave theory was not neglected either; i.e. I have expended much effort on historical correctness, bt on the other hand I do not want to write a literary register with the names of every author.
+
+I remain here in America for another 14 days. Then I go to Japan with Dirac, where I am to arrive on August 30. There I remain until mid-September. On October 5 I arrive in Calcutta (Physical Institute of the University), on October 17 I leave India, and am in Leipzig on November 5. Then I hope to be able to work on proper physics again. Perhaps we could meet in the Winter at some conference. Thus many warm greetings,
+
+Your
+W. Heisenberg
+
+\letter{235}
+\to{Weyl}
+\date{August 26, 1929}
+\location{Copenhagen}
+
+Dear Herr Weyl!
+
+This time I have spent the summer together with Hecke, and indeed in Norway. On the way back I've now stopped for about a week in Copenhagen, in order to write a new paper with Heisenberg; but more on that later. Your letter has just reached me and I will \?{also} answer back. I am very sorry that the "wickedness" of my last legger has angered you; achieving this was not its purpose at all, but rather it was an end in itself. (Be that is it may, it was still so nice - \?{so nice, that I would even let myself be thrown into a pyre for it}.)
+
+In contrast to the wickedness however, the factual part of my last letter has been strongly upheld, above all by your own paper in the Zeitschrift f\"u Physik. For this reason I have even afterward regretted sending you the letter. After studying this paper I believe that I actually understand what you want and and are striving towards (from the little note in the Proceedings of the National Academy that was not yet the case). First I want to highlight those aspects of the  in which I fully and entirely agree with you: your Ansatz towards the \textit{\WTF{classification}{Einordnung} of gravitation in the Dirac theory of the spinning electron}.
+
+Namely, I am just as hostile towards distant-parallelism as you, and it is a true deliverance that \?{with you} the coordinate axes at different points are arbitrarily-rotatable with respect to one another. (And here I must do justice to your activity in physics. When you earlier created the theory with $g'_{ik}=\lambda g_{ik}$, this was pure mathematics and unphysical, Einstein could justly criticize and grumble. Now your hour of vengeance has arrived; now Einstein \?{has shot the he-goat of teleparallelism}, which is also only pure mathematics and has nothing to do with physics, and \textit{you} could grumble!) Even if one does not rule out the \WTF{mass part}{Massenglied}, and has 4 components in the wavefunction, your method of treating gravitation is applicable without further ado. With this however I come to the other part of the matter, where I don't entirely share your views, namely \textit{the question of the unresolved difficulties in the Dirac theory} (two signs for $m_0$) and the question of the two-component theory. In my opinion one should not mix this problem in with the consideration of gravitation. The hope of being able to find a replacement for the mass part in the theory of gravitation seems to me to be illusory; the gravitational effects will always be numerically much too small. Beyond this, there is a purely mathematical objection to the two-component theory: as immediately arises from formulae (1) and (2) in your paper, in such a theory the four-current must essentially be a null vector\footnote{Herr Gordon has occasionally drawn attention to this.}:
+\uequ{
+-s_0^2 + s_1^2 + s_2^2 + s_3^2 = 0.
+}
+
+There are not only no indications in experiment for the existence of such a relation between charge-density and current-density (in every space-time point), but they also seem to not be compatible with the Maxwell equations, in that the corresponding relations between the field strengths and their derivatives are not fulfillable in general. Therefore it seems to be approlriate to provisionally \textit{remain} with Dirac's four-component theory and the mass part and our openly admit inability to overcome the associated difficulties! (My desire to let the electricity go into the $\Y$ is of course also only a dream, and for now I am absolutely no closer to knowing how it could be realized. Yet I believe that the Maxwellian part of the action function still must be modified. Perhaps the quantization of the field will help.)
+
+Now to the question of \textit{field quantization}. As you have perhaps seen, the paper I published with Heisenberg contains a problem in the form of the terms containing $\epsilon$; this destroys \?{even partial} gauge invariance. In my new paper with Heisenberg, which I shall now finish writing, it will be shown how this $\epsilon$-term can be done without, precisely with the help of gauge invariance. By gauge invariance, I mean such substitutions
+\uequ{
+\Y' = \exp{i\lambda}\Y,\quad
+\overline{\Y}' = \exp{-i\lambda}\overline{\lambda},\quad
+\phi'_p = \phi_p - \pddX{\lambda}{x_p},
+}
+in which $\lambda$ can even be a $q$-number, but \textit{especially} \?{one which commutes with $\Y$ and $\overline{\Y}$ on any spacelike \WTF{cross-section}{Querschnitt} $t=\textit{const}$}. (The coordinate-independence of the function $\lambda$ remains, before and after, entirely arbitrary, \?{the $\lambda$ does \textit{not} even need to be commutable with the electromagnetic field strengths.}) This limitation is imposed so that the C.R.
+\uequ{
+[\Y^{(p)}_\varrho, \Y^{(p')}_\sigma]_{\pm} = \delta(p,p')\delta_{\varrho\sigma}
+}
+remain gauge invariant. Now it is seen that the gauge-invariant quantities are already completely determined, \?{if only such gauge-invariant quantities are put in the given commutation relations}. And the latter are compatible with the feared equation $\div{\E}=\sumX{\varrho}\Y^*_\varrho \Y_\varrho$! C.R. between the $\Y$ and the field strengths are e.g. superfluous. In this manner the $\epsilon$-terms are unnecessary!
+
+What now interests me the most is the question, how the $e(\alpha)$ themselves in your gravitation theory are quantized. I would \textit{very} much like to discuss all of these questions with you in Zurich, and hope further for prosperous work together. So up with field quantization and down with distant parallelism!
+
+Now the purely technical remark, that I come to Zurich around October 1, thus later than you. In September, I am still in Berlin. Unfortunately, I must move in on October 1, my landlor has evicted me, since in the futute he will rent the rooms with hisnown furniture and wants to charge more money for it. Although I've already found a new apartment in the meantime, this is still very awkward, especially since I \?{quite liked the old one}.
+
+\?{Incidentally for my part I must reject the notion of a "bride", primarily because it is so bourgeois, even in its \WTF{contingent forms}{Eventualformen}. What the Ordinarien do in Zurich now is nevertheless not the mere repetition of what the Privatdozenten once had done in Goettingen (you surely know the anecdote of Lindemann and the female student).}
+
+It just occurred to me: Under the (unfortunately very incorrect) assumption that you would \textit{not} return in the Autumn, I have announced course in relativity theory. Since you have announced something rather similar, I would be very happy, if you wish, to change the theme of my course.
+
+Thus, until I see you again, hearty greetings to you and regards to your wife!
+
+Your W. Pauli
+
+\letter{238}
+\to{Jordan}
+\date{November 30, 1929}
+\location{Zurich}
+
+Dear Jordon!
+(Very honored Herr Colleague!)
+
+This is a rather belated answer to your letter from \?{the 3rd} -- so you have now undertaken the task of transforming Rostock into a metropolis of the mind and social life. I myself have up to now set for myself much less difficult and more modest goal in life. Thus good luck! However, I believe that, as regard the \?{social matters}, that you must essentially refine the method of platonic \WTF{betrothal-at-a-distance}{Fernverlobungen} you've been using up to now!
+
+Now to physics:
+
+1. I've only read Land\'e's paper very quickly.
+
+2. On the other hand, a paper by Fermi on quantum electrodynamics has appeared in the Rendicondi della Academia dei Lincei (May 1929), which I have closely studied. It was written totally independently of my paper with Heisenberg, and is methodologically interesting (thoigh it brings no new results).
+
+3. Through the papers of Fock and Weyl, in which the \WTF{system}{Aufstellung} of field equations for the matter waves is solved, which is invariant with respect to arbitrary spinning of the Vierbein at different world points, distant-parallelism seems to finally be finished. I am even now certain thatbthe electromagnetic four-potential can \textit{not} be expressed by the Vierbein-components, but rather enters as an \textit{independent} four-vector in the theory. Specifically, in Fock's paper there is clearly space left for the mathematical formalism of \WTF{parallel displacement}{Parallelverschiebung} of "spinors".
+
+Einstein is said to have come out with dreadful poppycock about new distant-parallelism in his Berlin colloquium! He wants to put forward the mere fact that his equations don't have the slightest similarity to the Maxwell equations as an argument that they have something to do with the quantum theory. One could only fool Amefican journalists with such rubbish, not even American physicists, let alone European physicists.
+
+4. At the moment, Rosenfeld is busy here with the quantization of the Vierbein. Unfortunately mathematical difficulties are still unsolved, which stem from identities between the "$P_\alpha$" amd "$Q_\alpha$" on section $t=\text{const}$. However we still hope to be able to cope with it.
+
+5. I no longer hold the \textit{large} gauge invariance to be feasible, the \textit{small} will be used in my paper II with Heisenberg; still not very pretty, but at least correct.
+
+6. \textit{I hear rumors about new results from Dirac concerning the $\pm e$ difficulty}! What I hear sounds hopeful, even if a definitive solution still isn't available.
+
+Warm greetings, your W. Pauli
+
+\end{document}

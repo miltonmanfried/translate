@@ -1,0 +1,102 @@
+\letter{600}
+\rcpt{Fierz}
+\date{September 3, 1940}
+\location{Princeton}
+
+Dear Herr Fierz!
+
+After we departed from Genf on July 31st, we indeed arrived safwly on the 24th of August in the USA, and Neumann took us in a car to Princeton. I won't begin this letter with a description of the trip, since \?{otherwise this letter will have no end}.
+
+I would however like to report to you on my calculations those Majorana equations (on which we began corresponding in the Summer). These led me rather too far into pure mathematics; since I don't believe that these equations have any possibilities for actual physical application, I will not pursue the matter further.
+
+\subsection*{§1.}
+
+\nc{\ba}{\mathbf{a}}
+\nc{\bb}{\mathbf{b}}
+\nc{\bg}{\mathbf{g}}
+\nc{\bq}{\mathbf{q}}
+\nc{\bP}{\mathbf{P}}
+\nc{\bp}{\mathbf{p}}
+\nc{\br}{\mathbf{r}}
+\nc{\bgamma}{\mathbf{\gamma}}
+
+My first remark was that the equations (8) (I cite the equations from Majorana's paper in the following with M) for the matrices $\ba$, $\bb$ have still more general solutions than those given in the paper. Even holding to the constraint $Z \equiv (\ba\bb) = 0$ (M10), \?{I have worked out that the invariant}
+\uequ{
+J \equiv \bb^2 - \ba^2
+}
+has:
+
+1. A continuous spectrum $J\ge 0$, $j=0,1,2,\dots$ integral.
+
+2. A discrete spectrum with eigenvalues $J=1-k^2$, $k=0, \inv{2}, 1, \frac{3}{2}, \dots$. There $k$ is \?{respectively the minimal value of $j$ (which is simultaneously integral or half-integral with $k$)}: $j\geq k$.
+
+Majorana considered only the special numerical value $J=3/4$, which e.g. distinguished by the fact that it has a continuous as well as a discrete spectrum, and integer as well as half-integer $j$ are possible.
+
+Majorana's $J=3/4$ case is further distinguished by the fact that the equations (M13) for the $\gamma_0, \bg$ are compatible with the requirement
+\uequ{
+[J,\gamma_i] = 0. (i=1,\dots,4).
+}
+
+$J=3/4$ necessarily follows from this condition. -- On the other hand, this condition -- which does \textit{not} follow from (M13) -- is a luxury, which is hardly physically justifiable. Indeed all eigenvalues of $J$ could occur in the theory and the $\gamma_i$ could contain elements that are non-diagonal with respect to $J$ (in contrast to $\ba$, $\bb$, which are always diagonal with respect to $J$).
+
+\subsection*{§2.} This becomes much more intuitive with the following considerations, which are more analytic than algebraic, but which have the deficiency that they only relate to the case of \textit{integer} $J$. The fact that all spin values occur in the equations suggests introducing an \?{\textit{actual}} $\bq$-spac
+
+(different from the $x$-space!) so that the spin matrices $\ba$ are defined by $a_1 = (-i)\left(q_2 \pddX{}{q_3} - q_3 \pddX{}{q_2}\right)\dots$. For the $\bb$ one can likewise put $\bb = (-i)\left(q_0\frac{\partial}{\partial\bq + \bq\pddX{}{q_0}}\right)$. It is to be noted that the $\ba$, $\bb$ commute with the squared length $R^2 = \bq^2 - q_0^2$. For this reason, it seems natural \?{to relate} the eigenfunctions to the hyperboloid
+\uequ{
+q_0^2 - \bq^2 = +1 \quad \text{ or }\quad
+q_0^2 - \bq^2 = -1
+}
+on which the Lorentz group induces in a well-known manner the motion group of the Bolyai-Lobatschewski geometry. I then denote by $iP_0, i\bP$ the projection of $\left(-\pddX{}{q_0}, \pddX{}{\bq}\right)$ onto this hyperboloid \{N.B. in contrast to $ip=\pddX{}{x}$ in $x$-space; the $P_0, \bP$ do not commute because of the projection\}\footnote{I had forgotten: in ordee that $P_k$ be Hermitian with respect to the volume element of the hyperboloid, \?{one must still add $3/2 q_k$ to the vector $\partial/\partial q_k$}.}, so the following operator relations apply (with $J=\bb^2 - \ba^2$)
+\uequ{
+[J,q_k] = -2iP_k; \quad i[J, P_k] = 2q_k(J-3/4) - 5iP_k\quad (k=0,1,2,3),
+}
+and for $\gamma_k=\text{const.}\{7q_k + 2(Jq_k + q_k J)\}$
+\uequ{
+[J,\gamma_k] = -8(ip_k+q_k)(J-3/4)\times\text{const.}
+}
+
+The numerical coefficients are chosen so that the terms proportional to $P_k$ (without the factor $J-3/4$) fall away. This is to some extent only a \?{little trick} to \?{dispense with} the matrix elementa of $\gamma_k$, which are not diagonal with respect to $J$. \textit{The matrix elements that are diagonal with respect to $J$ are} (up to an arbitrary constant factor) \textit{the same as those of $q_k$}. The Majorana equations are thus (for integer $j$, $m$) equivalent to the following
+\uequ{
+J\Psi(q,x) \equiv (\bb^2 - \ba^2)\Psi(q,x) = \frac{3}{4}\Psi(q,x)\\
+(\sum\gamma_k p_k + mc)\Psi(q,x) = 0 \quad (q_0^2 - \bq^2 \pm 1) \quad (\gamma_k \text{from above}).
+}
+It is important that they are only compatible with one another for the numerical value $3/4$.
+
+\{N.B. For $q_0 = ch\chi$, $q_3 = sh_\chi \cos\vartheta$, $q_{1,2} = sh_\chi \sin\begin{cases}\cos\varphi\\ \sin\varphi\end{cases}$,
+\uequ{
+J\equiv -\inv{sh^2\chi}\pddX{}{\chi}\left(sh^2\chi\pddX{}{\chi}\right) - \inv{sh^2\chi}\left\{
+\inv{\sin\xi}\pddX{}{\vartheta}\left(\sin\vartheta\pddX{}{\vartheta}\right)r
+\frac{1\partial}{\sin^2\vartheta\partial\varphi}.\right.
+}
+In order to solve the equation $J\Psi = A\Psi$, one puts $\Psi=f_j(\chi)P_{j,m}(\vartheta,\varphi)$. ($A$ eigenvalue of $J$; $P_{j,m}$ spherical function), with
+\uequ{
+\inv{sh^2\chi}\pddX{}{\chi}\left(sh^2\chi\pddX{f_i}{\chi}\right)
+ - \frac{j(j+1)}{sh^2\chi}f_j(\chi) + Af_j = 0.
+}
+
+This equation leads to hypergeometric \?{} in the variables $ch^2\chi$ or $tgh^2\chi$ and supplies unitary representations of the Lorentz group\footnote{C.f. Bargmann, Zeitschrift für Physik. -- Case of the continuous hydrogen spectrum.} with $Z=0$ (M19). The transition to Majorana's matrix elements goes without further ado. The functions in the 3-dimensional space $q_0^2 - \bq^2 = \pm 1$ are equivalent to those which depend on the parameters $J$, $j$, $m$ with $-j \le m \le +j$ and the above-specified range of $J$, $j$.\}
+
+Now I return to the critical remarks at the end of §1. One can likewise put
+\uequ{
+\left\{\sumX{k}(C_1 P_k + C_2 q_k)p_k - mc\right\}\Psi = 0
+}
+($C_1$, $C_2$ are arbitrary numerical coefficients) without presuming any specific eigenvalue of $J$, since the requirement $(J,\gamma_k)$ is not justifiable. Then of course $p_0^2-\bp^2<0$ can assume all real positive and negative numerical values.
+
+In general there always states with $p_0^2 - \bp^2 < 0$, if $(p_0 - \br/c)$
+\uequ{
+\{-\gamma_0 p_0 + (\bgamma, \bp) - mc\}\Psi = 0
+}
+with some Hermitian $\gamma_0, \bgamma$. \{\textit{According to Dirac}, $(-\gamma_0 p_0 + i(\bgamma, \bp) + mc)\Psi = +i\pddX{}{x_0}$, $\bp = 0$; $p_0 = -i\pddX{}{\bx}$, with $\gamma_0, \bgamma$ Hermitian!\}
+
+It seems to me, that by excluding unphysical states with $p_0^2 - \bp^2 < 0$, our [old] equations (possibly several resp. infinitely-many systems, which belong to various $m$-values) must emerge.
+
+I want to investigate the special case $p_0^2 - \bp^2 = 0$ further.
+
+What do you think? It is mathematically interesting (from a mathematical standpoint I am still rather unsatisfied, since I cannot get the case with half-integer $j,m$), but not physically.
+
+Many greetings to you and all the colleagues
+
+Your old W. Pauli
+
+Regards to your wife and your parents (from my wife as well).
+ % n assume athe ical co Fistwhistle

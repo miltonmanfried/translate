@@ -1,0 +1,45 @@
+
+\subsection*{13}
+We return to the mechanics of continuous media. We designate by $\G$ the sliding vector which represents the three-dimensional "mass-momentum" element and by $\F$ the sliding vector which represents the force \?{of the} elementary volume. \textit{The equations of mechanics are condensed in the formula}
+\nequ{6}{
+\G'=[dt\,\F].
+}
+
+\WTF{In fact, here one has}{On a du reste ici}
+\uequ{
+\G &= [\m\,\e_0]\Pi + [\m\,\e_1]\Pi_x + [\m\,\e_2]\Pi_y + [\m\,\e_3]\Pi_z,\\
+\F &= [\m\,\e_1]X\,dx\,dy\,dz + [\m\,\e_2]Y\,dx\,dy\,dz + [\m\,\e_3]Z\,dx\,dy\,dz.
+}
+$\F$ may be calculated by taking account of the equation
+\uequ{
+d\m = \e_0 dt + \e_1 dx + \e_2 dy + \e_3 dz;
+}
+it gives
+\uequ{
+\G' = &[\m\,\e_0]\Pi' + [\m\,\e_1]\Pi_x' + [\m\,\e_2]\Pi_y' + [\m\,\e_3]\Pi_z'\\
+      & + [\e_0 \, \e_1][ dt \Pi_x - dx \Pi]
+        + [\e_0 \, \e_2][ dt \Pi_y - dy \Pi] 
+        + [\e_0 \, \e_3][ dt \Pi_z - dz \Pi] \\
+      & + [\e_2 \, \e_3][ dy \Pi_z - dz \Pi_y]
+        + [\e_3 \, \e_1][ dz \Pi_x - dx \Pi_z] 
+        + [\e_1 \, \e_2][ dx \Pi_y - dy \Pi_x].
+}
+
+One easily verifies that the coefficients of $[\e_0 \, \e_1]$, $[\e_0 \, \e_2]$, $[\e_0 \, \e_3]$ \WTF{vanish identically}{sont nuls d'eux-mêmes}.
+
+If one supposes that each material element is acted upon \textit{not only by a force, but by a couple}, the fundamental equation (6) would not change, but one would need to add to the expression for $\F$ terms of the form
+\uequ{
+[\e_2 \, \e_3] L\,dx\,dy\,dz + [\e_3 \, \e_1]M\,dx\,dy\,dz + [\e_1 \, \e_2]N\,dx\,dy\,dz.
+}
+
+One would then have
+\uequ{
+p_{zy} - p_{yz} &= L,\\
+p_{xz} - p_{xz} &= M,\\
+p_{yx} - p_{xy} &= N.
+}
+
+It is quite evident that from the equation (6) one may deduce the fundamental equation of point dynamics and supposing that the matter is condenses in a very small portion of the space, one then obtains
+\uequ{
+d\G = dt\,\F.
+}

@@ -1,0 +1,605 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\renewcommand*\rmdefault{ppl}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{marginnote}
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+
+\nff{\WTF}{#1 (\textit{#2})}
+
+\nf{\translator}{\footnote{\textbf{Translator note:}#1}}
+\nc{\sic}{{}^\text{(\textit{sic})}}
+
+\newcommand{\nequ}[2]{
+\begin{align*}
+#1
+\tag{#2}
+\end{align*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{align*}
+#1
+\end{align*}
+}
+
+\nf{\sskip}{...\{#1\}...}
+\nff{\iffy}{#2}
+\nf{\?}{#1}
+\nf{\tags}{#1}
+
+\nf{\limX}{\underset{#1}{\lim}}
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+%\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+\nff{\intXY}{\underset{#2}{\overset{#1}{\int}}}
+
+\nc{\fluc}{\overline{\delta_s^2}}
+
+\rf{\exp}{e^{#1}}
+
+\nc{\grad}{\operatorfont{grad}}
+\rc{\div}{\operatorfont{div}}
+
+\nf{\pddt}{\frac{\partial{#1}}{\partial t}}
+\nf{\ddt}{\frac{d{#1}}{dt}}
+
+\nf{\inv}{\frac{1}{#1}}
+\nf{\Nth}{{#1}^\text{th}}
+\nff{\pddX}{\frac{\partial{#1}}{\partial{#2}}}
+\nf{\rot}{\operatorfont{rot}{#1}}
+\nf{\spur}{\operatorfont{spur\,}{#1}}
+
+\nc{\lap}{\Delta}
+\nc{\e}{\varepsilon}
+\nc{\R}{\mathfrak{r}}
+
+\nc{\Y}{\psi}
+\nc{\y}{\varphi}
+
+\nf{\from}{From: #1}
+\nf{\rcpt}{To: #1}
+\rf{\date}{Date: #1}
+\nf{\letter}{\section{Letter #1}}
+\nf{\location}{}
+
+\title{Pauli - 1934}
+
+\begin{document}
+
+\letter{338}
+\rcpt{Heisenberg}
+\date{January 7, 1934}
+\location{Zurich}
+
+Dear Heisenberg!
+
+Thanks for your letter \?{from the cloister}. I was in Vienna over the holiday and only got back the day before yesterday. Dirac wrote me that he is now putting his paper together and shall send me a copy in 2 weeks. I am already very \WTF{tense}{gespannt} about this.
+
+As regards the relations
+\nequ{
+[\underset{P}{R^k_{\rho\sigma}}, \underset{P'}{E^l}] =
+   \delta_{kl}\delta(P-P')e\frac{h}{i}\underset{P}{R_{\rho\sigma}}
+}{2}
+\nequ{
+[\underset{P}{R^k_{\rho\sigma}}, \underset{P'}{R^l_{\lambda\mu}}] = 
+\inv{2} \underset{P}{H_{kl}}[
+  \delta_{\sigma\lambda}\delta(P-P')R_{\rho\mu} +
+  \delta_{\rho\mu}\delta(P-P')R_{\lambda\sigma}
+],
+}{3}
+it seems to me that, under the assumption that $R_{\rho\sigma}$ are $c$-numbers, they are not compatible with one another. Namely if one works out the Jacobi identity,
+\uequ{
+[[\underset{P}{R^k_{\rho\sigma}}, \underset{P'}{R^l_{\lambda\mu}}], E^m_{P''}] + 
+[[\underset{P}{R^l_{\lambda\mu}}, E^m_{P''}], \underset{P'}{R^k_{\rho\sigma}}] + 
+[[E^m_{P''}, \underset{P}{R^k_{\rho\sigma}}], \underset{P'}{R^l_{\lambda\mu}}] = 0,
+}
+then you find that the first bracket is nonzero, the following two are however zero, so the identity is not fulfilled. Further, it seems to me that (2) is inconsistent with gauge invariance, which demands that
+\uequ{
+[\underset{P}{R^k_{\rho\sigma}}, \div_{P'}E] = 0.
+}
+\?{Then the salvation of the equations $\dot{f} = \frac{i}{h}[f, \overline{H}]_{-}$ simply does not work}.
+
+As concerns the note in my last letter on the differential form $\pddX{T_{\mu\nu}}{x^\nu}=0$ of the conservation laws, it was (and is) my opinion that the equation
+\nequ{
+R_\nu + \alpha^k R_k + \frac{m_0 c}{h} i \beta R^0 = 0
+}{I}
+should apply. Now, from
+\nequ{
+\text{spur, real part} \pddX{}{x^\nu}\inv{2}\left(\alpha_\mu R_\nu \alpha_\nu R_\mu \right) =
+\frac{-ei}{h}\spur{F_{\mu\nu}\alpha^\nu R^0},
+}{II}
+follows the integral form if the energy law I've given earlier. The equation (I) states that $[\chi^*_\rho(P), \chi_\sigma(P')]_{+}$, \textit{in quantities of first order in} $(x^\nu_P - x^\nu_{P'})$ should still fulfill the Dirac equation, which seems to be reasonable to me (and which requires much less than that the $\chi$ should \textit{in general} fulfill the Dirac equation).
+
+As regards the dependence of $R_\mu$ on the matrix indices $\rho,\sigma$, then one can easily satisfy (I) and (II) by a linear Ansatz
+\uequ{
+R_\mu = r^{\mu\nu}\alpha_\nu + s^\mu \beta \quad (r_{\mu\nu} = r_{\nu\mu}),
+}
+where from (I)
+\nequ{
+\beta\sumX{\mu}r_{\mu\mu} - s^\mu\alpha_\mu + \frac{m_0 c}{h}iR^0 = 0,
+}{I'}
+and from (II)
+\nequ{
+\sumX{\nu}\pddX{}{x^\nu} r_{\mu\nu} = -\frac{ei}{h} F_{\mu\nu}C^\nu
+}{II'}
+(with $C^\nu = \spur{\alpha^\nu R_0}$ independent of $x^\nu_P$ fixed for independent $x^\nu_P - x^\nu_{P'}$; the differentiation of the left is just performed with a fixed difference $x^\nu_P - x^\nu_{P'}$.)
+
+Now I have a great physical misgiving that up to now I've been unable to \WTF{dispel}{entkräften}, and which perhaps signifies an earnest difficulty for the whole hole theory. The equations (II') of course already have solutions. But then $r_{\mu\nu}$ at the point $P$, and so $(P|R_{\rho\sigma}|P')$ for points $P$ and $P'$ close to one another, not only depends on the field behavior in the vicinity of $P$ and $P'$, but also in general on the whole previous history of the $F_{\mu\nu}$-field.
+
+In particular, \textit{after} all fields are switched off, \?{if (I), (II) previously consistently fulfilled the corresponding volume integral laws of the earlier letters, $(P|R_{\rho\sigma}|P')$ does not coincide with the $(P|R^0|P')$ of the vacuum}.
+
+However, that hardly seems physically acceptable. For now I see no way out of this dilemma, since I don't see how the requirement of energy-momentum conservation can be essentially softened nor how it could be brought into harmony with the postulate of a \WTF{local interaction}{Nahewirkungs} Ansatz for the $R^k_{\rho\sigma}$. \textit{What do you think about it?}
+
+I am naturally curious as to which Ansatz for $R$ (his $R^a$) Dirac will arrive at on the grounds of his requiremente of the finiteness (being singularity-free) of the post-subtraction density matrix, but am however very anxious, whether energy-momentum conservation will then be fulfilled with him. Meanwhile I want to think it over some more.
+
+Bloch has reported something very interesting to me from Fermi. He tried to set up a theory of $\beta$-decay with neutrinos, in which he introduces a term of the following type in tye Hamiltonian function of the nucleus:
+\uequ{
+(\psi\varphi\mathbb{P} + \psi^* \varphi^* \mathbb{P}^{+})
+}
+where the $\psi$ is the wavefunction of the electron, $\varphi$ that of the neutrino, and $\mathbb{P}$ is an operator which transforms the wavefunction of a proton into that of a neutron. Essentially, the local interaction is the assumption, according to which the operator is nonzero only when the electron, neutrino, ans neutron resp. proton are at the same position. Only (1) a constant with the dimension of energy and (2) the rest-mass of the neutrino are arbitrary. Fermi claims that the dependence of energy and lifetime as well as the form of the $\beta$-particle velocity spectrum come out of it quite good if one (a) \?{posits different values for} the aforementioned constants for the two types of $\beta$-rays (the "first" resp. "second" of the pair of $\beta$-decay elements \?{that follow after one another}) and (b) sets the neutrino rest-mass to zero (resp. small wth respect to that of the electron)! \textit{That would be water to our mill!} Fermi's theory is relativistic with respect to the light particles (not with respect to the heavy ones). -- The relation of the neutrinos to the nature of the electromagnetic field still remains entirely open and untouched.
+
+So write soon. I am at the moment rather concerned over the hole theory.
+
+Warm new-years toast!
+
+Your W. Pauli
+
+\letter{339}
+\from{Heisenberg}
+\date{January 12, 1934}
+\location{Leipzig}
+
+Dear Pauli!
+
+Your objections against my commutation relations for the $R^k$ are of course completely justified. However I would like to stress that I hold the relations $\dot{f}- \frac{i}{h}[f,\overline{H}]_{-}$ \?{to be fundamental} in a theory where no "external forces" (or similar quantities which depend on time) are present. If they don't apply, then that means that a matrix representation of $f$ -- similar to what we discussed in Brussels - does not exist, and thus the correspondence with the Fourier series representation in the classical theory is lost. Naturally one must include such possibilities, but that means such a great deviation from the present formalism that one could then change almost anything. Therefore it seems very important to seek commutation relations for the $R_k$, but so far I've not found any.
+
+Your other objection to the implementation of the theory doesn't seem to be as problematic. The equations
+\uequ{
+\pddX{}{x_\nu}r_{\mu\nu} = -\frac{ei}{h}F_{\mu\nu}C^\nu
+}
+lead to solutions of the type
+\uequ{
+r_{\mu\nu} = \pddX{}{x_\nu}\frac{ei}{h}
+\int\frac{F_{\mu\lambda}(P')C^\lambda}{r_{PP'}}{dV_{P'\text{retarded}}} + r^0_{\mu\nu}.
+}
+(This is not correct exactly because $r_{\mu\nu}$ should be the same as $r_{\nu\mu}$, but I belive that the correct $r_{\mu\nu}$ will not be essentially different.) The $r_{\mu\nu}$ will thus \?{be determined by the} $F_{\mu\nu}$ on the entire light cone (past cone). So if the $F_{\mu\nu}$ vanishes in the entire space for a long time, then $r_{\mu\nu}$ returns back to the normal value - \?{and one need not ask any more}.
+
+Hopefully you will soon learn the details of Dirac's paper; I think it will also lead to an essential clarification for our program.
+
+Fermi's paper, of which I've up to now read a brief Italian report, has excited me; I am convinced that the solution of quantum electrodynamics lies in the direction discussed in Brussels, \?{but up to now I've had no proper force to work further with}.
+
+Many greetings,
+Your W. Heisenberg
+
+\letter{340}
+\rcpt{Heisenberg}
+\date{January 16, 1934}
+\location{Zurich}
+
+Dear Heisenberg!
+
+Many thanks for your letter of the 12th. 
+This has given me courage regarding the restoration of the matrix $R^0$ after switching off of fields, so that I've now succeeded in finding what I believe is the in essence correct solution for the $r_{\mu\nu}=r_{\nu\mu}$ (which essentially depends on the field on the entire past light cone, as you wrote).
+Likewise it is also successful in fulfilling $\sumX{\mu}r_{\mu\mu}=0$ (\?{which is desirable because of the Dirac equation for $R_\mu$ and $R^0$}).
+
+Further, a closer investigation shows that the \textit{relation $\dot{f}=\frac{i}{h}[f,\overline{H}]_{-}$ is satisfied} for all physical quantities, as you have required!!
+However, the bracket symbol is only \WTF{partially}{teilweise} implicitly definable, but that doesn't harm anything.
+Next I will write you details on the most important formulae. In any case, I believe that we can now look over the basic structure of the theory. How far the solution is uniquely determined, remains questionable.
+
+Most warmly,
+Your W. Pauli
+
+\letter{341}
+\from{Heisenberg}
+\date{January 18, 1934}
+\location{Leipzig}
+
+Dear Pauli!
+
+Unfortunately I know nothing new about the hole theory. Since however I've thought over Fermi's paper, I'd like to briefly report the results of these reflections to you. If Fermi's matrix elements for the creation of a neutrino + electron pair are correct, then they must -- similarly to how in the atomic electron the possibility of the emergence of light quanta leads to the Coulomb force -- give rise in the second approximation to a force between neutron and proton. I have worked out these forces, and there it emerges that an \textit{exchange} effect results from neutron and proton, which according to the Ansatz for the Fermi matrix elements has either Majorana's or my form. For the exchange integral $I(r)$ we get essentially $I(r) = \frac{\text{const}}{r^5}$, which however is incorrect at distances less than $r \approx \hbar/Mc$.
+
+The starting point of the calculation is: the wavefunctions should be: $\phi_\rho$ for protons, $X_\rho$ for neutrons, $\varphi_\rho$ for electrons, $\chi_\rho$ for neutrinos.
+
+The Hamiltonian function of the wave theory will then become
+\nequ{
+H = &\frac{c\hbar}{i}\phi^*_\rho \alpha^{\rho\sigma}_k \pddX{}{x_k}\phi_\sigma + 
+    Mc^2 \phi^*_\rho \beta_{\rho \sigma}\phi_\rho\\
+   &+\frac{c\hbar}{i}X^*_\rho \alpha^{\rho\sigma}_k \pddX{}{x_k} X_\sigma + 
+    Mc^2 X^*_\rho \beta_{\rho\sigma} X_\sigma\\
+   &+\frac{c\hbar}{i}\varphi^*_\rho \alpha^{\rho\sigma}_k \pddX{}{x_k}\varphi_\sigma + 
+    mc^2 \varphi^*_\rho \beta_{\rho\sigma} \varphi_\sigma\\
+   &+\frac{c\hbar}{i}\chi^*_\rho \alpha^{\rho \sigma}_k\pddX{}{x_k}\chi_\sigma + H_1\\
+   &= H_0 + H_1,}{1}
+
+where two possibilities should be discussed:
+\nequ{
+&\text{(a)}\quad H_1 = \left\{
+\phi^*_\rho X_\rho \varphi^*_\sigma \chi^*_\sigma -
+\phi^*_\rho \alpha^{\rho\sigma}_k X_\sigma \varphi^*_\tau \alpha^{\tau\omega}_k \chi^*_\omega + \text{conj.}
+\right\}C\\
+&\text{(b)}\quad H_1 = \left\{
+\phi^*_\rho \varphi^*_\rho X_\sigma \chi^*_\sigma -
+\phi^*_\rho \alpha^{\rho\sigma}_k \varphi_\sigma X_\tau \alpha^{\tau\omega}_k \chi^*_\omega + \text{conj.}
+\right\}C.\\
+}{2}
+The first of the two corresponds, as far as I can see, exactly to Fermi's assumption, where Fermi has ignores the term with $\alpha_k$; that means that the velocity of the heavy particles is small compared to $c$. Both assumptions are relativistic. One can now carry out a relativistic perturbation calculation, where in the zero-th approximation no electrons or neutrinos are present; one introduces as variables the numbers $N$ (protons), $M$ (neutrons), $n$ (electrons), $m$ (neutrinos). Then the Schroedinger equation is:
+\nequ{
+W\psi &(N \dots, M, \dots, n \dots, m \dots)\\
+ = &\overline{H}_0(N \dots, M, \dots, n \dots, m \dots)\psi(N,M,n,m)\\
+ + &\overline{H}_1(N \dots, M, \dots, n \dots, m \dots|N'M'n'm')\psi(N'M'n'm').
+}{3}
+
+Specifically, in the first approximation
+\uequ{
+W\psi^{(1)}&(N\dots,M\dots,1,0\dots,1,0\dots)\\
+= &\overline{H}_0(N\dots,M\dots,1,0\dots,1,0\dots)\psi(N M 1,0\dots 1,0\dots)\\
++ &\overline{H}_1(N\dots,M\dots,1,0\dots,1,0\dots|N'\dots, M'\dots,0,0,0,\dots)\psi^{(0)}(N'M'0 0).
+}
+So
+\nequ{
+\psi^{(1)}&(N\dots,M\dots,1,0\dots,1,0\dots)\\
+ = &-\psi^{(0)}(N'\dots M' 0 0)
+    \frac{\overline{H}_1(N\dots,M\dots,1,0,1,0|N'M'0 0 0)}{E_\text{Electron} + E_\text{Neutrino}}.
+}{4}
+Then in the second approximation
+\nequ{
+W\psi^{(2)}&(N,M,0 0\dots)\\
+ = & \overline{H}_0(N M 0 0)\psi^{(2)}(N M 0 0) + 
+ \sum\overline{H}_1(N M 0 0|N'M'1,0,\dots 1,0)\psi^{(1)}(N'M'1 0 1 0)\\
+ = & \overline{H}_0(N M 0 0)\psi^{(2)}(N M 0 0)\\
+   & - \sum\frac{
+     \overline{H}_1(N M 0 0|N'M' 1,0,1,0)
+     \overline{H}_1(N'M 1,0\dots 1,0|N'' M'' 0 0)
+   }{E_\text{Electron} + E_\text{Neutrino}}
+   \psi^{(0)}(N''M'' 0 0).
+}{5}
+The infinite sum (over all possible electron and neutrino states) thus simplifies the interaction between neutrons and protons. The associated operator thus reads (omitting the parts with $\alpha_k$ in (2)) in case (a):
+\nequ{
+&\int\int {dV_P}{dV_{P'}}
+\sum\frac{
+\left(\phi^*_\rho(P) X_\rho(P) \varphi^*_\sigma(P) \chi^*_\sigma(P) + \text{conj.}\right)
+}{E_\text{Electron}}\times\\
+&\quad\frac{
+\left(\phi_{\rho'}(P') X^*_{\rho'}(P') \varphi_{\sigma'}(P') \chi_{\sigma'}(P') + \text{conj.}\right)
+}{E_\text{Neutrino}}\times C^2\\
+= & \int\int{dV_P}{dV_{P'}}\left[
+  \phi^*_\rho(P) \chi_\rho(P) \phi_{\rho'}(P') X^*_{\rho'}(P') + \text{(conj.)}
+\right]J(P P'),
+}{6}
+in case (b):
+\nequ{
+&\int\int {dV_P}{dV_{P'}}
+\sum\frac{
+\left(\phi^*_\rho(P) \varphi^*_\rho(P) X_\sigma(P) \chi^*_\sigma(P) + \text{conj.}\right)
+}{E_\text{Electron}}\times\\
+&\quad\frac{
+\left(\phi_{\rho'}(P') \varphi_{\rho'}(P') X^*_{\sigma'} \chi_{\sigma'}(P') + \text{conj.}\right)
+}{E_\text{Neutrino}}\times C^2\\
+= & \int\int{dV_P}{dV_{P'}}\left[
+  \phi^*_\rho(P) X_\sigma(P) \phi_{\rho'}(P') X^*_{\sigma'}(P')F(P P' \rho \rho' \sigma \sigma') + \text{(conj.)}
+\right].
+}{7}
+The equation (6) corresponds to the exchange effect which I had assumed; equation (7) yields the Majorana interaction, if $F(P P' \rho\rho' \sigma\sigma') = \delta_{\rho\rho'}\delta_{\sigma\sigma'}J(P P')$. This appears to be correct because of the orthogonality relations. In order to evaluate $J(P P')$, a dimensional consideration suffices; it is essentially
+\nf{\MF}{\mathfrak{#1}}
+\nc{\fp}{\MF{p}}
+\nc{\fr}{\MF{r}}
+
+\nequ{
+F(P P') \approx \sumX{\fp \fp'}\frac
+{
+  \exp{
+    \frac{i}{\hbar}
+    \left[
+      \fp(\fr_P - \fr_{P'}) + \fp'(\fr_P - \fr_{P'})
+    \right]
+  }
+}
+{
+  E_\text{Electron}(\fp) - E_\text{Neutrino}(\fp')
+}.
+}{8}
+Since we are only interested in the behavior of $F(PP')$ for $|\fr_P - \fr_{P'}|$, one can leave aside the rest mass of the electron in the denominator of (8) and get for the integral $F(PP')$:
+\nequ{
+F(PP') \approx \frac{\text{const.}}{|\fr_P - \fr_{P'}|^5}.
+}{9}
+(F(PP') can be interpreted as the limit:
+\uequ{
+\limX{\alpha\to 0}\int\int\int{d\fp}\int\int\int{d\fp'}\frac{
+\exp{\frac{i}{\hbar}(\fp + \fp')\times(\fr_P - \fr_{P'}) - \alpha(p + p')}
+}{p + p'};
+}
+I have convinced myself that thia limit exists, even the numeric factor can be easily calculated.)
+
+Up to a factor of order 1, the exchange energy of the neutron and proton is:
+\nequ{
+J(PP') \approx \frac{C^2}{|\fr_P - \fr_{P'}|^5}\inv{hc}.
+}{10}
+I have still attempted to compare the magnitude of $J$ with the value obtained from (10) when the value of $C$ ia determined by the decay time. It then becomes $C \approx 10^{-47}\text{erg}\times\text{cm}^3$. Therefore
+\nequ{
+J(PP') \approx mc^2 \frac{10^{-71}}{|\fr_P - \fr_{P'}|^5}
+       \approx mc^2 \left(\frac{10^{-14}}{|\fr_P ;fg - \fr_{P'}}\right)^5.
+}{11}
+The exchange integral thus becomes very small, but perhaps because of the great sloppiness of the calculation this is no disaster. Whether (11) is too small or not depends entirely on the behavior of $J$ for small $|\fr - \fr'|$. For $|\fr - \fr'|$ less than $\approx \frac{h}{Mc}$ the whole calculation no longer applies, since then the perturbation calculations (3), (4) are meaningless.
+
+I've not yet thought about it any further - excuse the lazy \?{representation}, but it is late in the  night and in the morning I must go to Goettingen for a few days - there I hope to complete the letter.
+
+Many greetings,
+Your W. Heisenberg
+
+\letter{342}
+\rcpt{Heisenberg}
+\date{January 19, 1934}
+\location{Zurich}
+
+Dear Heisenberg,
+
+Today I would just like, following on the last sentence of letter, to again take up the question of the solution of the self-energy difficulty in quantum electodynamics on the basis of the groundwork discussed in Brussels.
+
+In the Comptes Rendus of \WTF{1/8/1934}{vom 8. 1. 1934} (vol 198 issue no 2, p.135), an uninteresting note by de Broglie appeared, wherein he discusses the viewpoint that the photon is made of two neutrinos put together.
+
+The main problem seems to me \?{to be} a reasonable formulation of the \textit{interaction term of neutrinos and electrons} in the Hamiltonian function. One can not a priori understand that the specific neutrino-pair which sticks together and forms a photon, arises so much easier than some other 2 neutrinos of different momentum directions and different energy. (This question of course also appears in de Broglie\?{'s paper} and he cannot answer it.)
+
+As regards the self-energy, I would like \?{more than the specific Klein-Jordan trick} to stress the need to have only \textit{finitely-many} degrees of freedom (e.g. number of particles). \?{The formalism  should somehow let us find if that is the case}.
+
+So, take courage and strength!
+
+Warmly yours, W. Pauli
+
+Our hole-theory program now seems to be in order. Soon you'll receive a report from me. I've still heard nothing further from Dirac.
+
+\letter{343}
+\rcpt{Heisenberg}
+\date{January 21, 1934}
+\location{Zurich}
+
+Dear Heisenberg!
+Many thanks for your letters of the 18th and 19th.
+Enclosed (I have stuck it in an extra-couvert) I have put together - only for your personal use - my calculations on the hole theory. The whole thing seems quite \WTF{suggestive}{zwangläufig}, despite the different logic from Dirac. You will recognize places influenced by the ideas from your letters (which specifically \?{destroyed} my ideas as regards the \?{restoration} of the $R^0_\mu$ after switching off the field). I consider the central point of the theory put forward here the condition (III) p. 5, which shows what is useful from the previous version of the hole theory, and what is not.
+That the energy-momentum law is needed not only in the integral form, but also in the differential form doesn't seem entirely arbitrary to me; since the latter is essential for the derivation of the angular momentum law, as well as for Lorentz invariance (c.f. our old papers).
+
+That I have written you in such detail about §1 is due to my physical starting point, namely, wanting all physical quantities to be able to lead back to $T_{\mu\nu}$ and $s_\mu$, in addition to the electromagnetic field strengths; I've consistently left the heavy mass particles out of consideration. (The connection of these quantities with the results of measurements does not essentially change in the hole theory; the $T_{\mu\nu}$ do not commute with one another, but rather only with the volume integral of the $T_{\nu4}$; conversely the $S_\nu$ commute among themselves. c.f. your old paper on the energy fluctuations.) If one adopts this standpoint, \textit{then one cannot speak at all of the decomposition $\psi = \chi^* + \varphi$} and tgus all discussions about $\dot{\chi}$. In §1 primarily the \textit{dispensability of the $\chi$} shall be shown.
+On the other hand it must be stressed that -- in contrast to the \WTF{tossed out}{hinausgeworfenen} particle numbers and particle positions -- the spatial charge density $\rho$ is arbitrarily-exactly measurable in the sense of the theoretical formalism \?{as in dependence on space and time coordinates}, \textit{even in regions that are small with respect to $\frac{h}{m_0 c}$}.
+However that now seems physically reasonable to me.
+
+I would like to hear your views on two points:
+
+1. Should one not instead of $\lim P' \to P$ always prefer to introduce $\lim K \to \infty$, where $K$ denotes the initially finite upper limit of the momentum \WTF{values}{-beträge} of the occupied negative energy states, \WTF{where it is initially cut}{bei der zunächst abgeschnitten wird}? With $\lim P' \to P$ I have a certain anxiety because of infinities.
+
+2. What is your view about the \WTF{ancillary}{zusätzliche} solution $H'_{\mu\nu}$ of the homkgenkus wave equation and the possibility of possibly setting it to zero? There is an analogy there to your radiation paper in Annalen der Physik, where to the expression of $\phi_\nu$ through the retarded current $S_\nu$ one \textit{must} also append a suitably-chosen $\phi^0_\nu$.
+
+It is then asked what more is to come from our reflections. I would like to propose to you that we publish it together. Not only were the ideas in your letters absolutely essential to me, but these reflections also run very close to our joint quantum-electrodynamical papers. But naturally we should only begin with a conclusive transcript for publication when Dirac's new paper is available to us (according to his promise, I should receive in the next few days the copy of his manuscript). What do you think?
+
+Oppenheimer recently sent me a manuscript, which however treats the old non-gauge-invariant form of the hole theory and the problems treated by us and Dirac are exactly entirely left out of consideration. I left Weisskopf just such calculations about the \textit{magnetic} self-energy in the hole theory. It seems that the Waller spin term is \textit{not} the same as in the theory without holes, \?{even with a weaker order of $\infty$}, so that the Wentzel trick won't help either.
+
+This last remark now leads over to the other theme of your letter: the \textit{neutrino theory}. I completely share your conviction that the solution of quantum electrosynamics (self-energy difficulties) must lie in the direction discussed in Brussels. A light quantum must consist of a neutrino and a neutrino-hole, as de Broglie would also have it, and the rest-mass of the neutrino should be null. If one wants to understand the usual light-emission from this standpoint, the question then naturally also arises, why the neutrino and hole are always emitted with equal momenta (magnitude and direction), and thus with equal energy as well. An essential idea is apparently missing, just as with the connection with hole theory. I also believe that the Fermi Hamiltonian function for the $\beta$-decay and the usual quantum electrodynamics (light emission and absorprion determined by $e \phi_\mu s_\mu$ in the Lagranigan function) should be \WTF{uniformly}{einheitlich} understood. I find it to be further disagreeable that absokutely no attempt has been made to derive the \WTF{conic}{komische} constant $C$ of dimensions $\text{erg}\times\text{cm}^3$ back to other purely theoretical constants.
+
+\textit{Do you know what the Fermi $\beta$-decay theory gives for the frequency of the neutron = proton + electron + neutrino and proton = neutron + positron + neutrino proceses (possibly with the help of energizing heavy particles)?} This should probably be observable.
+
+As to your attempt to grasp the exchange effect of protons and neutrons as the 2nd approximation of the Fermi Hamiltonian function, the smallness of this 2nd approximation speaks strongly against it from the first. Perhaps that can only be decided when one has a theory for regions $\frac{\hbar}{Mc}$.
+
+One formal remark. (Notation same as my handbuch article). Let $\psi$ be a spinor, $\psi^+ = i\psi^* \gamma^4$ an "inverse" spinor, so $\psi^+ \psi$ is invariant, $\psi^+ \gamma^\nu \psi$ is a vector. If $\psi,\varphi$ are two spinors which transform \textit{in the same way} ($\psi' = S\psi$, $\varphi' = S\varphi$), then $\varphi\psi$ is \textit{not} invariant, $\varphi\gamma^\nu \psi$ is \textit{not} a vector.
+
+There is however a matrix $B$ (which depends on the specific numerical realization of the Dirac $\gamma^\nu$ matrices) such that $\varphi B \psi$ is invariant, $\varphi B \gamma^\nu \psi$ is a vector, etc.
+
+$B$ is determined from the condition $\overline{\gamma^\nu} = B\gamma_\nu B^{-1}$, where $\overline{\gamma_\nu}$ denotes the matrix which arises by swapping the rows and columns of $\gamma_\nu$. (However when $\gamma_\nu$ undergoes a unitary tranaformation, $B$ does not transform unitarily.)
+I believe that there is an error in your letter.
+
+Warmly, your W. Pauli
+
+P.S. The error mentioned at the end (you seem to put $B=[I]$, which is not true) will probably not essentially change the results of your reflections.
+I would like to strongly encourage you to \textit{think further about neutrinos and quantum electrodynamics}, since I believe that the solution is no longer very far!
+
+\sskip{The quantum electrodynamical formulation of hole theory - ~8 pages}
+
+\letter{345}
+\rcpt{Heisenberg}
+\date{January 27, 1934}
+\location{Zurich}
+
+Dear Heisenberg!
+
+Your letter of the 25th has caused me to make an essential supplementary note to my calculations. Namely I have seen that the equation
+\uequ{
+\pddX{H_{\mu\nu}}{x^\nu} = \phi_\mu + \text{c-number}
+}
+\?{is not at all necessary in this form}. If you go through my proof again you will see that only \?{the} following is used
+\uequ{
+\int\sumXY{\nu=1}{4}\pddX{H_{i\nu}}{x^\nu}{dV} = \int\phi_i {dV} + \text{c-number},
+}
+so
+\uequ{
+\pddX{H_{i\nu}}{x^\nu} = \phi_i + \sumX{k}\pddX{}{x^k}(\dots);
+}
+further for $\pddX{H_{4k}}{x^k}$ no commutation relation is used at all. So it sufficient \?{to have}
+\nequ{
+\pddX{H_{\mu\nu}}{x^\nu} = \phi_\mu + \pddX{f}{x^\mu}(+ \text{c-number}),
+}{19'}
+where $f$ is any $q$-number which vanishes at spatial infinity.
+
+But this abbreviated relation (19') is already a consequence of the other assumptions, namely
+\uequ{
+\Box H_{\mu\nu} = -F_{\mu\nu}
+}
+and
+\uequ{
+\pddX{H_{\mu\nu}}{x^\lambda} + 
+\pddX{H_{\lambda\mu}}{x^\nu} + 
+\pddX{H_{\nu\lambda}}{x^\mu} = 0.
+}
+For the moment I denote $\pddX{H_{\mu\nu}}{x^\nu}$ by $\chi_\mu$, so from these equations follows $\pddX{\chi_\mu}{x^\nu} - \pddX{\chi_\nu}{x^\nu} = F_{\mu\nu}$, and thus indeed (19'). So (19') requires absolutely no extra postulates, and for this reason your objection concerning $\phi_\nu$ vanishes.
+
+\WTF{Additionally}{Zum Überfluß} I have now also written everything in the Fermi form of quantum electrodynamics, where
+\uequ{
+\sumX{\nu}\pddX{\phi_\nu}{x^\nu} = 0 (\text{and $\div{\vec{E}} = 4\pi s_0$})
+}
+is added as an auxilliary condition and where the equations (12):
+\uequ{
+\pddX{f}{x^k} = -\frac{i}{h}[\overline{G}_k, f], \quad
+\pddX{f}{t}   =  \frac{i}{h}[\overline{H}, f]
+}
+then also apply for the non-gauge-invariant quantities $\psi,\psi^*,\phi_\nu$. I have convinced myself that these relations also remain in effect for \text{all} quantities in the proposed form of the hole theory.
+
+Your assumption (1) seems primarily to speak against gauge invariance, and so I believe that it cannot be assumed. Furthermore I would like to have the differential form of the conservation laws if only because of the angular momentum integral and from invariance grounds.
+
+So I believe on the one hand to have satisfactorily proven that the proposed formulation of the hole theory is free of \?{contradictions}, as on the other hand it has \textit{not at all} been proven that it is \textit{the only one possible}.
+And I even believe "we must be prepared" for the fact that it may still need to be generalized. Provisional (though rather sloppy) reflections lead me to the consequence that the same infinite electrical polarization of the vacuum which Dirac has worked out in his Solvay Report follows from the proposed form of the hole theory. This lies in the fact thag I have \textit{assumed} for the quantities entering into the current expression
+\uequ{
+(P|R_{\rho\sigma}|P)\quad (\text{thus for $P'=P$})
+}
+are the same $R^0$ as in the force-free case. Such an assumption is perhaps not \textit{necessary} to fulfill the energy-momentum law. A possible further generalization of the Ansatz (for the purpose of removing resp. making finite the polarization of the vacuum) would however give rise to a further complication of the formulae. I hope that Dirac's paper (which I still don't have!) can bring clarity here.
+
+What do you think about de Broglie's neutrino paper, about which I wrote you a card? You should think over the neutrino and quantum electrodynamics (self-energy) again. In the last Comptes Rendus there is a wonderful paper by Curie-Joliot, where the radioactive decay-transformation by emission of \textit{positrons} with \textit{sharply-defined lifetimes} (on the order of 15 minutes) is experimentally proven! I immediately wrote him that he should check whether the positrons have a continuoua energy spectrum, that must indeed be the case.
+
+So hopefully you agre with me and I hear something soon from Dirac.
+
+Warmly,
+Your W. Pauli
+
+\letter{346}
+\rcpt{Heisenberg}
+\date{January 27, 1934}
+\location{Zurich}
+
+Dear Heisenberg!
+
+A postscript to my letter: I now believe that in our controversy over two standpoints, mathematically-logically, \textit{both} are possible:
+
+(1) The equations (12) apply for \textit{all} physical quantities, in the Fermi quantum electrodynamics even for non-gauge-invariant ones, thus for $\psi,\psi^*,\phi_\mu,R_\mu$. Further, the differential form of the energy-momentum law applies. But $P|R_{\rho\sigma}|P' = c\text{-number}$ does \textit{not}.
+
+(2) The differential form of the energy-momentum law does \textit{not} apply, further (12) does not apply for $R_\mu$. One can however put $P|R_{\rho\sigma}|P' = c\text{-number}$. The latter is because as in standpoint (1) the \textit{volume integrals} $\overline{H}$ and $\overline{G}_k$ assume the same values as if one had put
+\uequ{
+P|R_{\rho\sigma}|P' = P|R^0_{\rho\sigma}|P'
+}
+and
+\uequ{
+R_\mu = (P \to P')\left(\pddX{}{x^\mu} + \frac{ie}{hc}\phi_\mu\right)(P|R^0|P').
+}
+In gauge transformations of $phi_k$, $k=1,2,3$ naturally $C^\lambda \int \phi_k {dV}$ does not change.
+
+The angular momentum laws must however from standpoint (2) still be explicitly proven. My gut tends more to standpoint (1), but that is a matter of taste and non provable.
+
+Warmly,
+Your W. Pauli
+
+Incidentally I have ever increasing anxiety about the infinities in \WTF{limit formation}{lim-Bildungen}.
+
+\letter{347}
+\from{Heisenberg}
+\date{January 27, 1934}
+\location{Leipzig}
+
+Dear Pauli!
+
+\nc{\fE}{\MF{E}}
+
+What I wrote to you the day before yesterday was all nonsense. The assumption that $R_{\rho\sigma}(PP')$ is a $c$-number, contradicts gauge invariance, and it is not compatible with the equation $\div{\fE} = 4\pi\rho$. Despite that I believe at the moment that your schema up to now is needlessly complicated -- it must be possible to generally specify the commutation relations of the quantities $R_{\rho\sigma}(PP')$ and with those to put everything on place. At the moment I am trying out the following assumption: $R_{\rho\sigma}(PP')$ commutes with $\psi,\fE,\phi_k$, with however
+
+\uequ{
+[R_{\rho\sigma}(PP')&R_{\tau\nu}(P'',P''')]_{-} = \\
+&\delta(P P''')\delta_{\rho\nu}\times R_{\tau\sigma}(P'' P') -
+\delta(P' P'')\delta_{\tau\sigma}\times R_{\rho\nu}(P P''').
+}
+This assumption seems to me to be compatible with $\div\fE = 4\pi\rho$ (and the requirement that $R_{\rho\sigma}(PP')\exp{\frac{ei}{c\hbar}}\intXY{P}{P'}\phi_k{dx_k}$ should be gauge invariant). Also, with these commutation relations, it seems that the conservation laws are not destroyed.
+
+Before I write win detail on that, I would like to think over the consequences more precisely. Today I just want to correct my errors from the day before yeaterday.
+
+Many greetings!
+Your W. Heisenberg
+
+\letter{348}
+\from{Heisenberg}
+\date{January 29, 1934}
+\location{Leipzig}
+\tags{Hole theory}
+
+Dear Pauli!
+
+Many thanks for your letter and the card. The more I think about the hole theory, the more unclear everything becomes to me. I now completely agree with you that your current scheme is logically contradiction-free. But first I find to to be quite complicated, second I don't at all regard it as at all inevitable. Also with respect to the Dirac version, which I indeed don't exactly yet \?{understand}, I have the feeling that it is arbitrary at places. To our interpretation, the following seem to be unproven and extremely questionable:
+
+1. Will the expectation value of the charge density, the energy density, etc be finite? (the comparison with Dirac's version makes me suspect the opposite).
+
+2. Will the expectation value of the energy density not occasionally become negative? \?{Thus how far is our theory a "hole theory"}, which should ensure that the energy is always positive?
+If one only wants the differential form of the energy and the momentum laws to remain correct and additionally that the Maxwell equations apply, then one can have that more cheaply than with our theory up to now. One puts e.g. without introduction of any $\psi$-functions:
+
+\rc{\fE}{\MF{E}}
+\nc{\fH}{\MF{H}}
+
+\uequ{
+\overline{H} = \int {dV}\left\{
+\alpha^k_{\rho\sigma} R^k_{\rho\sigma} +
+\beta_{\rho\sigma}R_{\rho\sigma} +
+\inv{2}(\fE^2 + \fH^2)
+\right\}
+}
+etc, where further the commutation relations should apply:
+\uequ{
+[R_{\rho\sigma}(PP')R_{\tau\nu}(P''P''')]_{-}
+ = R_{\rho\nu}(PP''')\delta_{\tau\sigma}\delta(P'P'') -
+   R_{\tau\sigma}(P''P')\delta_{\rho\nu}\delta(PP''').
+}
+This theory has all of the desired properties: it is invariant with respect a change of sign (in the transformation $e \to -e$, $R_{\rho\sigma}(PP') \to -S_{\sigma\rho}(P'P)$ goes over into itself) and is essentially simpler than present.
+
+All in all: we finally have a theory, in which the conservation laws apply. But all the characteristics which should distinguish the new theory from the earlier theory, are at least unproven up to now.
+
+I've unfortunately still not seen the papers by de Broglie and Joliot-Curie, since we're missing the Comptes Rendus here. I will get them however in the next few days. That there are decays with positrons is of course exactly what we already \?{wanted} in Brussels - and thus new water to the neutrino-mill, \WTF{which is now humming nicely}{die jetzt schon ganz lustig klappert}. I have also been \?{plaguing myself} with neutrinos in the last days, but it is not going so easily.
+
+Write soon, so help with my hole theory pessimism!
+
+Many greetings!
+Your W. Heisenberg
+
+\letter{349}
+\rcpt{Heisenberg}
+\date{January 30, 1934}
+\location{Zurich}
+
+Dear Heisenberg!
+
+I must regard the pessimism of your \?{misery-letter} of the 29th as partially juatified, but would like to write on the question as to how far the self-energy problem can be separated from the hole theory. Because the former already in the current theory gives rise to infinite, furthermore negative energy (negative according to Waller, 2nd approximation). Naturally it would be most satisfactory if one could, entirely independent of any hole idea, put forward a theory in which
+
+I. The charge-density is finite
+II. The energy-momentum density is finite and positive
+
+That can certainly only be achieved by fixing $\frac{e^2}{hc}$ possibly with neutrinos coming into play.
+
+If one leaves the self-energy question open, then one must \?{settle with just a modest program} and must always consider the interaction energy between radiation and matter as a small perturbation and expand in $e$.
+
+Then regarding II the only requirement is that, starting from the (assumed known) force-free state of the hole theory, certain matrix elements, which give rise to transitions to negative energy states in the old theory, are now reinterpreted as pair-production where the energy remains positive.
+
+The best that one can hope for is that the requirement I \?{can still just be fulfilled following Dirac}. But it is doubtful whether one should put so much value on it as long as the self-energy is still infinite.
+One can definitely make this objection against the Dirac program of "separation of difficulties" and furthermore it is indeed well-known that the theoretical value of the pair-production-frequency by $\gamma$-photons with $E \gg mc^2$ is in any case false (namely too large).
+
+I actually believe that with arbitrary constant value of $\frac{e^2}{hc}$, the "hole theory" can not actually be \textit{uniquely} formulated and that with this it remains doubtful how far the formulations achieved by us or by Dirac are "true".
+
+My aim in my calculations was this: for $e=0$ \?{one should start by assuming the \textit{present} formulation of the hole theory to be estabished}, and then make the terms linear in $e$ halfway reasonable. For a formal modification of the force-free case (like the $R_{\rho\sigma}$-formulation without $\psi$ of your letter) can lead to nothing as long as $\frac{e^2}{hc}$ is not fixed.
+
+To the neutrino question: how should one represent electro- and magneto-\textit{static} fields by the product of 2 spinor fields? de Broglie only shows how the light fields go.
+
+Many warm greetings.
+
+Your W Pauli
+
+\end{document}

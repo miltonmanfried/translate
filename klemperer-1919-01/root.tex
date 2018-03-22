@@ -1,0 +1,69 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+
+\renewcommand*\rmdefault{ppl}
+
+\newcommand{\tn}[1]{\footnote{\textbf{Translator note:} #1}}
+
+\newcommand{\WTF}[1]{
+%\footnote{\textbf{???} #1}
+[\it{\small{#1}}]
+}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\nc{\redo}{[???]}
+
+\newcommand{\TN}[1]{
+\footnote{\sc{Translator note}: #1}
+}
+
+\nc{\missing}{[\...]}
+\nff{\?}{#1}
+
+\nf{\header}{\textit{#1}}
+\rf{\it}{\textit{#1}}
+
+\title{Klemperer Diaries: 1919 - January}
+
+\begin{document}
+
+\include{subfiles/19190101}
+\include{subfiles/19190103}
+\include{subfiles/19190104}
+\include{subfiles/19190105}
+\include{subfiles/19190107}
+\include{subfiles/19190109}
+\include{subfiles/19190110}
+\include{subfiles/19190112}
+\include{subfiles/19190115}
+\include{subfiles/19190116}
+\include{subfiles/19190117}
+\include{subfiles/19190118}
+\include{subfiles/19190120}
+\include{subfiles/19190121}
+\include{subfiles/19190122}
+\include{subfiles/19190124}
+\include{subfiles/19190125}
+\include{subfiles/19190126}
+\include{subfiles/19190127}
+
+\end{document}

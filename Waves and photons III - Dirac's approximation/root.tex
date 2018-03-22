@@ -1,0 +1,507 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{multicol}
+\usepackage[margin=0.70in]{geometry}
+%\usepackage[pdftex]{graphicx}
+\usepackage{graphicx}
+
+\renewcommand*\rmdefault{ppl}
+
+\newcommand{\tn}[1]{\footnote{\textbf{Translator note:} #1}}
+
+\newcommand{\footcite}[3]{\textsc{#1}, \textit{#2}, #3}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+
+\newcommand{\nequ}[2]{
+\begin{align*}
+#1
+\tag{#2}
+\end{align*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{align*}
+#1
+\end{align*}
+}
+
+\newcommand{\TN}[1]{
+\footnote{\sc{Translator note}: #1}
+}
+
+\nc{\sic}{\TN{sic}}
+
+\newcommand{\var}[1]{#1}
+%\newcommand{\vect}[1]{\vec{\var{#1}}}
+\newcommand{\vect}[1]{\mathbf{\var{#1}}}
+\newcommand{\coord}[1]{#1}
+\newcommand{\const}[1]{#1}
+\newcommand{\op}[1]{
+%\mathcal{#1}
+\mathbb{#1}
+}
+
+\newcommand{\primed}[1]{{#1^{\prime}}}
+\newcommand{\pprimed}[1]{{#1}^{\prime\prime}}
+\newcommand{\CC}[1]{{#1^{*}}}
+
+\newcommand{\unit}[1]{#1}
+\newcommand{\dotddt}[1]{\dot{#1}}
+\newcommand{\inv}[1]{\frac{1}{#1}}
+\newcommand{\opinv}[1]{{#1}^{-1}}
+
+\newcommand{\oppddX}[1]{
+\frac{\partial}{\partial{#1}}
+}
+\nc{\oppddxk}{\oppddX{\xk}}
+
+\newcommand{\pddt}[1]{\pdXdY{#1}{\t}}
+\newcommand{\pddx}[1]{\pdXdY{#1}{\x}}
+\newcommand{\pddy}[1]{\pdXdY{#1}{\y}}
+\newcommand{\pddz}[1]{\pdXdY{#1}{\z}}
+\newcommand{\pddxr}[1]{\pdXdY{#1}{\x_r}}
+
+\newcommand{\dXdY}[2]{
+\frac{d{#1}}{d{#2}}
+}
+
+\newcommand{\ddt}[1]{\dXdY{#1}{\t}}
+
+\newcommand{\pdXdY}[2]{
+\frac{\partial {#1}}{\partial {#2}}
+}
+\newcommand{\pddXdYY}[2]{
+\frac{\partial^2 {#1}}{\partial {#2}^2}
+}
+\newcommand{\pddtt}[1]{\pddXdYY{\qr}{\t}}
+
+\newcommand{\barred}[1]{
+\overline{#1}
+}
+
+\newcommand{\hatted}[1]{\widehat{#1}}
+
+\newcommand{\func}[1]{\pmb{#1}}
+\newcommand{\WF}[1]{\var{#1}}
+
+\renewcommand{\it}[1]{\textit{#1}}
+\renewcommand{\sc}[1]{\textsc{#1}}
+
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumk}{\underset{k}{\sum}}
+\newcommand{\suml}{\underset{l}{\sum}}
+\newcommand{\sumr}{\underset{r}{\sum}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+\nc{\sumv}{\sumX{\nu}}
+\newcommand{\prodX}[1]{\underset{#1}{\prod}}
+\nc{\prodk}{\prodX{k}}
+\nc{\prodl}{\prodX{l}}
+
+\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+
+\renewcommand{\exp}[1]{\const{e}^{#1}}
+\newcommand{\dirac}{\func{\delta}}
+\newcommand{\kronecker}[1]{\func{\delta}_{#1}}
+\nc{\opWave}{\Box}
+
+%vars
+
+\nc{\x}{\var{x}}
+\nc{\y}{\var{y}}
+\nc{\z}{\var{z}}
+\rc{\t}{\var{t}}
+
+\nc{\dV}{d\var{V}}
+
+%constants
+\rc{\c}{\const{c}}
+\nc{\cc}{\c^2}
+\nc{\h}{\const{h}}
+\rc{\i}{\const{i}}
+\nc{\m}{\const{m}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%vars
+\nc{\E}{\var{E}}
+\rc{\H}{\var{H}}
+\nc{\Y}{\var{\psi}}
+\nc{\Yr}{\Y_r}
+\nc{\Yone}{\Y_1}
+\nc{\Ytwo}{\Y_2}
+\nc{\Yx}{\Yone}
+\nc{\Yy}{\Ytwo}
+\nc{\YoneCC}{\CC{\Y_1}}
+\nc{\YtwoCC}{\CC{\Y_2}}
+\nc{\YxCC}{\YoneCC}
+\nc{\YyCC}{\YtwoCC}
+\nc{\vY}{\var{\varphi}}
+\nc{\vYone}{\vY_1}
+\nc{\vYtwo}{\vY_2}
+\nc{\tY}{\widetilde{\Y}}
+\nc{\tYCC}{\CC{\tY}}
+\nc{\yChi}{\var{\chi}}
+\nf{\cX}{\var{c}_{#1}}
+\nf{\cXCC}{\CC{\cX{#1}}}
+\nc{\cx}{\cX{1}}
+\nc{\cy}{\cX{2}}
+\nc{\cxCC}{\cXCC{1}}
+\nc{\cyCC}{\cXCC{2}}
+
+\rc{\S}{\var{S}}
+\nf{\SX}{\var{S}_{#1}}
+\nf{\TX}{\var{T}_{#1}}
+
+\nc{\YCC}{\CC{\Y}}
+\nc{\yXi}{\var{\xi}}
+\nc{\freq}{\var{\nu}}
+\nf{\AX}{{\var{A}^{#1}}}
+\nc{\Ar}{\AX{r}}
+\nc{\Ax}{\AX{1}}
+\nc{\Ay}{\AX{2}}
+\nc{\Az}{\AX{3}}
+\nc{\At}{\AX{4}}
+\rc{\k}{\var{k}}
+\nc{\kCC}{\CC{\k}}
+\nc{\intDelta}{\var{\Delta}}
+\nc{\angleAlpha}{\var{\alpha}}
+\nc{\angleBeta}{\var{\beta}}
+\nc{\angleY}{\varphi}
+\nc{\angleE}{\varepsilon}
+\nc{\angleW}{\omega}
+\rc{\a}{\var{a}}
+\rc{\b}{\var{b}}
+\rc{\c}{\var{c}}
+\nf{\fX}{\var{f}_{#1}}
+\nc{\fx}{\fX{1}}
+\nc{\fy}{\fX{2}}
+\nc{\fz}{\fX{3}}
+\nc{\gx}{\var{\xi}}
+\nc{\gy}{\var{\eta}}
+\nc{\gz}{\var{\zeta}}
+\nc{\gt}{\var{\tau}}
+
+\nc{\p}{\var{p}}
+\nc{\q}{\var{q}}
+\rc{\r}{\var{r}}
+\nc{\w}{\var{w}}
+
+\nc{\pk}{{\var{p}_k}}
+\nc{\qk}{{\var{q}_k}}
+\nc{\rk}{{\var{r}_k}}
+\nc{\wk}{{\var{w}_k}}
+
+\nf{\diracX}{\var{\alpha}_{#1}}
+\nc{\diracr}{\diracX{r}}
+\nc{\diracx}{\diracX{1}}
+\nc{\diracy}{\diracX{2}}
+\nc{\diracz}{\diracX{3}}
+\nc{\diract}{\diracX{4}}
+
+\nc{\alphak}{{\var{\alpha}_k}}
+\nc{\alphax}{\angleAlpha_1}
+\nc{\alphay}{\angleAlpha_2}
+\nc{\alphaz}{\angleAlpha_3}
+\nc{\alphat}{\angleAlpha_4}
+\nc{\betak}{{\var{\beta}_k}}
+\nc{\ak}{{\var{a}_k}}
+\nc{\D}{\var{D}}
+\nc{\DCC}{\CC{\D}}
+
+\nc{\W}{\var{W}}
+
+\rc{\j}{\var{j}}
+\nc{\jx}{\j_1}
+\nc{\jy}{\j_2}
+\nc{\jz}{\j_3}
+\nc{\jt}{\j_0}
+\nc{\jr}{\j_r}
+
+\nc{\Sx}{\S_1}
+\nc{\Sy}{\S_2}
+\nc{\Sz}{\S_3}
+\nc{\St}{\S_0}
+\nc{\Sr}{\S_r}
+
+
+%vectors
+\nc{\ve}{\vect{e}}
+\nc{\vh}{\vect{h}}
+\nc{\veCC}{{\CC{\ve}}}
+\nc{\vhCC}{{\CC{\vh}}}
+\nc{\ver}{{\ve_r}}
+\nc{\vhr}{{\vh_r}}
+\nf{\veX}{{\var{e}_{#1}}}
+\nf{\vhX}{{\var{h}_{#1}}}
+\nc{\eone}{\veX{1}}
+\nc{\etwo}{\veX{2}}
+\nc{\ethree}{\veX{3}}
+\nc{\hone}{\vhX{1}}
+\nc{\htwo}{\vhX{2}}
+\nc{\hthree}{\vhX{3}}
+\nc{\ex}{\eone}
+\nc{\ey}{\etwo}
+\nc{\ez}{\ethree}
+\nc{\hx}{\hone}
+\nc{\hy}{\htwo}
+\nc{\hz}{\hthree}
+\nc{\er}{\var{e}_{r}}
+\nc{\hr}{\var{h}_{r}}
+\nc{\erCC}{\CC{\er}}
+\nc{\hrCC}{\CC{\hr}}
+
+\nc{\Origin}{\var{O}}
+
+%operators
+\nc{\opX}{\op{X}}
+\nc{\opY}{\op{Y}}
+\nc{\opZ}{\op{Z}}
+\nc{\opL}{\op{L}}
+\nc{\opM}{\op{M}}
+\nc{\opN}{\op{N}}
+\nc{\eqM}{\mathcal{M}}
+\nc{\eqN}{\mathcal{N}}
+\nc{\opA}{\var{A}}
+\nc{\opACC}{\CC{\opA}}
+\nc{\opDs}{\op{D}^s}
+\nf{\spinX}{\var{\sigma}_{#1}}
+\nc{\spinx}{\spinX{1}}
+\nc{\spiny}{\spinX{2}}
+\nc{\spinz}{\spinX{3}}
+\nc{\opH}{\mathcal{H}}
+\nc{\opHCC}{\CC{\opH}}
+\nf{\opdL}{\partial_{#1}}
+\nc{\opdr}{\opdL{r}}
+\nc{\opdx}{\opdL{1}}
+\nc{\opdy}{\opdL{2}}
+\nc{\opdz}{\opdL{3}}
+\nc{\opdt}{\opdL{0}}
+
+%constants
+% quanternions
+\nc{\Qi}{\const{\lambda}}
+\nc{\Qj}{\const{\mu}}
+\nc{\Qk}{\const{\nu}}
+
+%abbreviations
+\nc{\oppddx}{\oppddX{\x}}
+\nc{\oppddy}{\oppddX{\y}}
+\nc{\oppddz}{\oppddX{\z}}
+\nc{\oppddt}{\oppddX{\t}}
+\nc{\hv}{\h\freq}
+\nf{\pdI}{{\partial_{#1}}}
+\nc{\pdt}{\pdI{0}}
+\nc{\pdx}{\pdI{1}}
+\nc{\pdy}{\pdI{2}}
+\nc{\pdz}{\pdI{3}}
+\nc{\pdr}{\pdI{r}}
+\nf{\isqrt}{\inv{\sqrt{#1}}}
+\nc{\qpi}{\frac{\pi}{4}}
+\nc{\iqpi}{\frac{\i\pi}{4}}
+\rf{\brack}{\lbrack#1\rbrack}
+\nc{\opTx}{\sim}
+\rc{\hbar}{\frac{\h}{2\pi}}
+\nc{\mhbari}{\frac{\h}{2\pi\i}}
+
+%spinorisms
+\nc{\Ydsig}{\Y_{\sdotsig}}
+\nc{\Yds}{\Y_{\sdots}}
+\nc{\Ydr}{\Y_{\dotted{r}}}
+\nc{\yChilam}{\yChi_{\lambda}}
+\nc{\sdotsig}{\dotted{\sigma}}
+\nc{\sdots}{\dotted{s}}
+\nf{\dotted}{\dot{#1}}
+\newcommand{\spindUL}[2]{{{\partial^{#1}}_{#2}}}
+\newcommand{\spindLU}[2]{{{\partial_{#1}}^{#2}}}
+
+\newcommand{\spinLL}[2]{{\partial_{{#1}{#2}}}}
+\newcommand{\spindLL}[2]{{\partial_{{\dotted{#1}}{#2}}}}
+\newcommand{\spindLdL}[2]{{\partial_{{\dotted{#1}}{\dotted{#2}}}}}
+\newcommand{\spinLdL}[2]{{\partial_{{{#1}\dotted{#2}}}}}
+
+\nc{\spindsigl}{\spindUL{\sdotsig}{l}}
+\nc{\spindslam}{\spindLU{\sdots}{\lambda}}
+\newcommand{\aXY}[2]{\var{a}_{\dotted{#1}{#2}}}
+\nc{\ars}{\aXY{r}{s}}
+\nc{\axx}{\aXY{1}{1}}
+\nc{\axy}{\aXY{1}{2}}
+\nc{\ayx}{\aXY{2}{1}}
+\nc{\ayy}{\aXY{2}{2}}
+\nf{\uL}{\var{u}_{#1}}
+\nf{\uU}{\var{u}^{#1}}
+\nc{\ux}{\uL{1}}
+\nc{\udx}{\uL{\dotted{1}}}
+\nc{\uy}{\uL{2}}
+\nc{\udy}{\uL{\dotted{2}}}
+\nc{\udrho}{\uL{\dotted{\rho}}}
+\nc{\udr}{\uL{\dotted{r}}}
+\nc{\uds}{\uL{\dotted{s}}}
+
+\nc{\usigma}{\uL{\sigma}}
+\newcommand{\gdLL}[2]{\var{g}_{\dotted{#1}\dotted{#2}}}
+\nc{\gdrs}{\gdLL{r}{s}}
+\newcommand{\gLL}[2]{\var{g}_{{#1}{#2}}}
+
+\nf{\aL}{\var{a}_{#1}}
+\nf{\aU}{\var{a}^{#1}}
+\nf{\adL}{\var{a}_{\dotted{#1}}}
+\nf{\adU}{\var{a}^{\dotted{#1}}}
+\nc{\ax}{\aL{1}}
+\nc{\ay}{\aL{2}}
+\nc{\adx}{\adL{1}}
+\nc{\ady}{\adL{2}}
+\nc{\ar}{\aL{r}}
+
+\nf{\bL}{\var{b}_{#1}}
+\nf{\bU}{\var{b}^{#1}}
+\nf{\bdL}{\var{b}_{\dotted{#1}}}
+\nf{\bdU}{\var{b}^{\dotted{#1}}}
+\nc{\bx}{\bL{1}}
+\nc{\by}{\bL{2}}
+\nc{\bdx}{\bdL{1}}
+\nc{\bdy}{\bdL{2}}
+\nc{\bs}{\bL{s}}
+
+\nc{\K}{\var{K}}
+\nf{\KL}{\K_{#1}}
+\nc{\Kx}{\KL{1}}
+\nc{\Ky}{\KL{2}}
+\nc{\Kz}{\KL{3}}
+
+\nf{\AL}{\var{A}_{#1}}
+
+
+\author{Alexandru Proca}
+\date{February 10, 1934}
+\title{Waves and photons III - Dirac's approximation}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The author develops the theory of light in its exact form, begun in two preceding articles (\it{J. Phys.} 1934, v. 5, p. 6 and 1934, v. 5 and p. 122). It shows that being given an arbitrary \it{light wave}, one may always associate to it a \it{corpuscule} having a specific law of motion and whose state is fixed by the structure of the wave. The rest mass of this corpuscule is null and its wave functions satisfy the relativistic Dirac equations for this particular case. This corpuscule differs thus from the experimentally-observed photon in the value of its spin, which is $\frac{\h}{4\pi}$; thus this is, following L. de Broglie, a \it{neutrino}.
+
+The correspondence between the electomagnetic field of the wave and the wave functions of a neutrino is obtained by making use of the \it{demi-gradient} operator, which was discussed in the cited articles. The author gives the exact expression, folllwed by a study of the manner which the characteristics of the light are influenced by the states of the associated corpuscule. One notes that if the corpuscule is found in a state of well-defined energy $\W$ and momentum $\p, \q, \r$, the corresponding light wave has a well-defined circular polarization. If the corpuscule is found in the same state $\p, \q, \r$ but with \it{negative energy} $-\W$, the light wave will be circularly polarized, as before, but in the \it{opposite direction}. \it{The sign of the energy of the corpuscule indicates the directiom of rotation of the corresponding light}, which allows an intuitive interpretation of the negative-energy states of an uncharged corpuscule of the preceding type.
+\end{abstract}
+\begin{multicols}{2}
+\part{}
+\section{Introduction}
+We have examined to now two approximate forms of a quantum mechanics for photons.
+
+We consider the motion of a photon as described in wave mechanics by the fundamental equation of a particle of null charge and mass and in the absence of any exterior field. The problem consists in calculating from the wave function $\Y$ of this corpuscule, the electromagnetic fields of the light which it is expected to represent. With this hypothesis as a point of departure, the exact calculation must be made starting from the Dirac equations for $\m=0$.
+
+These equations, which we write employing the spinor notation\footnote{For everything concerned with the spinor calculus one may consult the article by \sc{D. Laporte} and \sc{G. E. Uhlenbeck} published in \it{Physical Review} 1931, 37, p. 1380; to facilitate the task of this lecture we use the notations employed by these authors. See also \sc{B. L. van der Waerden}, \it{Nachr. Ges. Wiss. Göttongen}, 1929, and the book \it{Die gruppentheoretische Methode in der Quantenmechanik}, Springer 1932; \sc{L. Infeld} and \sc{B. L. van der Waerden}, Die Wellengleichung des Electrons in derallgemeinen Relativitätstheorie \it{Sitzb. Berlin 1933};
+\sc{G. Mie}, \it{Ann. der Physik}, 1933, 17, p. 465; in French one may consult an article by \sc{J. Solomon}, \it{J. de Phys.}, 1931, v. 2, p. 321}
+\nequ{
+\spindLU{l}{\sdotsig}\Y_{\sdotsig} = 0, \quad
+\spindLU{\dotted{m}}{\lambda}\yChi_\lambda = 0
+}{1}
+which furnish us with two spinors $\Y_{\sdotsig}$ and $\yChilam$. In the theory that we are developing the electromagnetic field is a field \it{of the type} $\Y$: it is derived from $\Y_{\sdotsig}, \yChilam$ by the application of suitable operators. But, being given the (???) variance character of $\Y_{\sdotsig}, \yChilam$, in order to get variables which transform as the components of an electromagnetic field, these operators must also be spinors. The fundamental principle employed in finding these spinors is the suitable "decomposition" of the gradient vector
+\nequ{
+\oppddx, \oppddy, \oppddz, \inv{\c}\oppddt
+}{1'}
+that is to say obtaining certain operators which transform as spinors and such that the components of (1') are suitable quadratic functions of these operators.
+
+Before anything, we must thus achieve such a decomposition in a completely general manner.
+
+\section{General decomposition of the gradient vector}
+In a preceding article (\it{J. Phys.}, 1934, 5, p. 121) which we hereafter designate as \it{Waves and photons II}, we have achieved this decomposition by means of \it{a single} spinor $\uL{s}$; we have seen that this solution may not be general, a result which could have been foreseen. One must try to obtain this decomposition by means of \it{two spinors} $\ar, \bs$ with components
+\uequ{
+\ax,\ay \text{ and } \bx, \by
+}
+
+The Dirac theory permits us to immediately write the equations which will define this decomposition. In effect, given a Dirac wave function $\Y$, represented as usual by a set of two spinors; it is known that with $\Y$ one may form 16 quadratic covariants of the form $\tYCC\gx\Y$, where $\gx$ is one of 16 independent products formed with the $\diracr (\r=1,2, 3, 4)$. Among these 16 operators there are two groups of four which transform as a world vector, namely: the current
+\nequ{
+\jx= \tYCC\diracx\Y, \jy = \tYCC\diracy\Y, \jz = \tYCC\diracz\Y, \jt = -\tYCC\Y
+}{2}
+and that which we shall call the "spin"
+\nequ{
+&\Sx = \tYCC\i\diracy\diracz\Y \quad &\Sy = \tYCC\i\diracz\diracx\Y \\
+&\Sz = \tYCC\i\diracx\diracy\Y \quad &\St = \tYCC\i\diracx\diracy\diracz\Y.
+}{3}
+
+It thus seems that there are two different manners by which the conponents of a world vector and the two spinors which "decompose" it: one may give either the $\jr$ or the $\Sr$ and calculate $\Y$. But, it is easy to see that it is not so and that only one of these ways of proceeding is acceptable.
+
+For this one must consider the general case of a material particle\footnote{a case which we examine in detail in another article} of mass $\m$.
+
+In this case one has:
+\uequ{
+\opWave\Y = -\frac{4\pi^2\m^2\c^2}{\h^2}\Y,
+}
+which signifies in particular
+\uequ{
+(\opdx^2 + \opdy^2 + \opdz^2 - \opdt^2)\Y_{\sigma} = 
+\frac{4\pi^2\m^2\c^2}{\h^2}\Y_{\sigma}
+}
+and
+\uequ{
+(\opdx^2 + \opdy^2 + \opdz^2 - \opdt^2)\yChilam = 
+\frac{4\pi^2\m^2\c^2}{\h^2}\yChilam
+}
+where
+\uequ{
+\opdr = \oppddX{\x_r}, \quad \x_0 = \c\t.
+}
+
+If thus we seek to decompose the vector $\opdt,\opdx,\opdy,\opdz$, one must take account that one will always have (for the functions on which it operates)
+\nequ{
+\opdx^2 + \opdy^2 + \opdz^2 - \opdt^2 =
+\frac{4\pi^2\m^2\c^2}{\h^2} = \k^2.
+}{4}
+
+\it{The world vector $\var{\partial}$ is thus a spacelike(???) vector}; however, of (2) and (3), only (3) is spacelike\footnote{We have insisted on this characteristic in an article in \it{Annales de Physique} 1933, 20, p. 317.}. Thus only one possibility for decomposition remains, which we will elaborate in the following.
+
+We take $\opdt,\opdx,\opdy,\opdz$ as four \it{real numbers} forming the components of a covariant world-vector. We write the spinor which corresponds to it following v. der Waerden\footnote{Cf. \sc{Laporte} and \sc{Uhlenbeck}, \it{Phys. Rev.}, 1931, 37, 1552.} in the form
+\nequ{
+& \spindLL{1}{1} = \opdz - \opdt \\
+& \spindLL{1}{2} = \opdx - \i\opdy \\
+& \spindLL{2}{1} = \opdx + \i\opdy \\
+& \spindLL{2}{2} = -\opdz - \opdt.}{5}
+
+
+Take $\ax,\ay$ and $\bx,\by$, the two spinors into which (5) is decomposed; then take the spinor which corresponds to the "spin" vector $\S$, (instead of that which corresponds to the "current"), and put
+\nequ{
+& \spindLL{1}{1} = \adx\ax - \bdx\bx \\
+& \spindLL{1}{2} = \bdx\by - \bdx\by \\
+& \spindLL{2}{1} = \ady\ax - \bdy\bx \\
+& \spindLL{2}{2} = \ady\ay - \bdy\by.
+}{6}
+
+The condition (4) is then written
+\nequ{
+\spindLL{2}{1}\spindLL{1}{2} - \spindLL{1}{1}\spindLL{2}{2} =
+\frac{4\pi^2\m^2\c^2}{\h^2} = \k^2,
+}{7}
+and
+\nequ{
+\k^2 = (\adx\bdy - \ady\bdx)(\ax\by - \ay\bx).
+}{8}
+
+\it{The equations (6) and (8) representing the general decomposition of the vector $\opdt,\opdx,\opdy,\opdz$, adapted to the case of an arbitrary particle of mass $\m$ satisfying the Dirac equation.}
+
+We will shortly examine the general solution; for the moment we confine ourselves to the case where we suppose that $\m=0$, thus $\k=0$.
+
+Putting symmetrical solutions to the side (such as those which we have given for the Pauli approximation (see \footnote{\it{Journal de Physique}, 1934, v. 5, p. 122.} Waves and Photons II)) and restrict ourselves to a simple form of solution. One deduces from (8), for $\k=0$ the possible solution
+\nequ{
+}{9}
+
+\
+end{multicols}
+\end{document}

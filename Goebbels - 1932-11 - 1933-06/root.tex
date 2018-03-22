@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+
+\renewcommand*\rmdefault{ppl}
+
+\newcommand{\tn}[1]{\footnote{\textbf{Translator note:} #1}}
+
+\newcommand{\WTF}[1]{
+%\footnote{\textbf{???} #1}
+[\it{\small{#1}}]
+}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\nc{\redo}{[???]}
+
+\newcommand{\TN}[1]{
+\footnote{\sc{Translator note}: #1}                                                                    
+}
+
+\nc{\missing}{[\...]}
+\nff{\?}{#1}
+
+\nf{\header}{\textit{#1}}
+\rf{\it}{\textit{#1}}
+
+\title{Goebbels - November 1932}
+
+\begin{document}
+
+\include{subfiles/19321101}
+\include{subfiles/19321102}
+\include{subfiles/19321104}
+\include{subfiles/19321105}
+\include{subfiles/19321106}
+\include{subfiles/19321108}
+\include{subfiles/19321109}
+\include{subfiles/19321110}
+\include{subfiles/19321111}
+\include{subfiles/19321112}
+\include{subfiles/19321115}
+\include{subfiles/19321116}
+\include{subfiles/19321118}
+\include{subfiles/19321119}
+
+\end{document}

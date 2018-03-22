@@ -1,0 +1,715 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{multicol}
+\usepackage[margin=0.70in]{geometry}
+%\usepackage[pdftex]{graphicx}
+\usepackage{graphicx}
+
+\renewcommand*\rmdefault{ppl}
+
+\newcommand{\tn}[1]{\footnote{\textbf{Translator note:} #1}}
+
+\newcommand{\footcite}[3]{\textsc{#1}, \textit{#2}, #3}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+
+\newcommand{\nequ}[2]{
+\begin{align*}
+#1
+\tag{#2}
+\end{align*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{align*}
+#1
+\end{align*}
+}
+
+\newcommand{\TN}[1]{
+\footnote{\sc{Translator note}: #1}
+}
+
+\nc{\sic}{\TN{sic}}
+
+\newcommand{\var}[1]{#1}
+%\newcommand{\vect}[1]{\vec{\var{#1}}}
+\newcommand{\vect}[1]{\mathbf{\var{#1}}}
+\newcommand{\coord}[1]{#1}
+\newcommand{\const}[1]{#1}
+\newcommand{\op}[1]{
+%\mathcal{#1}
+\mathbb{#1}
+}
+
+\newcommand{\primed}[1]{{#1^{\prime}}}
+\newcommand{\pprimed}[1]{{#1}^{\prime\prime}}
+\newcommand{\CC}[1]{{#1^{*}}}
+
+\newcommand{\unit}[1]{#1}
+\newcommand{\dotddt}[1]{\dot{#1}}
+\newcommand{\inv}[1]{\frac{1}{#1}}
+\newcommand{\opinv}[1]{{#1}^{-1}}
+
+\newcommand{\oppddX}[1]{
+\frac{\partial}{\partial{#1}}
+}
+\nc{\oppddxk}{\oppddX{\xk}}
+
+\newcommand{\pddt}[1]{\pdXdY{#1}{\t}}
+\newcommand{\pddx}[1]{\pdXdY{#1}{\x}}
+\newcommand{\pddy}[1]{\pdXdY{#1}{\y}}
+\newcommand{\pddz}[1]{\pdXdY{#1}{\z}}
+\newcommand{\pddxr}[1]{\pdXdY{#1}{\x_r}}
+
+\newcommand{\dXdY}[2]{
+\frac{d{#1}}{d{#2}}
+}
+
+\newcommand{\ddt}[1]{\dXdY{#1}{\t}}
+
+\newcommand{\pdXdY}[2]{
+\frac{\partial {#1}}{\partial {#2}}
+}
+\newcommand{\pddXdYY}[2]{
+\frac{\partial^2 {#1}}{\partial {#2}^2}
+}
+\newcommand{\pddtt}[1]{\pddXdYY{\qr}{\t}}
+
+\newcommand{\barred}[1]{
+\overline{#1}
+}
+
+\newcommand{\hatted}[1]{\widehat{#1}}
+
+\newcommand{\func}[1]{\pmb{#1}}
+\newcommand{\WF}[1]{\var{#1}}
+
+\renewcommand{\it}[1]{\textit{#1}}
+\renewcommand{\sc}[1]{\textsc{#1}}
+
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumk}{\underset{k}{\sum}}
+\newcommand{\suml}{\underset{l}{\sum}}
+\newcommand{\sumr}{\underset{r}{\sum}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+\nc{\sumv}{\sumX{\nu}}
+\newcommand{\prodX}[1]{\underset{#1}{\prod}}
+\nc{\prodk}{\prodX{k}}
+\nc{\prodl}{\prodX{l}}
+
+\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+
+\renewcommand{\exp}[1]{\const{e}^{#1}}
+\newcommand{\dirac}{\func{\delta}}
+\newcommand{\kronecker}[1]{\func{\delta}_{#1}}
+\nc{\opWave}{\Box}
+
+%vars
+
+\nc{\x}{\var{x}}
+\nc{\y}{\var{y}}
+\nc{\z}{\var{z}}
+\rc{\t}{\var{t}}
+
+\nc{\dV}{d\var{V}}
+
+%constants
+\rc{\c}{\const{c}}
+\nc{\cc}{\c^2}
+\nc{\h}{\const{h}}
+\rc{\i}{\const{i}}
+\nc{\m}{\const{m}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%vars
+\nc{\E}{\var{E}}
+\rc{\H}{\var{H}}
+\nc{\Y}{\var{\psi}}
+\nc{\Yr}{\Y_r}
+\nc{\Yone}{\Y_1}
+\nc{\Ytwo}{\Y_2}
+\nc{\Yx}{\Yone}
+\nc{\Yy}{\Ytwo}
+\nc{\YoneCC}{\CC{\Y_1}}
+\nc{\YtwoCC}{\CC{\Y_2}}
+\nc{\YxCC}{\YoneCC}
+\nc{\YyCC}{\YtwoCC}
+\nc{\vY}{\var{\varphi}}
+\nc{\vYone}{\vY_1}
+\nc{\vYtwo}{\vY_2}
+\nc{\tY}{\widetilde{\Y}}
+\nc{\tYCC}{\CC{\tY}}
+\nc{\yChi}{\var{\chi}}
+\nf{\cX}{\var{c}_{#1}}
+\nf{\cXCC}{\CC{\cX{#1}}}
+\nc{\cx}{\cX{1}}
+\nc{\cy}{\cX{2}}
+\nc{\cxCC}{\cXCC{1}}
+\nc{\cyCC}{\cXCC{2}}
+
+\rc{\S}{\var{S}}
+\nf{\SX}{\var{S}_{#1}}
+\nf{\TX}{\var{T}_{#1}}
+\nc{\Sr}{\SX{1}}
+\nc{\Tr}{\TX{1}}
+\nc{\Srx}{\SX{r1}}
+\nc{\Trx}{\TX{r1}}
+\nc{\Sry}{\SX{r2}}
+\nc{\Try}{\TX{r2}}
+
+\nc{\YCC}{\CC{\Y}}
+\nc{\yXi}{\var{\xi}}
+\nc{\freq}{\var{\nu}}
+\nf{\AX}{{\var{A}^{#1}}}
+\nc{\Ar}{\AX{r}}
+\nc{\Ax}{\AX{1}}
+\nc{\Ay}{\AX{2}}
+\nc{\Az}{\AX{3}}
+\nc{\At}{\AX{4}}
+\rc{\k}{\var{k}}
+\nc{\kCC}{\CC{\k}}
+\nc{\intDelta}{\var{\Delta}}
+\nc{\angleAlpha}{\var{\alpha}}
+\nc{\angleBeta}{\var{\beta}}
+\nc{\angleY}{\varphi}
+\nc{\angleE}{\varepsilon}
+\nc{\angleW}{\omega}
+\rc{\a}{\var{a}}
+\rc{\b}{\var{b}}
+\rc{\c}{\var{c}}
+\nf{\fX}{\var{f}_{#1}}
+\nc{\fx}{\fX{1}}
+\nc{\fy}{\fX{2}}
+\nc{\fz}{\fX{3}}
+\nc{\gx}{\var{\xi}}
+\nc{\gy}{\var{\eta}}
+\nc{\gz}{\var{\zeta}}
+\nc{\gt}{\var{\tau}}
+
+\nc{\p}{\var{p}}
+\nc{\q}{\var{q}}
+\rc{\r}{\var{r}}
+\nc{\w}{\var{w}}
+
+\nc{\pk}{{\var{p}_k}}
+\nc{\qk}{{\var{q}_k}}
+\nc{\rk}{{\var{r}_k}}
+\nc{\wk}{{\var{w}_k}}
+
+\nc{\alphak}{{\var{\alpha}_k}}
+\nc{\alphax}{\angleAlpha_1}
+\nc{\alphay}{\angleAlpha_2}
+\nc{\alphaz}{\angleAlpha_3}
+\nc{\alphat}{\angleAlpha_4}
+\nc{\betak}{{\var{\beta}_k}}
+\nc{\ak}{{\var{a}_k}}
+\nc{\D}{\var{D}}
+\nc{\DCC}{\CC{\D}}
+
+\nc{\W}{\var{W}}
+
+\rc{\j}{\var{j}}
+\nc{\jx}{\j_1}
+\nc{\jy}{\j_2}
+\nc{\jz}{\j_3}
+\nc{\jt}{\j_4}
+
+%vectors
+\nc{\ve}{\vect{e}}
+\nc{\vh}{\vect{h}}
+\nc{\veCC}{{\CC{\ve}}}
+\nc{\vhCC}{{\CC{\vh}}}
+\nc{\ver}{{\ve_r}}
+\nc{\vhr}{{\vh_r}}
+\nf{\veX}{{\var{e}_{#1}}}
+\nf{\vhX}{{\var{h}_{#1}}}
+\nc{\eone}{\veX{1}}
+\nc{\etwo}{\veX{2}}
+\nc{\ethree}{\veX{3}}
+\nc{\hone}{\vhX{1}}
+\nc{\htwo}{\vhX{2}}
+\nc{\hthree}{\vhX{3}}
+\nc{\ex}{\eone}
+\nc{\ey}{\etwo}
+\nc{\ez}{\ethree}
+\nc{\hx}{\hone}
+\nc{\hy}{\htwo}
+\nc{\hz}{\hthree}
+\nc{\er}{\var{e}_{r}}
+\nc{\hr}{\var{h}_{r}}
+\nc{\erCC}{\CC{\er}}
+\nc{\hrCC}{\CC{\hr}}
+
+\nc{\Origin}{\var{O}}
+
+%operators
+\nc{\opX}{\op{X}}
+\nc{\opY}{\op{Y}}
+\nc{\opZ}{\op{Z}}
+\nc{\opL}{\op{L}}
+\nc{\opM}{\op{M}}
+\nc{\opN}{\op{N}}
+\nc{\eqM}{\mathcal{M}}
+\nc{\eqN}{\mathcal{N}}
+\nc{\opA}{\var{A}}
+\nc{\opACC}{\CC{\opA}}
+\nc{\opDs}{\op{D}^s}
+\nf{\spinX}{\var{\sigma}_{#1}}
+\nc{\spinx}{\spinX{1}}
+\nc{\spiny}{\spinX{2}}
+\nc{\spinz}{\spinX{3}}
+\nc{\opH}{\mathcal{H}}
+\nc{\opHCC}{\CC{\opH}}
+
+%constants
+% quanternions
+\nc{\Qi}{\const{\lambda}}
+\nc{\Qj}{\const{\mu}}
+\nc{\Qk}{\const{\nu}}
+
+%abbreviations
+\nc{\oppddx}{\oppddX{\x}}
+\nc{\oppddy}{\oppddX{\y}}
+\nc{\oppddz}{\oppddX{\z}}
+\nc{\oppddt}{\oppddX{\t}}
+\nc{\hv}{\h\freq}
+\nf{\pdI}{{\partial_{#1}}}
+\nc{\pdt}{\pdI{0}}
+\nc{\pdx}{\pdI{1}}
+\nc{\pdy}{\pdI{2}}
+\nc{\pdz}{\pdI{3}}
+\nc{\pdr}{\pdI{r}}
+\nf{\isqrt}{\inv{\sqrt{#1}}}
+\nc{\qpi}{\frac{\pi}{4}}
+\nc{\iqpi}{\frac{\i\pi}{4}}
+\rf{\brack}{\lbrack#1\rbrack}
+\nc{\opTx}{\sim}
+\rc{\hbar}{\frac{\h}{2\pi}}
+\nc{\mhbari}{\frac{\h}{2\pi\i}}
+
+%spinorisms
+\nc{\Ydsig}{\Y_{\sdotsig}}
+\nc{\Yds}{\Y_{\sdots}}
+\nc{\Ydr}{\Y_{\dotted{r}}}
+\nc{\yChilam}{\yChi_{\lambda}}
+\nc{\sdotsig}{\dotted{\sigma}}
+\nc{\sdots}{\dotted{s}}
+\nf{\dotted}{\dot{#1}}
+\newcommand{\spindUL}[2]{{{\partial^{#1}}_{#2}}}
+\newcommand{\spindLU}[2]{{{\partial_{#1}}^{#2}}}
+\nc{\spindsigl}{\spindUL{\sdotsig}{l}}
+\nc{\spindslam}{\spindLU{\sdots}{\lambda}}
+\newcommand{\aXY}[2]{\var{a}_{\dotted{#1}{#2}}}
+\nc{\ars}{\aXY{r}{s}}
+\nc{\axx}{\aXY{1}{1}}
+\nc{\axy}{\aXY{1}{2}}
+\nc{\ayx}{\aXY{2}{1}}
+\nc{\ayy}{\aXY{2}{2}}
+\nf{\uL}{\var{u}_{#1}}
+\nf{\uU}{\var{u}^{#1}}
+\nc{\ux}{\uL{1}}
+\nc{\udx}{\uL{\dotted{1}}}
+\nc{\uy}{\uL{2}}
+\nc{\udy}{\uL{\dotted{2}}}
+\nc{\udrho}{\uL{\dotted{\rho}}}
+\nc{\udr}{\uL{\dotted{r}}}
+\nc{\uds}{\uL{\dotted{s}}}
+
+\nc{\usigma}{\uL{\sigma}}
+\newcommand{\gdLL}[2]{\var{g}_{\dotted{#1}\dotted{#2}}}
+\nc{\gdrs}{\gdLL{r}{s}}
+\newcommand{\gLL}[2]{\var{g}_{{#1}{#2}}}
+
+\nc{\K}{\var{K}}
+\nf{\KL}{\K_{#1}}
+\nc{\Kx}{\KL{1}}
+\nc{\Ky}{\KL{2}}
+\nc{\Kz}{\KL{3}}
+
+\nf{\AL}{\var{A}_{#1}}
+
+
+\author{Alexandru Proca}
+\date{January 15, 1934}
+\title{Waves and photons II - Pauli's approximation}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The author examines the first approximation of a quantum mechanics for protons in configuration space, founded on the principles indicated in a preceding article (\it{Journal de Physique}, 1934, v. 5, p. 6).
+
+The approximation consists in describing a photon by a wave function with only two components. One obtains the expression for the components of the electromagnetic field, which satisfy the Maxwell equations and transform correctly. One finds that a photon with well-defined energy and momentum corresponds to \it{circularly-polarized light} in a definite direction.
+
+For the general problem of the significance of \it{negative energies}, these results lead to the following interpretation, to be verified:
+
+\it{The energy of a particle is an essentially positive quantity; its sign only indicates the direction of rotation, right or left, of certain fields attached to the particle, and which are confounded with the Maxwell electromagnetic field if the particle is a corpuscule of light.}
+\end{abstract}
+\begin{multicols}{2}
+\section{Introduction}
+In a prior article\footnote{\it{Journal de Physique}, 1934, v. 5, p. 6. We designate this article part I; see also \it{Comptes rendus}. 1933, v. 197, p. 1725 and 1934, v. 198, p. 54.} we have attemepted a synthesis between the quantum theory of a particle with null charge and mass and the Maxwell electromagnetic theory. We have seen that being given the de Broglie wave function $\Y$ of the particle in configuration space, it is possible to find certain functions $\ve, \vh$, which one may regard as the electromagnetic field accompanying the photon, because they satisfy the Maxwell equations, they transform correctly and lead to the exact value of the energy.
+
+However, we have confined ourselves to the Schrödinger approximation, that is to say that we have supposed the photon described by the simple equation
+\nequ{
+\opWave\Y = 0.
+}{1}
+
+The resultant theory is not satisfactory, for the same reasons which make it impossible to establish a relativistic mechanics of the electron from a second-order equation.
+
+It is even difficult to regard this theory as a true first approximation: indeed, the Schrödinger mechanics (where the preceding is only a particular case for $\m=0$) is only applicable to particles of small velocity, a condition which certainly does not apply to photons.
+
+Before passing to the exact theory, we will examine another treatment, which constitutes at this time effectively a first approximation and which we call the "Pauli approximation", because it only introduces two wave functions to describe the particle, instead of the four which will be required in the Dirac theory.
+
+Consider a Dirac electron, in the absence of a field; its motion is governed by the following four equations which we write using the spinor formalism\footnote{Cf. for example \sc{Laporte} and \sc{Uhlebeck}, \it{Physical Review}, 1930, 37, p.1380}:
+\nequ{
+\begin{split}
+\mhbari\spindsigl\Ydsig - \m\c\yChi_l = 0 \\
+\mhbari\spindslam\yChilam - \m\c\Yds = 0
+\end{split}
+}{2}
+
+If these equations are exact for any particle, it must, in order to be able to adapt this latter to a photon, first of all admit the case of null charge and mass; one would then have simply
+\nequ{
+\spindsigl\Ydsig = 0\quad\spindslam\yChilam = 0.
+}{3}
+
+Then, it should be arranged for the spin of the particle that we are treating as a photon to be null or $\hbar$. We discuss this question question of spin in detail in a subsequent article, dedicated to the study of the Dirac approximation. We will however see later that in the Pauli approximation treated here, the spin of the photon is null, (???)by virtue of the same manner which one chooses this approximation(???). This difficulty is thus eluded; we will return to it in its entirety in the exact theory.
+
+\section{Fundamental decomposition}
+The fundamental idea which we have used in our preceding publocations is the following. The impossibility of realizing the synthesis between the Maxwell theory and the Dirac theory comes from the fact that the first may be developped withing making any appeal to spinors, while it is not the same for the second. Thus if we want to rely in one way or another on spinors which define the motion of a photon with electromagnetic field components $\ve, \vh$, it would be necessary to utilise some \it{other spinors} which, combined with the first, furnish values which transform as $\ve, \vh$. We find this second category of spinors by decomposing the world-vector
+\nequ{
+\oppddx, \oppddy, \oppddz, \inv{\c}\oppddt.
+}{4}
+
+Like in the Dirac theory, based on the decomposition of a scalar, the following is based on the decomposition of the vector (4). The Dirac theory gives us the example of a decomposition of this type; the components of the current
+\nequ{
+\jx = \tYCC\alphax\Y,
+\jy = \tYCC\alphay\Y,
+\jz = \tYCC\alphaz\Y,
+\jt = \tYCC\Y
+}{5}
+appears as functions quadratic in $\Y$; the formulae (5) define a certain "decomposition" of the vector $\j_r$. The goal is to find an analogous decomposition for the case of the vector (4).
+
+We treat the general problem in a subsequent article. For now, we note that the here the problem seems seems to simplify because of the fact that, $\m$ being null, one always has, with whatever $\Yds$ or $\yChilam$:
+\uequ{
+\opWave\Yds = \opWave\yChilam = 0
+}
+that is to say
+\nequ{
+\left[
+\frac{\partial^2}{\partial\x^2} + 
+\frac{\partial^2}{\partial\y^2} + 
+\frac{\partial^2}{\partial\z^2} + 
+\frac{\partial^2}{\partial\t^2}
+\right]\var{\Psi} = 0.
+}{6}
+
+We also assume that the operators into which one decomposes the vector (4) must all commute with one another and with the components (4).
+
+As in (I), we should first obtain such operators and utilize them to form the new functions which describe the field; we will then have to prove that these functions have the properties that we have supposed them to have.
+
+\section{Theory with two components}
+First consider an ordinary (e.g., not necessarily an operator), real world-vector $\Ar (r=1,2,3,4)$ which satisfies the condition
+\nequ{
+(\Ax)^2 + (\Ay)^2 + (\Az)^2 - (\At)^2 = 0
+}{7}
+Take $\ars$ to be the spinor associated with it in the usual manner, by means of the formulae:
+\nequ{
+\begin{split}
+\Ax + \i\Ay = \ayx\\
+\Ax + \i\Ay = \axy\\
+\At + \Az = \axx\\
+\At - \Az = \ayy
+\end{split}
+}{8}
+
+The $\axy$ and $\ayx$ are imaginary conjugates; $\axx$ and $\ayy$ are real.
+
+The simplest and most immediate decomposition of this spinor $\ars$ is evidently obtained by means of a single unknown spinor $\uL{s}$ and thus by means of two functions $\ux$ and $\uy$. This means putting
+\nequ{
+\ars = \udrho\usigma
+}{9}
+
+This however requires that
+\nequ{
+-\axx\ayy + \axy\ayx = -\udx\ux\udy\uy + \udx\uy\udy\ux \equiv 0
+}{10}
+e.g.
+\uequ{
+(\Ax + \i\Ay)(\Ax - \i\Ay) - (\At + \Az)(\At - \Az) = 0
+}
+which is none other than the condition (7). It is this condition which permits the simple decomposition (9).
+
+A single spinor $\uL{s}$ signifies four real components; however, one is only given three independent quantities (because of (7)); so our final formulae have a certain arbitrariness. We then put, to have symmetric formulae
+\uequ{
+\ux = \rho\exp{\i\angleAlpha}, \uy = \sigma\exp{\i\angleBeta}
+}
+thus
+\nequ{
+\begin{split}
+\rho^2 = \At + \Az\quad\sigma^2 = \At - \Az\\
+\rho\sigma\exp{\i(\angleAlpha-\angleBeta)} = \Ax + \i\Ay,
+\end{split}
+}{11}
+which imposes
+\nequ{
+\At \gt \Az
+}{11'}
+which is assured if all of the $\Ar$ are positive.
+
+Put $\angleY = \angleAlpha - \angleBeta$; one has
+\uequ{
+\begin{split}
+\rho = +\sqrt{\At + \Az}\quad\sigma = +\sqrt{\At - \Az}\\
+\exp{\i\frac{\angleY}{2}} = \pm\sqrt{\frac{\Ax+\i\Ay}{\rho\sigma}}.
+\end{split}
+}
+
+Let $\angleE$ be an arbitrary angle and write
+\nequ{
+\ux = \rho\exp{\i\left(\frac{\angleY}{2}+\angleE\right)}\quad
+\uy = \sigma\exp{\i\left(-\frac{\angleY}{2}+\angleE\right)}.
+}{12}
+
+From this follows
+\nequ{
+\begin{split}
+\ux = \sqrt{\Ax + \i\Ay}\sqrt[4]{
+\frac{\At + \Az}{\At - \Az}
+}\exp{\i\angleE} \\
+\uy = \sqrt{\Ax - \i\Ay}\sqrt[4]{
+\frac{\At - \Az}{\At + \Az}
+}\exp{\i\angleE}
+\end{split}
+}{13}
+where we have moves the double-sign on the radical into the arbitrary $\exp{\i\angleE}$. We again remark that these formulae are only valid when (11') is satisfied, this is of capital importance; we return to this point in section 7.
+
+Given this, take
+\nequ{
+\Ax=\oppddx, \Ay=\oppddy, \Az=\oppddz, \At=-\inv{\c}\oppddt
+}{14}
+and make the further change of variables
+\begin{align*}
+\gx =& \x+\i\y \quad & \gz =& \z - \c\t \\
+\gy =& \x-\i\y \quad & \c\gt =& -z - \c\t.
+\tag{15}
+\end{align*}
+
+We will finally have
+\nequ{
+\ux = \sqrt{2}\sqrt{\oppddX{\gy}}\frac{
+\sqrt[4]{\oppddX{\gz}}
+}{
+\sqrt[4]{\oppddX{\c\gt}}
+}\exp{\i\angleE} \\
+\uy = \sqrt{2}\sqrt{\oppddX{\gx}}\frac{
+\sqrt[4]{\oppddX{\c\gt}}
+}{
+\sqrt[4]{\oppddX{\gz}}
+}\exp{\i\angleE}.
+}{16}
+
+We interpret the symbols $\sqrt{\oppddX{\gx}},...$ in the same sense as introduced in I (that is, as derivatives of fractional order).
+
+\section{Application}
+Consider a plane wave of the form
+\nequ{
+\Y_{\sigma} = \a_{\sigma}\exp{\i(\p\x+\q\y+\r\z-\W\t)}
+}{17}
+with the condition $\W>0$, without which the formulae (13) would not be applicable.
+
+One may write:
+\nequ{
+\Y_{\sigma}=\a_{\sigma}\textbf{exp}&\left[
+\frac{(\p-\i\q)}{2}\gx + \frac{(\p+\i\q)}{2}\gy
+\right.\\
++ & \left.
+    \frac{(\frac{\W}{\c}+\r)}{2}\gz
++   \frac{(\frac{\W}{\c}-\r)}{2}\c\gt
+\right].
+}{18}
+One then has
+\nequ{
+\ux\Y &= \sqrt{\i\p-\p}\sqrt[4]{
+  \frac{
+    \frac{\W}{\c} + r
+  }{
+    \frac{\W}{\c} - r
+  }
+}(\exp{\i\angleE}) \\
+\uy\Y &= \sqrt{\i\p+\p}\sqrt[4]{
+  \frac{
+    \frac{\W}{\c} - r
+  }{
+    \frac{\W}{\c} + r
+  }
+}(\exp{\i\angleE})
+}{19}
+by choosing a consistent value for $\sqrt[4]{\i}$. As for the operator $\exp{\i\angleE}$ one may apply it exactly as in we showed in I, except with regard to its physical interpretation.
+
+\section{Expression for the components of the field}
+Consider now a particle with null charge and rest mass; such a particle will be described in quantum mechanics by the already-mentioned equations
+\nequ{
+\spindsigl\Ydsig = 0\quad\spindslam\yChilam = 0.
+}{3}
+If this particle can represent a photon, what will be the values of the electromagnetic field of the corresponding light? Following the procedure used in I, we must obtain these values by suitably combining the components $\uL{s}$, furnished by the decomposition of the vector $\oppddx$, and the spinors $\Ydsig$, $\yChi^{\lambda}$, which describe a corpuscule of light in configuration space.
+
+It will suffice to find a symmetrical second-rank spinor, of the form $\gdrs$; the values of the components of the electromagnetic field are deduced by the formulae indicates by Uhlenbeck and Laporte (\it{loc. cit.} and also \it{Comptes Rendus}, 1934, v. 198, p. 452).
+
+However, the simplest way to form such a second-order spinor evidently consists in taking $\yChilam$ to be identically zero:
+\nequ{
+\yChilam \equiv 0
+}{20}
+and using $\Ydsig$ to form
+\nequ{
+\gdrs = \inv{2}(\udr\Yds + \uds\Ydr).
+}{21}
+This $\gdrs$ (and this \it{the corresponding electromagnetic field}) \it{satisfies the Maxwell equations if $\Ydsig$ satisfies those of Dirac}. In fact, the Maxwell equations are written (Cf. Laporte and Uhlenbeck, \it{loc. cit.})
+\uequ{
+\spindUL{\dotted{r}}{l}\gdrs=0
+}
+and one has, because of the commutability of $\uL{\dotted{\rho}}$
+\uequ{
+\spindUL{\dotted{r}}{l}\gdrs=&\inv{2}\uU{\dotted{r}}\uL{l}(\udr\Yds + \uds\Ydr) \\
+=&\inv{2}\uL{l}(\uU{\dotted{r}}\uL{l})\Yds
++\inv{2}\uds\spindUL{\dotted{r}}{l}\Ydr \equiv 0,
+}
+the first term being null by virtue of the Dirac equation (3) and the first because of the fundamental identity of spinor calculus
+\uequ{
+\uU{\dotted{r}}\udr=0.
+}
+This then leads us to define a photon by the equations (20) and (3), a photon whose electromagnetic field is (21) or, better, that the field is onlu defined by the \it{two} components $\Y_{\dotted{1}}, \Y_{\dotted{2}}$, uniquely satisfying the system of equations $\spindUL{\dotted{\sigma}}{l}\Ydsig=0$.
+
+We now write the field in an explicit fashion. One has in general the following relations between $\gdrs$ and the field:
+\nequ{
+\gdLL{1}{1} = 2(\Ky + \i\Kx)\quad\gdLL{2}{2} = 2(\Ky - \i\Kx)\\
+\gdLL{1}{2} = \gdLL{2}{1} = -2\i\Kz
+}{22}
+where
+\nequ{
+\K_{r} = \hr - \i\er
+}{22'}
+
+Thus one has simply
+\nequ{
+\ex - \i\hx = \inv{4}(\gLL{1}{1} - \gLL{2}{2})\quad\hy + \i\ey = \inv{4}(\gLL{1}{1}+\gLL{2}{2})\\
+\ez-\i\hz = \inv{4}(-2\gLL{1}{2})
+}{23}
+and it will suffice to take the real and imaginary parts of the second member to have the values of the electromagnetic field components. Being given that
+\uequ{
+\gLL{1}{1} = \ux\Yx \quad
+2\gLL{1}{2} = \ux\Yy + \uy\Yx \quad
+\gLL{2}{2} = \uy\Yy
+}
+one may write
+\nequ{
+\ex - \i\hx = \inv{4}(\ux\Yx - \uy\Yy)\quad \hy + \i\ey = \inv{4}(\ux\Yx + \uy\Yy)\\
+\ez-\i\hz=\inv{4}(-\ux\Yy - \uy\Yx).
+}{23'}
+
+One sees by virtue of (20) the \it{spin} of the photon, defined as in quantum mechanics by
+\uequ{
+\m_{rs} = \Y_r\yChi_s +
+\Y_s\yChi_r}
+
+is null: light is devoid of spin in the Pauli approximation.
+
+\section{Polarization}
+If light doesn't possess \it{spin}, it at least possesses \it{polarization}. For some time, we have sought to align the \it{spin} of particles and the polarization of electromagnetic waves and to perform experiments on the spin of electrons which are analogous to the experiments on the polarization of light. From the point of view we are taking here, this manner of proceeding appears to be an error. The present theory neatly separates the notion of spin and that of polarization and explains the failure of the mentioned experimental failures; it suggests another direction from which the latter must be engaged.
+
+Consider a photon of well-defined energy and momentum; it will be by a plane wave and we do not lose any generality by supposing that it propagates along the $\Origin\x$ axis. The photon's wave function will be
+\uequ{
+\Y_\sigma = \AL{\sigma}\exp{\i(\p\x - \W\t)}.
+}
+
+One must have $\left(\frac{\W}{\c}\right)^2 = \p^2$ and the $\AL{\sigma}$ must satisfy the Dirac equations which are here written
+\uequ{
+\p\AL{1}=\frac{\W}{\c}\AL{2}\quad \frac{\W}{\c}\AL{1} = \p\AL{2}
+}
+\it{Because} $\W > 0$, one must take
+\nequ{
+\frac{\W}{\c} = +\sqrt{\p^2} = \p,
+}{25}
+thus $\AL{1} = \AL{2}$; $\AL{1}$ remains arbitrary. Put $\AL{1} = \rho\exp{\i\angleAlpha}$.
+
+That being so, we calculate the field by means of the formula (23') and (19) by assuming, as in I, that $\angleE$ designates the operator "multiplication by the number $\angleE$". One easily has
+\nequ{
+\ex - \i\hx &= 0 \\
+\ey + \i\hy &= \frac{\sqrt{\p}}{2}\AL{1}\exp{\i(\p\x-\W\t + \angleE + \qpi)} \\
+\ez - \i\hz &= -\frac{\sqrt{\p}}{2}\AL{1}\exp{\i(\p\x-\W\t + \angleE + \qpi)}
+}{26}
+with
+\nequ{
+\AL{1} = \rho\exp{\i\angleAlpha} \text{ and } \angleW = \angleE + \frac{\pi}{4} + \angleAlpha
+}{27}
+\nequ{
+\ex =& 0 \\
+\ey =&  \frac{\sqrt{2}}{2}\rho\sin{\p\x-\W\t+\angleW}\\
+\ez =& -\frac{\sqrt{2}}{2}\rho\cos{\p\x-\W\t+\angleW}\\
+\hx =& 0 \\
+\hy =&  \frac{\sqrt{2}}{2}\rho\cos{\p\x-\W\t+\angleW}\\
+\hz =&  \frac{\sqrt{2}}{2}\rho\sin{\p\x-\W\t+\angleW}.
+}{28}
+
+One sees that as opposes to the arbitrary angle $\angleAlpha$ which was introduced in the Schrödinger approximation and which should be interpretes as a polarization angle, the angle $\angleE$ has no influence on the values of the field's components. The arbitrary $\angleE$ derived from the operators $\uL{\rho}$ melts into one that originates from the fact that the $\Y_\sigma$ are only determined by the Dirac equations up to a phase factor.
+
+The formulae (28) show that a photon described by
+\uequ{
+\Y_\sigma = \AL{\sigma}\exp{\i(\p\x-\W\t)}, \quad \W > 0
+}
+corresponds with a ray of light propagating in the same direction, e.g. $\Origin\x$, and having a \it{right circular polarization}.
+
+The field components are only determined up to a factor, whose modulus may be fixed by the condition that the light field's energy be equal to that of the photon; there still remains a phase factor which is arbitrary.
+
+\section{Problem of negative energies}
+A positive-energy photon thus represents light with circular polarization in a well-defined direction; this result is established in the Pauli approximation and it remains in the exact theory. It is natural the to think that, probably, \it{a photon of negative energy would represent light polarized light in the opposite direction}.
+
+We will see in the exact theory that it is effectively thus; but the preceding developments do not permit us to verify the correctness of this suggestion; \it{the Pauli approximation is not sufficient for this}.
+
+In effect, we don't have the right to conclude from the preceding section that, if a positive-energy photon represents a light circularly-polarized in a given direction, a photon of negative energy would represent light polarized in the opposite sense. The decomposition (13) will not be valid in the case where
+\nequ{
+\Y_\sigma = \a_\sigma\exp{\i(\p\x+\q\y+\r\z+\W\t)}\quad\W > 0
+}{29}
+because we would run up against the case
+\nequ{
+\At - \Az < 0
+}{30}
+which we have expressly forbidden; the last of the equations in (8) leads to an impossibility.
+
+We may evidently, in the case $\At - \Az < 0$ obtain another decomposition by changing the sign of the second members of the two last equations in (8). The obtained formulae, which are different from the preceding, which will then apply exclusively to particles of the type (29) with negative energy, which would correspond to fields rotating in the opposite sense from the preceding.
+
+In summary, the calculations which we have developed are only applicable for energies between 0 and $\infty$; the analogous (but not identical) formulae permit the examination of the domain from 0 to $-\infty$, but it is not possible, \it{in the Pauli approximation}, to give unique formulae for the entire interval $-\infty, +\infty$.
+
+This shows in what sense the preceding theory is an approximation and the conditions in which it is applicable. This also proves the known fact \footnote{\sc{W. Pauli}, \it{Handbuch der Physik}, 1933, v. XXIV-I, p. 256} that a relativistic theory with two components is not possible. One must therefore pass to the Dirac approximation, which we will treat in the following article.
+
+These preceding results suggest a new line of attack for the problem of negative energies for any particle, photon or electron. In any theory like this one, based on the Dirac equations, it seems that one must inevitably at some moment run into an insurmountable difficulty, constituted by the appearance of negative energies. But, for the case of the photon, this circumstance, far from constituting a difficulty, is on the contrary an indispensible element of any correct theory; indeed, it is indispensible to have fields turning in two directions to enable the realization of linearly-polarized light. On the othet hsnd, one knows that in the Dirac theory of the electron, one may not similarly pass over the consideration of negative energies. In ant case, we may not eliminate them; we are thus obligated to interpret them.
+
+But, the preceding developments suggest the following interpretation:
+
+The notion which we have of the energy of an arbitrary particle does not permit us to attribute a sign to the number which it measures; \it{the energy} may only be for us, at least with our current way of thinking, an \it{essentially positive quantity}, equal to the absolute value $|\W|$ of this number: \it{these signs simply indicate the right or left sense of the rotation of certain fields attached to the particle}. If the particle is a photon, this field will be the electromagnetic field of the light; a photon of positive energy will represent right-circularly polarized light and a negative energy photon left-polarized light. If the particle is an electrons, we should seek the fields which play this role and which thus allow an interpretation of negative energies; the preceding considerations show their importants and leave to be seen whether the comparison with Dirac's hole theory will be very fruitful.
+
+\it{Manuscript received January 15, 1934.}
+
+
+
+
+\end{multicols}
+\end{document}

@@ -1,0 +1,52 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+
+\renewcommand*\rmdefault{ppl}
+
+\newcommand{\tn}[1]{\footnote{\textbf{Translator note:} #1}}
+
+\newcommand{\WTF}[1]{
+%\footnote{\textbf{???} #1}
+[\it{\small{#1}}]
+}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\nc{\redo}{[???]}
+
+\newcommand{\TN}[1]{
+\footnote{\sc{Translator note}: #1}                                                                    
+}
+
+\nc{\missing}{[\...]}
+\nff{\?}{#1}
+
+\nf{\header}{\textit{#1}}
+\rf{\it}{\textit{#1}}
+
+\title{Goebbels - August 1932}
+
+\begin{document}
+
+\include{subfiles/19320813}
+\include{subfiles/19320822}
+
+\end{document}

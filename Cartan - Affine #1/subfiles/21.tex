@@ -1,0 +1,73 @@
+\subsection*{21. The dynamics of a point particle.}
+
+In special relativity, the notion of a "momentum-mass" vector may also be put at the base of the dynamics of point particles: this is the vector
+
+\uequ{
+m\left(\e_0 + \e_1 \frac{dx}{dt} + \e_2 \frac{dy}{dt} + \e_3 \frac{dz}{dt} \right).
+}
+
+\textit{The rest mass} $\mu$ of a point particle is, up to a constant factor, the square root of the scalar product of the "momentum-mass" vector with itself; more precisely, one has
+
+\uequ{
+\mu = m\sqrt{1 - 
+\frac{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2 + \left(\frac{dz}{dt}\right)^2
+}{c^2} = m\sqrt{1-\frac{V^2}{c^2}}};
+}
+this number $\mu$ is attached to each point particle, the same as the ordinary mass in classical mechanics.
+
+The analytic expression for the "momentum-mass" vector takes a more symmetrical form if one introduces the \textit{proper time} at a point defined by
+
+\uequ{
+d\tau = \sqrt{dt^2 - \frac{dx^2+dy^2+dz^2}{c^2}} = \sqrt{1-\frac{V^2}{c^2}}dt = \frac{\mu}{m}dt.
+}
+
+The momentum-mass vector then becomes
+\uequ{
+\mu\left(\e_0\frac{dt}{d\tau} + \e_1\frac{dx}{d\tau} + \e_2\frac{dy}{d\tau} + \e_3\frac{dz}{d\tau}\right);
+}
+in this expression, the quantities $\mu$ and $d\tau$ are independent of the reference system.
+
+The fundamental principle of dynamics may be put thusly:
+
+The derivative with respect to the proper time of a "momentum-mass" world-vector is equal to the "hyperforce" world-vector
+
+\uequ{
+\e_0 \hR + \e_1 \hX + \e_2 \hY + \e_3 \hZ.
+}
+
+This hyperforce vector has a meaning independent of the reference system, and one has
+
+\uequ{
+\frac{dm}{dt} &= \frac{dm}{d\tau}\frac{d\tau}{dt} = \hR\sqrt{1-\frac{V^2}{c^2}},\\
+\frac{d}{dt}\left(m\frac{dx}{dt}\right) &= \frac{d}{d\tau}\left(m\frac{dx}{dt}\right)\frac{d\tau}{dt} = \hX\sqrt{1-\frac{V^2}{c^2}},\\
+\frac{d}{dt}\left(m\frac{dy}{dt}\right) &= \frac{d}{d\tau}\left(m\frac{dy}{dt}\right)\frac{d\tau}{dt} = \hY\sqrt{1-\frac{V^2}{c^2}},\\
+\frac{d}{dt}\left(m\frac{dz}{dt}\right) &= \frac{d}{d\tau}\left(m\frac{dz}{dt}\right)\frac{d\tau}{dt} = \hZ\sqrt{1-\frac{V^2}{c^2}}.
+}
+
+The force, in the usual sense of the word, is the space components of the hyperforce multiplied by $\sqrt{1-\frac{V^2}{c^2}}$.
+
+On the other hand, there is a necessary relation between $\hR, \hX, \hY, \hZ$, which expresses the constancy of the rest mass of the point:
+\uequ{
+c^2 m \frac{dm}{dt} 
+- m\frac{dx}{dt}\frac{d}{dt}\left(m\frac{dx}{dt}\right)
+- m\frac{dy}{dt}\frac{d}{dt}\left(m\frac{dy}{dt}\right)
+- m\frac{dz}{dt}\frac{d}{dt}\left(m\frac{dz}{dt}\right) = 0,
+}
+where
+\uequ{
+c^2 \hR dt = \hX dx + \hY dy + \hZ dz;
+}
+this relation says that the elementary work of the flrce is equal to the differential of the quantity $mc^2$; this quantity is the \textit{energy} of the point particle
+\uequ{
+mc^2 = \frac{\mu c^2}{\sqrt{1-\frac{V^2}{c^2}}};
+}
+to a first approximation, it is equal to
+\uequ{
+\mu c^2 + \frac{1}{2} \mu V^2
+}
+or again
+\uequ{
+\mu c^2 + \frac{1}{2} m V^2
+}
+if one supposes that $V$ is very small with respect to $c$.
+%

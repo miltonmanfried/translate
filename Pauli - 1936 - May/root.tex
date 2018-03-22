@@ -1,0 +1,141 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\renewcommand*\rmdefault{ppl}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{marginnote}
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+
+\nff{\WTF}{#1 (\textit{#2})}
+
+\nf{\translator}{\footnote{\textbf{Translator note:}#1}}
+\nc{\sic}{{}^\text{(\textit{sic})}}
+
+\newcommand{\nequ}[2]{
+\begin{align*}
+#1
+\tag{#2}
+\end{align*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{align*}
+#1
+\end{align*}
+}
+
+\nf{\sskip}{...\{#1\}...}
+\nff{\iffy}{#2}
+\nf{\?}{#1}
+\nf{\tags}{#1}
+
+\nf{\limX}{\underset{#1}{\lim}}
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+%\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+\nff{\intXY}{\underset{#1}{\overset{#2}{\int}}}
+
+\nc{\fluc}{\overline{\delta_s^2}}
+
+\rf{\exp}{e^{#1}}
+
+\nc{\grad}{\operatorfont{grad}}
+\rc{\div}{\operatorfont{div}}
+
+\nf{\pddt}{\frac{\partial{#1}}{\partial t}}
+\nf{\ddt}{\frac{d{#1}}{dt}}
+
+\nf{\inv}{\frac{1}{#1}}
+\nf{\Nth}{{#1}^\text{th}}
+\nff{\pddX}{\frac{\partial{#1}}{\partial{#2}}}
+\nf{\rot}{\operatorfont{rot}{#1}}
+\nf{\spur}{\operatorfont{spur\,}{#1}}
+
+\nc{\lap}{\Delta}
+\nc{\e}{\varepsilon}
+\nc{\R}{\mathfrak{r}}
+
+\nff{\Elt}{\operatorfont{#1}_{#2}}
+
+\nff{\MF}{\nc{#1}{\mathfrak{#2}}}
+
+\nc{\Y}{\psi}
+\nc{\y}{\varphi}
+
+\nf{\from}{From: #1}
+\nf{\rcpt}{To: #1}
+\rf{\date}{Date: #1}
+\nf{\letter}{\section{Letter #1}}
+\nf{\location}{}
+
+\title{Pauli - 1936 - May}
+
+\begin{document}
+
+\letter{429}
+\from{Heisenberg}
+\date{May 26, 1936}
+\location{Leipzig}
+\tags{showers}
+
+\MF{\fU}{U}
+\MF{\fE}{E}
+
+Dear Pauli!
+
+Since my last letter, in which there indeed wasn't much, I have stumbled into a very remarkable connection which I, according to old habit, write to you for criticism.
+
+I begin with a typical \?{variation} of quantum mechanics from the Fermi $\beta$-decay theory. If, by tossing out unnecessary dimensions, a field function is introduced whose commutation relations give only the $\delta$-function, then instead of $\fU$ and $\fE\y = \fU/\sqrt{\hbar c}$ and $\pi=\fE/\sqrt{\hbar c}$, and further instead of the energy $\epsilon = E/\hbar c$, $\epsilon$ gets the dimensions $\text{cm}^{-1}$ and the Hamiltonian function of quantum electrodynamics becomes roughly
+\uequ{
+\epsilon = \int\left(
+\Y^* \alpha^i \pddX{}{x_i}\Y + \frac{mc}{\hbar}\Y^*\beta\Y + 
+\sqrt{\frac{e^2}{\hbar c}}\Y^* \alpha_i \Y \y_i + \inv{2}(\pi^2 + \y^2)
+\right){dV}.\\
+[\pi_p\, \y_{p'}]_- = \delta_{pp'}; \quad
+[\Y^*_p \, \Y_{p'}] = \delta_{pp'}.
+}
+In such a theory, one can also set $m=0$ without difficulty \?{if interested in large energies}. A perturbation procedure always remains an expansion in $e^2/\hbar c$. That corresponds to the fact that e.g. in the theory of pair-production, the probability for the production of $n$ pairs is always less probable by a factor of $(e^2/\hbar c)^{-1}$ than that for a single pair. This applies independently of the energy of the particle.
+
+It is entirely different in the Fermi $\beta$-theory. If, after the fashion of Uhlenbeck-Konopinski, it is assumed that
+\uequ{
+\epsilon = \int\left(\Y^* \alpha_i \pddX{}{x_i} \Y + \dots + 
+\frac{g}{\hbar c}\Y^*_\text{proton}\Y_\text{neutron}\Y^*_\text{electron}\pddX{}{x}\Y_\text{neutrino}
+\right){dV},
+}
+then the constant $g'=g/\hbar c$ retains the dimension $\text{cm}^3$. At large energies, where the rest masses of the particles can be ignores, this means: any perturbation procedure is an expansion in $g'/\lambda^3$, where $\lambda$ denotes the wavelengths of the particles involved. Now from this it follows: for large energies the interaction part becomes \textit{critical}; in particular, in processes where very many particles are emitted at once become no much more improbable than processes where only one or two particles ar emitted; thus from wavelengths $\sqrt[3]{\lambda}$ down, "showers" of particles are to be expected.
+\sskip{More shower speculation}
+
+\include{subfiles/454}
+
+\include{subfiles/455}
+
+\include{subfiles/459}
+
+\include{subfiles/460}
+
+\include{subfiles/461}
+
+\include{subfiles/462}
+
+\end{document}

@@ -1,0 +1,26 @@
+\subsection*{28.}
+
+We now consider a \?{numerical three-dimensional manifold}{variété numérique à trois dimensions}, where each point $\m$ is supposed to be defined by three numbers $u^1, u^2, u^3$. According to this idea, we attach to each point $\m$ an affine space containing this point, and the three vectors $\e_1, \e_2, \e_3$ forming with $\m$ a reference system for this space. The manifold will be called an "affine connection" when one defines, in an otherwise-arbitrary manner, a law permitting the identification of the affine spaces attached to any two \textit{infinitely-close} points $\m$ and $\m'$ on the manifold; this law permits saying that each point of the affine space attached to a point $\m'$ corresponds with each point of the affine space attached to the point $\m$, that each vector in the first space is parallel or equivalent to each vector in the second space. In particular, the point $\m'$ itself will be identified with respect to the affine space at the point $\m$ and we admit the law of continuity according to which the coordinates of $\m'$ with respect to the affine reference system with origin $\m$ are infinitely small; this permits saying in a certain sense that the affine space attached to $\m$ is the affine space \textit{tangent} to the given manifold\footnote{One could of course, as is usually done, remark that in in the vicinity of the point $\m$ there is an affine \?{neighborhood}{repérage} for the points of the manifold, \WTF{which}{ne serait-ce que celui qui} consists in attributing to the point defined by $u^i + du^i$ the cartesian coordinates $du^i$; in this sense, the affine space attached to $\m$ is indeed \textit{tangent} to the manifold. One may suppose as well that the manifold is submerged in an affine space with more or less dimensions and that the affine space attached to $\m$ is essentially the plane space tangent to this manifold. Finally one may regard the affine space attached to the point $\m$ as the manifold itself which is perceived in an affine manner by an observer located at $\m$. All of these points of view are compatible with the point of view of the text, which seems logically preferable to me.}:
+\nequ{1}{
+d\m &= \omega^1 \e_1 + \omega^2 \e_2 + \omega^3 \e_3,\\
+d\e_i &= \omega_i^1 \e_1 + \omega_i^2 \e_2 + \omega_i^3 \e_3\quad (i=1,2,3),
+}
+in which the $\omega^i$ and $\omega_i^j$ are linear forms with respect to the differentials of the parameters of the variable reference system, the $\omega^i$ only depend on the differentials $du^1, du^2, du^3$. They are interpreted by saying that each point $\m'$ infinitely-close to $\m$ on the manifold must be regarded as the point
+\uequ{
+\m + \omega^1 \e_1 + \omega^2 \e_2 + \omega^3 \e_3
+}
+of the affine space tangent at $\m$\footnote{One sees that changing as needed the reference system chosen as the affine space tangent to $\m$, the cartesian coordinates of the point $\m + d\m$ are $du^1, du^2, du^3$, since the $\omega^i$ are linear combinations of the $du^i$}: similarly for the vector $\e_i$ attached to $\m'$ is equivalent to the vector
+\uequ{
+\e_i + \omega^1_i \e_1 + \omega^2_i \e_2 + \omega^3_i \e_3
+}
+of the affine space tangent to $\m$. Naturally, this equivalence must only be considered as having only \?{an infinitely-small second order meaning}{un sens qu'aux infiniment petits du second ordre près}.
+
+To the formulae (1) can be adjoined those which permit passing from the coordinates $x^i$ of a point of the affine space of $\m$ to the coordinates $x^i + dx^i$ of the corresponding point (one could say equal) of the affine space $\m'$. These formulae are identical to the formulae (3) and are obtained in the same manner:
+\nequ{3}{
+dx^i \omega^i + x^i \omega_1^i + x^2 \omega_2^i + x^3 \omega_3^i = 0 \quad (i=1,2,3).
+}
+To this we add the formulae which permit the same passage for a vector of projections $\xi^i$, and which are
+\nequ{4}{
+d\xi^i +\xi^1 \omega_1^i + \xi^2 \omega_2^i + \xi^3 \omega_3^i = 0 \quad (i=1,2,3).
+}
+% 

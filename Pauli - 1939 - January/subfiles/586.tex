@@ -1,0 +1,97 @@
+\letter{586}
+\from{Stueckelberg}
+\date{December 17, 1939}
+\location{Genf}
+
+\nc{\vtint}{\int\int\int\int}
+\nff{\vtintXY}{\underset{#1}{\overset{#2}{\vtint}}}
+\nf{\vtintX}{\vtintXY{#1}{}}
+
+Dear Herr Pauli!
+
+Your letter from 12/12 has arrived in the middle of the study of the questions raised in the seminar. Your results coincide completely with mine, i.e. your $D_1$ function indeed satisfies the homogenous equation if its integral is defined by the \?{principal values}.
+
+This result can be proven quite nicely by the Sommerfeld method: 
+
+Let one result be defined by the four coordinates $x_i$ ($i=1,2,3,4$).  Let $x_1$ $x_2$ and $x_3$ be the three real space coordinates and $x_4 = u + it$ the \textit{complex time coordinate}. Then we first investigate which four-dimensional region $W$ (defined by a spatial volume $V$ and a complex path of integration $T$) allows the quantity
+\nequ{
+Q(x') = (2\pi)^{-1}\int\int\int\int{{dx''}^4}v(x'-x'')\rho(x'')
+}{1}
+to satisfy the inhomogenous differential equation
+\nequ{
+(\square - l^2)Q = -\rho.
+}{2}
+There $v$ is a function that depends only on $R$ ($R^2 = \sumXY{1}{4}(x'_i - x''_i)^2$), which becomes infinite as $R^{-2}$ for $R=0$ and satisfies the homogenous equation (2) for all $R$ (except $R=0$). You will find the explicit representation of this function in the accompanying Separatum (Bessel function for imaginary arguments). We decompose the spatial volume into a small volume $V'$, which includes the immediate neighborhood of $x'$, and the rest in the space $V''$. Correspondingly let the complex integration path in the $x_4=u+it$-plane be decomposed into the three parts $T=T''_l + T' + T''_r$. Of these let $T'$ be the part of this path of integration that runs through the point $x'_4 = 0+it'$ and its immediate neighborhood. $T''_l$ and $T''_r$ are the remainder of the integration path on the left resp. right of the point $x'_4$ in the $x_4$-plane (c.f. fig. 1 and fig. 2).
+
+TODO: Fig. 1 and Fig. 2
+
+Then the integral (1) has a finite value when:
+
+(1) $\rho$ is finite in the whole volume $V$ and its volume integral likewise remains finite (for all times t).
+
+(2) the integrand is singularity-free on the whole path $T$ (other than the $1/R^2$-singularity in $T'$) and vanishes sufficiently rapidly at $\infty$.
+
+(3) this requires that $T$ crosses the $t$-axis in figure 2 \textit{only} at the position $t'$, i.e. so that $T_l$ lies entirely to the left and $T_r$ entirely to the right of the $t$-axis, and further that the singularities of the function $\rho$ (for all $\vx$) lie to the left or the right of the path $T$.
+
+Now we define the region $W$ by the sum
+\nequ{
+W=VT=W'+W'',\quad \text{ with } W' = V'T'
+}{3}
+and accordingly in (1)
+\nequ{
+Q(x') = (2\pi)^{-1}\left(\underset{W'}{\int\int\int\int} + \underset{W''}{\int\int\int\int}\right).
+}{4}
+Since $v(R)$ satisfies the homogenous equation (2), except the point $x''=x'$ contained in $W'$, i.e. $R=0$, $\underset{W''}{\int\int\int\int}$ satisfies the homogenous equation. $\underset{W'}{\int\int\int\int}$ is the volume integral over the real vicinity $x_1 x_2 x_3 x_4$ of the \?{reference point} $x'_1 x'_2 x'_3 t'$.
+
+For this real volume, one obtains according to Gauss's law:
+\uequ{
+(\square'-l^2)Q(x') &\to (2\pi)^{-1}\int\int\int{d\sumX{i}''}\rho(x'')\frac{\delta v}{\delta x''_i}\\
+&\to (2\pi)^{-1}\int{d\Y}R^3\frac{\delta}{\delta R}R^{-2}\rho(x') = -\rho(x'')\\
+}
+
+(${d\sumX{i}}$ = surface element four-dimensional real space)\\
+where ${d\Y}$ denotes the solid angle element in the four-dimensional Euclidean space, whose integral contributes $2\pi^2$. Thus everything is settled.
+
+\?{Since only $\rho$ is physically on the $t$-axis (and its immediate neighborhood), and only $t''=+\infty$ and $=-\infty$ are physically meaningful limits, the following three paths satisfy the physical and mathematical conditions (I, II, III)}:
+
+TODO: fig. 3
+
+By Sommerfeld's method (c.f. enclosed Separatum) it can be shown that $Q^\text{I} = Q^\text{ret}$ represents the retarded and $Q^\text{II}=Q^\text{adv}$ the advanced potential, since they are defined by $\rho$ for past resp. future times $t''$.
+
+$Q^\text{III}$ requires special examination: since the interand should contain no singularities in the immediate vicinity of the $t$-axis, $Q^\text{III}$ can be \?{arbitrarily} deformed into the paths IV or V
+
+TODO: Fig. 4
+
+with the relations
+\nequ{
+Q^\text{III} = Q^\text{IV} = Q^V = Q^\text{ret} + Q^r = Q^\text{adv} + Q^l
+}{5}
+($r$ and $l$ are paths which run from $-\infty$ to $+\infty$ $\parallel$ to the $t$-axis.)
+
+Since $Q^\text{IV}$, $Q^\text{V}$, $Q^\text{ret}$, $Q^\text{adv}$ each individually satisfy the inhomogenous equation (2), it follows interestingly that $Q^l$ and $Q^r$ both satisfy the homogenous equation (2).
+
+Specifically, for $\rho$ real in the $t$-axis, the following are real
+\nequ{
+Q^r - Q^l = Q^\text{adv} - Q^\text{ret} = 
+(4\pi)^{-1}\vtintXY{-\infty}{+\infty}{dx^3}{dt''}D(r,t''-t')\rho(x',t'')
+}{6}
+\nequ{
+(2i)^{-1}(Q^l + Q^r) =
+(4\pi)^{-1}\vtintXY{-\infty}{+\infty}{{dx''}^3}{dt''}D_1(R)\rho(x'',t'').
+}{7}
+The second equalities are of a purely formal nature. $r$ and $R$ denote the positive square roots of
+\nequ{
+r^2 = \sumXY{1}{3}(x''_i - x_i)^2, \quad R^2 = r^2 - (t'' - t')^2.}{8}
+
+Then $D(r,t)$ is defined by equation (8) (the last equation) of the Separatum. $D_1(R) = (2\pi i)^{-1}v(R)$, where because of the singularities on the $t$-axis, the $v(R)$ (mistakenly printed as $v(r)$) defined by equation (6) of the Separatum leads to indeterminate expressions. But since the paths are defined by the left side of equation (7), that means, as defined in your letter, that the integrals are replaced by their primary values. That applies even in the Fourier representation, so that in particular $\int{dx}\cos{x}/x$ is set equal to $0$.
+
+Mathematically, $D$ and $D_1$ are best-defined left sides of equations (6) and (7). Since they apply for arbitrary $\rho$ (which satisfies regularity conditions), it can be said that $D$ and $D_1$ satisfy the homogenous wave equation everywhere, including $x''=x'$.
+
+If nothing happens in the meantime, I am in Zurich for seminar on January 15, 1940. If I'm not prevented by some obstacle, I'll phone to try to postpone the seminar.
+
+Warm greetings and Christmas and New Years wishes \?{from house to house}.
+
+Your E.C.G. St
+
+P.S. I'm sending a copy to Herrn Prof Sommerfeld.
+%ta-defikeb$\r$ tge  stueck inside a mobile with those Zurich blues again

@@ -1,0 +1,764 @@
+\documentclass{article}
+%\usepackage{txfonts}
+%\renewcommand*\rmdefault{ppl}
+%\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{marginnote}
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+
+\nff{\WTF}{#1 (\textit{#2})}
+
+\nf{\translator}{\footnote{\textbf{Translator note:}#1}}
+
+\newcommand{\nequ}[2]{
+\begin{align*}
+#1
+\tag{#2}
+\end{align*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{align*}
+#1
+\end{align*}
+}
+
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+\nf{\inv}{\frac{1}{#1}}
+
+\nc{\sic}{\translator{sic}}
+
+\nf{\limX}{\underset{#1}{\lim}}
+\rf{\exp}{e^{#1}}
+
+\nc{\grad}{\operatorfont{grad}}
+\rc{\div}{\operatorfont{div}}
+
+\nff{\ppddX}{\frac{\partial^2 #1}{\partial {#2}^2}}
+\newcommand{\ppddXY}[3]{
+\frac{\partial^2 #1}{\partial{#2}\partial{#3}}
+}
+
+\nf{\pddt}{\frac{\partial{#1}}{\partial t}}
+\nf{\ddt}{\frac{d{#1}}{dt}}
+
+\nff{\pddX}{\frac{\partial{#1}}{\partial{#2}}}
+\nc{\lap}{\Delta}
+\nc{\e}{\varepsilon}
+
+\nc{\mfe}{\mathfrak{e}}
+\nc{\es}{\mathfrak{e}^{(s)}}
+\nc{\E}{\mathfrak{E}}
+\rc{\H}{\mathfrak{H}}
+\nc{\G}{\mathfrak{G}}
+\nc{\f}{\mathfrak{f}}
+\nc{\Y}{\psi}
+\nc{\y}{\varphi}
+\nc{\R}{\mathfrak{r}}
+\nc{\YY}{\mathbf{\Psi}}
+\nc{\pYY}{\overline{\YY}}
+\nc{\qYY}{\overline{\overline{\YY}}}
+
+\title{Towards a quantum electrodynamics of charge-free fields}
+\author{P. Jordan and W. Pauli}
+\date{December 7, 1927}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+In going deeper into the Dirac theory, in which the electrodynamical field variables are regarded as non-commuting numbera ($q$-numbers), commutation relations between the field variables will be established, at least in the special case of the absence of charged particles (pure radiation field), and these have a relativistically-invariant form. It is shown that these relations can be formulated even without using a Fourier decomposition of the field. Further, a general mathematical method is specified, which allows relations between the $q$-numbers, which depend continuously on space- and time- coordinates ($q$-functions) to be reinterpreted as relations between suitably-chosen operators which are applied to generalized $\Y$-functions which depend on the entire field (functionals).
+\end{abstract}
+
+It is well-known that Dirac\footnote{P.A.M. Dirac, Proc. Roy. Soc. London (A) 114, 243, 710, 1927.} first succeeded in carrying over the quantum-mechanical methods even to the treatment of electromagnetic fields themselves, where he interpreted the amplitudes of the partial waves of the fields as "$q$-numbers", and to established commutation relations between them. That essential progress has been achieved along this path is certain, after an analogous treatment of a simpler problem, the scalar (one-dimensional) wave-equation, had already been achieved earlier\footnote{M. Born, W. Heisenberg and P. Jordan, ZS. f. Phys. 35, 557, 1926.}, that a well-known difficulty discovered by Einstein regarding the energy-fluctuations in a wave field could be solved through a quantum-mechanical treatment of the eigenvibrations of the field. In fact Dirac has succeeded in establishing a consistent theory of emission, absorbtion and dispersion of radiation. Jordan\footnote{P. Jordan, ibid, 44, 473, 1927. Addition in corrections: c.f. also P. Jordan and E. Wigner, upcoming.} has further established a transition of thesDirac method of quantization of wave-fields to the case of matter waves themselves, according to Fermi statistics, and the results of a new work by Jordan and Klein about this appear very promising, which tackles the still-unsovled problem of a quantum theory of the interaction of particles with taking into account the finite propagation velocity of the force-effects; such a theory must also treat the electrostatic and the radiation effects of the electrodynamic fields with uniform methods.
+
+The target of the present work is not yet however this generalized interaction problem, but rather it only proviaionally intends, initially in the case of a purely electromagnetic field without charges particles, to rectify a shortcoming in the formulation of the theory reached in the aforementioned works, which was also stresses by the authors. Namely in these works the time coordinates are always distinguished from the space coordinates in a peculiar manner, so the results are not relativistically invariant. On the other hand, the methods of quantizing the electromagnetic field in the present work are relativistically-invariant.
+
+In §1 we shall still take the standpoint that the electromagnetic field strengths are Fourier-decomposed into polarized monochromatic partial waves, and whose amplitudes as "$q$-numbers" fulfill certain commutation relations. It is possible to formuliat these relations os that no special-relativistic frame of reference is preferred over another, while the fluctuation-characteristics of the radiation energy from the aforementiones results are simultaneously reproduced correctly by the theory. This standpoint can however be replaced by a generalization in which a Fourier decomposition of the field is not explicitly needed and the field strength itself is regarded as a continuum of $q$-numbers, which depend continuously on the space-time coordinates. One may represent such \WTF{aggregates}{Gesamtheiten} of $q$-numbers as "$q$-functions". In §§2 through 4 of the first part of this paper this generalized standpoint, always safeguarding relativistic invariance, will be carried through. Let it me remarked here that these considerations can be completely carried over even to matter waves of force-free moving particles, and leads to a relativistically invariant quantization of these waves if one carries it out with identical particles which obey Bose-Einstein statistics. Since however in the other case of particles with Fermi statistics the quantization of matter waves is still not fully clear\footnote{Note in correction: c.f. however the above-mentioned work by Jordan and Wigner}, we shall not go into this further in this work. From a still outstanding general relativistic invariant quantum theory of wave fields, which on the one hand will also have to take such electromagnetic fields into consideration which correspond to the presence of charged particles, and on the other the \WTF{impingement onto matter waves by the electromagmetic waves}{die Beeinflüssung der Materiewellen durch die elektromagnetischen Wellen} will have to be taken into account, it may well be expected that they will contain our commutation relations of the free electromagnetic radiation field, as well as those of the matter waves of force-free particles, as special limiting cases.
+
+The second part of this article is devoted to the question, in what way the $q$-functions are interpretable as operators, which are applied to certain "probability amplitudes" $\Y$. In the usual quantum mechanics one goes from the equations
+\uequ{
+pq-qp=\frac{h}{2\pi i}
+}
+and the energy law
+\uequ{
+H(p,q)=E,
+}
+which are for now relations between $q$-numbers, to a differential equation for the function $\Y_E(q)$, where one replaces $p$ by the operator $\frac{h}{2\pi i}\pddX{}{q}$, $q$ by the operator of multiplication by $q$, and now $H(p,q)$, written as an operator, applied to $\Y$:
+\uequ{
+H\left(\frac{h}{2\pi i}\pddX{}{q}, q\right)\Y_E = E\Y_E(q).
+}
+In the case of harmonic oscillators, where
+\uequ{
+H(p,q) = \frac{1}{2m}p^2 + \frac{m}{2}(2\pi\nu_0)^2 q^2,
+}
+the associated differential equation for $\Y$ leads, as Schrödinger has shown, to the eigenvalues
+\uequ{
+E_n = (n+\frac{1}{2})h \nu_0, \text{ with } n=0,1,2,...,
+}
+while the $\Y$ functions are given by the so-called Hermitian polynomials\sic; specifically, for $n=0$, $\Y_0 = C\exp{-\frac{2\pi^2 m \nu_0}{h}q^2}$.
+
+There is a now a difficulty if there are, as in the eigenvibrations of cavity radiation, infinitely-many oscillators (corresponding to the infinitely-many degrees of freedom of the radiation). First the total energy density of the radiation would become infinitely large, because the radiation (in the limiting case of a very large cavity) with a frequency between $\nu$ and $\nu+d\nu$, even for $n=0$, would provide a contribution
+\uequ{
+\frac{8\pi\nu^2}{c^3}\frac{h\nu}{2}d\nu.
+}
+Second, even when only a finite number of eigenvibrations are excited, the product of infinitely-many eigenvibrations in general does not converge, so that the $\Y$-function of the infinitely-many amplitudes $q_k$ for the moment possesses no definite value.
+
+Different considerations appear to show that, as opposed to the eigenvibrations in the crystal lattice (where both theoretical as well as empirical grounds speak in favor of the zero-point energy), with regards to the eigenvibrations of radiation, a "zero-point energy" of $\frac{h\nu}{2}$ per degree of freedom does not correspond to physical reality. Since one is dealing with strictly harmonic oscillators and since the "zero-point radiation" can neither be absorbed nor scattered nor reflected, it seems to shut off any possibility of verification, \WTF{including its energy or mass}{einschließlich ihrer Energie oder Masse}. It is probably the simpler and more satisfactory interpretation that in the electromagnetic field, no zero-point radiation exists.
+
+In this connection it is perhaps of interest to note that it is possible to mathematically formulate this interpretation with an individual harmonic oscillator. If one introduces instead of $p$ and $q$ the variables
+\uequ{
+P&=\frac{1}{2\sqrt{\pi\nu_0 m}}p - i\sqrt{\pi\nu_0 m}q,\\
+Q&=\frac{1}{2\sqrt{\pi\nu_0 m}}p + i\sqrt{\pi\nu_0 m}q
+}
+then from
+\uequ{
+pq - qp = \frac{h}{2\pi i}
+}
+follows the relation
+\uequ{
+PQ-QP = i(pq-qp) = \frac{h}{2\pi},
+}
+further,
+\uequ{
+\frac{1}{2m}p^2 &+ \frac{m}{2}(2\pi \nu_0)^2 q^2\\
+= 2\pi\nu_0\left(\frac{1}{2\sqrt{\pi\nu_0 m}}p + i\sqrt{\pi\nu_0 m}q\right)&
+\left(\frac{1}{2\sqrt{\pi\nu_0 m}}p - i\sqrt{\pi\nu_0 m}q\right)\\
++ \pi\nu_0 i(pq-qp) &= 2\pi\nu_0 QP + \frac{h\nu_0}{2}.
+}
+
+Thus if one introduces a new Hamiltonian
+\uequ{
+H'(P,Q) \equiv 2\pi\nu_0 QP = E
+}
+with
+\uequ{
+PQ-QP=\frac{h}{2\pi},
+}
+then one arrives at the eigenvalues
+\uequ{
+E_n = nh\nu_0
+}
+without zero-point energy. We could also establish eigenfunctions of $\Y_E(Q)$, wher admittedly the variable $Q$ is complex. Perhaps it is to be hoped that along this path the convergence difficulties around the zero-point radiation with infinitely-many oscillators can someday be overcome.
+
+In the second part of the present paper a method will be specified, where $\Y$-functions of the fields and operations on these can be defined which are in harmony with the given relations between $q$-functions, without requiring an explicit application of the Fourier decomposition of the field. Unfortunately, we did not succeed, even with the above restriction of a single oscillator, in carrying out the analogous elimination of the zero-point energy in a satisfactory manner. Hence the\WTF{ideas}{Ausführungen} of the second part of this work are to a large degree in need of improvement and finalization, and have found a place here more with a view towards the general mathematical methods than to the special relations found there.
+
+\part*{I. Metnod of $q$-numbers and $q$-functions}
+
+\section*{§1. Fourier decomposition of the field, relativistically-invariant commutation relations for the amplitudes of the eigenvibrations}
+
+We imagine the electromagnetic radiation field decomposed into plane monochromatic partial waves; and indeed if we imagine \WTF{outgoing}{fortsschreitende} waves, which fulfill no special boundary conditions, which would correspond to impenetrable cavity walls. However it is convenient to initially use the Fourier series instead of the Fourier integral. Let $\f_s$ be the \WTF{propagation vector}{Ausbreitungsvektor} of a plane partial wave (vector in the direction of the wave normal, of the length of the wave number), $|\f_s|=k_s$ is its absolute value, $\nu_s$ the frequency, so that
+\nequ{
+k_s = \frac{v_s}{c},\quad \f_s^2 = \frac{v_s^2}{c^2}
+}{1}
+The index $s$ shall only distinguish the different eigenfrequencies.
+
+First would like the propagation vectors $\f$ occurring in the Fourier-decomposition of the field
+to be distributed in the $(\f_x,\f_y,\f_z)$-space ($\f$-space for short) with a \WTF{density}{Dichtigkeit} which corresponds to the eigenvibrations of a cubic cavity of side-length $L$ (volume $L^3$). That means, we assume, that the mean volumes of the cells in $\f$-space, into which a partial wave of the Fourier series falls, is
+\nequ{
+\delta k_x \delta k_y \delta k_z = \frac{1}{L^3}.
+}{2}
+The field strengths $\E$ and $\H$ now consist in the field strengths $\E_s$ and $\H_s$ of an individual eigenoscillation, which consists of a monochromatic wave:
+\uequ{
+\E=\sumX{s}\E_s,\quad \H = \sumX{s}\H_s.
+}
+Now we still have to consider that to each $\f_s$ there are two independent linearly-polarized waves possible, whose direction of vibration is perpendicular to $\f_s$. In order to represent this formally, we introduce for each $s$ an orthogonal coordinate system $(\xi,\eta,\zeta)_s$, whose $\zeta$-axis is parallel to $\f_s$, and let $\es_\xi,\es_\eta,\es_\zeta$ be unit vectors in the directions $\xi,\eta,\zeta$. Let the amplitudes $a^{(1)}_s$ of the electric field strengths of a linearly-polarized eigenvibration (denoted by index 1) be parallel to the $\xi$-axis, while the others (with index 2) parallel to the $\eta$-axis. If we pull out on immediately obvious grounds the factor $\sqrt{\frac{\nu_s}{L^3}}$, we can also write:
+\nequ{
+\E_s &= \sqrt{\frac{\nu_s}{L^3}}\left\{\left(\es_\xi a_s^{(1)} + \es_\eta a_s^{(2)}\right)
+\cos 2\pi \left[(\f_s \R) - |\f_s|ct \right] \right.\\
+&\left. + \left(\es_\xi b_s^{(1)} + \es_\eta b_s^{(2)}\right)
+\sin 2\pi \left[(\f_s \R) - |\f_s|ct \right]\right\},\\
+\H_s &= [\es_\zeta \E_s]
+      = \sqrt{\frac{\nu_s}{L^3}}\left\{\left(\es_\eta a_s^{(1)} - \es_\xi a_s^{(2)}\right)
+\cos 2\pi \left[(\f_s \R) - |k_s|ct \right] \right.\\
+&\left. + \left(\es_\eta b_s^{(1)} - \es_\xi b_s^{(2)}\right)
+\sin 2\pi \left[(\f_s \R) - |k_s|ct \right]\right\},\\
+}{3}
+The factor $\sqrt{\frac{\nu_s}{L^3}}$ in (3) is chosen so that the entire cavity energy
+\uequ{
+E_s = \frac{1}{2}\int\left(\E_s^2 + \H_s^2\right)dV,
+}
+so far as they are due to an individual, linearly-polarized partial wave, will equally become
+\nequ{
+E_s = \frac{1}{2}\nu_s(a_s^2 + b_s^2),
+}{4}
+where for $a_s$ or $b_s$ either $a_s^{(1)},b_s^{(1)}$ or $a_s^{(2)},b_s^{(2)}$ is inserted. (The field strengths are here measured in Heaviside units.)
+
+Since the energy $E_s$ (disregarding the zero-point energy) must be a multiple of $h\nu_s$, that means
+\uequ{
+\frac{1}{2}(a_s^2 + b_s^2)
+}
+(at least up to an additive constant) the characteristic values $N_s = 0,1,...$ we must obviously put
+\nequ{
+a_s^{(1)}b_s^{(1)} - b_s^{(1)}a_s^{(1)} = a_s^{(2)}b_s^{(2)} - b_s^{(2)}a_s^{(2)} = ih,
+}{I}
+where naturally for $s \neq s'$, $a_s$ and $b_{s'}$, as well as different $a_s$ or different $b_s$ commute with one another. Further, it seems natural to assume that amplitudes belonging to different polarization amplitudes are commutable:
+\nequ{
+a_s^{(1)}a_s^{(2)} - a_s^{(2)}a_s^{(1)} = 0,\quad
+b_s^{(1)}b_s^{(2)} - b_s^{(2)}b_s^{(1)} = 0,\\
+a_s^{(1)}b_s^{(2)} - b_s^{(2)}a_s^{(1)} = 0,\quad
+a_s^{(2)}b_s^{(1)} - b_s^{(1)}a_s^{(2)} = 0.
+}{I'}
+
+It is easy to see that the commutation relations (abbreviation: "C.R.") (I) and (I') are independent of the choice of unit vectors $\es_\xi,\es_\eta$, if these are just perpendicular to one another and $\f_s$. Similarly, the invariance of (I) and (I') is proven with a change of the zero-point of the coordinate system, which was initially \WTF{distinguished}{ausgezeichnet} in the Fourier decomposition (3) of the field. Namely, by a change of this zero-point the $a_s$ and $b_s$ are transformed linearly and orthogonally for each polarization direction, according to
+\uequ{
+a'_s &= a_s \cos\delta_s + b_s \sin\delta_s,\\
+b'_s &= -a_s\sin\delta_s + b_s \cos\delta_s,
+}
+and in fact:
+\nequ{
+a'_s b'_s - b'_s a'_s = a_s b_s - b_s a_s.
+}{5}
+If one further observes that it does not depend on the exact value of $\f_s$, but rather only onheir density (2) in $\f$-space, and looking back on (1) it is easy to see that the C.R. (I) fulfill the requirement of relativistic invariance.
+
+This becomes especially clear if one makes the transition from Fourier series to Fourier transform. Then for each polarization direction (we leave off the indices (1) or (2) for simplicity) it becomes
+\uequ{
+\sumX{s}a_s^2 \frac{1}{L^3} = \sumX{s}a_s^2 \delta k_x \delta k_y \delta k_z \to
+\int A^2(k_x,k_y,k_z)dk_x dk_y dk_z
+}
+and analogously for $\sumX{s}b_s^2\inv{L^3}$. Further, the definition of $E(k_x,k_y,k_z)=E(\f)$ accordingly yields
+\nequ{
+\sumX{s}E_s \inv{L^3} = \sumX{s}\inv{L^3}\inv{2}\int(\E_s^2 + \H_s^2)dV \to
+\int E(\f)dk_x dk_y dk_z\\
+E(\f) = \inv{2}\nu(\f)[A^2(\f) + B^2(\f)].
+}{6}
+We calculate further, summing on the one hand over all eigenvibrations with $\f_s$ in a certain region $\Omega_1(\f)$ of $\f$-space, on the other over those with $\f_s$ in another region $\Omega_2(\f)$, and  we denote the total volume of the \WTF{common region}{gemeinsamen Gebietes} in $\f$-space with $\Omega_{12}(\f)$:
+\uequ{
+\inv{ih}\inv{L^3}\left(
+\sumX{\f_s\text{ in }\Omega_1(\f)} a_s \sumX{\f_s\text{ in }\Omega_2(\f)} b_s - 
+\sumX{\f_s\text{ in }\Omega_2(\f)} b_s \sumX{\f_s\text{ in }\Omega_1(\f)} a_s
+\right) = \Omega_{12}(\f).
+}
+For it first yields for the value on the left side the number of the eigenvibrations common to both sums divided by $L^3$, which, however, according to (2), coincides with $\Omega_{12}$. On the other hand, the sums occurring on the left side are equal in the limit to the corresponding integrals formed with $A(\f)$ and $B(\f)$, so that we could write:
+\nequ{
+\int_{\Omega_1}A(\f)dk_x dk_y dk_z \int_{\Omega_2} B(\f) dk_x dk_y dk_z \\
+- \int_{\Omega_2}B(\f) dk_x dk_y dk_z \int_{\Omega_1} A(\f)dk_x dk_y dk_z = ih\Omega_{12}
+}{7}
+or with the help of the Dirac $\delta$-function, which will be examined further in the following sections
+\nequ{
+A(\f)B(\f') - B(\f')A(\f) = ih\delta(\f - \f')
+}{8}
+
+More important than the transition from Fourier series to Fourier integral is the renunciation of the Fourier decomposition of the field at all and whose direct interpretation as a continuum of $q$-numbers ($q$-functions). For this it is important to define a new, relativistically-invariant $\delta$-function, which will be done in the following paragraphs.
+
+\section*{§2. Definition and meaning of the relativistically invariant $\Delta$-function}
+The usual Dirac $\delta$ function of a variable $x$ is defined through the equation:
+\nequ{
+\int_a^b \delta(x)dx = \left\{
+     \begin{array}{lr}
+       1, & \text{when $(a,b)$ contains the origin}\\
+       0  & \text{otherwise.}
+     \end{array}
+   \right.
+}{9}
+Then we also have
+\nequ{
+\int_a^b f(x)\delta(x)dx = \left\{
+     \begin{array}{lr}
+       f(0), & \text{when $(a,b)$ contains the origin}\\
+       0  & \text{otherwise.}
+     \end{array}
+   \right.
+}{10}
+
+The "function" $\delta(x)$ can be interpreted as an abbreviation for sequence of functions $\delta_1(x), \delta_2(x),...,\delta_N(x),...$, for which the limit $\limX{N\to\infty}\int_a^b \delta_N(x) dx$ exists and has the above-given value. Likewise, one shouls have
+\uequ{
+\int_a^b f(x)\delta(x)dx \text{ means } \limX{N\to\infty}\int_a^b f(x)\delta_N(x)dx.
+}
+As one such sequence of functions one could take e.g.:
+\nequ{
+\delta_N(x) = \frac{sin{2\pi N x}}{\pi x} =
+2 \int_0^N \cos{2\pi k x} dk,
+}{11}
+
+since then
+\uequ{
+\limX{N\to\infty} \int_a^b f(x)\delta_N(x)dx = 
+\int_{a\infty}^{b\infty}f\left(\frac{y}{2\pi N}\right)\frac{\sin{y}}{\pi y}dy
+&= f(0), \text{ when } a < 0, b > 0, \\
+&= 0, \text{ when } a > 0, b > 0.
+}
+Naturally, (11) is not the only possibile sequence $\delta_N$ which satisfies (10) in $\limX{N\to\infty}$.
+
+We will now in the following paragraphs we will encounter a certain function sequence $\Delta_N(x,y,z,t)$, and it is given by
+\nequ{
+\Delta_N(x,y,z,t) &= \underset{\text{ Ball }|\f|\leq N}{\int\int\int}
+\frac{2}{\f}\sin{2\pi(k_x x + k_y y + k_z z - |\f|ct)} dk_x dk_y dk_z\\
+&(|k| = \sqrt{k_x^2 + k_y^2 + k_z^2}).
+}{12}
+
+The essence of this is the connection of the coefficients of $t$ with those of $x,y,z$, which atates that all the partial waves, \WTF{which together make up (12)}{aus denen sich (12) zusammensetzt}, propagate with the velocity $c$. $\Delta_N(x,y,z,t)$ is relativistically invariant given a coordinate system with a fixed origin, since as one easily calculates, for the case that
+\uequ{
+k_x,k_y,k_z,i|k|
+}
+are the components of a four-vector of length zero,
+\uequ{
+\inv{|k|}dk_x dk_y dk_z
+}
+is invariant with respect to Lorentz transformations.
+
+We now want to characterise the sequence $\Delta_N$ as the $\Delta$-function, i.e. by the
+\uequ{
+\limX{N\to\infty}\int_{V_4}f(x,y,z,t)\Delta_N(x...t) dV_4,
+}
+which is integrated over some four-dimensional world-domain, and
+\uequ{
+dV_4 = dx dy dz c dt.
+}
+We will again write this limit symbolically as
+\uequ{
+\int f(x,y,z,t)\Delta(x,y,z,t)dV_4
+}
+and such sequences $\Delta_N$, which in this limit coincide for all $f$, independently of whether $\Delta_N$ has precisely the specific form (12).
+
+Now it is not difficult to work out this limit for this special form of $\Delta_N$. First, the integral in (12) is evaluated. Introducing polar coordinates in the $\f$-space where $\Delta(\R,\f)=\vartheta$, $\cos\vartheta = u$,
+\uequ{
+dk_x dk_y dk_z = 2\pi |k|^2 d|k| du,
+}
+yields
+\uequ{
+\Delta_N(x...t) &= 4\pi\int_0^N |k| d|k| \int_{-1}^{+1}\sin{2\pi |k| (\R u - ct)} du,\\
+&(\R = +\sqrt{x^2+y^2+z^2}),\\
+ &= 2\int_0^N d|k| \inv{\R} [\cos{2\pi|k|(\R+ct)} - \cos{2\pi |k|(\R-ct)}]
+}
+or finally
+\nequ{
+\Delta_N(x...t) = \inv{\pi\R}\left[
+\frac{\sin{2\pi N(\R+ct)}}{\R+ct} - \frac{\sin{2\pi N(\R-ct)}}{\R-ct}
+\right].
+}{12'}
+(Note that the negative sign in the brackets means that for $t\neq 0,\R=0$, $\Delta_N$ remains finite!)
+
+In perfect analogu to the properties of the function $\delta_N$ from the start of this section we could now also specify the limit $\limX{N\to\infty}\int f(...)\Delta_N dV_4$. Let $V_4$ be the domain of integration, $V_3^+$ its three-dimensional intersection with the "light cone" $r+ct=0$, $V_3^-$ the intersection with $r-cr=0$, so that
+\nequ{
+\int_{V_4} f(x...t)\Delta(x...t)dV_4 =
+ \int_{V_3^+}f(x,y,z,ct=-r)\inv{r} dx dy dz -
+ \int_{V_3^-}f(x,y,z,ct=+r)\inv{r} dx dy dz.
+}{II}
+And this equation is now regarded as the definition of the relativistically-invariant (note invariance of $\frac{dx dy dz}{r}$) $\Delta$-function, independent of its specific realization of the sequence (12). If one puts $f=1$ in (II), then one gets the value of $\int_{V_4} \Delta dV_4$:
+\nequ{
+\int_{V_4} \Delta dV_4 = \int_{V_3^+}\frac{dx dy dz}{r} - \int_{V_3^-}\frac{dx dy dz}{r}.
+}{II'}
+Intuitively, we could say on the basis of (12'): the $\Delta$-function introduced here is a spacelike isotrope, in the limit a spherical wave concentrated on an infinitely-thin shell $r=ct$, which first contracts with the speed of light until at $t=0$ it meets the origin $r=0$ and then expands again at the spees of light. Incidentally
+\nequ{
+\Delta(-x,-y,-z,-t)=-\Delta(x,y,z,t).
+}{13}
+
+It still remains to remark that the derivatives of the $\Delta$-function is defined by the limit
+\uequ{
+\int_{V_4}f\pddX{\Delta}{x_i}dV_4 &\equiv 
+\limX{N\to\infty}\int_{V_4}f\pddX{\Delta_N}{x_i}dV_4 =
+\limX{N\to\infty}-\int\pddX{f}{x_i}\Delta_N dV_4 \\
+&= \int_{V^+_3}\left(-\pddX{f}{x_i}\right)\frac{dx dy dz}{r}
+- \int_{V^-_3}\left(-\pddX{f}{x_i}\right)\frac{dx dy dz}{r}
+}
+where it is presupposed that $f$ vanishes at the boundary of the domain of integration. The higher partial derivatives are analogously defined. It should still be noted, that in the sense of this definition
+\nequ{
+\sumXY{a=1}{4}\frac{\partial^2\Delta}{\partial x_a^2} = 0.
+}{14}
+
+\section*{§3. C.R. for the electromagnetic fields considered as $q$-functions with the elimination of the Fourier decomposition}
+We shall now try to characterize the commutation of arbitrary components of the electromagnetic field strength at two different space-time points, while maintaining relativistic invariance, without making explicit use of the Fourier decomposition of the field in the end result. Thus this section is about the determination of the expressions
+\uequ{
+\E_i(P)\E_k(P') - \E_k(P')\E_i(P),& \H_i(P)\H_k(P') - \H_k(P')\H_i(P), \\
+\E_i(P)\H_k(P') &- \H_k(P')\E_i(P), 
+}
+where $P$ and $P'$ are short for the four coordinates $x,y,z,t$ for $P$ and $x',y',z',t'$ for $P'$, and where $i,k=1,2,3$ are indices which identify the components in the $x,y,z$ direction. We shall also use the square brackets for the given expressions
+\uequ{
+[\E_i(P),\E_k(P')], [\H_i(P),\H_k(P')], [\E_i(P),\H_k(P')].
+}
+
+We shall start our calculation of the expressions (3) for the field strengths with
+\uequ{
+\E_s &= \sqrt{\frac{\nu_s}{L^3}}\left\{\left(\mfe_\xi a_s^{(1)} + \mfe_\eta a_s^{(2)}\right)
+\cos{2\pi[(\f_s\R) - |\f_s|ct]}\right.\\
+&\left. + \left(\mfe_\xi b_s^{(1)} + \mfe_\eta b_s^{(2)}\right)
+\cos{2\pi[(\f_s\R) - |\f_s|ct]}\right\},\\
+\H_s &= \sqrt{\frac{\nu_s}{L^3}}\left\{\left(\mfe_\eta a_s^{(1)} - \mfe_\xi a_s^{(2)}\right)
+\cos{2\pi[(\f_s\R) - |\f_s|ct]}\right.\\
+&\left. + \left(\mfe_\eta b_s^{(1)} - \mfe_\xi b_s^{(2)}\right)
+\cos{2\pi[(\f_s\R) - |\f_s|ct]}\right\}
+}
+For $a_s^{(1)},b_s^{(1)}$ and $a_s^{(2)},b_s^{(2)}$ the individual equations (I) apply, while according to (I') $a_s^{(1)}$ commutes with $b_s^{(2)}$ and $a_s^{(2)}$ commutes with $b_s^{(1)}$.
+
+We must now utilize relations of the form
+\uequ{
+\left(\mfe_\xi\right)_i \left(\mfe_\xi\right)_k + \left(\mfe_\eta\right)_i \left(\mfe_\eta\right)_k =
+\delta_{ik} - \left(\mfe_\zeta\right)_i \left(\mfe_\zeta\right)_k\\
+(i,k=x,y,z; \delta_{ik} = 0 \text{ for } i\neq k,\,\, 1\text{ for } i=k)\\
+\left(\mfe_\xi\right)_i \left(\mfe_\eta\right)_k - \left(\mfe_\eta\right)_k \left(\mfe_\xi\right)_i =
+\left(\mfe_\zeta\right)_l = \frac{(\f_s)_l}{|\f_s|}\\
+(i,k,l \,\,\text{ an exact permutation of }\,\, 1,2,3)
+}
+in which it has been taken into account that the $\zeta$-axis is parallel to $(\f_s)$. We thus put using the specified meaning of the indices
+\nequ{
+\alpha_{ik} &= \alpha_{ki} = |\f_s|^2 \delta_{ik} - (\f)_i (\f)_k,\\
+\beta_{ik}  &= -\beta_{ki} = |\f|(\f_s)_l \quad (\beta_{ik} = 0 \text{ for } i=k),
+}{15}
+further
+\uequ{
+(P_s) = 2\pi[(\f_s\R) - |\f_s|ct],\quad (P'_s) = 2\pi [(\f'_s) - |\f_s|ct'],
+}
+thus according to (I) we obtain
+\uequ{
+[\E_i(P),\E_k(P')] = [\H_i(P), \H_k(P')] 
+&= ihc \inv{L^3}\sumX{s}\overline{|\f_s|}\alpha_{ik}^{(s)}[\cos{(P_s)}\sin{(P'_s)}\\
+&- \sin{(P_s)}\cos{(P'_s)}] = ihc\inv{L^3}\sumX{s}\overline{|\f_s|}\alpha_{ik}^{(s)}\sin{(P'_s-P_s)},
+}
+and likewise
+\uequ{
+[\E_i(P),\H_k(P')] = -[\H_i(P), \E_k(P')] 
+= ihc\inv{L^3}\sumX{s}\frac{2}{|\f_s|}\beta_{ik}^{(s)}\sin{(P'_s - P_s)}\\
+\text{[thus specifically $E_i(P)$ commutes with $H_i(P')$]}.
+}
+
+Now, according to (2) we replace $\inv{L^3}\sumX{s}(...)$ by $\int(...)dk_x dk_y dk_z$, however we first want to integrate over a ball of radius $N$ in $\f$-space and only then go to the limit $N\to\infty$. We further use the fact that when forming the second derivative of $\sin{(P'_s - P_s)}$ with respect to the space coordinates $x_i$ and $x_k$ of $P$ or $P'$, the factor $-4\pi^2 \f_i \f_k$ appears before the $\sin{(...)}$, while derivatives with respect to $x_l$ and $ct$ get the factor $+4\pi^2|\f_s|\f_l$ appears. In this manner the factors $\alpha_{ik}^{(s)}$ and $\beta_{ik}^{(s)}$ can be replaced by suitable combinations of such second derivatives and one obtains
+\uequ{
+[\E_i(P),\E_k(P')] = [\H_i(P), \H_k(P')] \\
+= \frac{ihc}{8\pi^2}\int\int\int\frac{2}{\f}\left(
+\frac{\partial^2}{\partial x_i \partial x_k} - \delta_{ik}
+\right)
+}
+In this the order of differentiation and integration can be swapped and putting the before the differentiation gives exactly the $\Delta_N$ function from (12), in which the arguments $x'-x,...,t'-t$ are inserted. If we denote $\Delta(x'-x,...,t'-t)$ with $\Delta(P'-P)$ and go over to the limit $\limX{N\to\infty}$ then finally we arrive at
+\nequ{
+[\E_i(P), \E_k(P')] &= [\H_i(P), \H_k(P')]\\
+ &= \frac{ihc}{8\pi^2}\left(
+ \frac{\partial^2}{\partial x_i \partial x_k} - \delta_{ik}\frac{\partial^2}{c^2\partial t^2}
+ \right)\Delta(P' - P),\\
+[\E_i(P), \H_k(P')] &= -[\H_i(P), \E_k(P')]
+= \frac{ihc}{8\pi^2}\frac{\partial^2}{c\partial t \partial x_l} \Delta(P'-P)
+}{III}
+($i,k=1,2,3$; in the second equation for $i=k$ the right side is zero; for $i\neq k$, $i,k,l$ is an exact permutation of $1,2,3$.
+
+Further let it be recalled that according to (13),
+\nequ{
+\Delta(P-P') = - \Delta(P'-P).
+}{13'}
+With
+\uequ{
+(F_{41}, F_{42}, F_{43}) = i\E,& (F_{23}, F_{31}, F_{12}) = \H,
+(x_1,x_2,x_3,x_4) &= (x,y,z,ict),
+}
+(III) can be summarized in the single, four-dimensional invariant form:
+\nequ{
+[F_{ik}(P), F_{lm}(P')] = \frac{ihc}{8\pi^2}\Delta_{ik,lm}(P'-P),
+}{III'}
+where $\Delta_{ik,lm}$ is an abbreviation for
+\nequ{
+\Delta_{ik,lm}=\left(
+ \delta_{kl}\ppddXY{}{x_i}{x_m} - \delta_{il}\ppddXY{}{x_k}{x_m}
++\delta_{im}\ppddXY{}{x_k}{x_l} - \delta_{km}\ppddXY{}{x_i}{x_l}
+\right)\Delta.
+}{16}
+In the comparison of (III) and (III'), the property expressed in equation (14) of the previous section
+\uequ{
+\sumX{\alpha}\frac{\partial^2}{\partial x_\alpha^2}\Delta = 0
+}
+is utilized.
+
+\section*{§4. Simple consequences of the C.R. for the field strengths. On the place of the Maxwell equations in quantum electrodynamics.}
+
+The $q$-functions, which according to the quantum mechanics laid out here represent the field strengths, are not arbitrary functions of space and time, but rather such which satisfy the vacuum Maxwell fiels equations
+\nequ{
+\pddX{F_{ik}}{x_j} + \pddX{F_{kj}}{x_i} + \pddX{F_{ji}}{x_k} &= 0,\\
+&\sumX{\alpha}\pddX{F_{i\alpha}}{x_\alpha}
+= 0}{IV}
+This is already containes in our point of departure, the decomposition of the field into transverse partial waves which propagate at the speed of light. Here the charge- and current-density is assumed to vanish everywhere. This is based on the presupposition that consideration of this special case be an abstraction compatible with the laws of quantum electrodynamics. To what extent this is true can only be judges by the creation of a quantum electrodynamics that takes into account the behavior of charged particles. If one however accepts this supposition, then one can say that the classical field equations (IV) also enter explicitly into quantum electrodynamics, and indeed as auxilliary conditions which is imposed on the $q$-functions of the field strengths.
+
+Thus the C.R. (III) are compatible with the field equations (IV), the left-hand sides of (16) must commute with an arbitrary field component $F_{lm}$. We have already established that this is in fact the case in the derivation of the C.R. (III') \WTF{from those of the Fourier decomposition of the field}{aus denen der Fourierzerlegung des Feldes}. However, one can easily verify it by direct calculation. Especially simple is the consideration, as concerns the second equation (IV), because the operation $\sumX{k}\pddX{}{x_k}$ applies to the right-hand side of (III') yields for arbitrary fixed $l,m$
+\uequ{
+\left(-\delta_{il}\pddX{}{x_m} + \delta_{im}\pddX{}{x_l}\right)\sumX{\alpha}\ppddX{\Delta}{x_\alpha},
+}
+and this is by virtue of (14) identically zero. The calculation for the first equation in (IV) runs in an analogous manner, only rather longer. One quickly comes to the goal if one introduces the tensor $F^*_{ik}$ dual to $F_{ik}$, whose components are given by
+\uequ{
+(F_{23}^*, F_{31}^*, F_{12}^*) = -i \E(F_{41}^*, F_{42}^*, F_{43}^*) = -\H,
+}
+with which it is known that the first equation (IV) can also be written
+\nequ{
+\sumX{\alpha}\pddX{F^*_{i\alpha}}{x_\alpha} = 0.
+}{IV'}
+The transition to the dual tensor now means that one replaces $i\E$ by $-\H$, thus $\E$ by $i\H$, and $\H$ by $-i\E$. As one immediately recognizes from (III), the values of all bracket expressions simply hereby have their signs changed. Thus also
+\nequ{
+[F_{ik}^*(P), F_{lm}^*(P')] = -[F_{ik}(P), F_{lm}(P')] = -\frac{ihc}{8\pi^2}\Delta_{ik,lm}(P'-P),
+}{III''}
+from which the commutability of (IV') with $F_{lm}$ likewise follows, as the commutability of $\pddX{F_{i\alpha}}{x_\alpha}$ with $F_{lm}$ follows from (III').
+
+Further, since it is easy to verify $[F_{ik}(P),F_{lm}^*(P')]=-[F_{ik}^*(P),F_{lm}(P')]$, $[F_{ik}(P),F_{ik}^*(P')]=0$ on the grounds of (III), (17) follows in connection with (III'') for the tensors
+\nequ{
+E_{ik} = F_{ik} + F^*_{ik},\quad E^*_{ik} = F_{ik} - F^*_{ik},
+}{18a}
+\nequ{
+[E_{ik}(P),E_{lm}(P')]=0\quad [E_{ik}^*(P),E_{lm}^*(P')] = 0,
+}{18b}
+\uequ{
+[E_{ik}(P),E_{lm}^*(P')]&=2[F_{ik}(P),F_{lm}(P')] + 2[F_{ik}^*(P),F_{lm}(P')],\\
+[E_{ik}^*(P),E_{lm}(P')]&=2[F_{ik}(P),F_{lm}(P')] - 2[F_{ik}^*(P),F_{lm}(P')].
+}
+
+The relations (18b) are hence specifically noteworthy, because they mean that it is allowed in special applications to substitute for the $q$-functions $E_{ik}(P)$ alone (or for the functions $E^*_{ik}(P)$ alone) with normal functions ("$c$-functions"), since their values at different space-time values always commute. Functions with similar characteristics can also be obtained \WTF{if one reflects the field strengths $F_{ik}(P)$ with respect to an arbitrarily chosen origin}{wenn man ddie Feldstärken $F_{ik}(P)$ in bezug auf einen beliebig zu wählenden Nullpunkt spiegelt}:
+\uequ{
+F^+_{ik}(P) = \inv{2}[F_{ik}(P) + F_{ik}(-P)], 
+F_{ik}^-(P) = \inv{2}[F_{ik}(P) - F_{ik}(-P)],
+}
+so that
+\uequ{
+F_{ik}^+(P) = F_{ik}^+(-P),\quad
+F_{ik}^-(P) = -F_{ik}^-(-P).
+}
+One easily obtains
+\uequ{
+[F_{ik}^+(P), F_{lm}^+(P')] = \inv{ihc}{8\pi^2}\inv{4}[
+\Delta_{iklm}(P'-P) +
+\Delta_{iklm}(P'+P) +
+\Delta_{iklm}(-P'-P) +
+\Delta_{iklm}(-P'+P)
+].
+}
+Since $\Delta_{iklm}$ has the symmetry properties analogous to (13')
+\uequ{
+\Delta_{iklm}(P' - P) &= -\Delta_{iklm}(-P'+P),\\
+\Delta_{iklm}(P' + P) &= -\Delta_{iklm}(-P'-P),
+}
+the two middle terms as well as the first and the last terms of the bracket \WTF{cancel}{wegheben} and the right side vanishes. One finds an analogous result for $[F^-_{ik}(P),F^-_{lm}(P')]$, so that
+\nequ{
+[F_{ik}^+(P), F_{lm}^+(P')] = [F_{ik}^-(P), F_{lm}^-(P')] = 0.
+}{19a}
+In contrast, in the same manner it is easily found that
+\nequ{
+[F_{ik}^+(P), F_{lm}^-(P')] = \frac{ihc}{16\pi^2} = [\Delta_{ik,lm}(P'-P) + \Delta_{ik,lm}(P'+P)],
+}{19b}
+\nequ{
+[F_{ik}^-(P), F_{lm}^+(P')] = \frac{ihc}{16\pi^2} = [\Delta_{ik,lm}(P'-P) - \Delta_{ik,lm}(P'+P)].
+}{19c}
+
+The commutability of the left-hand sides of the Maxwell equations with all field-strength components can, in application to the latter equations, also be formulated as: with fixed $l,m$ and $P'$, the right-hand sides of (19b), inserting $F^+_{ik}(P)$, are solutions of the Maxwell equations (IV), the same also applies when the right-hand side of (19b) has $F^-_{lm}(P')$ inserted with fixed $i,k$ and $P$\WTF{...}{Bei festem $i,k,P$ für $F^-_{lm}$ eingesetzt wird}. Strictly, because of the usage of the $\Delta$-function, instead of speaking of solutions of the Maxwell equations, one should always speak of singular limiting cases of such solutions.
+
+The latter property of the relations (19) will be used later. Let it be here remarked that for the four-potentials there are no simply-formulable relativistically-invariant C.R., in which only the $\Delta$-function and its derivatives are used.
+
+\part*{II. Methdod of functionals and functional operators}
+
+\section*{§1. One-dimenaional continuum, non-relativistic treatment.}
+
+We consider standing longitudinal vibrations in a one-dimensional continuum with the boundary conditions
+\uequ{
+q(x)=0, \text{ for } x=0 \text{ and } x=l.
+}
+We could then put
+\nequ{
+q(x) &= \inv{\sqrt{l}}\sumXY{s=0}{\infty}q_s \sin{2\pi k_s x},\,\,
+k_s = s\frac{x}{2l},\,\,\text{ $s$ integral }:\\
+\text{analogously for the "momentum"}&\\
+p(x) &= \inv{\sqrt{l}}\sumXY{s=0}{\infty}p_s \sin{2\pi k_s x}.
+}{20}
+The classical equations of motion are
+\uequ{
+\dot{p}_s = -2\pi\nu_s q_s,\quad \dot{q}_s = 2\pi\nu_s p_s,\quad \nu_s = ck_s
+}
+and the total energy
+\nequ{
+E=\sumX{s}\inv{2}\left\{
+p_s^2 + (2\pi\nu_s)^2 q_s^2
+\right\} = \inv{2}\int\left[
+p^2(x) + c^2\left(\pddX{q}{x}\right)^2
+\right]dx
+}{21}
+\WTF{???Quantum-mechanically the C.R. ... enter into (18)}{Quantenmechanisch treten zu (18) die V.R. ... hinzu}
+\nequ{
+p_s q_{s'} - q_{s'}p_s = \begin{cases} 
+      \frac{h}{2\pi i}, & s = s' \\
+      0, & s \neq s'
+   \end{cases}
+}{22}
+These are, as follows from a simple calculation, equivalent to
+\nequ{
+p(x)q(x') - q(x')p(x) = \frac{h}{2\pi i}\delta(x-x')[x,x' \text{ in } (0,l)],
+}{23}
+where $\delta$ denotes the Dirac function (c.f. I, §2).
+
+It is well-known that (22) can now, by introducing a Schrödinger function
+\uequ{
+\Y(q_1,...,q_s,...)
+}
+of infinitely-many variables $q_1,...,q_s,...$ can also be interpretes as an operator equation, if one replaces
+\begin{itemize}
+  \item $q_s$ by the operator "multiplication by $q_s$",
+  \item $p_s$ by the operator "differentiation by $\frac{h}{2\pi i}\pddX{}{q_s}$".
+\end{itemize}
+This follows from the identity
+\uequ{
+\pddX{}{a_s}(a_s\Y) - a_s\pddX{\Y}{a_s} = \Y
+}
+The energy law then leads according to (21) to the differential equation
+\nequ{
+\inv{2}\sumX{s}\left(-\frac{h}{4\pi^2}\right)\ppddX{\Y}{a_s}
++ \left(\sumX{s}\inv{2}(2\pi\nu_s)^2 a_s^2 \right)\Y = E\Y.
+}{24}
+The solution of this equation is however not convergent with infiniteky-many variables, which is related to the zero-point energy $\frac{h\nu_s}{2}$ per eigenvibration. This still totally unsolved difficulty was extensively discussed in the introduction.
+
+Apart from this, the following question is forced upon us. What is the analogue to the operator representation of (22) and to equation (24), when instead of countably-many infinite variables $q_1,..,q_s,...$, we start from the function $q(x)$, thus a continuum of independently-varying variables? The answer can be given with the help of Volterra's functional mathematics. A functional
+\uequ{
+\YY\{q(x)\}
+}
+is the assignment of a number to a function $q(x)$. Such a functionalnis called differentiable if the following limit-value always exists independently of how it is carried out: one forms a varied function $q(x) + \overline{q}(x)$, and lets the interval in which $\overline{q}(x)$ is nonzero contract to the point $x_0=P$, while simultaneously $\int\overline{q}(x)dx$ converges to zero. Then we say that
+\nequ{
+\YY_{q(x);P} = \underset{\alpha\to 0}{
+\limX{\overline{q}\left(x_{P'}\right) \to \delta(x_{P'} - x_P)}}
+\inv{\alpha}[\YY\{q(x) + \alpha\overline{q}(x)\} - \YY\{q(x)\}].
+}{25}
+The usual rules for differentiation of sums and products still apply. The second derivative is analogously defined by
+\nequ{
+\YY_{q(x),q(x);PP_1} = \underset{\overline{q}(x) \to \delta(x - x_{P_1})}{
+\limX{\alpha \to 0}
+}
+\inv{\alpha}[
+  \YY_{q(x);P}\{q(x) + \alpha\overline{q}(x)\} - 
+  \YY_{q(x);P}\{q(x)\}
+].
+}{25a}
+A special case of this is the derivative for $P_1=P$, which we will denote by the index $q(x),q(x);PP$.
+
+We will now seek functional operators for $p(x)$ and $q(x)$, which denote the assignment of a new functional $\pYY$ and $\qYY$ to $\YY$. These could be described by the formulae
+\uequ{
+\left(\int_J \underline{p(x) dx} \right)\YY\{q(x)\} &\to \overline{\YY_J},\\
+\left(\int_J \underline{q(x) dx} \right)\YY\{q(x)\} &\to \overline{\overline{\YY_J}},
+}
+in which the left hand sides are integrated over an arbitrarily-given interval $J$ of $x$, and the dependence of the functionals $\pYY$ and $\qYY$ on this interval is expressed by the accompanying index $J$. This assignment must now be specifically chosen so that the relation (23), interpreted as an operator equation, ia fulfilled. It is clear that
+\nequ{
+\left(\int_{x_1}^{x_2} \underline{p(x) dx} \right)\YY\{q(x)\} &=
+\int_{x_1}^{x_2}\YY_{q(x);P} dx_P,\\
+\left(\int_{x_1}^{x_2} \underline{q(x) dx} \right)\YY\{q(x)\} &=
+ \YY\{q(x)\}\int_{x_1}^{x_2}q(x)dx
+}{26}
+satisfies this requirement.
+
+The energy law (21) further gives the functional integro-differential equation
+\nequ{
+\int\left(-\right)\left(\frac{h}{4\pi}\right)^2
+\YY_{q(x),q(x);PP}dx_P + c^2 \left[\int\left(\pddX{q}{x}\right)^2\right]\YY = E\YY.
+}{27}
+
+In order to establish the analogy to the orthogonality requirements, one needs the definition of
+\uequ{
+\int\Y_E \Y_{E'}\delta\Omega
+}
+over the space of functions. An obvious definition would be breaking up the stretch $(0,l)$ into N intervals, and considering $q(x)$ as \WTF{N finite steps}{Treppenpolygonen}, where in the individual intervals it would have the constant values $q_1$ through $q_N$. Then one would go over to the limit $N\to\infty$:
+\uequ{
+\int\Y_E\Y_{E'}\delta\Omega = \limX{N\to\infty}
+\int...\int\Y_E(q_1,...,q_N)\Y_{E'}(q_1,...,q_N)dq_1...dq_N = \delta(E-E').
+}
+The aforementioned convergence difficulty is nonetheless still \WTF{provisionally obstructing the way forward}{varläufig hinderlich}.
+
+\section*{§2. Relativistically-invariant treatment of functionals in the case of two canonicalli-conjugate scalar $q$-functions which satisfy the wave equation.}
+
+In preparation for the problem of vacuum electrodynamics, we shall first treat the following simpler problem. Two scalar state variables both satisfy the (four-dimensional) wave equation
+\nequ{
+\sumX{\alpha=1}{4}\ppddX{g}{x_\alpha} = 0,\quad
+\sumX{\alpha=1}{4}\ppddX{f}{x_\alpha} = 0.
+}{28}
+Further, for these, interpreted as "$q$-functions" of $x,y,z,t$, the C.R.
+\nequ{
+f(P)g(P') - g(P')f(P) = ih\Delta(P-P'),
+}{29}
+apply, where $\Delta$ is the function defined in I.§2, while the values of $f$ commute with one another at different points, and likewise the points of $g$ among themselves. We ask how these C.R. can be interpreted as relations between functional operators, similar to the introduction of the operators (26) into (23).
+
+As a result of the fact that $g(P)$ commutes with $g(P')$, it is permissable to consider the functional
+\uequ{
+\YY\{g(x_1,...,x_4)\},
+}
+in which the values of $g(x_1,...,x_4)$ are now usual numbers. It is essential however that $g(x_1,...,x_4)$ can now no longer be arbitrary functions of $x_1,...,x_4$, but rather only such functions which satisfy the wave equation. We must also remain within the domain of these special functions when we vary $g(x_i)$. In particular, it is no longer possible to choose the variation $\overline{g}(x_1,...,x_4)$ so they it only differs from zero in the neighborhood of a world-point. The fact that henceforth the wave equation, or more generally a partial differential equation, is imposed as a boundary condition on the argument of the functional $\YY$ thus makes an ammendment to Volterra's concept of functional differentiation essential.
+
+One such presents itself, if we simply replace the usual $\delta$-function in the notation (25) for the Volterra derivative with the spherical-wave-$\Delta$-function from I.§2, while recalling that according to I.§2, equation (13) is a solution of (28).
+
+We thus now define a functional derivative by
+\nequ{
+\YY_{g(x_i);P} =\underset{
+ \overline{g}\left[x_i(P')\right] \to \Delta(P-P')
+}{\limX{\alpha\to 0}}
+\inv{\alpha}[\YY\{g(x_i) + \alpha\overline{g}(x_i)\}
+ - \YY\{g(x)\}
+].}{30}
+Since for this derivative as well the sum and product rules remain in force, it is further immediately clear that (29) satisfies the following operator law completely analogous to (26):
+\nequ{
+\underset{\text{Operator}}{\underline{\left[\int g(x_i)dx_1...dx_4\right]}}\YY\{g(x)\}
+ = ih\int_{V_4}\YY_{g(x_i);P} dx_1 ... dx_4
+ ;}{31}
+likewise the operator $f(x)$ simply means multiplication by $f(x)$.
+
+With this, the question posed in this section is completely answered, and we can now fix our gaze on our particular goal, the functional equation of light-quantum electrodynamics.
+
+\section*{§3. Representation of the C.R. of vacuum electrodynamics as relativistically-invariant relations between functional operators. Energy-momentum law as generalization of the Schrödinger equation.}
+
+If we introduce the Fourier amplitudes $(b_1 ,...,b_s,...)$ defined in (3) of section I as independent variables, the functional representation is clear and the $q$-numbers $a_s$ correspond to the operator $ih\pddX{}{a_s}$. The convergence problems mentioned in section II.§1 however also appear here and \WTF{still seems to be a deep-seated problem in the following}{läßt auch das Folgende noch als weitgehend problematisch erscheinen}.
+
+Even apart from this, there appears another difficulty if we don't want to explicitly use a Fourier decomposition of the field in our functional representation. As already mentioned in the previous sections, only only those physical field variables which, interpreted as $q$-functions, commute for all space-time points can be used as arguments of a functional. Assuming the C.R. (III) for the field strengths $F_{ik}$ formulated in part I, these could not be considered as arguments of a functional, but rather according to I.§4, equation (18b) or (19a), only one of the four systems of variables $F^+_{ik}(P),F^-_{ik}(P),E_{ik}(P),F^*_{ik}(P)$ defined there\WTF{???}{???}. The utilization of these functions, especially the variables $F^+_{ik}$ and $F^-_{ik}$, which are reflected with respect to a fixec point, seems very artificial, however it has not been possible to avoid them.
+
+The following consideration is carried through for functionals of the part of the Maxwell equations  $F^-_{ik}$ which is skew-symmetric with respect to a fixed origin (part I, equation (IV)), which are thus denoted by
+\uequ{
+\YY\{F^-_{lm}(x_1,...,x_4).\}
+}
+Naturally one could swap the roles of $F^-_{ik}$ and $F^+_{ik}$ in all following considerations; an analogous consideration would apply with the introduction of $E_{ik}$ or $E^*_{ik}$ as arguments of functionals.
+
+The problem is very similar as in the previous sections, only that here several (six) functions simultaneously appear as arguments of the functional, which by equations (IV), the Maxwell equations, depend on one another. Thus one now cannot differentiate with respect to a single one of the six field strength components, because one vannot be varied without varying the others. Again it is the $\Delta$-function, this time with its second derivative, which provides us relief. If introduce the expression $\Delta_{ik,lm}$ defined in part I, equation (16), then, according to I.§4, for every pair of indices $(i,k)$
+\nequ{
+F^-_{lm}(P') = \Delta_{ik,lm}(P'-P) + \Delta_{ik,lm}(P'+P) = \Delta^-_{ik,lm}(P',P)
+}{32}
+with fixed $P$, is a permissible variation of the $F^-_{lm}$, because it satisfies the Maxwell equations as well as fulfilling the symmetry conditions (sign-change on transition from $(P')$ to $(-P')$). We could thus define in analogy to (30) the six following derivatives of our functionals $\YY\{F^-_{lm}(P')\}$ characterized by $(i,k)$ and skew-symmetry in this index pair:
+\nequ{
+&\YY'_{ik;P}\left\{F^-_{lm}(P')\right\} = \\
+&= \underset{\delta F^-_{lm}(P') \to \Delta^-_{ik,lm}(P',P)}{\limX{\alpha \to 0}}
+\inv{\alpha}\left[\YY\left\{F^-_{lm}(P') +
+\alpha(\delta F^-_{lm})(P')\right\} - \YY\left\{F^-_{lm}(P')\right\}
+\right].
+}{33}
+It is then also immediately clear that the C.R. (III), interpreted as an operator equation, is fulfilled, if the operator associated with $F^+_{ik}$ is defined so that
+\nequ{
+\left(\int_J ... \int \underline{F^+_{ik}(P)}dV_P\right)\times\YY\left\{F^-_{lm}\right\} =
+\frac{ihc}{16\pi^2}\int_J \int \YY'_{ik;P}\left\{F^-_{lm}(P')\right\}dV_P,
+,}{34}
+where $dV_P$ is the volume element of the four-dimensional space of the coordinates $x_1,...,x_4$ of $P$ and $J$ is an arbitrary, finite four-dimensional interval in that space, while
+\uequ{
+\int_J\int F^-_{lm}(P)dV_P
+}
+simply denotes multiplication by this value.
+
+Here we shall give a brief consideration of such a type, which is analogous to those which in II.§1 led to the establishment of equation (25). First it is probably clear how secomd derivatives of our functional $\YY$ couls be formed; we write the most general second derivative
+\uequ{TODO,}
+nevertheless we will in the following only give notice to the special case $P_1=P$. It must be considered essential that in a relativistically-invariant theory, \WTF{the momentum as well as the energy must be regarded as equivalent}{neben dem Energieintegral die Impulsintegral als gleichwertig angesehen werden müssen}, so that we obtain for the "eigenfunctional" $\YY_{J_k}$ dependent on the four total-energy-momentum components $J_4=-E; (J_1,J_2,J_3) = ic\G$, four simultaneous partial functional differential equations of second order. It is well-known that $J_k$ is expressed via the field strengths in classical mechanics in the following manner:
+\uequ{
+TODO
+}
+We could take the line $t=\text{const}$ specifically as $t=0$, i.e. so that it goes through the origin which we have used for the division of the field strengths $F^+_{ik}$ amd $F^-_{ik}$. Then each of the four integrals $J_k$ breaks into two parts, which depend on thd $F^+_{ik}$ resp. $F^-_{ik}$ alone, since the integral over the mixed parts vanishes on symmetry grounds. In this way we obtain the four simultaneous (corresponding to $k=1$ through $4$) equations formed analogously to (27)
+\nequ{
+TODO,
+}{35}
+where $\YY$ is a functional which depends on the $F^-_{rs}$ and additionally on the $J_k$ as parameters. These equations play for a "closed" radiation field the same role as the Schrödinger differential equation for a given quantum state of a closed mechanical system.
+
+We already mentioned in the introduction, the equations laid out on the latter sections of this part II, for which direct methods of integration still don't exist, are regarded in a still higher degree as provisional than the considerations developed in the first part on $q$-functions. However, we hold the introduction of functionals into a consistent quantum theoretical re-interpretation of classical field physics, despite many unsolved problems in their specific implementation, to be in general very natural.
+\end{document}
+
+
+

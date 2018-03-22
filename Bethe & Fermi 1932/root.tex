@@ -1,0 +1,469 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\renewcommand*\rmdefault{ppl}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{marginnote}
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+
+\nff{\WTF}{#1 (\textit{#2})}
+
+\nf{\translator}{\footnote{\textbf{Translator note:}#1}}
+\nc{\sic}{{}^\text{(\textit{sic})}}
+
+\newcommand{\nequ}[2]{
+\begin{align*}
+#1
+\tag{#2}
+\end{align*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{align*}
+#1
+\end{align*}
+}
+
+\nf{\sskip}{...\{#1\}...}
+\nff{\iffy}{#2}
+\nf{\?}{#1}
+\nf{\tags}{#1}
+
+\nf{\limX}{\underset{#1}{\lim}}
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+%\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+\nff{\intXY}{\underset{#1}{\overset{#2}{\int}}}
+
+\nc{\fluc}{\overline{\delta_s^2}}
+
+\rf{\exp}{e^{#1}}
+
+\nc{\grad}{\operatorfont{grad}}
+\rc{\div}{\operatorfont{div}}
+\nc{\spur}{\operatorfont{spur}}
+
+\nf{\pddt}{\frac{\partial{#1}}{\partial t}}
+\nf{\ddt}{\frac{d{#1}}{dt}}
+
+\nf{\inv}{\frac{1}{#1}}
+\nf{\Nth}{{#1}^\text{th}}
+\nff{\pddX}{\frac{\partial{#1}}{\partial{#2}}}
+\nf{\rot}{\operatorfont{rot}{#1}}
+
+\nf{\Elt}{\operatorfont{#1}}
+
+\nff{\MF}{\nc{#1}{\mathfrak{#2}}}
+
+\nc{\wta}{\widetilde{a}}
+
+\MF{\fr}{r}
+\MF{\fV}{V}
+\MF{\fp}{p}
+
+\nc{\fYm}{\fY^{(m)}}
+\nc{\fXm}{\fX^{(m)}}
+\nc{\fZm}{\fZ^{(m)}}
+
+\nff{\MV}{\nc{#1}{\vec{#2}}}
+
+\MV{\vgamma}{\gamma}
+\MV{\valpha}{\alpha}
+
+\nc{\Y}{\psi}
+\nc{\y}{\varphi}
+
+%niemals aufs Sofa
+
+\title{On the interaction of two electrons}
+\author{H. Bethe \& E. Fermi}
+\date{June 9, 1932}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The connection between the interaction formulae of Breit\cite{1} and Møller\cite{2} and quantum electrodynamics is discussed. It is shown that the Breit formula can be derived from Møller's (§1) and from quantum electrodynamics (§2), and that the Møller formula also follows from the latter (§3).
+\end{abstract}
+
+\textit{Introduction.} For the interaction of two electrons, there are two approaches, by Breit\cite{1} and Møller\cite{2}, which seemingly start from two entirely different points. It seems desirable to investigate the relation of the two approaches to one another and to quantum electrodynamics. Breit's differential equation has been derived directly from quantum electrodynamics, and Rosenfeld\cite{3} has shown that the quantum electrodynamical formulae essential to Breit's derivation are given by Heisenberg's\cite{4} correspondence procedure as applied by Møller. We shall get the Breit formula \textit{directly} from Møller's, and for the derivation from quantum electrodynamics we shall choose a form that is entirely analogous to our derivation of tye Møller theory, so that the various approximation procedures are more readily comparable.
+
+It is well-known that the Coulomb interaction between two electrons can be exactly derived from quantum electrodynamics if only the coupling of the \textit{longitudinal} waves of the electromagnetic field are taken into account\cite{5}, hence any deviation from the Coulomb law must come about through interaction with the \textit{transversal} waves, which in the following we briefly call the \textit{radiation field}. The coupling between the matter and the radiation field now causes in the \textit{first} approximation only such transitions in which the quantum state of the electron is changed and a light quantum is emitted or absorbed. But we are interested in the matrix elements of the interaction energy of the electron which correspond to a change in the quantum state of the electron alone, without changing the state in the radiation field, where we can assume in particular that there shall be no radiation present in either the initial nor the final state. One can apparently only get such transitions of the electron alone by a double process, where first a quantum is emitted, and then the same quantum is absorbed.
+
+The derivations of the Breit and Møller formulae from quantum electrodynamics are essentially distinguished by the following: in the first case the Coulomb interaction energy is already taken into the "unperturbed" Hamiltonian function, the perturbation is then simply the interaction of the electrons with the transversal waves of the electromagnetic field. The calculation will only be carried through to the non-relativistic approximation, i.e. only up to terms of magnitude $v^2/c^2$. Additionally all transations in the material part of the system connected to a permanent emission of radiation are ignored. The latter can naturally be treated with the ordinary perturbation theory.
+
+On the other hand, in the Møller theory the Coulomb energy is part of the \textit{perturbation}, and it enters on equal footing with the interaction with the radiation field, the two interactions are namely of the same order of magnitude in the extreme relativistic case. In the zeroth approximation, the electrons move independently of one another. The Møller theory will be carried out \?{exactly relativistically}, being expanded in powers of $e$ and terms of higher order than $e^2$ being ignored. Thus when deriving the Breit interaction from the Møller interaction, one is only justified in treating the Coulomb interaction to the first approximation, while starting from quantum electrodynamics the Coulomb force is accounted for in the unperturbed system, so that its effect can be treated exactly. Let it be noted that in the Møller (second) approximation there is no radiation, and that it emerges only by considering the radiation interaction in the \textit{third} approximation, if it is forbidden to have electrons with negative energy in the final state.
+
+\section*{§1. Derivation of the Breit interaction energy from the Møller theory} 
+
+In order to calculate the interaction of two electrons, according to Møller one must form the retarded potentials which would be produced by the charge distribution of the first electron, and consider this as a perturbation which acts on the second electron. We want to calculate the matrix of the interaction energy which corresponds to a transition of the first electron from the state\footnote{In this derivation we do \textit{not} considee the Coulomb energy in the unperturbed problem, since it is included in the Møller interaction. Thus we are able to speak of quantum states of the individual electrons.} $n_1$ to the state ${n'}_1$ and the second electron from $n_2$ to ${n'}_2$, where the total energy in the initial and final states shall be equal:
+\nequ{
+E_1+E_2 = E'_1 + E'_2.
+}{1}
+To the transition $n_1 \to {n'}_1$ corresponds the charge distribution
+\nequ{
+\varrho_{n_1 {n'}_1}(\fr_1, t) = e_1 {u'}_1^*(\fr_1)u_1(\fr_1)\exp{\frac{2\pi i}{h}(E'_1 - E_1)t},
+}{2}
+where $u_1$ and $u'_1$ are the Dirac eigenfunctions of the first electron in its initial and final state and $e_1$ is its charge. Taking retardation into account, the charge distribution (2) creates at the position $\fr_2$ and time $t$ the scalar potential:
+\nequ{
+\y_{n_1 n'_1}(\fr_2, t) =& \int{\frac{
+\varrho_{n_1 n'_1}\left(\fr_1, t - \frac{|\fr_2 - \fr_1|}{c}\right)}
+{|\fr_2-\fr_1|}{d\tau_1}}\\
+ =& e_1 \exp{\frac{2\pi i}{h}(E'_1 - E_1)t}
+ \int{\frac{\left({u'_1}^*(\fr_1)u_1(\fr_1)\right)}{|\fr_2-\fr_1|}
+ \exp{\frac{2\pi i}{h}(E_1 - E'_1)|\fr_2 - \fr_1|}{d\tau_1}}.
+}{3}
+Correspondingly, for the vector potential one obtains
+\nequ{
+\fV_{n_1 n'_1}&(\fr_2, t) = \\
+&= -e_1 \exp{\frac{2\pi i}{h}(E'_1 - E_1)t}
+ \int{\frac{\left({u'_1}^*(\fr_1)\vgamma_1 u_1(\fr_1)\right)}{|\fr_2-\fr_1|}
+ \exp{\frac{2\pi i}{h}(E_1 - E'_1)|\fr_2 - \fr_1|}{d\tau_1}}.
+}{4}
+$\gamma_{x_1}$, $\gamma_{y_1}$, $\gamma_{z_1}$, $\delta_1$ are the Dirac operators of the first electron. $\vgamma$ is the vector operator with the components $\gamma_{x_1},\gamma_{y_1},\gamma_{z_1}$.
+
+Now the Breit formula, which we wish to derive, is only exact up to terms of order $1/c^2$, \?{inclusive}. Hence it is reasonable to expand the exponential functions in (3) and (4), which represent the retardation of the potential, in $1/c$:
+\nequ{
+\y_{n_1 n'_1}(\fr_2, t) &= e_1 \exp{\frac{2\pi i}{h}(E'_1 - E_1)t}
+\int({u'_1}^*(\fr_1)u_1(\fr_1))\left[\inv{|\fr_2-\fr_1|}\right.\\
+&\left. + \frac{2\pi i}{hc}(E_1 - E'_1) - \frac{2\pi^2}{h^2c^2}(E_1 - E'_1)^2|\fr_2-\fr|
+\right]
+{d\tau_1}
+}{5}
+and the corresponding for $\fV$. The second term in the square brackets in (5) vanishes: either the states $n_1 n'_1$ are identical and $E_1-E'_1 = 0$, or they are different from one another, and the volume integral vanishes because of the orthogonality of the eigenfunctions. The perturbation energy acting on the second electron is now:
+\uequ{
+V_{n_1}^{n'_1}(\fr_2, t) = e_2 \y_{n_1 n'_1}(\fr_2 t) + 
+e_2 \left(\vgamma_2 \fV_{n_1 n'_1}(\fr_2, t) \right).
+}
+We form the matrix element that corresponds to the transition of the second electron $n_2 \to n'_2$:
+\nequ{
+V_{n_1 n_2}^{n'_1 n'_2} &= e_1 e_2 \exp{\frac{2\pi i}{h}(E'_1 + E'_2 - E_1 - E_2)t}
+\int{u'_2}^*(\fr_2){u'_1}^*(\fr_1)\left[\inv{|\fr_2 - \fr_1|} \right.\\
+&\left. - \frac{2\pi^2}{h^2c^2}(E_1 - E'_1)^2|\fr_2-\fr_1| 
+- \frac{(\gamma_1 \gamma_2)}{|\fr_2-\fr_1|}\right]u_2(\fr_2)u_1(\fr_1)\,{d\tau_1}\,{d\tau_2}
+}{6}
+Her the first term in the bracket is the usual Coulomb potential, the second comes from the retardation of the scalar potential, the third is the influence of the (unretarded) vector potential: since the $\gamma$ operators themselves are of order $v/c$, we don't need to take the retardation of the vector potential into account at our approximation. The first and third terms are symmetrical in the two electrons, the second is not, which is due to the asymmetry of the Møller method. But since the total energy in the initial and final state should be equal (1), we could symmetrize that term by writing $-(E_1 - E'_1)(E_2 - E'_2)$ in place of $(E_1 - E'_1)^2$. With this, (6) becomes the matrix element of
+\nequ{
+V = e_1 e_2 \frac{1-(\gamma_1 \gamma_2)}{|\fr_2 - \fr_1|} + \frac{2\pi^2 e_1 e_2}{h^2 c^2}\left(
+H_2(H_1|\fr_2-\fr_1| - |\fr_2-\fr_1|H_1) - \right.\\
+&\left. - (H_1|\fr_2-\fr_1| - |\fr_2-\fr_1|H_1) H_2\right),
+}{7}
+where $H_1$ and $H_2$ are the unperturbed Hamiltonian functions for the two electrons without interaction, thus
+\nequ{
+H_1 = -e\y_0(\fr_1) - \frac{hc}{2\pi i}(\gamma_i, \grad_1) 
+- e_1\left(\gamma_1, \fV_0(\fr_1) \right) - m_1 c^2 \delta_1.
+}{8}
+$\y_0$ and $\fV_0$ are here the scalar and vector potentials of any external static field in which the two electrons move. All \?{components} of $H_1$ (other than the gradients) commute with $|\fr_2-\fr_1|$, hence
+\uequ{
+H_1|\fr_2-\fr_1| - |\fr_2-\fr_1|H_1 
+= -\frac{hc}{2\pi i}\left(\gamma_1, \frac{\fr_1-\fr_2}{|\fr_2-\fr_1|}\right) = F
+}
+and
+\nequ{
+H_2 F - F H_2 = +\frac{h^2 c^2}{4\pi^2}\left(\frac{(\gamma_1 \gamma_2)}{|\fr_1-\fr_2}
+ - \frac{(\gamma_1, \fr_1-\fr_2)(\gamma_2,\fr_1-\fr_2)}{|\fr_1-\fr_2|^3}\right).
+}{9}
+If this is now inserted into (7), then one obtains precisely the Breit formula for the interaction energy:
+\nequ{
+V=\frac{e_1 e_2}{|\fr_1-\fr_2|}\left(1-\inv{2}(\gamma_1 \gamma_2) 
+- \inv{2}\frac{(\gamma_1, \fr_1 - \fr_2)(\gamma_2, \fr_1 - \fr_2)}{|\fr_1-\fr_2|^2}\right).
+}{10}
+
+\section*{§2. Derivation of the Breit interaction law from quantum electrodynamics}
+
+As the starting point for this derivation, we take the Hamiltonian function of the electrons + electromagnetic field system in the form (\cite{5}, (\textbf{166})) which is obtained when, with the help of the continuity equation, the coordinates of the scalar potential and the longitudinal components of the vector potential are eliminated. In this form, the Hamiltonian function already contains the Coulomb interaction of the particles. By following (\cite{5} (167)), the Hamiltonian function can be written in the form
+\nequ{
+R = \sumX{s}{\left(\inv{2}p_s^2 + 2\pi^2 \nu_s^2 q_s^2 \right)}
+ &+ \sumX{i<j}{\frac{e_i e_j}{r_{ij}}} - \sumX{i}{c(\gamma_i p_i)} - \sumX{i}{m_i c^2 \delta_i}\\
+ &+ c\sqrt{\frac{8\pi}{\Omega}}\sumX{is}{e_i(\gamma_i A_s)q_s\sin{\Gamma_{si}}}.
+}{11}
+The notation in this formula is the same as in \cite{5}; though the radiation components are denumerated by a single index $s$ and not with two $s_1$- and $s_2$; the Coulomb interaction of the electrons is explicitly written, while disrgarding the infinitely-large constant electrostatic self-energies.
+
+To derive the Brwit formula we must take the Coulomb force into account in the unperturbed system. Thus we take as the unperturbed Hamiltonian function the sum of the energy of the radiatiob
+\nequ{
+H_s = \sumX{s}{(\inv{2}p_s^2 + 2\pi^2 \nu_s^2 q_s^2)}
+}{12}
+and thw energy of the material particles
+\nequ{
+H_M = \sumX{i}{-c(\gamma_i p_i) - m_i c^2 \delta_i} + \sumX{i<j}{\frac{e_i e_j}{r_{ij}}}.
+}{13}
+We interpret the coupling energy of particles and fields as a perturbation:
+\nequ{
+H = c\sqrt{\frac{8\pi}{\Omega}}\sumX{is}{e_i (\gamma_i A_s) q_s \sin\Gamma_{si}}.
+}{14}
+The states of the unperturbed system are characterized by a quantum number $\underline{n}$, where the state of the material portion of the system is determined by $H_M$ and by the quantum numbers $n_1, n_2, \dots n_s, \dots$ of the radiation oscillators. The corresponding probability amplitudes are
+\nequ{
+a_{n\,n_1\dots n_s \dots}.
+}{15}
+The $a$ vary with the time by the action of the coupling energy (14), corresponding to the well-known equations:
+\nequ{
+a_{n'\,n'_1\,n'_2\dots n'_s} = -\frac{2\pi i}{h}\sumX{n\,n_1\,n_2\dots}{
+H_{n'\,n'_1\,n'_2\dots}^{n\,n_1\,n_2\dots} a_{n\,n_1\,n_2 \dots}
+\exp{\frac{2\pi i}{h}(E_{n'\,n'_1\dots} - E_{n\,n_1\,n_2\dots})t}.
+}
+}{16}
+It is well-known that the individual nonzero matrix elements of $H$ are the following:
+\nequ{
+H_{n'\,n'_1\,n'_2\dots n_s \pm 1 \dots}^{n\,n_1\,n_2\dots n_s \dots} =
+c\sqrt{\frac{8\pi}{\Omega}}Q_{n'n}(s)\sqrt{\frac{h}{8\pi^2\nu_s}}\times
+\begin{cases}
+\sqrt{n_s + 1}\\
+\sqrt{n_s}
+\end{cases}
+}{17}
+where $Q_{n'n}(s)$ represents the matrix element $n'n$ of the quantity
+\nequ{
+Q(s) = \sumX{i}{e_i(\gamma_i A_s)\sin\Gamma_{si}}.
+}{18}
+
+We shall now assume that at the start the system is found in the state $n$ and no radiation oscillators are excited. Then
+\uequ{
+|a_{n00\dots 0 \dots}|.
+}
+We want to see how a probability amplitude for the state $n'\,0\,0\dots 0\dots$ is created by the action of the perturbation. Now the perturbation matrix (17) has no element in which the two states $n\,0\,0\dots$ and $n'\,0\,0\dots$ are directly coupled. Such a transition can only occur indirectly in a roundabout way by an intermediate term, \?{such as $m\,0\,\dots 1_s \dots$ which come into play according to (17)}, which combines the initial and final states. Applying (16) to the transition $n\,0\,0\,0\dots \to m\,0\,0\dots 1_s \dots$, we immediately get:
+\nequ{
+\dot{a}_{m0\dots 1_s \dots} = -\frac{2\pi i}{h} H_{m00\dots 1_s \dots}^{n00\dots 0 \dots}
+a_{n00\dots 0 \dots}\exp{2\pi i(\nu_{mn} + \nu_s)t},
+}{19}
+where
+\uequ{
+\nu_{mn} = \frac{E_m - E_n}{h}.
+}
+Since $a_{n00\dots 0\dots}$ is practically constant, we could integrate and find:
+\nequ{
+a_{m0\dots 1_s \dots} = -\frac{H_{m\dots 1_s \dots}^{n\dots 0 \dots}}{h(\nu_{mn} + \nu_s)}
+a_{n00\dots}\exp{2\pi i(\nu_{mn} + \nu_s)t}.
+}{20}
+We must now again apply equation (16) to the transitions $m0\dots 1_s \dots \to n'0\dots 0\dots$. We find:
+\nequ{
+&\dot{a}_{n'0\dots 0 \dots} = -\frac{2\pi i}{h}
+\sumX{ms}{H_{n'0\dots 0\dots}^{m0\dots 1_s \dots} a_{m0 \dots 1_s \dots}
+ \exp{2\pi i(\nu_{n'm} - \nu_s)t}}\\
+&= -\frac{2\pi i}{h}\sumX{ms}{\left(-\inv{h}
+\frac{H_{m\dots 1_s \dots}^{n\dots 0\dots} H_{n'\dots 0\dots}^{m\dots 1_s \dots}}
+{\nu_{mn} + \nu_s}\right)\times a_{n\dots 0\dots}\exp{2\pi i\nu_{n'n}t}
+}
+}{21}
+We could interpret the quantity
+\nequ{
+K_{n'n} = -\inv{h}
+\frac{H_{m\dots 1_s \dots}^{n\dots 0\dots} H_{n'\dots 0\dots}^{m\dots 1_s \dots}}
+{\nu_{mn} + \nu_s}
+}{22}
+as a matrix element that directly mediates the transition between the states $n\,0\dots 0\dots \to n'\, 0\,\dots 0 \dots$. The corresponding quantity $K$ represents the correction that has to be applied to the Coulomb interaction in order to take the retardation of the potentials into account.
+
+With the help of (17) we find from (22):
+\nequ{
+K_{n'n} = -\frac{c^2}{\pi\Omega}\sumX{ms}\frac{Q_{n'm}(s)Q_{mn}(s)}{\nu_s(\nu_s + \nu_{mn}}.
+}{23}
+We must now express the quantity $K$ as a function of the coordinates and momenta of the particle. This is easily accomplished if, in the first approximation, we ignore $\nu_{mn}$ in the denominator of (23) in comparison with $\nu_s$. (It should be noted that the ratio of $\nu_{mn}/\nu_s$ is of  order $v/c$.) We then get
+\nequ{
+K_{n'n} &= -\frac{c^2}{\pi\Omega}\sumX{s}{\inv{\nu_s^2}\sumX{m}{Q_{n'm}(s)Q_{mn}(s)}},\\
+ &= \frac{c^2}{\pi\Omega}\sumX{s}{\inv{\nu_s^2}[Q^2(s)]_{n'n}}.
+}{24}
+Thus we have
+\nequ{
+K = -\frac{c^2}{\pi\Omega}\sumX{s}{\inv{\nu_s^2}Q^2(s)}.
+}{25}
+It only remains to carry out the sum over $s$ in order to prove that the value $K$ is identical with the Breit interaction function.
+
+In (25) we insert the expression (18) for $Q(s)$ and find
+\nequ{
+K = -\sumX{ij}{e_i e_j \frac{c^2}{\pi\Omega}
+ \sumX{s}{\inv{\nu_s^2}(\gamma_i A_s)(\gamma_j A_s)\sin\Gamma_{si} \sin\Gamma_{sj}}}.
+}{26}
+The sum over $s$ is transformed into an integral in the well-known manner by replacing $\sumX{s}$ by $\intXY{0}{\infty}\frac{8\pi}{c^3}\Omega\nu_s^2 {d\nu_s}$ and average the expression
+\uequ{
+(\gamma_i A_s)(\gamma_j A_s)\sin\Gamma_{si}\sin\Gamma_{sj}
+}
+over all phases, propagation directions and polarization directions. Thus we find
+\nequ{
+K = -\sumX{ij}{e_i e_j \frac{8}{c}\intXY{0}{\infty}\overline{
+(\gamma_i A_s)(\gamma_j A_s)\sin\Gamma_{si}\sin\Gamma_{sj}
+}{d\nu_s}}.
+}{27}
+The averaging can now be carried out without further ado. By a calculation that raises no fundamental difficulties, we find, following \cite{5} (147),
+\nequ{
+\overline{(\gamma_i A_s)(\gamma_j A_s)\sin\Gamma_{si}\sin\Gamma_{sj}} &=
+\frac{(\gamma_i \gamma_j)}{4}\left(
+\frac{\sin\vartheta}{\vartheta} + \frac{\cos\vartheta}{\vartheta^2} 
+- \frac{\sin\vartheta}{\vartheta^2}\right)\\
+- \frac{(\gamma_i r_{ij})(\gamma_j r_{ij})}{4r_{ij}^2}&\left(
+\frac{\sin\vartheta}{4} + 3\frac{\cos\vartheta}{\vartheta^3} - 3\frac{\sin\vartheta}{\vartheta^3}
+\right),
+}{28}
+where
+\nequ{
+\vartheta = \frac{2\pi r_{ij}}{c}\nu_s.
+}{29}
+Thus from (27) we find, by introducing $\vartheta$ as an integration variable instead of $\nu_s$:
+\nequ{
+K &= -\sumX{ij}\frac{e_i e_j}{\pi r_{ij}}\left\{(\gamma_i \gamma_j)
+\intXY{0}{\infty}{\left(
+\frac{\sin\vartheta}{\vartheta} + \frac{\cos\vartheta}{\vartheta^2} 
+- \frac{\sin\vartheta}{\vartheta^3}\right){d\vartheta}} \right.\\
+&\left. - \frac{(\gamma_i r_{ij})(\gamma_j r_{ij})}{r_{ij}^2}
+\intXY{0}{\infty}\left(
+\frac{\sin\vartheta}{\vartheta} + 3\frac{\cos\vartheta}{\vartheta^2} 
+- 3\frac{\sin\vartheta}{\vartheta^3}\right){d\vartheta}\right\}.
+}{30}
+The two integrals have the values $+\pi/4$ and $-\pi/4$. Thus we find
+\nequ{
+K = -\sumX{ij}{\frac{e_i e_j}{4r_{ij}}\left\{
+(\gamma_i \gamma_j) + \frac{(\gamma_i r_{ij})(\gamma_j r_{ij})}{r_{ij}^2}
+\right\}}.
+}{31}
+An infinitely-large constant self-energy from the electrons is contained in this formula\footnote{This exactly cancels the electrostatic self-energy. One must not however imagine that the difficulties of the infinite self-energy are thereby removed. An infinitely-great self-energy is found for a free electron when the diagonal elements of (23) are calculated and hence $\nu_{mn}$ are not ignoresd, and negative-energy states are also considerd as intermediate states $m$.}. If we disregard this constant, then we find as the exprssion for the interaction of two electrons:
+\nequ{
+-\frac{e_i e_j}{2r_{ij}}\left\{(\gamma_i \gamma_j) + 
+\frac{(\gamma_i r_{ij})(\gamma_j r_{ij})}{r_{ij}^2}\right\},
+}{32}
+which is identical with the Breit interaction.
+
+\section*{§3. Derivation of the Møller formula from quantum electrodynamics}
+
+As a starting point we again take the Hamiltonian function (11), where we restrict ourselves to the case of two particles 1 and 2. However, this time we interpret the Coulomb energy $e_1 e_2/r_{12}$ as a perturbation, so that the unperturbed Hamiltonian function
+\nequ{
+H_0 = \sumX{s}{\left(\inv{2}p_s^2 + 2\pi^2 \nu_s^2 q_s^2\right)}
+ + \sumXY{i=1}{2}(-c(\gamma_i p_i) - mc^2 \delta_i).
+}{33}
+The quantum states of the unperturbed system are defines by the quantum numbers $n_1 n_2$ of the ekectrons and the quantum numbers of the radiation oscillators. We are interested in the transition
+\nequ{
+n_1\,n_2\,0\dots 0\dots \to n'_1\,n'_2\,0\dots 0\dots.
+}{34}
+This transition can be caused directly by the Coulomb interaction or by the mechanism we have discusses in the previous sections, indirectly via an intermediate state
+\nequ{
+m_1\,m_2\,0\dots 1_s\dots.
+}{35}
+To the first process correspond the matrix element
+\nequ{
+\left(\frac{e_1 e_2}{r_{12}}\right)_{n_1 n_2}^{n'_1 n'_2},
+}{36}
+to the second, following (23),
+\nequ{
+K_{n_1 n_2}^{n'_1 n'_2} = -\frac{c^2}{\pi\Omega}\sumX{m_1 m_2}\frac{
+Q_{m_1 m_2}^{n'_1 n'_2}(s) Q_{n_1 n_2}^{m_1 m_2}(s)
+}{\nu_s(\nu_s + \nu_{m_1 n_1} + \nu_{m_2 n_2}}.
+}{37}
+It is consistent to constrain the first case to the first approximation and in the second case to go up to the seconspd, since (36) and (37) are both proportional to $e_1 e_2$.
+
+We shall now calculate the matrix elements (37). First we note that $Q(s)$ [c.f. (18)] consists of two summands $Q(1s)$ and $Q(2s)$, each of which depends only on the coordinates of \textit{one} electron. Since the unperturbed eigenfunctions are products of the eigenfunctions of individual electrons, the matrix elements of $Q(s)$ could only correspond to such transitions where one single electron jumps. Hence the sums over $m_1 m_2$ are reduced to two parts: $m_1 m_2 = n_1 n'_2$ and $m_1 m_2 = n'_1 n_2$. (37) then becomes
+\nequ{
+K_{n_1 n_2}^{n'_1 n'_2} = -\frac{c^2}{\pi\Omega}
+\sumX{s}{\frac{Q_{n'_1 n_1}(1s) Q_{n'_2 n_2}(2s)}{\nu_s}}\left(
+\inv{\nu_s + \nu_{n'_1 n_1}} + \inv{\nu_s + \nu_{n'_2 n_2}}
+\right).
+}{38}
+$Q(1s)$ has the form [c.f. (18) and \cite{5} (147)]:
+\nequ{
+Q(1s) = \frac{e_1}{2i}(\gamma_1 A_s)\left[
+\exp{\frac{2\pi i \nu_s}{c}(\alpha_s \fr_1) + i\beta_s} - 
+\exp{-\frac{2\pi i \nu_s}{c}(\alpha_s \fr_2) - i\beta_s}
+\right].
+}{39}
+We write the eigenfunctions of the states $n_1$ and $n'_1$ in the form
+\nequ{
+u_1 = \frac{a_1}{\sqrt{\Omega}}\exp{\frac{2\pi i}{h}(\fp_1 \fr_1)},\quad
+u'_1 = \frac{a'_1}{\sqrt{\Omega}}\exp{\frac{2\pi i}{h}(\fp'_1 \fr_1)},
+}{40}
+where $a$ represent four-component constants which are normalized to one.
+
+The matrix elements of $Q(1s)$ are thus only nonzero when
+\nequ{
+\frac{h\nu_s}{c}\alpha_s = \pm(\fp_1 - \fp'_1).
+}{41}
+Their values are in this case
+\nequ{
+\mp \frac{e_1}{2i}(\widetilde{a}'_1 \gamma_1 a_1, A_s)\exp{\mp i \beta_s}.
+}{42}
+For $Q(2s)$ we get a corresponding expression. Since an averaging over the phase $\beta_s$ has now been carried out, the only terms providing a nonzero contribution are those for which the sign in $Q(1S)$ and $Q(2s)$ are opposite. Thus
+\nequ{
+\fp_1 - \fp'_1 = -(\fp_2 - \fp'_2) = \pm\frac{h\nu_s}{c}\valpha_s,\quad
+\nu_s = \frac{c}{h}|\fp_1 - \fp'_1|,
+}{43}
+\nequ{
+K_{n_1 n_2}^{n'_1 n'_2} &= -\frac{e_1 e_2 h^2}{4\pi \Omega}
+\sumX{s}\frac{\widetilde{a}'_1 \gamma_1 a_1, A_s)(\widetilde{a}'_2 \gamma_2 a_2, A_s)}{|\fp_1-\fp'_1|}\\
+&\times \left(\inv{|\fp_1 - \fp'_1| + \frac{E'_1 - E_1}{c}}
+\inv{|\fp_1 - \fp'_1| + \frac{E'_2 - E_2}{c}}
+\right)
+}{44}
+Because of (43) then sum over $s$ still only consists of four parts, corresponding to the doubled signs in (43) and the two perpendicular polarization directions. Instead of summing over $s$, we could average over all directions of the unit vector $A_s$ perpendicular to $\fp-\fp'$ and multiply by 4. If we carry this out and note that because of the energy law
+\uequ{
+E_1 - E'_1 = E'_2 - E_2
+}
+then we find
+\nequ{
+K_{n_1 n_2}^{n'_1 n'_2} &= -\frac{e_1 e_2 h^2}{4\pi \Omega}\left[
+(\widetilde{a}'_1 \gamma_1 a_1, \widetilde{a}\gamma_2 a_2) - 
+\frac{(\widetilde{a}_1\gamma_1 a_1, \fp_1 - \fp'_1)
+(\widetilde{a}_2\gamma_2 a_2, \fp_1 - \fp'_1)
+}{(\fp_1 - \fp'_1)^2}
+\right]\\
+&\times \inv{(\fp-\fp'_1)^2-\left(\frac{E_1 - E'_1}{c}\right)^2}
+}{45}
+We must still add to (45) the matrix element (36); according to Møller this has the value
+\nequ{
+\left(\frac{e_1 e_2}{r_{12}}\right)_{n_1 n_2}^{n'_1 n'_2} = \frac{e_1 e_2 h^2}{\pi\Omega}
+\frac{(\widetilde{a}'_1 a_1)(\widetilde{a}'_2 a_2)}{(\fp_1 - \fp'_1)^2}
+}{46}
+The sum is
+\nequ{
+H_{n_1 n_2}^{n'_1 n'_2} &= K_{n_1 n_2}^{n'_1 n'_2} 
++ \left(\frac{e_1 e_2}{r_{12}}\right)_{n_1 n_2}^{n'_1 n'_2}\\
+ &= \frac{e_1 e_2 h^2}{\pi\Omega}
+ \frac{(\wta'_1 a_1)(\wta'_2 a_2) - (\wta'_1 \gamma_1 a_1, \wta'_2 \gamma_2 a_2)}
+ {(fp_1 - \fp'_1)^2 - \left(\frac{E_1 - E'_1}{c}\right)^2} 
+ + \frac{e_1 e_2 h^2}{\pi\Omega|\fp_1 - \fp'_1|^2}\\
+& \frac{-\left(\frac{E_1 - E'_1}{c}\right)^2(\wta'_1 a_1)(\wta'_2 a_2)
+ + (\wta'_1\gamma_1 a_1, \fp_1 - \fp'_1)(\wta'_2 \gamma_2 a_2, \fp_1 - \fp'_1)
+ }{(\fp_1 - \fp'_1)^2 - \left(\frac{E_1 - E'_1}{c}\right)^2}
+}{47}
+The first summand on the right side is precisely the Møller interaction energy. Thus we must prove that the second summand vanishes. First we write this summand in symmetrical form by using the energy-momentum law:
+\uequ{
+\text{factor}\times\left[
++\frac{E_1-E'_1}{c}(\wta'_1 a_1)\frac{E_2-E'_2}{c}(\wta'_2 a_2)
+- (\wta'_1 \gamma_1 a_1, \fp_1 - \fp'_1)(\wta'_2 \gamma_2 a_2, \fp_2 - \fp'_2).
+\right]
+}
+To prove that this vanishes it suffices to show that
+\nequ{
+(E_1 - E'_1)\wta'_1 a_1 = -c(\wta' \gamma_1 a_1, \fp_1 - \fp'_1)
+}{49}
+and a corresponding equation for the second particle. However, (49) follows immediately from the Dirac equation
+\nequ{
+E_1 a_1 = -c(\fp_1 \gamma_1 a_1) - m_1 c^2 \delta_1 a_1
+}{50}
+and the corresponding equation for $\wta'_1$.
+
+One is easily convinced that the Møller formula can be derived in exactly the same manner if one of the particles is \?{bound}.
+
+It is satisfactory that in our approximation no radiation is emitted. It is imaginable that processes are possible where the two electrons change their states and two quanta are emitted. In such processes the momentum law must be satisfied twice (the momentum of one of the quanta must equal the momentum change of one of the electrons, and the same applies for the other quantum and the other electron) and the energy law once. However, that is not possible, so long as there are no electrons of negative energy in the final state.
+
+The one of us (H. Bethe) would like to thank the Rockefeller Foundation for granting a stipend that has made possible his visit to Rome.
+
+\textit{Rome}, Institute for theoretical physics.
+
+
+\include{subfiles/bib} \end{document}

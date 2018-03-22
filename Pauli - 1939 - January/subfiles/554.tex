@@ -1,0 +1,100 @@
+\letter{554}
+\rcpt{Bhabha}
+\date{May 4, 1939}
+\location{Zurich}
+\tags{meson-theory}
+
+\nc{\vZ}{\vec{Z}}
+\nc{\ve}{\vec{e}}
+\nc{\vk}{\vec{k}}
+\nc{\vs}{\vec{s}}
+\nc{\va}{\vec{a}}
+\nc{\vx}{\vec{x}}
+\nc{\gbar}{\overline{g}}
+
+Dear Herr Bhabha!
+
+Meanwhile I have more closely thought over your Zurich lecture, specifically the scattering of mesons by protons. I am mostly working off of a manuscript from Heisenberg, which he tells me he has also sent to you. Meanwhile there has also been correspondence between me and Heisenberg in which some things have become clearer than they were in Heisenberg's manuscript.
+
+\subsection*{1. Remarks on the scattering of neutral mesons by protons, interaction term $g_1$}
+
+This is the case that you worked out in your semiclassical model with the result that in the limit $M_P \to \infty$ ($M_P$ = proton mass) the scattering vanishes. It is important to stress that for \textit{this} Hamiltonian function \textit{even the quantum theoretical perturbation theory would lead to the same result.} Namely here one has, as in electrodynamics, for the initial state
+
+TODO: --(meson)--> ($p_\mu$) and the final state ($p_\mu$), ()--(meson)-->
+
+\textit{two} intermediate states
+
+TODO:
+
+a) ()--(meson)--> ()--(neutron)-->meson
+
+b) () (without meson)
+
+By carrying out the perturbation calculation, it is easy to see that the contributions of the two intermediate states exactly cancel because of the opposite signs of the energy denominator in the limit $M_P \to \infty$. (For this, c.f. Electrodynamics, Dirac 1927, discussion of the term $(\vec{p}\vec{A})$.) Thus quantum-theoretically the scattering here becomes 0, exactly as in your semiclassical model in the limit $M_P \to \infty$. Hence we cannot draw any conclusions on the failure of quantum theory from your previous results.
+
+It is different for \textit{charged} mesons. Since here for the initial state
+
+TODO: --(meson+)-->($p_\mu$) and the final state ($p_\mu$) --(meson+)-->
+
+there is \textit{only} one intermediate state (a); for the scattering of negatively-charged mesons there ia only the \textit{one} intermediate state (b). Hence scattering remains possible here in the limit $M_P \to \infty$.
+
+It is similar in processes where the spin of the proton is flipped in the intermediate state interaction $g_2$.
+
+\subsection*{2. On the scattering of neutral mesons with spin-flipping of the proton, interaction term $g_2$.}
+
+For this case Heisenberg has now attempted to introduce a semiclassical model. The result is somewhat obscured by the factor $\eta$, which he has introduced (exclusively from laziness) in the equation (34). But it is not difficult to integrate equation (28) resp. (29) for a given $D(\vec{x})$ by consideration of the self-field for a monochromatic wave. As Heisenberg briefly informed me, the result with the \textit{Ansatz} (30) for incoming waves in the special case of $\vec{a}$ parallel to $\vec{s}_0$ is the following:\\
+With
+\uequ{
+\vZ = \vZ_0 + \vZ_1, \quad \vs = \vs_0 + \ve\exp{-ik_0 \tau}; \quad
+\ve \perp \vs_0 \quad \text{and } |\ve| \ll 1,\\
+\vZ_0 = l\vs_0\int\frac{D(\vx')\exp{-\kappa r_{pp'}}}{4\pi r_{pp'}}{d^3x_{p'}};\quad
+\vZ_1 = \ve l \exp{-ik_0\tau}\int\frac{D(\vx')\exp{ikr_{pp'}}}{4\pi r_{pp'}}{d^3x_{p'}}
+}
+the equation for $\ve$ finally follows ($\va$ from Heisenberg's equation (30) is the amplitide of the incoming wave $\vec{u}$)
+\nequ{
+ik_0 \ve = 2li[[\vk\va],\vs_0] + 2l(\gbar_0(-ik) - \gbar_0(\kappa)[\ve\vs_0],
+}{1}
+where $\gbar_0(-ik)$ and $g_0(\kappa)$ are given by
+\nequ{
+\gbar_0(-ik)=-\frac{2}{3}l\int D(\vx){d^3x}\,\Delta
+\int\frac{D(\vx')\exp{ikr_{pp'}}}{4\pi r_{pp'}}{d^3x_{p'}}
+}{1a}
+\nequ{
+\gbar_0(\kappa)=-\frac{2}{3}l\int D(\vx){d^3x}\,\Delta
+\int\frac{D(\vx)\exp{\kappa r_{pp'}}}{4\pi r_{pp'}}{d^3x_{p'}}.
+}{1b}
+With the abbreviation
+\uequ{
+\gbar_0(-ik) - \gbar_0(\kappa) = l\Gamma(k_0),\quad (k_0^2 = \kappa^2 + k^2)
+}
+the interaction cross section becomes
+\uequ{
+Q=\frac{2}{3\pi}\frac{l^4 k^4}{k_0^2 + 4l^4|\Gamma(k_0)|^2}.
+}
+(1a) and (1b) give for $\Gamma(k_0)$
+\nequ{
+\Gamma(k_0) = +\frac{2}{3}\int D(\vx){d^3x}\int\frac{D(\vx'){d^3x'}}{4\pi r_{pp'}}
+(k^2 \exp{ikr_{pp'}} + \kappa^2\exp{-\kappa r_{pp'}}).
+}{2}
+For very small $k_0$, $k$ is purely imaginary and $ik \approx -\kappa$ and $\Gamma(k_0)$ becomes proportional to $k_0^2$. An expansion of $\Gamma(k_0)$ in powers of $k_0^2$
+\?{corresponds to} additional terms to the right side of the differential equation for $\dot{\vs} = 2l[g^\text{ext},\vs]$ proportional to $\ddot{\vs}, \ddddot{\vs}, \dots$ etc.\footnote{For this reason I would like to describe these terms as \textit{damping} terms, not "inertial" terms.}.
+
+So far this is consistent for a spatially extended spin-distribution of the proton. If $a$ gives the "spin radius" of the proton, then $\gbar(-ik)$ and $\gbar(\kappa)$ individually go as $\approx 1/a^3$, but their difference becomes singular like $1/a$ as $a \to 0$, i.e. $\Gamma(k_r) \approx 1/a$.
+
+I would now very much like to know from you what the Cambridge subtraction-trick of the transition to the "point-spin" gives in this case. Probably $\Gamma(k_0) = \Gamma_2 k_0^2 + \Gamma_4 k_0^4$ (\textit{without higher powers of $k_0$?}), where $\Gamma_2$ is a new \textit{arbitrary} constant (which could hardly lead back to the proton mass), while $\Gamma_4$ should be calculatable (by applying the energy-momentum-angular momentum law). \textit{Or is it otherwise?}
+
+\subsection*{3. Applications for the spinning electron}\footnote{Regarding the classical model of the spinning electron, c.f. \textit{Kramers}, Foundations of Quantum theory, Part II, \textit{Thomas}, Phil. Mag. \textbf{3}, 1, 1927 and especially \textit{Frenkel}, Z. Phys. \textbf{37}, 243, 1926. For the \textit{Mott} polarization effect mentioned above, also \textit{F. Sauter}, Ann. Phys. \textbf{18}, 61, 1933.}
+
+The reason I have a special interest in this question (calculation of the "damping term" in the equation of motion for $\dot{\vs}$ for "point spin" according to the subtraction method) is the application to the spinning \textit{electron} in an external electromagnetic field. Up to relativistic corrections the classical model remains the same as that discussed above, only we put $\kappa=0$ and $l=\inv{2}\frac{e}{\sqrt{\hbar c}}\frac{\hbar}{mc}$ ($m$ the electron mass).
+
+It now seems very likely \textit{that the empirical lack of Mott's polarization effect in the scattering of $\beta$-particles on the nuclei in the surface of a metal is attributable to the action of the damping terms discussed here.} The \?{collision-times} in the relevant experiments are probably already comparable to $l/c$ and in any case it would be nice if the theory of the Mott polarization effect could be improved by taking the damping terms into account. In any case this would \textit{diminish} the polarization, as well as diminishing the scattering of mesons on protons (and indeed considerably, as soon as the frequency becomes comparable to $c/l$).
+
+Now everything comes down to whether the theory can be carried through reasonably free of arbitratiness, without introducing new arbitrary constants (other than the rest masses).
+
+I would now like to know what you think about this. -- We here in Zurich want to found a Non-Intervention-Committee in the conflict between you and Heisenberg on the existence or non-existence of explosions.
+
+Warm greetings,
+
+Always your W. Pauli
+
+%harydthecure Manus

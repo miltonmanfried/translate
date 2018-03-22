@@ -1,0 +1,125 @@
+\letter{603}
+\from{Klein}
+\date{October 1940}
+\location{Stockholm}
+
+Dear Pauli!
+
+I think that it will not be unwelcome if I again write to you on physics after so long a time. In this time our ideas have probably in many respects gone in similar directions. Indeed we both live in (up to now) remarkably favorable lands, while the countries of most of our scientific friends have been directly affected by the war. We are very isolated here. But we have some connection with Denmark. In the Summmer Bohr was here for a few days, and we expect him again next month. Despite the circumstances, he was as full of energy as ever, and in the institute as well work is going \?{swimmingly}, especially on the fission problem. Have you heard anything from the French physicists? I would like to know how things are going for them, especially Auger and Perrin. Frau Meitner, who now lives here, recently heard from Gorter that things are going relatively well for the Dutch, including Kramers. I don't know whether you have heard that Gordon died the past winter after a serious illness.
+
+From your papers with Fierz on the relativistic wave equations that you have been busy with the generalization of the Dirac electron theory. I would like to write some about this problem. In an earlier paper (Vetenskaps Academy Archive 1936) I have described a procedure for the generalization of the Dirac equation, which appears with some improvements in the following. Let $q_{\mu\nu}$ be the unit operator, whose commutation relations $[\,]=$ characterize an infinitesimal rotation in the six-dimensional space. We put
+\nequ{
+\Gamma_k = iq_{k6}, \quad k=1,2,3,4,5
+}{1}
+and consider the wave equation
+\nequ{
+\sumXY{1}{4} = \Gamma_k p_k \psi = \mu\psi,
+}{2}
+where $p_1, p_2, p_3, p_4, = iE/c$ denote the energy-momentum values and $\mu$ denotes a matrix to be further characterized later, which commutes with the quantities $q_{kl}$, $k,l=1,2,3,4$. Now let $Q$ be a matrix which describes a finite rotation in the four-dimensional subspace $x_1,x_2,x_3,x_4,=ict$ of our six-dimensional helper-space. Then
+\nequ{
+\sum\Gamma_k p_k = Q^{-1}\sum\Gamma_k p'_k Q, \quad Q^{-1}\mu Q = \mu,
+}{3}
+where $p'_k$ denote the corresponding transformed values of the energy-momentum four-vector. Now let $\Gamma$ be a Hermitian matrix which commutes with $\Gamma_4$ and anti-commutes with $\Gamma_1$, $\Gamma_2$, $\Gamma_3$, $\Gamma_5$, and whose square is 1. Then we put
+\nequ{
+\alpha_0 = \Gamma\Gamma_4, \quad
+\alpha_k = i\Gamma\Gamma_k, \quad k=1,2,3,5.
+}{4}
+
+Since we can choose the $\Gamma_k$ \?{which follow the exchange relations between the $q_{kl}$} to be a Hermitian matrix, \?{then the corresponding applies for $\alpha_0$, $\alpha_k$ only if the quantity $\Gamma$ exists}, which always seems to be the case.
+
+Now, as is easily seen, we have $Q^*=\Gamma Q^{-1}\Gamma$, where $Q^*$ denotes the complex-conjugate matrix to $Q$. From this follows
+\nequ{
+\sumXY{0}{3}\alpha_k p_k = i\Gamma \sumXY{1}{4}\Gamma_k p_k 
+= i\Gamma Q^{-1}\Gamma\sumXY{1}{4}\Gamma\Gamma_k p'_k Q
+= Q^*\sumXY{0}{3}\alpha p'_k Q,
+}{5}
+where $p_0=ip_4=-iE/c$ denotes the momentum component conjugate to $x_0=ct$. Further, we put $i\Gamma\mu=\lambda$, and choose $\mu$ so that $\lambda$ is a Hermitian matrix. The exchangability of $\mu$ with $Q$ implies $Q^*\lambda Q$, and the wave equation can be written
+\nequ{
+\left\{\sumXY{0}{3}\alpha_k p_k - \lambda\right\}\psi = 0,
+}{6}
+and for the complex conjugate quantity $\psi^*$:
+\nequ{
+\psi^*\left\{\sumXY{0}{3}\alpha_k p_k - \lambda\right\} = 0,
+}{7}
+where now $x_1,x_2,x_3,t,\psi$ and $\psi^*$ now transform in the following manner under a Lorentz transformation
+\nequ{
+\psi'=Q\psi,\quad \psi'^* = \psi^*Q^*.
+}{8}
+
+If $\gamma_1, \gamma_2, \gamma_3, \gamma_4, \gamma_5=\gamma_1\gamma_2\gamma_3\gamma_4$ denote a system of Dirac matrices, then it is well-known that we can fulfill the commutation relations in $q_{\mu\nu}$ by the following specific \?{definitions}:
+\nequ{
+\Gamma_k = 1/2\gamma_k, \quad
+q_{kl} = [\Gamma_k, \Gamma_l],\,\text{ where $\Gamma$ is still $\gamma_4$. }
+}{9}
+
+If $\gamma'_k$, $\gamma''_k, \dots$ are a series of independent (commutable) systems of Dirac matrices, then from this it follows that
+\nequ{
+\Gamma_k = 1/2(\gamma'_k + \gamma''_k + \dots),\quad
+q_{kl} = q'_{kl} + q''_{kl} + \dots, \quad
+\Gamma = \gamma_4'\gamma_4''
+}{10}
+also fulfill all requirements. From this, one can then obtain all possible irreducible representations. One easily gets a general (but apparently not the most general) irreducible representation with Weyl's method starting from a four-component Dirac function. However, I still don't know what the general $\Gamma$ looks like in this representation. Apparently for the spin matrices the following apply:
+\nequ{
+S_1 = -i\hbar q_{23}, \quad S_2 = -i\hbar q_{31}, \quad S_3 = -i\hbar q_{12}.
+}{11}
+For density $\varrho$ and current density $J$ we have
+\nequ{
+\varrho = \psi^* \alpha_0 \psi, \quad J = C\psi^* \alpha_k \psi,
+}{12}
+which satisfy the continuity equation because of the wave equation. Specific representations, which correspond to integer spin, are obtained by assuming that $\psi$ should be an irreducible tensor in the six-dimensional helper-space. e.g. $\psi = \text{vector}$ gives the scalar wave equation $\psi=S_{klm}$, antisymmetric in all indices, where the dual tensor $\widetilde{S} = iS$ gives a ten-component representation which leads to Proca's resp. Maxwell's equations.
+
+The quantization, where we assume an external electromagnetic field $(V,A)$, can be carried out in the following manner. We start from the Hamiltonian function
+\nequ{
+H=\int {dr}\psi^*\left\{c(\alpha.\Pi) + \alpha_0 eV - C\lambda\right\}\psi,
+}{13}
+where $\alpha=(\alpha_1,\alpha_2,\alpha_3)$, $\Pi=p-(e/c)A$. Further, we put
+\nequ{
+\chi = \alpha_0 \psi, \quad \chi^* = \psi^* \alpha_0
+}{14}
+and assume for the time being that $\alpha_0$ does not have the eigenvalue 0. Then the commutation relations read
+\nequ{
+&[\psi_r^*(r'), \chi_s(r)] = \mp \delta_{rs}\delta(r-r'), \quad 
+&[\psi_r(r), \psi_s(r')] = 0\\
+&[\psi_r(r'), \chi_s^*(r)] = \delta_{rs}\delta(r-r'), \quad
+&[\psi_r^*(r), \psi_s^*(r')] = 0,
+}{15}
+where the upper sign applies for symmetric, the lower for antisymmetric quantization with the corresponding modified definition of $[]$. But here it seems, as I have also suggested, that a restriction dominates that does not coincide with any earlier results.
+
+Now from
+\nequ{
+[\xi, H] = -i\hbar \pddX{\xi}{t}
+}{16}
+follow the wave equations
+\nequ{
+\left\{-\alpha_0\frac{E-eV}{c} + \alpha\Pi\right\}\psi &= \lambda\psi\\
+\psi^*\left\{-\alpha_0\frac{E-eV}{c} + \alpha\Pi\right\} &= \psi^*\lambda.
+}{17}
+
+In the case wher $\alpha_0$ has the eigenvalue 0, we will assume that $\alpha_0$ is a diagonal matrix whose first $m$ elements vanish, while the remaining $n-m$ elements are nonzero. If for brevity we write
+\nequ{
+\eta = c(\alpha\Pi) + \alpha_0 e\psi - c\lambda,
+}{18}
+then the wave equations for $\psi$ run
+\nequ{
+\alpha_0 E \psi = \eta\psi
+}{19}
+and thus
+\nequ{
+(\eta\psi)_k = 0, \quad k=1,2,\dots, m,
+}{20}
+so that 
+\nequ{
+H=\int {dr}\sumXY{m+1}{n} \psi_k^*(\eta\psi)_k.
+}{21}
+
+Further, only the components $\chi_{m+1},\dots,\chi_n$ of $\chi$ are nonzero. Of the quantum conditions (15), we only retain those which relate to $\psi_{m+1}, \psi_{m+2},\dots, \psi_n$,, and we use the $m$ equations (20) as the \textit{defining equations} for $\psi_1,\dots,\psi_m$. (For specific $\lambda$ \?{the latter does not hold}, but it does in general. E.g. the timeless equations in the Maxwell case would be $\rot{A} - H = 0$ and $\div{E} = 0$. But if a finite rest-mass is assumed, then we would have $V= \text{const.}\div{E}$.) Since in the expression (21) for $H$ lacks the components $\psi_1^*, \psi_2^*, \dots, \psi_m^*$, by commutation with $\chi_k$ one gets exactly the $n-m$ missing equations of (19).
+
+[As regards the possibility of antisymmetric quantization, it seems to be constrained to the case where all eigenvalues of $\alpha_0$ are positive. Namely, in the other case, if we instead of $r$ go over to a discrete \?{state variable} $n$, one would have relations of the form $\psi_s^*(n)\psi_s(n) + \psi_s(n)\psi_s^*(n) = $ a negative real number, which is apparently impossible. In the original Dirac equation one has $\alpha_0=1$, so that the antisymmetric quantization is without difficulties here. In the scalar wave equation $\alpha_0$ has the eigenvalues $0,1,-1$. Here the antisymmetric quantization would also be excluded. (You see that I henceforth share your standpoint with respect to the Hermiticity.) I suspect, but without proof, that $\alpha_0$ always has positive eigenvalues for half-integer spin.]
+
+In coming days I will study mkre closely the literature on the subject, which I only know poorly, and then try to ready the above for publication. In my aforementioned paper (where dubious speculations also occur), the quantity $\Gamma$ is missing, because I incorrectly came to \?{not-generally-real} expresions for $\varrho$ and $J$. After I had introduced it as above and put it forward it in Paris (early 1939), I heard from de Broglie and P\'etiau that the latter had already (Thesis, 1936) used this quantity in a fully correct manner in a paper on the case spin = 1, 0.
+
+Now I want to close this long letter briefly with a warm greeting, also from my wife and to your wife.
+
+Your old O. Klein.
+
+% in  thelizing Rub twigs on yr armpits u pansy, eat pine needles

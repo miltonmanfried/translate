@@ -1,0 +1,296 @@
+\documentclass{report}
+\usepackage[utf8]{inputenc}
+\renewcommand*\rmdefault{ppl}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{marginnote}
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+
+\nff{\WTF}{#1 (\textit{#2})}
+
+\nf{\translator}{\footnote{\textbf{Translator note:}#1}}
+
+\newcommand{\nequ}[2]{
+\begin{align*}
+#1
+\tag{#2}
+\end{align*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{align*}
+#1
+\end{align*}
+}
+
+\nff{\iffy}{#2}
+\nf{\?}{#1}
+\rff{\!}{#1}
+
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+\newcommand{\intX}[1]{\underset{#1}{\int}}
+
+\nc{\fluc}{\overline{\delta_s^2}}
+
+\rf{\exp}{e^{#1}}
+
+\nc{\grad}{\operatorfont{grad}}
+\rc{\div}{\operatorfont{div}}
+
+\nf{\pddt}{\frac{\partial{#1}}{\partial t}}
+\nf{\ddt}{\frac{d{#1}}{dt}}
+
+\nf{\inv}{\frac{1}{#1}}
+\nf{\Nth}{{#1}^\text{th}}
+\nff{\pddX}{\frac{\partial{#1}}{\partial{#2}}}
+\nc{\lap}{\Delta}
+\nc{\e}{\varepsilon}
+\rc{\r}{\mathfrak{r}}
+\nc{\R}{\mathfrak{R}}
+%\nc{\OMEGA}{\mathfrak{\Omega}}
+\nc{\OMEGA}{\Omega}
+\nc{\f}{\mathfrak{f}}
+
+\nc{\Y}{\psi}
+\nc{\y}{\varphi}
+
+\title{Wave mechanics of collision and radiation processes}
+
+\begin{document}
+
+\section*{1. Introduction.}
+That the atomic collision- and radiation processes obey the conservation laws of momentum and energy is one of the elementary experimental facts on which the system of quantum theory is built. As in classical mechanics the conservation laws, as first integrals of the equations of motions, already permit certain predictions about collision processes involving material and light quanta; e.g. for the scattering of a photon by a free electron (Compton effect) for specified initial momenta and specified scattering angle, predicting the energies of the electron and the photon after the collision. Moreover, the quantum theory makes predictions of a statistical character; for photon scattering it gives e.g. the probability that the scattering results in a specified direction. It is such \textit{intensity problems} which we shall be concerned with in the following.
+
+The \textit{"collisions"}, in a narrower sense, i.e. the collision processes to which only material particles are involved, which exert static (non-retarded) interactions on one another, is most simply described by Schr\"odinger's "wave mechanics"\footnote{c.f. chapter 2 of this volume, regarding the wave mechanics of the many-body problem, particularly part A, sections 5 and 6} formalism  (parts A and B). To represent \textit{radiation processes} it is well-known that one needs Bohr's correspondence principle in some form; in the following (part C) we rely upon the formalism discovered by Dirac, in which the \WTF{eigenvibrations}{Eigenschwingungen} of cavity radiation are quantized as mechanical oscillators\footnote{c.f. chapter 2B, sections 6 through 8}, since on the one hand this formalism runs mostly parallel to the wave mechanical description of collisions, and on the other hand since everything that can now be said with any certainty about radiation processes, can be reproduced in a \!{uniform}{einheitlich} and rational manner if one disregards the difficulties that come with the short-wave end of the electromagnetic cavity-radiation spectrum, and which have the same root as the difficulties which today stand in the way of the construction of a generalized "quantum electrodynamics". These same difficulties are incidentally also those we encounter in the \textit{relativistic} description of collision processes, since here the retardation of interaction forces between the material particles must not be disregarded, so that one is here, strictly speaking, not dealing with a "purely mechanical", but rather with a quantum-electrodynamical problem. But it turns out that the quantum theory in its present, certainly still incomplete form already makes a considerable number of experimentally-testable assertions regarding the probabilities of collision- and radiation processes, which apparently are not affected by those difficulties. To serive and to discuss these assertions from Schr\"odinger's wave mechanics and Dirac's radiation theory is the msin objective of the following presentation\footnote{In this sense all \!{actual}{eigentlich} relativistic problems, as well as the related spin problems, are here only briefly treated \WTF{in the appendix}{in den Grundzügen}; the computational details will be referred to the original literature or to the other chapters in this volume. --\?{A further constraint on the domain of problems treated here is given by those questions which refer to the form of specific atoms or molecules, which are treated in other chapters of this volume. While this is so in the following (in particular parts B and C), where the atoms or molecules (not only elementary particles) are involved, the theory is only developed as far as it can be without special assumptions about the Hamiltonian of the associated atom or molecule.}}.
+
+\part*{A. Exactly-solvable collision problems}
+\chapter*{I. Collision of two point particles}
+\section*{2. Problem statement}
+Initially, we shall treat two point-masses, interacting via Coulomb forces; and indeed the relative velocity $v$ of the two particles shall be so small with respect to the speed of light $c$ that all terms of first and higher order in $v/c$ (magnetic force and retardation of forces, mass variability and spin forces) are to be neglected\footnote{Regarding the terms with $v/c$ c.f. section 6.}.
+
+We utilize the following relations: $e_1,e_2=\text{charges}$, $m_1,m_2=\text{masses}$ of the two particles, $x_1 y_1 z_1, x_2 y_2 z_2 = \text{cartesian coordinates}$ \?{or} instead their radial vectors $\r_1,\r_2$ from the origin; further, $\Delta_k$ denotes the Laplacian differential operator $\frac{\partial^2}{\partial x_k^2} + \frac{\partial^2}{\partial y_k^2} + \frac{\partial^2}{\partial z_k^2}$ ($k=1,2$), $W$ is the (unrelativistic) energy of the system, $V=\frac{e_1 e_2}{|\r_2-\r_1|}$ is the potential energy of the Coulomb interaction, and finally $\hbar$ is Planck's action constant $h$ divided by $2\pi$. The Schr\"odinger equation for the time-independent wavefunction $U=U(\r_1,\r_2)$ then reads
+\nequ{
+TODO
+}{2.1}
+Since $V$ only depends on the relative coordinates of the two point-masses, the \?{center of mass law(Schwerpunktsatz)} applies: the differential equation is separable into center-of-mass and relative coordinates
+\nequ{
+\R=\frac{m_1 \r_1 + m_2 \r_2}{m_1+m_2},\quad \r=\r_2 - \r_1;
+}{2.2}
+$U$ decomposes into a product of a function of $\R$ and a function of $\r$, where the first is of the form $\exp{i(\OMEGA\R)}$:
+\nequ{
+U(\r_1,\r_2) = \exp{i(\OMEGA\R)}u(\r).
+}{2.3}
+The constant vector $\OMEGA$ is the total-momentum divided by $\hbar$. For $u(\r)$ one obtains, by replacement of (2.3) and (2.2)
+into (2.1), the differential equation:
+\nequ{
+\left\{\hbar^2 \frac{1}{2m}(\Delta + k^2) - V\right\}u = 0;
+}{2.4}
+here,
+\nequ{
+TODO,
+}{2.5}
+and $k$ is a constant, defined by
+\nequ{
+W=\left(\frac{K^2}{2M} + \frac{k^2}{2m}\right)\hbar^2,\quad\text{where}\quad K=|\OMEGA|.
+}{2.6}
+
+We assume that the initial momenta of the two point-masses $\hbar \f^0_1$ and $\hbar \f^0_2$ are exactly known, and thus their initial positions are totally indeterminate. This is in keeping \?{with the fact} that we have already calculated in the above formulae with a definite energy $W$ and a definite total-momentum $\hbar\OMEGA$; naturally
+\uequ{
+\OMEGA = \f^0_1 + \f^0_2 \quad \text{and}\quad 
+W=\hbar^2\left(\frac{|\f^0_1|^2}{2m_1} + \frac{|\f^0_2|^2}{2m_2}\right).
+}
+Once one has found the solution satisfying these initial conditions, it is thereafter simple
+to calculate any other quantum-mechanically allowed initial conditions by the formation of a "wavepacket" (superposition of wavefunctions with varying initial momenta $\f^0_1$ amd $\f^0_2$).
+
+For the motion of the center-of-mass system, i.e. for the evolution of the function $u(\r)$, only the vector
+\nequ{
+\f^0 = m\left(\frac{\f^0_2}{m_2} - \frac{\f^0_1}{m_1}\right)
+}{2.7}
+can be \WTF{definite}{maßgebend}, which is parallel to the initial relative velocity and whose magnitude is equal to the variable $k$ defined by (2.6):
+\nequ{
+|\f^0| = k.
+}{2.8}
+Accordingly we will demand of our Schr\"odinger function $u(\r)$ that it be \textit{axially symmetric}, i.e. that it should depend only on the magnitude of $\r$ and its projection onto $\f^0$.
+
+As an additional requirement there is the one which we (with Sommerfeld) call the "\WTF{radiation condition}{Ausstrahlungsbedingung}": the \WTF{vibration function}{Schwingungsfunktion}
+$u(\r)$ should, in addition to the incoming plane (or almost plane) wave ($\approx \exp{+i(\f^0 \r)}$), only contain an outgoing spherical wave ($\approx \exp{+ik|\r|}$), but \textit{no incoming spherical waves} $\approx \exp{-ik|\r|}$. One would of course correspond to a converging \WTF{mass current}{Massenstrom} in the center-of-mass system, which has no place in the framework of our assumption of given initial momentum.
+
+This radiation condition, together with the requirement of axial aymmetry about $\f^0$ and the usual finiteness- and continuity conditions, is sufficient for the unique determination of $u(\r)$. In the following we initially solve this problem for the case that the two particles, thanks to the difference of their masses, their charge or their spin, are \textit{distinguishable}. Then we treat the special case of exchange degeneracy.
+
+\section*{3. The integration of the Schr\"odinger equation}
+The integration of (2.4) is accomplished most easily in parabolic coordinates $\xi, \eta, \varphi$, which we define as follows:
+\nequ{
+x = \sqrt{\xi\eta}\cos{\varphi},\quad
+y = \sqrt{\xi\eta}\sin{\varphi},\quad
+z = \frac{1}{2}(\xi - \eta), \quad
+r = |\r| = \frac{1}{2}(\xi + \eta)
+}{3.1}
+Thus the $z$-axis lies parallel to the vector $\f^0$ ($\f^0_x = \f^0_y = 0, \f^0_z = k > 0$). The axially-aymmetric function $u$ will then depend on $\xi$ and $\eta$ alone: $\pddX{u}{\varphi}=0$, and $\Delta u$ reduces to the expression
+\uequ{
+\frac{4}{\xi+\eta}\left(
+\pddX{}{\xi} \xi \pddX{u}{\xi} + \pddX{}{\eta}\eta\pddX{u}{\eta}
+\right),
+}
+so that (2.4) goes over to:
+\nequ{
+TODO.
+}{3.2}
+In (3.2) the variables $\xi$ and $\eta$ are separated, so that one obtains solutions in the following form:
+\nequ{
+u(\xi,\eta) = C f(\xi) g(\eta),
+}{3.3}
+where
+\nequ{
+TODO;
+}{3.4}
+here $A$ and $B$ are constants of integration, which are initially subject to the relation
+\nequ{
+A+B=\frac{m e_1 e_2}{\hbar^2}
+}{3.5}
+and which \?{are completely determined} on the basis of the radiation condition.
+
+We write the particular solutions of the differential equations (3.4) as integrals over a $t$-plane:
+\nequ{
+TODO;
+}{3.6}
+here the path of integration, which comes from the positive real infinity and then back (since $k\xi \ge 0$ and $k\eta \ge 0$), should go around the two \WTF{branch points}{Verzweigungspunkte} $t=\pm \frac{i}{2}$ once in the positive and once in the negative sense (path I or II in fig. 1). In fact one easily verifies that by the insertion of (3.6):
+\uequ{
+TODO,
+}
+that thus the equations (2.4) are satisfied by (3.6) when we put
+\uequ{
+\mu = \frac{A}{k},\quad \nu = \frac{B}{k}.
+}
+TODO: fig 1.
+Thus according to (3.5) $\mu$ and $\nu$ must satisfy the relation
+\nequ{
+\mu+\nu = \frac{1}{k}\frac{m e_1 e_2}{\hbar^2}.
+}{3.7}
+
+Among the particular solutions of (3.4), there is only one which remains finite for $\xi=0$ and for $\eta=0$ ($z$-axis) and thus usable as a Schr\"odinger function; it is that which is described by the formulae (3.6) when one one takes the integration path in a simple \WTF{loop}{Schleife} around \textit{both} branch-points (path III in fig. 1, equivalent to the sum of paths I and II); since in this way the contributions of the two \WTF{branches}{Äste} at infinity are eliminated, even in the limiting case $\xi=0$ and $\eta=0$, \?{since the integrand-functions are reproduced after one loop around the twl branch points}\footnote{The many-valuedness of the functions $f(\xi)$ and $g(\eta)$ is irrelevant, since they only \WTF{differ}{sich...erstreckt} by a constant factor}.
+
+Thus we decide upon the particular solution (3.6) with the integration-path "III"\footnote{These functions $f$ and $g$ are representable by the known function
+\uequ{
+F(\alpha, \beta, x) = 1 + \frac{\alpha}{1!\beta}x + \frac{\alpha(\alpha + 1)}{2!\beta(\beta+1)}x^2 + \dots.
+}
+For example:
+\uequ{
+f=2\pi i \exp{+\frac{ik\xi}{2}}  F(\frac{1}{2} + i\mu, 1, -ik\xi),\quad
+g=2\pi i \exp{-\frac{ik\eta}{2}} F(\frac{1}{2} - i\nu, 1, +ik\eta),
+}
+aa one easily verifies by expanding the integrands in (3.6) in powers of $t-\frac{i}{2}$ or $t+\frac{i}{2}$ and integrating by parts. For \textit{real} values of the parameters $\mu$ and $\nu$, $f\times g$ are the real eigenfunctions of the continuous spectrum of the vibration-equation (3.2).
+} and investigate their \textit{asymptotic behavior} at infinity, for the purpose of determining $\mu$ and $\nu$. To this end one again decomposes the path III into I + II and in the integral over I expands $\left(t+\frac{i}{2}\right)^{-\frac{1}{2} + iu}$ in powers of $\left(t-\frac{i}{2}\right)$, and in the integral over II expands $\left(t-\frac{i}{2}\right)^{-\frac{1}{2} - iu}$ in powers of $\left(t+\frac{i}{2}\right)$. The substitition $k\xi\left(t\mp\frac{i}{2}\right) = \tau$ then supplies for $f$ a series of decreasing powers of $k\xi$, of which we only write down the first term:
+\nequ{
+TODO.
+}{3.8}
+Correspondingly:
+\nequ{
+TODO.
+}{3.9}
+In all of these integrals over the $\tau$-plane, the path of integration is $L$, coming from the positive real infinity and going back, once in the positive sense around the branch-point $\tau=0$\footnote{The above integrals are essentially complex \?{I-functions}; this is defined in the usual manner (c.f. E.T. Whittaker and G.N. Watson Modern Analysis, 3rd ed., p. 345), so namely:
+\uequ{
+TODO.
+}
+The many-valuedness of the function $(-\tau)^{\pm i\mu} = \exp{\pm i \mu \log{(-\tau)}}$ should here always be specified so that $\log{(-\tau)}$ is real at the \WTF{branch-point}{Schnittpunkt} of the intergration path $L$ with the negative real $\tau$-axis.
+}.
+
+By multiplication of the asymptotic expressions for $f$ and $g$ one obtains those of $u$ (3.3); this consists in general in four terms, which contain the factors
+\uequ{
+\exp{\frac{ik}{2}(+\xi + \eta)},\quad
+\exp{\frac{ik}{2}(+\xi - \eta)},\quad
+\exp{\frac{ik}{2}(-\xi + \eta)},\quad
+\exp{\frac{ik}{2}(-\xi - \eta)},
+}
+which according to (3.1) can also be written as
+\uequ{
+\exp{+ikr},\quad \exp{+ikz}, \quad \exp{-ikz}, \quad \exp{-ikr}.
+}
+The term with $\exp{+ikz}$ represents the "primary wave", the term with $\exp{+ikr}$ the "\WTF{scattered wave}{Streuwelle}"; conversely, the terms with $\exp{-ikz}$ and $\exp{-ikr}$ are not compatible with the radiation condition and must be made to vanish by choice of $\mu$ and $\nu$. This can apparently happen if and only if the coefficients of $\exp{-\frac{ik\xi}{2}}$ in (3.8) are set to $0$:
+\uequ{
+\intX{L}d\tau \exp{-\tau}(-\tau)^{-\frac{1}{2}-i\mu} = 0,
+}
+i.e. $(-\tau)^{-\frac{1}{2}-i\mu}$ must be regular in the neighborhood of $\tau=0$:
+\uequ{
+-\frac{1}{2} - i\mu = n \quad \text{($n$ = nonnegative integer)}.
+}
+With this, $f$ becomes:
+\uequ{
+f=\exp{+\frac{ik\xi}{2}}\times(+ik\xi)^n\times \frac{2\pi i}{n!} + \dots.
+}
+$n \geq 1$ is however not admissable, since it is not compatible with the requirement of the constraints on $u$ at infinity\footnote{Namely $f$ is proportional to $\xi^n$, and $g$ also contains a factor $\eta^n$ in the term with $\exp{-\frac{ik\eta}{2}}$, so that in $u$ $\exp{+ikz}$ is provided with the factor $(\xi\eta)^n = (x^2 + y^2)^n$.}. $n=0$ remains accordingly the only possibility; if one again uses the relation (3.7), then the parameters $\mu,\nu$ and with them our solutions (3.4), (3.6) are uniquely determined:
+\nequ{
+\mu=\frac{i}{2},\quad \nu=\gamma - \frac{i}{2},\quad\text{where}
+\gamma = \frac{1}{k}\times \frac{m e_1 e_2}{\hbar^2}.
+}{3}10
+\footnote{This solution for $u$ was first found by W. Gordon, ZS. f. Phys. Bd. 48, p. 180, 1928, and by N. F. Mott, Proc. Roy. Soc. London (A), vol. 118 p. 542, 1928. In these works $u$ is found by summing a \WTF{series of spherical functions}{Kugelfunktionreihe}; for details c.f. sections 8, 9. The solution in parabolic coordinates was mentioned by W. Gordon (l.c.), and carried out by G. Temple (Proc. Roy. Soc. London (A), vol. 121, p. 673, 1928); c.f. also A. Sommerfeld, Ann. d. Phys., Bd 11, p. 257, 1931, §6.}
+
+With this, $f$ becomes \textit{exactly}:
+\nequ{
+f=\exp{+\frac{ik\xi}{2}}\times 2\pi i.
+}{3.11}
+
+If on the other hand one carries through the asymptotic expansion of $g$ including terms of the order $(k\eta)^{-1}$, then one obtains as \textit{the asymptotic representation of $u$}:
+\nequ{TODO}{3.12}
+Here the complex $\Gamma$-function is introduced by the equation:
+\nequ{
+\frac{1}{\Gamma(x)} = -\frac{1}{2\pi i}\times\intX{L}d\tau \exp{-\tau} (-\tau)^{-x}.
+}{3.13}\footnote{C.f. E. T. Whittaker and G. N. Watson, Modern Analysis, 3rd ed.,np. 245.}
+
+\section*{4. Rutherford's scattering formula}
+
+For the discussion of the wavefunction $u$ we turn to the polar coordinates $r,\vartheta,\varphi$; with $z=r\cos\vartheta$:
+\nequ{
+TODO
+}{4.1}
+(3.12) is thus an expansion in decreasing powers of $(kr\sin^2\vartheta/2)$. The highest term in this expansion is not exactly a plave wave; rather the \WTF{wavefronts}{Wellenflächen} for large $r$ are determined by
+\uequ{
+TODO
+}
+This corresponds to the situation where even the classical \WTF{hyperbolic orbits}{Hyperbelbahnen} (in the center-of-mass system) are already bent for large values of $r$ in fact the orthogonal trajectories of the wavefronts are exactly the (almost parallel) hyperbola of the classical orbits of the "arriving" particles. But the correspondence of the wave-mechanical and the classical-mechanical solutions goes even further: if one calculates the particle-current (\WTF{with}{im Raume} $\r=\r_2 - \r_1$) from (3.12), also taking acount of terms of the order $(kr\sin^2 \vartheta/2)^{-1}$ (in particular, the scattered wave):
+\uequ{
+\mathfrak{i} = \frac{\hbar}{2im}(u\grad u^* - u^* \grad u),
+}
+then this exactly corresponds, up to a term of the corresponding order, with a current of a classical hyperbolic orbit, whose initial asymptotes are spatially distributed with constant density\footnote{W. Gordon (l.c.) has worked this out in detail by determining the wavefunction for the classical limiting case ($\hbar \to 0$) by using optical methods and proves its identity with (3.12) up to a term if order $(kr\sin^2\vartheta/2)^{-1}$. Primary- and scattered-waves in (3.12) correspond to the particles, which -- in the case $e_1 e_2 > 0$ -- have not yet touched the "caustic" (hyperbolic envelope) or -- in the case $e_1 e_2 < 0$ have not yet passed the "focal line" (positive $z$-axis).}. Here we verify only the classical (Rutherford) scattering formula, by comparing the absolute values of current density $i(\vartheta)$ of the scattered wave with the current density of the primary wave $i_0$, and indeed in the limit $r \to \infty$, so that the current densities could be measures by the associated squared-amplitudes (mass-densities)\footnote{The condition for this is, as is easily verified: $kr >> \gamma$; or, expressed in classical kinematics: the relative velocity at the distance $r$ is practically the same as at the start ($r=\infty$).}. For this we get from (3.12):
+\uequ{
+TODO\footnote{because of $\Gamma(1+i\gamma) = i\gamma\Gamma(i\gamma)$ [derived from the defining equation (3.13) by partial integration] and $|\Gamma(-i\gamma)|=|\Gamma(+i\gamma)|$ [thanks to our \WTF{resolution}{Verfügung} of the ambiguous function $(-\tau)^{\pm i\gamma}$ in the integration of (3.13); \WTF{c.f. note 3, page 699}{6 notes back}}
+}
+If one reflects that, by definition [c.f. formulae (2.7) and (2.8)]:
+\nequ{
+k=\frac{1}{\hbar}mv,
+}{4.2}
+where $v$ denotes the initial (scalar) relative speed of the two point passes, and inserts the values for $\gamma$ and $\eta$ [c.f. (3.10) and (4.1)], then one finally arrives at:
+\nequ{
+\frac{i(\vartheta)}{i_0} = \frac{1}{r^2}\left(\frac{e_1 e_2}{2mv^2}\right)^2 \frac{1}{\sin^4 \frac{\vartheta}{2}}.
+}{4.3}
+This is exactly the Rutherford formula, as originally obtained from consideration of the classical \WTF{hyperbolic scattering}{Hyperbelschar}.
+
+In the limiting case of \textit{small relative velocity}, namely for
+\nequ{
+v \ll \frac{|e_1 e_2|}{\hbar},
+}{4.4}
+this coincidence was expected from the start; in fact, one can see almost without calculation that in this limit the statements of quantum mechanics must go over to those of classical mechanics, namely since it is then possible to construct a wavepacket whose "\WTF{imprecision}{Unschärfe}" in position- and momentum-space is small with respect to the position and momentum variables, which classical mechanics relates to one another. If we put, for example, innthe $\r$-space a coordinate axis "$a$" on the primary axis of a hyperbolic orbit, which belongs to certain values of the initial velocity $v$ and the scattering angle $\vartheta$. The "perihelon distance" $r_min$
+
+\end{document}

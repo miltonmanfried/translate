@@ -1,0 +1,215 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{multicol}
+
+\renewcommand*\rmdefault{ppl}
+
+\newcommand{\tn}[1]{\footnote{\textbf{Translator note:} #1}}
+
+\newcommand{\footcite}[3]{\textsc{#1}, \textit{#2}, #3}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+
+\newcommand{\nequ}[2]{
+\begin{equation*}
+#1
+\tag{#2}
+\end{equation*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{equation*}
+#1
+\end{equation*}
+}
+
+\newcommand{\TN}[1]{
+\footnote{\sc{Translator note}: #1}
+}
+
+\nc{\sic}{\TN{sic}}
+
+\newcommand{\var}[1]{#1}
+%\newcommand{\vect}[1]{\vec{\var{#1}}}
+\newcommand{\vect}[1]{\mathbf{\var{#1}}}
+\newcommand{\coord}[1]{#1}
+\newcommand{\const}[1]{#1}
+\newcommand{\op}[1]{
+\mathcal{#1}
+}
+
+\newcommand{\primed}[1]{{#1^{\prime}}}
+\newcommand{\pprimed}[1]{{#1}^{\prime\prime}}
+\newcommand{\CC}[1]{{#1^{*}}}
+
+\newcommand{\unit}[1]{#1}
+\newcommand{\dotddt}[1]{\dot{#1}}
+\newcommand{\inv}[1]{\frac{1}{#1}}
+\newcommand{\opinv}[1]{{#1}^{-1}}
+
+\newcommand{\oppddX}[1]{
+\frac{\partial}{\partial{#1}}
+}
+\nc{\oppddxk}{\oppddX{\xk}}
+
+\newcommand{\pddt}[1]{\pdXdY{#1}{\t}}
+
+\newcommand{\dXdY}[2]{
+\frac{d{#1}}{d{#2}}
+}
+
+\newcommand{\ddt}[1]{\dXdY{#1}{\t}}
+
+\newcommand{\pdXdY}[2]{
+\frac{\partial {#1}}{\partial {#2}}
+}
+\newcommand{\pddXdYY}[2]{
+\frac{\partial^2 {#1}}{\partial {#2}^2}
+}
+\newcommand{\pddtt}[1]{\pddXdYY{\qr}{\t}}
+
+\newcommand{\barred}[1]{
+\overline{#1}
+}
+
+\newcommand{\hatted}[1]{\widehat{#1}}
+
+\newcommand{\func}[1]{\pmb{#1}}
+\newcommand{\WF}[1]{\var{#1}}
+
+\renewcommand{\it}[1]{\textit{#1}}
+\renewcommand{\sc}[1]{\textsc{#1}}
+
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumk}{\underset{k}{\sum}}
+\newcommand{\suml}{\underset{l}{\sum}}
+\newcommand{\sumr}{\underset{r}{\sum}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+\nc{\sumv}{\sumX{\nu}}
+\newcommand{\prodX}[1]{\underset{#1}{\prod}}
+\nc{\prodk}{\prodX{k}}
+\nc{\prodl}{\prodX{l}}
+
+\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+
+\renewcommand{\exp}[1]{\const{e}^{#1}}
+\newcommand{\dirac}{\func{\delta}}
+\newcommand{\kronecker}[1]{\func{\delta}_{#1}}
+
+%vars
+
+\nc{\x}{\var{x}}
+\nc{\y}{\var{y}}
+\nc{\z}{\var{z}}
+\rc{\t}{\var{t}}
+
+%constants
+
+\rc{\c}{\const{c}}
+\nc{\h}{\const{h}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%vars
+\nc{\E}{\var{E}}
+\rc{\H}{\var{H}}
+\nc{\Y}{\var{\psi}}
+\nc{\YCC}{\CC{\Y}}
+\nc{\yXi}{\var{\xi}}
+\nc{\freq}{\var{\nu}}
+
+%vectors
+\nc{\ve}{\vect{e}}
+\nc{\vh}{\vect{h}}
+
+%constants
+
+%abbreviations
+\nc{\oppddx}{\oppddX{\x}}
+\nc{\oppddy}{\oppddX{\y}}
+\nc{\oppddz}{\oppddX{\z}}
+\nc{\oppddt}{\oppddX{\t}}
+\nc{\hv}{\h\freq}
+
+
+\author{Alexandru Proca}
+\date{January 1, 1934}
+\title{Waves and photons I - Schödinger's approximation}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The attempts to establish the bases of a theory of photons in configuration space, in hope of eliminating in this fashion certain difficulties in the curtent theory of radiation. The algorithm which will be used is constituted by fractional-order derivatives, and the fundamental idea consists in conveniently decomposing the world-vector
+\uequ{
+\oppddx, \oppddy, \oppddz, \inv{\c}\oppddt.
+}
+
+We successively examine the expressions for the fields, their polarization, their transformation laws and the value of the energy.
+
+The solution comprises three levels of approximation, totally analogous to the approximations of Schrödinger, Pauli and Dirac for quantum mechanics. In this first article, we only address the Scrödinger approximation. It results in a compact analysis which, in all likelihood, the classical expression of the energy density
+\uequ{
+\inv{8\pi}(\E^2+\H^2)
+}
+is true only in the first approximation, that is, \it{for plane waves and for an infinitesimal beam} of waves, whose directions and frequencies differ only slightly; it is no longer true for an arbitrary field. This conclusion seems capable of being submitted to experimental control.
+\end{abstract}
+\begin{multicols}{2}
+\section{Introduction}
+One may state with certainty that at the present hour the theory of radiation is behind that of matter, that optics has not yet attained the extraordinary level of development which has characterized the new mechanics. Before the appearance of the latter, the situation was exactly reversed: mechanics was sentenced to a stage corresponding to geometrical optics and the work of these last years has consisted precisely in elevating it to the level of physical optics. It seems however that this level has been slightly outdated and that mechanics has achieved a degree of perfection which has not yet been attained by the theory of light. This is manifested by the appearance of certain difficulties which are encountered when one wants to construct a relativistic theory of matter and radiation. These successes seem to indicate that we are heading in the right direction, and besides it would be difficult to imagine another at the prsent time. However, the difficulties which one runs into are of such a nature that one can hardly eleminate them with simple changes in the mathematical formalism, as has successfully been done in certain particular cases; they seem on the contrary to be certain organic defects of the theory of radiation which one does not always see clearly, but which don't seem able to be eliminated except by a radical change to this theory. In a word, one sees that it is absolutely necessary to modify something, but one doesn't know exactly what and, what's more, there is no indication what we could discover if we would make the appropriate change.
+
+The goal of the present work is precisely to seek the most natural manner of introducing the new hypotheses in the theory of radiation, hypotheses which modify it as little as possible (which do not lead, for example, to the abandonment of the Maxwell equations), but which have enough slack to permitnus to frame them in the general quantum theory.
+
+It seems to result from the analysis which will follow that the modifications to which one is quite naturally led seem on the surface much more radical than one might like; and then, that the passage to the definitive form of the theory ahould be made in several steps which are not without a certain analogy with the steps leading from the mechanics of Jacobi to those of Dirac.
+
+To clearly arrive at these hypotheses, a long detour is necessary.
+
+In fact, the question also has another aspect. The evolution of our ideas concerning the nature of light has gone through quite curious oscillations. Following the success of the theory of Fresnel and the theory of Maxwell, the light being considered indisputably as formed by waves, first elastic, then electromagnetic. Following the appearance of the quantum of energy, one is brought back, with the quantum theory of light, to the corpuscular idea, which had already been pushed to its extreme limits. From this epoch dates the introduction of the analogy between photon and electron, an analogy which has played a considerable role in the development of modern physics, as much from an experimental as a theoretical point of view. While acknowledging the correctness and the necessity of this analogy, it was however impossible to deny the wave aspect of light which appeared in certain cases. The discovery of a duality in the case of matter has reinforced the photon-electron analogy, and wave mechanics has given us the hope of the ability to realize definitively the synthesis of the theories of matter and radiation.
+
+However, this synthesis has not been realized. It has not been possible to describe rigorously, -- that is to say other than by a qualitative analogy, -- the luminous phenomena which result from the motion of photons, even applying the laws of the new mechanics i.e. in considering them as analogous in all respects to electrons. The electrons obey the Dirac equation, the light those of Maxwell, and these equations don't seem reducible to one another.
+
+From the beginning of the wave mechanics, M. L. de Broglie has tried to make use of the progress of optics in the new mechanics, by placing it on the point of view of the quantum theory of light \footnote{Cf. \it{Ondes et Mouvements}, Paris Gauthier-Villars.}. The introduction, by Dirac, of a wave function with several components has raised the possibility of identifying these components, or their combinations, in the electromagnetic field. From there, a lot of work aimed at "Maxwellizing" the Dirac equation, work which, in the last analysis, "have absolutely nothing to give" \footnote{Cf. \sc{P. Ehrenfest}. \it{Z. Physik.}, 1932, 78, p. 558}.
+
+The debate has been reopened by an article by M. P. Ehrenfest (\it{loc. cit.}), -- which has again recalled the problem and underlines the extreme importance, too often neglected today, -- and also by a response by M. W. Pauli \footnote{\it{Z. Physik.}, 1933, 80, p. 573}, -- which shows in a clear and precise fashion why the field of a Dirac wave function $\Y$ may not be assimilated by an electromagnetic field, and which tries to fix the limits of the analogy between photon and electron.
+
+The article by Pauli thus definitively closes at least one path through which one may try to solve the problem. Must one concluse that this solution is really impossible to attain, or does it not exist? Reflecting upon the considerable advantages which we have gained from using this analogy, it seems difficult to admit that the successes to which they have led have been due only to chance; one is on the contrary strongly inclined to think that behind this analogy, in purely qualitative appearance, is hidden an identity of essential traits, or in any case a much more profound resemblance and which permits, in some fashion, the realization of the sought-after synthesis.
+
+It is thus interesting to examine the attempts at a synthesis made up to the present, so that we may take account of whatever caused their failure. This examination must then be completed by an analysis of the properties of light, or rather the theories which classify these properties. It is only in this manner which allows us to have the entirety of the elements in order to judge definitively if this synthesis is possible, to find the causes which have impeded its realization and to see how they hold up under experiment which alone, ultimately, must have the last word.
+
+The long detour to which we have made allusion consists in carrying out this analysis and tightening as much as possible the preceding problem; the sought-after fundamental hypotheses then arise again as will be seen in paragraph 13.
+
+\section{Essential distinction between microscopic and macroscopic fields}
+
+Before commencing an essential distinction must be made between macroscopic and microscopic fields, a distinction which Pauli has been the first to put clearly into evidence \footnote{\sc{W. Pauli}, \it{loc. cit.} p 578.}. We must separate the field in two categories: the first part, \it{the macroscopic fields} (electromagnetic or material) which describe an ensemble of a large number of particles (photons or electrons), and the other, the \it{microscopic fields} which relate to \it{only one particle}. When one wants to establish any analogy between the material fields and the electromagnetic fields, one must naturally only compare fields of the same type.
+
+\section{Problem statement and proposed solutions}
+
+In this article we shall occupy ourselves exclusively with the microscopic fields $\ve$ and $\vh$ for a photon and $\Y$ for a particle; the problem is then the following
+ take a photon which is moving in the vacuum; considered as a particle it may be described, in wave mechanics, by a wave $\Y$. On the other hand, the existence of a photon in the vacuim is equivalent to the existence of a light wave, i.e. the existence of an electromagnetic field, obeying the Maxwell laws. \it{Given this, is it possible to establish some relatiom between the de Broglie wave of the photon, described by the function $\Y$, and the light wave characterized by $\ve$ and $\vh$}, in such a fashion that one can be deduced from the knowledge of the other?
+ 
+The proposed solutions are quite diverse and are difficult to categorize. On may however distinguish two. In the first category we include all the solutions for which, one way or another, the electromagnetic field coincides with a wave field $\Y$, conveniently chosen. In this case, the fields $\ve$ and $\vh$ are thus of unobservable magnitudes.
+
+The reasons for which these solutions "have absolutely nothing to give" are exposed in the cited article by Pauli \footnote{We should put this in a category with the works of \sc{Landau \& Peierls}, \it{Z. Physik}, 1930, 68, 188, but because they are open to the same critique, we will not make this distinction.}.
+
+A second category may be formed with the solutions which regard the fields $\ve$ and $\vh$ as \it{observable} magnitudes and separably measurable. One here considers the field $\Y$ of a conveniently chosen particle (in general an electron with null mass and charge) and one makes the hypothesis that $\ve$ and $\vh$ are the average densities of certain operators in this field, $\YCC\yXi\Y$.
+
+To these ideas one may raise the objection that the expressions $\ve$ and $\vh$, thus obtained, no longer satisfy the Maxwell equations \footnote{This is the critique also made by \sc{Pauli} on the essay of \sc{de Broglie}.},  and also another which is very important\footnote{Cf. \sc{L. de Broglie}, \it{Comptes Rendus}, 1932, v. 195, 636, 677 and 832}. $\ve$ being of the form $\YCC\yXi\Y$, if one takes for $\Y$ a plane wave of frequency $\freq$, the field $\ve$ itself will have the frquency $0$. The electromagnetic field of a photon with energy $\hv$ would then be, in this case, a function oscillating with frequency $0$. However, this constitutes a difficulty which is not so easy to eliminate; indeed, for the same photon, there exist phenomena governed by $\Y$ (and thus by functions of frequency $\freq$, for example interference phenomena), and others, depending on $\ve$ and $\vh$ themselves, and thus by functions of frequency $0$ (such as the photoelectric effect). The difference in frequency between $\Y$ and $\ve,\vh$ for a single photon is an additional difficulty which must be dealt with.
+
+None of these functions then seems proper
+to be employed as an instrument in the analyais of the current structure of the theories of light. It seemed useful to us to seek out another which, to the extent possible, 
+
+
+\end{multicols}
+\end{document}

@@ -1,0 +1,181 @@
+\letter{98}
+\from{Heisenberg}
+\date{September 18, 1925}
+\location{Copenhagen}
+
+Dear Pauli!
+
+Many thanks for your interesting letter, I am generally in full agreement with your speculations, except for your proclivity for hydrogen \`a la Land\'e. I admit that there isn't the slightest argument \textit{against} your interpretation, bur on the other hand it also seems that ther is no argument speaking decisively \textit{in favor of} this interpretation; since if one already believes, as I do, that we have no theory of hydrogen, not even of the Balmer series, then one doesn't know what the exclusion of the one or the other level or similar thing means; but I admit that there are some formal reasons in favor of your thesis. \textit{If} one assumes your thesis, then it seems that your further conclusions are consistent.
+
+Your summation rule for the hydrogen atom is naturally correct; \?{even here probably no one believes mechanics any longer.}
+
+I was especially in agreement with your remarks on helium. I have also been long convinced that one would be able to calculate heliun as soon as one had a theorybof hydrogen. As you recall, I once wrote that one could \WTF{approximately}{näherungsweise} represent the helium terms with polarisability; this polarisability is roughly 4 times as large as the classical case (calculated for He). Now Kronig tells me that one can approximately calculate the \textit{quantum-theoretical} polarisability by assuming that in the Kramers dispersion formula the first term (corresponding to the resonance line) plays the primary role. Then from the Kuhn formula a polarisability follows which really has quite exactly the correct (i.e. 4 times the classical) value.
+
+The quantum mechanics \?{that at the time was in my heart} has meanwhile, primarily through Born and Jordan, made decisive progress, which I want to tell you about in the following (also in order to make it clear to myself what I should believe). One can now actually prove wuite general energy laws, frequency conditions, and dispersion formulae on the basis of these assumptions.
+\nc{\fp}{\mathfrak{p}}
+\nf{\MF}{\mathfrak{#1}}
+\nc{\fh}{\MF{h}}
+\nc{\fq}{\MF{q}}
+\nc{\fe}{\MF{e}}
+\nc{\fW}{\MF{W}}
+\nc{\fC}{\MF{C}}
+\nc{\fG}{\MF{G}}
+\nc{\fF}{\MF{F}}
+
+1. Assume: By a variable $\fp$ (distinguished by German lettering) I understand the totality of variables of the form $p_{ik}\exp{2\pi i \nu_{ik} \times t}$; for the $\nu_{ik}$ the combination relations are taken to be fulfilled:
+\nequ{
+\nu_{ik} + \nu_{kl} = \nu_{il} \text{ or } \nu_{ik} = \frac{W_i - W_k}{h},
+}{1}
+where however it is \textit{not} presupposed that $W$ is the energy. (On your desire concerening the \textit{omission} of the quantum condition and the \textit{assumption} that $W_i=H_i$, see later.)
+
+For the product, we define
+\uequ{
+\MF{a}\times\MF{b} = \MF{c} \text{ means } c_{ik} = \sumX{e}{a_{il}b_{lk}}.
+}
+This product is distributive and satisfies the relation $\MF{a}(\MF{b}\MF{c}) = (\MF{a}\MF{b})\MF{c}$; however it is not commutative. (See Courant-Hilbert, p.4).
+
+The energy initially has the form $\fh(\fp,\fq) = \fh_a(\fp) + \fh_b(\fq)$; it can also be expanded in powers of $\fp$ and $\fq$; (negative exponents are \textit{also} allowed).
+
+\nequ{
+\fh_a = \sumX{s}{a_s \fp^s}; \fh_b = \sumX{s}{b_s \fq_s}.
+}{2}
+
+2. The equations of motion read:
+\nequ{
+\dot{\fp} &= -\pddX{\fh}{\fq} = -\sum{s\times b_s \fq^{s-1}}\\
+\dot{\fq} &= -\pddX{\fh}{\fp} = -\sum{s\times a_s \fp^{s-1}}
+}{3}
+(Here by $\dot{\MF{a}}$ we understand $2\pi i \nu_{ik} a_{ik}$.)
+
+3. Now comes the quantum condition that distinguishes these mechanics, and it was Born's very clever idea to write it in the form:
+\nequ{
+\fp\fq - \fq\fp = \frac{h}{2\pi i}\MF{e}
+}{4}
+($\MF{e}$ is the "unit determinant", i.e. $\fe_{ii}=1; \fe_{ik}=0$ for $k \neq i$.) Turning first to the \textit{periodic} parts of (4), it follows easily from the equations of motion that they are null:
+\uequ{
+\frac{d}{dt}(\fp\fq - \fq\fp) = 
+    \overset{=0}{\overbrace{\dot{\fp}\fq - \fq\dot{\fp}}}
+  + \overset{=0}{\overbrace{\fp\dot{\fq} - \dot{\fq}\fp}} = 0.
+}
+
+For the constant part of (4) one easily finds by inserting the Fourier coefficients that it corresponds to the Kuhn formula.
+
+If we assume that (4) is correct, then it follows (by suitable multiplication with $\fp,\fq$ and addition) the further important relations:
+\nequ{
+\fp^s\fq - \fq\fp^s &= s\frac{h}{2\pi i}\fp^{s-1}\\
+\fp\fq^s - \fq^s\fp &= s\frac{h}{2\pi i}\fq^{s-1}
+}{5}
+for \textit{all} exponents $s$.
+
+One if now imagines a variable $\fW$, which is defined by
+\uequ{
+W_{ik} = \begin{cases}
+ W_i & i=k, \\
+ 0   & i \neq k,
+ \end{cases}
+}
+them one sees that $\dot{q}$ resp. $\dot{p}$ can be replaced by
+\nequ{
+\frac{2\pi i}{h}(\fW\fq - \fq\fW) \text{ resp. } 
+\frac{2\pi i}{h}(\fW\fp - \fp\fW).
+}{6}
+(In this mechanics we generally always have such skew-symmetric forms in place of differential quotients.)
+
+Now first from (3) and (6) follows
+\nequ{
+\fW\fq - \fq\fW &= \frac{h}{2\pi i}\sumX{s}{s a_s \fp^{s-1}}\\
+\fW\fp - \fp\fW &= -\frac{h}{2\pi i}\sumX{s}{s b_s \fq^{s-1}}.
+}{7}
+Further, from (5):
+\nequ{
+\fh\fq - \fq\fh &= \frac{h}{2\pi i}\sum{s a_s \fp^{s-1}}\\
+\fh\fp - \fp\fh &= -\frac{h}{2\pi i}\sum{s b_s \fq^{s-1}}.
+}{8}
+If one now forms $\fW - \fh = \fC$, then from (7) and (8)
+\nequ{
+\fq\fC = \fC\fq; \fp\fC = \fC\fp,\\
+\text{from that,}\\
+\fq^s \fC = \fC \fq^s; \fp^s \fC = \fC\fp^s;\\
+\text{thus also}\\
+\fh\fC = \fC\fh \text{ or } \fh\fW = \fW\fh;
+}{9}
+the last means
+\nequ{
+\fh = 0, H_{ik} = 0 \text{ for } i \neq k;
+}{10}
+if one puts $H_{ii} = H_i$, then from (7) and (8)
+\nequ{
+\fW\fq - \fq\fW = \fh\fq - \fq\fh \text{ or } (W_i - W_k)\fq_{ik} = (H_i - H_k)\fq_{ik}\\
+\text{or}\\
+\frac{H_i - H_k}{h} = \nu_{ik}.
+}{11}
+Up to now, the entire proof is due to Born and Jordan.
+
+4. Perturbation theory. We imagine the energie function expanded in $\lambda$:
+\nequ{
+\fh = \fh_0 + \lambda\fh_1 + \lambda^2 \fh_2 + \dots
+}{12}
+where again
+\uequ{
+\fh_i = \fh_{ia}(\fp) + \fh_{ib}(\fq)
+}
+\?{Gesucht}
+\nequ{
+\fq &= \fq_0 + \lambda\fq_1 + \lambda^2 \fq_2 + \dots\\
+\fp &= \fp_0 + \lambda\fp_1 + \lambda^2 \fp_2 + \dots\\
+\fW &= \fW_0 + \lambda\fW_1 + \lambda^2 \fW_2 + \dots
+}{13}
+From (11) also follows (\?{reversed, from before}) that the \textit{equations of motion} always apply when the quantum conditions (4) are fulfilled. Now I posit $\fp,\fq$ to be in such a form that the conditions (4) is manifestly fulfilled and afterwards seek to determinethe unknown function $\fG$ entering into this form \textit{so that} the energy becomes $\fh = \fW$. $\fG$ corresponds (up to a factor od $\frac{h}{2\pi i}$) to the classical $S$ of the canonical transformation; in general every transformation here is a "canonical" one, in which $\fp\fq - \fq\fp$ is carried over: $\fp\fq - \fq\fp = \fp'\fq' - \fq'\fp'$.
+
+The Ansatz which achieves such a transformation is
+\nequ{
+\fG = \lambda\fG_1 + \lambda^2 \fG_2 + \dots
+}{14}
+\uequ{
+\fq = \fq_0 + \lambda(\fG_1 \fq_0 - \fq_0 \fG_1) + \lambda^2\left(
+\inv{2}\left(\fG_1^2 \fq_0 - 2\fG_1 \fq_0 \fG_1 + \fq_0 \fG_1^2\right)
++ \fG_2 \fq_0 - \fq_0 \fG_2
+\right) + \lambda^3 + \dots
+}
+\uequ{
+\fp = \fp_0 + \lambda(\fG_1 \fp_0 - \fp_0 \fG_1) + \lambda^2\left(
+\inv{2}\left(\fG_1^2 \fp_0 - 2\fG_1 \fp_0 \fG_1 + \fp_0 \fG_1^2\right)
++ \fG_2 \fp_0 - \fp_0 \fG_2
+\right) + \lambda^3 + \dots
+}
+You will probably immediately recognize the rule for forming the $\fq_i$ resp. $\fp_i$, it is akways the iterated form of $\fh\fq - \fq\fh$. Eq (14) has the consequence, as is easily worked out, that for any arbitrary function $\fF$
+\nequ{
+\fF(\fq) = \fF(\fq_0) + \lambda(\fG_1 \fF - \fF \fG_1) + \lambda^2\left(
+\inv{2}\left(\fG_1^2 \fF - 2\fG_1 \fF \fG_1 + \fF \fG_1^2\right)
++ \fG_2 \fF - \fF \fG_2
+\right) + \lambda^3 + \dots
+}{15}
+and correspondingly for $\fp$.
+
+Then from (15) for $\fh$ we also have:
+\uequ{
+\fh = \fh(\fq_0, \fp_0) + \lambda(\fG_1 \fh - \fh \fG_1) + \lambda^2\left(
+\inv{2}\left(\fG_1^2 \fh - 2\fG_1 \fh \fG_1 + \fh \fG_1^2\right)
++ \fG_2 \fh - \fh \fG_2
+\right) + \lambda^3 + \dots
+}
+If one inserts the expansion (12), and puts $H=W$, then according to the famous Born-Pauli pattern
+\nequ{
+\fh_0 &= \fW_0.\\
+\fG_1\fW_0 - \fW_0\fG_1 + \fh_1 &= \fW_1.\\
+\fG_2\fW_0 - \fW_0\fG_2 + \inv{2}\left(
+\fG_1^2 \fh_0 - 2\fG_1 \fh_0 \fG_1 + \fh_0 \fG_1^2
+\right) + \fG_1 \fh_1 - \fh_1 \fG_1 + \fh_2 &= \fW_2.
+}{16}
+
+The integration proceeds so that one firat forms the \WTF{mean value}{Mittelwerte}, e.g. $\fh_1 = \fW_1$, then the rest is integrates by Fourier series. In fact, $\fG_i\fW_0 - \fW_0\fG_i$ always only means $-h\nu_{ik}^{(0)}S_{ik}^{(i)}$. Thus one can successively determine $\fG_1,\fG_2$,etc. If $\fh$ depends explicitly on the time, then, as in the classical case, on the left side of (16) a $-\frac{h}{2\pi i}\pddX{\fG_2}{t}, \frac{h}{2\pi i} \pddX{\fG_2}{t}$, etc is appended, which then makes the integration generally possible.
+
+The equations (14) and (16) contain, in addition to the Kramers dispersion theory, also the Born formula for the energy and the formulae put forward by Kramers and me.
+
+I believe that is everything that one could initially want. However the most important thing is still missing, i.e. the case of several degres of freedom and similar. Generally however after the success of the above proofs I have very great confidence in the whole theory.
+
+Many greetinga to the whole Hamburg institute; whether I can come through Hamburg in November seems questionable at the moment; but we'll see. So write again soon and many greetings!
+
+W. Heisenberg
+
+P.S. In reading through this I see a "see later", where in reality nothing more follows. I don't know whether the assumption of the frequency condition suffices to prove (4); in any case I see no possibility. But it seems to me the formula (4) is nevertheless not so bad either, especially since it is applies not only for "periodic" but also for "unperiodic" processes. In reality there is \textit{nothing in what I've written} that depends on the presupposition that there are discrete states. For this reasin (4) is not at all a "quantum condition" in the sense that it picks out discrete solutions from a continuous manifold, but rather it is a basic law of this mechanics, and only by the solution itself is it decided whether one has a discrete or a continuous state, probably in general, as in hydrogen, both together.

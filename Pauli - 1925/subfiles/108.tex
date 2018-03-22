@@ -1,0 +1,83 @@
+\letter{108}
+\from{Heisenberg}
+\date{November 24, 1925}
+\location{Goettingen}
+
+Dear Pauli!
+
+First, many warm thanks for your philosophical letter; it has helped me very much in hearing your clear opinions on all these difficult questions; unfortunately my own private philosophy is not so clear, but rather a jumble of all possible moral and aesthetic calculation rules through which I myself often cannot find my way.
+
+But to the physics; what I recently wrote on radiation was of course dumb; the more I think over the problem, the more the difficulties pile up. But I am nonetheless completely happy that I am now gradually finding my way, and even have the hope that I can perhaps become a bit clearer later on.
+
+Your problem with \?{the flow of time} of course plays a fundamental role, and I had done some thinking about that for \?{my own purposes}. First, I believe that one can distinguish between a "coarse and a fine" \?{flow of time}. If, as in the new theory, a point in space no longer has a definite place, or this place is only symbolically formally defined, then the same also applies for the point in time of an event. But it will always give a coarse time-span, as a gross place in space, i.e. \textit{within} our geometric intuition one will nonetheless be able to carry through a \textit{coarse} description of the phenomena. I hold that it is possible that this \textit{coarse} description is perhaps the only one that can be demanded of a formalism. Now the nice thing is that for purely-periodic motion, apparently not even such a coarse \?{span} can be defined, the formulae do not allow, it seems to me, such an interpretation (i.e. of the electron, one only knows that it is just somewhere close by the nucleus). If however one has an aperiodic orbit, i.e. a Fourier integral, \?{then} -- we say: the ultrared part of the spectrum corresponds with the classical theory, for which eo ipso the usual calculation rules apply to a good approximation (all the better the longer the waves) and just this ultrared part gives the \textit{coarse} part of the \?{flow of time}! A motion, which is sufficiently similar to a uniform straight-line motion, is thus as classical as possible. But as soon as only periodic elements \?{are superimposed}, our space-time ideas again fail completely (Compton effect). As an example of this whole idea I have \?{mathematically treated} the passage of an $\alpha$-ray by an atom. The force $k$ of the particle on the atom (at first without recoil; the assumption however doesn't seem to be essential) corresponds to a Fourier integral: $k(w' w''){dw}' {dw}''$ or, if the energy of the $\alpha$-particle lies in a narrow limit, essentially $\Delta k(w'w''){dw}''$.
+\uequ{
+k(w'w'') = a(w'w'')\exp{2\pi i \nu(w'w'')t}.
+}
+
+The function $S$ from the dispersion theory becomes, putting $H_1 = kx$:
+\nequ{
+S_1(w'w'', mn) = \frac{k(w'w'')x(mn)}{\nu(w'w'') + \nu(mn)}.
+}{1}
+
+Now if the $\alpha$-particle has very high energy, then practically the whole spectrum belongs to the aforementioned \?{"ultrared"} part (i.e. the possible energy changes are small compared to the total energy); hence it is actually meaningful to carry out the Fourier\textit{integral}, and one obtains
+\nequ{
+S_1(mn) = \int\int{dw}'' k(w'w'')x(mn){dt} = \int k(t)x(mn){dt}.
+}{2}
+
+The function $k(t)$ now has the property that it only has a significant value for a small time-interval $t_1 < t < t_2$.
+
+TODO: IMAGE p263: bump between t1/t2
+
+Forming the differences ($q_1=$)$x$ of the coordinates of the atom, one getx expressions of the type
+\nequ{
+x_1(nm) = \sumX{k}x(nk)\int k(t)x(km){dt}.
+}{3}
+
+\WTF{If one were to write the \textit{un}-evaluated Fourier integral on the right }{Würde man rechts das njcht ausgerechnete Fourierintegral schreiben}, then expressions of the form $x(nm, w'w'')$ are obtained, which according to Kramers would be interpreted as "scattered light", in which the atom absorbs the light quantum $\nu(w'w'')h$ and afterwards again emits $h\left(\nu(w'w'')+\nu(mn)\right)$. But from the form of (3) yet more can now be learned, namely that after the time $t_2$, and so $t > t_2$, only scattered light of the frequency $x(nk)$ is left over (the integral tends towards a constant!), that is, light in which the atom has absorbed the light quantum $h\nu(km)$ and afterwards emitted the light quantum $h\nu(nk)$. This result is also still correct when the recoil is taken into account, since then the Fourier integral \textit{as a whole} no longer has any meaning (since the classical rules no longer apply), but the "ultrared part" still always gives the coarse \?{flow of time}. If one integrates over \textit{long} times $t$, thn even this red part \textit{alone} becomes decisive, and the above result remains correct.
+
+So, the concept of the "course" time-sequence of events seems to me to be very useful. One thought against the above calculations gave me many headaches at the start: after the time $t_2$ no forces act on the atom any longer; so one would have to think that only the well-known solutions of the matrix-mill could come out of it. Eq (3) however gives other solutions (namely such where vibrations of other states with smaller amplitudes appear). Now it is initially physically clear that the solutions (3) have an important physical meaning, since othetwise the phase relations in resonance radiation would be incomprehensible. On the other hand, the mathematical meaning of (3) is also \?{quite interesting}; there are solutions for $t>t_2$ in which the energy of the atom is constant, but is not a diagonal matrix (the energy for the total system of atom + $\alpha$-particle is naturally constant and a diagonal matrix). But the total system is degenerate insofar as the energy values \?{occur in pairs}. (The "light quantum" can \?{be in} the $\alpha$-particle as well as the atom.) This degeneracy brings with it the result that the energy of the individual atom is no longer a diagonal matrix. Of course up to now the latter has been formal nonsense, but perhaps later something shall come of it. Pardon me if I propose unfinished physics to you for \?{household usage}.
+
+As regards the Goudsmit theory, I have considered the energy formula, which I wrote you, like this: I assume that the interaction energy arising from the various angles of $R$ with respect to $k$ are \textit{purely} magnetic ($R$ = momentum of the electron itself, $k$ = momentum in the orbit). One can calculate this energy can be calculated so that the electron is interpreted as being at rest, the nucleus as moving around it. The desired energy can be simply calculated if the mean value of the magnetic field $\overline{H}_k$ created by the nucleus in the vicinity of the electron is known. This magnetic field is now:
+
+\nc{\fv}{\mathfrak{v}}
+\nc{\fr}{\mathfrak{r}}
+
+\uequ{
+H_k = \frac{Ze[\fv\fr]}{c^2 r^3} = \frac{Zek\frac{h}{2\pi}}{mc^2r^3},
+}
+($m$ is the electron mass, $\fr$ the nucleus-electron distance, $\fv=\dot{\fr}$).
+\uequ{
+\overline{H}_k = \frac{Ze\cdot k\frac{h}{2\pi}}{mc^2}\frac{\overline{1}}{r^3}
+ = \frac{Zek\frac{h}{2\pi}}{mc^2 a^3_H k^3 \cdot n^3}
+ = \frac{32\pi^5 m^2 e^7}{ch^5}\frac{Z^4}{n^3 k^2}.
+}
+The desired energy $\Delta E$ is thus ($v$ Larmor rotation)
+\uequ{
+\overline{H}_k\cdot\frac{2v}{2\pi}\cdot\cos{(Rk)}\cdot R\cdot h,
+}
+and, if $R = \frac{h}{2\pi}$:
+\uequ{
+\Delta E = \frac{16\pi^4\cdot me^8}{h^4 \cdot c^2}\frac{Z^4}{n^3 k^2}\cdot \cos{(Rk)}.
+}
+Now it is well-known that
+\uequ{
+h\nu_\text{rel} = \frac{8\pi^4 me^8}{h^4 \cdot c^2}\frac{Z^4}{n^3 k(k-1)},
+}
+where $\Delta \nu$ refers here to the difference of two energy levels. The above result for $\Delta S$ leads, up to a factor of 2, to the same result if we assume that $\Delta\cos{(Rk)}=1$ (which follows from the zoology for $R=\frac{h}{2\pi}$ in the doublet). So I don't know whether you could start something with that. The above calculations incidentally are already in Land\'e (Zeitschrift f\"ur Physik \textbf{24}, 88, 1924), only there it has $Z^3$ instead of $Z^4$. I myself nonetheless have very grave concerns against Goudsmit's \?{attempt to simplify 
+he zoology}.
+
+1. The nucleus could or must also have momentum, and \?{the unity of the zoology is hardly understood}.
+
+2. It would still be simpler if the electron only had charge and mass, but no momentum; there is no fundamental objection against the momentum, but the idea of a structure of the electron (more specifically: several types of electrons) is gruesome to me.
+
+3. In the alkaline earth metals, the energy difference between the singlet- and triplet terms with \textit{with equal $l$} only arises through different interaction of the magnets of the 2 electrons on one another. That gives an entirely wrong order of magnitude; etc.
+
+Anyway, Goudsmit has excited me so much about the zoology that I want to run his model throug the matrix mill at some point\footnote{If you want to do that, please write me so that \?{we don't step on eachothers' work.}} and see whether at least $g$-formulae, intensities, etc come out correctly.
+
+But my letter is growing into a novel, and I will conclude; which reminds me: an Englishman with Fowler, Dirac, has independently done the mathematics of my paper (so essentially the same as in Born-Jordan part I). Born and Jordan will probably be a little sad, but after all they had done it first and it is now seen that the theory is probably correct. But now many greetings, there is nothing about cyclic coordinates in our paper \?{since we didn't know anything}, but I will also publicly announce this; something on stability is coming out of this as well.
+
+Many greetings to your whole institute!
+
+\textsc{W. Heisenberg}
+
+% i knoseow grampa jourgenson

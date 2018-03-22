@@ -1,0 +1,45 @@
+\subsection*{57. Geometric representation of tge rotation associated with an infinitely-small closed contour.}
+
+The rotation of the components $\Omega_i^j$ may be represented geometrically. For this we take the formulae which give the geometric variation $\Delta\xi$ that performs this rotation on a vector $\xi$; there is
+\uequ{
+\Delta \xi^i = \xi^k \Omega_k^i,
+}
+or, what amounts to the same thing,
+\uequ{
+\Delta\xi^i = \xi_k \Omega^{ki}.
+}
+This variation is the geometric sum of the $\frac{n(n-1)}{2}$ variations due to the different components $\Omega^{ij}$ of the total rotation, which again permits regarding the total rotation as the sum of $\frac{n(n-1)}{2}$ component rotations. We take for example the rotation component $\Omega^{12}$; one has
+\uequ{
+\Delta\xi^1 &= \xi_2 \Omega^{21},\\
+\Delta\xi^2 &= \xi_1 \Omega^{12},\\
+\Delta\xi^3 &= \dots = \Delta\xi^n = 0;
+}
+this component of the rotation does not alter the vectors perpendicular to the plane $\e_1\e_2$; for a vector that is not perpendicular to this plane, its normal component is not altered, the rotation's effect is only felt on the projection of the vector onto the plane.
+
+Consider in particular the vector $\e_1$ with components $(1,0)$; after the rotation it becomes the vector with components $(1, g_{11}\Omega_{12})$
+\uequ{
+\e_1' = \e_1 + g_{11}\Omega^{12}\e_2;
+}
+let $\theta$ be the angle this vector has rotated, taken to be positive in the direction from $\e_1$ towards $\e_2$; then
+\uequ{
+\e_1'\e_2 = |\e_1||\e_2|\theta = g_{11}\Omega^{12}|\e_2|^2,
+}
+from which
+\uequ{
+\theta = g_{11}\Omega^{12} \frac{|\e_2|}{|\e_1|}.
+}
+
+Finally, consider the bivector on the $\e_1\e_2$ plane with algebraic measure $\theta$; this bivector is\footnote{If in particular one considers an infinitely small area $d\sigma$ in the $\e_1\e_2$ plane, the contour everywhere being in the \?{positive direction}{sens direct}, the ratio $\frac{\Omega^{12}}{d\sigma}$ defines the \textit{curvature} of the plane element $\e_1\e_2$.}
+\uequ{
+\frac{[\e_1\e_2]\theta}{|\e_1\e_2|} = g_{11}\frac{\Omega^{12}}{|\e_1|^2}[\e_1\e_2]\Omega^{12}.
+}
+
+Thus, \textit{the rotation $\Omega_i^j$ may be represented by the system of bivectors}
+\nequ{6}{
+[\e_i\e_j]\Omega^{ij},
+}
+each term defining one of the $\frac{n(n-1)}{2}$ component rotations.
+
+It is essential to remark that this representation has an intrinsic value if the manifold has a \textit{Euclidian} connection; if on the contrary the manifold has a metric connection, this system of bivectors depends on the choice of unit of length attached to the point $\m$.
+
+One could say that, in the case of manifolds with Euclidian connections, the expression (6) is a \textit{bivectorial integral invariant} attached to each two-dimensional element on the manifold.

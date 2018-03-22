@@ -1,0 +1,653 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\renewcommand*\rmdefault{ppl}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{marginnote}
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+
+\nff{\WTF}{#1 (\textit{#2})}
+
+\nf{\translator}{\footnote{\textbf{Translator note:}#1}}
+\nc{\sic}{{}^\text{(\textit{sic})}}
+
+\newcommand{\nequ}[2]{
+\begin{align*}
+#1
+\tag{#2}
+\end{align*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{align*}
+#1
+\end{align*}
+}
+
+\nf{\sskip}{...\{#1\}...}
+\nff{\iffy}{#2}
+\nf{\?}{#1}
+\nf{\tags}{#1}
+
+\nf{\limX}{\underset{#1}{\lim}}
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+%\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+\nff{\intXY}{\underset{#1}{\overset{#2}{\int}}}
+
+\nc{\fluc}{\overline{\delta_s^2}}
+
+\rf{\exp}{e^{#1}}
+
+\nc{\grad}{\operatorfont{grad}}
+\rc{\div}{\operatorfont{div}}
+
+\nf{\pddt}{\frac{\partial{#1}}{\partial t}}
+\nf{\ddt}{\frac{d{#1}}{dt}}
+
+\nf{\inv}{\frac{1}{#1}}
+\nf{\Nth}{{#1}^\text{th}}
+\nff{\pddX}{\frac{\partial{#1}}{\partial{#2}}}
+\nf{\rot}{\operatorfont{rot}{#1}}
+\nf{\spur}{\operatorfont{spur\,}{#1}}
+
+\nc{\lap}{\Delta}
+\nc{\e}{\varepsilon}
+\nc{\R}{\mathfrak{r}}
+
+\nc{\Y}{\psi}
+\nc{\y}{\varphi}
+
+\nf{\from}{From: #1}
+\nf{\rcpt}{To: #1}
+\rf{\date}{Date: #1}
+\nf{\letter}{\section{Letter #1}}
+\nf{\location}{}
+
+\title{Pauli - February 1934}
+
+\begin{document}
+
+\letter{346a}
+\rcpt{Joliot}
+\date{February 1, 1934}
+\location{Zurich}
+\tags{Neutron mass}
+
+\newcommand{\Elt}[3]{{}^{#2}_{#3}\text{#1}}
+
+Dear Monsieur Joliot!
+
+I have received your very friendly and very interesting letter, and only have one theoretical objection. It must be admitted that your mass for the neutron is correct, \textit{if your determination of the maximum energy of the transformation positrons is exact} (that is to say if there are no positrons with a greater energy that you have measured, and that they have escaped view because of their small number). This is a purely experimental point,
+
+It is also quite \textit{possible} that the reaction
+
+\uequ{
+\Elt{B}{11}{5} + \Elt{He}{4}{2} = \Elt{N}{14}{7} + \Elt{\textit{n}}{1}{0}
+}
+assumed by Chadwick does not occur in nature.
+
+On the other hand, if your mass of the neutron, 1.012 ($\Elt{O}{16}{8} = 16$), is correct, it is difficult to understand why the neutron itself is stable, that is to say why the reaction
+\uequ{
+\Elt{\textit{n}}{1}{0} = \Elt{H}{1}{1} + \Elt{$\epsilon$}{}{-1} + \textit{n}
+}
+does not occur very rapidly.
+
+I would be very interested in knowing your opinion on this last point.
+
+Please accept, cher Monsieur Joliot, the expression of my great admiration and sympathy and also my regards for Madame Joliot.
+
+W. Pauli
+
+\letter{350}
+\from{Heisenberg}
+\date{February 5, 1934}
+\location{Leipzig}
+\tags{hole thekry}
+
+Dear Pauli!
+
+Since despite your kind coaxing I am still not satisfied with the hole theory, I have thought further about its simplification and send you herewith the results of this attempt.
+
+According your letter and your calculations it is necessary and sufficient for a reasonable fulfillment of your program that
+\nequ{
+\int \R_k {dV} = \frac{ie}{hc} R^0 \int \phi_k {dV} + c\text{-number}, (k=1,2,3)
+}{III}
+Now I put, more simply than you have put it forward,
+\nequ{
+R_\mu = R^0_\mu + \frac{ie}{hc}R_0 f_\mu
+}{1a}
+and require
+\nequ{
+\pddX{f_\mu}{x_\nu} - \pddX{f_\nu}{x_\mu} = F_{\mu\nu}.
+}{1b}
+Then the $f_\mu$ are exactly as gauge-invariant as your $H_{\mu\nu}$ - they are namely determined by the $F_{\mu\nu}$, if they're not unique. Equation (III) follows immediately from (1), amd the reason is most trivial. \?{\textit{$\phi_k$ is indeed not gauge-invariant, but $\int\phi_k{dV}$ is}}. The moral of the story is this: since only $\int R_k {dV}$ occurs in the Hamiltonian, in it one can simply put the $\phi_k$ for the $f_k$, and thus \?{the cat again falls on the old feet}, on which it had already stood a year ago: the old Hamiltonian function, which you and Peierls have already used and which I also wrote to you once, is still correct -- \textit{at least it is gauge invariant}. So I believe that we could use the old theory \?{with the same right} as the new.
+
+Now I would like to go into the question of the self-energy, and the problems discussed in Brussels. The self-energy in the current theory arises from the fact that the infinite number of degrees of freedom leads to divergent sums for this energy by the (in principle) infinitely-many possible virtual transitions to other states. One could thus imagine in the future only allowing theories with finitely-many degrees of freedom. This is, however, on closer inspection impossible. Essentially it lies in the physical fact that the future thekry must treat a system with infinitely-many degrees of freedom, since according to experiments, in principle two particles could give rise to arbitrarily-many others. If for example one brings a positive and a negative electron together in a small box, then we are convinced that after some time a Planck radiation distribution will exist, whose temperature is given by the initial energy of the pair.
+Although I no longet believe in systems with finitely-many degrees of freedom -- on the contrary, I hold the quantum theory of wave fields to be the only possible path for progress -- the Klein and Jordan trick seems to be the only reasonable method to get rid of the self-energy. It corresponds exactly to the experimental fact: Individual paericles are given (which are the building blocks of the entire event) and it is asked what happens when several such particles act together. Only one theory is then reasonable if the existince of a single particle (\textit{without} external forces!) represents the \textit{trivial} solution. That is just what is achieved by the Klein-Jordan trick, since interactions of the form $\psi^*\chi^*\dots\chi\psi$ always take effect when two particles are simultaneously present. Thus it is \textit{not} important that just as many $\psi^*$ as $\psi$ are present. E.g. expressions of the form $\phi^*\psi^*\chi^i\chi\psi + \psi^*\chi^*\chi\psi\phi$ also fulfill this consition. For this last reason I no longer believe that the introduction of neutrinos is the essential supposition for the solution of the self-energy theory. In a future theory it may be rather be a question of taste, whether one interprets the light quantum as an elementary particle or as two neutrinos stuck together.
+If the self-energy is removed by the Klein-Jordan trick, then I see no reason why the resulting theoretical scheme should be false: it seems reasonable to assume that a correct wave equation will look something like:
+\nequ{
+H\psi &= \left\{\sum{E_k a_k^* a_k} + \sum{h\nu_\sigma b_\sigma^* b_\sigma} + 
+\sum{f_{k\sigma lmn}b_k^* a_\sigma^* a_l^* a_m a_n}\right.\\
+&\left.+ \sum{f^*_{k\sigma lmn}a_n^* a_m^* a_l a_\sigma b_k}
+\right\}\psi,
+}{2}
+where $\_k^* = N_k \Delta_k$ etc.
+
+The variables $f_{k\sigma lmn}$ are connected in a simple manner with the collosion cross section, are thus so-called "observable quantities", and so there is nothing unnatural in an equation of the type (2). Now the question is: can one arrive at an equation of the type (2) without totally losing the correspondence with the present theory? I would like to make a suggestion there, which I have still not followed in all details. In place of the equations
+\nequ{
+(H-E)\psi = 0;\quad (G_k - I_k)\psi = 0
+}{3}
+one considers the wave equation
+\nequ{
+(H^2 - \sumX{k}{G_k^2} - \text{const})\psi = 0
+}{4}
+The ideas that Dirac has put forward against a quadratic wave equation are, I believe, not conclusive if there are no exterior fields, \textit{which will be explicitly assumed here.} In the wave equation that arises, one can easily find that, by a reordering of factors, the equation (4) takes the form of equation (2), i.e. that the existence of an individual electron or light quantum represents the trivial solution. As long as one disregards the question of holes, it seems certain to me that in this way one can obtain a \WTF{correspondingly correct}{korrespondenzmäßig richtige} without self-energy. Whether it is reasonable and how it can \WTF{express the hole question}{sich die Löcherfrage in ihr ausdrücken läßt} is yet to be seen.
+
+I would be interested in hearing your opinion about the principles discussed here in general, and in particular about the equation (4).
+
+With many greetings,
+Your W. Heisenberg
+
+\letter{351}
+\rcpt{Heisenberg}
+\date{February 6, 1934}
+\location{Zurich}
+\tags{hole theory}
+
+\rf{\Re}{\operatorfont{Re}{#1}}
+\nf{\Spur}{\operatorfont{Spur}{#1}}
+
+Dear Heisenberg!
+
+Many thanks for your letter of 2/5 - what you said about my formulation of the hole theory and about the possibility of simplifying it, is indeed not new. It is the standpoint (2) of my earlier card, \?{in which the energy law is renounced \textit{in its differential form}}. If one does this then my calculations are naturally fully superfluous and should certainly be replaced by the first part of your last letter. \?{But if one requires that}
+\uequ{
+T_{\mu\nu} = \frac{hc}{i}\Re{\Spur{\inv{2}\left(\alpha_\mu R_\nu + \alpha_\nu R_\mu\right)}},\quad
+\pddX{T_{\mu\nu}}{x^\nu} = eF_{\mu\nu}\Spur{\left(\alpha^\nu R^0 \right)},
+}
+then, according to your Ansatz,
+\uequ{
+T_{\mu\nu} &= e\left(C_\mu f_\nu + f_\mu C_\nu\right),\quad 
+\left[C^\nu \equiv \Spur{\left(\alpha^\nu R^0\right)}\right]\\
+\pddX{T_{\mu\nu}}{x^\nu} &= 
+e\left(C_\mu \pddX{f_\nu}{x^\nu} + \pddX{f_\mu}{x^\nu}C_\nu\right) \neq e F_{\mu\nu}C^\nu.\sic
+}
+Thus if one demands the differential form of the energy-momentum law, then my calculation is \textit{still} necessary.
+
+On the other hand I've \?{taken to heart} your earlier ideas about the hole theory. I mean the requirement in your letter of the 29th, that one should \?{immediately see in the theory} that (1) the charge density and energy density etc always have a finite expectation value and that (2) the energy density always has a \textit{positive} expectation value. But neither can be directly observed. For this reason I am at the moment not very happy with the hole theory either.
+
+This feeling uneasiness was enormously increased, as I received yesterday the manuscript of Dirac's long-awaited paper (in which at least the 1 requirement is fulfilled, as long as the interaction of the electrons is ignored and they all move in an external potential field). If you already found \textit{my} calculations to be so complicated, what would you say to Dirac's?
+
+I am at the moment \WTF{close to fainting}{leisen Ohnmacht nahe} because of the attempts to calculate something practical with his formulae. And how artificial the whole thing seems to me!
+
+Dirac's train of thought is the following. He shows, by having "almost" all negative energy states occupied -- i.e. at most finitely-many of them are \text{not} occupied and and at most finitely-many of the positive energy states are occupied -- the relativistic density matrix assumes the form (when $x' - x'' = x, t' - t'' = t$ and the speed of light is $1$)
+\uequ{
+(x',t'|R_{\rho\sigma}|x'',t'') = 
+  u\frac{t+\alpha_i x_i}{(t^2 - r^2)^2} + \frac{V_{\rho\sigma}}{t^2 - r^2}
+  + w_{\rho\sigma}\log{\left(t^2 - r^2\right)},
+}
+where
+\uequ{
+u = \frac{-i}{\pi^2}\exp{ie\intXY{P'}{P''}{\left(A_0 {dt} - A_i {dx_i}\right)}/\hbar}\\
+\text{($P' \to P''$ straight line)}
+}
+and $v_{\rho\sigma},w_{\rho\sigma}$ are \textit{regular} (for $t=0,x=0$) and satisfy certain differential equations. However these still don't determine $v_{\rho\sigma}$ and $w_{\rho\sigma}$ \textit{uniquely}, but rather there remains in $v_{\rho\sigma}$ an additive term of the form $(t^2-r^2)g_{\rho\sigma}$ with arbitrary regular $g$, which leads to the addition of a regular $R_{\rho\sigma}$. -- So far everything is pure mathematics and totally fine.
+
+But now Dirac introduces a specific (complicated!) mathematical prescription in order to normalize $v_{\rho\sigma}$: he splits off from $v_{\rho\sigma}$ a \textit{uniquely}-determined part $v_{\rho\sigma}^1$ and puts
+\uequ{
+v_{\rho\sigma} = v^1_{\rho\sigma} + (t^2 - r^2)g_{\rho\sigma},
+}
+wherein he then further shows that indeed $g_{\rho\sigma}$ is not uniquely determines (as indeed must be the case), but \?{rather} the result of
+\uequ{
+\left\{ih\left(\pddX{}{t'} + \alpha_s \pddX{}{x^s}\right) +
+ e\left[A_0 (x',t') - \alpha_s A_s (x',t')\right] 
+- \beta m\right\}(x'|g|x'')
+}
+= well-known complicated function ($\neq 0$).
+
+I could not find any physical meaning in his definition of $v_{\rho\sigma}^1$.
+
+And finally he explained: the (finite and singularity-free for $x'=x'',t=t''$) matrix $(x,t|g_{\rho\sigma}|x,t)$ may determine the electrical density and current, the matrix with the $v^1$ may correspond to the case where \textit{no} fields are created (that which is subtracted from the $\psi$-expressions in our formalism).
+
+One can see through complex calculations that $g_{\rho\sigma}$ also really satisfies the laws of conservation and current $\pddX{s_\nu}{x^\nu}$. Whether the energy law is also fulfilled, only god knows! (Do you believe that I should \WTF{slog on with the Geixe}{mit dem Geixe abplagen} to verify it?)
+
+Thus Dirac's Natural Legisislation is on Mount Sinai. Naturally everything is very elegantly worked out. But physically it doesn't convince me at all! Why should exactly \textit{this} prescription be the true and correct one? What use is a finite electrical polarization of the vacuum if the self-energy is still infinite? And what use is everything if the pair-production emerges from the theory as too frequent at high energies.
+
+So at the moment I am disgusted with the hole theory. What do you think? Is it worth it to deal with it further at all?
+
+Now to the self-energy question.
+
+(a) Finite number of degrees of freedom? For a long time I believes that this could be achieved by taking the \textit{concept of space time} to be amended in the domain of the electron radius. Now I've quite moved away from that. But I hold your argument against the possibility of getting by with finitely-many degrees of fresom to be \textit{unsatisfactory}. -- True, it is clear, that then one would also have to interpret blackbody radiation (cavity radiation) as composed of \textit{finitely} many degrees of freedom. Indeed we don't know whether at wavelengths on the order of the electron radius the Planck formula still applies for blackbody radiation.
+
+(b) One can naturally however \textit{attempt} to maintain the concept of space time in the small and with it the description of pure cavity radiation for arbitrarily-short waves, thus allowing infinitely-many degrees of freedom. -- Then the emphasis is shifted to the modification of the electromagmetic \textit{field-concept}. In fact it seems to me that a spinor wave field is the elementary concept, and so it is worth the effort to explore the path of attempting to represent the electromagnetic field as a product of 2 spinors, which the neutrino tantalizingly accomodates (see below about de Broglie). -- The requirement that \textit{one} particle (without external fields) should represent the trivial solution of the theory (likewise \textit{no} particles must naturally still be a trivial solution, which however doesn't apply in the blasted hole theory) and wave equations of the type (2) are \textit{extremely} attractive to me. \WTF{If you can do it without a neutrino, it should also be right}{Kannst Du es ohne Neutrino, soll es mir auch recht sein}. -- But the \textit{one} quadratic equation (4) \?{makes me very uncomfortable}. I don't see at all how \textit{one} equation can say the same as four equations can! -- Or do you want to quadruple the number of components in $\psi$, so that (4) would actually be four equations? -- \WTF{That would being the one quadratic equation (4) -- totally apart from the hole question -- rather closer to my feeling, since I can still do nothing with it}{Also bring', bitte, die eine quadratische Gleichung (4) -- ... -- meinem Gefühl etwas näher, da kann ich noch nicht ganz mit}. -- I am for (2), but not really for (4).
+One could, instead of speaking of holes at all, require that with the omission of the interaction terms the \textit{energy density must be trivially positive} (i.e. with all $E_k$ resp. $h\nu_k$). I now \?{definitely believe} that one must again get \textit{away} from the whole "hole" idea (even though it has historically served us).
+
+(c) Now about de Broglie.
+\nc{\vp}{\vec{p}}
+\nc{\vE}{\vec{E}}
+\nc{\vH}{\vec{H}}
+\nc{\vn}{\vec{n}}
+
+He proves essentially the following. Let $\psi'$ and $\psi$ be two solutions to the Dirac equation for rest-mass $0$ and $\psi$ belongs to energy $+E$ and momentum $+\vp$ and $\psi'$ to energy $-E$ and momentum $-\vp$ (\textit{plane waves}). Then with ${\psi'}^+ = {\psi'}^* i \beta$ one forms the skew-symmetric tensor
+\uequ{
+F_{\mu\nu} = {\psi'}^+ i\gamma_{[\mu\nu]}\psi, \quad
+\gamma_{[\mu\nu]} = \inv{2}\left(\gamma_\mu \gamma_\nu - \gamma_nu \gamma_\mu \right).
+}
+\textit{This then automatically satisfies the Maxwell equations}. i.e. the vectors $\vE,\vH$ are transverse and are oriented with respect to one another as in electrodynamics.
+[[TODO image p.277: H up, n right, E into the page]]
+One can with the help of the (Lorentz-invariant) assignment ${\psi'}^+ = \psi'' B$ mediated by the matrix $B$ (where $\psi''$ is likewise a solution of the Dirac equation with rest-mass $0$) also formulate it so that $\psi'' B i \gamma_{[\mu\nu]}\psi$ is also a solution of the Maxwell equations. But that does \textit{not} apply if one inserts \textit{arbitrary} solutions of the Dirac equation (with rest mass $0$), but rather only if $\psi'',\psi$ contain only waves with the same fixed direction of propagation $\vn$\footnote{Only then is the phase like $\exp{i\left(\sum\nu_k\right)\left[t-\frac{(\vn \vec{x})}{c}\right]}$, thus a light phase.} (however, evergy is arbitrary; but a \textit{one}-dimensional problem).
+
+Why the emission of the light quantum always occurs such that 2 neutrinos are always emitted in the \textit{same} direction remains unclear.
+
+Fermi wanted to rather bring the neutrinos into connection with half-gravitational-quanta. But there seems to be more to speak for in de Broglie's reflections, that the neutrinos have something to do with light.
+
+With many greetings,
+
+Your (drowning in Dirac's formulae) W. Pauli
+
+\letter{352}
+\rcpt{Heisenberg}
+\date{February 7, 1934}
+\location{Zurich}
+\tags{charge quantization, hole theory, neutrino theory of light}
+
+\nc{\vi}{\vec{i}}
+
+Dear Heisenberg!
+
+After a night's sleep and having recovered from the initial shock over Dirac's formulae, your physical viewpoint on self-energy is going through my head again. -- It now seems to me that your so-obvious Ansatz (2) is missing something essential, namely \textit{the concept of electrical charge} (resp. its spatial distribution $\rho$ and current $\vec{i}$). This seems indeed that this concept has increasingly proven, as opposed to the particle number, to be the more fundamental - perhaps as the most fundamental in all of physics. If it gave only light fields - that is, charge-free fields that satisfy the Maxwell equations with $\rho=0,\vi=0$ - and uncharges material particles like neutrinos (and possibly gravitation), then an Ansatz of the type (2) would be completely obvious.
+But I see no place in your schema for electrostatic (and magnetostatic) fields. Any trivial solution of the theory, in which one electron alone is present, is nevertheless not so trivial in that the electron is also a carrier of its (observable) electrostatic field. Where is that in schema (2)?(NB the equation $\div\vE = \rho$ and the corresponding equations for the current \?{can't very well} be squared and added!).
+
+This same objection naturally applies to de Broglie's conception as well. He only shows how a light field (hence a charge-free field) can be represented as a product of two spinor fields, but not how the same can happen for electrostatic fields (resp. the "longitudinal" part of the field).
+
+I intend my remarks not so much as \textit{formal-mathematical} objections, but rather much more as physical-conceptual. \textit{\WTF{They are intended}{Sie wollen} to push on directly towards the problem of fixing $\frac{e^2}{hc}$ and the atomocity of electrical charge}. For this reason it seems to me that the true core of the problem of self-energy is \textit{how and where the concept of electrical charge enters into a theoretical scheme in which the self-energy difficulty is avoided}!
+
+Many greetings and let's hear from you again!
+
+Your W. Pauli
+
+\letter{353}
+\from{Heisenberg}
+\date{February 8, 1934}
+\location{Leipzig}
+\tags{hole theory, self energy,neutrino theory of light,Fermi $\beta$ theory, nuclear forces}
+
+Dear Pauli!
+
+Many thanks for your letter! You are of course completely correct, that the simplification of the hole theory is already present in your card from 1/27 -- I had not understood it correctly at the time. Now that I've understood it, I'm actually very satisfied with the whole status of the hole theory. Since first I believe that the distinction of the two interpretations discussed in your two cards comes to absolutely nothing, -- in any case not in physical consequences -- second I maintain that the Dirac theory, which I had previously only known from two \WTF{outbreaks of despair}{Verzweiflungsausbrüchen} in Zurich and Copenhagen, to be total learned rubbish, which no human can honestly take. It seems to me that the whole problem with hole theory lies in something like:
+
+I. One can pose the question as to which Schr\"odinger equation characterizes the hole theory, and what are the expectation values of the current- and charge densities at any point in time.
+
+II. One can further also ask for the expectation values of the energy density.
+
+The problem I has the following solution: one observes that your assumption (III)
+\uequ{
+\int{R_k {dV}} = \int{\left(R^0_k + \frac{ie}{hc}R^0 \phi_k \right)}{dV}
+}
+which is compatible with all conditions which are put on the theory (gauge invariance, relativistic invariance).
+
+One now chooses as a variable the number $N_k$ of \textit{free} electrons in the state $k$, further introduces instead of the $N_k$ with negative energy states $k$ the quantities $1-N_k = {N'}_k$, and instead of the $a^*_k, a_k$ ($a^*_k=N_k \Delta$ etc) for such states, $b_k = a^*_k; b^*_k = a_k$.
+
+Then from (III) follows the total-energy operator:
+\nequ{
+H = \sumX{+}{E_k N_k} - \sumX{-}{E_k {N'}_k} + M_l h\nu_l 
++ &\sum{f_{r+s+g}a^*_r a_s c_g}\\
++ &\sum{f_{r+s-g}a^*_r b^*_s  c_g}\\
++ &\sum{f_{r-s+g}b_r a_s c_g}\\
+- &\sum{f_{r-s-g}b^*_r b_s c_g} + \text{conj.};
+}{1}
+here the $f_{rsg}$ are the matrix elements which, as in the usual quantum electrodynamics, belong to the transition of an electron from one state into another by emission resp. absorption of a light quantum, further $C^*_g = M^{1/2}_g \Delta^-$, etc.
+
+Thus the Schr\"odinger equation of the problem is obtained, and the expectation values of the charge density follow from the equation $R(PP) = R^0(PP)$:
+\nequ{
+\rho(P) = e\sum{\left\{
+a^*_{r+} a_{s+} u^*_{r+} u_{s+} + 
+a^*_{r+} b^*_{s-} u^*_{r+} u_{s-} +
+b_{r-} a_{s+} u^*_{r-} u_{s+} -
+b^*_{r-} b_{s-} u_{r-} u^*_{s-}
+\right\}}.
+}{2}
+
+It is important to realize that up to now, an assumption about the quantities $R(PP')$ going beyond equation III is \textit{not} essential. Dirac's exertions here seem to be a complete luxury - namely, the equation (2) of its own accord ensures that the charge density remains finite. (E.g. it is trivial to see that the total charge is finite in the unperturbed system, and \?{has the same value as in the unperturbed system}.)
+
+II. One can now pose the further problem, to calculate the energy density as an operator. There it is to be noted that the total energy is, according to (1), presumably finite and remains finite, so far as the self energy doesn't ruin it. For this second problem the reflections of your letter about the $H_{\mu\nu}$ are important, as far as one hangs on to the conservation laws in their differential form. I must confess that I am not entirely certain how far one should believe in this differential form. C.f. my letter from the other day! But in any case, your scheme is a consistent solution.
+
+I am now fully satisfied with this formulation of the hole theory; I believe that it is all that can be achieved without solving the deeper problems (self-energy, etc). From (2) it seems trivial that the charge density remains finite, since I don't see how something infinite could emerge through the application of an operator which is expressable by $N_k$ and ${N'}_k$, as long as only finitely-many particles $N_k$ and holes ${N'}_k$ are present. It is exactly the same with the energy density, only here in the second approximation the self-energy destroys everything. That however cannot be avoided.
+
+If you are in agreement with thus whole interpretation, I would strongly suggest that this hole theory be published. It is clear to me that you have done the main work on it, so I would like to ask you again whether you would not want to publish it alone. \?{The only reason I can come up with for my participation would be that} we have previously published on quantum electrodynamics together. So please decide on that, both are equally fine with me. In any case I find this version of the hole theory so much better than Dirac's that it should absolutelt be published.
+
+Your critique of my self-energy \?{hypothesis} was \textit{very} valuable to me. Indeed I believe, now as before, that the basic idea of my hypothesis is correct -- \textit{even} if charged particles are present -- but I feel very clearly that here one touches on the $\frac{e^2}{hc}$ problem and perhaps its solution is required in order to carry out the formal program which I have set out for myself.
+
+I am very sympathetic towards the tendency of the de Broglie paper; \?{but I sense there a type of undigested aphorism}. I still cannot begin very much with it. (Incidentally one can probably exploit de Broglie as follows: in quantum electrodynamics, replace $\phi_\mu$ by his $\psi B i \gamma_\nu \psi$. Then quantum electrodynamics gives \textit{automatically} neutrinos always being emitted and absorbes in pairs.)
+
+I find the Joliot and Curie paper to be gorgeous: \WTF{it is dawn}{es wird Tag} in nuclear physics. I now hold as well the Fermi paper on $\beta$-decay, like the exchange forces of neutrons and protons to be quite certain. I'm even half-and-half on the $\text{const}/r^5$ law. Fermi thinks it behaves similarly as in the atom: through the electron-light-quantum interaction one gets in the second approximation interaction forces with $\inv{r}$, which are however $10^4$ to $10^6$ times too small (magnetic forces!). So there could be, in addition to the $\text{const}/r^5$ forces calculated by Fermi, still other stronger forces, which however probably have the same dependence on $r$.
+
+Many greetings,
+
+Your W. Heisenberg
+
+\letter{354}
+\rcpt{Heisenberg}
+\date{February 10, 1934}
+\location{Zurich}
+\tags{hole theory,self energy}
+
+Dear Heisenberg!
+
+Thanks for your letter of the 8th. Unfortunately it is \textit{not} true that the equation (2) automatically ensures that the charge density remains finite. Rather I've found that in the first approximation in the expansion in $e$ yields infinitely great charge density from (2) on the basis of (1)\footnote{Totally analogous to Dirac's calculation at the Solvay congress.}. (If you were right in your assertion, then that would have been a very great development; so please write me in more detail on your putative proof for the finiteness of the charge density. I cannot believe that I should have made such an elementary error!) -- At the moment Weisskopf and I are trying to get $R(P,P)-R^0(P,P)$($\neq 0$) so that the charge density remains finite. This becomes a problem of similar complication to that treated by Dirac; but it can hopefulky be treated with more transparent methods. Whether a departure from the simple Ansatz $R=R^0$, resp. from the equations (1), (2) of your letter\footnote{These are, entirely similarly formulated, also contained in a manuscript by Oppenheimer}, is still physically meaningful (without a solution of the deeper problems) is however extremely questionable. -- Even if these equations should give rise to infinite polarization effects, I would be rather inclined to say that \WTF{nothing can be done there}{man da eben auch nichts machen kann} and that this is no worse than the self-energy.
+How did you come to your remarkable assertion that the charge density (2) remains finite on the basis of (1)? Carry out the perturbation calculation (\?{naturally about the terms proportional to $e^2$ in $\rho$}) and you will immediately see the contrary\footnote{E.g. the self energy also comes out to $\infty$ in the earlier quantum electrodynamics without holes, although all operators are expressable by $N_k$ and only finitely-many particles are present.}! On the question of publication we could already \?{give notice}, if only this question was clarified!
+
+As regards the self-energy, it seems to me that the classification of the equation $\div\vE = \rho$ in your schema, \textit{even though purely formal}, causes unsurmountable difficulties.
+
+With de Broglie the difficulty is this: if one inserts for $\psi$ in $\psi B i \gamma_\nu \psi$ the \textit{general} solution of the neutrino wave equation (with rest mass $0$), then the this expression does \textit{not} satisfy the wave equation for the Maxwell field (the superposition principle does not apply at all:
+
+\nc{\vx}{\vec{x}}
+
+\uequ{
+\exp{i\nu\left[t-\inv{c}(\vn\vx)\right]}\exp{i\nu'\left[t-\inv{c}(\vn'\vx')\right]}
+}
+is not possible wave field!). This is furthermore only the case when $\psi$ is put together only from waves \textit{with the same direction} ($\vn = \vn'$). That is why quantum electrodynamics does \textit{not} automatically ensure that the two neutrinos in a pair are emitted \textit{in the same direction}!
+
+Joliot writes me that a continuous energy spectrum for the radioactive positrons is in fact very probable on the basis of his experiments. However he still holds to his neutron mass of $1.012$ (which is unlikely, since then the neutron must have a spontaneous $\beta$ decay!)
+
+Warmly,
+
+Your W. Pauli
+
+\letter{355}
+\from{Heisenberg}
+\date{February 13, 1934}
+\location{Leipzig}
+\tags{hole theory}
+
+What I wrote about the charge density was for the most part incorrect. But I believe that I can justify the mindset under which it was written: The discovery that the total charge is not changed by the introduction of a perturbation, that it thus certainly remains finite, was initially decisive for me. From that it seemed to follow that the charge density was in the worst case undefined; that would not disturb me, since the concept of "charge-density at a definite point" is exactly as dumb as the concept of a "field at a definite point". I had assumed that one could get around this as in the energy density: one is interested only in the total charge in a volume with \?{smeared walls}. In a rough calculation of tbis type everything seemed reasonable at first, as I had hoped: the upper limit $P$ in Dirac's integral (10) in the Solvay report (p.10) seems simply to be given by the \?{wall smearing} and the \?{additional density is so to say} brought in by the measuring apparatus. But unfortunately it is not so simple, one cannot bound $P$ by the \?{imprecision in the walls}. The situatiob is nonetheless very clear if one calculates the mean-squared-fluctuation of the charge containes in such a volume (in \textit{empty} space, so 0th approximation). This squared fluctuation diverges exactly like Dirac's additional density (10) and indeed mathematically in the same manner and for the same reason (in front of the part $\log{\frac{2P}{mc}}$ there is only one other factor). So the result is probably this: one must construct measuring apparatuses which automatically don't \WTF{measure}{mitmessen} the part of the charge density belonging to very large $P$ (in a correct theory this is probably done by all reasonable apparatuses, but a wall-smearing does not suffice. Only then is the measurement meaningful (i.e. the squared fluctuation is finite) and then the charge density also becomes finite. The asserion of my last letter is then to be modified, that indeed the charge density is mathematically divergent, \?{that one however would have nothing at all physical from it if it converged} -- since because of the infinite fluctuations one could never measure this.
+
+In a theory in which one can make the self-energy finite, all of these evils of course automatically vanish; if you e.g. look at my modified Hamiltonian function
+\uequ{
+(H^2 - I_k^2)\psi = 0,
+}
+then you will not find the perturbation terms that give rise to the divergence -- simply because the empty space is a solution to the Schr\"odinger equation. In present circumstance, i.e. before the solution of the self-energy-diffuculties, our formulation of the hole theory seems fully satisfactory, everything further (\`a la Dirac) is unimportant luxury.
+
+On the "deeper questions" (de Broglie etc), more next time. Today I just want to be done with this tiresome hole theory.
+
+Warmly,
+
+W. Heisenberg
+
+\letter{356}
+\rcpt{Heisenberg}
+\date{February 13, 1934}
+\location{Zurich}
+\tags{hole thelry,fluctuations}
+
+Dear Heiseneberg!
+
+Many thanks for your interesting letter from Monday - I was \textit{very} interested in how you brought the squared fluctuation in the 0th approximation into the discussion. I am essentially in agreement, but would however like to interpret the matter a little differently (and also take this opportunity to critique your earlier paper on energy fluctuations). It namely seems to me that you -- already then -- have missed the physical mark with the "smearing of walls". Entirely analogously to the Bohr-Rosenfeld field strength measurement, one should furthermore introduce into the theory mean values over arbitrary \textit{sharply}-delimited space-\textit{time} regions. And it seems to me that all paradoxes are solved if one leaves finite, not only the space regions, but also the time regions, over which one averages (indeed \textit{sharply} delimited however). - This should also be applied to the question of the measurability of the energy density (better: energy in a delimited volume), as well as to the measurement of the charge in a delimited volume $V$.
+
+\nc{\ebar}{\overline{e}}
+\nc{\rhobar}{\overline{\rho}}
+\nc{\rhobbar}{\overline{\rhobar}}
+
+Thus in the last case, according to the interpretation given here, the following would be measurable:
+\uequ{
+\ebar = \rhobbar = \inv{V}\inv{T}\intXY{V}{}{dV}\intXY{T}{}{dt}\rho(\vx,t) =
+\inv{T}\intXY{t}{t+T}e(V){dt}.
+}
+The fluctuation paradox will appear in the 0th approximation, if one goes to the limit $T \to 0$.
+
+One can use Bohr's procedure for directly measuring the quantity $\ebar$, on the basis of the equation
+\uequ{
+4\pi\ebar \oint E_n {df}{dt}.
+}
+\{Upon (superficial) reflection it seems to me that there is no harm in the fact that here there appears a surface- and not a space integral, \?{since one could use a spatially extended test charge, so far as this is only accelerated normal to the surface in the momentum-measurement ($E_n$). The momentum resp. energy lost through radiation during the momentum-measurement as a consequence of interference will namely again become arbitrarily small, when the wavelength of the emitted radiation is small with respect to the squared-extension of the surface-test-charge}.\}
+
+Could you write me with what you get on the basis of your old formulae for the squared fluctuations of the time-averages (\textit{not}: time averages of the instantaneous squared fluctuations) for energy and charge in sharply-delimited volumes (to 0th approximation, i.e. in empty space)? At the moment I have not \?{written it up}.
+
+I would however like to cautiously sidestep the assertion in your letter, \?{"that one would have nothing at all physical from it, if the charge density converged"}.
+
+As regards the total charge, it never changes in \textit{charge-free} external fields, but it probably comes from Dirac that all charges in the next approximation are multiplied by factors 
+which is to \textit{formal} contradiction to the time-constancy of the total charge).
+
+On the other hand I \textit{fully} share your opinion that what Dirac has done, before solving the self-energy difficulty, is an \textit{unjustified} luxury! It now also seems to me that my hypothesis mentioned in an earlier letter, ammending $R-R^0=0$, should rather be given up. Since if $R-R^0$ contained the field strengths, then $E_k$ would no longer actually be conjugate to $\phi_k$, so that according to the canonicak scheme the canonical commutation relations would need to be changed, which however would seem at the present state of the theory (arbitrary values of $e^2/hc$) to lead to errors.
+
+I am very curious what you have to report on the "deeper questions".
+
+Warm greetings,
+
+Your W. Pauli
+
+\letter{358}
+\from{Heisenberg}
+\date{February 15, 1934}
+\location{Leipzig}
+\tags{vacuum, fluctuations, hole theory}
+
+Dear Pauli!
+
+I believe that in going over your time-averaging, all difficulties now vanish and would like to work this out for you, for our mutual edification.
+
+\subsection*{1. The squared fluctuation of charge in empty space}
+
+The charge-density operator according to the hole theory is
+\nequ{
+\rho = e\left[
+    \sum a^*_n a_m u^*_n u_m
+  + \sum a^*_n b^*_\alpha u^*_n u_\alpha\right.
+  &+ \sum b_\alpha a_n u^*_\alpha u_n\\
+  &\left.- \sum b^*_\alpha b_\beta u^*_\beta u_\alpha
+\right].
+}{1}
+(Latin indices for positive energy, Greek for states of negative energy.) I averages over a space-time region:
+
+\nf{\MF}{\mathfrak{#1}}
+\nc{\fp}{\MF{p}}
+\nc{\fr}{\MF{r}}
+
+\nequ{
+\ebar_V &= \inv{T}\intXY{0}{T}{dt}\intXY{V}{}{dV} 
+    \rho = \left[\sum a^*_n a_m 
+    \frac{\exp{\frac{i}{\hbar}(E_n-E_m)T} - 1}{\frac{i}{\hbar}(E_n - E_m)T}
+    \intXY{V}{}{dV}u^*_n u_m + \dots
+    \right]\\
+ &= e\left[\sum a^*_n a_m 
+    \frac{\exp{\frac{i}{\hbar}(E_n-E_m)T} - 1}{\frac{i}{\hbar}(E_n - E_m)T}
+    c^*_n(\rho)c_m(\rho)
+    \intXY{V}{}{dV}\exp{\frac{i}{\hbar}(\fp_n - \fp_m)\fr} + \dots
+    \right]\\
+ &= e\left[\sum a^*_n a_m 
+    \frac{\exp{\frac{i}{\hbar}(E_n-E_m)T} - 1}{\frac{i}{\hbar}(E_n - E_m)T}
+    c^*_n(\rho)c_m(\rho)
+    \intXY{V}{}{dV}f(\fp_n - \fp_m, V) + \dots
+    \right].
+}{2}
+In empty space, this leads to the expectation value:
+\nequ{
+\overline{\left(\ebar^2_V\right)} = e^2 
+  \sumX{n,\alpha}c_n^*(\rho)c_\alpha(\rho)c^*_\alpha(\rho')c_n(\rho')
+  |f(\fp_n - \fp_\alpha, V)|^2\\
+\times 4\frac{\sin^2{\inv{2\hbar}(E_n-E_\alpha)T}}{\left[\inv{\hbar}(E_n - E_\alpha)T\right]^2}
+}{3}
+The calculation of the sums over $\rho$ and $\rho'$ gives:
+\nequ{
+\overline{\left(\ebar^2_V\right)} = &e^2 \sumX{n,\alpha}
+    \frac{p_n^0 p_\alpha^0 - (\fp_n \fp_\alpha) - m^2 c^2}{4p^0_n p^0_\alpha}\\
+&\times 4\frac{\sin^2{\frac{c}{2\hbar}(p^0_n + p^0_\alpha)T}}
+             {\left[\frac{c}{\hbar}(p^0_n + p^0_\alpha)T\right]^2}
+    |f(\fp_n - \fp_\alpha, V)2
+}{4}
+(Here $p^0_n = +\sqrt{(mc)^2 + \fp_n^2}$, likewise $p^0_\alpha = +\sqrt{(mc)^2 + \fp_\alpha^2}$.)
+
+Since the $u_n(\fr)$ were normalized to the volume 1, the sums in (4) are replaced by the integral over ${d\fp_n},{d\fp_\alpha}$, wherein it is first multiplied by $\inv{h^6}$. Additionally let $\fp = \frac{\fp_n + \fp_\alpha}{2}$; $\fp' = \fp_n - \fp_\alpha$. It follows that
+\nequ{
+\overline{\left(\ebar^2_V\right)} = &e^2\inv{h^6}\int{d\fp}\int{d\fp'}
+    \frac{\sqrt{+}\sqrt{-} - \fp^2 + \frac{{\fp'}^2}{4} - m^2 c^2}
+         {\sqrt{(mc)^2 + \left(\fp + \frac{\fp'}{2}\right)^2}
+          \sqrt{(mc)^2 + \left(\fp - \frac{\fp'}{2}\right)^2}}\\
+&\times \frac{\sin^2{\frac{c}{2\hbar}(\,)T}}
+             {\frac{c^2 T^2}{\hbar^2}\left[\sqrt{+} + \sqrt{w}\right]^2}|f(\fp',V)|^2.
+}{5}
+For sufficiently large $T$, the part $\sin^2{\frac{c}{2\hbar}(\,)T}$ can be replaced by $\inv{2}$. Further, I shall carry out the integral over $\fp$, by assuming the most important contributions are due to small $\fp'$ ($\fp' \ll mc$). (This corresponds to the fact in the Dirac calculation that one is only interested in the part with $\log P$.)(The exact calculation of (5) is too tedious for me.)
+
+In this approximation, one gets (if I have calculated correctly)
+\nequ{
+\overline{\left(\ebar^2_V\right)} = \frac{e^2}{h^6}\int{d\fp'}|f(\fp',V)|^2 
+\times {\fp'}^2 \frac{7\pi}{256mc} \frac{\inv{2}\hbar}{c^2 T^2}.
+}{6}
+The question, whether this integral converges or not, still depends only on the space averaging - for smeared walls it certainly converges -- and it seems from rough dimensional considerations to follow that it always converges. The divergence I claimed in the last letter thus vanishes in finite times - but as $T\to 0$ the squared fluctuation increases as $\inv{T^2}$, the probable error with $\inv{T}$.
+
+\subsection*{The expectation value of the charge when an external field $e\phi(\fr)$ is present.}
+
+The formula (2) for $\ebar_V$ now remains correct without modification. Since it will have energies in place of $E_n$, which because of the perturbation by $e\phi(\fr)$ will be somewhat changed, these changes influence the expectation values of $\ebar_V$ only in the second approximation. For the matrix element of the perturbation, which is associated with the creation of an electron in state $n$ and a positron in state $\alpha$, one obtains:
+\nequ{
+H_{n\alpha} = \int u^*_n e\phi(\fr) u_\alpha {dV} 
+  &= c^*_n(\rho)c_\alpha(\rho)\int e\phi(\fr)\exp{\frac{i}{\hbar}(\fp_n-\fp_\alpha)}{dV}\\
+  &= c^*_n(\rho)c_\alpha(\rho)g(\fp_n-\fp_\alpha).
+}{7}
+Thus for the expectation value of the charge:
+\nequ{
+\overline{\left(\ebar^2_V\right)} = e\sumX{n,\alpha}&c^*_n(\rho)c_\alpha(\rho)
+    \frac{g(\fp_n - \fp_\alpha)}{E_n - E_\alpha}c_n(\rho')c_\alpha(\rho')
+    f^*(\fp_n - \fp_\alpha, V)\\
+    &\frac{\exp{-\frac{i}{\hbar}(E_n - E_\alpha)T}-1}{-\frac{i}{\hbar}(E_n - E_\alpha)T} 
+      + \text{conj.}\\
+    &= \frac{e}{h^6}\int{d\fp}\int{d\fp'}\frac{p^0_n p^0_\alpha - (\fp_n \fp_\alpha) - (mc)^2}
+                                              {4p^0_n p^0_\alpha}
+                                         \frac{g(\fp_n - \fp_\alpha)}{c(p^0_n + p^0_\alpha)}\\
+    &\times f^*(\fp^0_n - \fp^0_\alpha, V)\frac{\exp{-\frac{i}{\hbar}(p^0_n + p^0_\alpha)T}- 1}
+                                               {-\frac{icT}{\hbar}(p^0_n + p^0_\alpha} + \text{conj.}
+}{8}
+Because of $\int{d\fp'}g^*(\fp')f(\fp',V){\fp'}^2 = \int g(\fp')f^*(\fp',V){\fp'}^2 {d\fp'}$ here one cannot ignore the periodic part, which otherwise gives a small contribution.
+
+After some calculations I find for large values of $T$
+\nequ{
+\overline{\left(\ebar_V\right)} 
+ = &\frac{e}{h^6}\int{d\fp'}g^*(\fp')f(\fp,V){\fp'}^2
+    \frac{\sqrt{\pi}}{16c}\left(\frac{\hbar}{2mc^2 T}\right)^{\frac{5}{2}}\\
+   &\times \left(\cos{\frac{2mc^2 T}{\hbar}} - \sin{\frac{2mc^2 T}{\hbar}}\right).
+}{9}
+The integral expression now has a simple \textit{anschaulich} interpretation. Namely if $\rho_0(\fr)$ denotes the charge density that produces the field $e\phi(\fr)$, then (as e.g. also Dirac has specified):
+\uequ{
+\intXY{V}{}\rho_0(\fr){dV} = \inv{4\pi c h^3 \hbar^2}\int{d\fp'} g^*(\fp')f(\fp',V){\fp'}^2.
+}
+Then
+\nequ{
+\overline{\left(\ebar_V\right)} = 
+  &\overset{"e^0_\nu"}{\overbrace{\intXY{V}{}\rho_0(\fr){dV}}}\frac{e^2}{\hbar c}\inv{32\pi^{3/2}}
+  \times\left(\frac{\hbar}{2mc^2 T}\right)^{5/2}\\
+  &\left(\cos{\frac{2mc^2 T}{\hbar}} - \sin{\frac{2mc^2 T}{\hbar}}\right).
+}{10}
+On the other hand, the probable error in the charge measurement depends on the linear dimension of the region over which it is averaged. Let $D$ be the diameter or the \WTF{deformation}{Verwachsung} (?) of the region, so then according to (6)
+\nequ{
+\Delta(\ebar_V) \approx e\sqrt{\frac{D}{\lambda_0}}\frac{\hbar}{mc^2 T}. \quad
+\left(\lambda_0 = \frac{h}{mc}\right)
+}{11}
+Thua there does not seem to be an entirely immediate connection between (10) and (11). \?{Perhaps one should also carry out the fluctuation calculations for the space filled with charge ($\rho^0$) and get a closer connection.} In any case it seems to be proven: averages over the charge density over finite space-time regions always remain finite -- and one shouldn't ask for anything more. It is also nice to see how in the formulae (10) and (11) the unwanted charges only occur there when one makes the space- resp. time-intervals smaller than $\frac{\hbar}{mc}$ resp. $\frac{\hbar}{mc^2}$.
+
+Thus I believe that we could claim, with clearer consciences than today, that the simple method of incorporating holes into quantum electrodynamics is the best (thus Oppenheimer or the calculations of last year), and it gives me -- with respect to such learned Herren as Peierls -- a certain satisfaction to see that these learned Herren are often all-too learned. I recall that in Brussels Peierls rejected my suspicion that this method was gauge invariant with scorn. "\WTF{And if it is?}{Und wenn schon}" they said in Saxony. Incidentally this hole whole theory should be published. Can't you put together a plan for this? I indeed told you already: it is fine with me if you publish the paper alone. On the other hand, \?{I would also like to join in and would then even like to write some sections according to your plan}.
+
+I am more annoyed by the de Broglie paper the more I think about it. But perhaps it is useful.
+
+Meanwhile, many greetings. 
+
+Your W. Heisenberg
+
+\letter{359}
+\rcpt{Heisenberg}
+\date{February 17, 1934}
+\location{Zurich}
+\tags{fluctuations, hole theory, vacuum polarization}
+
+Dear Heisenberg!
+
+Thanks for your last paper with the calculations on the squared fluctuation.
+
+Meanwhile I have, together with Weisskopf, workes out all types of polarization effects in variable fields. Primarily however we have clarified that the equations (1) of your letter of 2/8, namely
+\nequ{
+H = \sumX{+}E_k N_k - \sumX{-}E_k {N'}_k + M_e h\nu_e + (++) + (+-) - (--) \text{etc}
+}{1}
+are actually not gauge invariant, so that you have unjustly mocked Peierls in your last letter.
+
+However it is not an actual difficulty at this point; the non-gauge-invariance is only one of the infinite types of paradoxes, and emerges in the transition from
+\nequ{
+\int R_k {dV} = \int\left(R^0_k + \frac{ie}{hc}\phi_k R^0 \right){}
+}{III}
+to (1), since (1) involves a specific manner of carrying out the limit from finitely-many occupied states (where $R^0_k$ and $R^0$ are still finite) to infinitely-many. Weisskopf and I have clarified this point and put it in order.
+
+That \textit{all} difficulties with the infinite charge density vanish with the introduction of my proposed time-averaging can hardly be claimed, since there are cases where the expectation value of the charge density is constant in time, but is nonetheless infinite. Conversely the squared-fluctuation of the charge density (in zeroth approximation) probably becomes finite after time averaging. (?) (I'm no longer certain.)
+
+I would also not at all claim that there are no difficulties ahead. But I probably would claim that this question of infinite charge density is so closely tied up with the self-energy, that one can hardly approach the one question without solving the other\footnote{\?{A reasonaable theory must have exact solutions for empty space and the case of \textit{one} particle}.}. \textit{I would still like to hear from you, whether you agree with this formulation}.
+
+As concerns the further plan of work, I would like to propose the following:
+
+1. Since Weisskopf assisted me with various calculations, we should do a "Dreim\"anner-Arbeit"; authors: you, Weisskopf and I.
+
+2. In order to get uniform notation, we will \textit{first} put together a (provisional) manuscript of the \textit{whole} paper and \textit{afterwards} send it to you for criticism, completion, etc.
+
+3. The paper should contain: Representation of the generak theory (with separation of the question of the energy-momentum-\textit{density}-tensors as different sections\footnote{Specific consideration of the symmetry $+e \to -e$}). Clarification of the limit transitions. A section about the squared fluctuation of the charge density (utilizing your last letter). Another on the polarization of the vacuum in an arbitrary time-varying field (after Weisskopf). It should counteract Dirac's interpretation (specifically by means of your arguments as concerns the squares fluctuation).
+
+Do you agree with this plan?
+
+Let's hear from you again about the "deeper questions".
+
+Many greetings,
+
+Your W. Pauli
+
+\sskip{enclosure to 359 - Contributions to the theory of electrons and positrons}
+
+\letter{360}
+\rcpt{Heisenberg}
+\date{February 23, 1934}
+\location{Zurich}
+\tags{hole theory}
+
+Dear Heisenberg! Thanks for your card. -- I am not very happy about the hole theory, it is a quite beastly theory. But purely mathematically, everything is probably clear and I also don't believe that the theory can be improves at all without essential new ideas. -- I don't know whether I'll come before the 1st of March to write the paper.
+
+As regards Bohr's letter to me, I have answered it in detail. I am in full agreement with all of Bohr's statements about \textit{measurement}, but found the part about the self-energy and about the application of quantum electrodynamics in the domain of \?{actual} atomic theory entirely confusing. These statements on quantum dynamics seem namely to be \textit{identical} with those of the \textit{consistent} application of the old correspondence argument in radiation theory. -- It must be also possible to derive the self-energy without quantum electrodynamics (I hope to report more positively on this next time) -- \?{via the correspondence principle alone \`a la Klein and I am conversely encouraged} in the assertion that self-energy and polarization are connected.
+
+Warmly,
+
+Your W. Pauli
+
+\letter{362}
+\rcpt{Heisenberg}
+\date{February 26, 1934}
+\location{Zurich}
+\tags{hole theory}
+
+Dear Heisenberg!
+
+At the moment I don't need the Dirac manuscript and am sending it registered with the same post.
+
+The cloven hoof of the Dirac paper seems to be the usage of equation (45) on p.22, where $f$ is split into $f_1$ and $(t-\alpha_s x_s)g$. This splitting is initially only needed as a technical means to the integration of an equation, but then \textit{mis}used it in an arbitrary manner for splitting the density matrix $R$ into $R^a$ and $R^c$ (which is not at all unique). Otherwise, the whole thing doesn't help at all with the infinite \textit{squared} fluctuation of the density in the zeroth approximation.
+
+Many greetings,
+
+Your W. Pauli
+
+Bohr has sent me a second letter.
+
+
+\end{document}
+ 

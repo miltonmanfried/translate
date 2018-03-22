@@ -1,0 +1,164 @@
+
+\begin{paper}{1}
+\newcommand{\bond}{\,\textemdash\,}
+
+\newcommand{\E}{\mathsf{E}}
+\begin{header}
+\title{Electron exchange and molecule formation}
+\author{W. Heitler}
+\location{G\"ottingen}
+\date{February 5th, 1927}
+\note{Submitted by Max Born in the meeting of February 10th, 1928.}
+\makeheader
+\end{header}
+
+\section{General perturbation theory}
+\subsection{}
+Theoretical chemistry has a peculiar notation, whose physical meaning has been very unclear up to recent times: \bond the homopolar binding mark between two neutral atoms. True, Kossel showed that the valence number of an atom is identical with the number of \?{loose electrons}{Leuchtelektronen}; the latter are apparently responsible for chemical binding. Grimm and Sommerfeld\ref{1} found from a large amount of empirical material that atoms especially try to form molecules when the total of all valence electrons involved is in a position to form a closed shell, which is then probably common to the whole molecule, and it is no longer permissible to assign (valence) electrons to the atomic nuclei. This must also somehow manage the cohesion of the whole molecule. A precise clarification of the matter could however only be supplied with quantum mechanics.
+
+\subsection{}
+The quantum mechanical laws which have a decisive significance for our questions are very closely connected with statistics, which we will say something about at the start.
+
+In all theoretical considerations, one imagines a (6-dimensional) phase space partitioned into quantum cells of size $h^3$ and a system of -- say $n$ -- particles (electrons) distributed among these cells, which initially do not disturb one another. A quantum cell is identical with a Schroedinger 3-dimensional eigenvibration (e.g. hydrogen eigenvibrations) for a single particle. Further there is a definite energy associated to each quantum cell which a particle then possesses when it is found there.
+
+A state of an $n$-electron system is described by a -- more or less exact -- specification of the distribution of the $n$ electrons into the cells. It has now emerged that the most exact description possible of a stationary state (which in the absence of external action remains arbitrarily long) is the following: one states how many electrons are found in each numbered imaginary cell. A numbering of the electrons is however impossible.
+
+The Pauli principle forbids the occurrence of more than two electrons in the same cell. A fully- (so doubly-) occupied cell forms a so-called closed shell. However we want to separate out any closed shells from the system under consideration and pay them no mind, for reasons that will soon be clear. Further, for simplicity we exclude degeneracy that consists in several cells having the same energy. For many applications this restriction is unnecessary. In addition the theory can also be extended to the degenerate cases without difficulty. 
+
+The state that we will consider is then characterized by having $n$ electrons distributed among $n$ different cells with energy $\varepsilon_1\dots \varepsilon_n$. The total energy of the system is 
+\nequ{1}{
+\E_0 = \varepsilon_1 + \varepsilon_2 + \dots + \varepsilon_n.
+}
+
+\subsection{}
+
+A state describable in this manner appears at first sight to contradict the principle of indiscernability of identical particles -- I only need to give the electrons the number of their cells. The quantum mechanics, which gives a full accounting to just this statistical principal, gives the following simple answer: labelling the electrons by specifying their state (this would in fact be a more precise description than that of \textbf{2.}) at infinite time is impossible since the electrons do not remain in their cells, but rather exchange places with one another. There is still nothing at all to be said about the frequency of an exhange, -- it may happen seldom enough: since a stationary state is to be described, it is still not possible to say for all times what cell electron number 38 is found in. For short times however a temporary labelling of the electrons with the state-description may be possible.
+
+\subsection{}
+
+Information on the frequency of an exchange is supplied by the quantum mechanical perturbation theory(\ref{2},\ref{3}\ref{4}), whose results we will briefly summarize. \?{So we pass over perturbations between the electrons, such as permit their Coulomb interaction}{Wir gehen also dazu \"uber, St\"orungen zwischen den Elektronen, etwa ihre Coulombsche Wechselwirkung zuzulassen}:
+
+a. In the first approximation, the description of the state by specifying the distribution in the quantum cells -- i.e. 3-dimensional Schr\"odinger vibrations -- still makes sense. (In 2 we had made the assumption of a vanishing perturbation.) Between each two cells (the pair of cells bears the index $P$, there are $\binom{n}{2}$ pairs) there is an exchange whose frequency $\nu_P$ is exactly determined.
+
+$\nu_P$ depends on the type of perturbation and the nature of the pair of cells $P$ -- it vanishes with the perturbation. In general it can be calculated with a simple integration.
+
+b. From $\nu_P$ is obtained an energy value
+\uequ{
+I_P = h\cdot \nu_P.
+}
+Additionally there is a quantity of energy $I_\E$ which corresponds to no exchange (\?{the "identical" if you will}{wenn man will dem "identischen"}) and which in the Coulomb perturbation lacks the Coulomb energy between the Schr\"odinger charges. $I_\E$ likewise vanishes with the vanishing of the perturbation. The system's perturbation energy (difference of the total energy from the unperturbed energy $\E_0$ of (1)) is a function of all of $I_\E$ and all $I_P$.
+
+c. Starting from an unperturbed distribution of the $n$ electrons into the $n$ cells, there are nit one but rather several perturbation energies (terms) that split up the unperturbed energy $\E_0$. The new terms can be be classified in systems whose number onlydepends on $n$, not on the original distribution(the index $\sigma$ distinguishes the various systems). In a given initial distribution \?{every system contains a number ($f_\sigma$) of terms}{enthält jedes System eine Anzahl -- $f_\sigma$ -- Terme}, where $f_\sigma$ only depends on $\sigma$ but again not on the distribution. We distinguish the terms of an individual system by the index $\mu$. The perturbation energy is given by 
+\nequ{2}{
+\E_\mu^\sigma = I_\E + F_\mu^\sigma(I_{P_1},I_{P_2},\dots),
+}
+where the functional form of $F_\mu^\sigma$ only depends on $\mu$ and $\sigma$, and is given for all time (as a root of a higher-order equation). The individual characteristics of the original distribution \?{are contained only in}{stecken allein in} $I_\E, I_P$.
+
+The indices run through the values
+\nequ{3}{
+\sigma &= 1, 2, \dots \begin{cases}
+	\frac{n}{2} + 1, & \text{if $n$ is even}\\
+	\frac{n-1}{2}+1, & \text{if $n$ is odd}
+\end{cases}\\
+\mu &= 1,2,\dots,f_\sigma.
+}
+$f_\sigma$ is likewise known for all time.
+
+d. Two terms associated to two various systems' $\sigma$ have various spectroscopic multiplicities and do not combine optically.
+
+e. We had not (point 2) included closed shells in our system. Here we could add\ref{4}: any closed shells change the number of terms that one has determined following (2) and (3) without considering them, but not changing the function $F_\mu^\sigma$ (causing no new splitting) and hence the term values. The meaning of this sentence for the systematics of the periodic system is obvious.
+
+\section{Perturbation between separated atoms}
+\subsection{}
+In order to arrive at understanding of homopolar binding on the basis of the just-presented perturbation theory, only one more thing is necessary: since the valence line binds two atoms, one will apparently have to carry out a perturbation calculation for the perturbation between whole atoms. One brings the atoms from an infinite distance where their mutual interaction vanishes to a finite distance $r$ and determines their interaction energy $D(r)$ as a function of the parameter $r$. From the behavior of $D(r)$ one can conclude whether the formation of a molecule is possible:
+
+1. If for finite $r$, $D(r)>0$ so that the atoms repel, molecule formation is certainly impossible.
+
+2. If for finite (not too small) $r$ $D(r)<0$, then that signifies an attraction of the atoms which must eventually lead to an equilibrium state, i.e. molecule formation. (For very small $r$ $D(r)$ must become infinitely positive because of the nuclear repulsion.)
+
+As is seen, the qualitative behavior of the atoms is already given by $D(r)$ for large distances, where naturally the calculation will be much easier.
+
+$D(r)$ can be easily derived from the theory of the first section:
+
+We consider two atoms $A$ and $B$ (distance $r$), each with $n$ \?{outer electrons}{Leuchtelektronen}. Let the unperturbed state of the whole system ($2n$ electrons) be given by a distribution of $n$ electrons in atom $A$'s $n$ cells and $n$ electrons in atom $B$'s $n$ cells. (In the figure $n=3$)
+
+\fig{section2-unperturbed}
+
+The exchanges arising from the perturbation split into two groups: exchange within $A$ and $B$ (denoted by $R$) and exchange between $A$ and $B$ (denoted by $Q$). The $\nu_R$ are independent of $r$, while the $\nu_Q$, and so the $I_Q$ also, are functions of $r$ and vanish for $r=\infty$. $I_\E$ depends on $r$, without vanishing at infinity (there is still one part left over beyond the Coulomb energy within $A$ and $B$). We will call the $r$-dependent part of $I_\E$ $I_0(r)$:
+\uequ{
+I_0(r) = I_\E(r) - I_\E(\infty).
+}
+The perturbation energies of the whole system $\E_\sigma^\mu(r)$  naturally also depend on $r$. $E_\sigma^\mu(\infty)$ supplies a contribution to the self energy of the individual atoms $A$ and $B$ and is the sum of each perturbation of $A$ and each perturbation of $B$, which follows from the original distribution of $n$ electrons into the $n$ cells of $A$ resp. $B$.
+
+The pure interaction energy between $A$ and $B$ is then
+\uequ{
+D_\sigma^\mu(r) = \E_\sigma^\mu(r) - \E_\sigma^\mu(\infty) 
+= I_0(r) + F_\sigma^\mu(I_R, I_Q(r)) - F_\sigma^\mu(I_R,0).
+}
+
+The \?{manifold}{Mannigfaltigkeit} of the indices $\mu,\sigma$ supplies:
+
+1. at $r=\infty$ the various states of the individual atoms $A$ and $B$;
+
+2. different interaction energies for each state of $A$ and $B$ at finite $r$.
+
+\subsection{}
+We will provide the result\ref{5} (it follows from a relatively simple calculation by utilizing group-theoretical methods) for a totally determined state of $A$ and $B$: namely for the state in which $A$ and $B$ are both found in the term system of highest multiplicity. (An atom with $n$ outer electrons has at most $n+1$-fold multiplicity). This term system further has the property of having only a single term for each unperturbed distribution ($f=1$). In wave-theoretical language (which we otherwise avoid in this report) it is a purely asymmetrical state. This is the primary state for molecule formation, while the others either only give elastic repulsion of the atoms, or at most excited molecular states.
+
+If both atoms $A$ and $B$ are in a state of $n+1$-fold multiplicity at $r=\infty$, then their interaction energies are
+\nequ{4}{
+D_\zeta(r)=I_0(r) + \left[\zeta - \left(n-\zeta\right)^2\right]\overline{I}_Q\quad \text{($\zeta=0,1,\dots,n$)}.
+}
+Here $\overline{I}_Q$ denotes the mean value of all $I_Q$, so
+\uequ{
+\overline{I}_Q = \frac{1}{n^2}\sum\limits_Q I_Q.
+}
+
+$\zeta$ is a \?{multi-index}{laufender Index}, it replaces the indices $\mu,\sigma$. (4) contains $n+1$ different interaction energies. The integrals $I_0, I_Q$ are completely worked out for the hydrogen molecule when both \El{H}-atoms are in the ground state. Here $n=1$ and
+\uequ{
+D_1(r) &= I_0(r) + I_Q(r)\\
+D_0(r) &= I_0(r) - I_Q(r).
+}
+The calculation\ref{6} shows that:
+
+1. $I_Q$ is negative.
+
+2. $I_0$ is small with respect to $I_Q$ at not-too-small distances. Accordingly:
+
+$D_1(r)$ provides attraction, equilibrium and molecule formation.
+
+$D_0(r)$ provides elastic repulsion.
+
+One might \?{easily}{ruhig} carry over there qualitative properties of the integrals $I_0$, $I_Q$ to higher atoms as well. First of all it is seen that, at $\zeta=n$
+\nequ{5}{
+D_n(r) = I_0(r) + n\overline{I}_Q(r)
+}
+molecule formation is always to be expected. At $n\geq 3$ one also obtains a molecule state for $\zeta=n-1$. (More details on this are found in \ref{5}).
+
+With this one gets a large set, the most remarkable homopolar molecules in chemistry: $\El{H}_2, \El{N}_2, \El{O}_2, \El{CH}_4, \El{NH}_3, \El{CO}, \El{CO}_2$, etc etc. (The role of the $B$ atom can also be taken over by $n$ \El{H}-atoms, $\frac{n}{2}$ \El{O}-atoms, etc.) Numerous examples are found in a paper by \citeauthor{F. London}\ref{7}, who has likewise independently derived the qualitative result in (5) from simple hypotheses.
+
+Finally, to add a supplementary remark: \?{closed shells formed by outer  electrons change the value (5) of $D$}{Den Leuchtelektronen untergebaute abgeschlossene Schalen \"andern den Wert (5) von $D$}. In the paper \ref{4} it is shown that they act repulsively (since noble gasses do not form molecules at all). The influence of the closed shells is smaller the more strongly their electrons are bound; but the binding strength increases with the number of outer electrons. It becomes understandable why e.g. the alkalines (one outer electron) have an essentially smaller disassociation energy (ca $\frac{1}{2}$ volt) than $\El{H}_2$ (ca 4.4 volts); on the other hand, despite the closed $\El{L}_1$-shell, $\El{N}_2$ has a disassociation work of $11.4$ volts, i.e. 3.8 volts per outer electron.
+\end{paper}
+\begin{thebibliography}{7}
+
+	\bibitem{1}
+	\citeauthor{H.G. Grimm} and \citeauthor{A. Sommerfeld}, \citepub{Zs. f. Phys.}, \citevol{36}, \citepage{36}, \citeyear{1926}.
+
+	\bibitem{2}
+	\citeauthor{E. Wigner}, \citepub{Zs. f. Phys.}, \citevol{40}, \citepage{883}, \citeyear{1927}; ibid \citevol{43}, \citepage{624}, \citeyear{1927}.
+
+	\bibitem{3}
+	\citeauthor{P.A.M. Dirac}, \citepub{Proc. Roy. Soc.}, \citevol{112}, \citepage{661}, \citeyear{1926}.
+
+	\bibitem{4}
+	\citeauthor{W. Heitler}, \citepub{Zs. f. Phys.}, \citevol{46}, \citepage{47}, \citeyear{1927}.
+	
+	\bibitem{5}
+	\citeauthor{W. Heitler}, \citepub{Zs. f. Phys.}, at press.
+	
+	\bibitem{6}
+	\citeauthor{W. Heitler} and \citeauthor{F. London}, \citepub{Zs. f. Phys.}, \citevol{44}, \citepage{455}, \citeyear{1927}.
+	
+	\bibitem{7}
+	\citeauthor{F. London}, \citepub{Zs. f. Phys.}, \citevol{46}, \citepage{455}, \citeyear{1928 }.
+\end{thebibliography}

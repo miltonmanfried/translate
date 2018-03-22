@@ -1,0 +1,59 @@
+\subsection*{41.}
+
+The \?{development}{développement} of the differentials $dA_{jk}^i$ and $dA_{ikl}^j$ may be obtained by the following geometric procedure:
+
+We consider a point $\m$ in the first manifold, and a two-dimensional element passing through this point; to this element corresponds an infinitely-small displacement of components $\Omega^i$ and $\Omega_i^j$. In particular, the translation associated with the element may be represented by the vector $\e_i\Omega^i$. We now consider a point $\m'$ infinitely close to $\m$ and the two-dimensional element passing through $\m'$ which is \textit{equivalent} to the element passing through $\m$; to this element corresponds a certain vector attached to $\m'$; the geometric difference between the second vector and the first, the geometric difference which is meaningful since it is known how to relate the affine space tangent to $\m'$ to the affine space tangent to $\m$, is a vector attached to $\m$ which has a geometric meaning independent of the chosen reference system.
+
+It see the analytic expression, we imagine that the two-dimensional element passing through $\m$ is the parallelogram constructed from two infinitely-small vectors $(\xi^i)$ and $(\eta^i)$ issuing from $\m$; by
+\uequ{
+\e_i \Omega^i(\xi, \eta)
+}
+we designate the first vector representing the translation associated with this parallelogram. We now designate by $d$ the symbol for differentiation corresponding to passing from $\m$ to $\m'$. The vector which will represent the translation associated with the equivalent element issuing from $\m'$ may be designated by
+\uequ{
+\e_i \Omega^i + d\left[\e_i \Omega^i(\xi, \eta)\right],
+}
+and, if we apply the following formulae, which analytically translate the geometric conventions made above:
+\uequ{
+d\e_i &= \omega_i^k \e_k,\\
+d\xi^i &= -\xi^k S\omega_k^i,\\
+d\eta^i &= -\eta^k\omega_k^i.
+}
+
+The final vector attached to the point $\m$, \textit{or rather to the thee vectors $(\xi^i), (\eta^i), d\m$} issuing from $\m$, will thus be
+\uequ{
+d\left[\e_i\Omega^i(\xi, \eta)\right],
+}
+and its components will obviously be trilinear forms of the components of the three vectors, that is to say the $\xi^i$, the $\eta^i$ and the $\omega^i$, so
+\uequ{
+d\left[\e_i\Omega^i(\xi, \eta)\right] = A_{jklh}^i(\xi^j \eta^k - \eta^k \eta^j)\omega^h.
+}
+
+Performing the calculation and equating the terms in $\e_i(\xi^j \eta^k - \eta^k \eta^j)$, it is found that
+\nequ{9}{
+dA_{jk}^i + A_{jk}^\rho \omega_\rho^i - A_{\rho k}^i \omega_j^\rho - A_{j\rho}^i \omega_k^\rho = A_{jkl\rho}^i \omega^\rho,
+}
+which shows the form of the differential $d_{jk}^i$.
+
+What we have done for the translation components can be done for the rotation components. We consider an elementary parallelogram at the point $\m$ constructed from two vectors $(\xi^i)$ and $(\eta^i)$ and an arbitrary vector $(u^i)$. The vector
+\uequ{
+\e_i u^j \Omega_j^i(\xi, \eta)
+}
+represents, up to a sign, the \WTF{geometrical increase}{accroissement géométrique} experienced by the vector $(u^i)$ when it is \?{transported equivalently}{transporté par équipollence} along the contour of the parallelogram. $\m'$ is a point infinitely close to $\m$; at this point we consider the parallelogram \textit{equivalent} to the first and the vector $(\overline{u}^i)$ equivalent to the vector $(u^i)$; the increase experienced by this latter vector when it is transported equivalently along the contour of the second parallelogram is a second vector
+\uequ{
+\overline{\e_i}\overline{u^j}\overline{\Omega_j^i}(\overline{\xi}, \overline{\eta});
+}
+the geometric distance between this vector and the first, which may be designated by
+\uequ{
+p(\e_i u^j \Omega_j^i(\xi, \eta),
+}
+is a vector attached to the point $\m$, depending on the $(u^i)$ and the three vectors $(\xi^i), (\eta^i), d\m$ in an intrinsic manner. This vector is of the form
+\uequ{
+\e_i u^j A_{jkl| h}^i (\xi^k \eta^l - \xi^l \eta^k) \omega^h.
+}
+
+Performing the calculation, one finds
+\nequ{10}{
+dA_{jkl}^i + A_{jkl}^\rho \omega_\rho^i - A_{\rho kl}^i \omega_j^\rho 
+ - A_{j\rho l}^i \omega_k^\rho - A_{jk\rho}^i\omega_l^\rho 
+= A_{jkl|\rho}^i \omega^\rho.
+}

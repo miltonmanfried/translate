@@ -1,0 +1,192 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\renewcommand*\rmdefault{ppl}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{titling}
+\usepackage{graphicx}
+
+% WTF
+\newcommand{\varx}{\varkappa}
+
+\newcommand{\sic}{\textsubscript{(\textit{sic})}}
+\newcommand{\WTF}[1]{\textbf{???}\textit{#1}\textbf{???}}
+\newcommand{\?}[2]{#1\footnote{\textsc{Translator note}: #2}}
+\newcommand{\nequ}[2]{\begin{align*}\tag{#1}#2\end{align*}}
+\newcommand{\uequ}[1]{\begin{align*}#1\end{align*}}
+\newcommand{\unit}[1]{\text{#1}}
+\providecommand{\operatorfont}[1]{\texttt{#1}}
+%\newcommand{\operatorfont}[1]{}
+\newcommand{\grad}{\operatorfont{grad}}
+\renewcommand{\div}{\operatorfont{div}}
+\newcommand{\curl}{\operatorfont{curl}}
+\newcommand{\rot}{\,\operatorfont{rot}\,}
+\renewcommand{\exp}[1]{e^{#1}}
+\newcommand{\pXpY}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ppXpYY}[2]{\frac{\partial^2 #1}{\partial {#2}^2}}
+\newcommand{\dXdY}[2]{\frac{d{#1}}{{d{#2}}}}
+\newcommand{\ddXdYY}[2]{\frac{d^2{#1}}{d{#2}^2}}
+\newcommand{\mf}[1]{\mathfrak{#1}}
+\newcommand{\Nth}[1]{{#1}^\text{th}}
+\newcommand{\cm}{\unit{cm}}
+\newcommand{\volts}{\unit{V}}
+\newcommand{\second}{\unit{sec}}
+\newcommand{\gram}{\unit{g}}
+
+\newcommand{\citeauthor}[1]{\textsc{#1}}
+\newcommand{\citetitle}[1]{\textit{#1}}
+\newcommand{\citepub}[1]{#1}
+\newcommand{\citevol}[1]{\textbf{#1}}
+\newcommand{\citepage}[1]{#1}
+\newcommand{\citedate}[1]{#1}
+\newcommand{\citeyear}[1]{#1}
+\newcommand{\bracket}[1]{\left[#1\right]}
+\newcommand{\paren}[1]{\left(#1\right)}
+
+\newcommand{\El}[1]{\text{#1}}
+\newcommand{\mnEl}[3]{{}^{#1}_{#2}{\El{#3}}}
+
+\newcommand{\publication}[1]{%
+    \gdef\puB{#1}}
+\newcommand{\puB}{}
+\renewcommand{\maketitlehooka}{%
+    \par\noindent \puB}
+
+
+\newcommand{\location}[1]{%
+    \gdef\loB{#1}}
+\newcommand{\loB}{}
+\renewcommand{\maketitlehooka}{%
+    \par\noindent \loB}
+
+%\newcommand{\dX}[2]{\frac{d#1}{{#2}}}
+%\newcommand{\dY}[1]{{d#1}}
+%\newcommand{\pX}[1]{\frac{\partial{#1}}}
+%\newcommand{\pY}[1]{{\partial{#1}}}
+
+% \newcommand{\original}[1]{}
+\newenvironment{translation}[0]{
+}
+
+\newenvironment{original}{
+\renewcommand{\footnote}[1]{\small{(Footnote: ##1)}}
+(\textit{Begin original text}:
+}{
+\textit{-- end original text})
+}
+
+\newenvironment{paper}[1]{
+	\newcommand{\paperid}{#1}
+	\newenvironment{header}[0]{
+		\renewcommand{\author}[1]{\newcommand{\headerauthor}{####1}}
+		\renewcommand{\title}[1]{\newcommand{\headertitle}{####1}}
+		\renewcommand{\publication}[1]{\newcommand{\headerpublication}{####1}}
+		\renewcommand{\date}[1]{\newcommand{\headerdate}{####1}}
+		\renewcommand{\location}[1]{\newcommand{\headerlocation}{####1}}
+		\newcommand{\note}[1]{\newcommand{\headernote}{####1}}
+		\newcommand{\makeheader}{
+		\begin{tabular}{|p{0.9\textwidth}|}
+			\hline
+			Author: \headerauthor \\
+			Title: \headertitle \\
+			\ifdefined\headerpublication
+				Publication: \headerpublication \\
+			\fi
+			\ifdefined\headerdate
+				Date: \headerdate \\
+			\fi
+			\ifdefined\headerlocation
+				Location: \headerlocation \\
+			\fi
+			\ifdefined\headernote
+				Notes: \headernote \\
+			\fi
+			 \hline
+		 \end{tabular}\\
+		}
+	}{
+
+	}
+	
+	\renewcommand{\ref}[1]{(\textrm{##1})}
+	\renewcommand{\d}[1]{d##1}
+	\newcommand{\figw}[2]{
+		\begin{figure}[h]
+			\begin{center}
+			\includegraphics[width=##2]{##1}
+			\end{center}
+		\end{figure}
+	}
+	\newcommand{\fig}[1]{\figw{##1}{150pt}}
+}{
+ \quad  \\------------------------------------\\
+}
+%new environment, define _ to append to denom and ^ to append to num
+%in after, \frac{\num}{\den} — _/^ should be undefined automatically
+
+%\providecommand{\n}{}
+%\providecommand{\d}{}
+%\newcommand{\numer}{}
+%\newcommand{\denom}{}
+%
+%\newenvironment{derivative}[1]{
+%	%\renewcommand{\numer}{}
+%	\renewcommand{\n}[1]{\let\numer{\numer #1##1}}
+%	%\renewcommand{\denom}{}
+%	\renewcommand{\d}[1]{
+%		\let\ndenom{\denom #1##1}
+%		\renewcommand{\denom}{\ndenom}
+%	}
+%}{
+%\numer\\
+%\ensuremath{\frac{(\numer)}{(\denom)}}\\
+%\denom\\
+%}
+%
+%\newcommand{\D}[1]{
+%\begin{derivative}{d}
+%	#1
+%\end{derivative}
+%}
+
+\newcommand{\D}[1]{\,\d{#1}\ }
+
+\newcommand{\derX}[2]{
+\renewcommand{\dY}[1]{\ensuremath{\frac{#1 #2}{#1 ##1}}}
+\renewcommand{\pY}[1]{\dY{##1}}
+}
+
+\newcommand{\dderX}[2]{
+	\renewcommand{\dY}[1]{
+		\renewcommand{\dY}[1]{
+			\ensuremath{\frac{#1^2 #2}{ {#1 ##1}\, {#1 ####1}}}
+		}
+	}
+	\renewcommand{\ddY}[1]{
+		\ensuremath{\frac{#1^2 #2}{{#1 {##1}^2}}}
+	}
+	\renewcommand{\pY}[1]{\dY{##1}}
+	\renewcommand{\ppY}[1]{\ddY{##1}}
+}
+
+\newcommand{\dY}[1]{\text{ERROR: dY without dX}}
+\newcommand{\pY}[1]{\text{ERROR: pY without pX}}
+\newcommand{\ddY}[1]{\text{ERROR: ddY without ddX}}
+\newcommand{\ppY}[1]{\text{ERROR: ppY without ppX}}
+\newcommand{\ddX}[1]{\dderX{\d}{#1}}
+\newcommand{\ppX}[1]{\dderX{\partial}{#1}}
+\newcommand{\dX}[1]{\derX{\d}{#1}}
+\newcommand{\pX}[1]{\derX{\partial}{#1}}
+
+\newcommand{\ddx}[1]{\dX{#1}\dY{x}}
+\newcommand{\ddy}[1]{\dX{#1}\dY{y}}
+\newcommand{\ddz}[1]{\dX{#1}\dY{z}}
+\newcommand{\ddt}[1]{\dX{#1}\dY{t}}
+
+\newcommand{\nc}[2]{\newcommand{#1}{#2}}
+
+\nc{\dx}{\d{x}}
+\nc{\dy}{\d{y}}
+\nc{\dz}{\d{z}}
+\nc{\dxdydz}{\dx\,\dy\,\dz}

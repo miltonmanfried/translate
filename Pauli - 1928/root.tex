@@ -1,0 +1,454 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\renewcommand*\rmdefault{ppl}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{marginnote}
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+
+\nff{\WTF}{{#1}(\textit{#2})}
+
+\nf{\translator}{\footnote{\textbf{Translator note:}#1}}
+
+\newcommand{\nequ}[2]{
+\begin{align*}
+#1
+\tag{#2}
+\end{align*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{align*}
+#1
+\end{align*}
+}
+
+\nff{\iffy}{#2}
+\nf{\?}{#1}
+
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+
+\nc{\fluc}{\overline{\delta_s^2}}
+
+\rf{\exp}{e^{#1}}
+
+\nc{\grad}{\operatorfont{grad}}
+\rc{\div}{\operatorfont{div}}
+
+\nf{\pddt}{\frac{\partial{#1}}{\partial t}}
+\nf{\ddt}{\frac{d{#1}}{dt}}
+
+\nf{\inv}{\frac{1}{#1}}
+\nf{\Nth}{{#1}^\text{th}}
+\nff{\pddX}{\frac{\partial{#1}}{\partial{#2}}}
+\nf{\rot}{\operatorfont{rot}{#1}}
+
+\nc{\lap}{\Delta}
+\nc{\e}{\varepsilon}
+\nc{\R}{\mathfrak{r}}
+
+\nc{\Y}{\psi}
+\nc{\y}{\varphi}
+
+\nf{\from}{From: #1}
+\rf{\to}{To: #1}
+\rf{\date}{Date: #1}
+\nf{\letter}{\section{Letter #1}}
+\nf{\location}{}
+
+\title{Pauli correspondence - 1928}
+
+\begin{document}
+
+\letter{181}
+\to{Weyl}
+\date{January 29, 1928}
+\location{Hamburg}
+
+\nc{\D}{\mathcal{D}}
+
+Dear Herr Weyl!
+
+Many thanks for your kind letter, which has given me great joy. It reminds me again of the first time I'd written a letter to you. Without falling into overly elegaic reflections about that time, I would like to express the hope that you will find that I've meanwhile become rather more mature, or put more cautiously, that I present clear signs of a development toward the limiting state of maturity, which I perhaps only asymptotically approach. In any case, as always I am very happy that our meanwhile-separate paths have now crossed again, locally as well as scientifically. In connection to the last point I would also like to mention that I had already been close to writing you a letter for some weeks, after I had read your paper in Zeitschrift f\"ur Physik. It quite interested me, and I even believe that I have understood the essence of it. I think I recall clearly that you are extremely reluctant to write letters; and I did not want to begin my "quantized contact" with you by putting you in the uncomfortabke position of having to write me. \?{However, since you have now done this yourself}, this obstacle has now disappeared.
+
+I was very pleased with your finding that the transition from the finite to the infinite case leads immediately to the equations
+\nequ{
+\exp{i\sum\tau_k q_k} \exp{i\sum\sigma_k p_k} = 
+\exp{-i\sum \sigma_k \tau_k} \exp{i\sum\sigma_k p_k} \exp{i\sum\tau_k q_k},
+}{1}
+and that $pq-qp=i$ (analogously with the corresponding operator equations) only follows secondarily. Since in the problem of the quantum-theoretical interpretation of the physics of classical fields one has, speaking purely mathematically, to make the step of transitioning from finitely-many $\sigma_k$ and $\tau_k$ first to countably-infinitely-many, and then even to a continuum, for the $\sigma$ and $\tau$. The latter standpoint corresponds to the introduction of non-commutable functions $p(x_1,\dots,x_4)$, $q(x_1,\dots,x_4)$ of the space-time coordinates, and the analogue to (1) is then
+\nequ{
+\exp{i\int\tau(x_1 \dots x_4)q(x_1 \dots x_4) dx_1\dots dx_4}
+\exp{i\int\sigma p dx_1\dots dx_4} = 
+\exp{-i\int\sigma\tau dV_4} \exp{i\int\tau q dV_4},
+}{2}
+where $\tau$ and $\sigma$ are arbitrary functions. (Then for $\Y(q_1\dots q_f)$ we have the "functional" $\Psi\{q(x_1\dots x_4)\}$ and operators corresponding to these.)
+
+The analogue to
+\uequ{
+p^\varrho q^\sigma - q^\sigma o^\varrho = i\delta^{\varrho \sigma}; 
+\delta^{\varrho\sigma} = \begin{cases}
+0 & \text{ for } \varrho \neq \sigma \\
+1 & \text{ for } \varrho = \sigma
+\end{cases}
+}
+requires the introduction of a singular function-symbol $\delta(x-x')$ defined by
+\uequ{
+\delta(x-x') = 0 & \text{ for } x \neq x' \\
+\delta(x-x') = \infty & \text { for } x = x'
+}
+such that
+\uequ{
+\intXY{x-a}{x+b}f(x')\delta(x-x')dx' = f(0), (a,b \text{positive}).
+}
+
+It is now my hope that with your methods the introduction of such singular symbols in the quantum theory of fields can be entirely avoided. Up to now however I've still not succeeded in carrying this out, since the state of affairs is in reality still rather more complicated than I have described. The $q(x_1 \dots x_4)$ and $p(x_1 \dots x_4)$ are not \textit{arbitrary} functions of the space-time coordinates, but rather still satisfy certain differential equations as boundary conditions. The commutation relations must also be compatible with these, and they are as a result not as simple as 
+\uequ{
+p(x)q(x') - q(x')p(x) = i\delta(x-x').
+}
+
+This latter, and thus also (2) are nonetheless correct in many cases, if one restricts oneself to a line $t=\text{const}$ throughout the world, on which the values of $p$ and $q$ (boundary values of the differential equations) can be arbitrarily specified.
+
+I will be content for now with these \WTF{proposals}{Andeutungen}, I have also not spoken of the physical significance of the $p(x_1\dots x_4)$ and $q(x_1 \dots x_4)$, in order to highlight the purely mathematical facets of the \WTF{thing}{Sache}. I would also have rather different remarks on the group-part of your paper, but we could better discuss that when you come to Hamburg. But I still must add something, namely a \textit{protest against your} §10, specifically against \WTF{page 41}{S. 41 oben}. The line of thinking is this. If one defines a linear operator $\D_1(\Y)$, whose twofold application is identical with
+\uequ{
+\D_1 \D_1(\Y) = \frac{\partial^2 \Y}{\partial x^2} + \Y(x).
+}
+(Which causes no difficulties.) Thereupon one poses the eigenvalue problem:
+\nequ{
+\D_1 \Y = (\lambda - V(x))\Y.
+}{1}
+And finally one asserts that, "\WTF{with that}{deshalb}" one can also write
+\nequ{
+\D_1 \D_2 \Y = (\lambda - V(x))^2 \Y,
+}{2}
+or
+\uequ{
+\frac{d^2 \Y}{dx^2} + \Y(x) = (\lambda - V(x))^2 \Y(x)
+}
+and "\?{half the eigenvalues of (2) coincide with those of (1)}." (This incorrect conclusion already been made by various physicists, but they have not published it.) But the catch is that \textit{the operation $\D_1$ does not commute with the operation $(\lambda - V(x))$} and in this case (2) does not follow from (1), the eigenvalues of (2) are completely different from those of (1). In general, from
+\uequ{
+\D_1 \Y = \D_2 \Y
+}
+only follows
+\uequ{
+\D_1 \D_1 \Y = \D_1 \D_2 \Y = \D_2 \D_2 \Y + (\D_1 \D_2 - \D_2 \D_1)\Y
+}
+(but not $\D_1 \D_1 \Y = \D_2 \D_2 \Y$). Thus in our case
+\uequ{
+\frac{d^2}{dx^2} + \Y(x) = (\lambda - V(x))^2 \Y(x) - (\D_1 V(x) - V(x) \D_1)\Y.
+}
+\?{Generally we have the following facts, as especially put together by Dirac}. In classical mechanics the energy law can either be written in the form solved for the energy $W$
+\nequ{
+H(p,q)=W
+}{1}
+or in some other form equivalent with
+\nequ{
+F(p,q,W) = 0
+}{2}
+(the $W$ need not be contained \textit{linearly}). The associated equations
+\nequ{
+H\left(\frac{h}{2\pi i}\frac{\partial}{\partial q}, q\right)\Y = W\Y
+}{1'}
+and
+\nequ{
+F\left(\frac{h}{2\pi i} \frac{\partial}{\partial q}, q, W\right) = 0
+}{2'}
+are then however \textit{not} equivalent. In \textit{relativistic} mechanics there is no longer any \textit{a priori} reason to prefer (1') to any (2'). For this reason the methods used in the non-relativistic quantum mechanica are no longer sufficient if one wants to take into account the relativistic terms. \?{Schr\"odinger's relativistic equation is spoken for above all by its success in the scattering of radiation by free electrons; in any case it seems to possess a certain veracity}. (One cannot know \textit{a priori} whether it actually applies.)
+
+It is said however that Dirac has recently brought the equations for the magnetic electron into a relativistically-invariant form, and indeed it has \textit{four} simultaneous differential equations of \textit{first} order (this is an essential improvement over Schr\"odinger) for \textit{four} $\Y$-functions (his paper comes out in the February issue of the Proceeding of the Royal Society). There you shall again have a beautiful example for group theory!
+
+It is very nice that my quantum jump from Hamburg to Z\"urich will be via the metastable intermediate state that you shall hold lectures in Hamburg. Then we could further discuss quantum- and group theory. Many thanks for your offer of help in the search for an apartment; perhaps I will be \?{free enough that I can come back}. As to the "unquantized contact", I am also very sure that we shall understand eachother very well.
+
+Many greetings and until I see you again soon,
+
+Your devoted W. Pauli
+
+P.S. \WTF{Cheers}{Empfehlungen} to your Frau wife! \?{I don't know whether one now must also turn over relevant reprints of your papers to \textit{her}}. Herr Dr. W. Gordon, Hamburg Phys Inst would like to have one of your paper in the Zeitschrift f\"ur Physik.
+
+\letter{183}
+\to{Kramers}
+\date{February 7,
+1928}
+\location{Hamburg}
+
+Dear Kramers!
+
+Many thanks for your \?{words}. The last corrections to my and Jordan's treatise are sent in, and they must appear in one of the next issues of the Zeitschrift f\"ur Physik. Many ofvthem, however, still don't correspond to my wishes and requests. Meanwhile Heisenberg and I have together tried to treat the case of the presence of charged particles in an analogous (relativistically-invariant) manner, in which we essentially support the results of Jordan and Klein. It seems \WTF{to be correct}{in der Tat zu gehen}, but it is still not all ready; we have difficulties at the the place corresponding with the ordering of the factors in the energy expression (elimination of the interaction of the particle with itself) in Klein and Jordan's paper.
+
+Many greetings from me and the whole institute,
+
+Your old Pauli
+
+\letter{187}
+\to{Dirac}
+\date{February 17, 1928}
+\location{Hamburg}
+
+Dear Herr Dirac!
+
+I have with great enjoyment read your paper on the electron. Now indeed the question is how the interaction of several electrons can be formulated relativistically invariantly, and in this connection I would like to ask you your opinion on several points.
+
+I have enclosed the manuscript of a paper found in print in Zeitschrift f\"ur Physik by Jordan and Wigner. As you shall see, there it is shown that the methods of Jordan and Klein can also be generalized to the case of particles with antisymmetric statistics. (Please send the manuscript, when you have read it, on to Klein in Copenhagen; if you please, you may keep the likewise enclosed corrections to my and Jordan's paper).
+
+Additionally, in the meantime Heisenberg and I have been occupying ourselves with the queation of the relativistically-invariant formulation of the electromagnetic interaction of particles (generalization of the paper by Jordan and me to the case of the presence of charges; we have initially calculated with symmetric statistics, but it won't be much more difficult for particles with antisymmetric statistics). In this we've still reached no satisfactory conclusion, but we've come a good ways forward. The principle is the following. One interprets (in the sense of my paper with Jordan) the state variables $\Y(x_1 \dots x_4)$, $\Y^*(x_1 \dots x_4)$ (${}^*$ complex conjugation), $\phi_k$ (four-potential), $F_{ik}$ (field strengths) in the usual four-dimensional world as "$q$-functions, which (1) satisfy certain commutation relations ("C.R."), (2) fulfill the usual wave equations
+\uequ{
+\left(\frac{\partial}{\partial x^k} + \frac{ie}{c}\phi_k \right)^2 \Y + m^2 c^2 \Y = 0,\\
+F_{ik} = \pddX{\phi_k}{x^i} - \pddX{\phi_i}{x^k},\\
+\sumXY{j=1}{4}\pddX{F_{kj}}{x^j} = S_k = \Y^*
+\left(\frac{\partial}{\partial x^k} + i \frac{e}{c} \phi_k \right)\Y
+- \left( \pddX{\Y^*}{x^k} - i \frac{e}{c}\Y^* \phi_k \right)\Y
+}
+as boundary conditions.
+
+The commutation relations must equal those of the field-free case ($\phi_k=0$ resp. $\Y=\Y^*=0$) so far as these differential equations allow. The order of the factors in the wave equation must especially be respected: $\Y^*$ is always as far to the left as possible from $\phi_k$ or $\Y$, $\Y$ on the other hand as far to the right as possible from $\phi_k$ or $\Y$. I won't go further into the C.R. right now, but rather only remark that (initially in the case of Bose-Einstein statistics) there is essentially one uniquely-defined system of C.R. that is appropriate to the wave equations and is relativistically-invariant. This certainly also goes for the case of particles with antisymmetric statistics, likewise if one bases the $\Y$-functions on your new equations. (From this, as I have worked out and as you probably already know, one could easily derive conservation laws (in differential form) for the charge and also for the energy and momentum, which lead to definite expressions on the one hand for the four-current $S_i$, on the other for the energy-momentum tensor $T_{ik}$, for the material waves.)
+
+But before I go into working out the C.R. for the latter case in detail, I would like to ask your opinion concerning an essential physical difficulty, which occurs in my and Heisenberg's system and which we cannot dispose of. Our theory would only be complete and capable of comparison with experiment if one established conservation laws for energy and momentum for the total system (light + matter waves). Since when one considers the field variables $\Y,\Y^*,\phi_i$ as $q$-functions, \?{these laws enable one to introduce, instead of these $q$-functions, operators on a $\Y$-function} (in an expanded sense, similar to the $\Y$-function in your electrodynamics; c.f. the conclusion of my paper with Jordan).
+
+
+Here we again have the "interaction of a particle with itself" blocking the path. If there is a single electron present, its energy wuld indeed already be completely accounted for in the matter wave; thus if one equates the total energy ($k=4$) and momentum ($k=1\dots 3$)
+\nequ{
+I_k = \int\int\int (T_{k4} + S_{k4})dV, (S_{k4}: \text{Maxwell tensor})
+}{1}
+then one still obtains for an individual electron an incorrect (even becoming infinitely-large) addition from the Maxwell tensor. -- On the other hand, we have not succeeded in finding another general expression for energy and momentum corresponding to the requirements of the theory of relativity, which generally satisfies the conservation laws on the basis of our C.R. and wave equations. Indeed Klein amd Jordan have attempted here a peculiar change in the order of factors, but Heisenberg has calculated that \?{in this way it is not possible to simultaneously fulfill both the energy and momentum conservation laws}.
+
+\textit{What do you think about this?} At the moment I know of no satisfactory way out. And my one impression is even that one must make deep changes in the foundations of our considerations, in order to be able to avoid these difficulties. Ultimately the energy from two parts (the contributions from the matter waves and the electromagnetic fields) which are logically independent from one another probably in truth cannot be added together. Certainly an interpretation in which light and matter waves appear as one \WTF{substance}{Wesenseinheit} (the former as a special case of the latter) would be preferable.
+
+In this connection I've also been thinking about how \textit{your new quantum theory of electrons is related to your earlier quantum electrodynamics} (Vol 114 of the Proceedings of the Royal Society). If the principles on which your quantum theory of the electron have more general validity, one cluld perhaps expect that even with the introduction of the numbers $N_r$ and phases of the light quanta as $q$-numbers (in the sense of your earlier paper) a Hamiltonian function should exist which (1) is relativistically-invariant, and (2) contains the operators $p_0,p_1,p_2,p_3$ only linearly. I've not been successful in finding such a Hamiltonian. \textit{Do you think that that could work}?
+
+Now one last question. It concerns the difficulty highlighted in your paper that (even in your new theory) half of the eigenvalues correspond to the charge $+e$, the other half to the charge $-e$. This is indeed doubtlessly correct; but are you also certain that according to the current theory that \textit{transition} should occur which would correspond to a change of the charge from $+e$ to $-e$? Could nevertheless also be that the eigenvalues \textit{always} fall into \textit{non}-combining groups?
+
+It would be lovely if you could soon send us reprints of your paper. Gordon has indeed already written to you concerning the old Sommerfeld formula for the energie levels as a consequence of your new equations.
+
+Many thanks in advance and hearty greetings
+
+Your W. Pauli
+
+\letter{192}
+\from{Heisenberg}
+\date{May 3, 1928}
+\location{Leipzig}
+
+\nc{\f}{f}
+
+Dear Pauli!
+
+On the more important problems I know nothing new; but, in order to of be always \WTF{fussing around}{herumzuärgern} with Dirac, I've been busy with something else, namely, Ferromagnetism, and I'd like to tell you about it now. First, to the genera! question of metals (see also Bloch's paper!): one can put fordward three approximations to reality{}
+
+\begin{enumerate}
+    \item The "Pauli-Sommerfeld" approximation, i.e. free electrons with Fermi statistics; the interaction of the electrons \textit{among one another} is ignored.
+    \item The Bloch approximation: \?{The effect of the lattice is taken into account via a \WTF{sinusoidal potential}{Wellblechpotential}, the interaction of the electrons is likewise negligible with respect to the other forces.}
+    \item The, let's say, London-Heitler approximation; on this I think the following: the exchange of the valence electrons of some two atoms in the lattice will be considered \`a la London-Heitler. In this, however, in the \WTF{first place}{erster Linie} only those states are considered where all electrons remain in the ground state.
+\end{enumerate}
+
+The approximation (3) apparently leads to an inferior \WTF{term manifold}{Termmannigfaltigkeit} than (2) and (1). \?{For example, in the case of two hydrogen atoms (London-Heitler) the following \textit{four} states would have, in the first approximation, the same energy in methods (1) and (2)}:
+
+\begin{tabular}{l|cccc}
+  & Nucleus $a$ & Nucleus $b$ \\
+  \hline
+ I & 1 & 2 \\
+ II & 2 & 1 \\
+ III & 1 2 & - \\
+ IV  & -   & 1 2
+\end{tabular}
+
+(1 resp. 2 the \WTF{number}{Nummer} of the electron)
+
+In method (3) on the other hand one reflects that the eigenvalues of I and II are nearly equal, likewise III and IV, that however term III and IV (two electrons at the \textit{same} nucleus) lie much higher than I and II. It seems reasonable to me to carry over this reflection from London and Heitler to the metals, i.e. at first only the states in which there is only one electron per atom (\?{or rather, several valence electrons depending on the metal, so that every atom has just as many electrons}), and to consider their exchange possibilities.
+
+I now believe that, if method (3) supplies te best approximation, under suitable conditions one can then arrive at ferromagnetism. (In the metals for which approximations (1) and (2) converge well, one indeed \textit{certainly does not} get FM, according to your work.) Thus intially: if the interaction of the electons is small with respect to the other perturbations, one certainly gets no FM. If on the other hand they become significant, so that the method (3) becomes reasonable, then the calculation proceeds: one now has, according to London and Heitler, $n$ electrons, which are distributed into $n$ different\footnote{The argument in your work about susceptibility is thus \textit{not} applicable.} quantum cells (c.f. esp. Heitler's last paper, Zeitschrift f\"ur Physik 47, 835, specifically the footnote on p. 849). The whole term system breaks into groups of \WTF{subsystems}{Teilsystemen} \`a la Wigner. \?{To each system there belongs a resulting total-spin of all $n$ electrons}. Let this be $j$.  (If $n$ is even, \?{which is assumed for simplicity}, $j$ is an integer.) The idea is now to find the energy of the perturbed system as a function of $j$. True, systems with the same $j$ in general have different energies, but we are only interested in the mean energy, thus Heitler's "\WTF{center of energy}{Energieschwerpunkt}" of all terms with equal $j$. The energy formula, according to Heitler (Zeitschrift f\"ur Physik 46 p. 63) reads
+\uequ{
+\f^\sigma E^\sigma = \sumX{p}\chi^\sigma_p J_p
+}
+(The normalization factor $f^\sigma$ is omitted by Heitler, and by $E^\sigma$ he means not the center of energy but rather the sum of the energy values.) The right side is summed over all permutations. $\chi^\sigma_p$ denotes the \WTF{group character}{Gruppencharakter}, \?{which belongs to the "representation $\sigma$" of the permutation $P$}, $J_p$ is the sum of the exchange energies in the permutation $P$ and all other permutations belonging to the same class; since electrons only interact in pairs, only $J_E$ and $J_{(12)}$ differ from zero. \?{It naturally comes down to just $J_{(12)}$, and one sees that for all $j$-values, the \textit{sum of all exchange terms} enters as only initially-unknown constant}. \?{For the energy formula, its dependence on $j$ is thus of the same type as the dependence of the resonance forces on the distance, \textit{completely independent}} (In contradiction to Ising's paper!). The calculation of $E_\sigma$ is now simple: according to the Pauli principle the total spin \?{is either} $\frac{n}{-j},\frac{n}{2}+j$ ($n$ even); \?{one thus needs only the values of $\f^\sigma$ and $\chi^\sigma_{(12)}$ according to $\sigma$: $\left(\frac{n}{2}-j,\frac{n}{2}+j\right)$}. According to Wigner and Heitler (Zeitschrift f\"ur Physik 47, p. 855) we have:
+\uequ{
+f_{\frac{n}{2}-j,\frac{n}{2}+j} = \frac{n!(2j+1)}{(\frac{n}{2}-j)!(\frac{n}{2}+j+1)!}
+= \left(\frac{n^n}{2}-j\right) - \left(\frac{n^n}{2} - j - 1\right)
+}
+(see also Zeitschrift f\"u Physik 41 p. 256, equation 31).
+\uequ{
+\chi^{(1 2)}_{\frac{n}{2}-j,\frac{n}{2}+j} &=
+ -\frac{(n-2)!(2j + 1)!}{\left(\frac{n}{2} - j\right)!\left(\frac{n}{2}+j+1\right)!}
+ (n^2 - n + \xi^2 - \xi - n\xi)\left(\text{where } \xi=\frac{n}{2} - j\right)\\
+ &= \frac{(n-2)!(2j + 1)!}{\left(\frac{n}{2} - j\right)!\left(\frac{n}{2} + j + 1\right)!}
+ \left(\frac{3}{4}n^2 - \frac{3}{2}n + j(j+1) \right).
+}
+Thus finally
+\uequ{
+E_{(1 2)} = \frac{-\frac{3}{4}n^2 - \frac{3}{2}n + j(j+1)}{n(n-1)}J_{(1 2)} + J_E .
+}
+\?{Now it all comes down to } the sign of $J_{(1 2)}$. For negative $J_{(12)}$, \?{$j=0$ is the lowest}, so there is no ferromagnetism; this is according to London and Heitler the normal case; \textit{if} however it happens\footnote{London's counterargument probably only applies for atoms with $s$-terms (without nodes)} that $J_{(12)}$ is positive, then there is ferromagnetism: from this one can see that $E^\sigma$ increases with $j^2$. The energy \textit{increase} by adding further parallel electrons is proportional to the number already present (namely proportional to $j$).
+
+If one adds an external field, $\mu H$, and assumes that the direction of $j$ is "degenerate" in the entire metal, then the sum over states becomes
+\uequ{
+\Sigma = \sum m \sumXY{m}{n}j\exp{+\alpha m + \beta j(j+1)} \f_{\frac{n}{2}-j,\frac{n}{2}+j},
+}
+where
+\uequ{
+\alpha=\frac{H}{kT}, \beta=\frac{\text{const}}{kT}.
+}
+It becomes
+\uequ{
+\Sigma = \sumXY{-\frac{n}{2}}{+\frac{n}{2}}(m)\sumXY{|m|}{\frac{n}{2}}(j)
+\exp{+\alpha m + \beta j(j+1)} \left[
+\binom{n}{\frac{n}{2}-j} - \binom{n}{\frac{n}{2} - j - 1}
+\right].
+}
+
+By "partial integration" this becomes
+\uequ{
+&\sumXY{-\frac{n}{2}}{+\frac{n}{2}}m \exp{\alpha m + \beta m(m+1)}
+\binom{n}{\frac{n}{2}-m} + \\
+&\left. \sumXY{-\frac{n}{2}}{+\frac{n}{2}}m\sumXY{|m|}{\frac{n}{2}}(j)
+\left(\exp{\beta j(j+1)} - \exp{\beta j(j-1)}\right)\binom{n}{\frac{n}{2}-j}.
+\right\} S
+}
+
+The second sum $S$ can be ignored for sufficiently-small $\beta$, since it contains the "differential quotients" of $\exp{\beta j(j+1)}$. (In any case I don't know how to calculate it). In evaluating the first sum for example if one assumes that the sum exhibits a steep peak in the vicinity of the eventual  mean value $m_0$, then we get
+\uequ{
+m(m+1) =& (\overline{m-m_0} + m_0)(\overline{m-m_0} + m_0 + 1)\\
+\approx & (m-m_0)(2m_0 + 1) + m_0 m_0 + 1 = m(2m_0 + 1) + \text{const}
+}
+
+It follows:
+\uequ{
+\Sigma = \sumXY{-\frac{n}{2}}{+\frac{n}{2}} 
+\exp{[\alpha + \beta(2m_0 + 1)]m}
+\binom{n}{\frac{n}{2}-m} = \left(
+\exp{\frac{\alpha + \beta(2m_0 + 1)}{2}} +
+\exp{-\frac{\alpha + \beta(2m_0 + 1)}{2}}
+\right)^n.
+}
+Thus
+\uequ{
+\frac{\partial}{\partial\alpha}\log{\Sigma} = 
+n\frac{\partial}{\partial\alpha}\log{\frac{\alpha + \beta(2m_0 + 1)}{2}}\\
+m_0 = \frac{n}{2}\mathfrak{Imag}{\frac{\alpha + \beta(2m_0)}{2}}
+}
+i.e. the Weiss formula.
+
+So, I won't start another new page, though I could still bring forth a series of thoughts about this theory. Ao write again!
+
+Many greetings, your W. Heisenberg.
+
+\letter{200}
+\from{Heisenberg}
+\date{June 13, 1928}
+\location{Leipzig}
+
+Dear Pauli!
+
+Many thanks for your letter, I now believe I've understood your reflections on the $H$-theorem. I would formulate the influence of the \WTF{inaccuracy inherent in the observation}{Beobachtungsunschärfe} thus -- this is probably what you meant: If there are several interacting systems (e.g. oscillators), then the variability of $c(t)$ is connected to the interaction so that $t_l = \frac{h}{E_1}$, when $t_l \approx \text{the "lifetime"}$ (time for a noticeable change in $c(t)$), $E_1$ denotes the interaction energy. The time needed to establish the state must be $\ll t_l$, and so $\Delta E \gg \frac{h}{t_l} \gg E_1$: $\Delta E =\text{uncertainty in the energy}$. \?{All unperturbed states are suitable to transition processes}, in which the energy lies in the neighborhood of a certain energy $\pm$ the order of the interaction energy -- which is naturally again trivial. However it seems to be questionable whether this \WTF{observational accuracy}{Beobachtungsschärfe} has to do with Dirac's \WTF{cheating}{Mogelei} (integration over $w$), since in principle one can always make measurements of the following type: if one first switches \textit{off} the interaction (e.g. the radiation), then one can determine the state arbitrarily precisely. Then one turns on the interaction from $t=0$ to $t=t$, then off again. After that one can again measure the energy to arbitrary accuracy; this is just the meaning of Dirac's $c(t)$. Incidentally Dirac undoubtedly starts from \textit{exactly}-defined states. (Dirac's equation (22): $a(\alpha')$ for $t=0$ equals $\delta(\alpha'-\alpha^0)$). In order to visualize Dirac's method, I've made the following model. An atom $a$ with states $1$ and $0$ is interacting with the atom $b$; the latter has, near to level $0$ a series of closely-spaces levels $n$ \?{at the approximate position of $1$}.
+
+TODO: IMAGE
+
+ At the time $t\leq 0$ let the atom $a$ be in state $1$, $b$ in state $0$; the associated Schr\"odinger function is thus $\varphi_1(q_a)\varphi_2(q_b)$. (The $\varphi_2$ still contains the time factor $\exp{\frac{2\pi i}{h}t}$.) In the interaction from $t=0$ on, a resonance begins in the well-known manner, the Schr\"odinger function at $t_0$ reads, \textit{if at this instant the interaction is again shut off},
+\uequ{
+a_{10}\varphi_1(q_a)\varphi_0(q_b) + \sumX{n}a_{0n}\varphi_0(q_a)\varphi_n(q_b),
+}
+or with the time factor (from $t=t_0$ on)
+\uequ{
+\Y = a_{10}\varphi_1(q_a)\varphi_0(q_b)\exp{(E_0 + E_1)t_0\frac{2\pi i}{h}}
+   + \sum a_{0n}\exp{(E_0 + E_n)(t - t_0)\frac{2\pi i}{h}}\varphi_0 (q_a) \varphi_n(q_b).
+}
+
+Dirac now seeks the probability, for $t\gg t_0$ after the interaction is shut off, that the atom $1$ be in state $0$, \textit{independently} of which state $n$ the atom $b$ is in. This probability is (\textit{without any \WTF{supplementary assumptions}{Zusatzannahme}}), according to the rules of the quantum theory, $\sumX{n}|a_{0n}|^2$. This formula\footnote{This also follows without further ado from the "conservation law" $|a_{10}|^2 + \sumX{n}|a_{0n}|^2 = \text{const}$} is identical with equation 23 in Dirac, Emmision and Absorption. Now the formula for the wavepacket $\Y$ doubtlessly contains \textit{more} \WTF{information}{Aussagen} than that over the $|a_{0n}|^2$; only after a time of the order $t-t_0 \approx \frac{h}{\Delta E}$, where $\Delta E$ denotes the distance between the two levels, all phase ralations in $\Y$ \textit{have in general become blurred}. Nevertheless the statements about $\sum{|a_{0n}|^2}$ from $t=t_0$ on must be correct, since in any case the atom $a$ can no longer change from $t=t_0$ on. So I still don't see where Dirac's \WTF{trick}{Mogelei} \WTF{fits in}{steckt}, any in any case I see no place at all for any \WTF{Phase averaging}{Phasenmittlung} in the whole calculation. (TODO: \WTF{???}{Und Du meinst doch \textit{diese} Formel der Diractheorie, wo über die Resonanznenner integriert wird}: $\int |a(W',\gamma')|^2 J dW'$.)
+
+In this it still to be noted that Dirac's linearity of the $|a^2|$ in $t$ only arises when $t \gg \frac{h}{\Delta E}$ ($\Delta E \approx$ the difference between the two levels of the series $n$). Since up to that time no \WTF{back-reaction}{Rückwirkung} has yet taken place, the interaction must be $\ll \Delta E$.
+
+As you see, over the course of this letter I've contradicted what I believed at the start, come to the conclusion that \?{there's no cheating with Dirac}. Up to now however I only have believe this, since one still must somehow make the jump from reversible to irreversible processes. But perhaps this jump again lies in the fact that the interaction is turnes on and off; all quantum \textit{statistics} (imprecision etc) indeed flow just \?{to this place}; so if I've not misunderstood Dirac, I would say that thermodynamics can be derived without supplememtary assumptions.
+
+Incidentally, I find Tthis derivation of the $H$-theorem from the radioactive formulae quite lovely. \textit{I am always very happy}, when you write me about your work, \textit{even when it's not yet clear}; only then it takens even longer until I understand what it's about.
+
+For the Weiss magneton numbers there is in addition to the trivial solution (measurement error, \?{since saturation is not satisfied}) still the other, that the atoms in the lattice are not all \WTF{interchangeable}{gleichberichtigt}, e.g. they break into two groups, +.+.+. etc, in which one gives a contribution, the other does not. We must reckon with such possibilities.
+
+Now many greetings,
+
+Your W. Heisenberg
+
+\letter{204}
+\from{Heisenberg}
+\date{July 31, 1928}
+\location{Leipzig}
+
+Dear Pauli!
+
+I've studied your paper and am quite in agreement with everything. With the probability Ansatz
+\uequ{
+\inv{k}S = \sumX{n}W_n (\log G_n - \log W_n),
+}
+I had to think a while until I understood it, perhaps you \?{should explain it a bit more} (or is this Ansatz generally known?). At one place I would present the facts differently, but on this point I was not even in complete agreement with Bohr (\?{it is incidentally not very essential}). On p. 16 you write: "Thus the concept of stationary states corresponds in the limiting case with the closed system. \textit{\?{There the} energy $E$ must be regarded as completely determined,...}. I hold this representation to be wrong, since the closed-ness of a system has, i.m.o. \textit{absolutely nothing} to do with the question of which values are determined and which are undetermined. One could just as well conclude "\textit{There the position of the electron at time $t=t_0$ must be regarded as completely determined...}", and then arrive at the opposite result. Even the concept "stationary state" is in my view \textit{essentially linked to observations}, not to closed systems, since as long as there is no observation, the word "stationary" has absolutely no meaning. Here you make, as can as I can see, a similar conclusion as Neumann in his paper that you've abused so much, in which you \?{apply the word "stationary" to things in which the time never physically occurs}, namely to closed systems. Thus it appears very arbitrary to me to only allow the general (non-periodic) solutions of the wave equation, \?{when the periodic ones have already been measured before}. The sentence: "a closed system is always in a stationary state" is nonetheless certainly just as correct and just as false as the other: "in a closed system the electron at time $t=t_0$ is found at a certain position". -- Otherwise I found your paper very nice.
+
+For the Sommerfeld-Festschrift I've written yet another paper on ferromagnetism, in which the interaction of several valence electrons per atom is treated. The Gaussian distribution appears to me, after as before, a very unhappy swindle, but I can go no further mathematically in the evaluation of $\sumX{l}\exp{\frac{E_l}{kT}}$; if Weyl wants to attempt this problem, I would be very happy, I have completely given up on it. The whole question seems important to me because of the similarity of my model with Ising's. According to my present view, Ising must also obtain ferromagnetism, if he assumes succiciently many neighbors (about $\geq 8$). According to the argument which Ising has published for the spacelike model, it seems to me as if he hadn't understood his paper at all. As long as one does not go to the limit $n \to \infty$, it is trivial that for $H=0$, $J=0$ as well, and indeed by aligning all magnets $J$ \textit{naturally}\footnote{\?{It applies just to the bar magnet as to the whole of the Langevin theory!}} becomes proportional to $\mathfrak{Imag}(n\alpha)$. In Ising's linear chain, all spin vectors are aligned when $\exp{-\frac{2\epsilon}{kT}} \approx \inv{n}$, thus when $T=\theta \approx \frac{2\epsilon}{k\log{n}}$; the Curie point $\theta$ is thus dependent on $n$ and goes towards zero with increasing $n$. For Ising's \WTF{wild}{wilde} spatial model, however, we wouls have $\theta \approx \frac{2\epsilon n^{\frac{2}{3}}}{k\log{n}}$, $\theta$ would become infinite with increasing $n$, i.e. it would always have all magnets in parallel. That Ising interprets this model as an argument against ferromagnetism thus seems to me to be a sign that he has not remotely understood his own work. What do you think about it?
+
+The saddest chapter of modern physics is however, now as before, the Dirac theory; I've not been able to do much \WTF{real}{dran} work, and have not come further in the question of the mass ratios either. I've only reflected on some of Dirac's difficulties in more detail.
+
+1. The matrix elements, which correspond to the transition $+mc^2 \to -mc^2$, are \?{in the position coordinates} on the order $a_0 \alpha$ ($a_0 = \text{hydrogen radius}$, $\alpha = \text{fine structure constant}$), in the velocity coordinates of the order $c^2$, in the acceleration $\frac{mc^3}{h}$. The spontaneous radiation transition $+mc^2 \to -mc^2$ are thus much more frequent than other spontaneous transitions.
+
+2. For collision processes the transition probabilities are actually of order $\alpha^4$.
+
+3. If one applies Dirac's "theory of dispersion" to the magnetic electron, then its \textit{"true dispersion"} immediately disappears. Thus the Thompson scattering of the free electrons must be contained in the second part of the scattering formula (absorption and re-emission)
+
+\uequ{
+P_r = E\frac{e^2}{h 4\pi^2}\frac{1}{\nu_s^2}\left|\sum{J''}
+\frac{\dot{x}_r(J'J")\dot{x}_s(J"J')}{\nu(J"J') - \nu_s} + 
+\frac{\dot{x}_s(J'J")\dot{x}_r(J"J')}{\nu(J"J') + \nu_s}
+\right|.
+}
+
+This would be impossible in the earlier theories, since the free electrons have no absorption lines; here however it has the absorption frequency $\frac{2mc^2}{h}$, which corresponds to the transition $mc^2 \to -mc^2$. \?{Since only this one $\nu(J'J")$ occurs} and additionally $\nu_s$ can be neglected with respect to this (domain of applicability of Dirac's dispersion theory), there follows
+\uequ{
+P_r = E\frac{e^2}{h 4\pi^2}\frac{1}{\nu_s^2}\left|\sum{J''}
+\frac{\dot{x}_r(J'J")\dot{x}_s(J"J') + \dot{x}_s(J'J")\dot{x}_r(J"J')}{2mc^2 / h}
+\right|;
+}
+further,
+\uequ{
+x_r = x\cos{\alpha_{xr}} + y\sin{\alpha_{yr}} + z\cos{\alpha_{zr}};
+}
+moreover
+\uequ{
+\dot{x} = \pddX{H}{p_x} = \alpha_x c (\alpha_x = \text{Dirac matrices});
+}
+thus
+\uequ{
+\dot{x}_r \dot{x}_s + \dot{x}_s \dot{x}_r = 2c^2(
+\cos{\alpha_{xr}}\cos{\alpha_{xs}} +
+\cos{\alpha_{yr}}\cos{\alpha_{ys}} +
+\cos{\alpha_{zr}}\cos{\alpha_{zs}}
+) = 2c^2 \cos{\alpha_{rs}},
+}
+i.e. the Thompson formula. It is nonetheless very amusing that this formula arises exactly on the basis of the \WTF{screwy}{verrückt} transitions.
+
+\?{So no other clever ideas have occurred to me}, hopefully it goes better after vacation; Jordan is said to have become \WTF{morose}{trübsinnig} over the magnetic electron,according to Gordan in Kiel. It's certainly understandable.
+
+Outside of that, however, quite nice vacation! From tomorrow, I'm going to be in Munich (110 Hohenzollernstrasse); from mid-August \?{nothing at all}, then again in Munich.
+
+Many greetings,
+
+Your W. Heisenberg
+
+
+\end{document}

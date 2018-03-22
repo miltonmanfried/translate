@@ -1,0 +1,38 @@
+\subsection*{22. The dynamics of continuous media.}
+
+If we take the particular case where there are no volume forces, the dynamical equations of continuous media are essentially the same as in classical mechanics. One forms the \?{sliding vector}{vecteur glissant} which forms the momentum-mass of a material element
+\uequ{
+\xG = \left[\m\e_0\right]\xPi + \left[\m\e_1\right]\xPi_x + \left[\m\e_2\right]\xPi_y + \left[\m\e_3\right]\xPi_z
+}
+and writes that the exterior derivative $\xG'$ is identically zero.
+
+If the medium is related to a fixed Galilean system, one may again put the components $\xPi, \xPi_x, \xPi_y, \xPi_z$ in the form
+\uequ{
+\xPi &= \rho dx\,dy\,dz - \rho u dy\,dz\,dt - \rho\nu dz\,dx\,dt - \rho w dx\,dy\,dt;\\
+\xPi_x &= u\xPi - p_{xx}dy\,dz\,dt - p_{xy}dz\,dx\,dt - p_{xz}dx\,dy\,dt,\\
+\xPi_y &= \nu\xPi - p_{yx}dy\,dz\,dt - p_{yy}dz\,dx\,dt - p_{yz}dx\,dy\,dt,\\
+\xPi_z &= w\xPi - p_{zx}dy\,dz\,dt - p_{zy}dz\,dx\,dt - p_{zz}dx\,dy\,dt.
+}
+
+The \textit{rest density} of the material element under consideration is given by
+\uequ{
+\rho_0\left[dt\,dx\,dy\,dz\right] = \left[dt\xPi\right] 
+- \frac{1}{c^2}\left[dx\xPi_x\right]
+- \frac{1}{c^2}\left[dy\xPi_y\right]
+- \frac{1}{c^2}\left[dz\xPi_z\right],
+}
+the formula in the second member of that occurring in the scalar product of the vector $(dt, dx, dy, dz)$ and the vector $(\xPi, \xPi_x, \xPi_y, \xPi_z)$. Expanding, one finds\footnote{It is to be remarked that since the volume element $[dt\,dx\,dy\,dz]$ is independent of the chosen reference system, the quantity $\rho_0$ has a meaning independent of this reference system. It is naturally not the same with the apparent density $\rho$.}
+\uequ{
+\rho_0 = \rho\left(1 - \frac{u^2 + \nu^2 + w^2}{c^2}\right) - \frac{1}{c^2}(p_xx + p_yy + p_zz).
+}
+
+The dynamical equations of continuous media are thus identical to those of classical mechanics, in the case where there are no given forces.
+
+If one attaches a variable Galilean reference system to each world-point, one will have
+\uequ{
+\xG' = &[\m\e_0][\xPi' + \omega_1^0 \xPi_x + \omega_2^0 \xPi_y + \omega_3^0 \xPi_z]\\
+     +& [\m\e_1][\xPi_x' + \omega_1^1 \xPi_x + \omega_2^1 \xPi_y + \omega_3^1 \xPi_z]\\
+     +& [\m\e_2][\xPi_y' + \omega_1^2 \xPi_x + \omega_2^2 \xPi_y + \omega_3^2 \xPi_z]\\
+     +& [\m\e_3][\xPi_z' + \omega_1^3 \xPi_x + \omega_2^3 \xPi_y + \omega_3^3 \xPi_z].
+}
+%. m

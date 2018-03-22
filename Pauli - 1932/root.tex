@@ -1,0 +1,114 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\renewcommand*\rmdefault{ppl}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{marginnote}
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+
+\nff{\WTF}{#1 (\textit{#2})}
+
+\nf{\translator}{\footnote{\textbf{Translator note:}#1}}
+
+\newcommand{\nequ}[2]{
+\begin{align*}
+#1
+\tag{#2}
+\end{align*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{align*}
+#1
+\end{align*}
+}
+
+\nff{\iffy}{#2}
+\nf{\?}{#1}
+
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+
+\nc{\fluc}{\overline{\delta_s^2}}
+
+\rf{\exp}{e^{#1}}
+
+\nc{\grad}{\operatorfont{grad}}
+\rc{\div}{\operatorfont{div}}
+\nc{\atan}{\operatorfont{arctan}}
+
+\nf{\pddt}{\frac{\partial{#1}}{\partial t}}
+\nf{\ddt}{\frac{d{#1}}{dt}}
+
+\nf{\inv}{\frac{1}{#1}}
+\nf{\Nth}{{#1}^\text{th}}
+\nff{\pddX}{\frac{\partial{#1}}{\partial{#2}}}
+\nf{\rot}{\operatorfont{rot}{#1}}
+
+\nc{\lap}{\Delta}
+\nc{\e}{\varepsilon}
+\nc{\R}{\mathfrak{r}}
+
+\nc{\Y}{\psi}
+\nc{\y}{\varphi}
+
+\nf{\from}{From: #1}
+\nf{\rcpt}{To: #1}
+\rf{\date}{Date: #1}
+\nf{\letter}{\section{Letter #1}}
+\nf{\location}{}
+
+\title{Pauli - 1932}
+
+\begin{document}
+
+\letter{292}
+\rcpt{Dirac}
+\date{September 11, 1932}
+\location{Zurich}
+
+Dear Dirac!
+
+Your remarks appearing in the Proceedings of the Royal Society about quantum electrodynamics were - gently put -- certainly no masterpiece. After a confused introduction, which consists of only half-understandable (because only half-understood) sentences, you finally come, via a simplified one-dimensional example, to results which are identical with those which are given by an application of the formalism developed my Heisenberg and me to this example. (This identity is immediately recognizable and was then worked out in a too-complicated manner by Rosenfeld). This end of your paper stands in opposition to the more or less clear assertions contained in the introduction, that you could somehow make a better quantum electrodynamics than Heisenberh and I.
+
+At this stage it hardly seems any use to open a discussion between you and me about your paper and this is not even the purpose of this letter. Rather this letter aims to give a contribution to the question of relativistic- and gauge-invariance of quantum electrodynamics. I have learned that you have expressed doubt as to the existence of this invariance. Although from the outset I've held this doubt to be baseless and unjustified, I was nonetheless inclined to consider it with a certain mildness and indulgence, since an insufficiently-clear formulation given on p.180 of my paper II with Heisenberg may have given rise to these doubts.
+
+Fermi's formulation of quantum electrodynamics, which however restricts the \textit{gauge}-invariance through the auxilliary condition
+\uequ{
+\inv{c}\pddX{\phi_0}{t} + \div{\vec{\phi}} = 0,
+}
+is especially well-suited to make the \textit{relativistic} invariance of the theory directly evident. Here the canonical C.R. (abbreviation for commutation relations) apply and the method of §4 of my paper II with Heisenberg (in the following simply denoted as II) leads directly to this goal.
+
+When transcribing my Handbuch-article I found a new basis for quantum electrodynamics (to be published in the Handbuch), which completely avoids certain formal \WTF{uglinesses}{Unschönheiten} in the current formulation (though naturally without being able to lead to diffrenr \textit{results} from the present theory; the self-energy-difficulty thus also continues to exist unchanged). The formalism namely contains \textit{only gauge-invariant quantities} resp. operators; (so e.g. the potentials are totally avoided and only the field strengths are used). This then has the advantage that all auxilliary conditions exist as \textit{identities}, i.e. are commutable with all operators; and further, that the question as to $q$-number-gauge-invariance or only $c$-number-gauge-invariance falls away. The C.R. of course don't have the canonical form, and must be specifically posited. The rigorous proof of the relativistic invariance then easily succeeds. I would now like to hear from you, whether you \?{are satisfied with} this proof of a quantum-electrodynamical fornalism, which \textit{simultaneously} satisfies the requirements of \textit{gauge} invariance and \textit{Lorentz} invariance, or whether your doubts still persist. I no longer see either a factual nor a psychological basis for the latter.
+
+Many gretings,
+
+Your W. Pauli
+
+If this letter reaches you in Russia, please greet the Russian physicists and also Delbr\"uck and Rosenfeld, if they are present.
+
+
+\end{document}

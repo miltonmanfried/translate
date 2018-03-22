@@ -1,0 +1,61 @@
+\subsection*{43.}
+
+If two manifolds are isomorphic, the correspondence which realizes the isomorphism of these two manifolds makes all of the coefficients $A_{jk}^i, A_{jkl}^i$ and their derivatives of all orders equal to one another. I do not intend to pursue further the study of this problem which is treated following the method that I have employed in a preceding memoir\footnote{\textit{Sur les équations de la gravitation d'Einstein} (\textit{Journal de Math.}, 1922, p. 141-203).}. I will be content to indicate the relations that necessarily exist between the quantities which have bene considered, omitting the demonstration of the fact that the relations that I have indicated are the only ones which exist in the general case.
+
+First of all, the formulae which give the theorems of conservation of curvature and torsion
+\nequ{7}{
+(\Omega^i)' + [\Omega^k \omega_k^i] - [\omega^k \Omega_k^i] &= 0,\\
+(\Omega_i^j)' + [\Omega_i^k \omega_k^j] - [\omega_i^k \Omega_k^i] &= 0
+}
+give us, expanding and ignoring all the terms which contain the $\omega_i^j$,
+\uequ{
+[dA_{jk}^i\omega^j\omega^k] + A_{jk}^i[\Omega^j\omega^k - \omega^j\Omega^k]
+ - A_{k\rho\sigma}^i[\omega^k\omega^\rho\omega^\sigma] = 0,\\
+[dA_{ikl}^j\omega^k\omega^l] + A_{jkl}^i[\Omega^k\omega^l - \omega^k\Omega^l] = 0,
+}
+from which, taking the ensemble of terms in $[\omega^\alpha \omega^\beta \omega^\gamma]$,
+\nequ{12}{
+A_{\alpha\beta|\gamma}^i &+ A_{\beta\gamma|\alpha}^i + A_{\gamma\alpha|\beta}^i + A_{\rho\gamma}^i A_{\alpha\beta}^i\\
+ &+ A_{\rho\alpha}^i A_{\beta\gamma}^\rho + A_{\rho\beta}^i A_{\gamma\alpha}^\rho
+  - A_{\alpha\beta\gamma}^i - A_{\beta\gamma\alpha}^i 
+ - A_{\gamma\alpha\beta}^i = 0,\\
+A_{i\alpha\beta|\gamma}^j &+ A_{i\beta\gamma|\alpha}^j
+ + A_{i\gamma\alpha|\beta}^j + A_{i\rho\gamma}^i A_{\alpha\beta}^\rho
+ + A_{j\rho\alpha}^i A_{\beta\gamma}^\rho + A_{j\rho\beta}^i A_{\gamma\alpha}^\rho = 0.
+}
+
+As regards the $A_{jk|lh}^i$ and the $A_{jkl|hm}^i$, one will have between these quantities and the preceding relations of two different types. The first comes from the differentiation of the relations (12), only conserving the terms in $\omega^\delta$; they are of the form
+\nequ{13}{
+A_{\alpha\beta|\gamma\delta}^i + A_{\beta\gamma|\alpha\delta}^i
+ + A_{\gamma\alpha|\beta\delta}^i = ...,\\
+A_{i\alpha\beta|\gamma\delta}^j + A_{i\beta\gamma|\alpha\delta}^j
+ + A_{i\gamma\alpha|\beta\delta}^j = ...,
+}
+the unwritten terms depending only upon the quantities previously considered. The relations of the second type come from equating the bilinear covariants of the first parts of (9) and (10); by only conserving the terms $[\omega^\alpha \omega^\beta]$ in the resulting equality, one finds
+\nequ{14}{
+A_{jk|\beta\alpha}^i - A_{jk|\alpha\beta}^i = A_{jk}^\rho A_{\rho\alpha\beta}^i
+ - A_{\rho k}^i A_{j\alpha\beta}^\rho - A_{j\rho}^i A_{k\alpha\beta}^\rho
+ - A_{jk|\rho}^i A_{\alpha\beta}^\rho,\\
+A_{jkl|\beta\alpha}^i - A_{jkl|\alpha\beta}^i = A_{jkl}^\rho A_{\rho\alpha\beta}^i
+ - A_{\rho kl}^i A_{j\alpha\beta}^\rho - A_{j\rho l}^i A_{k\alpha\beta}^\rho
+ - A_{jk\rho}^i A_{i\alpha\beta}^\rho - A_{jkl|\rho}^i A_{\alpha\beta}^\rho.
+}
+
+The relations between the $A_{jk|lhm}^i$ amd the $A_{jklh|mn}^i$ are similarly deduced:
+\begin{enumerate}
+\item The relations (13) and (14), differentiated conserving only the terms in $\omega^\epsilon$;
+\item The exterior derivatives of relations (11), conserving only the terms in $[\omega^\alpha \omega^\beta]$.
+\end{enumerate}
+
+One proceeds this way step by step.
+
+It is easily seen that the number of components of the curvature and the torsion is $\frac{n^2(n^2-1)}{2}$ and that of their first-order derivatives is $\frac{n^2(n^2-1)(n+1)}{3}$.
+
+\textit{Case of manifolds without torsion.} -- If the manifold is without torsion, the preceding relations are simplified; they are reduced to the following:
+\uequ{
+A_{i\alpha\beta|\gamma}^j + A_{i\beta\gamma|\alpha}^j + A_{i\gamma\alpha|\beta}^j &= 0,\\
+A_{i\alpha\beta|\gamma\delta}^j + A_{i\beta\gamma|\alpha\delta}^j + A_{i\gamma\alpha|\beta\delta}^j &= 0,\\
+A_{jkl|\beta\alpha}^i - A_{jkl|\alpha\beta}^i = A_{jkl}^\rho A_{\rho\alpha\beta}^i
+ - A_{\rho kl}^i A_{j\alpha\beta}^\rho - A_{j\rho l}^i A_{k\alpha\beta}^\rho
+ - A_{jk\rho}^i A_{i\alpha\beta}^\rho.
+}

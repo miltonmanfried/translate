@@ -1,0 +1,1261 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\renewcommand*\rmdefault{ppl}
+
+\newcommand{\tn}[1]{\footnote{\textbf{Translator note:} #1}}
+
+\newcommand{\footcite}[3]{\textsc{#1}, \textit{#2}, #3}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+
+\newcommand{\nequ}[2]{
+\begin{equation*}
+#1
+\tag{#2}
+\end{equation*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{equation*}
+#1
+\end{equation*}
+}
+
+\newcommand{\TN}[1]{
+\footnote{\sc{Translator note}: #1}
+}
+
+\nc{\sic}{\TN{sic}}
+
+\newcommand{\var}[1]{#1}
+\newcommand{\vect}[1]{\vec{\var{#1}}}
+\newcommand{\coord}[1]{#1}
+\newcommand{\const}[1]{#1}
+\newcommand{\op}[1]{
+\mathcal{#1}
+}
+
+\newcommand{\primed}[1]{{#1^{\prime}}}
+\newcommand{\pprimed}[1]{{#1}^{\prime\prime}}
+\newcommand{\CC}[1]{{#1^{*}}}
+
+\newcommand{\unit}[1]{#1}
+\newcommand{\dotddt}[1]{\dot{#1}}
+\nc{\opddt}{\frac{d}{dt}}
+\newcommand{\inv}[1]{\frac{1}{#1}}
+\newcommand{\opinv}[1]{{#1}^{-1}}
+
+\newcommand{\oppddX}[1]{
+\frac{\partial}{\partial{#1}}
+}
+\nc{\oppddxk}{\oppddX{\xk}}
+
+\newcommand{\pddt}[1]{\pdXdY{#1}{\t}}
+
+\newcommand{\dXdY}[2]{
+\frac{d{#1}}{d{#2}}
+}
+
+\newcommand{\ddt}[1]{\dXdY{#1}{\t}}
+
+\newcommand{\pdXdY}[2]{
+\frac{\partial {#1}}{\partial {#2}}
+}
+\newcommand{\pddXdYY}[2]{
+\frac{\partial^2 {#1}}{\partial {#2}^2}
+}
+\newcommand{\pddtt}[1]{\pddXdYY{\qr}{\t}}
+
+\newcommand{\barred}[1]{
+\overline{#1}
+}
+
+\newcommand{\hatted}[1]{\widehat{#1}}
+
+\newcommand{\func}[1]{\pmb{#1}}
+\newcommand{\WF}[1]{\var{#1}}
+
+\renewcommand{\it}[1]{\textit{#1}}
+\renewcommand{\sc}[1]{\textsc{#1}}
+
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumk}{\underset{k}{\sum}}
+\newcommand{\suml}{\underset{l}{\sum}}
+\newcommand{\sumr}{\underset{r}{\sum}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+\nc{\sumv}{\sumX{\nu}}
+\newcommand{\prodX}[1]{\underset{#1}{\prod}}
+\nc{\prodk}{\prodX{k}}
+\nc{\prodl}{\prodX{l}}
+
+\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+
+\renewcommand{\exp}[1]{\const{e}^{#1}}
+\newcommand{\dirac}{\func{\delta}}
+\newcommand{\kronecker}[1]{\func{\delta}_{#1}}
+
+% wavefuncs
+
+\nc{\Y}{\WF{\psi}}
+\nc{\Yp}{\primed{\Y}}
+\nc{\YCC}{\CC{\Y}}
+\newcommand{\YX}[1]{\Y_{#1}}
+\newcommand{\YpX}[1]{\Yp_{#1}}
+\nc{\Yi}{\Y_{i}}
+\nc{\YiCC}{\CC{\Y_{i}}}
+\nc{\Yk}{\Y_{k}}
+\nc{\X}{\var{\chi}}
+\nc{\Xplus}{\X_{+}}
+\nc{\Xminus}{\X_{-}}
+\nc{\Yt}{\pdXdY{\Y}{\t}}
+
+\nc{\VY}{\WF{\varphi}}
+\nc{\VYl}{\VY_l}
+
+%vars%
+\nc{\x}{\var{x}}
+\nc{\y}{\var{y}}
+\nc{\z}{\var{z}}
+\rc{\t}{\var{t}}
+\nc{\tp}{\primed{\t}}
+
+\rc{\r}{\var{r}}
+\nc{\q}{\var{q}}
+\nc{\w}{\var{\omega}}
+
+\nc{\dx}{\var{dx}}
+\nc{\dy}{\var{dy}}
+\nc{\dz}{\var{dz}}
+\nc{\dt}{\var{dt}}
+
+\nc{\dw}{\var{d\omega}}
+
+\nc{\xk}{\var{x}_{k}}
+\nc{\xl}{\var{x}_{l}}
+\nc{\xone}{\var{x}_{1}}
+\nc{\xtwo}{\var{x}_{2}}
+\nc{\xthree}{\var{x}_{3}}
+
+\nc{\xpk}{\var{\primed{x}}_{k}}
+\nc{\xpone}{\var{\primed{x}}_{1}}
+\nc{\xptwo}{\var{\primed{x}}_{2}}
+\nc{\xpthree}{\var{\primed{x}}_{3}}
+
+\nc{\xkHat}{\hatted{\x}_{k}}
+\nc{\xlHat}{\hatted{\x}_{l}}
+
+\nc{\xik}{\var{\xi}_{k}}
+\newcommand{\xiX}[1]{\var{\xi}_{#1}}
+\nc{\xil}{\var{\xi}_{l}}
+
+\nc{\p}{\var{p}}
+\nc{\pone}{\p_{1}}
+\nc{\ptwo}{\p_{2}}
+\nc{\pthree}{\p_{3}}
+\nc{\pk}{\p_{k}}
+
+\nc{\E}{\var{E}}
+
+\newcommand{\bX}[1]{\var{b_{#1}}}
+\nc{\spinZeta}{\var{\zeta}}
+
+\rc{\k}{\var{k}}
+
+\nc{\ak}{\var{a}_{k}}
+\nc{\bl}{\var{b}_{l}}
+\nc{\ckl}{\var{c}_{kl}}
+\nc{\gkl}{\var{g}_{kl}}
+
+\nc{\vk}{\var{v}_{k}}
+
+\nc{\Pp}{\primed{\var{P}}}
+
+\nc{\ekl}{\var{\varepsilon}_{kl}}
+
+%matrices
+\nc{\aone}{\alpha_1}
+\nc{\atwo}{\alpha_2}
+\nc{\athree}{\alpha_3}
+\nc{\afour}{\alpha_4}
+\nc{\alphak}{\alpha_{k}}
+\nc{\alphal}{\alpha_{l}}
+
+\nc{\etak}{\var{\eta}_{k}}
+\newcommand{\etaX}[1]{\var{\eta}_{#1}}
+
+\newcommand{\dgX}[1]{\var{\gamma}_{#1}}
+\nc{\dgk}{\dgX{k}}
+\nc{\dgl}{\dgX{l}}
+
+%funcs
+
+\nc{\f}{\func{f}}
+\nc{\g}{\func{g}}
+\newcommand{\Ai}[1]{\var{A}_{#1}}
+\newcommand{\Ak}{\Ai{k}}
+\newcommand{\V}{\var{V}}
+\nc{\fc}{\var{c}}
+
+%ops
+\nc{\A}{\op{A}}
+\nc{\Abar}{\barred{\A}}
+\rc{\H}{\op{H}}
+\nc{\Hrho}{\op{H}_{\rho}}
+\nc{\Hsigma}{\op{H}_{\sigma}}
+\nc{\K}{\op{K}}
+\nc{\opL}{\op{L}}
+\nc{\opJ}{\op{J}}
+\nc{\opLambda}{\var{\Lambda}}
+
+%constants
+\rc{\i}{\const{i}}
+\nc{\I}{\const{I}}
+\nc{\m}{\const{m}}
+\nc{\mm}{{\m^2}}
+\rc{\c}{\const{c}}
+\nc{\cc}{{\c^2}}
+\nc{\h}{\const{h}}
+\nc{\hh}{{\h^2}}
+\nc{\vol}{\const{V}}
+\nc{\e}{\const{e}}
+\nc{\len}{\const{L}}
+\nc{\n}{\const{n}}
+\nc{\N}{\const{N}}
+\nc{\D}{\const{D}}
+\renewcommand{\a}[1]{\const{a}_{#1}}
+%??? FIXME - they use a small x
+\nc{\hx}{-\i\hbar}
+\nc{\fsc}{\const{\alpha}}
+\nc{\tauTime}{\const{\tau}}
+\nc{\tauZero}{\const{\tau_0}}
+\nc{\freq}{\const{\nu}}
+\nc{\posErr}{\const{\lambda}}
+
+%shortcuts
+
+\nc{\eHtx}{\exp{\frac{\H\t}{\hx}}}
+\nc{\emHtx}{\exp{-\frac{\H\t}{\hx}}}
+\nc{\fitz}{\sqrt{1-\var{\beta}^2}}
+\newcommand{\ifitz}[1]{\frac{#1}{\fitz}}
+\newcommand{\fitzo}[1]{\frac{\fitz}{#1}}
+
+\title{Schrodinger - Interpretation}
+
+% psi(*'){_{i,k,1,2,3,4}}, b0,b1,b2,... dx, f(A){bar}, n, a1...a2, chi, chi_{+/-},omega_{1,2,3,k}, varphi_l
+% state vectors-psi(x,t), Zeta?
+% matrices- alpha1..4, alpha{k,l} beta, I, eta_{1,2,3,k}, gamma_{1...4,k,l},vareps_kl,I,Lambda
+% variables-xyzt,x{0'1'2'3},x_{lk}{hat},p,n,p{1'2'3, '''}, xi, xi_{1,2,3,k}, v_k, beta^2, i''',r,nu{freq},omega
+% operators-A{''}(bar),H,d/dxk, d/dxl, H_{rho,signa},B,K,L,J
+% constants-ai,ak,bl,bi,n,h,i,m,c,e,alpha(fsc),tau,tau_0,lambda,l,omega_{0,1},t_{0,1},D,N,c_kl,g_kl
+% functions-f(A), kronecker{kl}, A_{123k}, V, P{'}, varepsilon_{1,2,3,k},c(x,omega),lambda_k, mu_l,g(x,t),s_{1,k}(hat)
+
+% exp, sumk, suml, mulk, mull, 
+
+\begin{document}
+
+\section{Introduction}
+
+I intend to expose in this lecture various ideas concerning the quantum mechanics and the interpretation that they are generally given at the present hour; I will principally discuss the relativistic quantum theory of the motion of the electron. As far as we know today, it seems almost certain that the quantum mechanics of the electron, in their ideal form \it{which we do not yet have}, may someday form the basis of all physics. This fact is of particular interest here in Paris: we all know that the bases of the modern theory of the electron were raised here in Paris by our celebrated compatriot Louis de \sc{Broglie}.
+
+The research which I am going to expose does not form a clear and complete theory \footnote{The original memoirs, which form the basis of these procedings, have been published in the \it{Sitzungsberichte der preussischen Akademie der Wissenschaften}, 1930, p. 418; 1931, pp. 63, 144, 238. In the pages which follow, some of the envisaged problems are maybe a bit less precise; one may equally find new results (v. Notes I-III).}. The common link, a bit loose elsewhere, which attaches the one to the other, the common source from which they derive, is the discontentment which is felt when considering the present state of the theory and especially that of the \it{current physical interpretation} of the quantum mechanics. I would try to attract your attention to the great difficulties that present themselves and which the most severe and maybe the most unexpected concerns the reconciliation of the conceptions of the theory of relativity on the one hand and those of the quantum mechanics on the other.
+
+We commence by fixing the fundamental notions to be sure that we understand eachother. Two types of mathematical entities figure in quantum mechanics: the functions $\Y(\x, \t)$ and (linear and Hermitian) operators $\A$. $\Y$ is a complex function of the coordinates of a physical system and of the time $\t$, which is treated as a parameter; $\Y$ describes \it{the state} of this system at a determined moment. An operator is a law permitting the formation of an arbitrary function $\Y$ from the coordinates of another function of the same arguments \footnote{$\A$ operates (in general) uniquely on the coordinates and not on the time, that is to say it defines a law acting between the functions of the \it{coordinates} and not of the functions of coordinates \it{and} the time; however the operator $\A$ may depend on the time which figures in our expression as a parameter (see that which follows).}
+
+\uequ{
+\Y \rightarrow \A\Y.
+}
+
+The physical significance of the operators is the following: to each physical quantity which one supposes to be \it{measurable}, or observable in the system under consideration, corresponds a particular operator; for example, to the coordinate $\x$ corresponds the operator "multiplication by $\x$", etc...however, given the state $\Y$, if one repeats the measurement of the "quantity $\A$
+" a large number of times, one will not always find the same value, but the \it{mean} of these measurements will be given by
+
+\uequ{
+\Abar = \int\YCC\A\Y\dx
+}
+where $\YCC$ is the complex conjugate of $\Y$; $\int\dx$ represents integration over all configurations of the system. \it{Such is the interpretation generally adopted today}. This already contains the indication that $\Y$ provides not only the mean value, but also all of the statistics of $\A$, that is to say of each observable. We admit that an analytic function $\f(\A)$ -- an \it{operator} -- may be defined by a power series:
+
+\uequ{
+\f(\A) = \bX{0} + \bX{1}\A + \bX{2}\A^2 + \dots,
+}
+where $\A^n$ signifies the application of $\A$ $\n$ times.
+In particular, we consider a function as indicated in the figure: zero everywhere, except between $\a{1}$ and $\a{2}$ where it takes the value 1.
+
+
+????? Figure 1 ??????
+
+
+It is very easy to approximate such a function by a set of analytic functions. The mean value $\barred{\f(\A)}$ of the function $\f(\A)$ defined by this set, is evidently the \it{probability} for which $\A$ to be between $\a{1}$ and $\a{2}$. One also very easily shows that the only possible values -- the only which have a probability greater than zero -- are the eigenvalues of the operator $\A$. I cannot insist on this point.
+
+The operator $\H$, which corresponds to \it{the energy} of a particular system, as well as the dynamical nature of the systen, that is to say the spontaneous variation of $\Y$ with the time via the equation
+\nequ{
+\frac{\h}{2\pi\i}\pddt{\Y} = -\H\Y.
+}{1}
+It is easy to solve this equation in a totally general manner. The solution is
+\uequ{
+\Y(\x, \t) = \emHtx\Y(\x, 0), \hx = \frac{\h}{2\pi\i}.
+}
+$\eHtx$ is defined by a well-known power series. The verification of this solution is very easy; naturally it is again quite implicit.
+
+There are two methods to arrive at more explicit statements in the problem posed by a "wave equation" such as (1). The one, well known, is to find the eigenvalues and the eigenfunctions of the equation
+\uequ{
+\H\Y = \E\Y,
+}
+or, in other terms, the development of the solution in a \sc{Fourier} series relative to the \it{time}. This is the method of the wave mechanics.
+
+The other method is that of operational calculus. One seeks to avoid the study of the temporal variation of $\Y$, and one wonders: is there not at each instant an operator $\A(\t)$, which must depend on the parameter $\t$, such that this operator gives with the function $\Y(\x, 0)$ the same mean value and the same statistics as $\A$ gives with $\Y(\x, \t)$? The response is \it{affirmative}. And the temporal variation of this $\A(\t)$ is, for an arbitrary operator, given by the same simple formula:
+\nequ{
+\hx\ddt{\A(\t)} = \H\A(\t) - \A(\t)\H,
+}{2}
+then the general solution is
+
+\uequ{
+\A(\t) = \eHtx\A(0)\emHtx
+}
+
+The advantage of this method is that everything deduced from it will be valid for an arbitrary initial $\Y(\x, 0)$. One is not obligated to fix it in advance. In general one \it{suppresses} the argument $\t$ in the statement of the relation (2).
+
+We note a particular case of great importance, namely the case where $\A$ \it{commutes} with $\H$. The statistics of such a quantity is then independent of time. One may say then that $\A$ is a "\it{first integral}" of the system under consideration.
+
+\section{Dirac's electron}
+
+We now apply these well-known facts to the \sc{Dirac} electron in the case of the absense of a field. The Hamiltonian operator is in this case the following:
+
+\uequ{
+\H = \c(\aone\pone + \atwo\ptwo + \athree\pthree + \afour\m\c),
+}
+
+The $\pk$ are the operators $\hx\oppddxk$, and $\xone, \xtwo, \xthree$ represent $\x, \y, \z$. The $\alphak$ ($\k=1,2,3,4$) operate one a variable different from $\xone, \xtwo, \xthree$, which one may call $\spinZeta$, and which has four possible values. Thus the $\alphak$ are $4\times4$ matrices. But all that is necessary to know the matrices are the commutation relations:
+
+(1) These matrices commute naturally with each operator like $\xk, \pk, \dots$ which does not operate on $\spinZeta$; and
+
+(2) $\alphak\alphal + \alphal\alphak = 2\kronecker{kl}.$
+
+In applying the operational calculus (equation (2)), one easily proves that the $\alphak (\k = 1, 2, 3, 4)$ or rather the $\c\alphak$ are the operators which correspond to the components of the electron's velocity. In fact, for the well-known relation
+\uequ{
+\pk\xk
+- \xk\pk = \hx\I, (\k = 1, 2, 3)}
+
+one finds
+\uequ{
+\begin{split}
+\hx\ddt{\xk} &= \H\xk-\xk\H = \hx\c\alphak. \\
+\ddt{\xk} &= \c\alphak.
+\end{split}
+}
+
+One of the most interesting traits of the \sc{Dirac} equation consists precisely in the fact that the notions of \it{momentum} and \it{velocity} are \it{separate}. The velocity operator commutes with the coordinates, while $\xk$ and $\pk$ behave as in ordinary quantum mechanics.
+
+What is even more interesting is that even in the absense of a field, the components of the velocity \it{are not first integrals}. They don't commute with $\H$. One finds a simple value not for their \it{commutator}, but for their \it{anticommutator} with $\H$:
+
+\uequ{
+\H\xk + \alphak\H = 2\c\pk. (\k = 1, 2, 3)
+}
+Then
+\uequ{
+\hx \ddt{\alphak} = 2\H\alphak - 2\c\pk = 2\H(\alphak - \c\opinv{\H}\pk) = 2\H\etak
+}
+putting
+\uequ{
+\etak = \alphak - \c\opinv{\H}\pk.
+}
+One concludes, because $\H$ and $\pk$ commute with $\H$,
+\uequ{
+\hx\ddt{\etak} = 2\H\etak
+}
+where one may integrate:
+\uequ{
+\etak = \alphak - \c\opinv{\H}\pk = \exp{\frac{2\H\t}{\hx}}\etak^0
+}
+Since $\alphak$ corresponds to $\inv{\c}\ddt{\xk}$, one obtains for $\xk$, from a second integration:
+\uequ{
+\xk = \ak + \cc\inv{\H}\pk\t + \frac{\c\hx}{2}\opinv{\H}\exp{\frac{2\H\t}{\hx}}\etak^0
+}
+We put
+\uequ{
+\begin{split}
+\ak + \cc\opinv{\H}\pk\t &= \xkHat \\
+\frac{\c\x}{2}(\alphak - \c\opinv{\H}\pk) &= \xik
+\end{split}
+}
+One has:
+\uequ{
+\xk = \xkHat + \xik
+}
+
+The coordinate operators decompose into two parts. The first is a function linear in the time, as one would expect for the operator $\xk$ in its entirety, and the same for the proper-time factor $\t$: $\pk$ corresponds to $\ifitz{\m\vk}$, $\opinv{\H}$ and $\fitzo{\m\cc}$, therefore $\cc\opinv{\H}\pk$ correspond to $\inv{\cc}\vk\times\cc$, therefore with $\vk$.
+But there is also another partm which corresponds to a sort of oscillation or "trembling" \TN{Zitterbewegung}. In calculating the mean value of $\xk$, one appreciates that in general the mean value of the second part \it{is non-zero}: the oscillation about the "electrical center of gravity" is perfectly real.
+
+Still, there are two remarks to be made. The first is that the \it{amplitude} of the oscikkation is always very small. Putting
+\uequ{
+\xk = \xkHat + \xik
+}
+one easily finds
+\uequ{
+\xik^2 = \frac{\hh\cc}{16\pi^2}\H^{-2}(1 - \H^{-2}\cc\pk^2) = \text{constant}.}
+
+But
+\uequ{
+\H^2 = \cc(\pone^2 + \ptwo^2 + \pthree^2 \m^2\cc).
+}
+Thus the eigenvalues of $\H^2$ are all larger than $\m^2\c^4$, $|\H| > \m\cc$. Then those of $|\H^{-2}|$ are less than $\inv{\m^2\c^4}$ and one has:
+
+\uequ{
+\begin{split}
+\text{eigenvalues of $\xik^2$} &\leq \frac{\h^2}{16\pi^2\m^2\cc} \\
+|\text{eigenvalues of $\xik^2$}| &\leq \frac{\h}{4\pi\m\c} \approx 10^{-14} \text{cm}
+\end{split}
+}
+
+The second remark involves the fact that the trembling around the centre of gravity vanishes in a special case, namely in the case where the function $\Y$ is that which we shall later call "a purely positive function", that is to say one which only contains eigenfunctions of $\H$ corresponding to positive eigenvalues. This will be clarified shortly. For the moment we only note the mathematical fact that $\etak$ and $\xik$ anticommute with $\H$:
+\uequ{
+\begin{split}
+\H\xik + \xik\H &= 0 \\
+\H\etak + \etak\H &= 0,
+\end{split}
+}
+a fact which will be important in the following.
+
+\section{Even and odd operators}
+
+The operators which commute with $\H$ (integrals in the absense of a field) and those which anticommute with $\H$ (such as $\xik, \etak$) form special cases of an important classification which we now introduce: the classification of even and odd operators.
+
+We have proven that the eigenvalues of $\H$ are greater in absolute value than 
+\uequ{
+|\H| \geq \m\cc.
+}
+Thus they are either $\geq \m\cc$, or $\leq -\m\cc$. It is easy to prove that conversely an arbitrary value, outside the interval $(-\m\cc, +\m\cc)$ is an eigenvalue of $\H$, and that it corresponds to a specific eigenfunction (a plane wave for example). One knows that this is the greatest difficulty of \sc{Dirac}'s theory. In fact the negative eigenvalues don't have a physical significance; one would do well to be rid of them. At least it should be impossible for a "positive" eigenfunction to transform over the course of time thus giving birth to "negative" functions, or at least this variation should be produced only infinitely slowly, to make it sufficiently improbably that the \it{enormous} change of energy $2\m\cc$ which we have never observed.
+
+One foresees that in this context, it will become important to distinguish the operators which in operating on a "positive" eigenfunction ??? don't remain in ??? an ensemble of "positive" eigenfunctions. The simplest way to make this distinction is to represent all operators in the system of matrices where $\H$ is diagonal. Consider one such representation (see fig. 2). The central cross is empty, the field of elements of the matrix is decomposed into four regions.
+
+?????? Figure 2 ??????
+
+We will call positive a function $\Y$ which, developed in a series of eigenfunctions of $\H$ (always the energy in the absense of the field) which contains only positive eigenfunctions. A negative function is defined in the same manner. An operator whose matrix elements appear only in regions I and III will not change the positive or negative character of a positive or negative function. We callv his operator "even". For the "odd" operators the matrix elements appearing in the regions II and IV; applied to a positive function these operators make it negative, and vice versa. Now, it is easy to see that the operators which commute with $\H$ are even, and those which anticommute with $\H$ are odd. For example, if for the equation
+\uequ{
+\H\xik + \xik\H = 0,
+}
+we write the matrix element $(\sigma\rho)$ in the schema where $\H$ is diagonal, we obtain
+\uequ{
+(\Hrho + \Hsigma)(\xik)_{\rho\sigma} = 0
+}
+
+Thus, if $\Hrho \geq \m\cc$, $\Hsigma \geq \m\cc$ or if $\Hrho \leq \m\cc$, $\Hsigma \leq \m\cc$, it follows that $(xik)_{\rho\sigma}$ must be null, the operator $\xik$ is thus odd. The same reasoning applies to $\etak$.
+
+One proves in the same fashion that it suffices, for a known even (or odd) operator, that its second, third, or in general $n^{th}$ commutator (or anticommutator) with $\H$ are null. It follows that the decomposition of the coordinates which we made earlier:
+\uequ{
+\xk = \xkHat + \xik,
+}
+is the precisely the decomposition into even and odd operators. In effect, we have proven that $\xik$ is odd. $\xkHat$ on the other hand is even because is a linear function of time in the absense of a field. Thus its second commutator with $\H$ vanishes, so $\xkHat$ is odd. Similarly the decomposition
+\uequ{
+\alphak = \c\opinv{\H}\pk + (\alphak - \c\opinv{\H}\pk) = \c\opinv{\H}\pk + \etak,
+}
+represents an even/odd decomposition.
+
+We add these nearly-evident propositions:
+
+(1) An arbitrary operator is decomposable in a unique fashion into even and odd parts.
+(2) An arbitrary function is decomposable in a unique fashion into positive and negative parts.
+(3) An arbitrary positive function is orthogonal to an arbitrary negative function.
+(4) The mean of an even operator for a state represented by a "pure" function (that is to say positive or negative), is zero
+(5) The eigenfunctions of an even operator may always be chosen to be "pure" (but it is possible that positive and negative eigenfunctions belong to one and the same eigenfunction).
+(6) An odd operator never has pure eigenfuctions except maybe for the eigenvalue zero.
+(7) A product of powers of a certain number of "pure" operators is even or odd following the number of \it{odd} operators which are present (or the sum of their exponents) is even or odd.
+
+The proposition (4) demonstrates that which was said atbthe end of the previous paragraph on the behavior of the center of gravity in the case where tyenfunction $\Y$ is purely positive (or negative).
+
+\section{Case of an external field}
+
+We will use the results which we have obtained to answer the following question which is of fundamental interest: the initial state being given by a purely positive function $\Y$, will this function remain purely positive over the course of time?
+
+In the absense of a field, the answer is in the affirmative. The variation of $\Y$ is given by the propagation equation
+\uequ{
+\hx\pddt{\Y} = -\H\Y
+}
+or
+\uequ{
+d\Y = \frac{\H}{\hx}\Y\dt.
+}
+
+The operator $\H$ is even by definition. Thus the increase in $\Y$ is positive at each instant and $\Y$ remains positive.
+
+We now envisage the case of an arbitrary external field given by the potentials $\Ai{1}, \Ai{2}, \Ai{3}$ and $\V$. The \sc{Dirac} theory accounts for the action of an external field on an electron by the following modifications to the operator $\H$:
+
+(1)
+the potential energy $\e\V$ is added to it
+
+(2) the $\pk$ are replaced by $\pk + \frac{\e}{\c}\Ai{k}$.
+
+
+This manner of taking account of the existence of an external field is not at all satisfactory; neither is the whole idea of an "external field". It is only something provisional, an "ersatz" for a theory which we don't need anymore. In reality, the "external fields" come from other electrons and protons and one should thus treat the problem in full generality as a "many-body problem", that is to say in the case where the bodies are far-enough away from one other that the simple \sc{Coulomb} law no longer suffices to describe their mutual action. We do not yet know how to attack this problem; at least the methods which have been proposed up to the present, the hyperquantization \sic or the repeated quantization, the quantization of fields, are so complicated and provide great difficulties that I shall not discuss today.
+
+We thus employ the method of \sc{Dirac} which, as we know, leads to quite good results, for example in those which concern the find structure of hydrogen, etc...So $\K$ is the energy operator in an arbitrary field, that is to say the operator $\H$ with the two modifications indicated earlier. (The letter $\K$ has been chosen to recall the name of \sc{Kepler}):
+\uequ{
+    \K = \c\left[
+        \aone\left(\pone \frac{\e}{\c}\Ai{1} \right) + \dots + \dots + \afour\m\c
+    \right] + \e\V,
+}
+$\Ai{1}, \Ai{2}, \Ai{3}, \V$ being given functions of $\xone, \xtwo, \xthree, \t$. The wave equation for $\Y$ is then
+\nequ{
+    d\Y = -\frac{\K}{\hx}\Y\dt.
+}{4}
+
+Does this preserves the positive character of $\Y$, if $\Y$ is positive from the start? That depends on the parity of the operator $\K$. We will soon see that $\K$, which is \it{approximately} even, contains a small odd part.
+
+Before going further, we insist on the fact that in the definitions of "positive" and "negative", "even" and "odd", it is always the operator $\H$ of the motion \it{without} force fields which is involved, and not $\K$. In fact, what interests us is the probability of the appearance over the course of time of a negative \it{internal} energy, energy which corresponds classically with the well-known expression
+
+\uequ{
+\ifitz{\m\cc},
+}
+and not the probability of a negative \it{total} energy. In fact, to avoid any contradiction with experience, it is necessary to exclude the states with \it{internal} negative energy: that is the goal we have in view.
+
+We must thus study the operator $\K$ and find its decomposition into even and odd parts. This is made easy by the following proposition which we now demonstrate. Being given a decomposition of the operators $\A, \primed{\A}, \pprimed{\A}, \dots$
+
+\nc{\B}{\op{B}}
+\nc{\Ap}{\primed{\A}}
+\nc{\App}{\pprimed{\A}}
+\nc{\Aeven}{\var{a}_{even}}
+\nc{\Aodd}{\var{a}_{odd}}
+
+\nc{\Apeven}{\primed{\var{a}}_{even}}
+\nc{\Apodd}{\primed{\var{a}}_{odd}}
+\nc{\Appeven}{\pprimed{\var{a}}_{even}}
+\nc{\Appodd}{\pprimed{\var{a}}_{odd}}
+
+\nc{\Beven}{\var{b}_{even}}
+\nc{\Bodd}{\var{b}_{odd}}
+
+\uequ{
+\begin{split}
+\A &= \Aeven + \Aodd \\
+\primed{\A} &= \Apeven + \Apodd\\
+\pprimed{\A} &= \Appeven + \Appodd \\
+\dots,
+\end{split}
+}
+the decomposition of an operator $\B$, a \it{function} of $\A, \Ap, \App, \dots$ is given by
+\uequ{
+\begin{split}
+\B &= \f(\A, \Ap, \App, \dots)\\
+   &=\inv{2}\left[
+   \f(\Aeven + \Aodd, \Apeven + \Apodd, \dots) + 
+   \f(\Aeven - \Aodd, \Apeven - \Apodd, \dots)
+ \right] + \\
+ &+ \inv{2}\left[
+   \f(\Aeven + \Aodd, \Apeven + \Apodd, \dots) -
+   \f(\Aeven - \Aodd, \Apeven - \Apodd, \dots)
+ \right]
+\end{split}
+}
+
+This proposition is easily demonstrated. One proceeds to take for the function $\f$ the product $\A\Ap$ and one deduces that the theory is valid for a product of arbitrary powers, as well as a sum of 
+roducts of powers, and finally for an arbitrary analytic function.
+
+Our operator $\K$ is given as a function of the $\alphak$, the $\pk$ and the $\xk$. We have obtained in the previous paragraph the decomposition into $\alphak$ the $\xk$. But, the $\pk$ are even (it commutes with $\H$), thus the decomposition of $\K$ may be made by means of the preceding theorem.
+
+We will examine in more detail the case of the hydrogen atom. We have
+\uequ{
+\begin{split}
+\Ak &= 0, \e\V = -\frac{\e^2}{\r}, \r = \sqrt{\xone^2+\xtwo^2+\xthree^2} \\
+\K &= \H - \frac{\e^2}{\r} = \opL + \opJ \\
+\opL &= \H - \frac{\e^2}{2}\left(\opinv{\r} + \inv{\sqrt{(\xone - 2\xiX{1})^2+\dots}}\right)\\
+\opJ &= -\frac{\e^2}{2}\left(\opinv{\r} + \inv{\sqrt{(\xone - 2\xiX{1})^2+\dots}}\right)\\
+\xk &= \xkHat + \xik \\
+\xkHat - \xik &= \xk - 2\xik
+\end{split}
+}
+The operators $\xik$ are a bit complicated, it is true, because they contain $\opinv{\H}$ which is not a differential operator. However, everything is well-defined. The extraction of the square rootmdoes not present a difficulty, because the quantity under the radical is a positive operator, that is to say it has positive eigenvalues, and it is with a bit of examination evident that one must take the square root in a such a manner that all its eigenvalues be positive (the ambiguity which is present is in fact the same as that which appears in the definition of $\r$ itself).
+
+We have posed the following question: does the equation (4) conserve the positive character of a positive function? Evidently not: $\K$ is not even. Its odd part $\opJ$, which we have isolated, provokes over the course of time the appearance of negative parts in the wave function. Although $\opJ$ is rather small compared to $\opL$ (as we have seen just now), the probability of the appearance of an electron of negative mass becomes \it{much} too large to be able to be accepted.
+We could be rid of it by suppressing $\opJ$, or in other terms, by replacing the operator $\K$ with $\L$, its even part. Is this permissable? Is the operator $\opJ$ sufficiently small compared with $\opL$ or with $\K$ so that the suppression of $\opJ$ does not sensibly change the eigenvalues, that is to say the value of the hydrogen fine-structure terms?
+
+The smallness of $\opJ$ results from the smallness of $\xik$, whose order of magnitude we have estimated as:
+\uequ{
+\left\{\xik\right\} = \frac{\h}{4\pi\m\c}.
+}
+(We use the symbols $\{\}$ to indicate the "order of magnitude"). The ratio of the orders of magnitude of $\opJ$ and of $\frac{\e^2}{2\r}$ (which is precisely equal to the value of the energy term) is approximately
+\uequ{
+2\left\{
+\frac{\xik}{\r}
+\right\}
+}
+For $\{\r\}$, one could take the well-known "radius of the hydrogen atom":
+\uequ{
+\{\r\} = \frac{\h^2}{4\pi\m\e^2}.
+}
+This results in
+\uequ{
+\frac{\{\opJ\}}{\{\text{term}\}} = \frac{2\pi\e^2}{\h\c} = \fsc,
+}
+where $\fsc$ designates, as usual, the fine structure constant.
+
+We know that the ratio of the \it{fine structure} to the term is much smaller, about $\fsc^2$. Consequently, it seems that $\opJ$ is much too large for its suppression to be permitted. It seems that suppression of the odd part of $\opJ$ would change the eigenvalues by much more than the separation in the fine structure, and thus would destroy all accord with experience.
+
+But it is not so in reality. To see this, it is a bit more convenient to not speak of the \it{suppression} of $\opJ$, but instead speak of $\opL$ and what changes are suffered by its eigenvalues if the operator $\opJ$ is \it{added} to it. We know that the perturbation of an eigenvalue is calculated \it{to the first order of precision} by means of the integrals ("perturbation matrices")
+\uequ{
+\int\YiCC\opJ\Yk\dx,
+}
+
+where the $\Yk$ are the eigenfunctions of the unperturbed problem, which belong to the eigenvalue whose perturbation one wants to calculate. But, the operator $\opJ$ being \it{odd, all its matrix elements disappear}, if the eigenfuctions $\Yk$ which belong to the eigenvalue are either all positive or all negative. In this case, therefore, the perturbation of the eigenvalues of an \it{even} operator by a small odd operator are at most \it{of second order}.
+
+Before seeking the order of magnitude that comes into play in our case, we must ask whether it is correct that the eigenfunctions of $\opL$ belonging to the same eigenvalue are either all positive, or all negative. Take
+\uequ{
+\X = \Xplus + \Xminus
+}
+the decomposition of such an eigenfunction with the eigenvalue $\Pp$. One then has
+\uequ{
+\opL(\Xplus + \Xminus) = \Pp(\Xplus + \Xminus)
+}
+and on decomposing into positive and negative parts:
+\uequ{
+\opL\Xplus = \Pp\Xplus, \opL\Xminus = \Pp\Xminus
+}
+
+Thus $\Xplus, \Xminus$ are themselves eigenfunctions of $\opL$. On may always take the \it{pure} eigenfunctions of $\opL$. But it may be that the same value belong a certain number of positive functions as well as some negative functions.
+
+This possibility exists in general for an even operator, but not for $\opL$. Because it is not thus with the operator $\H$ by definition, and $\opL$ is sufficiently close to $\H$ that one may conclude that the same is true for $\H$. If one regards $\opL$ as the result as a perturbation of $\H$, this perturbation is of an order of magnitude \it{much} smallee than $2\m\cc$, -- the value which separates the two categories of eigenvalues of $\H$. These may not therefore be confounded with such a perturbation.
+
+We return to the search for the order of magnitude of the perturbation produced by $\opJ$. We have found that
+\uequ{
+\frac{\{\opJ\}}{\{\text{term}\}} = \fsc
+}
+and the perturbation is of \it{second} order. Does that mean is that it is of the order $\fsc^2$ with respect to the term? Fortunately not, because it must be compared with the full operator $\K$ which is of the order of $\m\cc$. You will easily find that the \it{term} is only a fraction $\fsc^2$ of $\m\cc$. So, compared with $\K$, the first ordsr is $\fsc^3$, the second $\fsc^6$, and that second order compared to the term is only $\fsc^4$. This is much lower than the separation in the fine structure, and similarly much smaller than the natural line-breadth, caused by the absorbtion of radiation ans which is of the order of $\fsc^3$.
+One may similarly demonstrate that in the \sc{Stark} and \sc{Zeeman} effects the perturbation is for all purposes insignificant. I will not insist more on this: it does not present a new point of view.
+
+\section{The problem of relativity}
+
+For a well-defined process, namely by suppressing the odd part of the \sc{Dirac} operator we have succeeded in deducing a wave equation which conserves the positive character of the function $\Y$ and which at least provides for the fine structure of hydrogen, the \sc{Stark} effect and the \sc{Zeeman} effect with results in accord with experience.
+
+However, one should not consider this too great a success. In the first place one must recall that the introduction of the notion of an "external field" in the \sc{Dirac} equation is at its foundation an artifice which permits us to avoid the resolution of the $n$-body problem, a problem which we do not yet know how to treat in a manner which takes account of relativity and retarded potentials. In the second place, it must be remarked that the \it{existence} of an even operator with the correct eigenvalues doesn't mean anything: it is equally evident that there is an infinity of similar operators. Because, beong given an arbitrary series of real numbers
+\uequ{
+\varepsilon_1, \varepsilon_2, \varepsilon_3, \dots
+}
+and a complete system of arbitrary orthogonal functions
+\uequ{
+\omega_1, \omega_2, \omega_3, \dots
+}
+one may always -- at least formally -- write a function from two groups of variables
+\uequ{
+\var{K}(\x, \var{\xi}) = \sumk\varepsilon_k\CC{\omega}_k(\x)\omega_k(\var{\xi}),
+}
+which, \it{regarded as an integral kernel}, is a hermitian linear operator with the $\varepsilon_k$ as eigenvalues and the $\omega_k$ as eigenfunctions. Or, one may chose the $\omega$ in a fashion in which they are all “pure” and in this case the operator will be even. (???) That there is satisfaction in our procedure (???) consists uniquely in the fact that we have successfully formed such an operator by a relatively \it{simple} procedure.
+
+There is certain number of particular questions which should be examined. For example, in introducing the $\Ak$ which correspond to the light wave and in studying the diffuse wave, it will be intersting to see if, for the limiting case of high frequencies, one retrieves the classical \sc{Raleigh} formula. \sc{I. Waller} has demonstrated that with the \sc{Dirac} equation one retrieves this effect, but only by grace of the possibility of the transitions between positive-energy and negative-energy states. In the present case, \it{if one retrieves the same formula} (which I hope and which I believe, but I have not yet demonstated), the mathematical mechanism must be different from the present, because these transitions are strictly banned after the "purification" which we have attempted.
+But there are more disquieting questions. One regards as one of the most important properties of the \sc{Dirac} equation, or even maybe the \it{most important}, is the invariance with respect to the relativistic \sc{Lorentz} transformations. If one introduces for
+\uequ{
+\xone, \xtwo, \xthree, \t \rightarrow \xpone, \xptwo, \xpthree, \tp,
+}
+the well-known \sc{Lorentz} transformation and if at the same time one affects a certain linear transformation between the four components of $\Y$:
+\uequ{
+\YX{1},\YX{2},\YX{3},\YX{4} \rightarrow \YpX{1},\YpX{2},\YpX{3},\YpX{4},
+}
+the equation which satisfies the $\YpX{k}$ is exactly that which satisfies the $\Yk$.
+
+Is this invariance preserved after the suppression of $\opJ$?
+
+The answer is that it is not exactly conserved. Naturally in the case which interests us the defect of invariance cannot be large, because the difference in the operator is not large. But it is not possible to return the equation to its exact form.
+
+At first, one is inclined to believe that this disheartening result renders useless all our previous results. But I don't believe that it is so. In fact, I am convinced that in quantum mechanics the question of relativistic invariance is much more complicated than we have imagined until now and I intend in the next paragraph to take up the problem of the relationship between quantum mechanics and relativity from a more general point of view.
+
+For the moment, one may make the following remarks to make some excuse for the non-invariance of our new equation.
+
+In the first place, one may ask what form our equation should take to be invariant. What sort of equation must be satisfied by a function $\Y$ which is positive for all values of the parameter $\t$ and which remains positive for an arbitry \sc{Lorentz} transfornation?
+
+This question is amenable to an exact response, and also a \it{unique} response, strikingly enough. I will only indicate the result \footnote{See note 1}: If one imposes on $\Y$ the conditions that it be "positive" at each instant and invariant for an arbitrary \sc{Lorentz} transformation, this inevitably implies that $\Y$ must be a solution of
+\uequ{
+\hx\Yt = -\H\Y
+}
+that is to say a problem in the \it{absense} of a field. Thus the search for a wave equation which is rid of negative eigenvalues and which is invariant, is useless. The preceding equation is the \it{only} one which enjoys these properties and it evidently applies only on the case of the absense of a field.
+
+Should one then renounce the postulate of relativity? Evidently not. But the \sc{Lorentz} transformation seems to be more complicated entity in quantum mechanics than in the ordinary mechanics. One will perceive that in the new theory the operators
+\uequ{
+\xk, \xk - 2\xik
+}
+or
+\uequ{
+\xkHat + \xik, \xkHat - \xik
+}
+play a quite symmetrical role. And this symmetry is real. I owe to \sc{Mr. von Neumann} the remark that one may indicate a certain canonical transformation which changes \sc{all} the operators $\Aeven + \Aodd$ into $\Aeven - \Aodd$, that is to say which simply changes the sign of all odd operators. Consequently all of the relations which exist between the operators $\Aeven + \Aodd$ (the commutation relations for example) exist equally between the $\Aeven - \Aodd$. This renders nearly inevitable the conclusion, in the case of the new theory, that it is not the operators $\xk$, but rather the operators $\xkHat$ which correspond to the electron's coordinates. Consequently the \sc{Lorentz} transformation should not be applied to the $\xkHat$ but to the $\xk$.
+
+But then the \sc{Lorentz} transformation becomes much more complicated and difficult \it{not only to formulate, but also to conceive}. When one effects the transformations on the $\xk, \t$, it is permissible to close one's eyes to the fact that the $\xk$ are not ordinary numbers, because they commute with one another, and thus are of the sort which one may choose a system of matrices where they are diagonal at all times; then the transformation is effected on the \it{eigenvalues} of the $\xk$, that is to say on the values of the coordinates in the elementary sense. This is always tacitly implied. It is not possible to apply this method to the $\xkHat$, because they don't commute with eachother, so that no representation exists in which all three are diagonal. It is difficult to see how the transformation of $\xkHat, \t$ should be formulated, especially in a theory which treats the time as an ordinary variable and not as an operator.
+
+The fact that the true coordinate-operators of the electron don't commute woth eachother seems to be interesting enough in itself, because it means that it is in general impossible to exactly measure two coordinates or all three components at the same time. These is an "uncertainty relation" between them. The correlative uncertainty of two observables is principally determined, as you know, by the order of magnitude of their commutator. It is not difficult to calculate the commutators of the $\xkHat$ and it is quite interesting, because they are intimately linked with the "spin" operators \footnote{See note II.}.
+
+The problem in question seems to be to be the formulation of the \sc{Lorentz} transform as an operator equation between the non-commuting operators $\xk$.
+
+\section{Relativity and quantum mechanics}
+
+The difficulties that we have encountered in trying to take account of the relativistic point of view in quantum mechanics seem to me all the more interesting because they are quite \it{unexpected}. You know what the new mechanica, in the \it{wave} mechanics form in which it is applied almost universally today, owes its origin to the celebrated research of Mr. \sc{L. de Broglie}, with his ingenius idea of electron waves which accompany the motion of the electron; these being so to speak impregnated (???) by relativity. Because one takes as the point of departure to derive the wave equation and the problems of eigenvalues, one experiences a bit of shame at being obligates to \it{suppress} the relativistic point of view and one hopes that it will only be a provisional, short-term solution, and that it won't be too difficult to re-introduce relativity anew in the equations. But instead of diminishing, it seems that this difficulty has increased from one year to the next and it takes today alarming proportions.
+
+However, the form in which we have encountered in the preceding discussions is complicated and very special. One may object that the \sc{Dirac} equation which we have started probably don't represent the only possible form of the relativistic equation for the electron and our method of the suppression of the odd part of the Hamiltonian operator may not be the only method to modify the \sc{Dirac} equation in a fashion to rid it of negative energies. One may suppose that it is necessary to abandon altogether this order of ideas which, despite its success, is simply condemned by the relativistic difficulties which gave birth to it.
+
+For this reason I would like to ask you permission to set out a few more general ideas about the relationship between relativity and the quantum theory. I believe that from a quite general point of view, it is only using fundamental theorems from these two theories, one may recognize that the difficulty in reconciling ia not due to the special form of the adoped equations, but with the essentially different nature of the fundamental conceptions of the two theories.
+
+After \sc{Einstein}'s great discovery, it was customary to submit an arbitrary theory to the postulate of the relativistic constraints, that is to say that one requires invariance with respect to \sc{Lorentz} transformations. One never encountered serious difficulties. On the contrary, one was invariably led to the generalization of the theory in question for bodies in motion. But in trying to submit the quantum mechanics to the same postulate, one encounters these difficulties. Why? This is not as surprising now as it looks. To find out what a \sc{Lorentz} transformation means in a particular case, one must introduce two systems of \sc{Lorentz} coordinates. This introduction is based on the idea that it is possible in principle to measure the coordinates of a material point and the time with unlimited precision and as often as one likes, and draw conclusions relative to its speed. But this is not permissible in quantum mechanics. Thus the quantum mechanics is not obligated to submit to the postulate of relativity with an arbitrarily great precision. It has the right to require in turn to require the examination of with what precision error one can define a system of coordinates(???). It is only this precision error (???) which one is obligated to satisfy for the relativity postulate.
+
+We examine this more closely. Among the necessary operations for establishing a \sc{Lorentz} system, we seek the operation which consists of the rule of observations at different points of the system by means of light signals; this is maybe the most important of all. Now, it is easy to see that this operation may present only limited accuracy if the observations are not infinitely slow. The reason is the following.
+
+Imagine a system of mass $\m$ (which I will call the "clock") and two "events" which occur in this system: for example, two positions of a needle. You want to measure the time which has flowed between these two events ("setting up the clock"). (???), the clock must emit an optical signal which must be shorter than the minimum precision with which you need to measure the time when the event took place. We first require a precision of $\tauTime$ seconds.
+
+The spatial length of the signal may not exceed $\c\tauTime$ centimeters. But then one knows from following the fundamental principles of optics that the light can not be monochromatic; the range of frequencies which enter into play will be at least
+\uequ{
+\Delta\freq = \inv{4\pi\tauTime}.
+}
+
+Now, when a system emits the light of frequency $\freq$, one must admit that it recoils and that the corresponding momentum is
+\uequ{
+\frac{\h\freq}{\c}.
+}
+(\sc{Einstein}, in his celebrated demonstration of the \sc{Planck} formula in 1917 demonstrated that this result is one of the more immediate consequences of the theory of quanta; it is made almost inevitable by the experimental facts known about black-body radiation. If the system did not experience the recoil, the thermal agitation of a molecule in equilibrium with the black-body radiation would not be the same as in a gas, thus a gas would not be in equilibrium with black-body radiation at the same temperature.)
+The non-monochromaticism of the the light emitted as a signal will thus bring about an uncertainty in the recoil:
+\nequ{
+\Delta\p = \frac{\h}{4\pi\c\tauTime}
+}{1}
+(It is convenient to assume that the principal part of the recoil is compensated by a signal in a direction so that there remains the uncertainty over momentum indicates by the formula (1).) Then the uncertainty $\beta$ corresponds to the speed \footnote{Measured in units of $\c$}. We have
+\nequ{
+\ifitz{\m\c\beta} = \Delta\p = \frac{\h}{4\pi\c\tauTime}
+}{2}
+from which one may derive $\beta$. But this uncertainty in the \it{speed} brings a \it{second} source of uncertainty in the measure of time which has passed between the two events. Because the clock is slowed by the motion and it goes without saying that what interests us is the time which has \it{would have} elapsed if the clock had remained at rest; in other terms the time in the "rest system" of the clock, we only know that with an error $\beta$.
+
+Thus the time $\t$ that we measure is too large, and must be corrected by multiplying $\t$ by a factor between $\fitz$ and $1$. Thus the second error is
+\nequ{
+\t(1-\fitz).
+}{3}
+
+In deriving $\beta$ from (2) and substituting in (3), one finds
+\uequ{
+t\left(1-\frac{\tauTime}{\sqrt{\tauTime^2 + \tauZero^2}}\right) \text{ with } \tauZero = \frac{\h}{4\pi\m\cc}.
+}
+The \it{total} error is then
+\uequ{
+\Delta\t = \tauTime + \t\left(1-\frac{\tauTime}{\tauTime^2 + \tauZero^2}\right).
+}
+It has a minimum ($\t$ being at least equal to $\tauZero$) for:
+\uequ{
+\tauTime = \tauZero\sqrt{\left(\frac{\t}{\tauZero}\right)^{\frac{2}{3}} - 1}.
+}
+It has for the value
+\uequ{
+\Delta\t = \t\left\{
+1-\left( 1 - \left(\frac{\tauZero}{\t}\right)^{\frac{2}{3}}\right)^{\frac{3}{2}}.
+\right\}
+}
+
+One easily shows that one always has $\delta\t \geq \tauZero$. When $\t$ becomes equal to $\tauZero$ one has $\tauTime = 0, \Delta\t = \t$, the error is 100\%. For $\t < \tauZero$, the most favorable value is $\tauTime = 0$, the error remains 100\%.
+
+I believe that one may draw the conclusion that a clock of mass $\m$ is only capable of being synchronized with a precision of $\tauZero$. It similarly may be that the events whoch occur in a system of mass $\m$ cannot be localized in time with a precision greater than $\tauZero$ (or rather an error less than $\tauZero$) by an exterior observer. However, this is a rather loose way of speaking. From the point of view of the external observer, the localization may be effected with any desired precision. But, as to what is happening in the interior of this system (or in other words: with the proper time of the system), this has no meaning beyond the precision of $\tauZero$. In a totally analogous manner, one may see that the measurement of the spatial distance between two points belonging to a material system of mass $\m$ may not be effected with an error less than about
+\uequ{
+\frac{\h}{4\pi\m\c}.
+}
+Because following \sc{Heisenberg}'s "uncertainty law," if the position of one of the two points is observed with a precision $\posErr$, this implies that the error in the momentum of the system is at least
+\uequ{
+\Delta\p = \frac{\h}{4\pi\posErr} = \ifitz{\m\cc},
+}
+$\beta$ being the uncertainty in the velocity of the system. This implies an uncertainty relative to the \sc{Lorentz} contraction, and thus an additional uncertainty of
+\uequ{
+\posErr\left(1-\ifitz{1}\right),
+}
+in the observed length $\len$, if one wants to deduce the true length or the rest-length of the distance which one wants to measure. One sees clearly that in diminishing the first of these two errors, one augments the other, and one may foresee that the inevitable error is of the indicates order of magnitude. We remark that if $\m$ is equal to the mass of an electron, this is precisely the order of magnitude of the operators $\xik$ which represent the variation of the coordinate-operators in our "purified" equation, compared to the \sc{Dirac} equation. Thus the defect of invariance in our equation in the conventional sense is produced precisely in the domain where the determination of the coordinates themselves, and consequently the idea of a \sc{Lorentz} transformation, becomes problematic.
+
+I have said: "if $\m$ is equal to the electron mass". Naturally if one admits the usage of clocks and rulers as massive as one likes, then the time and the position of the electron could be observed with arbitrary precision. But I don't believe that to be thus, I don't believe this would be admissible \footnote{See note III}.
+
+It thus appears from the pointbof view of quantum mechanics, the theory of relativity is applicable at the same range as classical mechanics in the sense that it only represents an approximation relative to the macroscopic domain. One cannot simply admit the formulae from relativity (for example the \sc{Lorentz} formulae) and suppose that they are valid without modification in the intra-atomic domain. They should be submitted to modifications which would probably be analogous to those which are used to transform ordinary mechanics into quantum mechanics. One must "quantize" the \sc{Lorentz} transformation.
+
+Quantization of the \sc{Lorentz} formula: what does that mean, what \sc{can} it mean? I do not believe that this could have another meaning than the following: one must apparently regard the well-known formulae as established between \it{operators} rather than between \it{numbers} (c-numbers) which belong to the coordinates. In fact, in the classical theory, those formulae are used to calculate the values of the coordinates and time for a point (or rather for a point event) in \it{one} system of reference, if one \it{knows} their values in another system. But in quantum mechanics, one in general does not know the \it{value} of an observable quantity, but only the probability for it to take such and such a value. What one will demand, is the ability to calculate these probabilities in a reference system, when they are known in another system. Because the probability in quantum mechanics is calculates by means of the \it{operator} which belongs to the observable in question,it is quite natural to think that the \sc{Lorentz} transformation takes the form of an equation between operators which represent the $\x\y\z\t$ in the two reference systems.
+
+This bringa us, from a more general point of view, to the same problem which we encountered in examining the \sc{Dirac} equation. There, what gave us the difficulty was the non-commutability of the coordinates, which becomes very probable after the modification of the \sc{Dirac} theory which I have proposed. But even if one doesn't believe it or if one ignores it, there is still another difficulty in the "quantization of the \sc{Lorentz} transformation". In this transformation, as you well know, the \it{time} and the spatial coordinates entre in a totally symmetrical fashion; they are quantities of the same type, constituting the four components of a world vector. One may even say that the \sc{Lorentz} equations don't express anything other than this fundamental fact. But in quantum mechanics, at least in the current interpretation, it is not thus: the time is always distinguished from the coordinates. In the current interpretation, all of the statements of quantum mechanics reduce to the following form: the probability that \it{at the instant $\t$} the observable $\q$ to have such and such a value is such and such. Never does it give the probability for the \it{time} to have such and such a value. The time is not treated as an observable, there is no operator which would serve to find its "statistics". It is a parameter whose value is assumed to be exactly known: this is in reality the brave old time of \sc{Newton} and the quantum mechanics is not disquieted by the existence of the brave old pendulum that one would need to know the value of this parameter $\t$.
+
+I do not know how to indicate for the moment how one may renounce this last surviving non-statistical parameter in quantum mechanica. It seems to be needed because its statements of probabilities are certainly not \it{invariant} and consequently must be expressed as a function of \it{some thing}. Maybe one could foresee that they would be expressed as a function of one another, but this is only a rather vague way of speaking.
+
+It seems to me quite beyond doubt that one \it{should} renounce this totally classical notion of time, and not only because of relativity. This notion of time is a grave deficiency of quantum mechanics (or at least in the current interpretation), apart from the postulates of relativity. Because effectively the knowledge of the variable $\t$ is acquired in the same manner as any other variable, in observing a certain physical system, namely a clock. $\t$ is then an observable and must be treated as an observable; the time must be in general a "statistic" and not a "value". The exceptional role of time is thus not justified.
+
+One might object that in quantum mechanics it is always possible that \it{one} of the observables (or even half of the observables) takes totally deterministic values (the other half being completely indeterminate). One might say that the ideal clock, which we would need, is quite simple a system where the variable "position of the needle" always has an exactly determined value. The exceptional role of time would then be, if not justified, at least permissible.
+
+But it is not. I believe that one may demonstrate that ghe state of the "ideal clock" is not possible for a real system. I could rely on the well-known statement that the time and energy are canonically-conjugate variables. But I won't, because in this statement (and in this statement only), on speaks of time \it{as if} it was treated as an observable. However, this is a hypocrisy: it is not. Formthis reason that statement has always seemed to me a bit obscure. In addition, that which we want to shkw is that the time \it{must} be treated as an observable and not as a parameter. This would then be begging the question.
+
+To examine the properties of an ideal clock \it{in motion}, remember that following the interpretation of quantum mechanics, the probability of an arbitrary value of a variable at the instant $\t$ must be calculated from the function $\Y$ of $\x$ and $\t$:
+\uequ{
+\Y(\x, \t).
+}
+In a word, anything which one may expect from an observation of a system must be deducible from its wavefunction. We apply this to our ideal clock. It is perfectly admissible, only it is necessary to suppose that there are two: one to read the time, the other which is described bybthe function $\Y(\x, \t)$ and on which we will apply our reasoning. Then remember that in developing the function $\Y$ in a \sc{Fourier} series (or a \sc{Fourier} integral),
+\uequ{
+\Y(\x, \t) = \inv{\sqrt{2\pi}}\intXY{-\infty}{+\infty}\exp{-\i\w\t}\fc(\x, \w)\dw,
+}
+the integral
+\uequ{
+\int\dx\intXY{\w_0}{\w_1}|\fc(\x, \w)|^2 \dw
+}
+represents the probabilitu that one will find for the energy of the system a value between
+\uequ{
+\frac{\h\w_0}{2\pi} \text{ and } \frac{\h\w_1}{2\pi}.
+}
+
+However, an ideal clock is a system which must satisfy the following postulate: there are events which one must expect with certainty at a given instant and then one is equally certain that they will not occur at any other instant. For example, a certain position of the needle must have the probability 1 at a certain instant and the probability zero at all other instants, if the clock is absolutely precise. But it is best to start by supposing the precision is limited to $\tauTime$ seconds. It follows that the function $\Y$ muat have a certain quality: that which confers to the probability of the event in question the value zero -- a quality which $\Y$ must possess \it{always} except in the interval $\tauTime$. But one easily sees that this is impossible if in the development of $\Y$ only the value $\w$ (for example) appears, because the probability value is never changed by multiplying $\Y$ by a factor of modulus 1, auch as $\exp{\i\w\t}$. And this would be practically the same if only an interval
+\uequ{
+\Delta\w \ll \inv{\tauTime}
+}
+appears in the development of $\Y$. It needs at least the interval
+\uequ{
+\Delta\w \approx \inv{\tauTime}.
+}
+
+Consequently if one would want to go to the limit of an absolutely precise clock, $\Delta\w$ and thus the uncertainty relation for the energy would become infinite.
+
+Maybe this would not yet suffice to rednee the state of an ideal clock physically impossible, because it may well be that despite the infinitude of $\Delta\w$, the probability that the energy surpasses a given value $\w_1$ tends to zero as $\w_1$ tends to infinity. And that is all that one could reasonably ask. But so far we have not postulated the property of an "ideal clock" except for a single instant. In applying it for all instants, one may come to the conclusion that the value of
+\uequ{
+\int|\fc(\x, \w)|^2\dx
+}
+must be independent of $\w$, of the aort that all energies become equally probable \footnote{See note IV}.
+
+\section{An analogy between wave mechanics and some probabilistic problems in classical physics}
+
+The subject that I now address is not intimately related to the questions which have been raised in the preceding chapters. First of all you may get the impression of things which are not at all related. This is a classical problem: a problem of probabilities in the theory of brownian motion. But at the end of the account, an analogy with wave mechanics will \it{emerge}, which was so striking to me when I found it, that it is difficult for me to believe that it is purely accidental.
+
+By way of introduction, I would like to cite a remark which I found in the "Gifford lectures" by \sc{A. S. Eddington} (Cambridge, 1928, p. 216 et sqq). \sc{Eddington}, in discussing the interpretation of wave mechanics, made in a footnote the following remark:
+\quote{
+The whole interpretation is very obscure, but it seems to depend on whether youbare considering the probability \it{after you know what has happened} or the probability for purposes of prediction. The $\Y\YCC$ is obtained by introducing two symmetrical systems of $\Y$ waves travelling in opposite directions in time; one of these must presumably correspond to the probable inference from what is known (or is stated) to have been the condition at a later time.
+}
+
+French translation: \TN{Omitted}
+
+We know without a doubt that the brownian motion of a particle which is not subject to any force other than the molecular collisions which are the origin of the motion, is governed by the diffusion equation:
+\nequ{
+\pddt{\w} = \const{D}\Delta\w
+}{1}
+$\const{D}$ is the diffusion constant and $\w$, or rather
+\uequ{
+\w(\x, \y, \z, \t)\dx\dy\dz
+}
+is the probability of finding a particle at the instant $\t$ between $\x+\dx, \y+\dy, \z+\dz$. One admits that at a given instant $\t_0$, one would know the coordinates of the particle, or better, more generally that atbthe instant $\t_0$ one knows the probability $\w(\x\y\z\t_0)$. The probability for an arbitrary instant $\t$ after $\t_0$ is the solution of (1) which, for $\t_0$ takes the given value.
+
+You also know that \sc{Smoluchowski} and \sc{Fokker}, following \sc{Planck} have generalized this problem for very complex cases, whether there are external forces acting on the particle or whether there is nothing at all acting on the particle, but of a quite general system subject to regular influences, like for example gravitation, or influences of an irregular character, happening at random, as the molecular collisions or, for example, the charges communicated to an electrometer by an ionization current due to the presence of a radioactive body.
+
+In all these problems, this is the equation which is called the "\sc{Fokker} equation" which governs the probability of finding the state of a system between the limits determined at the instant $\t$. This equation is a generalization of the diffusion equation and it always has the form
+\uequ{
+\pddt{\w} = \H\w
+}
+where $\H$ is a differential operator which is determined by the nature of the system and the regular and irregular influences to which it is subject; $\w$ is a function of the state of the system and of $\t$.
+
+The superficial analogy which exists between this classical probabilistic theory and the wave mechanics, interpreted in a statistical manner has probably escaped no physicist familiar with both of them. The form of the wave equation of an arbitrary system is rather similar to that of the \sc{Fokker} equation:
+\uequ{
+-\frac{\h}{2\pi\i}\pddt{\Y} = \H\Y.
+}
+
+Even the form of the operator $\H$ is the same in the simplest cases, where it reduces to the \sc{Laplace} operator. Yet the analogy may not considered so superficially for two reasons, and that is why one hasn't much discussed it up to now. In the first place, because of their imaginary coefficients, the wave equations, despite their \it{apparent} parabolic character, ate \it{essentially} hyperbolic, and thus describe essentially reversible phenomena, while the phenomena of diffusion, etc, equations are essentially irreversible. In the second place, $\Y$ is not the probability, but that which one calls a probability amplitude: the probabilities themselves are bilinear expressions in $\Y$ and $\YCC$; in the simplest case the probability is equal to:
+\uequ{
+\Y\YCC\dx.
+}
+
+Thus, despite the analogy between \it{the equations}, the mathematical apparatus of calculating the probabilities is different enough in the two theories, and this leads to the point that these most characteristic traits of quantum mechanics are completely lacking in the classical theory.
+
+In this lecture, I want to direct your attention to the fact that there exist classical problems which are much more analogous to wave mechanics and which have not been treated at all up to the present. These are problems concerning exactly the same systems with the same influences, regular and irregular, the only difference consisting uniquely in the way the question is posed. To simplify we discuss the simplest case: brownian motion in one dimension, where the \sc{Fokker} equation reduces to:
+\nequ{
+\pddt{\w} = \var{D}\pddXdYY{\w}{\x}; \w \text{ a function of } \x \text{ and } \t.
+}{2}
+
+Suppose someone (observer A) has observed the state of the system, that is to say the coordinate $\x$ at the instant $\t_0$ \it{and} the at instant $\t_1$. Someone else (observer B) has observed $\x$ at the instant $\t$ \it{between} $\t_0$ and $\t_1$
+\uequ{
+\t_0 < \t < \t_1
+}
+
+The observor A wants to deduce from \it{his} observations the probability of a specific result for B's observation. This is an altogether reasonable problem, and which may also be generalized in the following manner: one may suppose that the observer A has not observed \it{exactly} the coordinate $\x$ at instants $\t_0, \t_1$ but that he onky knows the \it{probability} for the two instants:
+\uequ{
+\w(\x, \t_0) = \w_0(\x); \w(\x, \t_1) = \w_1(\x)
+}
+
+With the one \it{or} the other of these given, the problem would be of a well-known type. With only the first given, $\w$ would be a solution of (2) which reduces to $\w_0(\x)$ for $\t_0$. With only the second, $\w$ would be a solution of
+\uequ{
+-\pddt{\w} = \var{D}\pddXdYY{\w}{\x}
+}
+which reduces to to $\w_1$ for $\t_1$. But if one has at the same time both values, $\w$ will be neither the one nor the other, because the solution of (2) is uniquely determined by its initial value, and that of (3) by its final value. Neither one nor the other will have the flexibility to reduce to an arbitrary prescribed value for a \it{second} instant. This is a totally new type of problem. I will indicate the solution before demonstrating it. $\w$ is the \it{product} of a solution of (2) and a solution of the adjoint equation (3). The two solutions should be chosen in such a fashion that their product satisfies the initial condition and the final condition. I have not been successful in proving that such solutions ever exist, nor if they are unique. But I am in fact totally convinced. This problem of conditions on its limits seems to be new even in mathematics.
+
+The demonstration is a bit long, I hope that it doesn't fatigue you too much. I will call the function $\w(\x, \t)$ we seek the "intermediary probability", and quantities $\w_0$ and $\w_1$ the initial and final probabilities, or better the terminal probabilities. We commence by treating the case previously signalled, where the terminal probabilities of both are certain. The particle being observed at the instant $\t_0$ at the point $\x_0$, and at the instant $\t_0$ at $\x_1$, what is the probability to find it at the instant $\t$ between $\x$ and $\x + \dx$? Let a large number $\N$ of particles leave $\x_0$ at the instant $\t_0$ (moving independently). We are interested only in those which are found close to $\x_1$ at the instant $\t_1$, that is between $\x_1$ and $\x_1+\dx_1$. Their number is given by a well-known formula, the fundamental solution of the diffusion equation:
+\nequ{
+\begin{split}
+\n_1 &= \N\inv{\sqrt{4\pi}\D(\barred{\t_1-\t_0})}
+\exp{-\frac{(\x_1-\x_0)^2}{4\D(\t_1-\t_0)}}
+\dx_1 \\
+ &= \N\g(\x_1 - \x_0, \t_1-\t_0)\dx_1,
+\end{split}
+}{4}
+for short. On the other hand the fraction of the $\N$ particles which satisfy the double condition: (1) be found in the interval $(\x, \x+\dx)$ at the instant $\t$ and (2) be found in the interval $(\x_1, \x_1+\dx_1)$ at the instant $\t_1$ is given by
+\uequ{
+\n = \N\g(\x-\x_0, \t-\t_0)\dx\times\g(\x_1-\x, \t_1-\t)\dx_1,
+}
+because the two probabilities are evidently independent. Then, the probability that we seek is evidently $\frac{\n}{\n_1}$. Thus we find in this special case:
+\nequ{
+\w(\x, \t) = \frac{\g(\x-\x_0,\t-\t_0)\g(\x_1-\x,\t_1-\t)}{\g(\x_1-\x_0, \t_1-\t_0)}.
+}{5}
+
+It is easy to see that $\w$ ia the product of a solution of (2) and a solution of (3), in accord with the general result which we have indicated.
+
+To treat the general case with terminal probabilities $\w_0, \w_1$, one must again include a very large number $\N$ of particles, but which don't all go to the same location. One must have
+\nequ{
+\N\w_0(\x_0)\dx_0
+}{A}
+leave the "cell" $(\x_0, \x_0+\dx_0)$ and repeat this experiment a \it{great number of times}, because in the majority of cases, this will not give the desired result; e.g. introducing
+\nequ{
+\N\w_1(\x_1)\dx_1
+}{B}
+particles in $(\x_1, \x_1+\dx_1)$ at the instant $\t_1$. Yet the probability of \it{this last} distribution is realized at the instant $\t_1$ is not zero, and that why what must be done (only in thought, fortunately!) is to repeat the experiment a sufficient number of times that even the small number of experiments that bring the desired result form a very large number. Then this small fraction represents precisely the statistical apparatus which is suitable to the question posed.
+
+Now, all we need to know is how many particles (A) finds among the particles (B). If we know the number for an arbitrary value of $\x_0$ and $\x_1$, it would suffice to multiply it by the expression (5) and by $\dx$ to find the proportion of these particles (coming from $\x_0$ and arriving at $\x_1$) which are found between $\x$ and $\x+\dx$ at the instant $\t$. In adding up for all these values for $\x_0$ and $\x_1$, that is to say by integrating with respect to $\x_0$ and $\x_1$, one finds the number that we are trying to determine.
+
+\nc{\kth}{\var{k}^{th}}
+\nc{\lth}{\var{l}^{th}}
+
+
+Thus the principal problem is the number of (A) which are part of (B). For this, it is not sufficient to fix our attention on \it{a} group (A) or \it{a} group (B): one must envisage the whole ensemble. We divide the scale of $\x$ into equal cells, which we will take, to simplify the notation, as unit length. Take $\ak$ the number of particles coming from the $\kth$ cell, and $\bl$ the number of particles arriving at the $\lth$ cell. Then $\ckl$ is the number of particles leaving the $\kth$ cell \it{and arriving at} the $\lth$ cell. By $\gkl$ we designate the \it{à priori} probability for which a particle which leaves the $\kth$ cell to arrive at the $\lth$ ($\gkl$ is then none other than the abbreviated expression (4)). The $\ckl$ will satisfy the relations:
+\nequ{
+\suml\ckl = \ak, \sumk\ckl = \bl
+}{6}
+and none other: any system of $\ckl$ which is in accord with these preceding relations is \it{possible}, and sometimes come to be realized. Thus the numbers $\ckl$ which are just those which we wanted, are not uniquely determined: one should in fact seek the \it{statistics} for $\ckl$. ??? Je ne l'ai pas fait??? It seems clear enough to
+me that in the limiting case where the number $\N$ is very large, only those systems with $\ckl$ very similar to the most probable system will be realized, that is to say the system $\ckl$ for which the improbable event that we will assume as found (namely the numbers $\ak$ and $\bl$) acquires at least the largest probability (larger than for all other systems $\ckl$). ???
+
+If we knew for each individual particle the original cell as well as the destination cell, the probability for the observed event, that is to say the transformation of the distribution $\ak$ into $\bl$ is realized in \it{this} particular manner, would be\sic
+\uequ{
+\prodk\prodl{\gkl}^{\ckl}
+}
+
+But this is not yet the entire probability for which this event takes place by means of a system determined by $\ckl$. However one may permute the $\ak$ particles coming from the $\kth$ cell
+\uequ{
+\frac{\ak!}{\prodl\ckl!}
+}
+times, and similarly for all the $\k$, so\TN{the factor inside the products in the denominator of the RHS is illegible}
+\uequ{
+\prodk{\frac{\ak!}{\prodl\ckl!}} = \frac{\prodk\ak!}{\prodk\prodl\ckl!}
+}
+times. Thus the entire probability is
+\uequ{
+\prodk\ak!\prodk\prodl\frac{{\gkl}^{\ckl}}{\ckl!}.
+}
+One must determine the maximum of this expression when we vary the $\ckl$ taking account of the relations (6). Since $\prodk\ak!$ does not vary, it will suffice to find the maximum of the double product or, which is more convenient, of its logarithm. Then
+\uequ{
+\begin{split}
+\delta\sumk\suml\left\{\ckl\log\gkl - \ckl(\log\ckl - 1)
+\right\} \\
+ + \delta\sumk\lambda_k\suml\ckl
+ + \delta\suml\mu_l\sumk\ckl = 0
+\end{split}
+}
+or
+\uequ{
+\sumk\suml\delta\ckl\left\{
+\log\gkl - \log\ckl + \lambda_k + \mu_l
+\right\} = 0.
+}
+Then
+\uequ{
+\ckl = \exp{\lambda_k + \mu_l}\gkl.
+}
+We put
+\uequ{
+\Yk = \exp{\lambda_k}, \VYl = \exp{\mu_l}
+}
+in such a fashion that
+\nequ{
+\ckl = \Yk\gkl\VYl.
+}{7}
+
+The $\Yk, \VYl$ will be determined by
+\nequ{
+\VYl\sumk\Yk\gkl = \bl, \Yk\suml\VYl\gkl = \ak.
+}{8}
+
+The solution is contained in (7) and (8), one only needs to translate them into the language of the continuum. We write
+
+\begin{align*}
+\var{c}(\x_0, \x_1)\dx_0\dx_1 & &\text{ for } & &\ckl \\
+\N\w_0(\x_0)\dx_0             & &\text{"}     & &\ak \\
+\N\w_1(\x_1)\dx_1             & &\text{"}     & &\bl \\
+\sqrt{\N}\Y(\x_0)\dx_0        & &\text{"}     & &\Yk \\
+\sqrt{\N}\VY(\x_1)\dx_1       & &\text{"}     & &\VYl \\
+\end{align*}
+
+In fact it is evident that with $\Yk, \VYl$ must correspond to functions of $\x_0$ and of $\x_1$; the square root $\sqrt{\N}$ is only introduced to simplify the notation. We the find
+\nequ{
+\begin{split}
+&\Y{\x_0} \int\VY(\x_1)\g(\x_1 - \x_0, \t_1 - \t_0)\dx_1 = \w_0(\x_0) \\
+&\VY{\x_0} \int\Y(\x_0)\g(\x_1 - \x_0, \t_1 - \t_0)\dx_0 = \w_1(\x_1) \\
+\end{split}
+}{9}
+and
+\uequ{
+\var{c}(\x_0, \x_1)\dx_0\dx_1 = \N\g(\x_1-\x_0, \t_1-\t_0)\Y(\x_0)\VY(\x_1)\dx_0\dx_1.
+}
+
+This is the number of particles which come from $\x_0$ and arrive at $\x_1$. As we have indicated, one must multiply it by equation (5) and by $\dx$ (and divide by $\N$), then integrate with respect to $\x_0$ and $\x_1$ to find the "intermediate probability". This then has the following value:
+\uequ{
+\w(\x, \t) = \int\g(\x - \x_0, \t - \t_0)\Y(\x_0)\dx_0\times\int\g(\x_1 - \x, \t_1 - \t)\dx_1.
+}
+
+One easily sees that the first factor is a solution of (5), the second a solution if (3).
+
+$\VY$ and $\Y$ are determined by the integral equations (9) which seem to be complicated-enough although they express nothing other than the boundary conditions which are imposed by the product of the two solutions.
+
+One may add to that what we have demonsrated so far some remarks which are quite intersting, apart from any analogy with wave mechanics. In the first place, one easily shows that $\w(\x,\t)$ safisfies the condition that its integral gives a constant value, namely 1 (if $\w_0$ and $\w_1$ have been normalized in the same fashion). Next one may show that the "center of gravity", that is to say $\int\x\w(\x,\t)\dx$ moves with a constant velocity away from its initial position until its final position. In the simple case where the probabilities are certain in the limit, the maximum probability is also a linear function of the time: it acts at each instant as a \sc{Gaussian} distribution which spreads until half the time has elapsed, then it contracts toward the final point.
+
+Another interesting-enough remark is that the role of the two functions $\w_0, \w_1$ is absolutely symmetrical: one may say that neither of the two directions of time is privileged. By exchanging $\w_0$ and $\w_1$, one finds exactly the same evolution of the probability, but in the opposite direçtion, from $\t_1$ towards $\t_0$.
+
+If the terminal probabilities $\w_1, \w_2$ are given in such a manner that $\w_1$ follows exactly the distribution at the instant $\t_1$ which would result automatically (i.e. following the diffusion equation) from the distribution $\w_0$, given at $\t_0$, the the solution of our two integral equations is almost evident: one must take
+\uequ{
+\VY \equiv 1, \Y \equiv \w_0
+}
+and the evolution of the probability takes place as in an ordinary diffusion problem.
+
+But the "inverse" case is equally simple; if $\w_0$ and $\w_1$ are given in a manner such that $\w_1$ would result from $\w_0$ in the time $\t_1 - \t_0$ following the \it{adjoint} equation, or, equivalently, if $\w_0$ would result in $\w_1$ by the ordinary diffusion equation, then the solution is equally obvious: one must take
+\uequ{
+\VY \equiv \w_1, \Y \equiv 1
+}
+and everything happens following the "inverse equation".
+
+One may deduce a quite curious conclusion about the mechanism by which the considerable thermodynamical fluctuations which sometimes (though very rarely) occur in a system in equilibrium are produced. Imagine that you observe a system of diffusing particles, which are in thermodynamic equilibrium. Assume that at a given instant $\t_0$ you find them in a mostly uniform distribution, and at $\t_1 > \t_0$ you find a spontaneous and \it{considerable} departure from this uniformity. You are asked in what manner this disparity is produced. What is the most likely mechanism?
+
+The answer is the following: the moat probable, that which is produced by a complete reversal of the laws of diffusion, of the sort that at each instant, the diffuaion current has been directed in the direction of the \it{increase} (and not the decrease) of the concentration and with an intensity which exactly corresponds, with the same sign, to the ordinary value of of the diffusion constant $\const{D}$.
+
+I even think that the degree of certainty with which one may indicate this probability ia exactly the same as in the direct case. Furthee, I believe that all this is applicable not only to the case of diffusion, but to all other irreversible laws in physics.
+
+It remains for me to draw your attention to the grand analogy presented by the probabilities considered in quantum mechanics with those which we have called \it{intermediate pribabilities} in the problems of the preceding type.
+
+This analogy is even more remarkable for the problems of this type than for the old problems which \sc{Smoluchowski}, \sc{Fokker}, and \sc{Plank} had treated. In these new problems, not only the \sc{Fokker} equation resembles the fundamental equation of quantum mechanics, but, just as in the previous case, the intermediate probability is given by the \it{product} of \it{two} solutions of \it{two} equations which only differ in the sign on the time variable. It is thanks to precisely this symmetry with respect to time that the evolution of the intermediate probability is \it{reversible}, in the same manner as the quantum probability. This means that by changing the sign of the time in the expression of an intermediate probability, which evolves in accord with the general equations of the problem, one arrives at an expression which equally defines an evolution compatible with these equations and which, consequently, may be solved by choosing convenient boundary conditions. It is not always thus in the usual problems in Brownian motion, which reduce mathematically to problems of diffusion or heat conduction and define an essentially irreversible evolution.
+
+Nevertheleas, one considerable difference subsists, which we must note: the evolution of the intermediate probability \it{is not wavelike}. The reason is that in the equations (2) and (3) the constant $\const{D}$ is essentially real, while in the wave equation in quantum mechanics the factor $\sqrt{-1}$ enters in a mysterious fashion. Mathematically, this implie:
+
+(1) The wave character of the evolution of the $\Y$ function;
+
+(2) Its essentially complex character.
+
+The complex function $\Y$ corresponds to \it{two} real functions, of the sort that it suffices to define their boundary conditions by giving the value of $\Y$ at \it{only one} specific instant; this is the fashion of thinking generally adopted in quantum mechanics. Is this the only one admissible? In our problem, this would be bring us back to regarding as given the values of $\Y$ and $\VY$ at a specific instant (instead of the values of their product, at two different instants), which would be inadmissable and absolutely senseless.
+
+Must one interpret Eddington's remark (cited above) as signalling the necessity of modifying this way of viewing wave mechanics and taking as boundary conditions the values of a single real probability atbtwo different instants?
+
+\section{Mathematical notes}
+
+\subsection{Note I}
+The demonstartion is easy enough in making usage of our ideas of evenness, oddness, etc. I will indicate it here as it has not yet been published.
+
+One must know in what manner a \sc{Lorentz} transformation acts on $\Y$. Firstly, one transforms the coordinates, $\x_1, \x_2, \x_3, \t$ in the well-known manner; then it must transform the variable $\var{\zeta}$, that is to say apply a certain linear transformation on $\Y_1, \Y_2, \Y_3, \Y_4$, whose coefficients depend on those of the \sc{Lorentz} transformation.
+
+For the goal which we have in view, it suffices to utilize an infinitesimal transformation. One may write them as an operator acting on $\Y$:
+\uequ{
+\opL = 1 + \ekl(\xk\oppddX{\xl} - \xl\oppddX{\xk}); \x_4 = \i\c\t
+}
+(summed with respect to $\k$ and $\var{l}$).
+
+But one must, as I have indicated, apply again another operator operating only on $\var{\zeta}$, namely the following:
+\uequ{
+\begin{split}
+\opLambda = 1 + \frac{\ekl}{2}\dgk\dgl \quad
+\dgX{1} &= -\afour\aone \\
+\dgX{2} &= -\afour\atwo \\
+\dgX{3} &= -\afour\athree \\
+\dgX{4} &= -\afour.
+\end{split}
+}
+
+We take the particular case:
+\uequ{
+\k = 1, \var{l} = 4,
+}
+which will suffice for us, i.e. we suppose that only $\var{\varepsilon}_{14}$ (which we call $\var{\varepsilon}$) differs from zero. We will have:
+\uequ{
+\begin{split}
+\dgk\dgl &= -\i\afour\aone\afour = +\i\aone, \\
+\opLambda\opL &= 1 + \frac{\i\var{\varepsilon}}{2}\aone + \var{\varepsilon}\left(
+\xone\oppddX{(\i\c\t)} - \i\c\t\oppddX{\xone}
+\right).
+\end{split}
+}
+
+This operator must \it{leave} $\Y$ positive. Thus its odd part, applied to $\Y$, must give zero.
+
+In all of this, multiplication by $\t$, as well as the differentiation $\oppddX{\t}$ must be regarded to be regarded as even operators, because: (1) the multiplication by a parameter does not change sign; (2) $\Y$ is supposed \it{identically} positive in $\t$. The last term is thus even. The odd parts of the second and third terms are then evidentally (suppressing $\i\var{\varepsilon}$):
+
+\nc{\oppddt}{\oppddX{\t}}
+
+\uequ{
+\inv{2}\etaX{1} - \inv{\c}\xiX{1}\oppddt;
+}
+but
+\uequ{
+\xiX{1} = -\frac{\c\hx}{2}\etaX{1}\opinv{\H}.
+}
+
+Thus, (suppressing the factor $\inv{2}$):
+\uequ{
+\begin{split}
+\left(\etaX{1} + \hx\etaX{1}\opinv{\H}\oppddt\right)\Y &= 0,\\
+\etaX{1}\opinv{\H}\left(\H + \hx\oppddt\right)\Y &= 0,\\
+-\opinv{\H}\etaX{1}\left(\H + \hx\oppddt\right)\Y &= 0;
+\end{split}
+}
+or, applying the operator $\H$:
+\uequ{
+\etaX{1}\left(
+\H + \hx\oppddt
+\right)\Y = 0.
+}
+
+$\etaX{1}$ does not have an eigenvalue of zero (at least with finite rest energy). Thus it must be that
+\uequ{
+\left(
+\H + \hx\oppddt
+\right)\Y = 0, \quad \textbf{Q.E.D.}
+}
+
+\subsection{Note II}
+
+The spin operators, which have not yet been discussed in these lectures. Are the \it{products} of the $\alphak$, in such a fashion that, for example
+
+\nc{\opSpin}{\var{s}_1}
+\nc{\opSpinHat}{\hatted{\var{s}}_1}
+\nc{\opSpink}{\var{s}_k}
+\nc{\opSpinkHat}{\hatted{\var{s}}_k}
+
+\uequ{
+\opSpin = -\i\atwo\athree = +\i\athree\atwo.
+}
+
+We determine the \it{even part} of the $\opSpink$, which we indicate by $\opSpinkHat$. The decomposition of $\alphak$ being
+\uequ{
+\alphak = \c\opinv{\H}\pk + \etak,
+}
+one will find $\opSpinkHat$ by adding to the product of the even parts of $\atwo$ and $\athree$ the product of their odd parts.
+\uequ{
+\begin{split}
+\opSpinHat &= -\i(\c^2\H^{-2}\p_2\p_3 + \etaX{2}\etaX{3}) \\
+           &= +\i(\c^2\H^{-2}\p_2\p_3 + \etaX{3}\etaX{2})
+\end{split}
+}
+
+In adding these two equations:
+\uequ{
+\opSpin = \frac{\i}{2}(\etaX{3}\etaX{2} - \etaX{3}\etaX{2}).
+}
+
+\it{The even part of spin is the commutator of the $\etak$}, (similar to how the spin itself is the commutator $\alphak$). From this equation one may derive equally:
+
+(1) that the spin is even \it{for the most part};
+
+(2) that its even part is an integral of the motion in the absence of a field; in fact the $\opSpink$ commute with $\H$ because the $\etak$ \it{anticommute}.
+
+Since
+\uequ{
+\xik=\frac{\c\hx}{2}\opinv{\H}\etak,
+}
+the commutators of the $\etak$ are intimately bound to those of the commutators of $\xik$. One easily finds (note the sign!)
+\uequ{
+\xiX{3}\xiX{2} - \xiX{2}\xiX{3} = -\frac{\i\c^2\x^2}{2}\H^{-2}\opSpin.
+}
+
+The commutators of the $\xik$ are the same as those of $\xk$, with the opposite sign. To see this, we write that the $\xk$ commute:
+\uequ{
+\xk\xl - \xl\xk = 0;
+}
+replacing these by their decompositions:
+\uequ{
+(\xkHat + \xik)(\xlHat + \xil) - (\xlHat - \xil)(\xkHat + \xik)=0
+}
+and equate the \it{even} part of this equation to zero. As a consequence,
+
+\newcommand{\xXHat}[1]{\hatted{\x}_{#1}}
+
+\uequ{
+\xXHat{2}\xXHat{3} - \xXHat{3}\xXHat{2} = +\frac{\i\c^2(\hx)^2}{2}\H^{-2}\opSpinHat
+ = -\frac{\i\c^2(\hx)^2}{8\pi^2}\H^{-2}\opSpinHat.
+}
+Since $\H^{-2}$ is in general of the order $\m^{-2}\c^{-4}$, the commutators are of the order
+\uequ{
+\inv{2}\left(\frac{\h}{4\pi\m\c}\right)^2.
+}
+
+This is perhaps the magnitude which is to be expected since the commutation has been disturbed only by the addition of operators whose order of magnitude is $\frac{\h}{4\pi\m\c}$.
+
+\subsection{Note III}
+
+\rc{\v}{\var{v}}
+\nc{\lam}{\var{\lambda}}
+
+The \sc{Heisenberg} uncertainty relation subsists in each case. If one desires a precision $\lam$ in the coordinates, this implies an uncertainty in the speed which one may grossly estimate as
+\uequ{
+\Delta\v = \frac{\h}{4\pi\m\lam},
+}
+where $\m$ is the electron mass, and suppressing the factor $\fitz$ since order of magnitude is of interest. Nothing prevents, it is true, making $\lam$ as small as one likes. But because this precision has a physical significance, one must at the same time determine the \it{time} with a precision of $\tauTime$ where
+\uequ{
+\tauTime\Delta\v \leq \lam
+}
+
+Now we no longer speak of the \it{mass} of the clock which serves to measure the time, we speak of its \it{magnitude}. I will demonstrate that it must be extremely small.
+
+Take $\l$ for this magnitude; it is evidently also the \it{uncertainty} in the \it{location} in which it indicates the time. In applying our indication of time with a variable speed $\Delta\v$, this would imply an uncertainty
+\uequ{
+\frac{\l\Delta\v}{\c^2} \leq \tauTime
+}
+which would be at most equal to $\tauTime$, thus
+\uequ{
+\begin{split}
+\frac{\l(\Delta\v)^2}{\c^2} &\leq \lam \\
+\frac{\l}{\lam^2}\left(
+\frac{\h}{4\pi\m\c}
+\right)^2 &\leq \lam \\
+\l &\leq \frac{\lam^3}{\left(\frac{\h}{4\pi\m\c}\right)^2}.
+\end{split}
+}
+
+If one wants to augment the precision beyond $\frac{\h}{4\pi\m\c}$, one must have a clock \it{smaller than} this, that is to say $10^{-11}\text{cm}$. (And at the same time very heavy).
+
+\subsection{Note IV}
+
+Formally, the thrust of the demonstration is the same as for the analogous proposition concerning the observables which are canonically conjugate.
+
+There must exist a Hermitian operator $\A$ (a "needle") such that $\Y(\x,\t)$ will be identically an eigenfunction of $\A$ with the eigenvalue $\t$:
+\uequ{
+\A\Y(\x, \t) - \t\Y(\x, \t) = 0.
+}
+
+Replacing $\Y$ with its Fourier integral one finds
+\uequ{
+\int\exp{-\i\w\t}(\A\c - \t\c)d\w = 0.
+}
+
+Integrating the second term by parts gives
+\uequ{
+\int\exp{-\i\w\t}\left(
+\A\c - \i\pdXdY{\c}{\w}
+\right)d\w = 0
+}
+thus
+\uequ{
+\A\c - \i\pdXdY{\c}{\w} = 0
+}
+and also
+\uequ{
+\CC{\A}\CC{\c} + \i\pdXdY{\CC{c}}{\w} = 0.
+}
+
+By multiplying respectively by $\CC{\c}$ and $\c$ and adding:
+\uequ{
+\oppddX{\w}|\c^2| = \i(\CC{\c}\A\c - \c\CC{\A}\CC{\c}).
+}
+
+The integral $\int\dx$ of the second member is null following the properties of Hermitian (or self-adjoint) operators. The integral $\int|\c|^2\dx$ is then independent of $\w$, as we have announced.
+
+Since \it{all} the values of the energy are equally probable, it follows that in a limiting interval the energy approaches a probability of zero. Thus, it is infinitely improbable to found for the energy of our clock a \it{finite} value. Thus it is physically impossible!
+
+(Lectures given at l'Institut Henri-Poincaré in May 1931; manuscript received May 25, 1931)
+
+%fooaaaaaaaaaaaaaa
+%fooaaaaaaaaaaaaaa%fooaaaaaaaaaaaaaa
+%fooaaaaaaaaaaaaaa
+%fooaaaaaaaaaaaaaa%fooaaaaaaaaaaaaaa
+%fooaaaaaaaaaaaaaa
+%fooaaaaaaaaaaaaaa
+\end{document}
+%fooaaaaaaaaaaaaaa
+%fooaaaaaaaaaaaaaa
+%fooaaaaaaaaaaaaaa
+%fooaaaaaaaaaaaaaa
+%fooaaaaaaaaaaaaaa

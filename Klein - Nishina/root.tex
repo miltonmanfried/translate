@@ -1,0 +1,601 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\renewcommand*\rmdefault{ppl}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{marginnote}
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+
+\nff{\WTF}{#1 (\textit{#2})}
+
+\nf{\translator}{\footnote{\textbf{Translator note:}#1}}
+\nc{\sic}{{}^\text{(\textit{sic})}}
+
+\newcommand{\nequ}[2]{
+\begin{align*}
+#1
+\tag{#2}
+\end{align*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{align*}
+#1
+\end{align*}
+}
+
+\nf{\sskip}{...\{#1\}...}
+\nff{\iffy}{#2}
+\nf{\?}{#1}
+\nf{\tags}{#1}
+
+\nf{\limX}{\underset{#1}{\lim}}
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+%\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+\nff{\intXY}{\underset{#1}{\overset{#2}{\int}}}
+
+\nc{\fluc}{\overline{\delta_s^2}}
+
+\rf{\exp}{e^{#1}}
+
+\nc{\grad}{\operatorfont{grad}}
+\rc{\div}{\operatorfont{div}}
+
+\nf{\pddt}{\frac{\partial{#1}}{\partial t}}
+\nf{\ddt}{\frac{d{#1}}{dt}}
+
+\nf{\inv}{\frac{1}{#1}}
+\nf{\Nth}{{#1}^\text{th}}
+\nff{\pddX}{\frac{\partial{#1}}{\partial{#2}}}
+\nf{\rot}{\operatorfont{rot}{#1}}
+\nf{\spur}{\operatorfont{spur\,}{#1}}
+
+\nc{\lap}{\Delta}
+\nc{\e}{\varepsilon}
+\nc{\R}{\mathfrak{r}}
+
+\nff{\Elt}{\operatorfont{#1}_{#2}}
+
+\nff{\MF}{\nc{#1}{\mathfrak{#2}}}
+
+\MF{\fU}{U}
+\MF{\fp}{p}
+\MF{\fr}{r}
+\MF{\fJ}{J}
+\MF{\fB}{B}
+\MF{\fs}{s}
+\MF{\fI}{I}
+\nc{\fsbar}{\overline{\fs}}
+\nc{\dbar}{\overline{d}}
+
+\nff{\MV}{\nc{#1}{\mathbf{#2}}}
+
+\MV{\vrho}{\varrho}
+\MV{\vsigma}{\sigma}
+
+\nc{\Y}{\psi}
+\nc{\y}{\varphi}
+
+\title{On the scattering of radiation by free electrons according to Dirac's new relativistic quantum dynamics}
+\date{October 30, 1928}
+\author{O. Klein and Y. Nishina}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The intensity of Compton-scattered radiation will be calculated on the basis of the new relativistic quantum dynamics developed by Dirac. The results show deviations from the corresponding Dirac-Girdon formulae, which are of second order with respect to the ratio of the energy of the primary light quantum to the rest energg of the electron.
+\end{abstract}
+
+Introduction. On the basis of the older form of relativistic quantum mechanics, Dirac\footnote{P.M.A. Dirac, Proc. Roy. Soc. (A) 111, 405, 1926, will be cited as A in the following.} and Gordon\footnote{W. Gordon, ZS. f. Phys. 40, 117, 1927.} have developed a theory of the intensity and polarization of Compton radiation, which seems to be in good agreement with experiment for radiation with not-too-short wavelengths. According to the new relativistoc quantum dynamics recently developed by Dirac\footnote{P.A.M. Dirac, Proc. Roy. Soc. (A) 117, 610, 1928, will be cited as B in the following.}, in which the phenomena connected with the \WTF{spin}{Eigenrotation} of the electron are automatically taken into account, the basis for a theory of the scattering of light by free electrons has changed, and it can be expected that the end-result of the Dirac-Gordon theory of the Compton effect will be influenced by it. In the present work we attempt to attack the problem of radiation scattered by free electrons on the basis of Dirac's new electron dynamics. We have here followed the treatment given by Gordon, which rests on a \?{correspondence-based utilization} of wave mechanics. One would expect that Dirac's radiation theory, which allows radiation damping to be taken into account, to give a corresponding result if it is treated in the first approximation with respect to the intensity of the priamary radiation.
+
+In the present work we have constrained ourselves to calculating the intensity of the scattered radiation in its dependence on direction and wavelength. The question of the polarization of the scattered radiation will be treated in a following paper by one of us\footnote{Y. Nishina, ZS. f. Phys. 52, 869, 1929.}. It has shown that in the region of hard $\gamma$-rays, the deviations of our results from the Dirac-Gordon formulae are considerable, so that e.g. the determination of the wavelengths of the penetrating cosmic radiation with our theory would supply significantly shorter wavelengths than the old theory. Precisely in this region, however, the experimental results for the Compton effect seem to be too uncertain at present to supply a decision for or against the theory. An exact experimental test would however be highly desirable, not least in view of the difficulties highlighted by Dirac in his new theory, which are connected with the possibility of negative energies.
+
+\section*{1. \?{Orienting} remarks on the Dirac wave equation.}
+
+Following Dirac\footnote{P.A.M. Dirac, l.c. B.}, the quantum-mechanical problem for an electron of charge $-e$ and rest mass $m$, that moves in a force field where the electrostatic potential is $V$ and the vector potential is $\fU$, is defined by the following Hamiltonian form $F$:
+\nequ{
+F=\frac{E+eV}{c} + \vrho_1\left(\vsigma, \fp + \frac{e}{c}\fU\right) + \vrho_3 mc,
+}{1}
+where $E$ is the energy of the electron and $\fp$ its momentum vector, with coordinates $p_1,p_2,p_3$ with respect to the axes $x_1,x_2,x_3$ of an orthogonal coordinate system, while $c$ denotes the speed of light in vacuum. Further, $\vsigma$ is a matrix vector with components $\vsigma_1,\vsigma_2,\vsigma_3$ which fulfill the following relations:
+\nequ{
+\vsigma_1 \vsigma_2 = i\vsigma_3 = -\vsigma_2 \vsigma_1, \quad \vsigma_1^2 = 1,\\
+\vsigma_2 \vsigma_3 = i\vsigma_1 = -\vsigma_3 \vsigma_2, \quad \vsigma_2^2 = 1,\\
+\vsigma_3 \vsigma_1 = i\vsigma_2 = -\vsigma_1 \vsigma_3, \quad \vsigma_3^2 = 1,\\
+}{2}
+and $\vrho_1$ and $\vrho_3$ are two of three matrices which fulfill relations identical to (2) and additionally are commutable with $\vsigma$. As Dirac has shown, all of these quantities can be represented by matrices with four rows and columns.
+
+Accordingly, the eigenfunctions $\y$ and $\Y$ belonging to the Hamiltonian form (and which are adjoint to eachother), which we will consider as functions of the coordinates $x_1,x_2,x_3$ and the time $t$, each consist of four components $\y_1,\y_2,\y_3,\y_4$ resp. $\Y_1,\Y_2,\Y_3,\Y_4$, and where an expression like $\mu\Y$, where $\mu$ denotes a four-rowed matrix, is to be understood as an abbreviation for the four quantities $\sumXY{k=1}{4}\mu_{ik}\Y_k$ ($i=1,2,3,4$), while $\y\mu$ denotes the quantities $\sumXY{k=1}{4}\y_k\mu_{ki}$ ($i=1,2,3,4$), where $\mu_{ik}$ are the matrix elements of $\mu$.
+
+The physical utilization of the equation (1) rests on the assumption that when $\Y$ and $\y$ are \?{both} wavefunctions of the Hamiltonian function (1) -- i.e. with Hermitian matrices $\vrho_1, \vrho_3, \vsigma$, the $\y$ and $\Y$ are complex conjugates of eachother --, $\y\Y{d\fr}$ gives the probability that the electron is encounteres in the volume element ${d\fr}$. From this it follows, according to Dirac, that the probability that the electron passes through a surface element ${df}$ at time $t$ is $-c\y\vrho_1\sigma_s\Y{df}{dt}$, where $\vsigma_s$ is the component of the vector $\vsigma$ in the direction normal to the surface element, and where $\y\mu\Y$ shall denote, when $\mu$ is again an arbitrary four-rowed matrix, $\sumX{i,k}\y_i\mu_{ik}\Y_k$. If we multiply the quantities $\y\Y$ and $-cay\vrho_1\vsigma\Y$ with the charge $-e$ of the electron, then we get the so-called wave-mechanical electrical density $\vrho$ and the electrical current-density $\fJ$. Thus
+\nequ{
+\vrho = -e\y\Y, \quad \fJ = ec\y\vrho_1\vsigma\Y.
+}{3}
+
+\section*{2. Eigenfunctions of the Dirac wave equation with a free electron.}
+
+We will first consider a free electron, where we, as in the Schr\"odinger theory, can select as eigenfunctions functions $\y_0$ and $\Y_0$ belonging to each value of $\fp$, namely
+\nequ{
+\y_0(p) = u(\fp)\exp{\frac{i}{h}[Et - (\fp\fr)]}, \quad
+\Y_0(p) = v(\fp)\exp{-\frac{i}{h}[Et - (\fp\fr)]},
+}{4}
+where $h$ is the Planck constant divided by $2\pi$, and $\fr$ denotes the coordinate vector with the coordinates $x_1,x_2,x_3$, while $u(\fp)$ and $v(\fp)$ are quantities independent of the time and coordinates which consist of four components and have to satisfy the following purely-algebraic equations:
+\nequ{
+u(\fp)\left\{E/c + \vrho_1(\vsigma \fp) + \vrho_3 mc \right\} &= 0,\\
+\left\{E/c + \vrho_1(\vsigma \fp) + \vrho_3 mc \right\}v(\fp) &= 0.
+}{5}
+According to these equations, to a given $\fp$ belong two values of the energy $E$, one positive and one negative, which both fulfill the equation
+\nequ{
+E^2/c^2 = m^2 c^2 + \fp^2,
+}{6}
+which expresses the connection between energy and momentum in relativistic mechanics. Since equations (5) represent an abbreviation for a systems each with four components, it should actually be expected that to a given value of $\fp$ there belong four eigenvalues, which corresponds to just the possibility of taking into account, in addition to the (physically not meaningful) negative energie values, the doubling of the number of eigenvalues connected with the \WTF{self-magnetism}{eigenmagnetism} of the electron. This degeneracy in the free electron has as a consequence that if we choose a certain energy value -- we will self-evidently constrain ourselves to positive values -- the ratios of the components of $u(\fp)$ and likewise of $v(\fp)$ are stil not fixed, but rather these depend on two freely-chosable quantities. In the following calculation of the intensity of the scatterd radiation it is essential to take this degeneracy into consideration.
+
+First we shall consider the case of a resting electron. Here $\fp=0$, and we put $E=mc^2$. The equations (5) are thus simply
+\nequ{
+u(0)(1+\vrho_3) = 0, \quad
+(1+\vrho_3)v(0) = 0.
+}{7}
+
+We shall choose $\vrho_3$ as a diagonal matrix by putting\footnote{We have chosen for $\vrho_3$  opposite signs from Dirac, so that the positive energy \?{is in} the first two rather than the last two components of $u$ and $v$ remains finite.}:
+\nequ{
+\vrho_3 = \left(\begin{matrix}
+-1  & 0  & 0 & 0\\
+ 0  &-1  & 0 & 0\\
+ 0  & 0  & 1 & 0\\
+ 0  & 0  & 0 & 1
+\end{matrix}\right).
+}{8}
+
+It then follows that the equations (7) are satisfied when $u_3, v_3, u_4, v_4$ are equal to zero, while $u_1,v_1$ and $u_2,v_2$ could be chosen arbitrarily. In other words, we could put together the general solution associated with a given energy value from two independent solutions, in which $u_1,v_1$ resp. $u_2,v_2$ alone are nonzero.
+
+We shall further choose the $\vsigma_3$ components of $\vsigma$ to be a diagonal matrix \WTF{along the $x_3$-axis}{nach der $x_3$-Achse} by setting:
+\nequ{
+\vsigma_3 = \left(\begin{matrix}
+ 1  & 0  & 0 & 0\\
+ 0  &-1  & 0 & 0\\
+ 0  & 0  & 1 & 0\\
+ 0  & 0  & 0 &-1
+\end{matrix}\right).
+}{9}
+
+According to Dirac, $u(\fp)\vsigma v(\fp)$ is proportional to the magnetic moment of the electron associated with the solution $u(\fp), v(\fp)$. Thus the aforementioned two solutions give equally-large but oppositely-directed magnetic moments along the $x_3$ axis. Thus we can consider $u_1,v_1$ resp. $u_2,v_2$ as the eigenfunctions associated with the two possible orientations of the magnetic moment with respect to the $x_3$-axis.
+
+We could easily get back to the case of arbitrary $\fp$-values from the $\fp=0$ case by making a contact transformation intimately related to the Lorentz transformation\footnote{The following is closely related to Dirac's explanation of the invariance of his equations with respect to the Lorentz transformations, l.c. B, p. 615.}. Let
+\nequ{
+S      = \alpha + i\beta\vrho_2 (\vsigma \fp), \quad 
+S^{-1} = \alpha - i\beta\vrho_2 (\vsigma \fp),\\
+\alpha^2 + \beta^2 \fp^2 = 1,
+}{10}
+where \?{we will define $\alpha$ and $\beta$ more precisely}. We put
+\nequ{
+F^* = S\left(E/c + \vrho_1(\vsigma \fp) + \vrho_3 mc\right)S^{-1}.
+}{11}
+We now have
+\uequ{
+S\vrho_1 S^{-1} = \vrho_1 \left(\alpha - i\beta \vrho_2 (\vsigma \fp)\right)^2
+ = (\alpha^2 - \beta^2 \fp^2)\vrho_1 + 2\alpha \beta \vrho_2 (\sigma \fp)
+}
+and thus
+\uequ{
+S\vrho_1 (\vsigma \fp) S^{-1} =
+ (\alpha^2 - \beta^2 \fp^2)\vrho_1(\vsigma \fp) + 2\alpha \beta \fp^2 \vrho_3.
+}
+Further,
+\uequ{
+S\vrho_3 S^{-1} =
+ (\alpha^2 - \beta^2 \fp^2)\vrho_3 + 2\alpha \beta \vrho_1 (\vsigma\fp).
+}
+Thus it follows
+\uequ{
+F^* = E/c + (\alpha^2 - \beta^2\fp^2 &- 2\alpha\beta mc)\vrho_1 (\vsigma\fp)\\
+   &+ \left((\alpha^2 - \beta^2\fp^2)mc + 2\alpha\beta\fp^2\right)\vrho_3
+}
+
+We shall now choose $\alpha$ and $\beta$ so that the coefficients of $\vrho_1(\vsigma\fp)$ in $F^*$ vaniah, i.e. we demand that
+\nequ{
+\alpha^2 - \beta^2 \fp^2 - 2\alpha\beta mc = 0.
+}{12}
+Further we put
+\nequ{
+(\alpha^2 - \beta^2 \fp^2)mc + 2\alpha\beta\fp^2 = m^* c
+}{13}
+and then have
+\nequ{
+F^* = E/c + \vrho_3 m^* c.
+}{14}
+Then it follows from a simple calculation that
+\nequ{
+{m^*}^2 c^2 = m^2 c^2 + \fp^2,
+}{15}
+and if, in harmony with this, we put
+\nequ{
+m^* c = +\sqrt{m^2 c^2 + \fp^2},
+}{16}
+then we easily get
+\nequ{
+\alpha = \sqrt{\frac{m^* + m}{2m^*}},\quad
+ \beta = \sqrt{\frac{m^* - m}{2m^*\fp^2}},
+}{17}
+whereby the condition (12) is fulfilled.
+
+If we now put
+\nequ{
+u(\fp) = u^*(\fp)S(\fp),\quad v(\fp) = S^{-1}(\fp)v^*(\fp),
+}{18}
+where $S(\fp)$ and $S^{-1}(\fp)$ denote the quantities (10) for a certain value of $\fp$, then it follows from (11) that $u^*$ and $v^*$ satisfy the equations
+\uequ{
+u^*(E/c + \vrho_3 m^* c) = 0,\quad
+(E/c + \vrho_3 m^* c)v^* = 0,
+}
+or since according to (16) $E=m^*c^2$,
+\uequ{
+u^*(1+\vrho_3) = 0,\quad
+(1+\vrho_3)v^* = 0,
+}
+i.e. we get equations (7) for $\fp=0$. In this manner we could represent $u(\fp)$ and $v(\fp)$ with the help of the independent quantities $u_1^*, v_1^*$ and $u_2^*,v_2^*$, which however is less simply connected with the magnetization of the electron than for $\fp=0$.
+
+Now for a moment let $u(\fp),v(\fp)$ be a solution which corresponds to one of the two independent eigenfunctions, where thus either $u^*_1,v^*_1$ or $u^*_2,v^*_2$ alone are nonzero. We shall normalize this solution so that it corresponds to one electron. If $\y_0(\fp)$ and $\Y_0(\fp)$ are the associated eigenfunctions in coordinate space, then it is well-known that this means that with continuous eigenvalues
+\nequ{
+\int{\y_0(\fp')\Y_0(\fp''){d\fr}} = \delta(\fp'-\fp''),
+}{19}
+where ${d\fr}$ denotes the volume element and the integral stretches over the whole space in question, while $\delta(\fp'-\fp'')$ denotes the singular function introduced by Dirac, whose integral over an arbitrary region in momentum space that contains the point $\fp'=\fp''$ is equal to one. By inserting the expressions (4) for $\y_0$ and $\Y_0$ into (19) and comparing with the Fourier integral theorem one gets
+\nequ{
+u(\fp)v(\fp) = (2\pi h)^{-3}.
+}{20}
+
+Finally we shall represent the complex conjugate quantities $u_1^*$ and $v_1^*$ resp. $u_2^*$ and $v_2^*$, which belong to the two different eigensolutions $u(\fp)$ and $v(\fp)$, by real quantities as follows:
+\nequ{
+u^*_1(\fp) &= a_1 \exp{i\delta_1(\fp)},  \quad u_2^*(\fp) = a_2 \exp{i\delta_2(\fp)}\\
+v^*_1(\fp) &= a_1 \exp{-i\delta_1(\fp)}, \quad v_2^*(\fp) = a_2 \exp{-i\delta_2(\fp)}.
+}{21}
+According to (20), if $a_1^2 = a_2^2 = (2\pi h)^{-3}$ then we can choose the amplitudes $a_1$ and $a_2$ so that they are independent of the $\fp$-value. On the other hand, the phases $\delta_1(\fp)$ and $\delta_2(\fp)$ can be freely chosen for any $\fp$-value.
+
+\section*{3. Solution for the wave equation for one equation in a plane monochromatic radiation field}
+
+\MF{\fa}{a}
+\MF{\fn}{n}
+\MF{\fh}{h}
+\MF{\fE}{E}
+\nc{\fabar}{\overline{\fa}}
+\nc{\fbar}{\overline{f}}
+\nc{\gbar}{\overline{g}}
+\MV{\veta}{\eta}
+\MV{\vepsilon}{\varepsilon}
+
+
+
+We shall here consider an electron which is illuminated by a train of monochromatic plane waves. We could describe this by means of a vector potential $\fU$ of the following form:
+\nequ{
+\fU =    \fa\exp{i\nu\left(t-\frac{(\fn\fr)}{c}\right)}
+    + \fabar\exp{-i\nu\left(t-\frac{(\fn\fr)}{c}\right)},
+}{22}
+where $\fa$ and $\fabar$ denote two constant vectors that are complex conjugate to one another, which are perpendicular to the unit vector $\fn$, which specifies the direction of propagation of the wave. The position where the potential $\fU$ is measured at the time $t$ is indicated by the radius vetor $\fr$ drawn from a fixed point to the point in question. Further, $\nu$ denotes the frequency of tge radiation multiplied by $2\pi$. By ignoring powers higher than the first of $|\fU|$, we shall seek out solutions of the wave equations associated with $F$ of the form
+\uequ{
+\y(\fp) &= \y_0(\fp)\left\{1 + f(\fp)\exp{i\nu\left(t-\frac{(\fn\fr)}{c}\right)}
+ + \fbar(\fp)\exp{-i\nu\left(t-\frac{(\fn\fr)}{c}\right)}
+\right\}\\
+\Y(\fp) &= \left\{1 + g(\fp)\exp{i\nu\left(t-\frac{(\fn\fr)}{c}\right)}
+ + \gbar(\fp)\exp{-i\nu\left(t-\frac{(\fn\fr)}{c}\right)}
+\right\}\Y_0(\fp),
+}
+where $\y_0(\fp), \Y_0(\fp)$ are the eigenfunctions of the free electrons given in (4), while $f,\fbar$ and $g,\gbar$ are constant four-rowed matrices. The general solution of the wave equation is obtained in the desired approximation by superposition of all possible solutions of the form (23). To determine the quantities $f,\fbar,g,\gbar$ it is convenient to start from the second-order equations, which, following Dirac, could be easily derived from the first-order equations associated with $F$, and which are:
+\nequ{
+\left\{\frac{h^2}{c^2}\pddX{}{t^2} \right.&\left.+ \left(-ih\nabla + \frac{e}{c}\fU\right)^2 + m^2 c^2\right\}\Y
+ + \frac{eh}{c}(\vsigma \fh)\Y \\
+ &+ \frac{ieh}{c}\vrho_1(\vsigma \fE)\Y = 0\\
+\left\{\frac{h^2}{c^2}\pddX{}{t^2} \right.&\left.+ \left(ih\nabla + \frac{e}{c}\fU\right)^2 + m^2 c^2\right\}\y
+ - \frac{eh}{c}\y(\vsigma \fh) \\
+ &+ \frac{ieh}{c}\y\vrho_1(\vsigma \fE) = 0\\
+}{24}
+where $\nabla$ denotes the vector operator with the components $\pddX{}{x_1}, \pddX{}{x_2}, \pddX{}{x_3}$ while $\fE$ and $\fh$ are the electric resp. magnetic field strengths associated with $\fU$. By inserting the expressions (23) into (24) it is found
+\nequ{
+f(\fp) &= \frac{e}{2h\nu\left(E/c - (\fn\fp)\right)}\left\{
+2(\fa\fp) + h(\vsigma \veta) - ih\vrho_1(\vsigma \vepsilon)\right\},\\
+\fbar(\fp) &= -\frac{e}{2h\nu\left(E/c - (\fn\fp)\right)}\left\{
+2(\fabar\fp) + h(\vsigma \overline{\veta}) - ih\vrho_1(\vsigma \overline{\vepsilon})\right\}\\
+g(\fp) &= -\frac{e}{2h\nu\left(E/c - (\fn\fp)\right)}\left\{
+2(\fa\fp) + h(\vsigma \veta) + ih\vrho_1(\vsigma \vepsilon)\right\},\\
+\gbar(\fp) &= \frac{e}{2h\nu\left(E/c - (\fn\fp)\right)}\left\{
+2(\fabar\fp) + h(\vsigma \overline{\veta}) + ih\vrho_1(\vsigma \overline{\vepsilon})\right\}
+}{25}
+where $\vepsilon$ and $\overline{\vepsilon}$ resp. $\veta$ and $\overline{\veta}$ are connected to the electrical field strengths $\fE$ resp. magnetic field strengths $\fh$ of the radiation field:
+\nequ{
+\fE &=       \vepsilon  \exp{i\nu\left(t - \frac{(\fn\fr)}{c}\right)}
+ + \overline{\vepsilon}\exp{-i\nu\left(t - \frac{(\fn\fr)}{c}\right)}\\
+\fh &=       \veta\exp{i\nu\left(t - \frac{(\fn\fr)}{c}\right)}
+ +           \veta\exp{-i\nu\left(t - \frac{(\fn\fr)}{c}\right)}
+}{26}
+since
+\uequ{
+\fE = -\inv{c}\pddX{\fU}{t},\quad \fh = \rot{\fU}
+}
+it follows
+\nequ{
+\vepsilon &= -\frac{i\nu}{c}\fa,\quad \overline{\vepsilon} = \frac{i\nu}{c}\fabar\\
+\veta &= -\frac{i\nu}{c}[\fn\fa],\quad \overline{\veta} = \frac{i\nu}{c}[\fn\fabar].
+}{27}
+
+\section*{4. Calculation of the scattered radiation field}
+
+\MV{\vPhi}{\Phi}
+\MV{\vPsi}{\Psi}
+
+\MF{\fP}{P}
+
+We can write the general solution of the wave equation to the discussed approximation in the presence of incoming radiation in the following manner:
+\nequ{
+\vPhi = \int{\y(\fp){d\fp}},\quad
+\vPsi = \int{\Y(\fp){d\fp}},
+}{28}
+where $\y(\fp)$ and $\Y(\fp)$ denote the approximate solution to the equation under consideration given in (23) and (25) -- where for the time being no normalization shall be assumed --, while the integration $\int{d\fp}$ is considered as an abbreviation for the threefold integral $\int{dp_1}\int{dp_2}\int{dp_3}$ over all values of the momentum coordinates $p_1,p_2,p_3$. The electric current-density associated with the general solution is given by
+\nequ{
+\fJ = ec\vPhi \vrho_1 \vsigma \vPsi = ec\int{\int{\y(\fp)\vrho_1\vsigma\Y(\fp'){d\fp}{d\fp'}}}.
+}{29}
+We shall now introduce the expressions (23) for $\y$ and $\Y$ into this expression and arrange them in a correspondence-like manner according to the various possible radiation processes\footnote{cf O. Klein, ZS f. Phys., 41, 407, 1927.}. By ignoring quantities of order $|\fa|^2$ we get, after a simple \?{rearrangement}:
+\nequ{
+\fJ = &\fJ_0 + ce\int\int{d\fp}{d\fp'}\left\{u(\fp)\left[\vrho_1 \vsigma g(\fp')\right.\right.\\
+ &\left. + f(\fp)\vrho_1\vsigma\right] v(\fp')\exp{\frac{i}{h}\left[
+ (E + h\nu - E')t - \left(\fp + \fn\frac{h\nu}{c} - \fp'\right)\fr\right]}\\
+ &\left.+ \text{complex conjugate terms}\right\}
+}{30}
+where $\fJ_0$ denotes the current-density associated with the unperturbed eigenfunctions $\y_0, \Y_0$.
+
+Now let $\fU'$ be the vector associated with $\fJ$ at a point whose distance from $\fr$ is very great compared to the dimension of the region \WTF{available to the electron}{das dem Elektron zud Verfügung steht}, which in turn is considered to be large in compariaon with the wavelengths of the light and de Broglie waves. These assumptions should just correspond to the observation of the Compton effect. Further let $\fn'$ be a unit vector which specifies the direction of observation, i.e. the direction of a radius vector which is drawn from a point in the region of the electron to the point of observation. Then it yields in a well-known manner\footnote{c.f. e.g. O. Klein, ibid, l.c. p. 422.}:
+\nequ{
+\fU' &=  \frac{e}{r}\int\int{dp}\,{dp'}\left\{
+\exp{\frac{i}{h}(E + h\nu - E')\left(t - \frac{r}{c}\right)}
+\int{d\fr}\,u(\fp)\left[\vrho_1 \vsigma g(\fp')\right.\right.\\
+&\left.\left. + f(\fp)\vrho_1 \vsigma\right] v(\fp')
+\exp{-\frac{i}{h}\left[\fp - \fp' + \fn\frac{h\nu}{c} - \fn'\frac{E+h\nu-E'}{c}\right]\fr}\right.\\
+&\left.+ \text{complex conjugate terms} \right\}
+}{31}
+where $\int{d\fr}$ signifies the integration $\int{dx_1}\int{dx_2}\int{dx_3}$ over the entire region available to the electron. We could evaluate this integral according to Goron's procedure\footnote{W. Gordon, l.c. p.129} with the help of Fourier's theorem by introducing instead of $\fp$ and $\fp'$ certain new vectors $\fP$ and $\fP'$ with the components $P_1, P_2, P_3$, $P'_1, P'_2, P'_3$ by the following relations:
+\nequ{
+\fP = \fp + \fn\frac{h\nu}{c} - \fn'\frac{E+h\nu}{c},\quad
+\fP' = \fp' - \frac{E'}{c}\fn',
+}{32}
+
+It follows:
+\nequ{
+\fU' &= \frac{(2\pi h)^3}{r}\int{\frac{{d\fP}}{\Delta\Delta'}}\left\{
+\exp{i\nu\left(t-\frac{r}{c}\right)}u(\fp)\left[\vrho_1 \vsigma g(\fp')\right.\right.\\
+&\left.\left. + f(\fp)\vrho_1 \vsigma\right]v(\fp') + \text{conjugate complex terms}
+\right\}
+}{33}
+where $\Delta$ resp. $\Delta'$ are the Jacobian determinants of the $P_k$ with respect to the $\fp_k$ resp. $P'_k$ with respect to the $\fp'$, while $\fp'$ is the special value of this quantity which for given $\fp$ follows from the relation $\fP = \fP'$, i.e. from
+\nequ{
+\fp + \fn\frac{h\nu}{c} = \fp' + \fn'\frac{h\nu'}{c},
+}{34}
+where $\nu'$ is given by the relatiob
+\nequ{
+E+h\nu = E' + h\nu'.
+}{35}
+These are just the well-known Compton relations, which assign to the state $\fp$ and incoming light quantum at a given direction of observation a certain end state.
+
+Now following Gordon\footnote{W. Gorson, l.c. p.130; see also I. Waller, Phil. Mag. 4, 1228, 1927.} from (33) follows the following expression for the radiation potential $\fU(\fp,\fp')$ associated to a transition foe the state $\fp$ to the state $\fp'$:
+\nequ{
+\fU(\fp,\fp') &= \frac{(2\pi h)^3}{\fr}\inv{\sqrt{\Delta\Delta'}}\left\{
+\exp{i\nu\left(t-\frac{r}{c}\right)}u(\fp)\left[\vrho_1\vsigma g(\fp')\right.\right.\\
+&\left.\left. + f(\fp)\vrho_1 \vsigma\right]v(\fp')
++ \text{complex conjugate terms}\right\},
+}{36}
+where $u(\fp)$, $v(\fp)$ and $u(\fp')$, $v(\fp')$ are henceforth considered as normalized.
+
+The radiation field is completely determined by the quantity $\fU(\fp,\fp')$, which is associated to a \?{given} Compton effect. The magnetic field strengths $\fh(\fp,\fp')$ follow from it through the relations
+\nequ{
+\fh(\fp,\fp') = \rot{\fU(\fp,\fp')},
+}{37}
+and in turn the electric field strengths $\fE(\fp,\fp')$ follow from the relations
+\nequ{
+\fE = [\fh(\fp,\fp'), \fn'].
+}{38}
+We must now bring the $\fU(\fp,\fp')$, or even better the $\fh(\fp,\fp')$ into a form suitable for the numerical calculation of the intensity and polarizarion of the scattered radiation. Towards this purpose we have insertes into (36) the expressions for $f,\fbar,g,\gbar$ given in (35) and then utilized the calculation rules given by Dirac for the matrices $\vrho$ and $\vsigma$, in order to obtain the result in the form of ordinary numbers. Here we shall assume for simplicity that the initial state denoted by $\fp$ corresponds to a resting electron. The corresponding values for $\fU(\fp,\fp')$ and $\fh(\fp,\fp')$ are denoted with $\fU_0$ and $\fh_0$. Thus we shall have
+\nequ{
+\fp=0,\quad E=mc^2.
+}{39}
+
+With the help of the equations (5) for $u$ and $v$, we can reduce all matrices occurring in the expression for $\fU_0$ to the unit matrix and the matrix vector $\vsigma$. Then on the basis of the relations (2) it is possible to represent the result as an expression linear in the components of $\vsigma$. Here use is made of Dirac's\footnote{P.A.M. Dirac, l.c. B. p.618} calculation rule, which is intimately-connected with quanternions, with which one easily proves with the help of (2):
+\nequ{
+(\fB \vsigma)(\fE \vsigma) = (\fB\fE) + i(\vsigma, [\fB\,\fE]),
+}{40}
+and its consequence
+\uequ{
+\vsigma(\vsigma \fB) = \fB + i[\vsigma\,\fB],
+}
+where $\fB$ and $\fE$ denote two arbitrary vectors that commute with $\vsigma$.
+
+As emerges from (5), in addition to the matrix $\vsigma$, $\vrho_1\vsigma$ also occurs in the quantities $f$ and $g$. In (36) these matrices are multiplied by $\vrho_1 \vsigma$. The resulting matrix is, according to (2) resp. (40), a linear combination of the unit matrix, of $\vrho_1$, $\vrho_1 \vsigma$ and $\vsigma$. This matrix then \WTF{ends up between}{kommt dann zwischen...zu stehe } $u(\fp)$ and $v(\fp')$, and we can show that both $u(\fp)\vrho_1 v(\fp')$ as well as $u(\fp)\vrho_1 \vsigma v(\fp')$ can lead back to the quantities $u(\fp)v(\fp')$ and $u(\fp)\vsigma v(\fp')$. In fact, it follows from
+\uequ{
+u(\fp)(1+\vrho_3) =0\\
+\left\{E'/c + \vrho_1(\vsigma \fp') + \vrho_3 mc \right\}v(\fp'),
+}
+by multiplication with $\vrho_1 v(\fp')$ resp. $u(\fp)\vrho_1$
+\uequ{
+&u(\fp)(\vrho_1 + i\vrho_2)v(\fp') = 0,\\
+&u(\fp)\left\{E'/c + \vrho_1(\vsigma \fp') + \vrho_3 mc \right\}v(\fp') = 0,
+}
+or by eliminating $v(\fp)\vrho_2 u(\fp')$,
+\nequ{
+u(\fp)\vrho_1 v(\fp') = -\frac{u(\fp)(\fp' \vsigma)v(\fp')}{E'/c + mc}.
+}{41}
+In a similar manner one finds
+\nequ{
+u(\fp)\vrho_1 \vsigma u(\fp') = -\frac{u(\fp)\vsigma(\vsigma \fp')v(\fp')}{E'/c + mc},
+}{42}
+a relation which according to (40) can be reduced to an expression linear in $\vsigma$. We shall introduce the following abbreviations:
+\nequ{
+u(\fp)\vsigma v(\fp') &= \fs,\quad u(\fp')\vsigma v(\fp) = \fsbar,\\
+u(\fp) v(\fp') &= d,\quad u(\fp') v(\fp) = \dbar,
+}{43}
+where $\fs$ and $\fsbar$ denote two vectors that are complex conjugates of one another, while $d$ and $\dbar$ are two complex-conjugare scalars. Now with the help of equations (41) and (42) we get an expression for $\fU_0$ linear in $\fs$, $\fsbar$ and $d$, $\dbar$.  We shall not write these down here, but rather are content to calculate the magnetic field strengths $\fh_0$ according to (27), which is enough for the polarization as well as for the intensity of the scattered radiation. After some calculations, where the relations (34) and (35) are brought in, it follows:
+\nequ{
+\fh_0 &= \frac{(2\pi h)^3 e^2 \nu'}{2mc^2 r\left(\nu-\nu' + \frac{2mc^2}{h}\right)}
+\sqrt{\frac{E'\nu'}{mc^2\nu}}\left\{d\left(\inv{\nu}\left.\fn'\vepsilon\right)(\nu' - \nu)[\fn'\fn]\right.\right.\\
+&\left.\left. - \nu'\left(\inv{\nu} + \inv{\nu'}\right)^2\frac{mc^2}{h}[\fn'\vepsilon]\right)
+- i\left[\left(\inv{\nu'} - \inv{\nu}\right)\left((\fs,\fn\nu - \fn'\nu')((\fn'\vepsilon)\fn
+\right.\right.\right.\\
+&\left.\left.\left. - (\fn\fn')\vepsilon) + \left(\nu-\nu'+\frac{2mc^2}{h}\right)
+\left((\fs\fn')\vepsilon - (\fn'\vepsilon)\fs\right)\right)\right.\right.\\
+&\left.\left.\frac{2}{\nu}(\vepsilon\fn')\left((\fn'\fs)(\fn\nu - \fn'\nu)
++ \left(\nu' - (\fn\fn')\right)\fs\right)\right.\right.\\
+&\left.\left. - \left(\inv{\nu} + \inv{\nu'}\right)\left((\fn[\vepsilon\fs])\nu[\fn'\fn]
++ \nu'(\fn'[\fn\vepsilon])[\fn'\fs]\right)\right]\right\}
+\exp{i\nu'\left(t-\frac{r}{c}\right)}\\
+& + \text{complex conjugate terms}
+}{44}
+where we have used the values $\Delta$ and $\Delta$ following from (32) (with the help of (34))\footnote{W. Gordon, l.c. p.380.}, namely
+\nequ{
+\Delta =  1 - \frac{c}{E}(\fn'\fp) = 1, \quad
+\Delta' = 1 - \frac{c}{E'}(\fn'\fp') = \frac{mc^2\nu}{E'\nu'}
+}{45}
+
+We shall not enter into further discussion on this expression, but rather will be satisfied to investigate the intensity of the scattered radiation\footnote{c.f. the subsequent paper by Y. Nishina, where the question of polatization of the scattered radiation is discussed.}. For this purpose we form the quantity $\fh_0^2$. Here we shall choose as the initial state one of the eigenfunctions associated with $\fp=0$ mentioned on p.856, i.e. for this state either $u_1,v_1$ alone or $u_2,v_2$ alone are different from zero (and normalized according to (20)). Thus we consider the scattered radiation of an electron which has been magnetized by a field directed along the $x_3$-axis. For the final state we have assumed both $u_1^*, v_1^*$ and $u_2^*, v_2^*$ to be nonzero amd normalized. This corresponds in the general wave-mechanical method to the calculation of the transition probabilities of the possibilities of such transitions where the magnetic moment remains unchanged, as well as those where the direction is changed.
+
+While forming $\fh_0^2$ we now get a expression bilinear in the quantities $d,\fs$ and $\dbar,\fsbar$, which we have to average over the phases $\delta_1$ and $\delta_2$ of the initial and final states. Thus we get a sum of terms of the form $u(\fp')\alpha v(\fp)\times u(\fp)\beta v(\fp')$, which we have to average over the phases, where $\alpha$ and $\beta$ are two matrices. If first assume that $u_1(\fp)$ and $v_1(\fp)$ are nonzero, then we could write
+\uequ{
+\sumX{i,k}u_i(\fp')\alpha_{i1}v_1(\fp)u_1(\fp)\beta_{1k}v_k(\fp').
+}
+This is however equal to $u_1(\fp)v_1(\fp)\times u(\fp')\alpha\mu\beta v(\fp')$, where $\mu$ represents the matrix
+\uequ{
+\left(\begin{matrix}
+1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0
+\end{matrix}\right).
+}
+
+According to (8) and (9) we could represent $\mu$ in the following fashion, with the help of $\vrho_3$ and $\vsigma_3$:
+\nequ{
+\mu = \left(\frac{1+\vsigma_3}{2}\right)\left(\frac{1-\vrho_3}{2}\right),
+}{46}
+and thus
+\nequ{
+u(\fp')\alpha v(\fp)\times u(\fp)\beta v(\fp') 
+= (2\pi h)^{-3}u(\fp')\alpha\mu\beta v(\fp'),
+}{47}
+where, following (20), we have put $u_1 v_1 = (2\pi h)^{-3}$. If we had chosen as the initial state the state associated with $u_2, v_2$, then $\mu$ would take the value $\left(\frac{1-\vsigma_3}{2}\right)\left(\frac{1-\vrho_3}{2}\right)$.
+
+We shall now assume that $\alpha = (\fE\vsigma)$ and $\beta = (\fB \sigma)$, where $\fB$ and $\fE$ are vectors that commute with $\vsigma$. Then $u(\fp')\alpha v(\fp) = (\fE\fsbar)$ and $u(\fp)\beta v(\fp') = (\fB \fs)$, and we have
+\uequ{
+(\fB\fs)(\fE\fsbar) = (2\pi h)^{-3}u(\fp')(\fE\vsigma)\mu(\fB\vsigma)v(\fp').
+}
+Now
+\uequ{
+(\fE\vsigma)\left(\frac{1+\vsigma_3}{2}\right) = \left(\frac{1-\vsigma_3}{2}\right)(\fE\vsigma) + C_3,
+}
+so that
+\nequ{
+(\fB\fs)(\fE\fsbar) = (2\pi h)^{-3} u(\fp')\left(\frac{1-\vrho_3}{2}\right)\left\{
+\left(\frac{1-\vsigma_3}{2}\right)(\fE\vsigma)(\fB\vsigma) + C_3(\fB\vsigma)\right\}v(\fp').
+}{48}
+On the right-hand side of this equation, between $u(\fp')$ and $v(\fp')$ there are matrices which are either of the form $\frac{1-\vrho_3}{2}$ or $\frac{1-\vrho_3}{2}\vsigma$. We can easily rearrange this in the following manner. From the equations
+\uequ{
+u(\fp')\left\{E'/c + \vrho_1(\vsigma\fp') + \vrho_3 mc \right\} = 0,\quad
+\left\{E'/c + \vrho_1(\vrho_1\fp') + \vrho_3 mc\right\} = 0
+}
+follows, similarly as on p.863,
+\nequ{
+u(\fp')\left(\frac{1-\vrho_3}{2}\right)v(\fp') =
+\inv{2}\left(1+\frac{mc^2}{E'}\right)u(\fp')v(\fp').
+}{49}
+It further follows that
+\nequ{
+u(\fp')\left(\frac{1-\vrho_3}{2}\right)\vsigma v(\fp') &=
+\inv{2}\left(1+\frac{E'}{mc^2}\right)u(\fp')\vsigma v(\fp') \\
+&- \frac{\fp'}{2mE'}u(\fp')(\vsigma \fp')v(\fp'),
+}{50}
+so that the quantities $u(\fp')\left(\frac{1-\vrho_3}{2}\right)v(\fp')$ and $u(\fp')\left(\frac{1-\vrho_3}{2}\right)\vsigma v(\fp')$ could be expressed by the quantities $u(\fp')v(\fp')$ and $u(\fp')\vsigma v(\fp')$. Since now the final state \?{distinguished} by $\fp'$ should contain both the independent solutions in equal strength, in is henceforth clear that the phase-averaged value of $u(\fp')\vsigma v(\fp')$ must vanish. In fact this even follows from the representation of the quantities $u(\fp')$, $v(\fp')$ in (18) and (21). Thus we shall assume that
+\nequ{
+\overline{u(\fp')\vsigma v(\fp')} = 0,
+}{51}
+where the line signifies the formation of the average over the phases $\delta_1(\fp')$ and $\delta_1(\fp')$. This assumption now suffices to calculate all of the mean values. First we must have the value of $u(\fp')v(\fp')$. It follows from (18) and (20) that
+\nequ{
+u(\fp')v(\fp') = u^*(\fp')v^*(\fp') = 2(2\pi h)^{-3}.
+}{52}
+It further follows from (48) that
+\nequ{
+\overline{(\fB\fs)}\overline{(\fE\fsbar)} = \inv{2}
+(2\pi h)^{-3} u(\fp')
+\left(\frac{1-\vrho_3}{2}\right)v(\fp')\left\{(\fE\fB) + i[\fB\fE]_3 \right\},
+}{53}
+or according to (49) and (52), if we put
+\nequ{
+\gamma = \inv{2}(2\pi h)^{-6}\left(1+\frac{mc^2}{E'}\right),
+}{54}
+\nequ{
+\overline{(\fB\fs)}\overline{(\fE\fsbar)} = \gamma\left\{(\fE\fB) + i[\fB\fE]_3 \right\}.
+}{55}
+We could easily rid ourselves of the special choice of coordinates. If $\fI$ denotes a unit vector in the direction of the magnetic moment of the magnetized electron in the initial state, then the following obviously applies in general
+\nequ{
+\overline{(\fB\fs)(\fE\fsbar)} &= \gamma\left\{(\fE\fB) + i(\fI[\fB\fE]) \right\}.\\
+\text{and likewise}\\
+\overline{[\fB\fs][\fE\fsbar]} &= \gamma\left\{2(\fE\fB) + i(\fI[\fB\fE]) \right\}\\
+\text{further},\\
+\overline{(\fB\fs)\dbar} &= \overline{d(\fB\fsbar)} = \gamma(\fI\fB)
+}{56}
+and finally
+\nequ{
+d\dbar = \gamma.
+}{57}
+
+In calculating $\overline{\fh_0^2}$, we shall now assume for simplicity that the incoming light is linearly polarized, so that $\vepsilon = \overline{\vepsilon}$. Then after some calculating it yields
+\nequ{
+\overline{\fh_0^2} = \frac{e^4}{m^2c^4r^2} \left(\frac{\nu'}{\nu}\right)^3
+\left\{\left(\frac{\nu}{\nu'} + \frac{\nu'}{\nu}\right)\vepsilon^2 - 2(\fn'\vepsilon)^2\right\}
+}{58}
+or, if we denote the angle between the direction of observation and the wave-normal of the incoming light by $\Theta$ and the angke between the direction of observation and the electrical force of the incoming wave by $\vartheta$,
+\nequ{
+I = I_0\frac{e^4}{m^2c^4r^2}\frac{\sin^2\vartheta}{\left(1+\alpha(1-\cos\Theta)\right)^3}
+\left(1+\alpha^2\frac{(1-\cos\Theta)^2}{2\sin^2\vartheta(1+\vartheta(1-\cos\Theta))}\right),
+}{59}
+where $\alpha = \frac{h\nu}{mc^2}$, while $I_0$ denotes the intensity of the incoming radiation, $I$ the intensity of the scattered radiation, where the former stands in the same ratio to $2\vepsilon^2$ as the latter to $\overline{\fh_0^2}$. If the incoming radiation is unpolarized, then we must still average over all possible dirctions of $\vepsilon$ for a given direction of the incoming radiation. The mean value of $\sin^2\vartheta$ will here equal $\inv{2}(1+\cos^2\Theta)$, so that
+\nequ{
+\overline{I} = I_0\frac{e^4}{2m^2c^4r^2}\frac{1+\cos^2\Theta}{\left(1+\alpha(1-\cos\Theta)\right)^3}
+\left(1+\alpha^2\frac{(1-\cos\Theta)^2}{(1+\cos^2\Theta)(1+\alpha(1-\cos\Theta)}\right).
+}{60}
+
+Considering the last formulae, (58) through (60), we see that the vector $\fI$ does not occur in them. The results are thus independent of whether the scattered electrons are magnetized beforehand or not. Though as a closer consideration of the expression (44) shows, this only applies in general if the primary radiation is linearly polarized. Hence scattering with elliptically-polarized incoming light is not equal to the sums of the perturbations associated with the individual polarized components, a circumstance which is closely connected to the particular polarization of the scattered radiation.\footnote{C.f. Y. Nishina, l.c., where this point will be more closely examined.}
+
+We further see that the expressions (59) and (60) are only distinguished by the factor
+\uequ{
+\left(1 + \alpha^2\frac{(1-\cos\Theta)^2}{2\sin^2\vartheta\left(1+\alpha(1-\cos\Theta)\right)}\right)
+\text{resp.}
+\left(1 + \alpha^2\frac{(1-\cos\Theta)^2}{(1+\cos^2\Theta)\left(1+\alpha(1-\cos\Theta)\right)}\right)
+}
+from the corresponding formulae of the Dirac-Gordon theory, i.e. the deviation between the two theories is of the order $\left(\frac{h\nu}{mc^2}\right)^2$, while the deviations of the earlier expressions from the classical theory of scattered radiation developed by J.J. Thompson are of order $\frac{h\nu}{mc^2}$\footnote{C.f. Nature 122, 398, September 1928, where the relation of our resukts to experiments are briefly touched upon.}.
+
+From (60) we could easily derive an expression for the scattering coefficients of a substance which contains $N$ electrons per unit volume. Namely, if we multiply the expression (60) by $\frac{{d\Omega}}{h\nu'}$, we get the number of quanta which are scattered into a solid angle ${d\Omega}$ are scattered in the direction $\Theta$ of an electron. To each scattered light quantum there is an incoming light quantum of \?{magnitude} $h\nu$, so that the energy loss of the incoming radiation by scattering off of an in this direction is equal to $\frac{\nu}{\nu'}{d\Omega}$ times the expression (60). Thus by integration over all directions and multiplication by the number of electrons per unit volume we get for the scattering coefficients
+\nequ{
+S &= \frac{2\pi N e^4}{m^2c^4}\left\{\frac{1+\alpha}{\alpha^2}\left[
+\frac{2(1+\alpha)}{1+2\alpha} - \inv{\alpha}\log{(1+2\alpha)}\right]\right.\\
+&\left. \inv{2\alpha}\log{(1+2\alpha)} - \frac{1+3\alpha}{(1+2\alpha)^2}\right\},
+}{61}
+which is again distinguished from the corresponding expression given by Dirac by quantities of order $\alpha^2$.
+
+Copenhagen University Institute for Theoretical Physics, October 1928
+
+\end{document}-##9

@@ -1,0 +1,301 @@
+\begin{paper}{1}
+\begin{header}
+\title{On the quantum mechanics of gas degeneracy.}
+\author{Pascual Jordan}
+\location{Copenhagen}
+\note{Received on July 7th, 1927.}
+\makeheader
+\end{header}
+
+\begin{abstract}
+It has recently been shown by Dirac\footnote{P.A.M. Dirac, Proc. Roy. Soc. London (A) 114, 243, 1927.} how the Einsteinian idea of representing the ideal material gas analogously to a gas of light quanta by quantized waves in the usual three-dimensional space is carried out exactly with quantum mechanics and can be brought into connection with the representation established on the Schrödinger method given earlier by Dirac\footnote{P.A.M. Dirac, ibid 112, 661, 1926.} (eigenfunctions in innumerable dimensions). In this work, a corresponding theory will be developed for the ideal Fermi rather than the ideal Einstein gas.
+\end{abstract}
+
+\section{Quantization of the Schrödinger equation.} The intent of this paper is described in the above summary. We will start with the considerations in \S3 of the first-named Dirac paper. We assume with Dirac that the quantities considered there $\frac{\omega h}{2\pi i}b_r^*, b_r$ are canonical conjugates, or, expressed another way, that we can put
+\nequ{1}{
+q_r &= \frac{1}{2}(b_r + b_r^*),\\
+p_r &= \frac{\omega h}{2\pi i}(b_r - b_r^*),
+}
+where the real quantities $q_r,p_r$ are conjugate. There $\omega$ is a constant (real) $c$-number, which is taken by Dirac as equal to 1; here we will initially leave its value open. We will further assume with Dirac that $b_r$, $b_r^*$ are represented by two conjugate quantities $\Theta_r$, $N_r$ in the form 
+\nequ{2}{
+b_r = \exp{-\frac{2\pi i}{h}\Theta_r}N_r^\frac{1}{2}, \quad
+b_r^* = N_r^\frac{1}{2}\exp{\frac{2\pi i}{h}\Theta_r}
+}
+
+According to recently findings\footnote{P. Jordan, Über eine neue Begründung der Quantenmechanik II. ZS. f. Phys. (in print). In the following denoted by "II".}, it is not necessary that
+\nequ{3}{
+p_r q_r - q_r p_r = \frac{h}{2\pi i};
+}
+for this reason we have a great deal of freedom in the choice of eigenvalues of $\Theta_r$, $N_r$.
+
+\textsc{Assumption A.} The eigenvalues are
+\nequ{4}{
+N_r' = 0,1,2,\dots;\quad 0 \leq \Theta_r' < h.
+}
+Then it follows from two that we must have
+\nequ{5}{
+N_r\exp{\frac{2\pi i}{h}\Theta_r} - \exp{\frac{2\pi i}{h}\Theta_r}N_r = 
+\exp{\frac{2\pi i}{h}\Theta_r},
+}
+and that with
+\nequ{6}{
+\omega=1,
+}
+(3) is also fulfilled. Here we have the case of Bose-Einstein statistics considered by Dirac.
+
+\textsc{Assumption B.} The eigenvalues are
+\nequ{7}{
+N_r' = 0,1;\quad \Theta_r' = \pm\frac{h}{4}.
+}
+If we then set
+\nequ{8}{
+\xi_r = 2N_r - 1;\quad
+\eta_r = \frac{4}{h}\Theta_r;\quad
+\zeta_r = i\ i_r\eta_r
+}
+then all quantities $\beta_r$ that can be formed from $\Theta_r$, $N_r$ by multiplication and addition can be brought into the form
+\nequ{9}{
+\beta_r = a_0 + a_1\xi_r + a_3\eta_r + a_3\zeta_r
+}
+with real $c$-numbers $a_0,\dots,a_3$.
+
+The quantities
+\nequ{10}{
+k_1 = i\xi_r,\quad k_2 = i\eta_r,\quad k_3=i\zeta_r
+}
+behave like quaternions under multiplication.
+
+Now, because $0^2=0$, $1^2=1$, we simply have to write $N$ for $N^\frac{1}{2}$ in (2):
+\nequ{2'}{
+b_r =& \exp{-\frac{2\pi i}{h}\Theta_r}N_r,\\
+b_r^* =& N_r\exp{\frac{2\pi i}{h}\Theta_r}.
+}
+For the exponential function we get, with (7), (8), (10):
+\nequ{11}{
+\exp{\frac{2\pi i}{h}\Theta_r} = 
+\cos\frac{\pi}{2} + k_2\sin\frac{\pi}{2} = k_2,
+}
+and we finally obtain
+\nequ{2''}{
+b_r &= -k_2 N_r = -i\eta_r N_r = -i\frac{4}{h}\Theta_r N_r = -\frac{ik_3 + k_2}{2},\\
+b_r^* &= N_r k_2 = iN_r \eta_r = i\frac{4}{h}N_r \Theta_r = -\frac{ik_3 - k_2}{2}
+}
+and
+\nequ{12}{
+q_r &= \zeta_r\\
+p_r &= \frac{\omega h}{2\pi}\eta_r;
+}
+these equations show that $q_r$, $p_r$ are actually conjugates, if this time we set
+\nequ{13}{
+\omega=\pi.
+}
+
+Now with Dirac we form the Hamiltonian function
+\nequ{14}{
+F=\sum\limits_{rs}b_r^* H_{rs} b_s;
+}
+the meaning of the symbols is the same as in Dirac's equation (11). For \textsc{Case B} we obtain from (14)
+\nequ{15}{
+F=\frac{16}{h^2}\sum\limits_{rs}H_{rs}\cdot N_r\Theta_r\Theta_s N_s.
+}
+Further we form a wave equation
+\nequ{16}{
+\left\{F + \frac{h}{2\pi i}\pX{}\pY{t}\right\}\psi(N_1',N_2',\dots)=0.
+}
+The meaning of the operators $N_r,\Theta_r$ are, according to II, determined by the matrices
+\nequ{17}{
+\begin{array}{rr}
+\xi_r = \left(\begin{array}{rr}
+	-1 & 0\\
+	 0 & 1
+\end{array}\right),&
+\eta_r = \left(\begin{array}{rr}
+	 0 & 1\\
+	 1 & 0
+\end{array}\right);\\
+N_r = \left(\begin{array}{rr}
+	 0 & 0\\
+	 0 & 1
+\end{array}\right),&
+\Theta_r = \frac{h}{4}\left(\begin{array}{rr}
+	 0 & 1\\
+	 1 & 0
+\end{array}\right)
+\end{array}
+}
+So we symbolically obtain (16) in the form
+\nequ{18}{
+\left\{\sum\limits_{rs} H_{rs}
+\left(\begin{matrix}
+	0 & 0\\
+	0 & 1
+\end{matrix}\right)_r
+\left(\begin{matrix}
+	0 & 1\\
+	1 & 0
+\end{matrix}\right)_r
+\left(\begin{matrix}
+	0 & 1\\
+	1 & 0
+\end{matrix}\right)_s
+\left(\begin{matrix}
+	0 & 0\\
+	0 & 1
+\end{matrix}\right)_s + \frac{h}{2\pi i}\pX{}\pY{t}
+\right\}\psi = 0.
+}
+
+We now on the other hand wish to describe the Fermi gas under consideration by eigenfunctions of the type specified by Dirac\footnote{P.A.M. Dirac, Proc. Roy. Soc. London (A) 112, 661, 1926.} and Heisenberg\footnote{W. Heisenberg, ZS. f. Phys. 38, 411, 1926.}. For this, according to Dirac, there is a Schrödinger equation
+\nequ{19}{
+\sum\limits_{s_1,s_2,\dots}H_A(r_1,r_2,\dots;s_1,s_2,\dots)
+\varphi(s_1,s_2,\dots) + \frac{h}{2\pi i}\pX{}\pY{t}
+\varphi(r_1,r_2,\dots) = 0
+}
+or
+\nequ{20}{
+\sum\limits_m \sum\limits_{s_m\neq r_m} & H_{r_m s_m}
+\varphi(r_1,r_2,\dots,r_{m-1},s_m,r_{m+1},\dots)\\
++ \sum\limits_m & H_{r_n r_n}\varphi(r_1,r_2,\dots)
++ \frac{h}{2\pi i}\pX{}\pY{t}\varphi(r_1,r_2,\dots)=0.
+}
+These are the equations (14), (15) in \S3 of the aforementioned paper by Dirac\footnote{P.A.M. Dirac, Proc. Roy. Soc. London (A) 114, 243, 1927.}. Only here we have the symbol $\varphi$ in place of the $b$ used by Dirac; otherwise all signs have the meaning given by Dirac. The functions $\varphi$ are to be antisymmetric; then in $\varphi(s_1,s_2,\dots)$ all $s$ differ from one another. We assign to ter3ewsdeddfdeduy98uhe numbers, each of which can assume the values $1,2,3,\dots$, different numbers $N_1',N_2',N_3',\dots$ such that $N_k'$ is equal to 0 if no number $s_j$ is equal to $k$, and equal to 1 if there is one $s_j=k$. Then we claim that
+\nequ{21}{
+\pm\varphi(s_1, s_2,\dots) = \psi(N_1',N_2',\dots),
+}
+where $\psi$ is the function determined by (16). This statement is the analogue in the Fermi-Dirac gas theory of the statement on the Bose-Einstein theory proven in \S3 of the Dirac paper.
+
+We will initially denote that function of $N_1',N_2',\dots$ which coincides with $\pm\varphi(s_1,s_2,\dots)$ -- we have proven that it is $\psi(N_1',N_2',\dots)$ -- by $\varphi(N_1',N_2',\dots)$. Then the term $\pm H_{r_m s_m} \varphi(r_1,r_2,\dots,r_{m-1},s_m,r_{m+1},\dots)$ in (20) will then, by Dirac, be equal to
+\nequ{22}{
+H_{rs}\cdot\varphi(N_1',N_2',\dots,N_r'-1,N'_s+1,\dots),
+}
+if we briefly write $r,s$ instead of $r_m,s_m$. Then by necessity $N_r'=1,N_s'=0$. The summation $\sum\limits_m \sum\limits_{s_m\neq r_m}$ then means: we are to sum the expression (22) with fixed $r$ over all those values of $s$ different from $r$ in which $N_s'=0$. This sum is then taken over all values of $r$ for which $N'=1$. We now see that this sum can be written symbolically as
+\nequ{23}{
+\sum\limits_{r\neq s}H_{rs}\left(\begin{matrix}
+0 & 0\\
+1 & 0	
+\end{matrix}\right)_r \left(\begin{matrix}
+	0 & 1\\
+	0 & 0
+\end{matrix}\right)_s \varphi(N_1',N_2',\dots).
+}
+It is further seen that the sum $\pm\sum\limits_n H_{r_n r_n}\varphi(r_1,r_2,\dots)$ is to be expressed in (20) as
+\nequ{24}{
+\sum\limits_r H_{rr}\left(\begin{matrix}0&0\\0&1\end{matrix}\right)_r\varphi(N_1',N_2',\dots) = 
+\sum\limits_r H_{rr}\left(\begin{matrix}0&0\\0&1\end{matrix}\right)_r
+\left(\begin{matrix}0&1\\0&0\end{matrix}\right)_r
+\varphi(N_1',N_2',\dots).
+}
+But this already indicates the equivalence of the equations (18) and (20) resp. the correspondence of the functions $\varphi(N')$ and $\psi(N')$. Then (18) can also be written in the form
+\nequ{25}{
+\left\{\sum\limits_{rs}H_{rs} \left(\begin{matrix}0&0\\1&0\end{matrix}\right)_r
+\left(\begin{matrix}0&1\\0&0\end{matrix}\right)_s
++ \frac{h}{2\pi i}\pX{}\pY{t}\right\}\psi = 0.
+}
+
+\section{Density fluctuations of the ideal gas.} We will apply our method to an investigation of the fluctuation properties of the Pauli-Fermi gas. For simplicity we will consider a one-dimensional gas and hence ascribe a rest mass of zero to the gas atoms. If we finally select the "speed of light" equal to 1, then we have a system which differs from the \?{vibrating chain studied earlier as regards its fluctuation properties}{der früher bezüglich ihrer Schwankungseigenschaften untersuchten schwingenden Saite}\footnote{M. Born, W. Heisenberg, P. Jordan, ZS. f. Phys., 35, 557, 1925.} only by satisfying the Pauli rather than the Bose statistics. Here we wish to calculate the fluctuations for the Bose as well as the Pauli system, by taking a course that rather differs from the one previously used. Namely, the older method, which in the Bose case naturally is mathematical equivalent to that utilized now, permits no immediate transition to the Pauli case.
+
+According to (2), \S2, in both cases
+\nequ{1}{
+b_r^* b_r = N_r.
+}
+We now represent the link $u(x,t)$ of the chain with length $l$ as
+\nequ{2}{
+u(x,t)=\sum\limits_{r=1}^\infty b_r \sin{r\frac{\pi}{l}x}.
+}
+Then ($l,x$ are $c$-numbers)
+\nequ{3}{
+\frac{2}{l}\int\limits_0^l u^*u\dx = \sum\limits_{r=1}^\infty N_r
+}
+becomes equal to the total number of particles on the chain; consequently we will interpret
+\nequ{4}{
+N(x_1,x_2)=\frac{2}{l}\int\limits_{x_1}^{x_2}u^* u\cdot\dx
+}
+as the number of particles in the stretch $(x_1,x_2)$. The number $N(0,a)$ will be written as $N$ for short; and we obtain
+\nequ{5}{
+\Delta &= N(0,a) - \overline{N(0,a)} = N-\overline{N}\\
+&= \frac{2}{l}\int\limits_0^a \sum\limits_{\substack{r,s=1\\r\neq s}}^\infty 
+b^*_r b_s \sin{r\frac{\pi}{l}x}\cdot \sin{s\frac{\pi}{l}x}\cdot\dx\\
+&= \frac{1}{l} \sum\limits_{\substack{r,s=1\\r\neq s}}^\infty 
+b^*_r b_s K_{rs} 
+= \frac{1}{l}\sum\limits_{\substack{r,s=1\\r\neq s}}^\infty b_s b_r^* K_{rs};
+}
+\nequ{6}{
+K_{rs} &= \frac{\sin{(r-s)\frac{\pi}{l}a}}{(r-s)\frac{\pi}{l}}
+ - \frac{\sin{(r+s)\frac{\pi}{l}a}}{(r+s)\frac{\pi}{l}}\\
+ &= \frac{\sin{(\omega_r-\omega_s)a}}{(\omega_r-\omega_s)}
+ -  \frac{\sin{(\omega_r+\omega_s)a}}{(\omega_r+\omega_s)}
+}
+Further it gives
+\nequ{7}{
+\Delta^2 = \frac{1}{l^2}
+\sum\limits_{\substack{r,s=1\\r\neq s}}^\infty
+\sum\limits_{\substack{\varrho,\sigma=1\\ \varrho=\sigma}}^\infty
+b_r^* b_s b_\sigma b_\varrho^* K_{rs} K_{\varrho\sigma},
+}
+and the mean value becomes
+\nequ{8}{
+\overline{\Delta^2} = \frac{1}{l^2} \sum\limits_{\substack{r,s=1\\r\neq s}}^\infty
+\left\{\overline{b_r^* b_s^2 b_r^*} + \overline{b_r^* b_s b_r b_s^*}\right\}K_{rs}^2.
+}
+At longer chain lengths $l$ the sums can be replaced by integrals:
+\nequ{9}{
+\overline{\Delta^2} = \frac{1}{\pi^2}\int\limits_0^\infty \int\limits_0^\infty \d\omega_r \d\omega_s \left\{\overline{b_r^* b_s^2 b_r^*} + \overline{b_r^* b_s b_r b_s^*}\right\}K_{rs}^2.
+}
+Here, by assuming that $a$ is also very large, we have to apply the formula
+\nequ{10}{
+\lim_{a\to\infty}\frac{1}{a}\int\limits_{-\Omega}^{\Omega'}
+\frac{\sin^2\omega a}{\omega^2} f(\omega)\d\omega = \pi f(0)
+\text{ for $\Omega,Omega'>0$ }.
+}
+It gives
+\nequ{11}{
+\overline{\Delta^2} = \frac{2a}{\pi}\int\limits_0^\infty \d\omega_r
+\cdot\overline{b_r^* b_r^2 b_r^*}.
+}
+The following relations serve in the evaluation of this formula:
+\begin{enumerate}
+\item{In the Bose case}
+\nequ{12}{
+b_r &= \exp{-\frac{2\pi i}{h}\Theta_e}N_r^\frac{1}{2}
+ = (1+N_r)^\frac{1}{2}\exp{-\frac{2\pi i}{h}\Theta_r},\\
+b_r^* &= N_r^\frac{1}{2}\exp{\frac{2\pi i}{h}\Theta_e}
+ = \exp{\frac{2\pi i}{h}\Theta_r} (1+N_r)^\frac{1}{2};\\
+}
+\item{In the Pauli case}
+\nequ{13}{
+b_r &= \exp{-\frac{2\pi i}{h}\Theta_e}N_r^\frac{1}{2}
+ = (1-N_r)^\frac{1}{2}\exp{-\frac{2\pi i}{h}\Theta_r},\\
+b_r^* &= N_r^\frac{1}{2}\exp{\frac{2\pi i}{h}\Theta_e}
+ = \exp{\frac{2\pi i}{h}\Theta_r} (1-N_r)^\frac{1}{2},\\
+}
+\end{enumerate}
+which follow from \S of this work; one must only note that $N_r^2=N_r$, $(1-N_r)^2=1-N_r$, or
+\nequ{14}{
+N_r^\frac{1}{2}=N_r,\quad (1-N_r)^\frac{1}{2}=1-N_r.
+}
+Placing \?{less emphasis}{weniger Wert auf die Hervorhebung} on the analogy to (12), then instead of (13) one can also write
+\nequ{15}{
+b_r &= -i\frac{4}{h}\Theta_r N_r = -i\frac{4}{h}(1-N_r)\Theta_r,\\
+b_r^* &= i\frac{4}{h}N_r\Theta_r = i\frac{4}{h}\Theta_r(1-N_r);
+\quad \Theta_r^2 = \frac{h^2}{16}.
+}
+Applying the formulae (12), (13) yields for the integrands in (11):
+\begin{enumerate}
+	\item With Bose statistics
+	\nequ{16}{
+	b_r^* b_r^2 b_r^* = N_r (1+N_r);
+	}
+	\item With Pauli statistics
+	\nequ{17}{
+	b_r^* b_r^2 b_r^* = N_r(1-N_r).
+	}
+\end{enumerate}
+
+The formula (16) is however in fact only another expression of the well-known Einstein fluctuation formula with Bose statistics. In (17) on the other hand we have obtained the corresponding formula for Fermi-Dirac statistics -- in agreement with a result that has been derived by Pauli\footnote{W. Pauli jr.  ZS. f. Phys. 41, 81, 1927.} in a thermodynamic-statistical manner.
+
+\section{Closing remarks.} The considerations of \S1, \S2 relate to the ideal gas, without interactions between gas atoms. If interacting particles are to also be described with the method developed by Dirac resp. \S1, 2, then the function $F$ in the wave equation (16), in which the $b_r$, $b_r^*$ appear quadratically -- corresponding to linear equations of motion -- must be replaced by a more general function; I hope to return to that soon. The present considerations however already provide certainty that the probability laws of all collision-type interactions in the Pauli-Fermi gas are given correctly by our method. Since these probability laws, whose form could already be derived from thermodynamic-statistical considerations\footnote{P. Jordan, ibid 41, 711, 1927; L.S. Ornstein and H.A. Kramers, ibid 42, 481, 1927.}, are distinguished from the corresponding probability laws in the Bose-Einstein case by the occurrence of the factor $1-N_r$ in place of $1+N_r$. The same difference also appears in equations (16), (17), \S2; according to our theory its origin lies in the corresponding difference between the basic equations (12) and (13), \S2, of the Bose and the Pauli systems.
+
+The results achieved leave hardly any doubt that -- despite the satisfaction of the Pauli instead of the Bose statistics for the electron -- a quantum mechanical wave theory of matter can be carried out by representing the electrons by quantized waves in the usual three-dimensional space, and that the \?{correct}{naturgemäße} formulation of the quantum-theoretical electron theory will be found such that light and matter can be regarded simultaneously as interacting waves in three-dimensional waves\footnote{The conviction that a theory of systems with several identical material particles will be developed by a quantization of the Schrödinger equation was already expressed by the author immediately after the appearance of Schrödinger's first investigation. At the time however the Pauli exclusion rule seemed to form a serious obstacle to this interpretation.}. The fundamental fact of the electron theory, the existence of discrete electric particles, is proven as a characteristic quantum phenomenon, namely as synonymous with the fact that the matter waves only occur in discrete quantum states. The Schrödinger eigenfunctions for matter waves constructed by Dirac and Heisenberg play a role in the spaces of this picture that does not to be analogous to electromagnetic waves in any respect. What's more, they are proven as a special case of the general probability amplitudes, which are to be used as a mathematical aid for the description of the statistical behavior of quantized light and material vibrations.
+
+I am heartily thankful to professor Bohr for stimulating conversations on the problems of quantum theory. I have to thank the International Education Board for making possible a stay in Copenhagen.
+\end{paper}

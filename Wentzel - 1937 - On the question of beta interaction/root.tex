@@ -1,0 +1,184 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\renewcommand*\rmdefault{ppl}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{marginnote}
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+
+\nff{\WTF}{#1 (\textit{#2})}
+
+\nf{\translator}{\footnote{\textbf{Translator note:}#1}}
+\nc{\sic}{{}^\text{(\textit{sic})}}
+
+\newcommand{\nequ}[2]{
+\begin{align*}
+#1
+\tag{#2}
+\end{align*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{align*}
+#1
+\end{align*}
+}
+
+\nf{\sskip}{...\{#1\}...}
+\nff{\iffy}{#2}
+\nf{\?}{#1}
+\nf{\tags}{#1}
+
+\nf{\limX}{\underset{#1}{\lim}}
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+%\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+\nff{\intXY}{\underset{#1}{\overset{#2}{\int}}}
+
+\nc{\fluc}{\overline{\delta_s^2}}
+
+\rf{\exp}{e^{#1}}
+
+\nc{\grad}{\operatorfont{grad}}
+\rc{\div}{\operatorfont{div}}
+\nc{\spur}{\operatorfont{spur}}
+
+\nf{\pddt}{\frac{\partial{#1}}{\partial t}}
+\nf{\ddt}{\frac{d{#1}}{dt}}
+
+\nf{\inv}{\frac{1}{#1}}
+\nf{\Nth}{{#1}^\text{th}}
+\nff{\pddX}{\frac{\partial{#1}}{\partial{#2}}}
+\nf{\rot}{\operatorfont{rot}{#1}}
+
+\nf{\Elt}{\operatorfont{#1}}
+
+\nff{\MF}{\nc{#1}{\mathfrak{#2}}}
+
+\nc{\wta}{\widetilde{a}}
+
+\MF{\fr}{r}
+\MF{\fV}{V}
+\MF{\fp}{p}
+
+\nc{\fYm}{\fY^{(m)}}
+\nc{\fXm}{\fX^{(m)}}
+\nc{\fZm}{\fZ^{(m)}}
+
+\nff{\MV}{\nc{#1}{\vec{#2}}}
+
+\MV{\vgamma}{\gamma}
+\MV{\valpha}{\alpha}
+
+\nc{\Y}{\psi}
+\nc{\y}{\varphi}
+
+\title{Wentzel - 1937 - On the question of beta interaction}
+
+\begin{document}
+
+\begin{abstract}
+It is probable that, besides the well-known $\beta$-transformations, there are elementary nuclear processes in which a neutral pair of light particles (electron + positron or neutrino + antineutrino) are emitted\footnote{The author has already indicated the possibility of such processes in another connection; c.f. Zeitschr. f. Phys. \textbf{104}, 1936, p. 36.}). The meaning of these processes for the $\beta$-theory of nuclear forces is discussed.
+\end{abstract}
+
+\textsc{Breit}, \textsc{Condon}, and \textsc{Present}\footnote{\textsc{G. Breit}, \textsc{E.U. Condon}, \textsc{R.D. Present}, Phys. Rev. \textbf{50}, 1936, p. 825.} have recently, on the basis of a wave-mechanical analysis of the proton-proton scattering experiment by \textsc{Tuve}, \textsc{Heydenburg}, \textsc{Hafstad}\footnote{\textsc{M.A. Tuve}, \textsc{N.P. Heydenburg}, \textsc{L.R. Hafstad}, Phys. Rev. \textbf{50}, 1936, p. 806.}, expressed the suspicion that the nuclear forces between proton and proton are the same as, at least approximately, those between the proton and neutron. In fact it is a very plausible assumption that in actual nuclear interactions the electrical charge of the partner plays only a secondary role.
+
+But if this assumption regarding neutrons and protons is to prove to be justified, then it is natural to also tentatively apply it to light particles (electron, positron, neutrino, antineutrino). Specifically, the question is posed, whether in $\beta$-decay (in the Pauli-Fermi meaning) the electron and neutrino aren't replacable by other light particles, i.e. whether there are also elementary nuclear processes in which two charged particles or two uncharged particles are emitted. Of course the charge is important insofar as the requirement of charge conservation represents a 
+"selection rule" for the possible processes; but if it is assumed that the charges of the individual particles involved are otherwise irrelevant, then it is to be expected that in addition to the $\beta^-$ and $\beta^+$ processes, there are further equally-justified processes: with the notation
+
+\begin{tabular}{ll}
+Proton = $P$ & Neutron = $N$\\
+Electron = $e$ & Neutrino = $n$ \\
+Positron = $p$ & Antineutrino = $a$
+\end{tabular}
+
+in addition to the $\beta^+$-decay
+\nequ{
+P \to N + p + a
+}{1}
+the transitions
+\nequ{
+P \to P' + e + p
+}{2}
+\nequ{
+P \to P' + n + a
+}{3}
+must be ascribed to the proton ($P'$ denotes a new state for the proton), correspondingly to the neutron in addition to the $\beta^-$ decay
+\nequ{
+N \to P + e + n
+}{4}
+the transitions
+\nequ{
+N \to N' + e + p
+}{5}
+\nequ{
+N \to N' + n + a.
+}{6}
+On energetic grounds such "$\beta$-processes of the 2nd kind" naturally only occur in composite nuclei.
+
+Assuming that the matrix elements for these processes are not essentially greater than the well-known $\beta$-processes (1) and (4), an immediate experimental proof of their occurance will be difficult to provide. Namely since the relevant nuclear transitions ($P\to P'$ resp. $N \to N'$) are not connected with a change in charge, the same transitions could also occur through light emission, and in under all conditions these $\gamma$-transitions are more likely by many powers of ten than the corresponding $\beta$-processes of the second type. Further, those $\gamma$-quanta still have the possibility to change into electron-positron pairs\footnote{The transformation probability for energies of some millions of electron volts is, according to \textsc{L. Nedelsky} and \textsc{J.R. Oppenheimer} (Phys. Rev. \textbf{44}, 1933, p. 948) as well as \textsc{J.C. Jaeger} and \textsc{H.R. Hulme} (Proc. Roy. Soc. \textbf{148}, 1935, p. 708), on the order of $10^{-3}$, even with small nuclear charges.} in the vicinity of the nucleus, and pair production by means of a $\gamma$-quantum is still always very much more probable than the direct pair production according to (2) or (5), so that it does not seem possible to experimentally distinguish the latter pairs from the others. Even the exceptional case that the relevant $\gamma$-transition is forbidden by selection rules (angular momentum $=0$ in the initial and final state of the nucleus) are hardly more promising: here the nuclear energy is primarily delivered to one shell electron, and this can in turn produce a pair in the nuclear field, which would obscure the sought effect, even if no perturbing $\gamma$-rays of other energies are present. Thus the matrix elements (2) and (5) already be several orders of magnitude greater than (1) and (4) if they are to give a noticeable contribution to the total pair production.
+
+2. The knowledge of all elementary nuclear processes and their matrix elements is especially of importance for the theory of "$\beta$-fields", i.e. the virtual light particles present in the neighborhood of protons and neutrons, which according to a well-known hypothesis mediate the nuclear forces between the heavy particles. If the equality of the proton-proton forces and proton-neutron forces is confirmed, then this can probably only be explained as a part of a $\beta$-theory if in the $\beta$-processes as well charged and uncharged particles can replace one another, at least to some extent.
+
+If only the $\beta$ process of the first type (1) and (4) exist, then it is known that the first approximation in perturbation theory (second-order perturbation matrix) indeed gives a proton-neutron interaction, but no proton-proton interaction. A neutron-proton collision can be represented by the schema\footnote{$N'+p+a+N$ and $P+e+n+P'$ are the "virtual intermediate states" under consideration.}
+\nequ{
+P+N \to \left.\begin{cases}
+ N' + p + a + N \\
+ P + e + n + P'
+ \end{cases}\right\} \to N' + P';
+}{7}
+the associated force is an exchange force (the particles exchange their charge). The following further processes are made possible by the processes of the second type (2), (3), (5), (6):
+\nequ{
+P+N\to \left.\begin{cases}
+P' + e + p + N\\
+P' + n + a + N\\
+P + e + p + N'\\
+P + n + a + N'
+\end{cases}\right\} \to P' + N'
+}{8}
+\nequ{
+P + P'\to \left.\begin{cases}
+P'' + e + p + P'\\
+P'' + n + a + P'\\
+P + e + p + P'''\\
+P + n + a + P'''
+\end{cases}\right\} \to P'' + P'''
+}{9}
+\nequ{
+N+N'\to \left.\begin{cases}
+N'' + e + p + N'\\
+N'' + n + a + N'\\
+N + e + p + N'''\\
+N + n + a + N'''
+\end{cases}\right\} \to N'' + N'''.
+}{10}
+Now in the first approximation there are also proton-proton and neutron-neutron forces. It is to be noted that the proton-neutron force corrsponding to (8) is not an exchange force: each particle keeps its charge.
+
+Now the most obvious assumption would be that the matrix elements of the transitions (1) through (6) would all be equal to one another (not only with respect to the operators acting on the eigenfunctions, but also in their numerucal factors), and that these are the \?{unique} matrix elements of the $\beta$-interaction. With this assumption however these is no equality between proton-proton and proton-neutron forces. True, the transitions (8) and (9) correspond to one another (the mass difference between proton and neutron being inconsequential), but in the proton-proton force there is no term corresponding to the exchange force (7). 
+
+All the same, the two forces can be made equal by a special choice of the numeric coefficients in the matrix elements (1) through (6). E.g. if the matrix elements of the $\beta$-processes of the second kind are chosen to be equal among eachother\footnote{It also suffices to have (2) = (5) and (3) = (6).}, but large with respect to those of processes of the first kind, then the transitions (7) are inconsequential with respect to (8) and (9), and the proton-proton foces become nearly equal\footnote{An \textit{exact} equality of $N$-$N$, $P$-$P$ and $N$-$P$ forces for all states (in the first approximation of perturbation theory) cannot be achieved even with other choices of the coefficients, as long as $\beta$-transitions of the first type exist at all.} to the proton-neutron forces (even in higher orders of the perturbation calculation). Of course in this case the proton-neutron force is essentially an ordinary force (without charge exchange, albeit possibly with spin exchange\footnote{A pure exchange force is obtained (in the first perturbation-theoretical approximation) e.g. when the matrix elements (3) and (5) -- or (2) and (6) -- vanish; namely since then the transitions (8) do not occur. However, under this assumption the $P$-$P$ and $P$-$N$ forces differ, even in sign.}), and the saturatiom character of the nuclear binding forces must then be explained differently than is usual\footnote{C.f. \textsc{G. Breit} and \textsc{E. Feenberg}, Phys. Rev. \textbf{50}, 1936, p. 850}. On the other hand, the absolute magnitude of the nuclear forces would then be rather comptehensible.
+
+Naturally \?{the possibility must be allowed} that the $\beta$-interaction contains still other matrix elements besides those discussed up to now, which could even be responsible for the bulk of the nuclear forces. But even then the assumption that charged and uncharged particles can completely replace one another \?{in the context of charge conservation}, as the above discussion shows, has as a consequence at best approximate equality of proton-proton and proton-neutron forces, even when the small mass difference and all electromagnetix interactions are entirely ignored.
+
+Zurich, Phyiscal institute of the university.
+\end{document}

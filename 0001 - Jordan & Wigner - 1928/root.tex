@@ -1,0 +1,592 @@
+\documentclass{article}
+%\usepackage{txfonts}
+%\renewcommand*\rmdefault{ppl}
+%\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{marginnote}
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+
+\nff{\WTF}{#1 (\textit{#2})}
+
+\nf{\translator}{\footnote{\textbf{Translator note:}#1}}
+
+\nff{\iffy}{#2}
+
+\newcommand{\nequ}[2]{
+\begin{align*}
+#1
+\tag{#2}
+\end{align*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{align*}
+#1
+\end{align*}
+}
+
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+\nf{\inv}{\frac{1}{#1}}
+
+\nc{\sic}{\translator{sic}}
+
+\nf{\limX}{\underset{#1}{\lim}}
+\rf{\exp}{e^{#1}}
+
+\nc{\grad}{\operatorfont{grad}}
+\rc{\div}{\operatorfont{div}}
+
+\nf{\pddt}{\frac{\partial{#1}}{\partial t}}
+\nf{\ddt}{\frac{d{#1}}{dt}}
+
+\nf{\Nth}{{#1}^{\text{th}}}
+
+\nff{\pddX}{\frac{\partial{#1}}{\partial{#2}}}
+\nc{\lap}{\Delta}
+\nc{\e}{\varepsilon}
+
+\nc{\mfe}{\mathfrak{e}}
+\nc{\es}{\mathfrak{e}^{(s)}}
+\nc{\E}{\mathfrak{E}}
+\rc{\H}{\mathfrak{H}}
+\nc{\G}{\mathfrak{G}}
+\nc{\f}{\mathfrak{f}}
+\nc{\Y}{\psi}
+\nc{\y}{\varphi}
+\nc{\R}{\mathfrak{r}}
+\nc{\YY}{\mathbf{\Psi}}
+\nc{\PPhi}{\mathbf{\Phi}}
+\nc{\pYY}{\overline{\YY}}
+\nc{\qYY}{\overline{\overline{\YY}}}
+
+\title{On the Pauli equivalence principle}
+\author{P. Jordan and E. Wigner}
+\date{January 26, 1928}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The paper contains a continuation of the note recently published by one of thr authors, "On the Quantum Mechanics of Gas-Degeneracy", whose results will be substantially extended here. It provides a description of a gas, either ideal or non-ideal, subject to the Pauli principle, which does not take into account the abstract coordinate space of the totality of the gas's atoms, but rather utilizes only the usual three-dimensional space. This is made possible by representing the gas by means of a quantized three-dimensional wave field, where the special noncummutative multiplication properties of the wave amplitudes simultaneously account for the existence of corpuscular gas atoms and for the satisfaction of the Pauli principle. The particulars of the theory have a close analogy to the corresponding theoroes for Einsteinian ideal or non-ideal gasses, as they were carried out by Dirac, Klein and Jordan.
+\end{abstract}
+
+\section*{§1}
+Already in the first investigations in the formation of the matrix theory of quantum mechanics there was evidence that the known difficulties of the radiation theory could be surmounted by applying the quantum-mechanical methods not only to material atoms, but also to radiation fields\footnote{M. Born, W. Heisenberg \& P. Jordan, ZS. f. Phys. 35, 557, 1926.}. Several recent articles\footnote{TODO} have achieved progress in this direction, on the one hand with regards to a quantum-mechanical description of the electromagmetic field, and on the other hand with regards to a formulation of the quantum mechanics of material particles, which the wave representation in the abstract coordinate space is eschewed in favor of a representation of the quantum-mechanical waves in the usual three-dimensional space, and which seeks to explain the existence of material particles in a similar manner as the existence of light quanta, and every physical effect ascribed to them, is explained by the quantization of the electromagnetic waves.
+
+\WTF{One proceeds towards this description by}{Man verfährt bei dieser Beschreibung so, daß man} decomposing those variables $N_r$, interpreted as $q$-numbers, which in the corpuscular-theoretical interpretation measures the number of atoms (say within a box) in the $\Nth{r}$ quantum state, are into two factors
+\nequ{
+N_r = b_r^\dagger b_r
+}{1}
+of the form
+\nequ{
+b_r = TODO,
+}{2}
+where one requires that $N_r$, $\Theta_r$ be canonically-conjugate. If one now takes as the definition of the canonically-conjugate variables that which one of the authors recently proposed\footnote{P. Jordan, ZS. f. Phys. 44, 1, 1927.}, then one obtains the possibility if not only representing the Einstein statistics in this form, in which the eigenvalues $N'_r$ of $N_r$ are given by
+\nequ{
+N'_r=0,1,2,3,...,
+}{3}
+but also the Pauli statistics, where only
+\nequ{
+N'_r=0,1
+}{4}
+come into question. One then immediately obtains, in addition to (2), further equations, and indeed in the Einsteinian case,
+\nequ{
+b_r &= TODO
+}{5'}
+but instead those in the Pauli case:
+\nequ{
+TODO
+}{5''}
+as was shown in A.
+
+These formulae already strongly support the conviction that this way of representing the Pauli principle corresponds to the essence of the matter, and in their further elaboration will lead to correct results. The formulae (5'), (5'') namely are closely related on the one hand to the problems of collision-type interactions of corpuscules, and on the other hand to the density-fluctuations of quantum-mechanical gasses.
+
+\section*{§2}
+Turning first to the interactions, we repeat the following from an earlier note\footnote{TODO}: in a closed box let there be (finitely or infinitely many) types of different particles (material or light-quanta) present. The density of the $\Nth{l}$ particle-type per cell in phase space is $n^{(l)}(E)$, where $E$ denotes the energy associated with the cell under consideration. Let the total number of particles $N^{(l)}$ be subject to artitrarily-many ($j=1,2,...$) linear constraints
+\nequ{
+\sumX{l}C^j_l N^{(l)} = C^j = \text{const}
+}{6}
+(examples in op. cit.), where the $C^j_l$ are all either positive or negative numbers (or zero). Then in statistical equilibrium will become
+\nequ{
+TODO
+}{7}
+where the positive or negative sign $\pm 1$ is chosen depending on whether the $\Nth{l}$ particle-type obeys the Pauli principle or the Einstein statistics.
+
+Naturally, now only those interaction processes are permitted which do not violate the requirements (6). A definite form of such an \WTF{elementary action}{Elementaraktes} is described by specification of the index $l$ and the velocities of the contributing particles existi v before the elementary action and those existing after the process. Let $n^+_1,n^+_2,...,n^+_r$ be the associated densities $n^{(l)}(E)$ for those particles present before the process, which follow Einstein statistics; and let $n^-_1,n^-_2,...,n^-_r$ be the $n^{(l)}(E)$ for those present before the process of the Pauli type. Correspondingly, $m^+_1,m^+_2,...,m^+_\varrho$; $m^-_1,m^-_2,...,m^-_\sigma$ shall be the particles remaining after the process resp. newly-created particles. Then on statistical-thermodynamical grounds the probability of the elementaty action must be proportional to
+\nequ{TODO;}{8}
+that of the inverse elementary action is proportional to
+\nequ{TODO.}{9}
+Regarding the factors $(1-m^+_1)$ etc for the Einstein particles, it has been shown by Dirac in the investigation of the absorption and emiasion of light by atoms that their form immediately follows from the form of the corresponding factors in the formula (5'). Correspondingly the form of the terms $(1-m^-_1)$ etc in (8),(9) are attributable to (5'').
+
+As concerns fluctuation phenomena on the other hand, it is proven in A that the squared fluctuation of the particle density in a volume which is connected to a volume that is large with respect to the waves belonging to a narrow frequency interval $\Delta\nu$, according to the well-known Einstein formula, possesses a value proportional to
+\nequ{
+n_r(1+n_r).
+}{10'}
+(For classical waves it would be proportional to $n_r^2$). The analogous value calculated by Pauli for a Fermi gas is, however, proportional to
+\nequ{
+n_r(1-n_r);
+}{10''}
+and in (10') and (10'') the difference between the Einstein and Pauli gasses is again shown in the same form as in (5'), (5'').
+
+One already has a deep knowledge of the Einstein gas resp. Bose wave fields from the works which were named on page \WTF{631}{note 2}. We occupy ourselves in the following with deepening the theory of Pauli gasses in a similar manner as A.
+
+\section*{§3.}
+We repeat here for clarity some of the formulae given in A. The variables $b_r,b^\dagger_r,N_r,\Theta_r$ can be represented by the matrices
+\nequ{
+TODO.
+}{11}
+
+Here each
+\nequ{
+\left(
+\begin{matrix}
+  \alpha_{11} & \alpha_{12} \\
+  \alpha_{21} & \alpha_{22}
+\end{matrix}
+\right)_r
+}{12}
+is a matrix, whose rows and columns are given by a series of indices, each of which can have the value $0$ or $1$; and indeed (12)
+is a diagonal index with respect to the first through $\Nth{(r-1)}$ indices, and with respect to the $\Nth{(r+1)}$ and following indices.
+
+In addition to the equations already discussed in §1, the following formulae apply:
+\nequ{TODO}{13}
+
+All of these quantities can be expressed by three variables, $k^{(r)}_1$,$k^{(r)}_2$,$k^{(r)}_3$, which follow the quanternion multiplication rules;
+\nequ{TODO,}{14}
+where the ellipses denote the two equations arising from cyclic permutation of the $1,2,3$.
+
+Namely,
+\nequ{TODO.}{15}
+
+The quanternions $k^{(r)}_1$,$k^{(r)}_2$,$k^{(r)}_3$ are thus represented by the matrices
+\nequ{TODO.}{16}
+
+\section*{§4.}
+Likewise, as the Heisenberg-Dirac determinant formula for the derivation of the antisymmetric Schrödinger eigenfunctions of the total system from those of an individual atom was performed in B for Bose statistics, it could also be carried over to Fermi statistics for arbitrary probability amplitudes. Let one such amplitude for an individual atom be given by:
+\nequ{
+\Phi^{\beta q}_{\alpha p} = \Phi_{\alpha p}(\beta',q').}{17}
+
+In order to make the signs of the determinants formed from them unique, we fix the order of the eigenvalues $\beta'$ of $\beta$ in an arbitrary but always-determinate manner. We denote the so-defined ordering for two specific eigenvalues $\beta'$,$\beta''$ of $\beta$ by $\beta' < \beta''$ resp. $\beta'' < \beta'$, without however necessarily connecting the sign "<" with the meaning "less than". We proceed exactly in this manner with the eigenvalues $q'$ of $q$ and generally with the eigenvalues $Q'$ of any measurable quantity of the atom. After doing this one can uniquely associate with any amplitude (17) for the atom an antisymmetric amplitude $\YY^{\beta q}_{\alpha p}$ for a system of $N$ energetically-uncoupled particles. We write
+\nequ{
+\YY^{\beta q}_{\alpha p} = \YY_{\alpha p}(\beta^{(1)}, \beta^{(2)},...,\beta^{(N)};
+q^{(1)}, q^{(2)},...,q^{(N)}),
+}{18}
+where we shall have
+\nequ{
+\beta^{(1)} < \beta^{(2)} < ... < \beta^{(N)},\\
+TODO;
+}{19}
+and then:
+\nequ{TODO,}{20}
+where the sum ranges over all $N!$ permutations $n_1,n_2,...,n_N$ of the numbers $1,2,...,N$, while $\epsilon_n$ is equal to $+1$ for \WTF{even}{gerade} permutations and $-1$ for odd permutations. 
+
+According to (20) $\YY^{\beta q}_{\alpha p}$ vanishes whenever two variables $\beta^{(k)}$ become equal to one another. Physically, this means: it does not happen that any one non-degenerate variable $\beta$ assumes the same value in two different particles of the system at the same time. If we specifically choose for $\beta$ the system of quantum numbers, then this gives the Pauli principle in its original form. We shall in the following consider the simultaneous pesistence of this law for all variables $\beta$ as the characteristic content of the Pauli principle.
+
+In the following we deal mainly with the case that each variable $\beta$ has only finitely-many, say $K$ eigenvalues. Only occasionally shall we examime more closely the limit of $K\to\infty$, which in general causes no difficulties. We will number the $K$ eigenvalues of each variable $\beta$ with $\beta'_1, beta'_2,...,\beta'_K$, such that the above-assumed ordering of the eigenvalues is achieved in the form
+\nequ{
+\beta'_1,\beta'_2,...,\beta'_K.
+}{21}
+
+\section*{§5}
+
+The antisymmetric amplitudes defined in this manner are now uniquely representable as a function of arguments
+\nequ{
+N'(\beta'); N'(\beta')
+}{22}
+with the following meaning: $N'(\beta')$ is the number of atoms where $\beta$ has the value $\beta'$; thus if $\beta'$ is a discrete eigenvalue, then according to the general Pauli principle,
+\nequ{
+N'(\beta')=0 or 1.
+}{23}
+If on the other hand $\beta'$ lies in a continuous eigenvalue domain, then we have to write
+\nequ{
+N'(\beta) = \sumXY{k=1}{N'}\delta(\beta'-\beta'_k)
+}{24}
+when there are in total $N'$ particles present; the integral of $N'(\beta')$ over a section of the eigenvalue domain is then the number of atoms whose value of $\beta$ falls in this section.
+
+We are however not content with the purely mathematical introduction of the new variables $N'(\beta')$, $N'(q')$, but rather move towards a new physical theory where we assume that the whole gas is a system that can be described by a canonical system of $q$-number variables
+\nequ{
+N(\beta'); \quad \Theta(\beta'),
+}{25}
+where the $N'(\beta')$ represent exactly the eigenvalues of $N(\beta')$. Then the $N(\beta'),\Theta(\beta')$ are represented by matrices in the manner explained in §3; the different eigenvalues $\beta'$ correspond to the different values of the $r,s$ indices used in §3. In particular, for discrete $\beta'$, the equation
+\nequ{TODO}{26}
+holds, and for non-discrete $\beta'$ one can instead write:
+\nequ{
+TODO.
+}{27}
+
+While the $q$-numbers $N(\beta')$ are now fully defined by their physical significance, this is apparently not the case for the $\Theta(\beta')$ if we only require that they be canonically conjugate to the $N(\beta')$. Naturally one must remove resp. constrain this \WTF{ambiguity}{Nichteindeutigkeit} if one wants to obtain unique relations between the variables $N(\beta'),\Theta(\beta')$ and $N(q'), \Theta(q')$. In the course of our further considerations we will see: once each variable $\beta$, $q$, etc, has a fixed sequence of eigenvalues $\beta$, $q$, etc in the above-discussed manner, one can determine a certain system of conjugate phases $\Theta(\beta'),\Theta(q')$, etc, so that simple and unique relations arise between the different canonical systems $N(\beta'),\Theta(\beta'); N(q'),\Theta(q')$ etc. But one still has different possibilities \WTF{for the definition of the $\Theta(\beta')$ for the $N(\beta')$}{für die Definition der $\Theta$ zu den $N$}, and these different possibilities could be uniquely assigned to the different conjugate momenta \WTF{$\alpha$ to $\beta$}{$\alpha$ zu $\beta$}. Hence we finally denote the $q$-number variables, the theory of which we develop in the following, with
+\nequ{
+N(\beta'); \quad \Theta_\alpha(\beta')
+}{28}
+resp.
+\nequ{
+N(q'); \quad \Theta_p(q') \text{etc}.
+}{29}
+
+These relationships apparently possess the possibly greatest analogy to the relationships in the Bose case explained in B, as far as one can expect any analogy at all given the deep-seated differences between the two cases.
+
+\section*{§6}
+The two $K$ variables
+\uequ{
+N(\beta'), \quad \Theta_\alpha(\beta')
+}
+must, as $q$-numbers, be certain functions of the $q$-numbers
+\uequ{
+N(q'),\quad \Theta_p(q');
+}
+this functional connection shall now be discussed. In the Bose-Einstein case the function
+\nequ{
+TODO
+}{30}
+applies, but these formulae do not apply for the Pauli gas. Instead there the formulae
+\nequ{
+TODO
+}{30a}
+apply, if we define the variables $a$, $a^\dagger$ by
+\nequ{TODO}{31}
+\nequ{TODO.}{32}
+Thus here $v(q')$ is the product of the values $1-2N(q'')$ for $q''=q'$ and all $q''$ coming before $q'$. Therefore $v(q')$ is a diagonal matrix, whose diagonal elements are always equal to $+1$ or $-1$; and
+\nequ{
+[v(q')]^2 = 1.
+}{33}
+
+The complete mathematical proof for the correctness of this formula (30a) will be given in §§8 and 9. Here we merely want to investigate the multiplication properties $a,a^\dagger$ and to verify the invariance of these multiplication properties with respect to the transformations (30a).
+
+First,
+\nequ{TODO.}{34}
+The proof results easily from the fact that e.g. 
+\nequ{TODO.}{35}
+Then, further
+\nequ{TODO.}{36}
+One proves easily e.g.
+\nequ{TODO;}{37}
+now however in particular for $q'=q''$:
+\nequ{TODO,}{38}
+and so also
+\nequ{
+[a_p(q')]^2=0,
+}{39}
+where the formula (36) is already proven for $q'=q''$. One then sees from (37) that the product (36) is indeed antisymmetric in $q',q''$.
+
+Further,
+\nequ{
+TODO.
+}{40}
+Since the expression on the left becomes equal to
+\nequ{TODO,}{41}
+it does in fact vanish for $q' \neq q''$ and for $q'=q''$ becomes equal to
+\nequ{TODO.}{42}
+Now we show that the equations (36) and (40) are actually invariant with respect to the transformations (30a). We get
+\nequ{TODO;}{43}
+\nequ{TODO.}{44}
+
+So while the variables $b,b^\dagger$ in the Pauli case as in the Einstein case have the property that $b(\beta')$ commutes with $b(\beta'')$ and $b^\dagger(\beta')$ for $\beta'' \neq \beta'$, this property no longer applies to $a,a^\dagger$. Nevertheless, the $a,a^\dagger$ of the Fermi gas possess in a certain respect a closer analogy to the $b,b^\dagger$ of the Einstein gas, than the $b,b^\dagger$ of the Paulo gas themselves; one sees this especially clearly in the comparison:
+\uequ{
+TODO
+}
+
+We have derived these equations from the start on the basis of the Pauli principle. It is shown however that conversely the multiplication properties of the $a,a^\dagger$ already determine the possible eigenvalues of the $N(\beta')$ and entail the commutativity (simultaneous observability) of $N(\beta')$ and $N(\beta'')$. Consequently we could say that the existence of corpuscular particles and the satisfaction of the Pauli principle may be construed as a consequence of thepp quantum-mechanical multiplication properties of de Broglie wave amplitides,
+since in the two equations
+\nequ{TODO,}{45}
+\nequ{N'(\beta')=0 \text{ or 1}}
+these facts are fully expressed. The equation (45) follows immediately. The proof that (46) also follows from the multiplication rules of $a(\beta'),a^\dagger(\beta')$, results in the following manner:
+
+On the grounds of
+\nequ{TODO}{47}
+because
+\uequ{
+[a_\alpha(\beta')]^2 = 0
+}
+the equation
+\nequ{
+TODO
+}{48}
+applies; thus
+\nequ{TODO.}{49}
+Still, it must be stressed: since $v(\beta')$ is formed from the $N(\beta'')$ alone (after an ordering for the eigenvalues is fixed), by means of
+\nequ{TODO}{50}
+one can uniquely define the $b,b^\dagger$ through the $a,a^\dagger$. In fact, one can consider the $a,a^\dagger$ as the original variables of the theory and all other variables as functions of the $a,a^\dagger$.
+
+Finally, let it be highlighted that the total number $N$ particles present remain invariant with respect to the considered transformations:
+\nequ{
+N=\sumX{\beta'}N(\beta') = \sumX{q'}N(q')
+}{51}
+This invariance is apparently only another way of expressing that (30a) is a unitary transformation.
+
+\textit{Added in correction}: It is shown through a more precise consideration, which will be given in the appendix, that the multiplication rules of $a,a^\dagger$ not only already determine the eigenvalues of $N(\beta')$, but \WTF{in general}{überhaupt} the matrices $a,a^\dagger$ fixed up to a canonical transformation the matrix representation.
+
+\section*{§7.}
+For a one-dimensional continuum with the wave equation
+\nequ{TODO}{52}
+and the boundary condition
+\nequ{
+\Y(0,t) = \Y(l,t) = 0,
+}{53}
+in A the spatial particle density of the \WTF{wave-corpuscules}{Wellenkorpuskeln} was tentatively defined by
+\nequ{
+N(x) = \Y^\dagger \Y,
+}{54}
+\nequ{
+\Y=\sumXY{r=1}{\infty}b_r \sin{r \frac{\pi}{l} x},
+}{55}
+where $N_r=b_r^\dagger b_r$ denotes the number of particles in the $\Nth{r}$ \WTF{quantum state of translation}{Quantzustand der Translation}.
+
+We now have to correct (55) by replacing the $b_r$ by the corresponding $a_r$:
+\nequ{
+\Y=\sumXY{r=1}{\infty}a_r \sin{r \frac{\pi}{l} x}.
+}{56}
+The calculation of the density fluctuations carried out in A can however be immediately carried over from (55) to (56) and then show that (56) actually supplies the correct formula, as it must. It was namely obtained from (55) that the mean squared value in question, $\overline{\Delta^2}$, was proportional with
+\nequ{
+\overline{b^\dagger_r b_r}\times\overline{b_r b^\dagger_r} = \overline{N_r}\times\overline{(1-N_r)},
+}{57}
+where the over-lines represent the mean value over an infinitesimal frequency domain in the \WTF{neighborhood}{Anschluß} of the frequency $\nu_r$, so that the formula mentioned in §2
+\nequ{
+\overline{\Delta^2} = \text{const}\times n_r(1-n_r)
+}
+results. If one now calculates according to (56), then $\overline{\Delta^2}$ becomes proportional to
+\nequ{
+\overline{a^\dagger_r a_r}\times\overline{a_r a^\dagger_r} = \overline{N_r}\times\overline{(1-N_r)},
+}{59}
+i.e. the result remains unchanged.
+
+\section*{§8.}
+We shall now commence the complete proof announced in §6 for the equivalence of formula (30a) with the formula of the usual representation in many-dimensional coordinate space. We must restrict ourselves in this coordinate space to such variables (operators) which are symmetric in identical particles; additionally however we restrict ourselves in this section to variables which consist in a sum where each summand only contains one electron. The energy of an ideal gas is of this type. These operators thus have the form
+\nequ{
+V=V_1+V_2+...+V_N,
+}{60}
+where the $V_i$ always represent
+the same variables, only measured on different particles (the $1^{\text{st}}$, the $2^{\text{nd}}$, ... $\Nth{N}$).
+
+Our wave function [§5, equation (22), (23)] will however depend on the $N'(\beta'_k)$. In fact from the standpoint of quantum mechanics this appears as the natural \WTF{approach}{Ansatz}, since indeed an "\WTF{optimal observation}{maximaler Versuch}" -- because of the identity of the particles -- can only ever determine how many particles are in the state $\beta_1,\beta_2,...,\beta_K$, while the question as to the state of a certain electron cannot be decided. \WTF{Following}{Im Sinne des} the Pauli principle we have in (23) constrained the range of values of the $N'(\beta'_k)$ to $0,1$.
+
+For the sake of simplicity, we still assume (though it is never actually fulfilled), as already stressed in §4, that an electron can only take finitely-many (say $K$) states, which we then denote by $\beta_1,\beta_2,...,\beta_K$. Then the wavefunction $\YY(N'(\beta'_1), N'(\beta'_2),..., N'(\beta'_K))$ introduced in the following has exactly $K$ arguments and defined for $2^K$ \WTF{values of its arguments}{Wertsysteme der Argumente}. The transition to the limit $K\to\infty$ seems to present no essential difficulties.
+
+The considerations which now follow can be most easily carried out if one describes the state of an individual electron in many-dimensional coordinate space with a wave function whose argument is $\beta'$. That means that for an individual electron the measurement is just the determination of the variable $\beta$, whose range encompasses $K$ numbers $\beta'_1, \beta'_2,...,\beta'_K$.
+
+If we now have, in the many-dimensional coordinate space, an antisymmetrical wavefunction of $N'$ electons,
+\nequ{
+\Y(\beta'^1, \beta'^2,..., \beta'^{N'}),
+}{61}
+then we determine that henceforth we will describe this state in our new $N$-space by the wavefunction $\YY(N'(\beta'_1), N'(\beta'_2),..., N'(\beta'_K))$. Thus let
+\nequ{TODO.}{62}
+This equation is to be understood as meaning that $\YY$ is $0$ everywhere that not exactly $N$ of the $K$ ($K>N$) numbers $N'(\beta'_1),...,N'(\beta'_K)$ are equal to $1$, and the remainder equal to $0$. In order to determine the value at this \WTF{arrangement}{Stellen}, one inserts the correct values for $\beta'^1,\beta'^2,...,\beta'^{N'}$ for which just $N'(\beta'_i)=1$, and indeed for which $\beta'_1$ is the first (in the sense of the ordering taken in §4), $\beta'^2$ the following, ..., $\beta'^{N'}$ the last.
+
+\iffy{page 633-644}{
+We want to attach to this assignment a function
+\uequ{
+\YY(N'(\beta'_1), N'(\beta'_2),..., N'(\beta'_K))
+}
+in the new $N$-space to a function
+\uequ{
+\Y(\beta'^1,\beta'^2,...,\beta'^{N'})
+}
+in the many-dimensional coordinate space (even in when $\Y$ is not a wavefunction). It is to be noted that it is important for the sign of $\YY$ to insert into $\Y$ the $\beta'_1,\beta'_2,...,\beta'_K$ in the fixed sequence
+\uequ{
+\beta'_1 < \beta'_2 <... < \beta'_K,
+}
+since only in this manner is the sign of $\YY$ uniquely \WTF{determined}{geregelt}; and only through this is the assignment of a unique function $\YY$ to the function $\Y$ possible.
+
+Conversely however $\Y$ is also uniquely determined by $\YY$\footnote{We presuppose that $\YY$ again vanishes everywhere except where $N'(\beta'_1) + ... + N'(\beta'_K) = N'$}: to the arrangement, for which $\beta'^1<...<\beta'^{N'}$ applies, by (62), \WTF{everywhere rather through the requirement of antisymmetry}{überall sonst durch die Forderung der Antisymmetrie}.}
+
+The individual parts (e.g. $V_1$) of the operator $V$ [equation (60)] in the many-dimensional coordinate space are essentially Hermitian matrices of $K$ rows and $K$ columns. In the $\Nth{\nu}$ row and $\Nth{\mu}$ column we have $H_{\mu\nu}$. Then the whole operator is identical with the matrix
+\nequ{TODO.}{63}
+For short, we write
+\nequ{TODO,}{64}
+then thus
+\nequ{TODO.}{65}
+
+From this $\overline{\Y}(\beta'^1,\beta'^2,...,\beta'^{N'})$ we form -- exactly as in (62) -- a $\overline{\YY}\left(N'(\beta'_1),...,N'(\beta'_K)\right)$ by
+\nequ{
+TODO.
+}{62a}
+
+We now assert that
+\nequ{TODO,}{66}
+where the operator $\Omega$ is
+\nequ{
+\Omega = \sumXY{\chi,\lambda=1}{K}H_{\chi\lambda}a^\dagger_{\chi}a_\lambda,
+}{66a}
+with the $a$ from (31).
+
+\iffy{645 top}{
+Equation (65) is for now certainly correct for all arrangements (for all values of its arguments), where the number of $1$s in the argument system of $\YY$ is not precisely equal to $N'$. Then the left side vanishes because of (62), (62a), and also on the right side there are all zeros, since $a^\dagger_\chi a_\lambda$ does not change the number of $1$s.
+
+At the arrangements where some (exactly $N$) of the
+\uequ{TODO}
+are equal to $1$, $\sqrt{N'!}\overline{\YY}$ is equal to
+\uequ{
+\overline{\Y}(\beta'_{i_1},...,\beta'_{i_N}),
+}
+and thus equal to
+\nequ{TODO,}{67}
+the second is seen from (63). Our intent is now to express the right-hand side of (67) through the $\YY$. To this purpose we remark that on the right-hand side of (67) the $\beta'_i$ are already in the correct order, only the \WTF{respective}{das jeweils auftretende} $\beta'_\mu$ is in the wrong position.}
+
+If there is some\footnote{The equality sign doesn't occur, since then the corresponding $\Y$ vanishes.}
+\uequ{
+\beta'_{i_{s-1}} < \beta'\mu \leq \beta'_{i_s},
+}
+then we could correct the order of the $\beta$, by shifting the $\beta'_\mu$ from the position between $\beta'_{i_{r-1}}$ and $\beta_{i_{r+1}}$ to the position between $\beta'_{i_{s-1}}$ and $\beta_{i_s}$. In the process the antisymmetric function $\Y$ is multiplied by $(-1)^z$, where $z$ is the number of positions between the two specified $\beta_i$.
+
+We could thus also write (67) as
+\nequ{TODO,}{67a}
+where naturally the sign $\pm$ still depends on $r$ and $\mu$, but
+\uequ{
+\beta'_{i_1} < ... < \beta'_\mu < ... < \beta'_\mu
+}
+already applies. If we notice (62), we could also write this as
+\nequ{TODO,}{68}
+\iffy{646}{
+as one easily \WTF{sees}{überlegt}. Namely, in the summation in (67a), where $i_r\neq\mu$ [first term in (68)], the same arguments exist as on the left-hand side, only $\beta'_{i_r}$ is lacking, \WTF{which was presenton the left}{was links vorhanden war} ($x_j=1$), while if $\beta'_\mu$ is added, and we could assume that it was not there ($x_l=0$), since otherwise $\Y$ would vanish. If $i_r = \mu$ [second term of (68)], then the same arguments are on the right side of $\Y$ as the left.}
+
+The sign in (68) is apparently determined by the fact that one puts $+$ or $-$ depending on whether between the \WTF{explicitly-written}{ausgeschriebenen} the $0$ and $1$ there is an even or odd number of $1$s. (The corresponding $\beta'_\mu$ must be \WTF{moved over}{hinüberschieben} by just as many $\beta'_i$). This is however the number of $1$s which are to the left of $x_l$, subtracted from the number of $1$s to the left of $x_j$.
+
+Although the correctness of the previous formulae is already clear, we want to follow these ideas to their conclusion. We know that the range of the arguments of $\YY$ encompasses a total of $2^K$ arrangements, in which any of the $x_k=N'(\beta'_k)$ can be set to either $+1$ or $0$. A linear operator acting on it is thus a matrix with $2^K$ rows and just as many columns. We denote each row or column with $K$ indices (corresponding to $x_1,...,x_K$), which can be respectively $0$ or $1$.
+
+The operator $a_\lambda$ is to be defined, according to §3 and §6 (for the sake of clarity, we write the indices as arguments), by
+\nequ{TODO,}{69}
+and then correspondingly $\alpha^\dagger_\chi$ is
+\nequ{TODO.}{69a}
+
+With the help of these formulae (68) can also be written as:
+\nequ{TODO.}{70}
+\iffy{647 top}{
+As one can \WTF{see}{\"uberlegen} with some effort, but which can be difficult to write down.
+} Thus (66) is \WTF{attained}{gewonnen}.
+
+\section*{§9.}
+We have thus seen the following in §8: to any antisymmetric function, which is defined in coordinate spaces with all numbers of dimensions $N'<K$, corresponds via (62) a function in the new space. Then the operator (60) $V=V_1+V_2+...+V_N$ [with the matrix in (64) $H_{r_1...r_{N'};\mu_1...\mu_{N'}}$] in coordinate space corresponds to the operator $\Omega$ from (68) in the new $N'$-space. The operator $\Omega$ is then
+\nequ{
+\Omega = \sumXY{\chi,\lambda=1}{K}H_{\chi\lambda}a^\dagger_\chi a_\lambda
+}{66a}
+with the $a^\dagger_\chi,a_\lambda$ from (69),(69a).
+
+From this follows that an eigenfunction of $V$ corresponds to an eigenfunction of $\Omega$. If we could show that the inner product of two functions in the coordinatenspace have the same value as those of the corresponding functions in the new $N'$-space, then we are done with the proof. In the coordinate space we have
+\nequ{TODO,}{71}
+which because of antisymmetry yields
+\nequ{TODO.}{72}
+On the other hand in the new space,
+\nequ{TODO,}{73}
+which, looking back on (62), is just (72).
+
+We would still like to remark that the $q$-number relations (36), (40) emerge naturally fromhe formula (69).
+
+\section*{§10.}
+We must finally consider operators which permit no decomposition of the form (60). The energy of a non-ideal gas is of this form. For now we restrict ourselves to those which are decomposable into parts, which however contain only two, always different, particles. This task is carried out in analogy with the corresponding formulae for the Bose-Einstein statistics\footnote{P. Jordan and O. Klein, op. cit.}. The operator $V$ can then be written:
+\nequ{
+V=\sumXY{j,k=1, j<k}{N'}V_{jk},
+}{60b}
+where $V$ corresponds to the matrix
+\nequ{TODO.}{63b}
+Then,
+\nequ{TODO}{64b}
+\iffy{648}{is calculated with the help of (63) (as in (65)). Then again the "correct sequence" of the $\beta$ is \WTF{established}{herzustellen} on the right-hand side. Then the $\beta'_i$ could be left standing, $\beta'_\mu$ and $\beta'_{\mu'}$ must be shifted over a number of $\beta'_i$, whereby again the sign can change.}
+
+If we again take note of (62), then we could again replace on the left and the right insert $\overline{\YY}$ resp. $\YY$ for $\overline{\Y}$ resp. $\Y$. On considering (69) one now finds that the operator (60b) henceforth corresponds to the operator
+\nequ{TODO.}{66b}
+
+It is satisfactory that the reaction of the particles back on themselves is again automatically excluded by the non-commutative multiplocation properties of the wave amplitude in the three-dimensional space. In the Bose-Einstein case this was made clear by equation (40) in the work by Jordan and Klein. That the same formula also applies here follows from the easily-proved formula
+\uequ{
+a^\dagger_k a_k a^\dagger_l a_l - a^\dagger_k a^\dagger_l a_l a_k = \delta_{kl} a^\dagger_k a_k.
+}
+
+We now finally turn to the case of operators which consist of summands, which are respectively symmetrical in $n>2$ particles, while in the sum all those summands are skipped which contain the same particle twice (which would denote a particle interacting with itself). A generalization of the above considerations lead then to the following formulae, which are analogous to the generalization\footnote{c.f. B, equation (34)} of the formula by Jordan and Klein specified in B:
+\nequ{TODO.}{66c}
+
+\section*{§11.}
+We could finally express these results in a rather different form: \iffy{649}{there is, in the Pauli many-body problem, a wave amplitude which determines the probability that, given the measurable variables $N(\beta'_1), N(\beta'_2),...,N(\beta'_K)$ where a certain system of values $N'(\beta'_1), N'(\beta'_2),...,N'(\beta'_K)$ is measured, the for other, correspondingly-defined variables $N(q'_1), N(q'_2),...,N(q'_K)$ the values $N'(q'_1), N'(q'_2),...,N'(q'_K)$ are found}.
+
+One such amplitude is obtained by
+\uequ{
+TODO \text{ for } \sumX{\beta'}N'(\beta') \neq \sumX{\gamma'}N'(\gamma')
+}
+and
+\nequ{
+TODO \text{ for } \sumX{\beta'}N'(\beta') = \sumX{\gamma'}N'(q')
+}{74}
+where $\PPhi^{\beta q}_{\alpha p}$, $\YY^{\beta p}_{\alpha q}$ are the functions mentioned in §4.
+
+The functional equation specified in A in the form
+\uequ{
+\left\{
+\sumX{rs}H_{rs} b^\gamma_r b_s - W
+\right\}\PPhi = 0
+}
+for the amplitude $\PPhi$ of the total system now reads, \iffy{}{in our determination of the signs of the determinants in $\PPhi$}:
+\uequ{
+\left\{
+\sumX{rs}H_{rs} a^\gamma_r a_s - W
+\right\}\PPhi = 0;
+}
+this modification is important, because in A the ambiguity in the sign of these determinants was not adequately considered; the matrices $a_r$ are distinguished, as we know, from the $b_r$ only with respect to the signs of their different elements. It seems to be very satisfactory that the introduction of the variables $a,a^\dagger$, which is essential for the formation of the energy expression, simultaneously leads to simple multiplication laws, as we have seen in §6.
+
+Let it finally be higlighted that the multiplication laws laid out in §6 for the quantized amplitudes $a_p(q')$, in analogy to the relativistically-invariant multiplication rules developed by Jordan and Pauli for charge-free electromagnetic fields, could be easily relativitistically generalized, so that the quantization of de Broglie waves corresponding to the Pauli principle could be obtained in a relativistically-invariant form. A more precise exposition shall however be put aside for the present. 
+
+Added in correction: Between the $2K$ operators $a_1,a_2,...,a_K; a^\dagger_1,a^\dagger_2,...,a^\dagger_K$ there are the relations
+\nequ{
+TODO
+}{36}
+and
+\nequ{
+a^\dagger_\chi a_\lambda + a_\lambda a^\dagger_\chi = \delta_{\chi\lambda}.
+}{40}
+
+We now want to show that these $\Y$-relations already uniquely-determine the operators $a,a^\dagger$, if one is constrained to irreducible matrix systems and matrix systems which are are transformable into one another by similarity-transformations are not regarded as different from one another\footnote{This is the transformation of all matrices $a$ by the same matrix $S$ to $S^{-1}aS$, thus in the parlance of the general quantum mechanics, the canonical transformation of the matrix representation.}.e
+In order to see this, we first form the following variables
+\nequ{
+\alpha_\chi &= a_\chi + a^\dagger_\chi,\\
+\alpha_{K+\chi} &= \inv{i}(a_\chi - a^\dagger_\chi).
+}{I}
+
+The $2K$ matrices $\alpha$ conversely uniquely determine the $a$. Now for the $\alpha_\chi$, 
+\nequ{
+\alpha_\chi\alpha_\lambda + \alpha_\lambda\alpha_\chi = 2\delta_{\chi\lambda}.
+}{II}
+
+\WTF{It is seen that}{Man überzeugt sich} e.g. when $\chi < K, \lambda < K$, that
+\uequ{TODO.}
+
+One can also write (II) as
+\nequ{
+\alpha_\chi^2 &= 1\\
+\alpha_\chi\alpha_\lambda &= -1\alpha_\lambda\alpha_\chi, \text{ for } \chi \neq \lambda,
+}{IIa}
+which in other words \WTF{means}{so viel bedeutet} that the $2K$ matrices $\alpha$, together with the matrix $-1$, span a group. When e.g. $K=2$, this group has the following elements
+\nequ{
+TODO.
+}{III}
+
+There it has 32 elements, in general $2^{2K+1}$ elements. The irreducible system of matrices, which satisfies (II), is certainly an irreducible reprsentation of this group (conversely, it is not necessarily the case, \WTF{the isomorphy can indeed be multiple}{die Isomorphie kann ja mehrstufig sein}). We will only determine the irreducible representations.
+
+Our group has the \WTF{normal parts}{Normalteiler} $1, -1$ (the center), its factor group of grade $2^{2K}$ is Abelian. It thus has $2^{2K}$ irreducible representations of these Abelian factor groups of grade 1, which are also representations of the total group. However, we don't cobsider these, since they don't satisfy the equations (II) (because they are indeed commutative).
+
+How many \WTF{classes}{Klassen} does our group have? The two elements $1$ and $-1$ form a class, alternatively however every element $R$ is in a class with $-1\times R$. Namely, if there is an $R$ in (III) with an odd number of factors, then $\alpha R \alpha^{-1}=-1\times R$, when $\alpha$ is not contained in $R$; if $R$ consists of an even number of factors, then $\alpha R \alpha^{-1} = -1\times R$ when $\alpha$ is contained in $R$. The number of classes is thus $2^{2K+1}$; this is also the number of distinct irreducible representations. Since we already know $2^{2K}$ representations, and we will not consider these, there can only be one, the last, which satisfies the equations (III), all other solutions of (II) transform into it via a similarity transformation.
+
+We still determime the number of rows and columns, the dimension of this representation. (It must obviously come out to $2^K$.) In fact the grade of the group, $2^{2K+1}$, is equal to the sum of the squares of the dimensions of its representations. It has $2^K$ of dimension $1$, the last must have the dimenaion $2^K$, so that $(2^K)^2 + 2^{2K}\times 1^2 = 2^{2K+1}$. It thus actually coincides with our systems of matrices (69) or §3 and 6.
+
+
+\end{document}
+

@@ -1,0 +1,104 @@
+\documentclass{report}
+\renewcommand*\rmdefault{ppl}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{marginnote}
+\usepackage{cancel}
+
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+
+\nff{\WTF}{#1 (\textit{#2})}
+
+\nf{\translator}{\footnote{\textbf{Translator note:}#1}}
+
+\newcommand{\nequ}[2]{
+\begin{equation*}
+\begin{split}
+#2
+\end{split}
+\tag{#1}
+\end{equation*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{equation*}
+\begin{split}
+#1
+\end{split}
+\end{equation*}
+}
+
+\nff{\iffy}{#2}
+\nff{\?}{#1}
+\rff{\!}{#1}
+
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+\newcommand{\intX}[1]{\underset{#1}{\int}}
+
+\nc{\fluc}{\overline{\delta_s^2}}
+
+\rf{\exp}{e^{#1}}
+\nf{\comment}{}
+
+\nc{\grad}{\operatorfont{grad}}
+\rc{\div}{\operatorfont{div}}
+
+\nf{\pddt}{\frac{\partial{#1}}{\partial t}}
+\nf{\ddt}{\frac{d{#1}}{dt}}
+
+\nf{\inv}{\frac{1}{#1}}
+\nf{\Nth}{{#1}^\text{th}}
+\nff{\ddX}{\frac{d{#1}}{d{#2}}}
+\nff{\pddX}{\frac{\partial{#1}}{\partial{#2}}}
+\nc{\lap}{\Delta}
+
+\nc{\e}{\mathbb{e}}
+\nc{\m}{\mathbb{m}}
+
+\title{On manifolds with affine connections: First part (continued)}
+\author{E. Cartan}
+
+\begin{document}
+
+\maketitle
+
+\chapter*{Chapter V. The universe of Newtonian gravitation and the universe of Einsteinian gravitation.}
+\section*{The invariant form of the laws of Newtonian gravitation.}
+
+\include{subfiles/70}
+\include{subfiles/71}
+\include{subfiles/72}
+\include{subfiles/73}
+\include{subfiles/74}
+\include{subfiles/75}
+
+\section*{The invariant form of the laws of Einsteinian gravitation.}
+
+\include{subfiles/76}
+\include{subfiles/77}
+\include{subfiles/78}
+
+\end{document}

@@ -1,0 +1,76 @@
+\subsection*{75. Utilization of moving frames in Newtonian mechanics.}
+
+To clarify the advantage of the preceding, we seek to deduce the from invariant laws (I), (II), (III) of Newtonian gravitation the form of the Dynamics of a point placed in a gravitational field, when the Galileaan reference systems utilized at an instant $t$ at different points are equivalent to one another: this makes sense, since if $t$ is taken to be constant, the components of the curvature of the universe are identically zero\footnote{\textit{Cf.} the note on page 5.}.
+
+The hypothesis is taken that, when $dt = 0$, one has
+\uequ{
+\omega_0^i = \omega_i^j = 0;
+}
+and hence $\omega^1, \omega^2, \omega_3$ are, under the same conditions, exact differentials. Thus one can put
+\uequ{
+\omega^0 = dt, \quad \omega^1 = dx + a\,dt, \quad \omega^2 = dy + b\,dt, \quad \omega^3 = dz + c\,dt,\\
+\omega_0^1 = -X\,dt, \quad \omega_0^2 = -Y\,dt, \quad \omega_0^3 = -Z\,dt,\\
+\omega_2^3 = -\omega_3^2 = p\,dt, \quad \omega_1^3 = -\omega_3^1 = q\,dt, \quad \omega_1^2 = -\omega_2^1 = r\,dt
+}
+
+The formulae
+\uequ{
+(\omega^i)' = [\omega^0 \omega_0^i] + [\omega_k \omega_k^i] \quad (i=1,2,3)
+}
+thus giving
+\uequ{
+da = -r\,dy + q\,dz +\lambda\,dt,\\
+db = -p\,dz + r\,dx + \mu\,dt,\\
+dc = -p\,dx + p\,dy + \nu\,dt,
+}
+introducing three new coordinates $\lambda, \mu, \nu$.
+
+The relations (I) give
+\uequ{
+[dp\,dt] = 0, \quad [dq\,dt] = 0,\quad [dr\,dt] = 0,
+}
+which proves that $p,q,r$ only depend on $t$.
+
+It can be deduced that
+\uequ{
+a = qz - ry + \xi,\\
+b = rx - pz + \eta,\\
+c = pt - qx + \zeta,
+}
+with three new functions $\xi, \eta, \zeta$ of the sole variable $t$.
+
+The relations (II) then show that
+\uequ{
+X = \pddX{V}{x}, \quad Y = \pddX{V}{y}, \quad Z = \pddX{V}{z},
+}
+and finally the relation (III) gives
+\uequ{
+\frac{\partial^2 V}{\partial x^2} + \frac{\partial^2 V}{\partial y^2} + \frac{\partial^2 V}{\partial z^2} = -4\pi f \rho.
+}
+
+It is seen that everything occurs as if there was at each instant $t$ a Galilean reference system valid for all of space; $x, y, z$ designate the spatial coordinates with respect to this system. The momentum of a point of mass $m$ has spatial components $m\frac{\omega^i}{dt}$, that is to say,
+\uequ{
+m\left(\ddX{x}{t} + \xi + qz - ry\right),\quad
+m\left(\ddX{y}{t} + \eta + rx - pz\right),\\
+m\left(\ddX{z}{t} + \zeta + py - qz\right);
+}
+these expressions make evident the \WTF{speed of motion}{vitesse d'entraînement} due to the motion of the reference triad. The equations of motion of the point are
+\uequ{
+\ddX{}{t}\left\{\e_0 + \e_1\left(\ddX{x}{t} + \xi + qz - ry\right)\right.\\
+\left. + \e_1\left(\ddX{y}{t} + \eta + rx - pz\right) + \e_3\left(\ddX{z}{t} + \zeta + py - qx\right)\right\} = 0;
+}
+taking account of the relations
+\uequ{
+d\e_0 = -\pddX{V}{x}{dt}\,\e_1 - \pddX{V}{y}dt\,\e_2 - \pddX{V}{z}dt\,\e_3,\\
+d\e_1 = r\,dt\,\e_2 - q\,dt\,\e_3,\\
+d\e_2 = p\,dt\,\e_3 - r\,dt\,\e_1,\\
+d\e_3 = q\,dt\,\e_1 - p\,dt\,\e_2,
+}
+the first of the three equations becomes
+\uequ{
+\frac{d^2 x}{dt^2} - \pddX{V}{x} + 2\left(q\ddX{z}{t} - r\ddX{y}{t}\right)
+ + \ddX{\xi}{t} + q\zeta - r\eta + \ddX{q}{t}z - \ddX{r}{t}y\\
+ - (q^2 + r^2)x + pqy + prz = 0.
+}
+
+The classical formulae are retrieved in those where the gravitational force $m\pddX{V}{x}$ is present, the \?{centrifugal force}{la force centrifuge composée} and the force of inertial \?{motion}{entraînement}. \textit{\?{All of these forces are all fictional, one the same as the other.}{Toutes ces forces sont fictives au même titre les unes que les autres.}}

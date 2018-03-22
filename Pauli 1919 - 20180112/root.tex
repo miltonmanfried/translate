@@ -1,0 +1,181 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{titling}
+\usepackage{graphicx}
+
+
+\newcommand{\WTF}[1]{\textbf{???}\textit{#1}\textbf{???}}
+\newcommand{\?}[2]{#1\footnote{\textsc{Translator note}: #2}}
+\newcommand{\nequ}[2]{\begin{align*}\tag{#1}#2\end{align*}}
+\newcommand{\uequ}[1]{\begin{align*}#1\end{align*}}
+\newcommand{\unit}[1]{\text{#1}}
+\providecommand{\operatorfont}[1]{\texttt{#1}}
+%\newcommand{\operatorfont}[1]{}
+\newcommand{\grad}{\operatorfont{grad}}
+\renewcommand{\div}{\operatorfont{div}}
+\newcommand{\curl}{\operatorfont{curl}}
+\newcommand{\rot}{\,\operatorfont{rot}\,}
+\renewcommand{\exp}[1]{e^{#1}}
+\newcommand{\pXpY}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ppXpYY}[2]{\frac{\partial^2 #1}{\partial {#2}^2}}
+\newcommand{\dXdY}[2]{\frac{d{#1}}{{d{#2}}}}
+\newcommand{\ddXdYY}[2]{\frac{d^2{#1}}{d{#2}^2}}
+\newcommand{\mf}[1]{\mathfrak{#1}}
+\newcommand{\Nth}[1]{{#1}^\text{th}}
+
+\newcommand{\citeauthor}[1]{\textsc{#1}}
+\newcommand{\citetitle}[1]{\textit{#1}}
+\newcommand{\citepub}[1]{#1}
+\newcommand{\citevol}[1]{\textbf{#1}}
+\newcommand{\citepage}[1]{#1}
+\newcommand{\citedate}[1]{#1}
+\newcommand{\citeyear}[1]{#1}
+
+\newcommand{\El}[1]{\text{#1}}
+\newcommand{\mnEl}[3]{{}^{#1}_{#2}{\El{#3}}}
+
+\newcommand{\publication}[1]{%
+    \gdef\puB{#1}}
+\newcommand{\puB}{}
+\renewcommand{\maketitlehooka}{%
+    \par\noindent \puB}
+
+
+\newcommand{\location}[1]{%
+    \gdef\loB{#1}}
+\newcommand{\loB}{}
+\renewcommand{\maketitlehooka}{%
+    \par\noindent \loB}
+
+%\newcommand{\dX}[2]{\frac{d#1}{{#2}}}
+%\newcommand{\dY}[1]{{d#1}}
+%\newcommand{\pX}[1]{\frac{\partial{#1}}}
+%\newcommand{\pY}[1]{{\partial{#1}}}
+
+% \newcommand{\original}[1]{}
+\newenvironment{translation}[0]{
+}
+
+\newenvironment{original}{
+\renewcommand{\footnote}[1]{\small{(Footnote: ##1)}}
+(\textit{Begin original text}:
+}{
+\textit{-- end original text})
+}
+
+\newenvironment{letter}[1]{
+	\newcommand{\letternumber}{#1}
+	\newenvironment{header}[0]{
+		\newcommand{\from}[1]{\newcommand{\headerfrom}{####1}}
+		\renewcommand{\to}[1]{\newcommand{\headerto}{####1}}
+		\renewcommand{\date}[1]{\newcommand{\headerdate}{####1}}
+		\renewcommand{\location}[1]{\newcommand{\headerlocation}{####1}}
+		\newcommand{\note}[1]{\newcommand{\headernote}{####1}}
+		\newcommand{\makeheader}{
+		\begin{tabular}{|p{0.9\textwidth}|}
+			\hline
+			Letter \# \letternumber\\
+			From: \headerfrom \\
+			To: \headerto \\
+			Date: \headerdate \\
+			\ifdefined\headerlocation
+				Location: \headerlocation \\
+			\fi
+			\ifdefined\headernote
+				Notes: \headernote \\
+			\fi
+			 \hline
+		 \end{tabular}\\
+		}
+	}{
+
+	}
+	\renewcommand{\d}[1]{d##1}
+	\newcommand{\figw}[2]{
+		\begin{figure}[h]
+			\begin{center}
+			\includegraphics[width=##2]{##1}
+			\end{center}
+		\end{figure}
+	}
+	\newcommand{\fig}[1]{\figw{##1}{150pt}}
+	
+}{
+ \quad  \\------------------------------------\\
+}
+%new environment, define _ to append to denom and ^ to append to num
+%in after, \frac{\num}{\den} — _/^ should be undefined automatically
+
+%\providecommand{\n}{}
+%\providecommand{\d}{}
+%\newcommand{\numer}{}
+%\newcommand{\denom}{}
+%
+%\newenvironment{derivative}[1]{
+%	%\renewcommand{\numer}{}
+%	\renewcommand{\n}[1]{\let\numer{\numer #1##1}}
+%	%\renewcommand{\denom}{}
+%	\renewcommand{\d}[1]{
+%		\let\ndenom{\denom #1##1}
+%		\renewcommand{\denom}{\ndenom}
+%	}
+%}{
+%\numer\\
+%\ensuremath{\frac{(\numer)}{(\denom)}}\\
+%\denom\\
+%}
+%
+%\newcommand{\D}[1]{
+%\begin{derivative}{d}
+%	#1
+%\end{derivative}
+%}
+
+\newcommand{\D}{\mathrm{d}}
+
+\newcommand{\derX}[2]{
+\renewcommand{\dY}[1]{\ensuremath{\frac{#1 #2}{#1 ##1}}}
+\renewcommand{\pY}[1]{\dY{##1}}
+}
+
+\newcommand{\dderX}[2]{
+	\renewcommand{\dY}[1]{
+		\renewcommand{\dY}[1]{
+			\ensuremath{\frac{#1^2 #2}{ {#1 ##1}\, {#1 ####1}}}
+		}
+	}
+	\renewcommand{\ddY}[1]{
+		\ensuremath{\frac{#1^2 #2}{{#1^2 ##1}}}
+	}
+	\renewcommand{\pY}[1]{\dY{##1}}
+	\renewcommand{\ppY}[1]{\ddY{##1}}
+}
+
+\newcommand{\dY}[1]{\text{ERROR: dY without dX}}
+\newcommand{\pY}[1]{\text{ERROR: pY without pX}}
+\newcommand{\ddY}[1]{\text{ERROR: ddY without ddX}}
+\newcommand{\ppY}[1]{\text{ERROR: ppY without ppX}}
+\newcommand{\ddX}[1]{\dderX{\D}{#1}}
+\newcommand{\ppX}[1]{\dderX{\partial}{#1}}
+\newcommand{\dX}[1]{\derX{\D}{#1}}
+\newcommand{\pX}[1]{\derX{\partial}{#1}}
+
+\begin{document}
+
+
+%\D{\n{a}\n{b}\d{x}\d{y}}
+
+\include{01-19190510}
+\include{02-19191209}
+\include{03-19191218}
+\include{04-19191223}
+\include{05-19200507}
+\include{06-19200512}
+\include{07-19200525}
+\include{08-19200712}
+\include{09-19210213}
+\include{10-19210308}
+\include{11-19210428}
+
+\end{document}

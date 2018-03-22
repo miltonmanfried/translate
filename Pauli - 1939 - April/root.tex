@@ -1,0 +1,135 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\renewcommand*\rmdefault{ppl}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{marginnote}
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+
+\nff{\WTF}{#1 (\textit{#2})}
+
+\nf{\translator}{\footnote{\textbf{Translator note:}#1}}
+\nc{\sic}{{}^\text{(\textit{sic})}}
+
+\newcommand{\nequ}[2]{
+\begin{align*}
+#1
+\tag{#2}
+\end{align*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{align*}
+#1
+\end{align*}
+}
+
+\nf{\sskip}{...\{#1\}...}
+\nff{\iffy}{#2}
+\nf{\?}{#1}
+\nf{\tags}{#1}
+
+\nf{\limX}{\underset{#1}{\lim}}
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+%\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+\nff{\intXY}{\underset{#1}{\overset{#2}{\int}}}
+
+\nc{\fluc}{\overline{\delta_s^2}}
+
+\rf{\exp}{e^{#1}}
+
+\nc{\grad}{\operatorfont{grad}}
+\rc{\div}{\operatorfont{div}}
+
+\nf{\pddt}{\frac{\partial{#1}}{\partial t}}
+\nf{\ddt}{\frac{d{#1}}{dt}}
+
+\nf{\inv}{\frac{1}{#1}}
+\nf{\Nth}{{#1}^\text{th}}
+\nff{\pddX}{\frac{\partial{#1}}{\partial{#2}}}
+\nf{\rot}{\operatorfont{rot}{#1}}
+\nf{\spur}{\operatorfont{spur\,}{#1}}
+
+\nc{\lap}{\Delta}
+\nc{\e}{\varepsilon}
+\nc{\R}{\mathfrak{r}}
+
+\nc{\Y}{\psi}
+\nc{\y}{\varphi}
+
+\nf{\from}{From: #1}
+\nf{\rcpt}{To: #1}
+\rf{\date}{Date: #1}
+\nf{\letter}{\section{Letter #1}}
+\nf{\location}{}
+
+\title{Pauli - April 1939}
+
+\begin{document}
+
+\letter{551}
+\rcpt{Heisenberg}
+\date{April 27, 1939}
+\location{Zurich}
+\tags{exhange,meson theory}
+
+Dear Heisenberg!
+
+Many thanks for the letter and manuscript. I would first like to go further into the question of \textit{scattering of mesotrons by protons}. We have been occupying ourselves with just this question here, since Bhabha was here for about 10 days and reported extensively on his classical calculations on meson scattering. In them he has \?{cleared away Dirac's} (classical!) self-energy, whereby is then possible to introduce an arbitrary constant for the rest-mass of the proton. He initially only took account of the interactions proportional to $g_1$, but additionally he has -- more radically -- assumed the mesotrons to be neutral (\textit{real} field!). Then of course he finds a scattering cross-section for the mesotrons which vanishes as $M_\text{proton} \to \infty$. In his case this is trivial, since the quantum-theortical perturbation calculation would supply the same. \{Namely: according to perturbation theory, for $M \to \infty$ the cross section goes $\to 0$ \textit{if} there are two paths 
+[TODO: image: --(meson)--> ($p_\mu$) to ($p_\mu$) --(meson)-->]
+from the initial state whose contributions are compensated, neglecting the recoil energy of the protons. This is the case for neutral mesons, since then the two intermediate states
+[TODO: image: --(meson)--> (Neutron I) --(meson)--> \textit{and} (neutron II)]
+come into consideration (analogously to light-scattering in electrodynamics). It is otherwise with charged mesons; in the initial state
+[TODO: image --(meson+)--> ($p_\mu$ +)]
+ there is only \textit{only the one} intermediate state
+[TODO: image --(meson+)--> (N) --(meson+)-->]
+in the initial state
+[TODO: image --(meson-)--> ($p_\mu$ +)]
+ there is only \textit{only the one} intermediate state
+[TODO: image (N) (without meson).]
+It is similar in transitions which are essentially connected with the \WTF{flipping}{Umklappen} of proton-\textit{spins}.\}
+
+It is already correct that the corresponding semi-classical model spin-protons ($g_2$) resp. charged mesons ($g_1$) permits the introduction of an arbitrary constant $K$ of dimension $\text{cm}^{-1}$ as a measure of the moment if inertia of the $\sigma$- resp. $\tau$-degrees of freedom. But I believe for now that it can have no higher order of magnitude than $m_\text{meson}\times\frac{c}{\hbar}$ (and certainly \textit{not} $M_\text{proton}\times\frac{c}{\hbar}$!). \textit{For the corresponding part of the nuclear forces, specifically the energy difference between the deuteron singlet and triplet ground states, must in your model be reduced just as much as interaction cross section of the scattering of the mesotron on the proton}. (In the scattering proportional to $g^4_1$, your proposal would likewise depress all exchange forces between neutrons and protons.) The classical analogue of this energy difference is precisely \?{a frequency of the spin} of the heavy particles in the deuteron.
+
+Thus it seems that only one assumption, $K \approx \frac{m_\text{meson}\times c}{\hbar}$, is discussable, which only alters the quantum-theoretical result by a factor of order 1. This factor can however in turn -- at least for smaller mesotron energy -- be compensated by a change in the numerical value \?{$g_2$ quantum-theoretically with respect to $g_2$ classically}, of the type that for mesotron energies $\ll m_\text{meson}\times c^2$ the quantum-theoretical and semi-classical values of the scattering cross section coincide. So I ask myself whether \textit{in the quantum theory} the assumption $K=0$ is not the most reasonable. One cannot prove it, but your assumption $K \approx \frac{M_\text{proton}\times c}{\hbar}$ (with unchanged numerical value of $g_2$!) can certainly be refuted empirically by the nuclear forces.
+
+If $K \neq 0$, then I woukd like to raise a further question, \textit{why don't we also need to introduce, with the electron in the electromagnetic field, a newer inertial resistance from the spin, resulting from the self-vector-potential $\vec{\phi}(0)$ of the electron}? I fear that one would then come into conflict with experiment. Speculative types could also utilize such a modification of the theory to try to connect it with the empirical absence of polarization of electrons on reflection from atoms as well as the empirical deviation of the H fine-structure from the theoretical value (see Williams, Physical Review). I would only conditionally claim: \textit{if one introduces for a proton in the meson field an additional inertial resistance $K\neq 0$ of the proton-spin, one must also do so analogously in the electromagnetic field. What do you think now about these theses?}
+
+In general, I would still object -- although I find the calculations on the mutual scattering of mesons in analogy to the "Euler-Kockel effect" beautiful and important -- that you rather over-state the importance of the dimensional argument. I believe, for the limits of applicability of the current quantum theory, it matters less whether the interaction energy contains a constant with the dimension of a length or a dimensionless constant, than rather the numerical magnitude of this coupling constant ($\frac{g_1^2}{\hbar c} \gg \frac{e^2}{\hbar c}$). Yet one still cannot know whether the divergences of the present theories are as directly connected with the values of the rest masses, as you assume.
+
+Since it would be difficult to definitely prove anything, everyone will stick to his beliefs. The argument from Bhabha's note in Nature also seems to be incorrect, so far as it rests on the limit $M_\text{meson} \to 0$.
+
+Now to your letter of the 23rd about the Solvay report. As much as it goes against my laziness to even write such a report, I nonetheless believe on factual grounds that I cannot reject on principle your proposal that I take over section 1. Thus I would like to make the counter-proposal that in section (1c) I \textit{don't} go into the \textit{interaction} (which should be reserved for section 2) and that we call the whole section 1 "Relativistic wave equations of \textit{force-free} particles and their quantization". I could then treat the connection of spin and statistics and (if you want) the gravitational quanta of spin 2. Further I could say something a bit less well-known about the de Broglie equations (especially \?{since} he is also writing a report on them) and stress that they neither describe partickes which are composed of two neutrinos nor photons, but rather -- if correctly interpreted -- a specific sort of mesotrons.
+
+Regarding the work together with Bohr, I would rather propose that our manuscript be sent independently to Bohr and to Brussels. Since I have no desire to write a report which will then sit unread on Bohr's desk for an arbitrarily-long time. So please get in touch about the matter, on the one hand with the Solvay committee (Langevin) and on the other hand with Bohr. I could be ready by 7/1, but 6/1 is questionable.
+
+Wentzel and I have attended Dirac's lectures on the subtraction-tricks in Paris. The quantum-theoretical part did not go substantially beyond an old paper of Wentzel's, was quite meager and a bit unconvincing. We could not share in his optimism in going further on this purely formal path.
+
+Many gretings \?{from house to house}
+
+Always your W. Pauli
+
+
+\end{document}

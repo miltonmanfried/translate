@@ -1,0 +1,96 @@
+\subsection*{34.}
+
+\nc{\areaA}{\mathcal{A}}
+\nc{\overx}{\overline{x}}
+
+The route we have followed to arrive at the structure formulae (2') and the notions of curvature and torsion are not amenable to generalization to manifolds with more complicated connections, for example manifolds with a projective or conformal connection, etc. A more satisfactory route consists in returning to the originally-adopted point of view of transferring a point and a vector along a given path.
+
+Thus we consider an infinitely-small closed contour starting from a point $\m_0$ and returning to it. The pointwise identification of the affine spaces tangent to the different points of the contour with respect to the affine space tangent to $\m_0$ will, as we have seen, by differentiating the ordinary differential equations (3), lead to formulae such as (5). But the equations (3) may be regarded as defining, in the affine space at point $\m$, a certain \textit{affine displacement} which permits passing from a reference system attached to $\m$ to a reference system attached to an infinitely-close point $\m + d\m$; the quantities $\omega^j, \omega_i^j$  are \?{in some sense}{en quelque sorte} the components, with respect to the reference system attached to $\m$, of the affine displacement. \textit{Integrating the equations (3) basically consists in the successive infinitely-small affine displacements which permit passing from the reference system attached to each point on the contour to the reference system on an infinitely-close point, starting in the affine space at the point $\m_0$.} When the closed contour has been completely described, we arrive at a final affine displacement which will naturally be very small if the closed contour is very small. It is this affine displacement \textit{associated} with the contour \?{that must be determined}{qu'il s'agit de déterminer}.
+
+We imagine a surface ($S$) containing the contour; we may, without loss of generality, suppose that the numerical coordinates $u^3$ remain constant on this surface, so that it only involves two independent variables $u^1$ and $u^2$, which we will designate by $u$ and $\nu$. We may regard $u$ and $\nu$ as the rectangular coordinates of a point in an auxiliary plane; in this plane, the closed contour have as its image a certain closed line enclosing a certain area $\areaA$. We will suppose, \textit{obviously at a loss of generality}, that the closed curve is rectifiable, that its length $l$ is infinitely small, and finally that \?{the area of the square of the boundary $l$ is finite compared to the area $\areaA$}{l'aire du carré de côté est finie par rapport à l'aire A}\footnote{It will not be the case, for example, if the closed contour has as its image a rectangle with wides $\epsilon$ and $\epsilon^2$. All of the mentioned restrictions, \?{which are obviously not fundamental}{qui ne sont évidemment pas dans le nature des choses}, is designed to permit a simple demonstration of the result that we want to achieve. A rigorous demonstration would be necessary, though there is indeed no reason to doubt the general validity of the result. To this one may compare the text of the demonstration by M.J. Pérès in his Note: \textit{Le parallélisme de M. Levi-Civita et la courbure riemanienne [Rend. Accad. Lincei, (5a) 28 I, p. 425-428].}}.
+
+Given this, if at each point of the surface ($S$) we chose a definite reference system, the $\omega^i$ and $\omega_i^j$ will become the definite Pfaffian expressions linear in $du$, $d\nu$; let
+\uequ{
+\omega^i = \alpha^i du + \beta^i d\nu, \quad \omega_i^j  = \alpha_i^j du + \beta d\nu,
+}
+where the coefficients definite functions of $u$ and $\nu$, which we will suppose to be differentiable. Equations (3) become
+\uequ{
+dx^i + \alpha^i du + \beta^i d\nu &+ x^1(\alpha_1^i du + \beta_1^i d\nu)\\
+&+ x^2(\alpha_2^i du + \beta_2^i d\nu) + x^3(\alpha_3^i du + \beta_3^i d\nu) = 0.
+}
+
+If we move along the closed curve ($C$), we may express $u$ and $\nu$ as a function of the arc $s$ of the image curve ($0 \leq s \leq l$).
+
+We designate by $(\alpha^i)_0$, $(\beta^i)_0$,$(\alpha_i^j)_0$, $(\beta_i^j)_0$ the numerical values taken by the functions $\alpha^i, \beta^i, \alpha_i^j, \beta_i^j$ at the starting point of the curve ($C$) ($s=0$); we put
+\uequ{
+(\omega^i)_0 = (\alpha^i)_0 du + (\beta^i)_0 d\nu, \quad
+(\omega_i^j)_0 = (\alpha_i^j)_0 du + (\beta_i^j)_0 d\nu;
+}
+these are then the Pfaffian expressions with constant coefficients.
+
+That being so, $\epsilon$ being a given sufficiently-small positive number, the contour may be supposed to be small-enough that, at every point of the contour, the differences
+\uequ{
+\alpha^i - (\alpha^i)_0,\quad \beta^i - (\beta^i)_0,\quad 
+\alpha_i^j - (\alpha_i^j)_0,\quad \beta_i^j - (\beta_i^j)_0,\quad 
+}
+are smaller than $\epsilon$ in absolute value.
+
+In the second place the differential equations which give $x^i$ show that we have
+\uequ{
+|x^i - (x^i)_0| < As,
+}
+a being a fixed positive number.
+
+We then define the auxiliary functions $\overx^i$ of $u$ and $\nu$, taking as the origin of the contour the values $(x^i)_0$ and satisfying the completely integral equations
+\uequ{
+d\overx^i + (\omega^i)_0 + (x^k)_0(\omega_k^i)_0 = 0;
+}
+these functions are linear in $u$ and $\nu$. We will evaluate an upper limit for $x^i - \overx^i$ at an arbitrary point of the contour.
+
+One has
+\uequ{
+dx^i - d\overx^i + \omega^i - (\omega^i)_0 + x^k\left[\omega_k^i - (\omega_k^i)_0\right] + \left[x^k - (x^k)_0\right](\omega_k^i)_0 = 0,
+}
+which gives, integrating from $0$ to $s$ and taking account of the previously-established inequalities,
+\uequ{
+|x^i - \overx^i| < B\epsilon s + Cs^2,
+}
+designating by $B$ and $C$ two fixed positive numbers.
+
+Finally, one may write
+\uequ{
+dx^i +\omega^i + \overx^k \omega_k^i + (x^k - \overx^k)\omega_k^i = 0,
+}
+where, integrating from $0$ to $l$,
+\uequ{
+|(x^i)_1 - (x^i)_0 + \int(\omega^i + \overx^k \omega_k^i)| < 
+\left(\frac{1}{2} B\epsilon l^2 + \frac{1}{3}Cl^3\right),
+}
+$H$ designating a new fixed number. The second member of this integral is, according to our hypothesis, \textit{infinitely small compared to the area $\areaA$}.
+
+Limiting ourselves to the principal part of the increase
+\uequ{
+(x^i)_1 - (x^i)_0 = \Delta(x^i)_0,
+}
+we then have
+\uequ{
+\Delta(x^i)_0 + \int\int\left[(\omega^i)' + \overx^k(\omega_k^i)'
+ + d\overx\omega_k^i\right] = 0,
+}
+one has, replacing $d\overx^k$ by its value and regarding the double integral as reduced to a single element,
+\uequ{
+\Delta(x^i)_0 + (\omega^i)' - (\omega^k)_0\omega^i_k
+ + \overx^k (\omega_k^i)' - (x^k)_0(\omega_k^h)_0\omega_h^i = 0.
+}
+
+We may finally, without changing the principal part, rplace $\overx^k$ by $(x^k)_0$, $(\omega^k)_0$ and $(\omega_k^h)_0$ by $\omega^k$ and $\omega_k^h$; in the last place, suppressing the $0$ indices, we will obtain the definitive formula
+\nequ{5}{
+\Delta x^i + (\omega^i)' - [\omega^k \omega^i_k]
+ + x^k \lbrace (\omega_k^i)' - [\omega_k^h \omega_h^i] \rbrace = 0.
+}
+or finally, taking account of the previously-introduced notation,
+\nequ{5'}{
+\Delta x^i + \Omega^i + x^k \Omega_k^i = 0.
+}
+
+% pisspits

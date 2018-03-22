@@ -1,0 +1,182 @@
+\letter{118}
+\rcpt{Heisenberg}
+\date{January 31, 1926}
+\location{Hamburg}
+
+Dear Heisenberg!
+
+Many thanks for your letter. In the meantime I haven't been idle either, and have already derived your result about $\exp{iw\tau}$ myself (while working out the rotator). From that I could completely carry oht the program of deriving multiplication rules for the function $q(t, W)$ itself. The only essential thing is that the quantity $q(t, W)$ must be interpreted as a continuous function of the energy $W$ as soon as one has to work with non-periodic as well as periodic quantities. The "time" t however has no real physical meaning, but rather only a formal one. With non-periodic quantities $q(t, W)$ the connection with observable phenomena remains open, which is not so bad, if at the end everything reduces to periodic quantities $x$, where $x(t, W)$ represent the column sums of the matrices. The multiplication rules of two rational functions, e.g. infinite power series, of $t, W$ are of such a type that, applied to expressions like $\exp{2\pi i\nu t}$, they contain the earlier rules for matrix multiplocation as special cases. The introduction of the "operators" is in any case for many purposes entirely superfluous; in the calculus outlined in the following, with functions $q(t, W)$ of "time" and energy, they behave similarly to the theory of principal axis transformations in your matrix calculus. Now I am happy to have the operators behind me and I am proceeding merrily in my calculations.
+
+With regards to your determination of the transition probabilities, I am rather optimistic. At most the continuous \?{tail} could still make some difficulties.
+
+Before I go further into the calculus, a few remarks on the Goudsmit affair. I am in complete agremeent with your conclusion $\overline{\dot{\varphi}} = \pddX{H}{n}$. From that it follows first that the numbers for the sum $E_\text{Rel.} + E_\text{Magn.}$ which are given by our calculations are certainly entirely incompatible with obserbation (e.g. the doublet $p_1 p_2$ comes out twice as large as the observed value). On the other hand, if one believes the new quantum mechanics (totally disregarding the anomalous Zeeman effect), the value of the fine structure of the Balmer lines cannot be explained with the assumption of point charges alone, since then the half-integral $k$ arise. So it seems that according to the new quantum mechanics, the fine structure \?{doesn't work with} \textit{either} the Goudsmit electron \textit{or} with point electrons! But, there is one very remarkable circumstance there\footnote{You will of course take the following to be a totally dumb remark. In this I agree with you completely. Nevertheless I hold that it cannot be entirely excluded that someone could make a clever remark out of it!}. Calculating with the half-integral magnetic energy $E_M$ (what that means, I do not know), the sum $E_R + \frac{1}{2}E_M$ has precisely those characterics that are needed: for the terms $(S-p_1), (p_2, d_2), \dots$, generally for terms with equal $j$ the values coincide \textit{exactly}, and also the difference of $(E_R + \inv{2}E_M)$ for terms with successive $j$ ().g. $p_1, p_2$
+ corresponds \textit{precisely} to the Sommerfeld formula. Thus: "\textit{A half, a half, a kingdom for the factor $\inv{2}$!}" -- now to the \textit{multiplication rules for arbitrary functions} $q(t, W)$.
+ 
+1. Start by assuming that for energy $W$ and "time" $t$ the commutation rule should apply:
+
+\nequ{
+Wt - tW = \frac{h}{2\pi i}1,
+}{1}
+or by introducing
+\nequ{
+\alpha = \frac{2\pi i}{h}W
+}{2}
+(which is often convenient)
+\nequ{
+\alpha t - t\alpha = 1.
+}{1'}
+
+In the following one will have to deal frequently with exponential functions $\exp{f(\alpha)t}$. We must distinguish \textit{two} such types of functions (one underlined, the other not underlined):
+\nf{\uexp}{\underline{e}^{#1}}
+\nequ{
+\exp{f(\alpha)t} = \sumXY{p=0}{\infty}\frac{(ft)^{(p*)}}{p!} \text{ and }
+\uexp{f(\alpha)t} = \sumXY{p=0}{\infty}\frac{f^p t^p}{p!}.
+}{3}
+\?{More on the relations between the two functions later.} For the first function, its $p^{te}$ power ($p$ = pos or neg integer) is given by
+\uequ{
+\left(\exp{f(\alpha)t}\right)^p = \exp{pf(\alpha)t},
+}
+for the second function the following applies for the differential quotients:
+\nequ{
+\ddX{}{t}\uexp{f(\alpha)t} = f(\alpha)\uexp{f(\alpha)t};
+\ddX{}{\alpha}\uexp{f(\alpha)t} = \ddX{f}{\alpha}\uexp{f(\alpha)t}\cdot t.
+}{4}
+
+The connection between the matrix arithmetic and physics is now the following. In the $n$-th state with energy $W=W_n$, to a coordinate $x$ there may belong the elements $x_m^n\exp{2\pi i\nu_m^n t}$ or $x_{n-\tau}^n\exp{2\pi i \nu_{n-\tau}^n t}$. In order to be able to work with non-periodic quantities (such as e.g. polar angles) as well, we must pay the price that instead of the discontinuous index $n$, there are as many continuous variables as the system as degrees of freedom. In the following we constrain ourselves throughout to systems with \textit{just one} degree of freedom. \textit{Then in place of $x_{n-\tau}^n$ and $\nu_{n-\tau}^n$ with fixed $\tau$, continuous functions $x_\tau(W)$ and $\nu_\tau(W)$ of the energy $W$ are introduced}\footnote{That only discrete values exist for $W$ only emerges at the end from the boundary conditions.}. In order to be able to calculate correctly, we must further introduce the symbol for the column sum of the matrix:
+\nequ{
+x(W, t) = \sumX{\tau \text{(positive and negative}}x_\tau(W)\uexp{2\pi i \nu_\tau(W)t}
+}{5}
+\textit{where the underlined exponential function (3) is always used}, \?{$t$ is thus pushed all the way to the right.} The $x_\tau(W)$ only have physical meaning through their connection with the transition probabilities; for now $t$ and $\uexp{2\pi i \nu_t(W)t}$ are just physically-meaningless symbols which enable the multiplication of the two expressions $x(W, t)$ and $y(W, t)$. It is important that the functions $\nu_\tau(W)$ must satisfy the combination relations following from the frequency condition
+\nequ{
+\nu_{\sigma + \tau}(W) = \nu_{\sigma}(W) + \nu_\tau\left(W - h\nu_\sigma(W)\right)
+ = \nu_\tau(W) + \nu_\sigma\left(W - h\nu_\tau(W)\right).
+}{I}
+Because of $\nu_0(W) = 0$, $\sigma = -\tau$ implies
+\uequ{
+\nu_{-\tau}(W) = \nu_\tau\left(W + h\nu_\tau(W)\right).
+}
+
+2. The further course of the considerations will now be to derive from (1) rules for the commutation of rational functions of $t$ and $W$ and hence also of infinite power series of $t$ and $W$. These rules can be used in order to bring the product of two expressions of the form (5)
+\uequ{
+x(W, t) = \sumX{\tau}x_\tau(W)\uexp{2\pi i \nu_\tau(W)t}
+}
+and
+\uequ{
+y(W, t) = \sumX{\tau}y_\tau(W)\uexp{2\pi i \nu_\tau(W)t}
+}
+back to the form
+\uequ{
+xy(W, t) = \sumX{\tau}(xy)_\tau(w)\uexp{2\pi i \nu_\tau(W)t}.
+}
+\textit{It can now be shown that the coefficients $(xy)_\tau(W)$ calculated with the help of (1) and (3) indeed agree with those obtained on the grounds of the matrix multiplication rules.} First, (1) resp. (1') imply
+\nequ{
+f(\alpha, t)t - tf(\alpha, t) &= \pddX{f}{\alpha}\\
+\alpha f(\alpha, t) - f(\alpha, t)\alpha &= \pddX{f}{t}.
+}{6}
+
+Further,
+\nequ{
+f(\alpha, t)\varphi(t) - \varphi(t)f(\alpha, t) 
+=\sumXY{p=1}{\infty}\frac{(-1)^{p+1}}{p!}\frac{\partial^p f}{\partial\alpha^p}\frac{d^p\varphi}{dt^p}
+}{7a}
+\nequ{
+g(\alpha)f(\alpha, t) - f(\alpha, t)g(\alpha)
+=\sumXY{p=1}{\infty}\frac{(-1)^{p+1}}{p!}\frac{d^p g}{d\alpha^p}\frac{\partial^p f}{\partial t^p}.
+}{7b}
+
+These equations are proven by showing that first they coincide with (6) for $\varphi=t$ and $g=a$ and that second from the fact that they are satisfied for $\varphi$ and $g$ it follows that they are satisfied for $(\varphi t)$ and $(g\alpha)$. The formula (7b) can now  
+ used to \?{pull} the factor $g(a)$ in
+\uequ{
+\uexp{f(\alpha)t}g(\alpha)
+}
+\?{to the left}. Namely, replacing $f(\alpha, t)$ in (7b) by $\exp{f(\alpha)t}$, remembering (4), leads to
+\uequ{
+\uexp{f(\alpha)t}g(\alpha) =
+ \sumXY{p=0}{\infty}\frac{(-1)^p}{p!}\frac{d^p g}{d\alpha^p}f^p\uexp{f(\alpha)t}.
+}
+
+But the sum over $p$ is a Taylor series and has the value $g$ from the argument $\alpha - f(\alpha)$. So, 
+\nequ{
+\uexp{f(\alpha)t}g(\alpha) = g(\alpha - f(\alpha))\uexp{f(\alpha)t}.
+}{8}
+
+Putting $\alpha=\frac{2\pi i}{h}W$ and $f(\alpha) = 2\pi i\nu_\sigma(W)$, $g(\alpha) = x_\tau(W)$, one gets
+\nequ{
+\uexp{2\pi i \nu_\sigma(W)t}x_\tau(W)
+ = x_\tau(W - h\nu_\sigma(W))\uexp{2\pi i \nu_\sigma(W)t}.
+}{II}
+
+Now we calculate the value of $\uexp{f(\alpha)t}\uexp{g(\alpha)t}$ and first expand $\uexp{g(\alpha)t}$ in the power series
+\uequ{
+\uexp{f(\alpha)t}\uexp{g(\alpha)t}
+ = \sumXY{p=0}{\infty}\inv{p!}\uexp{f(\alpha)t}\left(g(\alpha)\right)^p t^p.
+}
+
+Further, applying (8) to $g^p$ gives
+\uequ{
+\uexp{f(\alpha)t}\uexp{g(\alpha)t} 
+= \sumXY{p=0}{\infty}\inv{p!}\left[g(\alpha-f)\right]^p\uexp{f(\alpha)t}t^p.
+}
+
+By expanding $\uexp{f(\alpha)t}$ in a power series and sorting by powers of $t$, one finds after some calculation that the coefficient of $t^r$ reads $\inv{r!}\left[f(\alpha) + g(\alpha - f)\right]^r$. Thus
+\uequ{
+\uexp{f(\alpha)t}\uexp{g(\alpha)t} = \uexp{\left[f(\alpha) + g(\alpha - f)\right]t}
+}
+holds as the multiplication theorem for the function $\exp{f(t)}$. The expression obtained is incidentally not symmetrical in $f$ and $g$. However, putting specifically $f(\alpha) = 2\pi i \nu_\sigma(W)$, $g(\alpha) = 2\pi i \nu_\tau(W)$, one obtains \textit{because of the combination relations (I)} the simple relation
+\nequ{
+\uexp{2\pi i \nu_\sigma(W)t}\cdot\uexp{2\pi i \nu_\tau(W)t} = 
+\uexp{2\pi i \nu_\tau(W)t}\cdot\uexp{2\pi i \nu_\sigma(W)t} = 
+\uexp{2\pi i \nu_{\sigma + \tau}(W)t}.
+}{III}
+(For $\sigma = -\tau$ the right side is equal to 1.)
+
+On the basis on (II) and (III) we immediately obtain the desired result for the multiplication of the two aforementioned expressions $x(W, t)$ and $y(W, t)$
+\nequ{
+(xy)_\tau(W) = \sumX{\sigma}x_\sigma(W)y_{\tau-\sigma}\left(W - h\nu_\sigma(W)\right),
+}{IV}
+which agrees with the matrix calculus.
+
+3. Now something on the action- and angle variabkes $J$ and $w$. One question which I still haven't been able to answer is this: let some function $\nu_\tau(W)$ be given which satisfies the combination relations (I). Is there then always a substitution $W = W(J)$ so that
+\nequ{
+h\nu_\tau = W(J) - W(J - \tau h)?
+}{10}
+
+\textit{If} there is such a substitution $W=W(J)$, we call $J$ the action variable. Putting
+\uequ{
+\omega(J) = \pddX{W}{J}
+}
+and the action variable $w = \omega t + \delta(J)$, then as a consequence of (1):
+\nequ{
+Jw - wJ = \frac{h}{2\pi i}1.
+}{11}
+
+Then, between the two exponential functions introduced in (3) the fundamental relation
+\nequ{
+\exp{2\pi i \tau w} \equiv \exp{2\pi i\tau\omega(J)t} = \uexp{2\pi i\nu_\tau(J)t}
+\quad\text{$\tau$ = integer}
+}{V}
+holds.
+
+This is also the relation specified in your letter. I have proven it like this: First, (V) means the same thing as
+\nequ{
+\left(\frac{2\pi i}{h}\omega t\right)^p
+ = \frac{d^p}{{dJ'}^p}\uexp{\frac{2\pi i}{h}\left[W(J) - W(J - J')\right]t}
+}{12}
+at the point $J' = 0$.
+
+Of course of (12) is correct, then the series on the left side is a Taylor series and because of (10) sums to exactly $\uexp{2\pi i\nu_\tau(J)t}$. Now (12) is correct for $p=1$, as is seen by direct calculation. It can be further shown that \textit{the same} recursion formula holds for both sides of (12) (their values denoted by $f_p$):
+\nequ{
+f_p = -\pddX{f_{p-1}}{J} + \frac{2\pi i}{h}\omega f_{p-1}t.
+}{13}
+
+Thus, (12) applies in general, and hence so does (V).
+
+If several degrees of freedom are present, one must probably introduce several action variables $J_\sigma$ from the outset. For now I won't occupy myself with this or with the general integration theory of quantum mechanical equations (one can not use non-periodic action functions $S$), but rather start off with the H-atom. But after the foregoing it seems to me that henceforth the non-periodic coordinates have been essentially robbed of their \?{scariness}.
+
+As to the physical meaning of the whole formalism, I believe that progress will be made on this question in attempting to treat the radiation reaction and the natural \?{line-}breadth.
+
+Many warm greetings to you yourself and all your friends, from your
+
+\textsc{W. Pauli}
+
+% t soylent gruen ist mensch fleisch

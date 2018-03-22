@@ -1,0 +1,80 @@
+\subsection*{37.}
+
+\nc{\overOmega}{\overline{\Omega}}
+
+We return to the formulae (2')
+\nequ{2'}{
+(\omega^i)' &= [\omega^k \omega_k^i] + \Omega^i,\\
+(\omega_i^j)' &= [\omega_i^k \omega_k^j] + \Omega_i^j,
+}
+which define the structure of a manifold with an affine connection. the differential forms $\Omega^i$ and $\Omega_i^j$ satisfy the remarkable identities obtained by simply expressing that the exterior derivatives of the second parts of equations the (2') are identically zero. The calculation may be simplified by remarking that the exterior derivatives are zero themselves when the $\Omega^i$ and $\Omega_i^j$ are zero. Then
+\nequ{7}{
+(\Omega^i)' + [\Omega^k\omega_k^i] - [\omega^k \Omega_k^i] &= 0,\\
+(\Omega_i^j)' + [\Omega_i^k\omega_k^j] - [\omega_i^k \Omega_k^j] &= 0.
+}
+
+We will give a geometric interpretation for these formulae.
+
+To this end we consider an arbitrary volume in the manifold delimited by a closed surface. To each element of the closed surface surrounding a point $\m$ of this surface there is associated an infinitely-small affine displacement symbolized by the formulae (5')
+\nequ{5'}{
+\Delta x^i + \Omega^i + x^k \Omega^i_k =0,
+}
+whose components $\Omega^i, \Omega_i^k$ are \?{referred back to}{rapportées au} a reference system at the point $\m$. We cannot contemplate \textit{composing} these infinitesimal transformations, since the composition depends on the \textit{order} in which they are applied, and the elements of a surface cannot be ordered like those of a line. But we may \textit{add} these infinitesimal transformations, in the same sense that one adds two instantaneous rotations in kinematics; more precisely, we define the sum of the two infinitely-small affine displacements
+\uequ{
+\delta x^i + a^i + a_k^i x_k &= 0,\\
+\delta x^i + b^i + b_k^i x_k &= 0,
+}
+as being the affine displacement
+\uequ{
+\delta x^i + (a^i + b^i) + (a_k^i + b_k^i) x_k &= 0.
+}
+
+Here there is still the difficulty that the different affine displacements are all in different affine spaces: they must thus all be reduced to the same affine space. \textit{This will only be possible if the closed surface is infinitely small.}
+
+In this case, in fact, we will take, following a procedure already employed, a fixed point $\xa$ on the interior of the small volume. as the affine space tamgent to $\m$ may be identified with respect to the affine space tangent to $\xa$, we may determine, with respect to this last space, the components of the affine displacement (5'). We designate by $u_0^k$ the fixed numerical coordinates of $\xa$, $u^k$ those of $\m$; finally, we put
+\uequ{
+\omega^i = \gamma_k^i du^k, \quad \omega_i^j = \gamma_{ik}^j du ^k,
+}
+and designate by
+\uequ{
+(\gamma_k^i)_0, \quad (\gamma_{ik}^j)_0
+}
+the numerical values in $\xa$ of the coefficients of these forms. Naming $\overx^i$ the coordinates in the affine space tangent to $\xa$ of the corresponding point $(x^i)$ in the affine space tangent to $\m$, one has the formulae
+\uequ{
+x^i - \overx^i + (\gamma_k^i)_0(u^k - u_0^k) + \overx^k(\gamma_{kh}^i)_0 (u^h - u_0^h) = 0,
+}
+which may be solved for $\overx^i$,
+\uequ{
+\overx^i = x^i + (\gamma_k)_0(u^k - u_0^k) + x^k(\gamma_{kh}^i)_0 (u^h - u_0^h).
+}
+
+Given that, substituting the variables $\overx^i$ for the variables $x^i$ according to the preceding relations,
+\uequ{
+\Delta\overx^i &+ \Omega^i + (\gamma_{jk}^i)_0(u^k - u_p^k)\Omega^j -(\omega_h^k)_0(u^k - u_0^k)\Omega_k^i\\
+& + \overx^k\left[\Omega_k^i + (\gamma_{jh}^i)_0(u^h - u_0^h)\Omega_k^j - (\gamma_{kh}^j)_0(u^h - u_0^h)\Omega_j^i \right] = 0.
+}
+
+As a result the components of the infinitely-small displacement (5'), \textit{evaluated with respect to the reference system attached to $\xa$}, are
+\uequ{
+\overOmega^i &= \Omega^i + (\gamma_{jk}^i)_0(u^k - u_0^k)\Omega^j - (\gamma_h^k)_0(u^h - u_0^h)\Omega_k^i,\\
+\overOmega_k^i &= \Omega_k^i + (\gamma_{jh}^i)_0(u^k - u_0^k)\Omega_k^j - (\gamma_{kh}^j)_0(u^h - u_0^h)\Omega_j^i.
+}
+
+The sum of all the infinitely-small displacements associated with the different elements of the closed surface thus have for their components the surface integrals of $\Omega^i$ and $\Omega_k^i$, which gives the elements of the volume integrals
+\uequ{
+(\overOmega^i)' &= (\Omega^i)' + (\gamma_{jk}^i)_0[du^k \Omega^j] 
+ - (\gamma_h^k)_0[du^h \Omega_k^i],\\
+(\overOmega_k^i)' &= (\Omega_k^i)' + (\gamma_{jh}^i)_0[du^k \Omega_k^j]
+ - (\gamma_{kh}^j)_0[du^h \Omega_j^i],
+}
+or finally, without changing the principal parts,
+\uequ{
+(\overOmega^i)' &= (\Omega^i)' + [\omega_j^i \Omega^j] - [\omega^k \Omega_k^i],\\
+(\overOmega_k^i)' &= (\Omega_k^i)' + [\omega_j^i \Omega_k^j] - [\omega_k^j \Omega_j^i].
+}
+
+In this way the first part of the formulae (7), which is identically zero, is recovered.
+
+One thus obtains the \textit{theorem of the conservation of curvature and torsion}:
+
+\textit{The geometric sum of the infinitely-small displacements associated with the different elements of a closed surface is zero when the closed surface is infinitely-small.}

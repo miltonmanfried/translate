@@ -1,0 +1,81 @@
+\letter{468}
+\from{Heisenberg}
+\date{February 2, 1937}
+\location{Leipzig}
+\tags{qed,interaction representation}
+\references{467}
+
+\nc{\fG}{\mathfrak{G}}
+
+Dear Pauli!
+
+Many thanks for your letter. \sskip{cosmic radiation}.
+
+Meanwhile I wanted to write you about a new formulation of the quantum theory of waves, which I take much more seriously than the recent subtraction procedure. I shall again transform the usual theory until it takes a form in which it can be expanded and changed.
+
+The formula
+\uequ{
+\Y(t) = \prodX{\Omega}\exp{iH_{(1)}\,{d\omega}}\Y
+t_0}
+
+
+can, decomposing ${d\omega}$ into ${d\tau}{dt}$, immediately be written as:
+\nequ{
+\Y(t) &= \left[1+\left(i\int{d\tau}\intXY{t_0}{t}{dt_1}\,H_{(1)}\right) + 
+\left(i\int{d\tau}\intXY{t_0}{t}{dt_1}\,H_{(1)}\right)
+\left(i\int{d\tau}\intXY{t_0}{t_1}{dt_2}\,H_{(1)}\right) + \right.\\
+&\left.
+\left(i\int{d\tau}\intXY{t_0}{t}{dt_1}\,H_{(1)}\right)
+\left(i\int{d\tau}\intXY{t_0}{t_1}{dt_2}\,H_{(1)}\right)
+\left(i\int{d\tau}\intXY{t_0}{t_2}{dt_3}\,H_{(1)}\right) + \dots\right]\Y(t_)
+.}{1}
+
+Each summand behaves, as is easily seen, relativistically correctly. The integrations could be written in the form
+\uequ{
+\intX{\Omega_1}{d\omega_1}\intX{\Omega_2}{d\omega_2}\intX{\Omega_3}{d\omega_3}\dots,\\
+(\Omega_1 > \Omega_2 > \Omega_3 > \dots)
+}
+etc, where the $>$ sign in $\Omega_1>\Omega_2$ etc means that the points in $\Omega_1$ should lie \textit{after} those in $\Omega_2$ in time.
+
+Now for simplicity I assume that the interaction energy $H_1$ should \?{cause} only \textit{one} "elementary" transition (and its reverse). (E.g. pair production with simultaneous change in momentum of an already-present particle.) If the momentum and energy change associated with this elementary process are $\fG$ and $E$, then the associated element in $H_1$ contains the time and space factor $\exp{i(\fG\fr - Et)}$, and that associated with the reverse process contains the factor $\exp{-i(\fG\fr - Et)}$. No other dependence on $\fr$ or $t$ is present. (Equation (1) is incidentally a rather trivial transformation of the Dirac perturbation theory.)
+
+Now if we want to calculate the interaction cross section from (1) of the transition from the state characterizef by $\Y(t_0)$ to a new state, then the function $\Y(t)$ must be \?{analyzed into various states and the components of $\Y(t)$ which belong to the desired new state must be studied}. In other words: it depends on the matrix element of the operator $\pi\exp{iH_1\,{d\omega}}$ which is associated with the transition from the initial state (i) to the final state (f). I now claim that this matrix element can in all generality be represented in the form
+\uequ{
+\int{d\tau}\intXY{t_0}{t}{dt}\,O_{if} = 
+\exp{i\left[(\fG_i - \fG_f)\fr - (E_i - E_f)t\right]},
+}
+where $O_{if}$ is independent of $\fr$ and $t$ and behaves rlativistically like the matrix elements of $H_{(1)}$. This is self-evident for the spatial integration, since the momentum law applies at each individual step, and thus also in total. The assertion is not automatically correct with the time integration. Considering e.g. a process $i \to f$ which takes at least three elementary steps to complete (creation of three pairs in the above example), then there occur in the braces of (1) time-dependencies other than $\exp{-i(E_i-E_f)t}$. But, it can be seen that all these other contributions can be chalked up to the "\WTF{shaking action}{Schüttelwirkung}" (it depends on $t_0$) and with suitable assumptions (e.g. adiabatically switching on the interactions, or: large wavepackets which don't yet overlap at the time $t_0$) can be made arbitrarily small. Hence we obtain the following representation for the matrix element:
+\nequ{
+&\int{d\tau}\intXY{t_0}{t}{dt}\,O_{if}\exp{i\left[(\fg_i - \fg_f)\fr - (E_i-E_f)t\right]}\\
+= & \sum\left(i\int{d\tau}\intXY{t_0}{t}{dt_1}H_{(1)}^{ik}\right)
+\left(i\int{d\tau}\intXY{t_0}{t_1}{dt_2}H_{(1)}^{kl}\right)\dots
+\left(i\int{d\tau}\intXY{t_0}{t_{n-1}}{dt_n}H_{(1)}^{rf}\right)\\
+&\times \text{"shaking terms"}
+}{2}
+where the sum is over \textit{all} (even arbitrarily-complex) paths leading from the initial to the final state via elementary processes. (In the present wave quantization this sum always diverges, it only converges non-relativistically; but that shouldn't bother us now.)
+
+The quantities $O_{if}$ are physically directly observable, since their squares determine the interaction cross section of the associated process. More specifically, it will give a matrix element $O_{if}$ for the transition process specified by the \WTF{elementary process}{Elementarakt}. For the elementary process I shall define
+\nequ{
+O_{if}^\text{El}\exp{i\left[(\fg_i-\fg_f)\fr - (E_i-E_f)t\right]} = iH_0^{if}.
+}{3}
+
+(Thus in the "1st" approximation $H_0^{if}=H_{(1)}^{if}$, in the "2nd" approximation $H_0^{if} = H_{(1)}^{if} - \sumX{l}\frac{H_{(1)}^{il} H_{(1)}^{lf}}{E_i - E_f}$, etc.)
+
+The $H_0^{if}$ are thus likewise directly physically observable. Now I claim: for arbitrary processes $i\to f$, (2) and (3) imply
+\nequ{
+&\int{d\tau}\intXY{t_0}{t}{dt}\,O_{if}\exp{i\left[(\fg_i-\fg_f)\fr-(E_i-E_f)t\right]}\\
+ = & \sum'\left(i\int{d\tau}\intXY{t_0}{t}{dt_1}H_{(0)}^{ik}\right)
+ \left(i\int{d\tau}\intXY{t_0}{t_1}{dt_2}H_{(0)}^{kl}\right)\dots
+ \left(i\int{d\tau}\intXY{t_0}{t_{n-1}}{dt_n}H_{(0)}^{rf}\right),
+}{4}
+where here the sum $\sum'$ is only over the (finitely many) paths which lead from the initial to the final state in the \textit{fewest} number of elementary steps. The proof is in the fact that when (3) is inserted into (4) the sum $\sum'$ is automatically expanded to the sum $\sum$ over \textit{all} paths. (At this point the matter would be more complicated if $H_{(1)}$ gave rise to several different elementary processes; hence the assumption of only one such process.)
+
+Now comes the decisive ammendment to the present theory. Equation (4) still only contains relations between observable quantities (\?{here you recognize the old song and dance}); hence I would like to even maintain equation (4) where equations (1) through (3) fail, since they lead to divergences. Thus I would like to characterize the future theory by $H_0^{if}$, instead of by the Hamiltonian function, and regard (4) as strictly satisfied. The resulting mathematical scheme is, as is immediately seen, always relativistically invariant and convergent (since no infinite sums occur), and additionally it is much simpler than the present theory. However, I still don't know what the energy and momentum integrals look like in this theory, since there is no Hamiltonian function. It cetainly seems to me that this theory is as close to the "semi-classical" theory as is at all possible, in any case closer than the wave quantization of the present type (c.f. our correspondence before Christmas).
+
+I am very curious about what you will think about this theory; I also have much more confidence in its physical significance than in the recent clumsy "subtraction" theory. -- I want to study the literature on cosmic radiation more and then write you.
+
+Many warm greetings
+
+Your W. Heisenberg
+
+%wabjs lizzelteats

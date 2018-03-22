@@ -1,0 +1,34 @@
+\letter{99}
+\from{Heisenberg}
+\date{September 24, 1925}
+\location{Copenhagen}
+
+Dear Pauli!
+
+Many thanks for your letter; your suspicion about the quantum conditions is of course correct; I've already been thinking over a simple proof for the frequency condition for a few days which is so brief that I'll write it here on the card. Naturally it suffices to proof that
+\nequ{
+\frac{h}{2\pi i}\left(\fh\fp_\varrho - \fp_\varrho \fh\right) &= -\pddX{\fh}{\fq_\varrho}\\
+\text{ and } 
+\frac{h}{2\pi i}\left(\fh\fq_\varrho - \fq_\varrho \fh\right) &= \pddX{\fh}{\fp_\varrho}.
+}{1}
+
+But this formula applies not only for $\fh$, but also for every function $\fF$ which can be expanded in powers of $\fp$ and $\fq$ (even mixed terms are allowed), as one cannsee in the following way:
+
+We assume that the formula applies for a function $\fF(\fp, \fq)$; then, we claim, it also applies for
+\nequ{
+\fq_\varrho \times \fF; \fp_\varrho \times f; \fq_s \times f 
+\text{ and } f\times\fq_\varrho, f\times \fp_\varrho, \text{ etc}.
+}{2}
+Since
+\uequ{
+\frac{2\pi i}{h}\left\{(\fq_\varrho f)\fp_\varrho - \fp_\varrho(\fq_\varrho f)\right\} &=
+\frac{2\pi i}{h}\left\{
+\fq_\varrho(f\fq_\varrho - \fp_\varrho f) - (\fp_\varrho \fq_\varrho - \fq_\varrho fp_\varrho)f
+\right\}\\
+ &= -\fq_\varrho \pddX{f}{\fq_\varrho} - f = \pddX{}{\fq_\varrho}(\fq_\varrho f)
+}
+Likewise with the other parts. If $\fF$ resp. $\fh$ can now be expanded in powers of $\fp,\fq$, then obviously the above relation (1) applies for every individual term, that can be shown from (2) by induction. q.e.d.
+
+The perturbation theory is regarded in exactly the same manner as with a single degree of freesom. However, what degeneracy means cannot quite yet be said without a decent integration method for one degree of freedom. I'm working at that now, but still without much success. Many greetings to the whoke Hamburg institute!
+
+W. Heisenberg

@@ -1,0 +1,67 @@
+\subsection*{26.}
+
+In ordinary geometry, ther are properties which are called \textit{affine properties}: these are those which are conserved when a homographic transformation is effected which preserves the \?{plane at infinity}{le plan de l'infini}. The notions of \textit{vector}, \textit{equivalence of two vectors}, the \textit{geometric sum of two vectors}, are affine notions; this is not the case with the notion of the \textit{length of a vector}, which is a metric notion. In affine geometry, one may only compare the lengths of parallel vectors. The theory of systems of sliding vectors, of their equivalence, of their reduction to a vector and a couple, is also a purely affine theory, despite the metric form in which it is usually \?{formulated}{enseignée}.
+
+In affine geometry, the normal coordinate system is the system of cartesian coordinates; taking an origin $\origin$ and three vectors (not coplanar) $\e_1, \e_2, \e_3$ issuing from $\origin$, all vectors may be cast in the form
+\uequ{
+x^1\e_1 + x^2\e_2 + x^3\e_3,
+}
+and each point $\m$ may also be written in the form
+\uequ{
+\m = \origin + x^1\e_1 + x^2\e_2 + x^3\e_3,
+}
+and designating by $\m'-\m$ the (free) vector with origin $\m$ and endpoint $\m'$ (or all equivalent vectors).
+
+We imagine that at each point $\m$ of space a corresponding cartesian reference point with origin $\m$ is fixed; let $\e_1, \e_2, \e_3$ be the three vectors which define, with $\m$, this reference system. One could likewise imagine that at each point $\m$ there is an infinity of such reference systems. Thus we will have an ensemble of reference systems depending on a number of parameters, up to 12; we will call these parameters $u_i$.
+
+If one makes an infinitely small variation on these parameters, the point $\m$ and the vectors $\e_1, \e_2, \e_3$ are subject to the infinitely small variations which are vectors, and which are expressable linearly by means of $\e_1, \e_2, \e_3$. Thus
+\nequ{1}{
+d\m &= \omega^1 \e_1 + \omega^2 \e_2 + \omega^3 \e_3,\\
+d\e_1 &= \omega_1^1 \e_1 + \omega_1^2 \e_2 + \omega_1^3 \e_3,\\
+d\e_2 &= \omega_2^1 \e_1 + \omega_2^2 \e_2 + \omega_2^3 \e_3,\\
+d\e_3 &= \omega_3^1 \e_1 + \omega_3^2 \e_2 + \omega_3^3 \e_3.
+}
+
+The $\omega^i$ and $\omega_i^j$ are linear with respect to the differentials $du_i$; these dozen Pfaffian forms together permit \?{the comparison of}{de repérer} the reference system with origin $\m + d\m$ with respect to a reference system with origin $\m$. One may also say that they define the small affine displacement which permits passing from one to the other.
+
+The forms $\omega^i$ and $\omega_i^j$ are not arbitrary. The integrals
+\uequ{
+\int d\m, \quad \int d\e_1, \quad \int d\e_2, \quad \int d\e_3
+}
+extend around any arbitrary closed contour are evidently zero. Or, transforming them into surface integrals, one obtains
+\uequ{
+\int d\m = \int\int(\omega^1)'\e_1 + (\omega^2)'\e_2 + (\omega^3)'\e_3
+ + d\e_1\omega_1 + d\e_2\omega_2 + d\e_3\omega_3,
+}
+oe, taking account of the formulae (1) themselves and making the reductions,
+\uequ{
+\int d\m = \int\int 
+  \left[(\omega^1)' - \omega^1\omega_1^1 - \omega^2\omega_2^1 - \omega^3 \omega_3^1\right]\e_1
++ \left[(\omega^2)' - \omega^1\omega_1^2 - \omega^2\omega_2^2 - \omega^3 \omega_3^2\right]\e_2
++ \left[(\omega^3)' - \omega^1\omega_1^3 - \omega^2\omega_2^3 - \omega^3 \omega_3^3\right]\e_3.
+}
+Similarly,
+\uequ{
+\int d\e_1 &= \int\int
+   \left[(\omega_1^1)' - \sum\omega_1^i\omega_i^1\right]\e_1
+ + \left[(\omega_1^2)' - \sum\omega_1^i\omega_i^2\right]\e_2
+ + \left[(\omega_1^3)' - \sum\omega_i^i\omega_i^3\right]\e_3,\\
+\int d\e_2 &= \int\int
+   \left[(\omega_2^1)' - \sum\omega_2^i\omega_i^1\right]\e_1
+ + \left[(\omega_2^2)' - \sum\omega_2^i\omega_i^2\right]\e_2
+ + \left[(\omega_2^3)' - \sum\omega_2^i\omega_i^3\right]\e_3,\\
+\int d\e_3 &= \int\int
+   \left[(\omega_3^1)' - \sum\omega_3^i\omega_i^1\right]\e_1
+ + \left[(\omega_3^2)' - \sum\omega_3^i\omega_i^2\right]\e_2
+ + \left[(\omega_3^3)' - \sum\omega_3^i\omega_i^3\right]\e_3.
+}
+
+\?{Cancelling}{En annulant} the second members and remarking that these second members, being vectors, must have their three components be zeroes, one obtains the formulae
+\nequ{2}{
+(\omega^i)' &= \sumXY{k=1}{k=3}\left[\omega^k \omega_k^i\right] \quad (i=1,2,3)\\
+(\omega_i^j)' &= \sumXY{k=1}{k=3}\left[\omega_i^k \omega_k^j\right] \quad (i,j=1,2,3).
+}
+
+These define what is called the \textit{structure} of the affine space; \textit{all} of the properties are condensed in them.
+
+%

@@ -1,0 +1,212 @@
+\begin{paper}{1}
+
+\renewcommand{\mf}[1]{\mathfrak{#1}}
+\nc{\oN}{\overline{N}}
+\nc{\oC}{\overline{C}}
+\nc{\ooW}{\overline{\overline{W}}}
+
+\begin{header}
+\title{On the method of second quantization.}
+\author{Pascual Jordan}
+\location{Rostock}
+\note{Received on March 10th, 1932.}
+\makeheader
+\end{header}
+
+\begin{abstract}
+The connection between the two different methods of treating the many-body problem with equivalent particles (coordinate-space methods and so-called second quantization) is essentially intuitive if, rather than merely proving the equivalence of the eigenfunctions occurring in the two cases, the matrices occurring on both sides are directly compared with one another.
+\end{abstract}
+
+\section{} For the treatment of the quantum-mechanical many-body problem with equivalent particles, two different well-known methods have been devised; on the one side, the "coordinate space methods", on the other, the so-called "second quantization". The equivalence of the two outwardly very different methods was up to now only secured by rather cumbersome and opaque proofs\footnote{Cf however the previous paper by V. Fock.}.
+
+However, as will be shown here, this equivalence can also be proven in another manner, wherein an essentially closer relation between the two methods can be recognized than from the previous considerations. This new proof is distinguished from the earlier ones in that rather than the \textit{eigenfunctions} occurring in the two methods, the \textit{matrices} representing the physical quantities themselves in both cases are immediately recognized as identical.
+
+Essential for the method of second quantization is the occurrence of matrices $N_r$ or $N(\mf{r})$ which denote the \textit{number} of those particles which possess a certain value of energy $W^{(r)}$, or for which the position is exactly equal to $\mf{r}$. But these matrices could also be defined from the standpoint of the coordinate state method; i.e. they could be constructed as symmetric functions of the coordinates and momenta of the $n$ particles present. Namely, if $\mf{r}_k$ is the matrix of the position of the $\Nth{k}$ particle, then the number of particles present at the position $\mf{r}$ is equal to
+\uequ{
+\overline{N}(\mf{r}) = \sum\limits_k \delta(\mf{r}_k-\mf{r}\cdot E),
+}
+where the Dirac $\delta$-function is utilized. For clarity the \textit{unit matrix} $E$ is explicitly written down as a factor of the $c$-number vector $\mf{r}$.
+
+Each symmetric function of $\mf{r}_k$ that has the special form
+\uequ{
+F(\mf{r}_1, \mf{r}_2, \dots, \mf{r}_n) = \sum{k}f(x_k,y_k,z_k)
+}
+can be reduced to the matrices $\overline{N}(\mf{r})$:
+\uequ{
+F=\iiint\dxdydz\cdot f(x,y,z)\cdot N(\mf{r}).
+}
+
+The \textit{total number of particles present} can be expressed as
+\uequ{
+\iiint\dxdydz\cdot\oN(\mf{r}) = n\cdot E.
+}
+
+Accordingly for the discrete values $W^{(r)}$ of the energy $W_k$ of the $\Nth{k}$ particle:
+\uequ{
+\oN_r = \sum\limits_k\delta(W_k-W^{(r)}\cdot E)
+}
+where now the symbol $\delta$ no longer denotes the Dirac $\delta$-function, but rather the function
+\uequ{
+\delta(\nu) = \begin{cases}
+ 	0 \text{ for } \nu\neq 0\\
+ 	1 \text{ for } \nu = 0.
+ \end{cases}
+}
+Put another way: let
+\uequ{
+W_k = \sum\limits_r W^{(r)} E_k^{(r)},
+}
+where $E_k^{(r)}$ is the \textit{\?{projection matrix}{Einzelmatrix}} in $W_k$ associated to the eigenvalue $W^{(r)}$; then
+\uequ{
+\oN_r = \sum\limits_k E_k^{(r)}.
+}
+
+For the total numbers of particles present it again gives:
+\uequ{
+\sum\limits_r \oN_r = \sum\limits_{rk} E_k^{(r)} = nE.
+}
+
+\section{} The symmetric functions of the coordinates $\xi$ and momentum $\eta$ of $n$ particles are built from the following forms:
+\nequ{1}{
+F^I = \frac{1}{1!}\sum\limits_k &f^I(\xi_k; \eta_k),\\
+F^{II} = \frac{1}{2!}\sum\limits_{k\neq l}&f^{II}(\xi_k,\xi_l; \eta_k, \eta_l),\\
+F^{III} = \frac{1}{8!}\sum\limits_{\substack{k\neq l\\ l\neq m\\ m\neq k}}&f^{III}f(\xi_k,\xi_l,\xi_m;\eta_k,\eta_l,\eta_m)\\
+\dots\dots&\dots\dots
+}
+
+We can and will assume that each individual summand is \textit{symmetric} in the particles occurring in it. 
+
+Now let $W_k$ be (no longer necessarily an energy, but rather) any function of $\xi_k,\eta_k$ alone, and with purely discrete, \?{non-degenerate}{einfachen} eigenvalues $W^{(r)}$. For the \textit{one-body problem} ($n=1$, so also $k=1$) we select a matrix representation of the physical quantities in which $W_1$ is a \textit{diagonal matrix}. Then to the function $f^I(\xi_1,\eta_1)$ corresponds a matrix
+\nequ{2}{
+f^I(\xi_1, \eta_1) = (f^I_{rs}).
+}
+
+Going again over to the many-body problem with any $n$, we \textit{define} a system of matrices $C_{rs}^I$ by the following requirement: for \textit{each} function (2) let
+\nequ{3}{
+\sum\limits_{rs}f_{rs}^I C_{sr}^I = \frac{1}{1!}\sum\limits_k f^I(\xi_k, \eta_k).
+}
+
+Here it is seen, recalling the definition of $\oN_r$ given in \S1, that
+\nequ{4}{
+C_{rr}^I = \oN_r.
+}
+[$f^I(\xi_k,\eta_k) = E_k^{(r)}$ is specifically chosen so that in $f^I$, only the matrix element $f^I_{rr}=1$ is nonzero.] Further,
+\nequ{5}{
+{C_{sr}^I}^\dagger = C_{rs}^I.
+}
+
+We correspondingly define matrices $C^{II}_{ss'rr'}$, $C^{III}_{ss's''rr'r''}$, etc. It suffices to further clarify the definition of $C^{II}_{ss'rr'}$ in detail. For the \textit{two-body problem} ($n=2$, so $k=1$ or $2$) a matrix representation in which $W_1$ and $W_2$ (more correctly expressed: \textit{all symmetrical functions} of $W_1$ and $W_2$) are diagonal matrices. Then
+\nequ{6}{
+f^{II}(\xi_1,\xi_2;\eta_1,\eta_2) = f^{II}(\xi_2,\xi_1;\eta_2,\eta_1) = (f^{II}_{rr'ss'}) = (f^{II}_{r'rs's}).
+}
+
+Then we require as the definition of $C^{II}_{ss'rr'}$ the correspondence
+\nequ{7}{
+\sum\limits_{\substack{rr'\\ss'}} f^{II}_{rr'ss'} C^{II}_{ss'rr'} = 
+\frac{1}{2!}\sum\limits_{k\neq l}f^{II}(\xi_k,\xi_l;\eta_k,\eta_l)
+}
+for \textit{each} matrix (6), and in addition the symmetry relation
+\nequ{8}{
+C^{II}_{ss'rr'} = C^{II}_{s'sr'r}.
+}
+
+Obviously
+\nequ{9}{
+(C^{II}_{ss'rr'})^\dagger = C^{II}_{rr'ss'}.
+}
+
+It is self-evident that the so-defined $C^I,C^{II},\dots$ still depend essentially on the parameter $n$.
+
+If finally we ask after those matrices $\oC^I, \oC^{II}, \dots$ which play the same role with respect to a quantity $\ooW$ that the $C^I, C^{II}, \dots$ play with respect to $W$ (so that then in particular $\oC^{II}_{rr}$ is the number of those particles for which the quantity $\ooW$ has the value $\ooW^{(r)}$), then we see immediately from (3) resp. (7), (8), (9) that these $\oC$ arise from the $C$ via a \textit{linear transformation}; and indeed the e.g. $C^I_{rs}$ transforms in a transition from $W$ to $\ooW$ into $\oC^I_{rs}$ in the same way as the element $f_{rs}$ of any matrix $f^I(\xi_1,\eta_1)$ in the transition from the matrix representation which has $W_1$ as a diagonal matrix to that in which $\ooW_1$ becomes a diagonal matrix. Accordingly the $C^{II}$ transform as the components of a "fourth-rank tensor" in the Hilbert space of the one-body problem etc.
+
+\section{} From the definition of $C^I,C^{II},\dots$ given in \S2 one immediately gets the \textit{commutation rules} applying to these matrices. It suffices to consider $C^I$. From two functions $F^I$ and $G^I$ of the simplest type in (1), one can \?{form}{auf...ableiten} two varieties of a new function of the same type. First, by \textit{addition}:
+\nequ{10}{
+F^I + G^I = \sum\limits_k(f^I_k+g^I_k)
+}
+[we now briefly write $f_k$ instead of $f(\xi_k,\eta_k)$]; second, by \textit{\?{bracketing}{Klammerbildung}} (we briefly write $[X,Y]$ for $XY-YX$):
+\nequ{11}{
+[F^I,G^I] = \sum\limits_k [f^I_k, g^I_k].
+}
+
+Since now the defining equation (3) of $C^I$ is to apply for \textit{every} $F^I$, it is required that on the one hand
+\nequ{12}{
+[F^I,G^I]=\sum\limits_{\substack{\mu\nu\\ \varrho\sigma}}
+f^I_{\mu\nu}g^I_{\varrho\sigma}[C^I_{\nu\mu},C^I_{\sigma\varrho}],
+}
+and on the other,
+\nequ{13}{
+[F^I,G^I]=\sum\limits_{rs}[f^I,g^I]_{rs}C_{sr}^I
+= \sum\limits_{\substack{rs\\ \tau}}\left(
+f^I_{r\tau}g^I_{\tau s} - g^I_{r\tau}f^I_{\tau s}
+\right)C^I_{sr}.
+}
+Then, by an appropriate rearrangement in (13):
+\nequ{14}{
+\sum\limits_{\substack{\mu\nu\\ \varrho\sigma}}
+f^I_{\mu\nu}g^I_{\varrho\sigma}[C^I_{\nu\mu},C^I_{\sigma\varrho}] = 
+\sum\limits_{\substack{\mu\nu\\ \varrho\sigma}}
+f^I_{\mu\nu}g^I_{\varrho\sigma}\left\{\delta_{\varrho\nu} C^I_{\sigma\mu} - \delta_{\mu\sigma}C^I_{\nu\varrho}\right\}.
+}
+
+Because of the arbitrariness of the matrices $f^I,g^I$ however that gives the commutation rule\footnote{This means that the $C^I_{\nu\mu}$ form an (infinitesimal) representation of the group of all linear transformations of the Hilbert space.}
+\nequ{15}{
+[C^I_{\nu\mu},C^I_{\sigma\varrho}] = \delta_{\varrho\nu}C^I_{\sigma\mu} - \delta_{\mu\sigma}C^I_{\nu\varrho}.
+}
+
+All other bracket quantities formed from the quantities $C_{rs}^I$ are given accordingly.
+
+\section{} The present considerations apply to the case of the symmetric as well as to the case of antisymmetric eigenfunctions. (The foregoing considerations even apply to the further mathematically-possible but not physically-relevant solutions of the many-body problem in the coordinate-space method.) So in \textit{all} cases \textit{the same construction of the matrices} $C^I, C^{II}, \dots$ applies, and the \textit{commutation rules} of these matrices $C^I,C^{II},\dots$ are likewise \textit{independent of the \?{applied}{geltenden} statistics}. Still, from now on the different statistics are treated separately.
+
+Our goal is the \textit{explicit} construction of the matrices $C$. The Einstein-Bose case is helped towards this purpose by an irreducible system of matrices $b_r$ which satisfy the equations
+\nequ{16}{
+[b_r^\dagger, b_s] = -\delta_{rs};\quad
+[b_r, b_s] = 0;
+}
+its construction is well-known. With these $b_r$ we define
+\nequ{17}{
+B^I_{sr} &= b_r^\dagger b_s,\\
+B^{II}_{ss'rr'} &= b_r^\dagger b_{r'}^\dagger b_{s'} b_s,\\
+B^{III}_{ss's''rr'r''} &= b_r^\dagger b_{r'}^\dagger b_{r''}^\dagger b_{s''}b_{s'}b_s,\\
+\dots\dots & \dots\dots
+}
+
+The total system of all these $B$ is \textit{reducible}; since all $B$ \?{commute}{sind vertauschbar} with the "\textit{total number of particles present}"
+\nequ{18}{
+N = \sum\limits_r N_r = \sum\limits_r B^I_{rr}.
+}
+
+Now (for the Einstein-Bose case) we come back to the matrices $C^I$ of the $n$-body problem used in \S2, by taking from the system of all $B^I$ those \textit{irreducible components} associated to eigenvalue $n$ from $N$. Each matrix $C_{rs}^I$ is the part of the corresponding matrix $B_{rs}^I$ associated with this irreducible component, and correspondingly for $C^{II}, C^{III}, \dots$.
+
+To prove this claim it is really only necessary to indicate that the on the basis of the definition (17) and the assumed equations (16) that the $B$ satisfy the same \textit{commutation rules} as we had found for the corresponding $C$ in \S3. This can be confirmed by calculations. There is also correspondence in the considerations of the transformations from the $C$ to the $\oC$. While the transformation of the $B^I_{rs}$ can be interpreted as a transformation of a \textit{second-rank tensor}, for the $b_r$ one gets the associated \textit{vector transformation}; from this according to (17) one gets the same transformation laws for the $B$ as for the $C$. The equations (16) remain invariant under these vector transformations.
+
+The construction proceeds entirely analogously for the case of the Pauli exclusion principle. In place of the $b_r$, certain matrices $a_r$ are used, for which
+\nequ{16'}{
+\{a_r^\gamma, a_s\} = \delta_{rs}; \quad
+\{a_r, a_s\}=0,
+}
+if we write $XY+YX=\{X,Y\}$. From them we form
+\nequ{17'}{
+A^I_{sr} &= a_r^\dagger a_s,\\
+A^{II}_{ss'rr'} &= a_r^\dagger a_{r'}^\dagger a_{s'} a_s,\\
+A^{III}_{ss's''rr'r''} &= a_r^\dagger a_{r'}^\dagger a_{r''}^\dagger a_{s''}a_{s'}a_s,\\
+\dots\dots & \dots\dots.
+}
+
+The irreducible components of the system of all $A$ supply the system $C$ used in the Pauli case. Since the matrices $A$ constructed according to (17') possess, as calculation shows, the same commutation rules as the matrices $C$.
+
+After these arrangements it is possible to express all matrices by the matrices $C^I$. Yet the relevant equations for the different statistics  -- in contrast to the commutation rules of $C$ -- are \textit{different}. E.g. they give
+\nequ{19}{
+C^{II}_{ss'rr'} = \pm C^I_{s'r}C^I_{sr'} \mp \delta_{s'r'}C^I_{sr}\quad
+\left(\delta_{r's'} = \begin{cases}
+ 	1 \text{ for } r'=s'\\
+ 	0 \text{ for } r'\neq s'
+ \end{cases}\right),
+}
+where the \textit{upper} signs apply for the Bose case, the \textit{lower} signs for the Pauli case.
+
+Additionally, for the Pauli case it follows from (16') that
+\nequ{20}{
+N_r^2 = N_r,
+}
+which just expresses that in each "cell" there can be no more than one particle present. It can also be derived from (19) on the basis of the observation that in the Pauli case $C^{II}_{ss'rr'}$ vanishes whenever $r=r'$ or $s=s'$.
+\end{paper}

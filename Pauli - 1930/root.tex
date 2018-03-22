@@ -1,0 +1,148 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\renewcommand*\rmdefault{ppl}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{marginnote}
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+
+\nff{\WTF}{{#1}(\textit{#2})}
+
+\nf{\translator}{\footnote{\textbf{Translator note:}#1}}
+
+\newcommand{\nequ}[2]{
+\begin{align*}
+#1
+\tag{#2}
+\end{align*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{align*}
+#1
+\end{align*}
+}
+
+\nff{\iffy}{#2}
+\nf{\?}{#1}
+
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+
+\nc{\fluc}{\overline{\delta_s^2}}
+
+\rf{\exp}{e^{#1}}
+
+\nc{\grad}{\operatorfont{grad}}
+\rc{\div}{\operatorfont{div}}
+
+\nf{\pddt}{\frac{\partial{#1}}{\partial t}}
+\nf{\ddt}{\frac{d{#1}}{dt}}
+
+\nf{\inv}{\frac{1}{#1}}
+\nf{\Nth}{{#1}^\text{th}}
+\nff{\pddX}{\frac{\partial{#1}}{\partial{#2}}}
+\nf{\rot}{\operatorfont{rot}{#1}}
+
+\nc{\lap}{\Delta}
+\nc{\e}{\varepsilon}
+\nc{\R}{\mathfrak{r}}
+
+\nc{\Y}{\psi}
+\nc{\y}{\varphi}
+
+\nc{\E}{\mathfrak{E}}
+\rc{\H}{\mathfrak{H}}
+
+\nf{\from}{From: #1}
+\nf{\rcpt}{To: #1}
+\rf{\date}{Date: #1}
+\nf{\letter}{\section{Letter #1}}
+\nf{\location}{}
+
+\begin{document}
+
+\letter{242}
+\rcpt{Klein}
+\date{February 10, 1930}
+\location{Zurich}
+
+\rc{\E}{\vec{E}}
+\rc{\H}{\vec{H}}
+\nc{\J}{\vec{J}}
+
+Dear Klein!
+
+Many thanks for your letter. I am very happy that you are now thoroughly occupied with quantum electrodynamics. Then it will probably interest you if I add some more about this subject.
+
+That the equations
+\uequ{
+\rot{\E} - \inv{c}\pddX{\E}{t} = \frac{4\pi}{c}\J
+}
+can apparently apply as matrix equations, but not the relation
+\uequ{
+\div{\E} = 4\pi\rho,
+}
+actually does not lie in the \WTF{singling out of}{Auszeichnung} the time from the space components, but rather in the specific ratios are \?{established} by the gauge transformations
+\uequ{
+\Y \to \exp{i\chi}\Y,\quad
+\Y^* \to \Y^* \exp{-i\chi},\quad
+\phi_k \to \phi_k + \pddX{\chi}{x_k}.
+}
+In reality \textit{both} relations work as matrix equations, if one constrains oneself to the representation of gauge-invariant quantities (like $\E,\H,\J,\rho$) as matrices. Conversely, \textit{both} equations generally no longer apply as matrix equations if one also brings in the matrices of the potentials $\phi$ or the $\Y$ itself; then they only apply as equations for the "Schr\"odinger functions". (That actually only we have assumed that the $\rot{\H} - \inv{c}\dot{\E} = \frac{4\pi}{c}\J$ commute with the $\phi_\nu$ for reasons of convenience.) This is probably not a very deep point.
+
+The relations of our theory to the Dirac radiation theory are in fact very close. This becomes clear when one eliminates $P_{r3}$ from our equations (68), (69). \WTF{This can be done}{Es kann dies...geschehen} \textit{rigorously}, i.e. \textit{without} approximation! (One splits off from $\varphi$ a factor $f[P_{r3} + e\sumX{p}v_r^0 (q_{ip})]$ so that the other factor no longer depends on $P_{r3}$; the terms where the first factor is differentiated by $q_{ip}$ and those where it is differentiated by $P_{r3}$ cancel eachother. After this, one specializes $f$ to the $\delta$-function.)
+
+Finally, the following equation fir $\varphi_{\rho_1 \dots \rho_p \dots}(q_{i1} \dots q_{ip} \dots)M^{r\lambda}$ ($\varphi$ now independent of $P_{r3}$, $\lambda=1,2$ - no more $\lambda=3$) remains:
+\nequ{
+TODO (pg 3)
+}{1}
+The last term on the left side naturally comes from $(P_{r3})^2$. Now it can be shown
+\uequ{
+TODO
+}
+where $\sumX{(p,p')}\inv{r_{pp'}}$ is the Coulomb interaction; $\inv{2}\sumX{p'}\inv{r_{pp}}$ is the self-energy, is in reality $\infty$, even with \textit{one} electron.
+
+Disregarding the infinitely-large self-energy - i.e. if one replaces the last term on the left in (1) by $\sumX{(p,p'); p \neq p'}\frac{e^2}{r_{pp'}}\varphi_{\rho_1 \dots}(q_1 \dots)$ -- \textit{then equation (1) is identical with that from the combined Dirac- and radiation theories!} A deeper connection indeed cannot be imagined. With this at the same time it is proved that the latter theory \textit{would} already be relativistic, \textit{if} the electromagnetic self-energy hadn't been \WTF{stripped out}{fortgestrichen}. The latter is naturally \textit{not} relativistic, since the fact that the electrical self-energy is explicitly contained, the magnetic self-energy only implicitly contained in the equations lies only in the specific choice of variables and depends on the reference system.
+Even in the special reference system the equations (1) themselves are not at all reasonable after the infinitely-great electrostatic self-energy is stripped out; namely, for \textit{one} electron they have - just because of the magnetic self-energy - no finite eigenvalues. This deficiency, which is also already present in Dirac's radiation theory, is grounded deep in the essence of the matter and even means, taken strictly, the impracticability of all current quantum electrodynamical theories.
+
+The trick contained in your paper with Jordan for the elimination of the self-energy doesn't solve the problem in a \textit{relativistic} theory, since with it one \textit{also} removes the radiation reaction force, which is not permissable. Thus in the question of self-energy (which is perhaps connectes with the $\pm mc^2$ difficulty) I see the real cloven hoof of the present theories (\textit{in}cluding those of Heisenberg and me).
+
+In recent days I've been thoroughly busying myself with Dirac's latter paper (protons = gaps in an \WTF{aggregate}{Gesamtheit} of infinitely-many electrons of negative energy). I now \textit{no longer believe in it at all}! But an explanation would be too long.
+
+I hope to hear from Bohr soon. \?{Many greetings to him}. My wife and I thank you and your wife for your well-wishes and greet you both.
+
+Your warmest old friend,
+W. Pauli
+
+P.S. In reading through this I noted that this letter contains absolutely no wicked remarks! I've probably become old; or is it the bad influence of marriage? \?{So, quickly, a few}:
+
+(1) In Stockholm there seems to be the danger that in the final completion of the matter all originally-drawn candidates have already exceeded the age limit, so that a new treatment of the thing is then again necessary.
+
+(2) In the present state of the theory, it seems totally impossible that anyone's thoughts could have been clarified! Thus not even Bohr's thoughts about it - despite his Schiller-proverbs\footnote{According to this it must behave so that whenever Bohr is unclear about something, this is caused by a \?{lack of fullness} of his thoughts. But I honestly doubt whether this is the true reason.}. Your old method of defendeding Bohr like a lion before you have understood him hasn't affected me. The idea of a violation of energy conservation in the $\beta$-spectrum is and remains in my opinion a cheap and clumsy philosophy!
+
+(3) If my wife should some time run out on my, you (likewise all of my other friends) shall receive a printed notice.
+
+\end{document}

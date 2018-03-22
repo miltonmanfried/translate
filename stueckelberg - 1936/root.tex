@@ -1,0 +1,533 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\renewcommand*\rmdefault{ppl}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{marginnote}
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+
+\nff{\WTF}{#1 (\textit{#2})}
+
+\nf{\translator}{\footnote{\textbf{Translator note:}#1}}
+\nc{\sic}{{}^\text{(\textit{sic})}}
+
+\newcommand{\nequ}[2]{
+\begin{align*}
+#1
+\tag{#2}
+\end{align*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{align*}
+#1
+\end{align*}
+}
+
+\nf{\sskip}{...\{#1\}...}
+\nff{\iffy}{#2}
+\nf{\?}{#1}
+\nf{\tags}{#1}
+
+\nf{\limX}{\underset{#1}{\lim}}
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+%\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+\nff{\intXY}{\underset{#1}{\overset{#2}{\int}}}
+
+\nc{\fluc}{\overline{\delta_s^2}}
+
+\rf{\exp}{e^{#1}}
+
+\nc{\grad}{\operatorfont{grad}}
+\rc{\div}{\operatorfont{div}}
+\nc{\spur}{\operatorfont{spur}}
+
+\nf{\pddt}{\frac{\partial{#1}}{\partial t}}
+\nf{\ddt}{\frac{d{#1}}{dt}}
+
+\nf{\inv}{\frac{1}{#1}}
+\nf{\Nth}{{#1}^\text{th}}
+\nff{\pddX}{\frac{\partial{#1}}{\partial{#2}}}
+\nf{\rot}{\operatorfont{rot}{#1}}
+
+\nf{\Elt}{\operatorfont{#1}}
+
+\nff{\MF}{\nc{#1}{\mathfrak{#2}}}
+
+\nc{\wta}{\widetilde{a}}
+
+\MF{\fr}{r}
+\MF{\fV}{V}
+\MF{\fp}{p}
+
+\nc{\fYm}{\fY^{(m)}}
+\nc{\fXm}{\fX^{(m)}}
+\nc{\fZm}{\fZ^{(m)}}
+
+\nff{\MV}{\nc{#1}{\vec{#2}}}
+
+\MV{\vx}{x}
+\MV{\vy}{y}
+\MV{\vz}{z}
+\MV{\vr}{r}
+\MV{\vD}{D}
+\MV{\vH}{H}
+
+\MV{\vgamma}{\gamma}
+\MV{\valpha}{\alpha}
+
+\nc{\Y}{\psi}
+\nc{\y}{\varphi}
+
+\nc{\m}{\operatorfont{m}}
+\nc{\pleft}{\overset{\leftarrow}{p}}
+
+\nff{\respXY}{$\left.\begin{cases}
+\text{#1}\\
+\text{#2}
+\end{cases}\right\}$
+}
+
+\title{Exchange forces between elementary particles and Fermi's theory of $\beta$-decay as consequences of a possible field theory of matter}
+\date{May 11, 1936}
+\author{E. C. G. Stueckelberg}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Electron, neutrino, proton and neutron shall be regarded as four different quantum states of a single elementary particle. Quantum jumps between these states explain the $\beta$-decay (according to \textsc{Fermi}'s theory) and give rise to the \textsc{Heisenberg-Majorana} neutron-proton exchange force. The hypothesis that the negative electron and positive proton are "particle" (as opposed to "antiparticle") states prohibits \WTF{annihilation}{Zerstrahlung} processes of heavy particles. The opposite hypothesis (positive electron and positive proton are particles) leads to annihilation processes (see summary).
+\end{abstract}
+
+\section*{1. Preparatory remarks}
+
+The desire for a \WTF{unified}{einheitlichen} field theory has been expressed by various authors\cite{1}. Their goal was to explain the gravitational field and the electromagnetic field as different manifestations of a single field.
+
+\textsc{Schr\"odinger}'s quantum theory introduces a new field quantity, the $\Y$-function. This first version however did not satisfy the requirement of relativistic covariance. Covariance could be achieved in two ways:
+
+1. Through the \textsc{Schr\"odinger-Gordon} wave equation. It has, like the Schr\"odinger theory, a scakar function $\Y$ as the independent variable. As \textsc{Pauli} and \textsc{Weisskopf}\cite{2} have shown, it explains the creation of particle pairs (opposite electrical charge, denoted as "particle" and "anti-particle") by the action of the electromagnetic field on the vacuum. On the other hand, it gives no explanation of the spin and ghe magnetic moment of the particles and only allows \textsc{Bose-Einstein} statistics for the particles.
+
+2. Through the \textsc{Dirac} wave equation. This introduces a four-component field strength $\Y$. It explains spin and the magnetic moment and allows only \textsc{Fermi-Dirac} statistics for the particles. On the other hand, it gives rise to the well-known negative energy levels, which we regard as "filled" in Dirac's meaning of the word. \textsc{Dirac} and \textsc{Heisenberg}\cite{3} have shown that the concept "all negative energy levels are occupied except for a finite number" can be meaningfully defined. The finite number of unoccupied levels then behave as particles of the opposite charge whose energy and momenta are the energy-momentum quantities of the associated levels with the opposite sign. We will call these holes "antiparticles" in contrast to "particles". The theory is symmetrical with respect to the interchange of the concepts of antiparticle and particle. Hence in the following we shall arbitrarily define \textit{the positive electron as a particle and the negative electron as an antiparticle}. The electromagnetic field can then also produce a pair (particle and antiparticle) from the vacuum (=all negative levels filled) by a particle in an filled negative energy state jumping into one of positive energy. The analogy with respect to particle pairs between the \textsc{Schr\"odingee-Gordon} theory and the \textsc{Dirac-Heisenberg} theory applies even in a more quantitative regard, as \textsc{Pauli} and \textsc{Weisskopf} have shown\cite{2}.
+
+Despite the ugliness of the hole theory it is, because of spin and statistics, preferable to the scalar theory.
+
+The program of the unified field theory is thus to encompass the explanation of the gravitational field ($g_{ik}$-field), electromagnetic field ($\vec{E}\vec{B}$ resp. $F_{ik}$-field) and the material field ($\Y_\mu$-field as manifestations of one and the same multiple-component field strength.
+
+Now (ignoring the effects of gravitation) the four components of matter field of a particle variety $\Y_\mu$ transform differently (inequivalently) than the components $c_i$ of a world vector\cite{4}. Nevertheless it is possible to form the vector $c_i$ from the vector $\Y$ with the help of certain constants $\alpha_{i\mu\nu}$:
+\nequ{
+c_i = \Y_\mu^+ \alpha_{i\mu\nu} \Y_\nu = \Y^+\alpha_i\Y.
+}{1}
+Latin or Greek indices occuring twice (here $\mu$ and $\nu$) are summed over. Then $\Y$ transforms according to the rules of spinor transformation, $\Y^+$ according to those of adjoint spinors, and if the numbers $\alpha_{i\mu\nu}$ remain constant then the $c_i$ transforms as a four-vector\cite{4}.
+
+The program of the unified field theory is now henceforth reduced to the attempt to understand the material field $\Y_\mu$ and the electromagnetic field (e.g. given by the potential $A_i$ ($A_1,A_2,A_3$ = vector potential, $A_4 = i\Phi$ = scalar potential) as a manifestation of the same field. Thus we ignore gravitational all effects.
+
+There have been two attempts in this direction: a first is due to \textsc{de Broglie}\cite{5}, which seeks to explain the $A_i$ by the spinorial $\Y$-field. Indeed this theory has been very widely developed under the name "the neutrino theory of light"\cite{6}, but because of various difficulties it is still not to be considered as satisfactory.
+
+A second path was proposed by \textsc{Born}\cite{7}. He explains the existence of material particles as manifestations of the vectorial $A_i$ field. Despite the great success of the Born theory, de Broglie's theory seems to me to be more correct; since formulae of a similar form to (1) allow the vector $A_i$ to be represented by the spinor $\Y$, but not $\Y$ by $A_i$. 
+
+The \textsc{Born} vector theory allows the difficulties of the infinite self energy of charged particles to be avoided; but for the aforementioned reasons it cannot explain the half-integer spin of the particle. The spinor theory on the other hand explains the spin and statistics of the particles and light quanta. It gives the equations of motion (\textit{Dirac equations} for $\Y$) and, at least one would hope, the \textsc{Maxwell} equation for $A_i$. However, for the time being it contains the well-known self-energy difficulties as well as the unsightly fact that the antiparticles are represented by holes.
+
+The following shall show what consequences can be drawn from such a uniform theory if one assumes a $4 \times 4 = 16$-component spinor field strength corresponding to the existence of four elementary particles (electron, neutrino, proton, neutron).
+
+\section*{2. Notation}
+
+Latin indices $i$ ($=1,2,3,4$) denote vector components in \textsc{Minkowski} space. $x$ denotes $x_1,x_2,x_3,x_4 = ict$. $\vx$ denotes the position coordinates in a specific space-time system. ${dx}^4 = {dx_1}{dx_2}{dx_3}{dx_4}$; ${d\vx}^3 = {dx_1}{dx_2}{dx_3}$. Greek indices $\mu,\nu$ ($=1,2,\dots,16$) denote spinor components. In place of $\Y^+_\mu \Gamma_{i\mu\nu} \Y_\nu$ $\Y^+\Gamma_i \Y$ is written. $e$ is the elementary charge of the positive electron, $\m$, $\mu\m$, $\mu'\m$ and $\mu''\m$ the masses of the electron, neutrino, proton and neutron. $2\pi h$ is \textsc{Planck}'s constant and $c$ is the speed of light. We shall often write the $\Y$-function as a column
+\nequ{
+\Y = \left(\begin{matrix}
+\y\\
+\chi\\
+u\\
+v
+\end{matrix}
+\right)
+}{2.1}
+where $\y$, $\chi$, $u$ and $v$ are spinors with four-components and the states correspond to $\y$ = electron, $\chi$ = neutrino, $u$ = roton, $v$ = neutron.
+
+$\gamma_i$ are the four-rowed relativistic \textsc{Dirac} matrices. We introduce the 16-rowes matrices
+\nequ{
+&\Gamma_i = \left(
+\begin{matrix}
+\gamma_i & 0 & 0 & 0\\
+0 & \gamma_i & 0 & 0\\
+0 & 0 & \gamma_i & 0\\
+0 & 0 & 0 & \gamma_i
+\end{matrix}
+\right)
+& \Delta = \left(\begin{matrix}
+1 & 0 & 0 & 0\\
+0 & \mu & 0 & 0\\
+0 & 0 & \mu' & 0\\
+0 & 0 & 0 & \mu''
+\end{matrix}\right)\\
+&\Lambda = \left(\begin{matrix}
+1 & 0 & 0 & 0\\
+0 & 0 & 0 & 0\\
+0 & 0 & \epsilon & 0\\
+0 & 0 & 0 & 0
+\end{matrix}\right)
+&\Lambda' = \left(\begin{matrix}
+0 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 0 & 0\\
+0 & 0 & 0 & \epsilon'
+\end{matrix}\right)\\
+\Lambda_i = \Lambda\Gamma_i = \Gamma_i\Lambda;\quad
+\Lambda_i' = \Lambda'\Gamma_i = \Gamma_i \Lambda'
+}{2.2}
+with the commutation relations
+\nequ{
+\Gamma_i \Gamma_k + \Gamma_k \Gamma_i = \delta_{ik};
+\text{$\Lambda$, $\Lambda'$ and $\Delta$ commute with one another and with $\Gamma_i$.}
+}{2.3}
+Since $\epsilon e$ denotes the proton charge, then, according to whether the positive proton is chosen to be a particle or antiparticle (= "hole" in the negative energy states of the negative protons), $\epsilon = +1$ or $\epsilon = -1$. Following \textsc{Jordan}, we assign the neutrino the neutrino charge or \textit{dual charge} $e$, correspondingly to the neutron $\epsilon'$\cite{8}. Then one is easily convinced that
+\nequ{
+P_i = \Y^+\Lambda_i \Y, \quad P_i' = \Y^+ \Lambda_i' \Y
+}{2.4}
+are the four-vectors of the charge density (in units of $e\text{cm}^{-3}$) of the electrical and dual charge.
+
+$p_i$ is the operator $(h/i) \partial/\partial x_i$ ($i=1,2,3,4$). An arrow $\pleft_i$ shall indicate that the differentiation acts to the left:
+\uequ{
+f(x)\pleft_i g(x) = \frac{h}{i}\pddX{f}{x_i}g(x).
+}
+
+\section*{3. The program for the neutrino theory}
+
+Although the following considerations only deal with the nuclear forces, it is advisable to draw up a tentative program of the unified spinor theory outlined in the preparatory remarks. Then the nuclear forces (point 4 of the program) under consideration follow from a simple generalization. We distinguish two steps: I. The \textit{"classical" theory} considers the components of the field strengths $\Y$ as ordinary (Dirac's $c$-) numbers. II. The \textit{quantum theory of $\Y$-wave fields} regards the components as operators.
+
+\subsection*{I. Program of the classical theory}
+
+\paragraph*{1.} There is a real function that is invariant with respect to Lorentz transformations $L(\Y^+,\Y)$. The Euler equations that follow from the extremal principal $\delta\int L{dx}^4 = 0$ should have the following form:
+
+\paragraph*{2.} If the \textsc{Fermi} constant $g$ is $0$, Dirac equations for the electron and proton follow where the potentials $A_i$ are represented in a definite manner by the components associated with the neutrino. For the neutrino there shall follow a Dirac equation which contains an interaction with the four-vector $P_i$ of the electric charge in a definite form. From these shall follow, by forming the field vectors according to a generalized procedure (1.1), the Maxwell equations. For the neutrons a Dirac equation shall follow whose interaction with the $A_i$ field is null, but which might perhaps have a (still unobserved) interaction with the electrical charge density $P_i$.
+
+\paragraph*{3.} It should follow the law of conservation of electric charge (even when $g\neq 0$). Because of a symmetry requirement (to be elaborated later) \?{we shall still discuss} the requirement of the conservation of "neutrino charge"\cite{8}.
+
+\paragraph*{4.} When $g\neq 0$ the "nuclear forces" (\textsc{Fermi}'s theory of $\beta$-decay\cite{9} and the \textsc{Heisenberg-Majorana}\cite{10} exchange force) should follow from the theory.
+
+\subsection*{II. Program of the quantum theory of wave fields}
+
+\paragraph*{5.} The generalized momenta $\pi_\mu(x) = \partial L/\partial(\partial\Y_\mu/t)$ conjugate to $\Y_\mu$ are introduced. Then the \textsc{Jordan-Wigner} commutation relations\cite{11} (\textsc{Fermi-Dirac} statistics) apply for $x_4 = x_4'$
+\nequ{
+\pi_\mu(x)\Y_{\mu'}(x') + \Y_{\mu'}(x')\pi_{\mu}(x) = h/i \delta_{\mu\mu'}\delta(\vx - \vx').
+}{3.1}
+$\delta(\vr)$ is the three-dimensional Dirac $\delta$-function.
+
+\paragraph*{6.} From the relations (3.1), by application of the procedure given in program point 2 to (3.1), follow the well-known commutation relations for the electrical fiels strengths\cite{12}.
+
+There should be no infinite self-energies. The pure numbers $e^2/hc$, the ratios pf the proton-, neutron- and neutrino-masses ($\mu,\mu',\mu''$) to the electron mass\footnote{As well as some further pure numbers (the $\omega_{\chi\y}$ of sections 5 through 7).} should follow from the theory. However we do not count this point in the program since it falls outside the scope of the following theory.
+
+\section*{4. Outline of the theory without nuclear forces.} (The neutrino theory of light. Program points 1 through 3.)
+
+The Lagrange function ($L$-function)
+\nequ{
+L\left(\Y^+(x), \Y(x)\right) = \Y^+(x)\left(c\Gamma_i p_i - imc^2\Delta \right)\Y(x)\\
+ - e^2 \int{dy}^4 K(x,y)\left(\Y^+ \Lambda_i' \Y \right)(y)\times\left(\Y^+\Lambda_i\Y\right)(x)
+}{4.1}
+is invariant, and, since the matrices (2.2) are Hermitian, also real. It fulfills program point 1. Variation by $\Y^+$ gives
+\nequ{
+(c\Gamma_i p_i - imc^2 \Delta - e A_i \Lambda_i - eA_i'\Lambda_i')\Y = 0
+}{4.2}
+and variation by $\Y$ gives
+\nequ{
+\Y^+(c\Gamma_i \pleft_i + imc^2 \Delta + e A_i \Lambda_i + eA_i'\Lambda_i') = 0
+}{4.2+}
+
+Then
+\nequ{
+A_i(x) = e\int{dy}^4 K(xy) P_i'(y) =\\
+e\int{dy}^4 K(xy)\left(\chi^+ \gamma_i \chi + \epsilon' v^+ \gamma_i v\right)
+}{4.3}
+and
+\nequ{
+A_i'(x) = e\int{dy}^4 K(xy) P_i(y) =\\
+e\int{dy}^4 K(xy)\left(\y^+ \gamma_i \y + \epsilon u^+ \gamma_i u\right)
+}{4.4}
+where $P_i$ and $P_i'$ are the densities defined in (2.4). $K(xy)$ is an invariant function of the \WTF{world-distance}{Weltabstandes} $\sqrt{\sumX{i}(x_i - y_i)^2}$ and hence symmetric. It has the dimension $\text{length}^{-2}$.
+
+Now using the split notation (2.1) for $\Y$, the four equations follow
+\nequ{
+(c\gamma_i p_i - imc^2 - eA_i\gamma_i)\y &= 0\\
+(c\gamma_i p_i - i\mu mc^2 - eA_i' \gamma_i) \chi &= 0\\
+(c\gamma_i p_i - i\mu' mc^2 - eA_i \gamma_i) u &= 0\\
+(c\gamma_i p_i - i\mu'' mc^2 - eA_i' \gamma_i) v &= 0\\
+}{4.5}
+
+The first and third equations are the Dirac equations of the electron and proton if the $A_i$ represent the electron. Since according to the neutrino theory of light these are supposed to be represented by the neutrino wavefunction, this is only the case when $\epsilon'$ in (4.3) is zero. If $\epsilon' \neq 0$, then our equations obtain an as-yet unobserved neutron-charge interaction whichnis formally contained in the "electrical" interaction in (4.5). On symmetry grounds, it seems likely that $\epsilon' = \pm 1$. From the second equation (4.5), by forming the field strength variables $G_{ik} = (\vD, \vH)$, the Maxwell equations should follow. \?{The job of the neutrino theory is to conveniently choose the definition of the $A_i$, $G_{ik}$ and $F_{ik}$, i.e. the function $K(x,y)$}. In the following we adopt the (provisionally still unjustified) standpoint that even this part of program point 2 is fulfilled\footnote{Incidentally, the possibility that program points 1-3 and especially 6 might \textit{not} be satisfied by a simple approach of the type (4.1), will be left entirely open.} This shall help us towards a heuristic principal which shows the path to the inclusion of the "nuclear forces".
+
+Program point 3 (conservation of electric charge) is fulfilled. By multiplying (4.2) by $\Y^+\Lambda$ on the left, (4.2+) by $\Lambda\Y$ on the right and adding, because of the commutation relations (2.3) and the definitions of the electric charge current $P_i$, \?{it follows that}
+\nequ{
+\pddX{}{x_i}P_i = 0.
+}{4.6}
+Multiplication with $\Y^+\Lambda'$ resp. $\Lambda'\Y$ on the left resp. right gives
+\nequ{
+\pddX{}{x_i}P_i' = 0.
+}{4.6'}
+By analogy it is \?{advisable} to denote $A_i'$ as the "dual electrical potential". However, this description provides only little meaning, since, because of the non-vanishing mass of the electron, neither of the two parts will lead to the Maxwell equations, while in $A_i$ the first \WTF{subterm}{Teil Term} $\chi^+ \gamma_i \chi$ resulting from the massless neutrino is responsible for the occurance of the Maxwell equations.
+
+The solution of the problem of this section is the \?{mission} of the neutrino theory of light\cite{6}. The charge densities $P_i$ and $P_i'$ must be amended in the sense of the \textsc{Dirac-Heisenberg} hole theory\cite{3}. Here for the proton resp. neutron there also follows, in contrast to experiment, a magnetic moment of 1 resp. 0 \textsc{Bohr} proton-magneton. We shall return to this point later. The existence of antiprotons (= negative protons) and antineutrons does not seem to me to be in contradiction with experiment, since they are enormously more difficult to produce than positive electrons, and hence would still not have been observed.
+
+Since the treatment of the quantization of wave fields has been put off for the moment, we shall here anticipate an essential result necessary for the understanding of the following paragraphs:
+
+Let $\Y_0$ and $\Y_1$\footnote{Since spinor indices are no longer needed in the following, lower indices on the functions $\Y,\y,\chi,u,v$ now denote quantum numbers.} denote two stationary states which satisfy equation (4.2) with $e=0$. These are states, as is seen from the split notation (2.1), in which a particle of each sort is present in the states given by $\y_0,\chi_0,u_0,v_0$ resp. $\y_1,\chi_1,u_1,v_1$. Then the "perturbation" (the term with $e^2$ in the $L$-function) brings about transitions from $\Y_0$ to $\Y_1$, whose probability is proportional to the square of the "matrix element" of the perturbation term
+\nequ{
+V(\Y_1^+, \Y_0) = e^2 \int {d\vx}^3 {dy}^4 K(xy)
+  (\Y_1^+ \Lambda_i' \Y_0)(x)\times (\Y_1^+\Lambda_i\Y_0)(y).
+}{4.7}
+In split notation the last part of the integrand reads
+\nequ{
+\left\{(\chi_1^+ \gamma_i \chi_0) + \epsilon'(v_1^+ \gamma_i v_0)(x)\right\}\times
+\left\{(y_1^+ \gamma_i \y_0) + \epsilon(u_1^+ \gamma_i u_0) \right\}.
+}{4.8}
+The first factor denotes transitions:\\
+\begin{tabular}{lllll}
+A & I:  & Neutrino in state $0$ & $\to$ & Neutrino in state $1$\\
+A & II: & Neutron in state $0$ & $\to$ & Neutron in state $1$\\
+\end{tabular}
+\\ and the second those of the type:\\
+\begin{tabular}{lllll}
+B & I:  & Electron in state $0$ & $\to$ & Electron in state $1$\\
+B & II: & Proton in state $0$ & $\to$ & Proton in state $1$\\
+\end{tabular}
+\\ There can only ever be one transition of the type (A) when it is accompanied by one of type (B).
+
+So, e.g. A I, accompanied by B I, means that a neutrino (e.g. from a negative energy state $\chi_0$\ jumps into a state ($\chi_1$) of positive energy (A I), while simultaneously an electron changes its state of motion from $\y_0$ to $\y_1$ (B I). The corresponding neutrino pair (neutrino in state $\chi_1$ plus a hole, resp. antineutrino in state $\chi_0$) is interpreted in the neutrino theory as the light quantum emitted by the electron.
+
+The 16 component notation is hence "trivial", i.e. it provides no new points of view, since this forn of the theory allows no quantum jumps in which a particle of one type (e.g. a neutrino) is changed into one of another type (e.g. proton). Thus it is undecidable whether the proton is a particle or an antiparticle. The following sections, which permit transitions between the quantum states, will provide an answer to this question.
+
+\section*{5. The nuclear forces} (Program point 4).
+
+The nuclear forces follow from a simple generalization of the electromagnetic firces of the previous paragraphs:
+
+If the interaction proportional tk $e^2$ in (4.1) is disregarded, then the $L$-function is bilinear in $\Y^+,\Y$. The interaction occurs only as a biquadratic term. This term is the product of two real factors formed with Hermitian operators, and is thus \textit{a fortiori} real. An additional biquadratic term
+\nequ{
+L_g\left(\Y^+(x), \Y(x) \right) = -e^2 \int{dy}^4 M(x,y)\left(\Y^+ \Omega_i^+ \Y \right)(y)
+\times \left(\Y^+ \Omega_i \Y \right)(x)
+}{5.1}
+where $M(xy)$ is again a function of the \?{world-distance} $\sqrt{\sum(x_i-y_i)^2}$ and has the dimension $\text{length}^{-2}$, and $\Omega_i$ are non-Hermitian matrices which however cause $\Y^+ \Omega_i \Y$ to transform as a vector, is the simplest generalization of (4.1). Then, as before, $L$ fulfills program point 1 (reality and invariance). The $\Omega_i$ might even contain the operators $p_i$, \?{but this will be disrgarded for now}\cite{13}. In general even more such additional terms will exist with various $\Omega$.
+
+As in the neutrino theory of light, whose success or failure depends on whether a function $K(xy)$ exists which fulfills program point 2 (Maxwell equations) and particularly also point 6 (Bose statistics of light quanta), a discussion of $M$ should come first.
+
+However, since we know little about the nuclear forces, we will make the assumption
+\nequ{
+M(x,y) = \lambda^2\times \delta(x-y)
+}{5.2}
+$\delta(x)$ denotes the four-dimensional \textsc{Dirac} $\delta$-function, $\lambda$ is a length. We put $g=e^2 \lambda^2$. It will be shown later that $g$ is the \textsc{Fermi}\cite{9} constant. Its order of magnitude is $10^{-50}$. As a comparison, note that $\lambda$ is then the Compton wavelength of a particle of atomic weight 1000 or corresponds to a classical radius of a particle with charge $e$ and atomic weight 1/10 (i.e. $\lambda$ is of the order of the proton radius). Applying (5.2) and (5.3)$\sic$ gives
+\nequ{
+L_g = -g\left(\Y^+ \Omega_i^u \Y\right)\left(\Y^+ \Omega_i \Y \right).
+}{5.3}
+Now in place of (4.2) and (4.2+) follow (we leave off the "electrical" terms of (4.1) with the charge matrixes $\Lambda_i$)
+\nequ{
+\left(c\Gamma_i p_i - imc^2\Delta - g(\Y^+\Omega_i^+ \Y)\Omega_i 
+ - g(\Y^+ \Omega_i \Y) \right)\Y = 0
+}{5.4}
+and
+\nequ{
+\Y^+\left(c\Gamma_i \pleft_i + imc^2\Delta + g(\Y^+\Omega_i^+ \Y)\Omega_i 
+ + g(\Y^+ \Omega_i \Y) \right) = 0
+}{5.4+}
+If we carry through the same operation that in the previous section supplied us with the equations (4.6) and (4.6'), then we obtain:
+\nequ{
+\pddX{P_i}{x_i} &= -\frac{ig}{hc}\left\{\left(\Y^+\Omega_i^+\Y\right)
+  \left(\Y^+\left(\Omega_i \Lambda - \Lambda \Omega_i \right)\Y\right)\right.\\
+&\left. + \left(\Y^+\left(\Omega_i^+ \Lambda - \Lambda \Omega_i^+\right)\Y\right)
+\left(\Y^+\Omega_i \Y\right)
+\right\}
+}{5.5}
+and a corresponding equation with $P_i'$ and $\Lambda'$ in place of $P_i$ and $\Lambda$.
+
+The requirement of program point 3 (conservation of charge) only permits the possibilities
+\nequ{
+\Omega_i\Lambda - \Lambda\Omega_i = \begin{cases}
+ 0\\
+ \pm \Omega_i.
+ \end{cases}
+}{5.6}
+If conservation of dual charge is also demanded, then an analogous constraint on $\Lambda'$ follows.
+
+The requirement of relativistic invariance is \WTF{nicely handled}{Genüge getan} with:
+\nequ{
+\Omega_i = \Gamma_i \Omega = \Omega \Gamma_i.
+}{5.7}
+Here $\Omega$ is a matrix of the form
+\nequ{
+\left(
+\begin{matrix}
+\omega_{\y\y} & \omega_{\y\chi} & \omega_{\y u} & \omega_{\y v} \\
+\omega_{\chi\y} & \omega_{\chi\chi} & \omega_{\chi u} & \omega_{\chi v} \\
+\omega_{u\y} & \omega_{u\chi} & \omega_{u u} & \omega_{u v} \\
+\omega_{v\y} & \omega_{v\chi} & \omega_{v u} & \omega_{v v} \\
+\end{matrix}\right).
+}{5.8}
+The $\omega_{\y\chi}$ are pure (\WTF{thought of as}{zu denkende} multiplied by the four-rowed unit matrix) numbers. The constraint (5.6) then reads (because of the commutability of $\Gamma_i,\Lambda,\Omega$):
+\nequ{
+\Omega\Lambda - \Lambda\Omega = \begin{cases}
+ 0\\
+ \pm \Omega
+ \end{cases}.
+}{5.9}
+In the matrix element of the new perturbation term
+\nequ{
+V(\Y_1^+ \Y_0) = g\int{d\vx}^3 \left(\Y_1^+ \Omega_i^+ \Y_0 \right)\left(
+\Y_1^+ \Omega_i \Y_0 \right)
+}{5.10}
+the integrand assumes the form
+\nequ{
+\left\{\sumX{\y,\chi,u,v}\omega_{u\y}^*\left(\y_1^+ \gamma_1 u_0 \right)\right\}\times
+\left\{\sumX{\y,\chi,u,v}\omega_{u\y}\left(u_1^+ \gamma_i \y_0 \right)\right\}
+}{5.11}
+where $\sum$ represents the summations over all combinations $\left(\y_1^+ \gamma_i \y_0\right)$, $(\y_1^+ \gamma_i \chi_0)$, $(\y_1^+ \gamma_i u_0)$ etc. Every \WTF{nonzero}{vorhandene} element of $\Omega^+$ means that a corresponding transition (e.g. in the case of $\omega_{u\y} \neq 0$, a transition from proton ($u_0$) $\to$ electron ($\Y_1^+$ $\sic$)) can occur. Since the second factor contains thr adjoint matrix, then every such transition only occurs accompanied by a transition (contained in the same matrix) of another particle, but in the opposite direction (e.g. in the case of the term $\omega_{u\y}$ which corresponds to the transformation of an electron ($\y_0$) $\to$ a proton ($u_1^+$); or the term $\omega_{v\chi}$, which represents a transition neutrino $\to$ neutron). Since every transition, unlike in section 4, is now always coupled with its inverse, the theory now supplies exchange forces.
+
+Actually, only a few elements of $\Omega$ are non-vanishing (because of 5.9). The form is naturally quite different, depending on whether the positive proton is regarded as a "particle" ($\epsilon = +1$) or an "antiparticle" ($\epsilon=-1$) (we have arbitrarily designated the positive electron as a "particle"). The negative proton is then a "particle". The first case will allow annihilation processes of the heavy particles, while the second forbids these, since a "particle" can only transform into a "particle", and since the charge must be conserved.
+
+\section*{6. Discussion of the possible nuclear forces in the case $\epsilon=1$} (Proton is a particle).
+
+We form
+\nequ{
+\Omega\Lambda - \Lambda\Omega = \left(\begin{matrix}
+0 & -\omega_{\y\chi} & (\epsilon - 1)\omega_{\y u} & -\omega_{\y v}\\
+\omega_{\chi\y} & 0 & \epsilon\omega_{\chi u} & 0\\
+-(\epsilon - 1)\omega_{u\y} & -\epsilon\omega_{u\chi} & 0 & -\epsilon\omega_{uv}\\
+\omega_{v\y} & 0 & \epsilon\omega_{vu} & 0
+\end{matrix}\right)
+}{6.1}
+\nequ{
+\Omega\Lambda' - \Lambda'\Omega = \left(\begin{matrix}
+0 & -\omega_{\y\chi} & 0 & -\epsilon'\omega_{\y v}\\
+\omega_{\chi\y} & 0 & \omega_{\chi u} & -(\epsilon'-1)\omega_{\chi v}\\
+0 & -\omega_{u\chi} & 0 & -\epsilon'\omega_{uv}\\
+\epsilon' \omega_{v\y} & (\epsilon' - 1)\omega_{v\chi} & \epsilon'\omega_{vu} & 0
+\end{matrix}\right)
+}{6.2}
+and first discuss the matrix which fulfills
+\nequ{
+&\Omega\Lambda - \Lambda\Omega = \Omega\\
+&\Omega\Lambda' - \Lambda'\Omega = -\Omega.
+}{6.3}
+Its only nonzero elements (with $\epsilon-1=0$) are those where the corresponding element $\omega_{ab}$ of $\Omega$ in (6.1) is multiplied by 1, i.e. it only allows the processes associated with these. The conservation of dual charge is already fulfulled if the charge $\epsilon'=+1$ is attributed to the neutron. These are the transformations:\\
+\begin{tabular}{llllll}
+C & I & $\omega_{\chi\y}:$ & Neutrino & $\leftrightarrow$ & positive electron\\
+C & II & $\omega_{\chi u}:$ & Neutrino & $\leftrightarrow$ & positive proton \\
+C & III & $\omega_{v\y}:$ & Neutron & $\leftrightarrow$ & positive electron\\
+C & IV & $\omega_{v u}:$ & Neutron & $\leftrightarrow$ & positive proton\\
+\end{tabular}.\\
+Any process on a particle is, according to what was said above, \?{coupled with an inverse on another particle}. \?{Thus C IV, coupled with itself, represents the Majorana interaction force}. It is easy to see that the associated matrix element, when the certainly too-primitive assumption (5.2) is replaced by a force
+\nequ{
+M(x-y) = \begin{cases}
+ \lambda^{-2}\exp{+s^2/\lambda^2} & \text{for } s^2 = \sum{(x_i-y_i)^2} = \sum z_i^2 < 0\\
+ 0 & \text{ for } s^2 > 0
+  \end{cases},
+}{6.4}
+in fact formally gives Majorana's \textsc{Ansatz} (ignoring the $\gamma_i$ ($i=1,2,3$)-part compares to the $\gamma_4$ part, $u^+\gamma_4 = iu^*$, etc.):
+\nequ{
+\int{d\vx}^3{d\vy}^3 u_1^*(x) v_0(x) J(\vx - \vy)v_1^+(y)u_0(y)
+}{6.5}
+with
+\nequ{
+J(\vz) = \frac{e^2}{\lambda}\omega_{uv}^2\left\{\intXY{-i}{-i|z|} + \intXY{i|z|}{\infty i}\right\}
+{dz_4}\exp{s^2/\lambda^2 - z_4(E_{u_0} - E_{v_1})/hc}
+}{6.6}
+It represents an exchange force between proton and neutron. The interaction energy still depends, in contrast to Majorana, on the energy difference $E_{u_0} - E_{v_1}$ of the two states $u_0$ and $v_1$.
+
+Combining of C I with C IV gives rise to the Fermi matrix element:\footnote{In the form utilized by \textsc{Konopinski} and \textsc{Uhlenbeck}\cite{13}.}
+\nequ{
+g^2 \omega_{vu}\omega^*_{\chi\y} \int{d\vx}^3
+  (v_1^+ \gamma_i u_0)(\y_1^+ \gamma_i \chi_0)
+}{6.7}
+It changes a proton (in the atomic nucleus) from the state $u_0$ into a neutron in the state $v_1$ (C IV), while simultaneously another particle jumps from the neutrino state (e.g. negative energy) $\chi_0$ to the (e.g. positive-energy) state $\y_1$, i.e. it creates an antineutrino and a positive electron (C I). But this is exactly the phenomenon of $\beta^+$-radioactivity.
+
+The transitions C I and C III \WTF{give rise to further exchange energies}{geben noch zu weiteren Austauschenergien Anlass}. But they also allow a \respXY{Neutron}{Proton} to become a \respXY{Pos. electron}{Neutrino}, and simultaneously creates a "pair" of a \respXY{Neutrino}{Antineutrino} and a \respXY{Neg. electron}{Pos. electron}. (\textit{"Annihilation" of the second type of the heavy particles.}) The process of a positive electron becoming a neutrino and a neutron (negative energy) becoming a positive electron requires an alternative explanation of the $\beta^+$-radioactivity, since now an antineutrino, neutrino and positive electron are coming out of the nuclear proton (\textit{radioactivity of the second type}). The existence of two types of neutrons (neutron and antineutron) in the atomic nucleus would have the consequence that they could recombine by "annihilation".
+
+The only matrix which fulfills $\Omega\Lambda - \Lambda\Omega = 0$ for $\Lambda$ and $\Lambda'$ is one in which in the first place all diagonal entries are present, and which hence implies a simple generalization of the interactions A I, A II, B I, B II of section 4. This gives rise to new interaction energies between equal particles. Furthernore, in this case the following transformations might still occur.\\
+\begin{tabular}{llllll}
+D & I & $\omega_{\y u},\omega_{u\y}$: & Pos. electron & $\leftrightarrow$ & pos. proton \\
+D & II & $\omega_{\chi v}, \omega_{v, \chi}$: & Neutron & $\leftrightarrow$ & neutrino \\
+\end{tabular}.\\
+They occur coupled with themselves or with the "diagonal" reactiona A I, A II, A III, A IV and hence allow, for example, processes in which a \respXY{Neutron}{Proton} becomes a \respXY{Neutrino}{Electron} and simultaneously a neutrino pair occurs, \?{which possibly appears as a light quantum}. (\textit{Annihilation of the first type of heavy particles}). 
+
+Since the lifetime of the heavy matter with respect to various annihilation processes is determined by $g$ and hence\footnote{When the nonzero pure numbers $\omega_{ab}$ are of order one (up to a few powers of ten, e.g. 137 or 1847).} \?{reaches only the order of magnitude of the radioactive half-life}, it seems to me that the "proton is a particle" case discussed here is in contradiction with experience. Likewise the possible "radioactivity of the second type" contradicts experiment.
+
+\section*{7. Discussion of the possible nuclear forces in the case $\epsilon=-1$.} (Proton is an antiparticle).
+
+First we discuss the case $\Omega\Lambda - \Lambda\Omega = 0$ and and shall also put, in order to also exclude the annihilation of neutrons, $\epsilon' = -1$. Then in this first matrix $\Omega$ only the diagonal elements are nonzero. Thus now \WTF{the additional forces from section 4}{die zum Paragraph 4 zusätzlichen Kräfte} between the identical particles also occur. On the other hand, the annihilation processes of the first kind are missing.
+
+Both equations (6.3) can be fulfilled by a $\Omega$-matrix which only contains $\omega_{\chi\y}$ and $\omega_{uv}$. I.e. it only allows the processes\\
+\begin{tabular}{lllll}
+E & I: & Neutrino & $\leftrightarrow$ & Pos. electron \\
+E & II: & Neg. proton & $\leftrightarrow$ & Neutron.
+\end{tabular}
+
+E II can also be we written with antiparticles as\\
+\begin{tabular}{lllll}
+E & II: Antineutron & $\leftrightarrow$ & Pos. proton.
+\end{tabular}\\
+Hence these processes correspond completely \?{to} C I and C IV of the previous sections. Specifically, the Majorana force (6.5) and the Fermi matrix element for $\beta^+$-decay (6.7) follow. (The latter by swapping the labels $u$ and $v$, since now a neutron in the negative energy state changes into a negative proton, and thus the originally-present "neg. proton hole" (= pos. proton) is made to vanish and an antineutron, antineutrino and pos. electron are created.)
+
+The lack of the processes C II and C III also renders annihilation process of the second kind impossible.
+
+A second matrix, in which only $\omega_{u\chi}$ and $\omega_{v\y}$ are nonzero, likewise fulfills $\Omega\Lambda - \Lambda\Omega = \Omega$ and $\Omega\Lambda' - \Lambda'\Omega = \Omega$ according to (6.1) and (6.2). (The sign change in the $\Lambda'$-equation does not change the conservation law of the dual charge.) It gives rise to the processes\\
+\begin{tabular}{lllll}
+F & I: & Neg. proton & $\leftrightarrow$ & Neutrino \\
+F & II: & Neutron & $\leftrightarrow$ & Pos. electron.
+\end{tabular}
+
+We write the first again for the antiparticle:\\
+\begin{tabular}{lllll}
+F & I: Antineutrino & $\leftrightarrow$ & Pos. proton.
+\end{tabular}\\
+These completely correspond to the processes C II and C III. They also again give rise to the new exchange forces between the light and heavy particles. The "radioactivity of the second kind" also reappears: pos. proton becomes antineutrino and a neutron (neg. energy) becomes pos. electron, i.e. an antineutrino and a pos. electron are created from a pos. proton and an antineutron. Only its result, in contrast to the previous sections, is identical to those of (Fermi's) radioactivity of the first kind.
+
+However, since the E-processes and F-processes can only be \?{coupled among themselves}, the annihilation processes of the second kind do not likewise occur.
+
+\section*{Summary}
+
+From the assumption that the electron, proton, neutron and neutrino are different quantum states of a single particle, combined with the requirements of conservation of electrical and dual (neutrino-) charge, the following process groups are possible:\\
+\begin{tabular}{rrlll}
+\, & Particle & $\leftrightarrow$ & Same particle & (A)\\
+(C) & Neutrino & $\leftrightarrow$ & Pos. electron & (E)\\
+(C) & (Anti-)Neutron & $\leftrightarrow$ & Pos. proton & (E)\\
+(C) & (Anti-)Neutrino & $\leftrightarrow$ & Pos. proton & (F)\\
+(C) & Neutron & $\leftrightarrow$ & Pos. electron & (F)\\
+\, & Pos. proton & $\leftrightarrow$ & Pos. electron & (D)\\
+\, & Neutron & $\leftrightarrow$ & Neutrino & (D).
+\end{tabular}\\
+A process only \?{happens} for a particle when another particle simultaneously goes through a process in the same group in the reverse direction.
+
+According to the neutrino theory of light, (A) contains the light-matter interaction as well as the additional forces between like and unlike particles, (E) and (F) the exchange forces between unlike particles and Fermi's explanation of $\beta$-radioactivity. (D) are annihilation processes of the heavy particles.
+
+If the positive electron is defined as a particle (as opposed to an antiparticle), then the positive proton can be considered as a particle ($\epsilon=1$) or an anti-particle ($\epsilon=-1$). The first possibility allows the annihilation processes (D) as well as further "annihilation processes of the second kind" by combining (E) with (F), since in this case (E) and (F) together only form a single group (C).  (The bracketed (Anti-) are ignored in (E) and (F).)
+
+The second possibility forbids the annihilation processes (D) as well as combinations among the now-separate groups (E) and (F), and thus "annihilation processes of the second kind". The heavy particles occuring in the nucleus are then considered as antiparticles with respect to the positive electron. Hence we shall adopt this second arrangement.
+
+If the relatively few positive electrons are disregarded, then our world consists essentially only of antiparticles or only of particles\footnote{Indeed the theory is symmetrical with respect to particles and antipartices.} (negative electrons, protons, neutrons) with nonzero rest-mass. \?{An annihilation of the world is excluded}. Nevertheless the proposed unified interpretation of matter renders possible exchange forces between all \?{available} particles.
+
+The theory will only allow quantitative consequences when the forces can be treated more exactly theoretically and experimentally. This is very closely tied to the development of the neutrino theory of light. Nevertheless, the \?{presently-available} results could be viewed independently of the latter theory. The introduction of the neutrino theory of light would merely be useful as a heuristic principle. The present $\Y$-function with $4 \times 4 = 16$ components represents a unified field theory of matter. The inclusion of the neutrino theory of light then leads to a unified theory in Born's sense, which unifies electromagnetic and material fields.
+
+The interaction forces of protons and neutrons (which are probably large in comparison with those between electron and neutrino) with virtual heavy particles and anti-particles (interaction with the occupied negative-energy states) perhaps allows an explanation of the observed deviation of the magnetic moment from that following from the perturbation-free Dirac equation.
+
+I am indebted to Herren Prof. W. \textsc{Pauli} and G. \textsc{Wentzel} (Zurich) and J. \textsc{Weigle} (Genf) for much invaluable advice. I specifically thank Herrn \textsc{Weigle} for many interesting discussions and Herrn \textsc{Wentzel} for the idea of the dual charge.
+
+Institute of Physics, University of Geneva
+
+\include{subfiles/bib} \end{document}

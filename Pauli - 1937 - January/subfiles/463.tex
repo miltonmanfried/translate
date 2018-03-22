@@ -1,0 +1,99 @@
+\letter{463}
+\from{Heisenberg}
+\date{January 16, 1936}
+\location{Leipzig}
+\tags{showers,qed,interaction representation}
+
+\nc{\Hbar}{\overline{H}}
+\nc{\fg}{\mathfrak{g}}
+\nc{\fr}{\mathfrak{r}}
+
+Dear Pauli!
+
+You have probably now received Barn\'othy's treatise, I have put off sending it for so long since I wanted to wait for a letter from Barn\'othy; but there's nothing much new in it. Incidentally, after the recent results from Anderson on the radiation of electrons (Bethe-Heitler), I would like to believe that for electrons, real shower formation is relatively rare (c.f. also Oppenheimer's note in the last issue of the Physical Review), \sskip{shower formation...}.
+
+Now I'd like to write extenstively on our main problem, the quantization of waves. The following reflections \WTF{refer to}{beziehen sich} to the "model":
+
+\nequ{
+L = -\sumX{\nu}|\pddX{\Y}{X_\nu}|^2 - f(\Y^*\Y)^3, \quad
+H = \overset{H_0}{\overbrace{\pi^*\pi + \pddX{\Y}{X_k}\pddX{\Y}{X_k}}} +
+\overset{H_1}{\overbrace{f(\Y^*\Y)^3}}
+}{1}
+however they are not bound to this specific form (units: $c=1$, $\hbar=1$). First I want to formulate the Lorentz invariance of wave quantization rather more directly than before. Following your work with Weisskopf, I put
+\nequ{
+\Y = \sumX{k}\frac{-i}{\sqrt{2Vk}}(-a_k + b^*_k)\exp{i(kr)};\quad
+\pi = \sum\sqrt{\frac{k}{2V}}(a_k^* + b_k)\exp{-ikr}.
+}{2}
+The Schr\"odinger functional should depend on the $N_k = a_k^*a_k$, $M_k = b_k^* b_k$.
+\nequ{
+\Phi(N_1,N_2\dots;M_1,Me2,\dots;t);\quad
+i\pddX{\Phi}{t} = \Hbar.\quad (\Hbar = \int H{dV})
+}{3}
+Now I put
+\nequ{
+\Phi(N_1\dots;M_1\dots;t) = \exp{-i\sumX{k}(N_k + M_k)kt}\y(N_1\dots; M_1\dots; t),
+}{4}
+and accordingly
+\nequ{
+a_k^* = N_k^{1/2}\Delta_k^-\exp{ikt};\quad
+a_k   = \Delta_k^+N_k^{1/2}\exp{-ikt}.
+}{5}
+Then for $\y$ the new Schr\"odinger equation applies:
+\nequ{
+i\pddX{\y}{t} = \Hbar_1 \y.
+}{6}
+Without interactions, $\y$ is of course constant in time. Further,
+\nequ{
+H_1 = &f\left[\sumX{k,l}\inv{\sqrt{2Vk}}\left(-\Delta^+_k N_k^{1/2}\exp{i(kr-kt)} + 
+M_k^{1/2} \Delta_k^-\exp{i(kr+kt)}\right)\right.\\
+&\left.\inv{\sqrt{2Vl}}\left(-N_l^{1/2}\Delta^-_l \exp{-i(lr-lt)} + 
+\Delta_l^+M_l^{1/2}\exp{-i(lr+lt)}\right)
+\right]^3.
+}{7}
+This is, as is easily seen, relativistically invariant: the $N$ and $M$ are invariant, \!{they only obtain different denominators under a Lorentz transformation} $N_{k(k)}\to N_{k'(k')}$ (where $k'=(k-\beta k)/\sqrt{1-\beta^2}$, etc); likewise the operators $\Delta$. The expressions $\sqrt{Vk}$ are also relativistically-invariant, since $V$ essentially denotes the number of stationary states per interval $dk_x dk_y dk_z$. It can then be easily found that $Vk=V'k'$. And the rest is likewise invariant, so thus also the operator $H_1$. It should be noted however that $H_1$ explicitly contains the time. Now, according to (6)
+\nequ{
+\y(t+{dt}) &= (1-i\Hbar_1\,{dt})\y(t) = \exp{i[\int H_1\,{dV}]dt}\\
+\y(t+2{dt})&= (1-i\Hbar_1(t+{dt}){dt})(1-i\Hbar_1(t)\,{dt})\y(t)\\
+ &= \exp{-i\,{dt}\int H_1(t+{dt}){dV}}\exp{-i\,{dt}\int H_1(t){dV}}\y(t)
+\quad \text{etc.}
+}{8}
+
+It should again be noted that the $e$-functions might not be \?{contracted} do \textit{one} $e$-function, since the exponents, which have different $t$s, do not commute. The factors associated with later times must always stand to the left of the earlier ones. Hence, one might naturally write
+\uequ{
+\exp{-i{\,dt}\int H_1\,{dV}} = \prodX{V}\exp{-i\,{dt}\,H_1\,{dV}}
+}
+where the product refers to all space elements ${dV}$. In general equation (8) can always be written
+\nequ{
+\y(t_1) = \prodX{\Omega}\left(\exp{-iH_1\,{dt}\,{dx}\,{dy}\,{dz}}\right)
+\y(t_0) = \prodX{\Omega}\left(\exp{-iH_1\,{d\omega}}\right)\y(t_0),
+}{9}
+where ${d\omega}$ denotes the four-dimensional volume element, and $\Omega$ is the four-dimensional volume enclosed between the surfaces $t=t_0$ and $t=t_1$. Equation (9) now makes the relativistic invariance of the whole scheme immediately evident. Equation (9) can also be expanded \?{so that the time point $t_1$ is measured in in the moving system ($t'=t_1$)}. Then (9) still applies and $\Omega$ denotes the volume between $t=t_0$ and $t'=t_1$.
+
+TODO--FIGURE (x/t axis; shading $\Omega$ between $t=const$ and $t'=kx$, with $t=t_0$ and $t'=t_1$ labelled)
+
+So far, everything is just rearranging the previous quantum theory of waves.
+
+Now, maintaining equation (9), I would like to ammend expression (7) so that equation (9) leads to convergent results. One possibility seems to be the following: it is perhaps convenient for now, in order to get the most symmetrical formulae possible, to put $\fg=-k$, $g=k$,
+\uequ{
+M_k^{1/2}\Delta^-_k \exp{i(kr+kt)} = 
+M_g^{1/2}\Delta_g^- \exp{-i(\fg r - gt)}.
+}
+Then the expression (7) can be split into individual summands which each contain a factor of the form $\exp{i\sumXY{\nu=1}{4}(k_\nu^{(1)}+k_\nu^{(2)}+\dots+k_\nu^{(6)},\fr_\nu})$. $k_\nu$, $\fr_\nu$ are the four-vectors $\fr_\nu=(x\,y\,z, it)$, $k_\nu=(k_x,k_y,k_z,it)$; in some terms there is a $\fg$ instead of a $k$. Now I replace this factor by the new one:
+\nequ{
+\exp{i\sumX{\nu}(k_\nu^{(1)}+\dots+k_\nu^{(6)}, \fr^\nu) 
+  + \alpha f\sumXY{\nu=1}{4}(k_\nu^{(1)} + \dots + k_\nu^{(6)})^2},
+}{10}
+and further I put all terms with stars $(a^*,b^*)$ to the \textit{left} of those without stars.
+
+That is essentially the old (hideous) \WTF{subtraction procedure}{Abschneideverfahren} of Born, Wataghin, etc ($\alpha$ is some number). But I claim that here it leads to a \WTF{self-consistent}{in sich geschlossenen} contradiction-free theory. Initially the relativistic invariance is no longer trivial, since it must first be proven that the new $H_1$ commutes at different \textit{spatial} points. But it seems to be that this is the case (could you check this point?). Then one must \WTF{check}{nachschauen} what results arise for the self-energy etc. For this purpose one can go back from the equations (7)+(10) to the operator $H$ and to equation (3). It is then found via a perturbation calculation that the terms increase at first, but they are all finite\footnote{I've meanwhile worked more on this. It now seems that for $k\gg\inv{\sqrt{\alpha f}}$ the perturbation calculation converges well if at the same time $k\ll\alpha^{3/2}/\sqrt{f}$. This special case can be realized when $\alpha\gg 1$. Nevertheless I want to think this over some more.}, and I have the impression that indeed $H_1$ cannot be taken as a small perturbation, \?{but that otherwise the procedure converges}. I still have not further examined the possibility (10) and would like to know what you think about it.
+
+Personally I believe something like the following: I think the specific subtraction procedure (10) is dumb, since it is entirely arbitrary. Also I can hardly imagine that arbitrarily-many types of convergent theories can be made, and I would rather introduce the universal length through the factor of $H_1$ than through a subtraction prescription. However, it seems reasonable in the proposal that the idea of a "wavefunction at a definite position" is given up and only the idea of "particles with definite momenta" is introduced; since the momentum can always be measurd exactly. Thus I would like to provisionally claim: even the future exact theory can be represented by an operator $H_1$, which goes over into one of the type (7) for small momenta and which is connected with $\y$ by equations (6) and (9).
+
+But first we must probably clarify the main question: whether a relativistic and convergent theory is at all possible according to this scheme. So what do you think about it?
+
+Many warm greetings, also to your wife and to the institute.
+
+Your W. Heisenberg
+
+ 
+%nicht aufs Sofa

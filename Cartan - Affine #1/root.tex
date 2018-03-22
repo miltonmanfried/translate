@@ -1,0 +1,231 @@
+\documentclass{report}
+\renewcommand*\rmdefault{ppl}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{marginnote}
+\usepackage{cancel}
+
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+
+\nff{\WTF}{#1 (\textit{#2})}
+
+\nf{\translator}{\footnote{\textbf{Translator note:}#1}}
+
+\newcommand{\nequ}[2]{
+\begin{equation*}
+\begin{split}
+#2
+\end{split}
+\tag{#1}
+\end{equation*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{equation*}
+\begin{split}
+#1
+\end{split}
+\end{equation*}
+}
+
+\nff{\iffy}{#2}
+\nff{\?}{#1}
+\rff{\!}{#1}
+
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+\newcommand{\intX}[1]{\underset{#1}{\int}}
+
+\nc{\fluc}{\overline{\delta_s^2}}
+
+\rf{\exp}{e^{#1}}
+\nf{\comment}{}
+
+\nc{\grad}{\operatorfont{grad}}
+\rc{\div}{\operatorfont{div}}
+
+\nf{\pddt}{\frac{\partial{#1}}{\partial t}}
+\nf{\ddt}{\frac{d{#1}}{dt}}
+
+\nf{\inv}{\frac{1}{#1}}
+\nf{\Nth}{{#1}^\text{th}}
+\nff{\pddX}{\frac{\partial{#1}}{\partial{#2}}}
+\nc{\lap}{\Delta}
+
+\rc{\r}{\mathfrak{r}}
+\nc{\R}{\mathfrak{R}}
+%\nc{\OMEGA}{\mathfrak{\Omega}}
+\nc{\OMEGA}{\Omega}
+\nc{\f}{\mathfrak{f}}
+
+\nc{\Y}{\psi}
+\nc{\y}{\varphi}
+\nc{\m}{\mathbf{m}}
+\nc{\e}{\mathbf{e}}
+\nc{\F}{\mathbf{F}}
+\nc{\G}{\mathbf{G}}
+\nc{\w}{\omega}
+\nc{\wbar}{\overline{\omega}}
+
+% hyperforces
+\nc{\hR}{\mathbf{R}}
+\nc{\hX}{\mathbf{X}}
+\nc{\hY}{\mathbf{Y}}
+\nc{\hZ}{\mathbf{Z}}
+
+\nc{\xG}{\mathbf{G}}
+\nc{\xPi}{\mathbf{\Pi}}
+
+\nc{\origin}{\mathbb{O}}
+
+\nc{\Tbar}{\overline{T}}
+
+
+\title{On manifolds with an affine connection and the general theory of relativity (first part)}
+
+\begin{document}
+
+The majority of the sections of this memoir, which shall appear in two parts, is devoted to the purely geometric theory of what I call \textit{manifolds with an affine connection} and which includes, as special cases, manifolds with a \textit{metric} connection and manifolds with a \textit{Euclidian} connection. The term "affine connection" is borrowed from H. Weyl\footnote{In his fine book, \textit{Time, space, metric}, translated from the fourth German edition by Gustave Juvet and Robert Leroy; Paris, A. Blanchard, 1922.}, but it takes on an enlarged significance in this memoir. As I indicated in broad strokes in the notes in \textit{Comptes Rendus de l'Academie des Sciences}\footnote{\textit{C.R.}, v. 174, p. 437, 593, 734, 857, 1104.}, a manifold with an affine connection is a manifold which, in the \textit{immediate} vicinity of each point, has all of the characteristics of an affine space, and for which there is a law for \WTF{identifying}{repérage} the areas surrounding two \textit{infinitesimally-near points}: that is to say that if, at each point, one is given a cartesian coordinate system having that point as its origin, one knows the transformation formulae (of the same natute as in the affine space) which permit one to pass from one system of reference to any other system of reference with an infinitesimally-close origin. In H. Weyl's theory, this pointwise identification is subject \textit{a priori} to a certain restriction, which is not a logical necessity, and which consists in the existence, in the neighborhood of each point, of what he calls a \textit{geodesic} coordinate system. I had indicated in the notes mentioned above that the difference which exists between a manifold with an affine connection and an affine space proper is manifested by an affine displacement associated with any infinitely-small closed contour: this displacement can be decomposed into a translation and a rotation: the translation \WTF{corresponds to}{traduit} the \textit{torsion}, the rotation corresponds to the \textit{curvature} of the manifold. In Weyl's theory, the \textit{torsion} is always zero. All of these notions extend to manifolds with metric or Euclidian connections; the classical theory of spaces defined by a $ds^2$ (Riemann spaces) is basically that of manifolds with Euclidian connections without torsion\footnote{M.D.J. Struik has published an \WTF{overview}{exposé d'ensemble} on the theory of Riemann spaces entitled \textit{"Grundz\"uge der mehrdimensionalen Differentialgeometrie"} (Berlin, Julius Springer, 1922), which contains a quite complete bibliography.}: it is these, as is known, upon which Einstein's general theory of relativity is built\comment{Google says "beyond the theory"}.
+
+The fundamental properties of manifolds with affine connections are studied in chapter II, those of manifolds with metric or Euclidian connections in chapter III. Some summary remarks on the theory of curves and surfaces, in particular on straight lines in manifolds with Euclidian connections, are given in chapter IV.
+
+Apart from these three chapters on pure geometry, the first part of the present memoir contains two chapters of applications to the Newtonian and Einsteinian theories of gravity. Basically, I have taken up the idea, initially due to Einstein, according to which, for an \WTF{observer}{observateur entraîné} in a gravitational field carrying with him a reference system, moving with translatory motion, the laws of physics would be true in his vicinity as if his reference system was immobile and as if there was no gravitational field: his proper motion would satisfy the principle of inertia. This amounts for the observer in regarding as \textit{\WTF{equivalent}{équipollents}} reference systems which are not so in the classical sense, that is to say, as looking at the space-time as a manifold with an affine connection. \textit{Maintaining all of the notions of classical mechanics}, one thus has a reduction to geometry of Newtonian gravity, a reduction which is of \textit{exactly the same nature} as that furnished by Einstein's theory and which shows, like there, the interdependence of the affine connection of the universe and the distribution of matter in space. In all rigor one has, by way of explanation, a simple convention of language; but that just shows the importance in the evolution of science of judiciously-chosen conventions of language.
+
+Newtonian gravitation being thus \textit{explained}, the passage from Newton's theory to that of Einstein is almost intuitive when the laws of Newtonian gravitation are given in their invariant form, that is to say independent of the variable system of reference adopted at different points of the universe: this invariant form only involves the curvature of space-time, and the invariant form of the Einsteinian laws of gravitation is almost a simple transposition, where one passes from the notions of space and time utilized in classical mechanics to the notions of space and time utilized in special relativity.
+
+Before arriving at the exposition of this parallelism, which is given in the last chapter of this first part, a prejudicially-important question must be posed: are physical phenomena compatible with \textit{multiple distinct definitions} of the affine connection of space-time? This question itself presupposes another: how must one formulate physical laws when adopting this or that affine connection for space-time? Physical laws are generally translated into partial differential equations which basically involve numbers which measure certain quantities of the physical state at a point of space-time, and the numbers which measure the same quantities at an infinitesimally-near point; to be able to analytically formulate the law, one must compare the two series of measurements in a common system of reference, in the case where the measurements were made in two different reference systems: said another way, one must know the affine connection associated with the space time. But supposing this connection is known, the problem is far from being solved: its solution depends in large part on the physical interpretation of the analytical formulae which represent the laws in question. For example, certain laws may be expressed by the property that a certain integral, over a closed domain of space-time in two or three dimensions, is zero\footnote{\WTF{Examples}{Citons}: in classical mechanics, the law of conservation of mass; in electromagnetism, the two first groups of Maxwell equations.}: one such law is, to a very large degree, independent of the affine connection associated with space-time. In others, like the principle of inertia in mechanics, it surely is involved. In chapter I, I show that, whether in classical mechanics or special relativity, the dynamics of \WTF{continuous media}{milieux continus}, whose equations are established from the same point of view based on the conception of space-time as composed of four dimensions, contains an infinity of \textit{equivalent} affine connections: put otherwise, the mechanical phenomena are only able to reveal a \textit{class} of affine connections, between which the choice is \textit{a priori} arbitrary.
+
+It is in chapter V that, thanks to the study of geometry made in chapters II and III, I show that between all of the mechanically-equivalent affine connections, there is one which is distinguished from all the others by its intrinsic properties. The consideration of Lorentz's laws of electromagnetism leads to the idea that this affine connection has \textit{no torsion}, which is not necessarily required by the laws of mechanics. Thus we shall justify Einstein's \textit{a priori} idea that the physical properties of the universe\footnote{At least those which are the object of the theory of general relativity} are all entirely contained in its $ds^2$. Nonetheless, the conclusion may be incorrect if one adopt a larger view of the mechanics of continuous media than usual, by admitting the possibility of material elements with \WTF{angular momenta}{moments cinétiques} not infinitesimally small with respect to their momenta. In this case, it would be appropriate to generalize Einstein's theory; I indicate the most natural of these generalizations: in this new theory, the torsion of the universe continues to be zero in the vacuum.
+
+In the second part of this memoir, I shall study in-depth the torsion and curvature tensors. This study was not indispensable before; in fact it is quite remarkable that, in the applications of the theory of relativity, the rotation which \WTF{is caused by}{traduit} by the curvature of the universe enters \textit{globally}, without needing to explicitly include the coefficients which define it analytically\footnote{This is not the case in the usual exposition of the theory.}.
+
+This memoir does not suppose knowledge of absolute differential calculus: on the other hand, it supposes knowledge of the fundamental rules of the calculus of multiple integrals, in particular those which \?{take an integral extending over a closed domain to an integral extending over a domain of a more-limited dimension than the first\footnote{I permit myself in this regard to refer the reader to my \textit{Leçons sur les Invariants intégraux}; Paris, Hermann, 1922.}.} Basically, the laws of the dynamics of continuous media and those of electromagnetism are expressed by equations analogous to Stokes's formula or its generalized form.
+
+Although the absolute differential calculus doesn't need to be used, I have nonetheless employed some of its notation in utilizing, for example, upper and lower indices; I have also, despite the inconveniences that this may present, suppresses the summation signs when there is no ambiguity possible. Perhaps this will entice those familiar with the absolute differential calculus (and now who is not, to some extent?) to engage in reading this memoir with less suspicion.
+
+\chapter{Dynamics of continuous media and the notion of the affine connection in space-time}
+
+\section*{The principle of inertia and Newtonian gravitation}
+
+\include{subfiles/01}
+\include{subfiles/02}
+\include{subfiles/03}
+\include{subfiles/04}
+\include{subfiles/05}
+\include{subfiles/06}
+
+\section*{Four-dimensional space-time and the classical dynamics of continuous media}
+
+\include{subfiles/07}
+\include{subfiles/08}
+\include{subfiles/09}
+\include{subfiles/10}
+\include{subfiles/11}
+\include{subfiles/12}
+\include{subfiles/13}
+\include{subfiles/14}
+
+\section*{The affine connection of the universe of classical mechanics}
+
+\include{subfiles/15}
+\include{subfiles/16}
+\include{subfiles/17}
+\include{subfiles/18}
+
+\section*{The space-time of special relativity and its affine connection}
+
+\include{subfiles/19}
+\include{subfiles/20}
+\include{subfiles/21}
+\include{subfiles/22}
+\include{subfiles/23}
+\include{subfiles/24}
+\include{subfiles/25}
+
+\chapter{The fundamental properties of manifolds with an affine connection.}
+
+\section*{Affine space.}
+
+\include{subfiles/26}
+\include{subfiles/27}
+
+\section*{The notion of a manifold with an affine connection.}
+
+\include{subfiles/28}
+\include{subfiles/29}
+\include{subfiles/30}
+
+\section*{The structure of a manifold with an affine connection.}
+
+\include{subfiles/31}
+\include{subfiles/32}
+\include{subfiles/33}
+
+\section*{The affine displacement associated with a closed contour.}
+
+\include{subfiles/34}
+\include{subfiles/35}
+\include{subfiles/36}
+
+\section*{The theorem of conservation of curvature and torsion.}
+
+\include{subfiles/37}
+
+\section*{\?{Integral invariants}{Invariants integraux} attached to a manifold.}
+
+\include{subfiles/38}
+\include{subfiles/39}
+
+\section*{Isomorphism of two manifolds\footnote{Sections 40 to 43 may be skipped without harming the understanding of the following chapters}.}
+
+\include{subfiles/40}
+\include{subfiles/41}
+\include{subfiles/42}
+\include{subfiles/43}
+
+\section*{Generalization}\footnote{The end of this chapter assumes that the reader has certain knowledge about the theory of groups; it may be skipped without harming the comprehension of the following chapters.}
+
+\include{subfiles/44}
+\include{subfiles/45}
+\include{subfiles/46}
+\include{subfiles/47}
+\include{subfiles/48}
+\include{subfiles/49}
+\include{subfiles/50}
+
+\chapter{Manifolds with a metric connection.}
+
+\include{subfiles/51}
+\include{subfiles/52}
+\include{subfiles/53}
+\include{subfiles/54}
+\include{subfiles/55}
+\include{subfiles/56}
+\include{subfiles/57}
+\include{subfiles/58}
+
+\end{document}
+
+%

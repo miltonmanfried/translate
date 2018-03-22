@@ -1,0 +1,97 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+
+\renewcommand*\rmdefault{ppl}
+
+\newcommand{\tn}[1]{\footnote{\textbf{Translator note:} #1}}
+
+\newcommand{\WTF}[1]{
+%\footnote{\textbf{???} #1}
+[\it{\small{#1}}]
+}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\nc{\redo}{[???]}
+
+\newcommand{\TN}[1]{
+\footnote{\sc{Translator note}: #1}
+}
+
+\nc{\missing}{[\...]}
+\nff{\?}{#1}
+
+\nf{\header}{\textit{#1}}
+\rf{\it}{\textit{#1}}
+
+
+\title{Klemperer Diaries 1918: November - December}
+
+\begin{document}
+
+\header{Wednesday evening, 20 November 1918, after 8:00: Leipzig. Reichelstr. 16}
+
+The happiness, which I began to establish here after the successful flight from Wilna, is fading fast.
+
+I write, while Eva is at the Bach concert at the Thomas Church: I was with her there yesterday evening for part of the rehearsal (?? in Grabeskälte???). The music did absoluely nothing for me. After that, at Cafe Merkur, she had a long and excited and happy visit with her collegue Hempel. So excited I had not yet seen them since I've been back from Russia...we found ourselves late at night in our old high spirits. But it torments me again and again: what remains of our whole community, when only the physical, or because of me the emotional remains? “To be growing together, that alone matters\WTF{Zusammen wach sein, das allein bedeutet}." I have no more intellectual interests that Eva can share with me, and the music, which is everything to her, but which is also completely filled\WTF{von der sie ganz, aber auch ganz ausgefüllt ist}, I cannot share with here...we spoke today at length about that. Guilt nor ill will were nowhere mentioned. I know that Eva loves me, as I her -- although she, with her independent and ingenious nature, also finds resources within herself, while mine lie only within her, but this love is something pathetic, immoral, when Eva has developed so far beyond and away from me.
+
+Also, \it{money troubles} arise again: we now need 1000M this month, we have only 700M at our disposal, and our reserves will be at an end in January.
+
+At the same time, \it{Eva's mother} asks for assistance, which I cannot give her. Her mental deterioration has taken a strange turn: the previously free- and sharp-thinking woman has fallen under the influence of an Adventist and finds all events foretold in the bible.
+
+I made my first less-than-satisfactory attempt to get back into work: one hour on Voretzsch (translated samples from the Life of St. Thomas and Becket), one hour reading my neglected notes on Astrée. I still want to jot down notes on \it{Cherbuliez}, which I read in Wilna...it was Bußtag today: I can only pick up my order from the library in the morning.
+
+Meals in Thuringer Hof and the Merkury; Scherners and Kratzert. We close(??\WTF{beschließen}) the day again at the Merkur.
+
+Eva said that I am jealous of her music, as mother was of father's books. She was right, and thus the comparison was even more insulting. --
+
+My barber told me that he had bought \it{an infantry gun for 10M}; a man offered it up in his shop. "I found a bayonette on the street; 10 pieces\WTF{Stücker} were laying in the gutter."
+
+
+\include{subfiles/19181121}
+\include{subfiles/19181122}
+\include{subfiles/19181123}
+\include{subfiles/19181124}
+\include{subfiles/19181126}
+\include{subfiles/19181127}
+\include{subfiles/19181129}
+\include{subfiles/19181130}
+
+\include{subfiles/19181202}
+\include{subfiles/19181203}
+\include{subfiles/19181205}
+\include{subfiles/19181207}
+\include{subfiles/19181208}
+\include{subfiles/19181209}
+\include{subfiles/19181212}
+\include{subfiles/19181214}
+\include{subfiles/19181215}
+\include{subfiles/19181216}
+\include{subfiles/19181217}
+\include{subfiles/19181219}
+\include{subfiles/19181222}
+\include{subfiles/19181225}
+\include{subfiles/19181226}
+\include{subfiles/19181229}
+\include{subfiles/19181230}
+\include{subfiles/19181231}
+
+\end{document}

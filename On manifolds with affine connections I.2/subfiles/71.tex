@@ -1,0 +1,64 @@
+\subsection*{71.}
+\nc{\overOmega}{\overline{\Omega}}
+
+Given this, consider now a universe with a Galilean connection, not necessarily with a metric space. \textit{Among all of the mechanically-equivalent affine connections, there is one and only one with no torsion.}
+
+In fact, in the most general affine connection compatible with experience, the components of the torsion are
+\uequ{
+\overOmega^i = \Omega^i + [\omega^0\omega_0^i] + [\omega^1\omega_1^i] + [\omega^2\omega_2^i] + [\omega^3\omega_3^i] \quad (i=1,2,3),
+}
+designating by $\Omega^i$ the components of the torsion in a particular affine connection. The six equations in $\overomega_i^j$
+\uequ{
+\omega^0\overomega_0^i + \omega^1\overomega_1^i + \omega^2\overomega_2^i + \omega^3\overomega_3^i = 0,\\
+[\omega^0\omega_0^i] + [\omega^1\omega_1^i] + [\omega^2\omega_2^i] + [\omega^3\omega_3^i] = -\Omega^i
+}
+admit one and only one solution, namely
+\uequ{
+\overomega_i^j = -\inv{2}\frac{\partial\Omega^j}{\partial\omega^i} \quad
+(i=0,1,2,3; j=1,2,3),
+}
+
+If we now consider a universe with a Newtonian connection, the conclusions are necessarily modified, since the expressions $\overomega_i^j$ satisfy the supplementary relations
+\uequ{
+\overomega_i^j + \overomega_j^i \quad (i=1,2,3).
+}
+
+\textit{Among all of the mechanically-equivalent affine connections, there is one and only one that cancels the scalar form}
+\uequ{
+[\omega_1\Omega^1] + [\omega_2 \Omega^2] + [\omega_3\Omega^3].
+}
+
+In effect one must solve the equations
+\uequ{
+\omega^0\overomega_0^i + \omega^1\overomega_1^i 
+ + \omega^2\overomega_2^i + \omega^3\overomega_3^i = 0,\\
+[\omega^0 \omega^1 \overomega_{01}] + [\omega^0 \omega^2 \overomega_{02}] + 
+[\omega^0 \omega^3 \overomega_{03}] + 2[\omega^2 \omega^3 \overomega_{23}] + 
+2[\omega^3 \omega^1 \overomega_{31}] + 2[\omega^1 \omega^2 \overomega_{12}]\\
+= [\omega^1 \Omega_1] + [\omega^2 \Omega_2] + [\omega^3 \Omega_3].
+}
+
+The first three of these equations give (section 17)
+\uequ{
+&\overomega_0^1 = r\omega^2 - q\omega^3, \quad
+\overomega_0^2 = p\omega^3 - r\omega^1, \quad
+\overomega_0^3 = q\omega^1 - p\ omega^2\\
+&\overomega_{23} = p\omega^0 + h\omega^1, \quad
+\overomega_{31} = q\omega^0 + h\omega^2, \quad
+\overomega_{23} = r\omega^0 + h\omega^3,
+}
+and \?{bringing in}{en portant dans} the fourth, one obtains
+\uequ{
+6h = A_{123} + A_{231} + A_{312},\\
+4p = A_{302} - A_{203}, \quad 4q = A_{103} - A_{301}, \quad 4r = A_{201} - A_{102}.
+}
+
+Consequently in both cases, \textit{among all of the mechanically equivalent affine connections}, there is at most one with zero torsion.
+
+Or, \textit{In the classical theory of Newtonian gravitation, there is precisely one affine connection on space-time with zero torsion}; this is that furnished by the formulae
+\nequ{4}{
+\omega^0 = dt, \quad \omega^1 = dx, \quad\omega^2 = dy, \quad \omega^3 = dz,\\
+\omega_0^1 = -Xdt, \quad \omega_0^2 = -Ydt, \quad \omega_0^3 = -Zdt,\\
+\omega_i^j = 0 (i,j=1,2,3),
+}
+where by $X,Y,Z$ is designated the components of the acceleration due to the gravitation with respect to a Galilean reference system. Thus we say that \textit{the equations (4) define the affine connection of the universe of Newtonian gravitation.}

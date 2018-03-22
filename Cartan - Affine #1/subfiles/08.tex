@@ -1,0 +1,61 @@
+\subsection*{8}
+We now consider a continuous medium with a given Galilean reference frame, and take a three-dimensional space-time volume. I have shown elsewhere\footnote{E. Cartan, \textit{Leçons sur les Invariants intégraux}, p. 35-37; Paris, Hermann, 1922.} that the total mass of the material elements which are found in this volume is represented by the integral
+\uequ{
+\int\int\int \rho\,dx\,dy\,dz - \rho u \,dy\,dz\,dt - \rho v\,dz\,dx\,dt - \rho w\,dx\,dy\,dt,
+}
+designating by $\rho$ the density and by $u,v,w$ the components of the velocity of each material element.
+
+\textit{If one initially assumes that there is no pressure or tension in the medium}, the momentum along the $x$-axis of the same volume will be given by the integral
+\uequ{
+\int\int\int \rho u\,dx\,dy\,dz - \rho u^2\,dy\,dz\,dt - \rho uv\,dz\,dx\,dt - \rho uw\,dx\,dy\,dt
+}
+and similarly for the components along the $y$-axis and $z$-axis. We respectively designate the elements under the preceding integral sign $\int\int\int$ by
+\uequ{
+\Pi, \Pi_x, \Pi_y, \Pi_z:
+}
+these are the components of the "mass-momentum" for a material element of the medium.
+
+Finally we designate by $X,Y,Z$ the components of the force per unit volume.
+
+To obtain the equations of mechanics for continuous media, we may proceed in the following manner: we consider a four-dimensional space-time domain. We decompose this domain in the following manner: take a specific material element; at each instant $t$, one of the components it contains has as its coordinates $(x,y,z)$; the world-point $(x,y,z,t)$ is either never part of the domain under consideration, or it is a part of this domain in a certain time interval $(t_1,t_2)$: the ensemble of world-points made up of the different material points of the material element under consideration, taken between the instant $t_1$ and the instant $t_2$, make up the \textit{world tubes} into which the world-domain can be decomposed. The boundary of this domain is made up of the material elements taken at the extremities $t_1$ and $t_2$ of the time interval.
+
+Given this, the geometrical variation of the "mass-momentum" world-vector of each material element, between the instant $t_1$, where it enters the world-domain and the instant $t_2$, where it leavea, is equal to a space vector whosw components are
+\uequ{
+\intXY{t_1}{t_2}(X\,dx\,dy\,dz)dt,\quad
+\intXY{t_1}{t_2}(Y\,dx\,dy\,dz)dt,\quad
+\intXY{t_1}{t_2}(Z\,dx\,dy\,dz)dt.
+}
+Put another way, \textit{the integral over the domain of the "mass-momentum" world-vector is equal to the four-dimensional integral of the "force" space-vector over the same domain.} This is expressed by the formulae
+\nequ{5}{
+\Pi' &= 0,\\
+\Pi_x' &= X\,dt\,dx\,dy\,dz,\\
+\Pi_y' &= Y\,dt\,dx\,dy\,dz,\\
+\Pi_z' &= Z\,dt\,dx\,dy\,dz,
+}
+by putting
+\uequ{
+\Pi' &= \left[
+\pddX{\rho}{t} + \pddX{(\rho u)}{x} + \pddX{(\rho v)}{y} + \pddX{(\rho w)}{z}
+\right]dt\,dx\,dy\,dz,\\
+\Pi_x' &= \left[
+\pddX{(\rho u)}{t} + \pddX{(\rho u^2)}{x} + \pddX{(\rho uv)}{y} + \pddX{(\rho u w)}{z}
+\right]dt\,dx\,dy\,dz,\\
+\Pi_y' &= \left[
+\pddX{(\rho v)}{t} + \pddX{(\rho vu)}{x} + \pddX{(\rho v^2)}{y} + \pddX{(\rho v w)}{z}
+\right]dt\,dx\,dy\,dz,\\
+\Pi_z' &= \left[
+\pddX{(\rho w)}{t} + \pddX{(\rho wu)}{x} + \pddX{(\rho wv)}{y} + \pddX{(\rho w^2)}{z}
+\right]dt\,dx\,dy\,dz,\\
+}
+
+In performing this calculation and simplifying the three last equations by means of the first, one obtains the classical equations
+\uequ{
+\pddX{\rho}{t} + \pddX{(\rho u)}{x} + \pddX{(\rho v)}{y} + \pddX{(\rho w)}{z} = 0,\\
+\rho\left(\pddX{u}{t} + u\pddX{u}{x} + v\pddX{u}{y} + w\pddX{u}{z}\right) = X,\\
+\rho\left(\pddX{v}{t} + u\pddX{v}{x} + v\pddX{v}{y} + w\pddX{v}{z}\right) = Y,\\
+\rho\left(\pddX{w}{t} + u\pddX{w}{x} + v\pddX{w}{y} + w\pddX{w}{z}\right) = Z.\\
+}
+
+In calling the operation which permits \?{passing from an element of the integral over a closed manifold with $p$ dimensions to the equal integral element over the manifold with $p+1$ dimensions which encloses the first} the \textit{exterior derivative}, one sees that one may state the fundamental principle of the mechanics of continuous media in the following form:
+
+\textit{The exterior derivative of the elementary "mass-momentum vector" is equal to the product of $dt$ multiplied by the force of the elementary volume.}

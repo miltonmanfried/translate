@@ -1,0 +1,39 @@
+\subsection*{39.}
+
+As an example, we take the form
+\uequ{[\m d\m] = \omega^i [\m \e_i],
+}
+which represents the sliding vector with origin at $\m$ and endpoint $\m + d\m$. the integral of this vector extended over an infinitely-small closed contour is
+\uequ{
+\int [\m d\m] = \int\int [\m d\m]' = \int\int [\m\e_i]\Omega^i + 2 [\e_i \e_j][\omega^i \omega_j].
+}
+
+\textit{In the case $n+3$} one thus finds a vector with components $\Omega^i$ and a \textit{couple} whose moment is twice the area bounded by the contour; this is the generalization of the classical theorem.
+
+Similarly,
+\uequ{
+\int\int  [\e_i \e_j][\omega^i \omega_j] = \int\int\int [\e_i \e_j] \left\{
+[\Omega^i \omega^j] - [\omega^i \Omega^j]\right\};
+}
+this formula, in the affine space proper, is the condensation of the formulae
+\uequ{
+\int\int dx^i dx^j = 0,
+}
+the integrals stretching over a closed surface; manifolds with affine connections for which these formulae are carried over without further modification are those for which one has
+\uequ{
+[\omega^i \Omega^j] - [\omega^j \Omega^i]  = 0 \quad (i,j = 1,2,...,n).
+}
+
+It is easily shown that if $n\geq 4$, these relations entail $\Omega^i=0$.
+
+We again note the formulae
+\uequ{
+\int\int \e_i\Omega^i &= \int\int\int \e_i [\omega^k \Omega_k^i],\\
+\int\int [\m\e_i]\Omega^i &= \int\int\int [\m\e^i][\omega^k\Omega_k^i] 
++ [\e_i \e_j] \left\{ [\omega^i \Omega^j] - [\omega^j \Omega^i] \right\},\\
+\int\int\int \e_i [\omega^k \Omega_k^i] &= \int\int\int\int \e_i[\Omega^k\Omega_k^i],\\
+\int\int\int [\e_i \e_j]  \left\{ [\Omega^i \omega^j] - [\omega^i \Omega^j] \right\} &= 
+\int\int\int\int [\e_i \e_j]  \left\{ [\omega^j \omega^k Omega_k^i] - [\omega^i \omega^k \Omega_k^j] \right\}.
+}
+
+These formulae have the natural advantage of leading to the formation of \?{\textit{integral invariants}}{invariants intégraux} of higher and higher degree attached to the manifold.

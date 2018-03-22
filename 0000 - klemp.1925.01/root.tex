@@ -1,0 +1,74 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{wrapfig}
+\renewcommand*\rmdefault{qtm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{titling}
+\usepackage{graphicx}
+
+\newcommand{\sic}{\textsubscript{(\textit{sic})}}
+\newcommand{\WTF}[1]{\textbf{???}\textit{#1}\textbf{???}}
+\newcommand{\?}[2]{#1\footnote{\textsc{Translator note}: #2}}
+
+
+\newcommand{\citeauthor}[1]{\textsc{#1}}
+\newcommand{\citetitle}[1]{\textit{#1}}
+\newcommand{\citepub}[1]{#1}
+\newcommand{\citevol}[1]{\textbf{#1}}
+\newcommand{\citepage}[1]{#1}
+\newcommand{\citedate}[1]{#1}
+\newcommand{\citeyear}[1]{#1}
+\newcommand{\bracket}[1]{\left[#1\right]}
+\newcommand{\paren}[1]{\left(#1\right)}
+
+\newcommand{\publication}[1]{%
+    \gdef\puB{#1}}
+\newcommand{\puB}{}
+\renewcommand{\maketitlehooka}{%
+    \par\noindent \puB}
+
+
+\newcommand{\location}[1]{%
+    \gdef\loB{#1}}
+\newcommand{\loB}{}
+\renewcommand{\maketitlehooka}{%
+    \par\noindent \loB}
+
+\newenvironment{entry}[1]{
+	\newcommand{\paperid}{#1}
+	\newenvironment{header}[0]{
+		\renewcommand{\date}[1]{\newcommand{\headerdate}{####1}}
+		\renewcommand{\location}[1]{\newcommand{\headerlocation}{####1}}
+		\newcommand{\note}[1]{\newcommand{\headernote}{####1}}
+		\newcommand{\makeheader}{
+		\begin{tabular}{|p{0.9\textwidth}|}
+			\hline
+			\fi
+			\ifdefined\headerdate
+				Date: \headerdate \\
+			\fi
+			\ifdefined\headerlocation
+				Location: \headerlocation \\
+			\fi
+			\ifdefined\headernote
+				Notes: \headernote \\
+			\fi
+			 \hline
+		 \end{tabular}\\
+		}
+	}{
+
+	}
+}{
+ \quad  \\------------------------------------\\
+}
+
+\newcommand{\nc}[2]{\newcommand{#1}{#2}}
+
+
+\begin{document}
+\include{19250101}
+\end{document}

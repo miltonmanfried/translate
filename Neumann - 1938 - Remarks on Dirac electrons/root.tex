@@ -1,0 +1,125 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\renewcommand*\rmdefault{ppl}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{marginnote}
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+
+\nff{\WTF}{#1 (\textit{#2})}
+
+\nf{\translator}{\footnote{\textbf{Translator note:}#1}}
+\nc{\sic}{{}^\text{(\textit{sic})}}
+
+\newcommand{\nequ}[2]{
+\begin{align*}
+#1
+\tag{#2}
+\end{align*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{align*}
+#1
+\end{align*}
+}
+
+\nf{\sskip}{...\{#1\}...}
+\nff{\iffy}{#2}
+\nf{\?}{#1}
+\nf{\tags}{#1}
+
+\nf{\limX}{\underset{#1}{\lim}}
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+%\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+\nff{\intXY}{\underset{#1}{\overset{#2}{\int}}}
+
+\nc{\fluc}{\overline{\delta_s^2}}
+
+\rf{\exp}{e^{#1}}
+
+\nc{\grad}{\operatorfont{grad}}
+\rc{\div}{\operatorfont{div}}
+\nc{\spur}{\operatorfont{spur}}
+
+\nf{\pddt}{\frac{\partial{#1}}{\partial t}}
+\nf{\ddt}{\frac{d{#1}}{dt}}
+
+\nf{\inv}{\frac{1}{#1}}
+\nf{\Nth}{{#1}^\text{th}}
+\nff{\pddX}{\frac{\partial{#1}}{\partial{#2}}}
+\nf{\rot}{\operatorfont{rot}{#1}}
+
+\nf{\Elt}{\operatorfont{#1}}
+
+\nff{\MF}{\nc{#1}{\mathfrak{#2}}}
+
+\nc{\wta}{\widetilde{a}}
+
+\MF{\fr}{r}
+\MF{\fV}{V}
+\MF{\fp}{p}
+
+\nc{\fYm}{\fY^{(m)}}
+\nc{\fXm}{\fX^{(m)}}
+\nc{\fZm}{\fZ^{(m)}}
+
+\nff{\MV}{\nc{#1}{\vec{#2}}}
+
+\MV{\vgamma}{\gamma}
+\MV{\valpha}{\alpha}
+
+\nc{\Y}{\psi}
+\nc{\y}{\varphi}
+
+%niemals aufs Sofa
+
+\title{Some remarks on the Dirac theory of the relativistic spinning electron}
+\author{John von Neumann}
+\date{1928}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Some properties of Dirac's spinning electrons are analyzed further, as well as the nature of the monochromatic de Broglie waves, the transformation characteristics of the four $\Y$-components, and the energy-current vector whose time component is the probability\footnote{Added in corrections. In a meanwhile-published paper (Proc. Roy. Soc. \textbf{118}, 351, 1928) Herr Dirac has likewise established a divergence-free current vector. Since our method is different from his, and since at the same time it gives a closer analysis of the relativistic transformation characteristics of the $\Y$, the following observations concerning this are perhaps not yet without interest.}.
+\end{abstract}
+
+\section*{Introduction}
+
+\subsection*{I}
+
+In a recently-published paper\footnote{Proc. Roy. Soc. \textbf{117}, 610, 1928}, Herr P.A.M. Dirac has proposed a new way if treating the quantum-mechanical one-body problem, in which certain deficiencies of the previous relativistic one-body equation\footnote{Namely the wave equation formulated by Fock, Gordon, Klein, Kudar and Schr\"odinger,
+\uequ{
+\left\{\sumX{k=1}{4}\left(\frac{h}{2\pi i} \pddX{}{x_k} - \frac{e}{c}\Phi_k\right)^2 + m^2 c^2\right\}\Y = 0,
+}
+where $x_1$, $x_2$, $x_3$ are tge three spatial components and $x_4=ict$, $\Phi_1,\Phi_2,\Phi_3,\Phi_4$ are the electromagnetic four-potential ($\Phi_1,\Phi_2,\Phi_3$ real, $\Phi_4$ purely imaginary). Gordon treated the Compton effect with it, ZS. f. Phys., \textbf{40}, 117, 1926; \WTF{this will also be discussed in more detail}{dort wird sie auch näher diskutiert}} are removed in a simple and satisfactory manner. His approach however does not only enable the removal of the aforementioned (relativistic) deficiencies, it also provides -- as he shows in l.c. -- entirely automatically the well-known spin-characteristics of the electron: namely the mechanical \WTF{angular momentum}{Drehmoment} $\frac{h}{4\pi}$, as well as its magnetic moments $\frac{he}{8\pi mc}$, $\frac{he}{4\pi mc}$ in the "interior" resp. "exterior" fields\footnote{C.f. Dirac, loc. cit., resp. p.619, 620, 624.}
+
+This overwhelming success of the Dirac theory leaves little doubt
+
+in the connection, that in its essential characteristics it takes on the the relativistic
+behavior of "point masses"\footnote{\?{So that e.g. the spin of every form of matter, even the proton, must come from relativistic grounds.}} (though some difficulties highlighted by Dirac still exist)
+
+\end{document}

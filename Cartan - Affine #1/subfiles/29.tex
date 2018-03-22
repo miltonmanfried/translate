@@ -1,0 +1,33 @@
+\subsection*{29.}
+
+The laws of the affine connection define what type of \?{\textit{connection}}{raccord} there is between the affine spaces tangent to two infinitely-close points $\m$ and $\m'$. What will happen if we consider two arbitrary points on the manifold?
+
+One may answer this question by giving a specific path containing $\m_0$ and $\m_1$; the connection of the two tangent spaces may then be made step-by-step. In fact, if one chooses at each point in the path of an affine reference system, the $\omega^i$ and the $\omega_j^i$ are expressed in the form $p^i dt$ and $p_i^j dt$, by naming $t$ the parameter which defines the variable point on the path, the $p^i$ and $p_i^j$ being known functions of $t$. The equations (1) may then be regarded as ordinary differential equations giving, at each point on the path, $\m, \e_1, \e_2, \e_3$ as functions of their initial values. Then, integrating these functions, one will get a rigorously exact \?{correspondence}{repérage} of the affine space at $\m_1$ with respect to the affine space at $\m_0$.
+
+It comes to the same thing, and it is possibly easier to understand for those used to calculating with vectors, to integrate the differential equations (3), which here become
+\uequ{
+\frac{dx^i}{dt} + p^i + p_i^i x^1 + p_2^i x^2 + p_3^i x_3 = 0.
+}
+
+Taking for the constants of integration $(x^i)_0$ the values of the unknowns for the initial value of $t$, the formulae
+\nequ{5}{
+x^i = a^i + a_1^i(x^1)_0 + a_2^i(x^2)_0 + a_3^i(x^3)_0\quad (i=1,2,3)
+}
+define the change of the cartesian coordinates which \?{describe}{repère} the affine space at the variable point $\m$ on the path with respect to the affine space at the original point $\m_0$. This change of coordinates, applied to a vector, would give
+\uequ{
+\xi^i = a_1^i(\xi^1)_0 + a_2^i(\xi^2)_0 + a_3^i(\xi^3)_0 \quad (i=1,2,3),
+}
+where
+\nequ{6}{
+(\e_i)_0 = a_i^1 \e_1 + a^i_2 \e_2 + a^i_3\e_3 \quad (i=1,2,3).
+}
+
+These last formulae show what becomes of the vector $(\e_i)_0$ as it is transported so as to remain step-wise equivalent to itself.
+
+It is similarly seen that the point $\m_0$ has as its coordinates $a^1, a^2, a^3$ in the affine space tangent to $\m$,
+\nequ{6'}{
+\m_0 = \m + a^1 \e_1 + a^2 \e_2 + a^3 \e_3.
+}
+
+The formulae (6) and (6') define the general solution of the differential equations (1), as the formulae (5) define those of the equations (3).
+%

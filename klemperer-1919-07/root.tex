@@ -1,0 +1,66 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+
+\renewcommand*\rmdefault{ppl}
+
+\newcommand{\tn}[1]{\footnote{\textbf{Translator note:} #1}}
+
+\newcommand{\WTF}[1]{
+%\footnote{\textbf{???} #1}
+[\it{\small{#1}}]
+}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\nc{\redo}{[???]}
+
+\newcommand{\TN}[1]{
+\footnote{\sc{Translator note}: #1}
+}
+\nf{\sic}{#1 \sc{sic}}
+
+\nc{\missing}{[\...]}
+\nff{\?}{#1}
+
+\nf{\header}{\textit{#1}}
+\rf{\it}{\textit{#1}}
+
+\title{Klemperer Diaries: July 1919}
+
+\begin{document}
+
+\include{subfiles/19190703}
+\include{subfiles/19190704}
+\include{subfiles/19190706}
+\include{subfiles/19190710}
+\include{subfiles/19190711}
+\include{subfiles/19190713}
+\include{subfiles/19190714}
+\include{subfiles/19190715}
+\include{subfiles/19190717}
+\include{subfiles/19190718}
+\include{subfiles/19190719}
+\include{subfiles/19190721}
+\include{subfiles/19190722}
+\include{subfiles/19190725}
+\include{subfiles/19190727}
+
+\end{document}

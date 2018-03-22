@@ -1,0 +1,1979 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{marginnote}
+%\usepackage{tocloft}
+
+\renewcommand*\rmdefault{ppl}
+
+\newcommand{\tn}[1]{\footnote{\textbf{Translator note:} #1}}
+
+\newcommand{\WTF}[1]{
+%\footnote{\textbf{???} #1}
+[\it{\small{#1}}]
+}
+
+\newcommand{\footcite}[3]{\textsc{#1}, \textit{#2}, #3}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\newcommand{\nequ}[2]{
+\begin{align*}
+#1
+\tag{#2}
+\end{align*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{align*}
+#1
+\end{align*}
+}
+
+\newcommand{\TN}[1]{
+\footnote{\sc{Translator note}: #1}
+}
+
+\nc{\sic}{{}^{\text{sic}}}
+
+\newcommand{\var}[1]{#1}
+\newcommand{\vect}[1]{\vec{\var{#1}}}
+\newcommand{\coord}[1]{#1}
+\newcommand{\const}[1]{#1}
+\newcommand{\op}[1]{
+\mathcal{#1}
+}
+
+\nff{\nv}{\nc{#1}{\var{#2}}}
+\nff{\rv}{\rc{#1}{\var{#2}}}
+
+\nff{\nvect}{\nc{#1}{\vect{#2}}}
+
+\newcommand{\primed}[1]{{#1^{\prime}}}
+\newcommand{\pprimed}[1]{{#1}^{\prime\prime}}
+\newcommand{\CC}[1]{{#1^{*}}}
+\newcommand{\HC}[1]{{#1^{+}}}
+
+\nf{\opdiff}{d{#1}}
+
+\newcommand{\unit}[1]{#1}
+\newcommand{\dotddt}[1]{\dot{#1}}
+\nc{\opddt}{\frac{d}{dt}}
+\newcommand{\inv}[1]{\frac{1}{#1}}
+\newcommand{\opinv}[1]{{#1}^{-1}}
+
+\nc{\opddx}{\opddX{\x}}
+\nf{\opddX}{\frac{d}{\opdiff{#1}}}
+
+
+\newcommand{\oppddX}[1]{
+\frac{\partial}{\partial{#1}}
+}
+
+\nf{\oppddXX}{\frac{\partial^2}{\partial{#1}^2}}
+
+\nc{\oppddxk}{\oppddX{\xk}}
+\nc{\oppddx}{\oppddX{\x}}
+
+\newcommand{\pddt}[1]{\pdXdY{#1}{\t}}
+
+\newcommand{\dXdY}[2]{
+\frac{d{#1}}{d{#2}}
+}
+
+\newcommand{\ddt}[1]{\dXdY{#1}{\t}}
+
+\newcommand{\pdXdY}[2]{
+\frac{\partial {#1}}{\partial {#2}}
+}
+\newcommand{\pddXdYY}[2]{
+\frac{\partial^2 {#1}}{\partial {#2}^2}
+}
+\newcommand{\pddtt}[1]{\pddXdYY{\qr}{\t}}
+
+\newcommand{\barred}[1]{
+\overline{#1}
+}
+
+\newcommand{\hatted}[1]{\widehat{#1}}
+
+\newcommand{\func}[1]{\pmb{#1}}
+\newcommand{\WF}[1]{\var{#1}}
+
+\renewcommand{\it}[1]{\textit{#1}}
+\renewcommand{\sc}[1]{\textsc{#1}}
+
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumk}{\underset{k}{\sum}}
+\newcommand{\suml}{\underset{l}{\sum}}
+\newcommand{\sumr}{\underset{r}{\sum}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+\nc{\sumv}{\sumX{\nu}}
+\newcommand{\prodX}[1]{\underset{#1}{\prod}}
+\nc{\prodk}{\prodX{k}}
+\nc{\prodl}{\prodX{l}}
+\nf{\Nth}{{#1}^{\text{th}}}
+
+\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+\nf{\intX}{\int_{#1}}
+
+\renewcommand{\exp}[1]{\const{e}^{#1}}
+\newcommand{\ddelta}{\func{\delta}}
+
+\nff{\deltaLL}{\var{\delta}_{{#1}{#2}}}
+\nc{\deltauv}{\deltaLL{\mu}{\nu}}
+%%%% constanst %%%%
+\rc{\c}{\const{c}}
+\nc{\h}{\const{h}}
+\rc{\i}{\const{i}}
+\nc{\m}{\const{m}}
+
+%%%% variables %%%%
+\nv{\A}{A}
+\nc{\ACC}{\CC{\A}}
+\rv{\a}{a}
+\nv{\aTheta}{\vartheta}
+\nv{\aOmega}{\Omega}
+\nc{\aOmegak}{\aOmega^{(k)}}
+\nv{\aPhi}{\varphi}
+\nv{\al}{\alpha}
+\nv{\auv}{\a_{\mu\nu}}
+\nv{\B}{B}
+\nc{\BCC}{\CC{\B}}
+\rv{\b}{b}
+\rv{\c}{c}
+\nv{\C}{C}
+\nc{\CCC}{\CC{\C}}
+\nc{\cu}{\c_\mu}
+\nc{\cuv}{\c_{\mu,\nu}}
+\nc{\cuvt}{\cuv(\t)}
+\rv{\d}{d}
+\nc{\dl}{\opdiff{\l}}
+\nc{\dlp}{\opdiff{\lp}}
+\nc{\dq}{\opdiff{\q}}
+\nc{\dQ}{\opdiff{\Q}}
+\nc{\dE}{\opdiff{\E}}
+\nc{\dx}{\opdiff{\x}}
+\nv{\du}{\opdiff{\u}}
+\nc{\dv}{\opdiff{\var{v}}}
+\nc{\dw}{\opdiff{\w}}
+\nc{\dz}{\opdiff{\z}}
+\nv{\e}{e}
+\nv{\E}{E}
+
+\nc{\El}{\E(\l)}
+
+\nv{\eps}{\epsilon}
+\nc{\Estar}{\starred{\E}}
+\nc{\euv}{\e_{\mu\nu}}
+\nv{\f}{f}
+\nv{\F}{F}
+\nc{\fstar}{\starred{\f}}
+\nc{\fp}{\primed{\f}}
+\nv{\g}{g}
+\nv{\G}{G}
+\nc{\gp}{\primed{\g}}
+\nc{\funcSpace}{\mathfrak{h}}
+\rv{\H}{H}
+%\nv{\h}{h}
+\nc{\hilberto}{\funcSpace_0}
+\nc{\hilbar}{\barred{\funcSpace}}
+\nc{\huv}{\h_{\mu\nu}}
+\nv{\I}{I}
+\nc{\intOmega}{\intX{\aOmega}}
+\nc{\iS}{\opinv{\S}}
+\nc{\Iu}{\I_\mu}
+\nv{\J}{J}
+\nc{\Jv}{\J_\nu}
+\nv{\K}{K}
+\nc{\kernel}{\Phi}
+\rv{\L}{L}
+\rv{\l}{l}
+\nc{\lp}{\primed{\l}}
+\nc{\lpp}{\l''}
+\nv{\lam}{\lambda}
+\rv{\m}{m}
+\rff{\min}{\operatorfont{Min}#1,#2}
+\nv{\N}{N}
+\nv{\n}{n}
+
+\nc{\opA}{\mathbb{A}}
+
+\nc{\opE}{\mathbb{E}}
+\nc{\opEl}{\opE(\l)}
+\newcommand{\opELXY}[3]{\opE(#1; #2|#3)}
+\nff{\opElXY}{\opELXY{\l}{#1}{#2}}
+\nc{\opElxy}{\opELXY{\l}{\x}{\y}}
+
+\nc{\opImag}{\mathfrak{I}}
+\nc{\opReal}{\mathfrak{R}}
+\nv{\p}{p}
+\rv{\P}{P}
+\nv{\q}{q}
+\nv{\Q}{Q}
+\rv{\r}{r}
+\nv{\R}{R}
+\nc{\RSet}{\mathfrak{R}}
+\rv{\S}{S}
+\nv{\s}{s}
+\nf{\starred}{#1^{\star}}
+\nc{\subHilbar}{\mathfrak{M}}
+\nc{\suv}{\s_{\mu\nu}}
+\rv{\t}{t}
+\nv{\T}{T}
+\nc{\Tstar}{\starred{\T}}
+\rv{\u}{u}
+\rv{\v}{v}
+\nv{\W}{W}
+\nv{\w}{w}
+\nv{\x}{x}
+\nc{\xu}{\x_\mu}
+\nc{\uth}{\Nth{\mu}}
+%\nv{\u}{u}
+\nv{\U}{U}
+\nc{\UCC}{\CC{\U}}
+\nc{\vth}{\Nth{\nu}}
+\nv{\vY}{\varphi}
+\nc{\vYu}{\vY_\mu}
+\nc{\vYt}{\vY^{(\t)}}
+\nc{\vYz}{\vY^{(0)}}
+\nv{\y}{y}
+\nc{\yu}{\y_\mu}
+\nv{\Y}{\Psi}
+\nc{\Yp}{\primed{\Y}}
+\nv{\z}{z}
+
+%%%% abbrevs
+
+\nff{\expLX}{\exp{2\pi\i\frac{#1}{\h}#2}}
+\nff{\expmLX}{\exp{-2\pi\i\frac{#1}{\h}#2}}
+\nf{\explX}{\expLX{\l}{#1}}
+\nf{\expmlX}{\expmLX{\l}{#1}}
+\nc{\explx}{\explX{\x}}
+\nc{\expmlx}{\expmlX{\x}}
+\nf{\half}{\frac{#1}{2}}
+\nf{\infsumX}{\sumXY{#1=1}{\infty}}
+\nc{\infsumn}{\infsumX{n}}
+\nff{\sumSquaresX}{\infsumX{#1}|{#2}|^2}
+\nf{\sumSquares}{\sumSquaresX{n}{#1}}
+\nc{\intLine}{\intXY{-\infty}{\infty}}
+\nff{\intSquaresX}{\int_{#1}|#2|^2\dv}
+\nf{\intSquares}{\intSquaresX{\aOmega}{#1}}
+\newcommand{\intTimesX}[3]{\int_{#1}#2\barred{#3}\dv}
+\nff{\intTimes}{\intTimesX{\aOmega}{#1}{#2}}
+\nc{\oppddqu}{\oppddX{\q_\mu}}
+\newcommand{\sumTimesRawX}[3]{\sumXY{#1=1}{\infty}#2\barred{#3}}
+\newcommand{\sumTimesX}[3]{\sumXY{#1=1}{\infty}#2_{#1}\barred{#3}_{#1}}
+\nff{\sumTimes}{\sumTimesX{n}{#1}{#2}}
+\nff{\sumTimesRaw}{\sumTimesRawX{n}{#1}{#2}}
+%\nff{\sumSquaresX}{\infsumX{#1}{} #2}
+\nf{\seqX}{{#1}_1,{#1}_2,\dots}
+\nff{\seqXY}{{#1}_1, {#1}_2, \dots, {#1}_{#2}}
+\nf{\seqXk}{\seqXY{#1}{k}}
+\nc{\sequence}{\seqX{\x}}
+\nc{\seqc}{\seqX{\c}}
+\nc{\seqx}{\sequence}
+\nc{\seqy}{\seqX{\y}}
+
+\title{Mathematical foundations of quantum mechanics}
+\author{John von Neumann}
+\date{May 20, 1927}
+
+\begin{document}
+\maketitle
+
+\part*{Introduction}
+\section*{I}
+The "Quantum mechanical" formalism Heisenberg, Dirac, Born, Schrödinger and Jordon \footnote{Several works by the named authors in the years 1926/27 in the Ann. der Physik, Zeitschr. Zfür Physik, Proc. of thr Royal Soc.} has raised many entirely new concepts and questions, which we shall higlight in the following:
+
+\subsection*{$\alpha$}
+It has been shown that the behavior of an atomic system is somehow related to a given eigenvalue problem (how these are to be formulated will be treated later, in section XII); specifically, the characteristic variables that describe the system are the eigenvalues themselves.
+
+\subsection*{$\beta$}
+Hereby will the long-sought fusion between continuous (classical-mechanical) and discontinuous (quantized) be satisfactorily reached in the atomic realm: an eigenvalue spectrum can have a continuous as well a discontinuous part.
+
+\subsection*{$\gamma$}
+There are different manifestations of the eigenvalue problem: as an eigenvalue problem of an infinite matrix (e.g. diagonalization), or as a differential equation. However, both formulations are equivalent: the matrix (regarded as a linear transformation) gives rise to a differential operator (applied to the "wavefunction", yielding the left side of a differential equation\footnote{The typical (Schrödinger) quantum-mechanical differential equation has the form \uequ{\H\Y=\lam\Y,} where $\H$ is a differential operator, $\lam$ is the eigenvalue-parameter, and $\Y$ is the "wavefunction", on which certain regularity and boundary conditions are imposed, from which the eigenvalue problem springs.}) when one decomposes theo"wavefunction" into a complete orthogonal system of series coefficients\footnote{Schrödinger, Ann. der Physik, bild 79/8, p. 734 (1926)} (The matrix then provides the corresponding transformation of these series coefficients).
+
+\subsection*{$\epsilon$}
+Both methods have their difficulties. In the matrix method, one encounters the rarely-soluble problem: to transform the energy matrix into the diagonal form. This is only possible if it has no continuous spectrum\footnote{Hellinger, Inaugural dissertation section 4 (Gottingen 1907). The necessity of this requirement is immediately apparent: the spectrum remains invariant under a transformation, and a diagonal matrix can only have a discontinuous spectrum (with the diagonal elements as eigenvalues).}, i.e. the method is lopsided\WTF{einseitig} (though in the opposite sense as in classical mechanics): only the (quantized) discontinuous can be treated\WTF{nur das Diskontinuierliche (gequantelte) tritt in ihr in Erscheinung}. (The hydrogen atom -- which also has a continuous spectrum\footnote{Schrödinger, Ann. der Physik, vol 79/4, p367 (1926).} -- thus cannot be handled correctly). One can admittedly work around this by using "continuous matrices"\footnote{Zeitschr. für Physik, vol 40, 11/12, p 809 (1927). See also an upcoming work in Math. Ann. by Hilbert, Nordheim and the author.}, however this procedure (technically a simultaneous operation with\WTF{eigentlich ein simultanes Operieren mit} matrices and integral-equation kernels) is probably very difficult to carry out mathematically rigorously: one must even introduce such concepts as infinitely-large matrix elements or elements infinitely close to the diagonal.
+\subsection*{$\zeta$}
+In the treatment via the differential-equation method, the probability interpretation of the matrix method was not initially available (this shall be addressed in further detail below). This was invented by Born and later by Pauli and Jordan, however it was Jordan who had built it into a closed system and also exposed serious mathematical concerns\WTF{auch schweren mathematischen Bedenken ausgesetzt}. Namely one cannot avoid allowing such so-called improper eigenfunctions (c.f. section IX) as e.g. that first introduced by Dirac $\ddelta(\x)$, which has the following (absurd) properties:
+\uequ{
+\ddelta(\x)=0, \text{ for } \x = 0,\\
+\intXY{-\infty}{\infty}\ddelta(\x)\dx = 1.
+}
+A specific difficulty via Jordan is that one must not only calculate its transforming operators\WTF{man nicht nur seine transformierenden Operatoren berechnen muß} (whose inetgral-kernels are the "probability amplitudes"), but also the variable domain into which it will transform\WTF{sondern such den Variablen-Bereich, auf den transformiert wird} (e.g. the eigenvalue spectrum).
+\subsection*{$\theta$}
+A common deficiency of all of these methods is, however, that they introduce in principle unobservable and physically meaningless elements into the calculation: the eigenfunctions must now be calculated, which because of their normalization remain undefined up to a constant of absolute value 1 (the "phase" $\exp{\vY\i}$), and in the case of an $\x$-fold degeneracy (e.g. $\x$-fold eigenvalues) up to an $\x$-dimensional orthogonal\footnote{
+This refers to the complex orthogonality of the transformation matrix $\lbrace \al_{\mu\nu} \rbrace$:
+\uequ{
+\sumXY{\varrho=1}{\x}\al_{\mu\varrho}\barred{\al_{\nu\varrho}} = \left\{
+     \begin{array}{lr}
+       1, & \text{ for } \mu = \nu, \\
+       0, & \text{ for } \mu \neq \nu,
+     \end{array}
+   \right.
+}
+which leaves the "Unitary Hermitian form"
+\uequ{
+\sumXY{\varrho=1}{\x}\x_\varrho\barred{\y_\varrho}
+}
+invariant. In the mathematical literature this is what is customarily meant by the name "unitary".
+} transformation\WTF{Die E.F. müssen ja berechnet werden, die Folge ihrer Normierung bis auf eine Konstante vom Absolutwerte 1 unbestimmt werden, ja im Falle einer $\x$-fachen Entartung bis auf eine $\x$-dimensionale orthogonale Transformation untereinander.}. The probabilities appearing as the endnresults are indeed invariant, but it is unsatisfactory and unclear why the detour through the unobservable and non-invariant is necessary.
+
+Im the present work we will attempt to specify a method by which these abuses can be remedied, and, we believe, uniformly and consistently brings together the currently-existing statistical interpretation of quantum mechanics.
+
+In general, where the calculations are not essential to the subject at hand, purely mathematical questions will be avoided; all the same, the gist of our work should be regarded as mathematically rigorous. It was unavoidable that the greater part of this work would be dedicated to the explanation and justification\WTF{Erläuterung und Begründung} of the formal concepts that are applied later.
+
+Accordingly, sections II through XI have a preparatory character, the real subject only being handled in sections XI through XIV.
+
+\part*{The Hilbert Space}
+\section*{II}
+As we have see in section I.$\delta$, the eigenvalue problrm appears in two primary guises: as an eigenvalue problem of infinite matrices (or what is the same thing, bilinear forms
+, and as eigenvalue problems of differential equations.
+
+We want to consider both of these forms, and emphasise their common features. We will thereby arrived at such facts\WTF{Wir werden dabei restlos auf solche Tatsachen einzugehen haben} as have been mathematically-known for a long time, and which physically offer nothing new, because their basics appear in the above-cited work by Schrödinger and in several works by Dirac. However, it is perhaps appropriate to develop everything in context, and it is also advisable to premise this discussion with the motivation of the abstract concepts of the next sections.
+
+We first consider the matrix formalism. Here there is an infinite matrix (which represents the energy; we shall discuss later how one arrives at itand the goal is to transform it into the diagonal form (so that the diagonal elements are then the energy-levels\footnote{C.f. e.g. Born, Probleme der Atomdynamik, p. 86. (Berlin 1926)}). We assume that this goes smoothly (e.g. because it only has a discrete spectrum, c.f. I.$\epsilon$ and note 4).
+
+We denote the energy matrix as
+\uequ{
+\H=\lbrace\huv\rbrace \quad (\mu,\nu=1,2,...);
+}
+it is assumed to be Hermitian; i.e.
+\uequ{
+\huv=\barred{\h_{\nu\mu}}.
+}
+We seek a transformation matrix
+\uequ{
+\S=\lbrace\suv\rbrace \quad (\mu,\nu=1,2,...)
+}
+with the following properties: it is orthogonal, i.e.
+\uequ{
+\sumXY{\varrho=1}{\infty}\s_{\mu\varrho}\barred{\s_{\nu\varrho}}= \left\{
+     \begin{array}{lr}
+       1, & \text{ for } \mu = \nu, \\
+       0, & \text{ for } \mu \neq \nu,
+     \end{array}
+   \right.
+}
+and $\opinv{\S}\H\S$ is diagonal.
+
+We call the matrix $\opinv{\S}\H\S$ $\W$, and the diagonal elements of this (diagonal) matrix will be $\w_1,\w_2,...$. Then we must have:
+\uequ{
+\H\S = \S\W\\
+\sumXY{\varrho=1}{\infty}\h_{\mu\varrho}\s_{\varrho\nu} = \s_{\mu\nu}\w_\nu.
+}
+That is, the $\Nth{\nu}$ column of $\S$, $\s_{1\nu},\s_{2\nu},...$, will be transformed by $\H$ into $\w_\nu$ times itself\WTF{die $\nu$-te Spalte von $\S$, $\s_{1\nu},\s_{2\nu},...$, wird durch $\H$ in ihr $\w_\nu$-faches transformiert}. Each column of $\S$ is thus a solution of the eigenvalue problem: those sequences $\x_1,\x_2,...$ are found which is transformed via $\H$ into a multiple -- specifically, $\w$ -- of of itself ($\x_1,\x_2,...$ is then an eigen-sequence, the proportionality factor an eigenvalue; naturally the trivial solution $0,0,...$ is included. The eigenvalue belonging to $\s_{1\nu},\s_{2\nu},...$ is thus $\w_\nu$.)
+
+One may now demonstrate, that these are substantially the only solutions; more precisely, there are no eigenvalues other than $\w_1,\w_2,...$, and when $\w$ is an eigenvalue, then its eigensequences are linear combinations of all columns $\s_{1\nu},\s_{2\nu},...$ for which $\w_\nu=\w$ (c.f. appendix 1).
+
+Consequently, the matrix $\s$ is substantially completed as soon as the eigenvalue problem (as formulated above) is completely solved.
+
+In the differential equation formalism, the situation is clearer still: it is given as an eigenvalue problem from the start. There is a differential operator $\H$ (where for e.g. the rotator, oscillator and hydrogen atom are respectively
+\uequ{
+\inv{\sin\aTheta}\oppddX{\aTheta}\left(
+\sin\aTheta\oppddX{\aTheta}\dots\right)
++ \inv{\sin^2\aTheta}\oppddX{\aPhi^2}\dots\\
+\opddX{\q^2}\dots - \frac{16\pi^4}{\h^2}\var{\nu}^2_0\q^2\dots\\
+\oppddXX{\x}\dots+\oppddXX{\y}\dots+\oppddXX{\z}\dots+
+\left.\frac{8\pi^2\m\c^2}{\h^2}\inv{\sqrt{\x^2+\y^2+\z^2}}\dots\right)
+}
+and one seeks a function $\Y$ (in our example $\Y$ is considered as a function of resp. $\aTheta,\aPhi$;$\q$;$\x,\y,\z$) for which
+\uequ{
+\H\Y=\w\Y,
+}
+e.g. which is transformed by $\H$ into a multiple of itself (the eigenvalues $\w$ are, up to a factor $\frac{8\pi^2\m}{\h^2}$, again the energy levels). Naturally, $\Y$ must satisfy certain regularity requirements, and not vanish identically\footnote{Schrödinger, Ann. der Physik, vol 79/4, p. 361 and 6, p. 489 (1926).}.
+
+What is the common feature of all of these cases? Evidently this: in each case we are given a manifold of given variables (namely all of the sequences\WTF{die aller Zahlerfolgen} $\x_1,\x_2,...$ resp. all functions\WTF{die aller Funktionen} $\Y$ of two angles $\aTheta,\aPhi$, or of a coordinate $\q$, or of three coordinates $\x,\y,\z$), and a linear operator $\H$ on this manifold. In each case one seeks all solutions of the eigenvalue problem associated with $\H$, i.e. all (real) numbers $\w$ which correspond to a non-vanishing element $\f$ of the manifold, so that
+\uequ{
+\H\f=\w\f.
+}
+This eigenvalue $\w$ then represents the energy level.
+
+It is our now task to go from\WTF{gelangen} this unified\WTF{einheitlichen} formalism to a unified problem. We shall accomplish this by showing that all of the just-mentioned manifolds (and indeed any other which could be associated any of the current interpretations of quantum mechanics\WTF{sowie überhaupt alle, zu denen man durch die heute üblichen Fragestellungen der Quantenmechanik geführt werden kann}) are essentially identical to one another; i.e. that they all can be obtained from a single manifold (which will be described in the following sections) by a simple re-labeling.
+
+For this purpose we must however still specify more exactly which sequence (resp. functions) are available for the composition\WTF{Aufnahme} of our above manifolds; i.e. to specify the regularity- and boundary-conditions that are of decisive importance for eigenvalue problems.
+
+\section*{III}
+We begin with the manifold of the sequence $\x_1,\x_2,\dots$. Here it is natural to demand that the sum of squares $\sumXY{n=1}{\infty}|\x_n|^2$ be finite. In fact this applies for the solutions of eigenvalue problems (as long as there is only a discrete spectrum), given the columns $\s_{1\nu},\s_{2\nu},\dots$ of the matrix $\S$\WTF{die ja die Spalten...der Matrix $\S$} (see section II); specifically, given the above constraint,
+\uequ{
+\sumXY{\varrho=1}{\infty}\s_{\mu\varrho}\barred{\s_{\mu\varrho}} = \sumXY{\varrho=1}{\infty}|\s_{\mu\varrho}|^2=1.
+}
+(When there is a continuous spectrum, the same eigenvalue problem is no longer solvable via an eigensequence $\x_1,\x_2,\dots$ with a finite $\sumXY{n=1}{\infty}|\x_n|^2$. That our approach nevertheless allows the gapless treatment of continuous spectrum will be demonstrated in the following).
+
+The simplest linear transformations $\H$ (i.e. matrices $\lbrace\huv\rbrace$, $\mu,\nu=1,2,\dots$) of the sequence $\sequence$ with arbitrary $\sumSquaresX{n}{\x_n}$ already fail: the rows $\infsumX{\nu}\huv\x_\nu$ might not converge (as will be shown, all matrices in quantum mechanics are obtained so that the sums of squares $\sumSquaresX{\nu}{\huv}$; and from this follows the finiteness of $\sumSquaresX{\nu}{\x_\nu}$ as well as the convergence of $\infsumX{\nu}\huv\x_\nu$\footnote{Because of the inequality
+\uequ{
+|\huv\x_\nu| \leq \inv{2}|\huv|^2 + \inv{2}|\x_\nu|^2
+}
+even the series $\infsumX{\nu}\huv\x_\nu$ converges absolutely.
+})
+
+Finally, it is this definition\WTF{Abgrenzung} of the range of variability\WTF{Variabilitäts-bereiches} of the $\sequence$ (on which the more convenient generalization of the mathematical structure of quantum mechanics must be based\WTF{auf der bezw. deren geeigneter Verallgemeinerung der mathematische Aufbau der Quantenmechanik ja beruhen muß}), which has in the theory of infinite matrices proven most successful\footnote{The theory of infinite matrices (resp. bilinear forms) has been founded primarily by Hilbert, through a complete classification of the relations (especially the solutions of eigenvalue problems) into the major classes of so-called completely-continuous\WTF{vollstetigen} and bounded\WTF{beschränkten} bilinear forms (c.f. Gött. Nachrichten, Math.-Phys. Klasse, .906, p. 159-227.
+
+A greater part of the mathematical obscurity and difficulty of quantum mechanics is based upon this, that already the simplest of our fundamental operators (= matrices/bilinear forms) do not belong to Hilbert's bounded class.
+
+Since eigenvalue problem for arbitrary (and hence unbounded) operators can be uniquely solved, as the author has recently shown (appearing in the next Math. Annalen), we will naturally in this work have to closely examine the formulation of the eigenvalue problem of non-bounded operators.}.
+
+
+It is thus probably wise, in this case to limit ourselves to the following manifold\WTF{Es ist also wohl motiviert, in diesem Falle die folgende Mannigfsltigkeit abzugrenzen}: all sequences $\sequence$ of complex numbers with finite $\sumSquaresX{n}{\x_n}$. This is usually called the (complex) Hilbert space.
+
+We henceforth go over to the functional manifold defined in section II. Here the situation with regard to the secondary constraints\WTF{Nebenbedingungen} (e.g. the regularity and boundary requirements) is confused. As a rule, it is usually required to be twice-differentiable, and further unique, vanishing at infinity (resp. the boundary of the domain of definition), and more like these. How do we reach a unified point of view?
+
+The domain of candidate functions (in our examples: the $\aTheta,\aPhi$-space, i.e. the sphere; the $\q$-space, i.e. the line; the $\x,\y,\z$-space, i.e. the usual space) shall be called $\aOmega$. It is obviously only the uniquely-defined candidate functions $\Y$ in $\aOmega$\WTF{Es kommen selbstverständlich nur in $\aOmega$ eindeutig definierte Funktionen $\Y$ in Frage} to which the operator $\H$ is applied. Thus if $\H$ is e.g. a second-order differential operator (as is indeed usually the case in quantum mechanics), then it is essential that $\Y$ be twice-differentiable.
+
+However: this is only so at such positions in $\aOmega$ where the application of $\H$ is actually possible; where e.g. the coefficients of $\H$ become singular (e.g. at $\x=\y=\z=0$ in the hydrogen atom), this is not required\footnote{E.g. the solution for the ground state (in Schrödinger's terminology, $\n=1,\l=1$) of the hydrogen atom is:
+\uequ{
+\Y(\x,\y,\z) = \exp{-\sqrt{\x^2+\y^2+\z^2}},
+}
+which thus has a \WTF{Kegelspitze} at $\x=\y=\z=0$}. Although the well-known rule requires regular behavior at these points even in eigenvalue problems, one can (and should) enforce much weaker constraints\WTF{Zwar bedingt bekanntlich die Vorschrift regulären Verhaltens gerade an diesen Stellen das, daß überhaupt ein Eigenwertproblem auftritt: aber man kann (und muß dies) durch wesentlich schwächere Bedingungen erzwingen}.
+
+We therefore demand that $\intOmega|\Y|^2\dv$ (we denote by $\dv$ the length resp. surface resp. volume element in $\aOmega$) remains finite: this precludes a strong tendency to infinity from singularities in $\H$, and also guarantees one part of the boundary conditions: the vanishing at infinity. The following will show that our choice was correct.
+
+Certain boundary conditions (vanishing at the boundary of a finite domain) is however not yet fulfilled. To clarify their role, visualize the following:
+
+For an eigenvaluenproblem to even be possible, we must demand that the matrices $\H$ have Hermitian symmetry:
+\uequ{
+\H=\lbrace\huv\rbrace,\quad\huv=\h_{\nu\mu};
+}
+and for the differential equations the requirement of self-adjointness is essential: that
+\uequ{
+\intX{\aOmega}\left\{\Y_1\barred{\H\Y_2} - \H\Y_1\barred{\Y_2}\right\}\dv
+}
+vanishes for all functions $\Y_1, \Y_2$ which vanish (sufficiently rapidly) at the boundary of the domain of integration (i.e. that $\left\{\Y_1\barred{\H\Y_2} - \H\Y_1\barred{\Y_2}\right\}\dv$ is the differential of an expression of $\Y_1,\Y_2$ and their derivatives). Thus the boundary conditions are quite important under certain circumstances, as when e.g. $\aOmega$ is the interval $0,1$ and $\H$ is the operator $\i\opddX{\x}$\WTF{Dabei sind die Randbedingungen unter Umständen recht wichtig: so sei z.B. $\aOmega$ die Strecke $0,1$ und $\H$ der Operator $\i\opddX{\x}$}. Then
+\uequ{
+\intX{\aOmega}\left\{\Y_1\barred{\H\Y_2} - \H\Y_1\barred{\Y_2}\right\}\dv
+ = \intXY{0}{1}\left\{
+ \Y_1(\x)[-\barred{\i\Yp_2(\x)}] - \i\Yp_1(\x)\barred{\Y_2(\x)}
+ \right\}\dv = \\
+ = -\i\intXY{0}{1}\left\{
+   \Y_1(\x)\barred{\Yp_2(\x)} + \Yp_1(\x)\barred{\Y_2(\x)}
+ \right\}\dv = -\i[\Y_1(\x)\barred{\Y_2(\x)}]^1_0.
+}
+This certainly vanishes when $\Y_1,\Y_2$ vanish at the endpoints of $\aOmega$, but without any boundary conditions for $\Y_1,\Y_2$ it may very well be nonzero.
+
+We furthermore demand (and in this requirement, as will be shown, is the last remaining substantial boundary condition\WTF{und in dieser Forderung geht, wie sich zeigen wird, der letzte wesentliche Rest an Randbedingungen auf}) that $\Y$ should be chosen so that the self-adjointness of $\H$ is preserved.
+
+Thus, in total we demand that: $\Y$ be uniquely defined in $\aOmega$, that $\H$ is applicable to $\aOmega$ and is self-adjoint, and that
+\uequ{
+\intX{\aOmega}|\Y|^2\dv
+}
+is finite. The only non-trivial requirement (that the formation of the eigenvalue problem causing "regularity requirements"\WTF{die das Entstehen des Eigenwertproblems verursachende "Regularitätsforderung"}) is, as is seen, the last.
+
+(There is the obvious objection that this requirement shuts off access to the continuous spectrum, where the eigenfunctions are never square-integrable. Indeed, we had also raised an analogous objection with the matrices. It was however shown, that exactly this constraint permits an especially convenient -- and completely mathematically rigorous -- conception of the continuous spectrum, that its physical meaning is completely fulfilled without its eigenfunctions assuming other than an improper form \WTF{ohne seine Eigenfunktionen anders als uneigentliche Gebilde zuzulassen}. Cf. section X)
+
+Let us summarize:
+
+We have a space $\funcSpace$ (in the matrix formalism, all sequences $\sequence$ with finite $\sumSquaresX{n}{\x_n}$, in the differential equation formalism all functions $\Y$ in $\aOmega$ with finite $\intX{\aOmega}|\x|^2\dv$, where $\aOmega$ can be a surface with arbitrarily-many
+dimensions -- bounded or unbounded, finite or infinite), whose elements we shall denote by $\f, \g, \dots$. Further, there is a linear operator $\H$ (i.e. which assigns to a given element $\f$ of $\funcSpace$ another element $\H\f$ of $\funcSpace$, and where
+\uequ{
+\H(\a\f)& = \a\H\f, \text{where $\a$ ia a complex constant}\\
+\H(\f+\g)& = \H\f + \H\g
+} applies), which is symmetrical resp. self-adjoint. We may also formulate this latter requirement consistently; if we understand by $\Q(\f, \g)$
+\uequ{
+\infsumn\x_n\barred{\y_n}\,\,\text{resp.}\,\,\intX{\aOmega}\vY\barred{\vY}\dv
+}
+(where $\f=\sequence,\g=\y_1,\y_2,\dots$ in the matrix case, and $\f=\vY,\g=\Y$ in the differential equation case), then the requirement is easilyrseen to be: for permissible $\f,\g$ we have
+\uequ{
+\Q(\f,\H\g) = \Q(\H\f,\g).
+}
+For this operator $\H$ we now seek a solution to the eigenvalue problem:
+\uequ{
+\H\f=\w\f\,\,\text{ $\f \neq 0$, $\w$ a real constant}
+}pThus of course at first we only get a point spectrum, but the as-yet-reached\WTF{so zu erreichende} general formalism will enable uslater to include the continuous spectrum as well.
+
+
+As can be seen, these formulations differ only in their underlying spaces $\funcSpace$. Is it also somehow possible to give these a uniform interpretation?
+
+\section{IV}
+An obvious way would be to say, taking advantage of the analogous form of the expressions $\sumSquaresX{n}{\x_n}$ and $\intX{\aOmega}|\Y|^2\dv$, $\infsumn\x_n\barred{\y_n}$ and $\intX{\aOmega}\vY\barred{\Y}\dv$: given a space $\R$ which can be continuous or discontinuous (the "space" $1,2,\dots$, or some $\aOmega$
+, be consider all functions in $\R$ (all sequences $\sequence$ resp. all functions $\Y$ in $\aOmega$). There is an "integral over $\R$" ($\infsumn\x_n$ resp. $\intX{\aOmega}\Y\dv$), and we allow only those functions which are "proper", and at the same time\WTF{zur Konkurrenz}, whose absolute value squared has a finite "integral over $\R$" ($\sumSquaresX{n}{\x_n}$ resp. $\intX{\aOmega}|\Y|^2\dv$ finite). (Naturally could R in given cases be of a mixed type, e.g. with discrete points and line segments, etc)
+
+In essence, this path has been followed by Dirac with great consistency and undeniable success in several works\footnote{Several works in the 1926/27 issues of the Proc. Royal Soc.}  on the foundations of quantum mechanics. If we nonetheless seek another solution, it is because the analogy outlined above remains quite superficial as long as one sticks to the typical level of mathematical rigor.
+
+Thus in e.g. the case where $\R$ is the "space" $1,2,...$ and $\funcSpace$ encompasses $\sequence$, all linear operators $\H$ are representable by matrices $\lbrace\huv\rbrace$\WTF{So sind z.B. im Falle, wo $\R$ der "Raum" $1,2,...$ ist, also $\funcSpace$ die folgen $\sequence$ umfaßt, ale linearen Operatoren $\H$ durch Matrizen $\lbrace\huv\rbrace$ darstellbar}:
+\uequ{
+\H(\sequence) = (\y_1,\y_2,\dots)\\
+\y_n=\infsumX{\nu}\huv\x_\nu.
+}
+
+If one wants to analogize this with the case where $\aOmega$ is the line segment $(0,1)$ (so $\funcSpace$ is all functions defined there), the one must demand that each linear operator $\H$ be defined by an integral kernel $\kernel(\x,\y)$:
+\uequ{
+\H\vY = \intXY{0}{1}\kernel(\x,\y)\vY(\y)\dv.
+}
+
+This is however already not the case for the simplest operators (e.g. for the "identity", where each $\vY$ is taken over to itself); if one still wants to force this false proposition to be correct\WTF{will man trotzdem die Rixhtigkdit dieses falschen Satzes fingieren}, then one must, following Dirac, consider "improper" integral kernels etc.
+
+We take a different approach, which is for the most part based upon Schrödinger's "equivalence proof" (that is, for the equivalence of the matrix and differential equation formalisms, c.f. page 3), and derived from long-known mathematical facts. To describe it, some preparations are necessary.
+
+$\aOmega$ is again any surface ($1-$, $2-$, ... -dimensional, bounded or unbounded, finite or infinite), $\dv$ the differential element of integration over $\aOmega$. We consider all (complex-valued) functions $\g,\g,\dots$ with finite $\intX{\aOmega}|\f|^2\dv$ defined on $\aOmega$, which form the "space" $\funcSpace$. For $\intX{\aOmega}\f\barred{\g}\dv$ (the only combination which will be used inside the integral over $\aOmega$ in the following) we use the abbreviation $\Q(\f,\g)$. For $\Q(\f,\f)$ we write $\Q(\f)$ (the finiteness of $\Q(\f)$ characterizes $\funcSpace$!).
+
+We call two $\f,\g$ in $\funcSpace$ orthogonal when
+\uequ{
+\Q(\f,\g)=0,
+}
+and a system $\f_1,\f_2,\dots$ an orthonornal system when
+\uequ{
+\Q(\f_\mu,\f_\nu) = \left\{
+     \begin{array}{lr}
+       1, & \text{ for } \mu = \nu, \\
+       0, & \text{ for } \mu \neq \nu.
+     \end{array}
+   \right.
+}
+Finally, a complete orthonormal system is one to which no further $\f$ can be added while preserving the orthonormalization (this comes to the same thing as there being no $\f$ (other than 0) orthogonal to all $\f_n$).
+
+One can show that there is a complete orthonormal system in $\funcSpace$\WTF{Man kann zeigen, daß es in $\funcSpace$ vollst. Orth. Systeme gibt} (regarding this and all following unproven assertions cf. section V, where they shall be discussed in more detail), whether $\vY_1,\vY_2,\dots$ is one\WTF{es sei $\vY_1,\vY_2,\dots$ ein solches}.
+
+If $\f$ is a function in $\funcSpace$, then we denote its series coefficients by
+\uequ{
+\cu = \Q(\f, \vYu)\quad(\mu=1,2,\dots)
+}
+(with $\vY_1,\vY_2,\dots$). The sum $\sumSquaresX{\mu}{\cu}$ is always finite (namely, $=\Q(\f)$, the so-called Parseval formula), and the series $\infsumX{\mu}{\cu\vYu}$ converges in some sense to $\f$. Indeed it doesn't need to converge to each individual point of $\aOmega$\WTF{Sie braucht nämlich zwar in keinem einzigen Punkte von $\aOmega$ zu konvergieren}; but if one follows the the deviation of the $\Nth{N}$ partial sum of $\f$ (thus $\sumXY{\mu=1}{N}\cu\vYu - \f$) over the entire $\aOmega$, and these total results characterized by the integral of their absolute squares ($\Q(\sumXY{\mu=1}{N}\cu\vYu - \f)$, the smaller this is, the closer $\f$ gets to $\infsumX{\mu}\cu\vYu$ in all of $\aOmega$ -- except at some special points), then this integral converges to $0$ for $N\rightarrow\infty$ (i.e.
+\uequ{
+\lim_{N\to \infty} \Q\left(
+\sumXY{\mu=0}{N}\cu\vYu - \f
+\right) = 0).
+}
+(This type of convergence will be called mean convergence\WTF{Mittelkonvergenz} -- \it{convergence en moyenne}; this says less than "pointwise" convergence, but for orthogonal development it is the more practical concept\WTF{...ist aber bei Orthogonal-Entwicklungen die zweckmäßige Begriffsbildung}).
+
+However, the converse also applies (theorem from Fischer and F. Riesz\footnote{Gött. Nachrichten, Math.-Phys. Klasse, 1907, p. 116-122.}):
+
+If $\c_1,\c_2,\dots$ is some series of complex numbers with finite $\infsumn{\cu}$, then the (functional-)sum $\infsumX{\mu}{\cu\vYu}$ is mean-convergent (e.g. there is a $\f$ in $\funcSpace$ so that $\Q\left(\f-\infsumX{\mu}\cu\vYu\right)$ approaches $0$ as $N\to\infty$), and its sum $\f$ has series coefficients $\c_1,\c_2,\dots$.
+
+Thus we have a one-to-one mapping of $\f$ in $\funcSpace$ to $\c_1,\c_2,\dots$ with finite $\sumSquaresX{\mu}{\cu}$. This mapping is often linear, i.e.: if $\g$ maps to $\c_1,\c_2,\dots$, then $\a\f$ (with $\a$ a complex constant) maps to $\a\c_1,\a\c_2,\dots$; and if $\f,\g$ map to $\seqc$ resp. $\seqX{\d}$, the $\f+\g$ maps to $\c_1+\d_1,\c_2+\d_2,\dots$\footnote{That from the the finiteness of $\sumSquaresX{\mu}{\cu}$, $\sumSquaresX{\mu}{\d_\mu}$ resp. $\intSquares{\f}$,$\intSquares{\g}$ follows that of $\sumSquaresX{\mu}{\cu+\d_\mu}$ resp. $\intSquares{\f+\g}$ (and thus from that of $\Q(\f)$, $\Q(\g)$ follows $\Q(\f+\g)$) is yielded without further ado from the relation \uequ{
+|\u+\v|^2\leq|\u+\v|^2+|\u-\v|^2 = 2|\u|^2 + 2|\v|^2.
+}
+}. Further $\Q(\f,\g)$ goes over to $\infsumX{\mu}\cu\barred{\d_\mu}$ (this is the generalized 
+Parseval formula:
+\uequ{
+\cu = &\Q(\f, \vYu),\quad \d_\u = \Q(\g, \vYu)\quad (\mu=1,2,\dots)\\
+&\Q(\f,\g)=\infsumX{\mu}\cu\d_\mu,
+}
+which will also be discussed in the next section).
+
+Because we have identified $\infsumX{\mu}\xu\yu$ with $\Q(\x,\y)$ ($\x$ for $\seqx$, $\y$ for $\seqy$), this means: $\funcSpace$ can be out into one-to-one correspondence with the space of all sequences $\seqx$ with finite $\sumSquaresX{\mu}{\xu}$, in such a way that the operations $\a\f$ ($\a$ a complex constant), $\f+\g$, $\Q(\f,\g)$ -- i.e. all operations which we have up to now used in the description of quantum mechanics -- go over to themselves (i.e. their analogous forms in the given space). Thus: all spaces $\funcSpace$ (belonging to different $\aOmega$) are distinguished from the space of sequences $\seqx$ with finite $\sumSquaresX{\mu}{\xu}$ (and hence from one another) only in the namimg of the elements and operations; in all their characteristics on the other hand they must match perfectly.
+I.e. without introducing "continuous matrices" or "improper structures" -- and with total mathematical rigor -- the sequence- and function-spaces underlying quantum mechanics are essentially identical.
+\section{V}
+The space of all sequences of complex numbers $\seqx$ with finite $\sumSquaresX{\mu}{\xu}$ shall be called a complex infinite-dimensional Euclidian space or a Hilbert space; we will denote it with $\hilberto$.
+
+As we have seen in the last sections, all function spaces $\funcSpace$ have corresponding formal characteristics with one another and with $\hilberto$; they differ only in their notation and in the interpretation of their elements. Thus it is natural to characterize these spaces by their common features: and a space that possesses all of these aforementioned characteristics shall be called an abstract Hilbert space. One could then think of all special sequence- and function-spaces as arising from the naming of their elements\WTF{Man könnte dann alle speziellen Folgen- und Funktionenräume durch eine Namengebung an seine Elemente entstanden denken} (in which one interprets them as sequences $\seqx$ or functions $\Y$ on a surface $\aOmega$), as one can obtain specific spacetime interpretations in the relativity theory by laying specific coordinate systems on the metrical homenous four-dimensional "world" (thus identifying a world point by a quadruple of numbers)\WTF{so etwa wie man in der Relativitätstheorie aus der metrischen homogenen 4-dimensionalen "Welt" durch Legung spezieller Koordinate-Systeme (also Benennung der Weltpunkte durch Zahlen-Quadrupletts) spezielle raumzeitliche Interpretationen gewinnen kann}.
+
+Hence our task becomes, to describe the abstract Hilbert space in terms of its "inner" characteristics -- i.e. those formulable without reference to the interpretation of its elements as sequences or functions. We solve this by specifying five characteristics from which -- as will be shown -- in fact all others follow. These five characteristics refer to an "abstract Hilbert space $\hilbar$" of elements $\f, \g, \dots$, in which the operations $\a\f$ ($\a$ a complex constant), $\f+\g$, $\Q(\f,\g)$ are defined ($\a\f$,$\f+\g$ are again elements of $\hilbar$; $Q(\f,\g)$ is on the other hand a number);
+these (specifically $\Q(\f,\g)$) should however now be viewed independently of their definitions in section III: we rely only on the five axioms specified in the following.
+
+Of course, these are fulfilled when we replace $\hilbar$ by either its "discontinuous realisation"
+$\hilberto$ (the space of all sequences $\seqx$ with finite $\sumSquaresX{n}{\x_n}$, $\Q(\x,\y)=\sumTimes{\x}{\y}$) or by one of the "continuous realisations" $\funcSpace$ (the space of all functions $\vY$ defined on $\aOmega$ with finite $\intSquares{\Y}$, $\Q(\vY,\Y) = \intTimes{\vY}{\Y}$) c.f. appendix 2; and therefore, according to our constraints, if one wants to visualize their concrete significance, the abstract $\hilbar$ may be replaced with one of these specific realizations.
+
+We now specify the five characteristic features A.-E. of abstract Hilbert spaces. To each of them we immediately connect the simplest of their consequences: at the end of them all follows the proof that they do in fact completely define $\hilbar$, while it will be shown that $\hbar$ can be -- via the invariance of the operations $\a\f$, $\f+\g$, $\Q(\f,\g)$ -- be put into a one-to-one correspondencd with $\hilberto$ (the idea of this proof was already sketched in section IV for the function spaces $\funcSpace$). We discuss the fact that the spaces $\hilberto$, $\funcSpace$ are regardred as $\hilbar$s (i.e. they possess the characteristics A.-E.) in appendix 2.
+
+Our five axioms A.-E. for the abstract (complex) Hilbert space $\hilbar$ are:
+\begin{enumerate}[label=\Alph*:]
+\item $\hilbar$ is a linear space.
+
+i.e. there is in $\hilbar$ an addition $\f+\g$ and a multiplication $\a\f$ ($\f,\g$ in $\hilbar$, $\a$ a complex number, $\f+\g, \a\f$ in $\hilbar$); these satisfy the well-known arithmetic laws of the anslogous operations on vectors (namely: the existence of 0, commutativity and associativity of addition, distributitivity and associativity of multiplication).
+
+A fundamental concept that can be establish on the grounds of A alone is that of linear independence: any elements $\f_1,\f_2,\dots,\f_k$ of $\hilbar$ are called linearly independent if from
+\uequ{
+\a_1\f_1 + \a_2\f_2 + \dots + \a_k+\f_k = 0
+}
+follows $\a_1=\a_2=\dots=\a_k=0$. Further, the linear manifold spanned by a subset $\subHilbar$ of $\hilbar$ is the set of all $\a_1\f_1 + \a_2\f_2 + \dots + \a_k\f_k$, where $\a_1,\a_2,\dots\a_k$ are arbitrary complex numbers, and $\f_1,\f_2,\dots,\f_k$ are arbitrary elementa of $\hilbar$.
+\item $\hilbar$ is a metric space, i.e. its metric is derived from a Hermitian-symmetric bilinear form: $\Q(\f,\g)$.
+i.e. there is a function $\Q(\f, \g)$ (defined for all $\f,\g$ in $\hilbar$, and with complex numbers as values) with the following characteristics:
+\begin{enumerate}[label=(\arabic*)]
+\item $\Q(\a\f, \g) = \a\Q(\f, \g)$ ($\a$ a complex constant).
+\item $\Q(\f_1+\f_2,\g) = \Q(\f_1,\g) + \Q(\f_2,\g)$.
+\item $\Q(\f,\g) = \barred{\Q(\g,\f)}$
+\end{enumerate}
+(because of (3), these follow from (1) and (2):
+\begin{enumerate}[label=(\arabic*')]
+\item $\Q(\f, \a\g) = \barred{\a}\Q(\f,\g)$
+\item $\Q(\f, \g_1+\g_2) = \Q(\f, \g_1) + \Q(\f, \g_2)$
+\end{enumerate}
+(1), (2), (1'), (2') express the Hermitian bilinearity of $\Q$, (3) the symmetry.) Because of (3) $\Q(\f,\f)$ is always real, and we further demand (again writing $\Q(\f) for \Q(\f,\f)$):
+\begin{enumerate}[label=(4)] % because setcounter isnt working?
+\setcounter{enumi}{3}
+\item $\Q(\f) \geq 0$, and only $=0$ when $\f=0$.
+\end{enumerate}
+One easily concludes from (1)-(4) that we always have
+\uequ{
+|\Q(\f,\g)| \leq \sqrt{\Q(\f)\Q(\g)},
+}
+and further\footnote{
+One easily calculates ($\a, \b$ real constants):
+\uequ{
+ \Q(\a\f+\b\g)&=\a^2\Q(\f)+\a\b\lbrack\Q(\f,\g)+\Q(\g,\f)\rbrack + \b^2\Q(\g) =\\
+              &=\a^2\Q(\f)+2\a\b\opReal\Q(\f,\g) + \b^2\Q(\a)
+}
+(where by $\opReal\z$ and $\opImag\z$ are understood the real resp. imaginary parts of the complex number $\z$). The left side is always $\geq 0$, the right a quadratic form in $\a,\b$; thus its discriminant is $\leq 0$:
+\uequ{
+\lbrack \opReal\Q(\f,\g)\rbrack^2 -\Q(\f)\Q(\g) \leq 0, 
+|\opReal\Q(\f,\g)|\leq \sqrt{\Q(\f)\Q(\g)}.
+}
+If we replace $\f$ by $\exp{\i\vY}\f$ ($\vY$ a real constant), the right side remains unchanged, while the left goes over to
+\uequ{
+|\opReal\left\{\exp{\i\vY}\Q(\f,\g)\right\}| = 
+|\cos\vY\opReal\Q(\f,\g) - \sin\vY\opImag\Q(\f,\g)|.
+}
+Because its maximum is
+\uequ{
+\sqrt{\lbrack \opReal\Q(\f,\g) \rbrack^2 + \lbrack \opImag\Q(\f,\g)\rbrack^2} = |\Q(\f,\g)|
+}
+we indeed have
+\uequ{
+|\Q(\f,\g)| \leq \sqrt{\Q(\f)\Q(\g)}.
+}
+
+Further:
+\uequ{
+\Q(\a\f) = \a\barred{\a}\Q(\f) = |\a|^2\Q(\f), \sqrt{\Q(\a\f)} = |\a|\sqrt{\Q(\f)},
+}
+and:
+\uequ{
+\Q(\f+\g) &= \Q(\f) + \Q(\f,\g) + \Q(\g,\f) + \Q(\g) \\
+ &= \Q(\f) + 2\opReal\Q(\f,\g) + \Q(\g) \leq \Q(\f) + 2\sqrt{\Q(\f)\Q(\g)} + \Q(\g) \\
+ &= (\sqrt{\Q(\f)} + \sqrt{\Q(\g)})^2,\\
+ \sqrt{\Q(\f + \g)} &\leq \sqrt{\Q(\f)} + \sqrt{\Q(\g)}.
+}
+}
+\uequ{
+  \sqrt{\Q(\a\f)} = |\a|\sqrt{\Q(\f)}\\
+  \sqrt{\Q(\f+\g)} \leq \sqrt{\Q(\f)} + \sqrt{\Q(\g)}.
+}
+
+These last two relations imply that $\sqrt{\Q(\f)}$ is regarded the absolute value of $\f$, and $\sqrt{\Q(\f-\g)}$ is the distance between $\f$ and $\g$\footnote{From the last-named relation follows the fundamental postulate for each distance:
+\uequ{
+\text{Distance}(\f,\h) \leq \text{Distance}(\f,\g)+\text{Distance}(\g,\h).
+}
+In $\hilberto$ and $\funcSpace$, our distance $\sqrt{\Q(\f-\g)}$ is (where $\Q$ is known)
+\uequ{
+\sqrt{\sumSquaresX{n}{\x_n - \y_n}} \text{  resp. }\sqrt{\intSquares{\f-\g}}
+}
+}
+Hence $\Q$ indeed provides a metric -- a concept of distance -- on the space $\hilbar$. Through this the terms "continuous", "bounded", "arbitrarily-close", etc become meaningful in $\hilbar$.
+\item $\hilbar$ has infinitely-many dimensions
+i.e.: There is an arbitrarily-large (but finite) number of linearly-independent elements in $\hilbar$.
+\item The Cauchy convergence requirement applies to $\hilbar$
+i.e.: Each sequence $\seqX{\f}$ in $\hilbar$ which satisfies the Cauchy convergence requirement (to each $\eps > 0$ there is a $\N = \N(\eps)$ such that $\N \leq \m \leq \n$ implies $\sqrt{\Q(\f_\m -\f_\n)} \leq \eps$) is convergent (there is an $\f$ in $\hilbar$ so that to each $\eps>0$ there exists an $\N=\N(\eps)$, such that $\N \leq \m$ implies $\sqrt{\Q(\f_\m - \f)} \leq \eps$).
+\end{enumerate}
+
+While we defer raising the question whether $\hilberto,\funcSpace$ satisfy these requirements until appendix 2, we proceed to draw the most obvious consequences from A.-E., whose conclusion establishes the repeatedly-mentioned mappability from $\hilbar$ to $\hilberto$, in the course of which we however obtain an insight into the structure of the orthogonal system in $\hilbar$, which is fundamental to our later considerations.
+
+We will (for sake of completeness) fill in these gaps from well-known mathematical principles based on the considerations in the next section; they can be overcome by taking the main results into account.
+
+\section{VI}
+First, some simple definitions of a more general nature must be specified.
+
+$\f$ is an accumulation point\WTF{Häufungspunkt} of a subset $\subHilbar$ of $\hilbar$, when there are points of $\hilbar$ in an arbitrary neighborhood (c.f. the remarks in B) of $\f$. A subset $\subHilbar$ or $\hilbar$ is closed if all of its accumulation points belong to it; it is everywhere dense if each $\f$ of $\hilbar$ is an accumulation point of it; it is dense in $\RSet$, when it is a subset of $\RSet$, but every point of $\RSet$ is an accumulation point of it.
+
+$\subHilbar$ is a linear manifold if it itself spans a linear manifold; i.e. if $\f_1,\f_2,\dots,\f_k$ also includes $\a_1\f_1+\a_2\f_2+\dots+\a_k\f_k$\WTF{$\subHilbar$ ist eine lineare Mannogfaltigkeit, wenn es sich selbst als lin. Mann. aufspannt;
+d.h. mit  $\f_1,\f_2,\dots,\f_k$ auch $\a_1\f_1+\a_2\f_2+\dots+\a_k\f_k$ enthält}.
+
+Two $\f,\g$ are orthogonal if $\Q(\f,\g)=0$. $\subHilbar$ is an orthonormal system if for all $\f,\g$ in $\subHilbar$
+\uequ{
+\Q(\f,\g) = \left\{
+     \begin{array}{lr}
+       1, & \text{ for } \f = \g, \\
+       0, & \text{ for } \g \neq \g.
+     \end{array}
+   \right.
+}
+$\subHilbar$ is a complete orthonormal system when no further $\f$ can be added to it while preserving its orthonormal character; or, what is often the same thing: when no $\f$ (other than $0$) is orthogonal to all $\g$ in $\subHilbar$.
+
+We may now proceed to the derivation of the previously-announced propositions\WTF{Sätze}.
+
+\textbf{Proposition 1.} Each orthonormal system $\subHilbar$ is finite or a sequence, each complete orthonormal system is a sequence.
+
+\textbf{Proof:} $\subHilbar$ is an orthonormal system, $\seqX{\f}$ is an everywhere-dense sequence in $\hilbar$. For any two $\f,\g$ in $\subHilbar$ we have
+\uequ{
+\Q(\f-\g) = \Q(\f) - 2\opReal\Q(\f,\g) + \Q(\g) = 1-0+1=2,
+}
+thus the distance between them is $\sqrt{2}$. For each $\f$ in $\subHilbar$ there is an element in the sequence $\seqX{\f}$ that is nearer to it than $\inv{2}\sqrt{2}$; according to the above, two different $\f$ in $\subHilbar$ are different elements of the sequence \WTF{nach dem Obigen gehörigen zu zwei verschiedenen $\f$ von $\subHilbar$ auch verschiedene Elemente der Folge}. Consequently, $\subHilbar$ has at most as many elements as the sequence, QED. -- If on the other hand $\subHilbar$ is complete, then it is clear\WTF{so ist zu zeigen} that $\subHilbar$ cannot be finite. i.e.: to any finite $\seqXk{\vY}$ there is an orthogonal $\f \neq 0$. In the linear manifold spanned by $\seqXk{\vY}$ there cannot be $k+1$ linearly-independent elements, thus $\hilbar$ has elements $\f$ lying outside of the manifold\WTF{also hat $\hilbar$ außerhalb derselben liegende Elemente $\f$}. Consequently, 
+\uequ{
+\f-\c_1\vY_1 - \dots - \c_k\vY_k,
+}
+is never $=0$, but for $\c_n=\Q(\f,\vY_n)$ $(1,2,\dots,k)$; it is orthogonal to all $\seqXk{\vY}$, QED.
+
+\textbf{Proposition 2.} $\seqX{\vY}$ is an orthonormal system. Then each series
+\uequ{
+\sumTimesRaw{\Q(\f,\vY_n)}{\Q(\g,\vY_n)}
+}
+is absolutely convergent, in particular $\sumSquares{\Q(\f,\vY_n)} \leq \Q(\f)$.
+
+\textbf{Proof:} For $\c_n = \Q(\f, \vY_n) (n=1,2,\dots)$, as is known, we have:
+\uequ{
+\Q(\sumXY{n=1}{N}\c_n\vY_n - \f) &= \Q(\f) - \sumXY{n=1}{N}2\opReal\Q(\f,\c_n\vY_n) + \sumXY{m,n=1}{N}\Q(\c_m\vY_m,\c_n\vY_n) = \\
+ &= \Q(\f) - \sumXY{n=1}{N}2\opReal\barred{\c}_n\vY(\f, \vY_n) + \sumXY{m,n=1}{N}
+\c_m\barred{\c}_n\Q(\vY_m,\vY_n) = \\
+ &= \Q(\f) - 2\sumXY{n=1}{N}|\c_n|^2 + \sumXY{n=1}{N}|\c_n|^2 = \Q(\f) - \sumXY{n=1}{N}|\c_n|^2.
+}
+Because the left side is always $\geq 0$, it follows that
+\uequ{
+\sumXY{n=1}{N}|\c_n|^2 \leq \Q(\f),
+}
+and hence the convergence of the series
+\uequ{
+\sumSquares{\c_n} = \sumSquares{\Q(\f,\vY_n)}
+}
+is proven, also that it is $\leq \Q(\f)$ (the second assertion\WTF{Behauptung}).
+
+The first follows from the obvious relations
+\uequ{
+\opReal\Q(\f,\vY_n)\barred{\Q(\g, \vY_n)} = 
+|\Q\left(\frac{\f+\g}{2}, \vY_n \right)|^2 - |\Q\left(\frac{\f-\g}{2}, \vY_n \right)|^2\\
+\opImag\Q(\f,\vY_n)\barred{\Q(\g, \vY_n)} = 
+|\Q\left(\frac{\f+\i\g}{2}, \vY_n \right)|^2 - |\Q\left(\frac{\f-\i\g}{2}, \vY_n \right)|^2\\
+}
+where the sum on the right side converges absolutely.
+
+\textbf{Proposition 3.} $\seqX{\vY}$ is an orthonormal system. The series $\sumTimes{\c}{\vY}$ converges\footnote{It should be noted that this convergence is in $\hilbar$! If one thus considers e.g. a continuoua realization $\funcSpace$ of $\hilbar$ (space of all functions $\f$ defined in $\aOmega$ with finite $\intSquares{\f}$), then the convergence is not pointwise, but mean convergence!} if and only if $\sumSquares{\c_n}$ is finite.
+
+\textbf{Proof:} According to E., the convergence of $\sumTimes{\c}{\vY}$ means: to each $\eps>0$ there is a $\N=\N(\eps)$, so that $\N \leq \m \leq \n$ implies
+\uequ{
+\sqrt{\Q\left(\sumXY{p=1}{n}\c_p\vY_p - \sumXY{n=1}{m}\c_p\vY_p\sic\right)} \leq \eps.
+}
+However,
+\uequ{
+\Q\left(\sumXY{p=1}{n}\c_p\vY_p - \sumXY{p=1}{\m}\c_p\vY_p\right)
+= \Q\left(\sumXY{p=m+1}{n}\c_p\vY_p\right) 
+= \sumXY{p,q=m+1}{n}\c_p\barred{\c_q}\Q(\vY_p,\vY_q) = \\
+= \sumXY{p=m+1}{n}|\c_p|^2 = \sumXY{p=1}{n}|\c_p|^2 - \sumXY{p=1}{m}|\q_p|^2,
+}
+hence we have exactly the convergence conditions for $\sumSquaresX{p}{\c_p}$.
+
+\textbf{Correlary.} For this $\f$, $\Q(\f,\vY_p)=\c_p$.
+
+\textbf{Proof:} In any case for $\N \geq p$,
+\uequ{
+\Q\left(\sumXY{n=1}{N}\c_n\vY_n,\vY_p\right) = \sumXY{n=1}{N}\c_n\Q(\vY_n,\vY_p)=\c_p.
+}
+
+Now because of
+\uequ{
+|\Q(\fp,\gp)| \leq \sqrt{\Q(\fp)\Q(\gp)}
+}
+and its bilinearity, $\Q$ is continuous in $\fp, \gp$. Thus letting $\N \to \infty$, we have $\Q(\f,\vY_p) = \c_p$.
+
+\textbf{Proposition 4.} $\seqX{\vY}$ is an orthonormal system. For each $\f$, the series
+\uequ{
+\fp = \infsumn\c_n\vY_n,\quad \c_n p \Q(\f,\vY_n)
+}
+is convergent, and $\f - \fp$ is orthogonal to all of $\seqX{\vY}$.
+
+\textbf{Proof:} Followa directly from propositions 2 and 3.
+
+\textbf{Proposition 5.} Each of the following conditions is both necessary and also sufficient to allow an orthonormal system $\seqX{\vY}$ to be complete:
+
+$\alpha$. The linear manifold spanned by $\seqX{\vY}$ is everywhere dense.
+
+$\beta$. We have for all $\f$
+      \uequ{
+        \f = \infsumn\c_n\vY_n, \quad \c_n=\Q(\f,\vY_n).
+      }
+
+$\gamma$. We have for all $\f,\g$
+      \uequ{
+        \Q(\f,\g) = \sumTimesRaw{\Q(\f,\vY_n)}{\Q(\g,\vY_n}.
+      }
+
+
+\textbf{Proof:} First $\beta.$ follows from the completeness, because the $\f-\fp$ from proposition 4 must vanish\WTF{Erstens folgt aus der Vollst. $\beta.$, weil das $\f-\fp$ von Satz 4 verschwinden muß}. Second, $\alpha.$ follows from $\beta.$ because $\f$ is an accumulation point of $\sumXY{p=1}{N}\c_p\vY_p$ belonging to the linear manifold spanned by all of the $\seqX{\vY}$\WTF{Zweitens folgt aus $\beta.$ $\alpha.$, weil $\f$ Häufungspunkt der $\sumXY{p=1}{N}\c_p\vY_p$ ist, die alle
+zur von $\seqX{\vY}$ aufgespannten lin. Mann. gehören}. Third, $\gamma.$ follows from $\beta.$ because 
+\uequ{
+\Q\left(\sumXY{n=1}{N}\c_n\vY_n - \f\right) = \Q(\f) - \sumXY{n=1}{N}|\c_n|^2,
+}
+and as $N \to \infty$ (because $\Q(\f)$ as has been remarked, is continuous) the left side tends to $0$, thus
+\uequ{
+\sumSquares{\c_n} = \Q(\f), \sumSquares{\Q(\f,\vY_n)} = \Q(\f);
+}
+if we successively insert $\half{\f+\g}$, $\half{\f-\g}$, and $\half{\f+\i\g}$, $\half{\f-\i\g}$, and subtract both times, we obtain as in proposition 2 the assertion\WTF{Behauptung}. Fourth, the completeness follows from $\alpha.$: then $\f$ is orthogonal to all $\seqX{\vY}$, so it is also to the entirety of the linear manifolds spanned by them\WTF{so ist es auch zur ganzen von ihnen aufgespannten lin. Mann.}, and because this is everywhere dense, also to itself; i.e. $\Q(\f)=0,\f=0$. Fifth, the completeness follows from $\gamma.$: if $\f$ is orthogonal to all $\seqX{\vY}$, then we obtain from $\gamma$ with $\f,\f$, $\Q(\f)=0,\f=0$.
+
+We thus have the following logical schema:
+
+??? Completeness $\to$ $\beta.$ $\to$ $\alpha.,\gamma.$ $\to$ Completeness. ???
+
+Thus, these four statements are equivalent.
+
+\textbf{Proposition 6.} To each sequence $\seqX{\f}$ there is an orthonormal system $\seqX{\vY}$ (both sequences may be finite) which spans the same linear manifold.
+
+\textbf{Proof:} The first nonzero element of $\seqX{\f}$ is $\g_1$, the first element $\neq \a_1\g_1$ is $\g_2$, the first element $\neq \a_1\g_1+\a_2\g_2$ is $\g_3$, etc. The $\seqX{\g}$ are obviously linearly independent, and span the same manifold as $\seqX{\f}$. By the well-known "orthogonalizing" procedure one transforms $\seqX{\g}$ into an orthonormal system\footnote{This runs thusly:
+\uequ{
+\gamma_1 &= \g_1, \vY_1 = \inv{\sqrt{\Q(\gamma_1)}}\gamma_1,\\
+\gamma_2 &= \g_2 - \Q(\g_2, \vY_1)\vY_1, \vY_2 = \inv{\sqrt{\Q(\gamma_2)}}\gamma_2,\\
+\gamma_3 &= \g_3 - \Q(\g_3, \vY_1)\vY_1 - \Q(\g_3, \vY_2)\vY_2, \vY_3 = \inv{\sqrt{\Q(\gamma_3)}}\gamma_3,\\
+\dots\dots.
+}
+The $\seqX{\vY}$ obviously span the same linear manifold as the $\seqX{\g}$, and are orthonormal.
+}.
+
+\textbf{Correlary.} There is a complete orthonormal system.
+
+\textbf{Proof:} If one chooses $\seqX{\f}$ everywhere dense, following D., and replaces is by an orthonormal system following proposition 6, then this is complete accorsing to proposition 5$\alpha$.--
+
+
+If we now take any orthonormal system $\seqX{\f}$, and assign to each $\f$ in $\hilbar$ the sequence $\seqX{\c}$ ($\c_n = \Q(\f,\vY_n), n=1,2,\dots$), then according to proposition 2 $\seqX{\c}$ belongs to $\hilberto$,and $\f$ for its part is defined following proposition 5.$\beta$. This one-to-one mapping of $\funcSpace$ covers all of $\hilberto$, following proposition 3. The invariance of the operators $+$ and its opposite $a.$ is trivial\WTF{Die Invarianz der Operationen $+$ und $a.$ ihr gegenüber ist trivial}, and the invariance of $\Q$ follows from proposition 5$\gamma.$.
+
+Thus it is indeed demonstrated that each space $\hilbar$ with the characteristics A.-E. must correspond in all its characteristic with the usual Hilbert space $\hilberto$. (This mapping of $\hilbar$ from $\hilberto$ ia natutally analogous with the mapping to $\funcSpace$ from $\hilberto$ outlined in section III.)
+
+\part*{Operator calculus}
+\section{VII}
+Following the considerations of the earlier sections, we could use the abstract (complex) Hilbert space as the foundation our our further investigations. Resorting to its various realizations (the discontinuous, as well as the various continuous, c.f. the start of section V) will not at first turn out to be necessary: all our general developments are independent of them. Only later, in the physical applications, will we have to look after them.
+
+The first thing that we need to develop in $\hilbar$ is the formal operator calculus: indeed we know (c.f. the end of section II) what fundamental importance this has for quantum mechanics. --
+
+A function in $\hilbar$, which is defined at some (possibly all) points in $\hilbar$, and has points in $\hilbar$ as values, is an operator. An operator $\T$ is linear, if first it is defined in a linear manifold (which by no means must be closed\WTF{abgeschlossen}), and if second it always satisfies
+\uequ{
+\T(\a_1\f_1+\a_2\f_2+\dots+\a_k\f_k) = \a_1\Y\f_1 + \a_2\T\f_2 + \dots + \a_k\T\f_k
+}
+($\seqXk{\a}$ being complex constants).
+
+As we have already remarked in section IV, if the expressions "continuous" "constrained to the sphere of radius 1 around the origin" are meaningful for operators, then they apparently have the same meaning for linear operators\WTF{haben die Ausdrucksweisen "stetig" "in der Kugel vom Radius 1 um den Nullpunkt beschränkt" für Operatoren Sinn, bei linearen Operatoren besagen sie offenbar dasselbe}\footnote{The second condition implies: from $\Q(\f) \leq 1$ follows $\Q(\T\f) \leq \C$ ($\C$ a constant). Because $\T(\a\f) = \a\T\f$ we have
+\uequ{
+\Q(\T\f) &\leq \C\Q(\f),\\
+\Q(\T\f - \T\g) &\leq \C\Q(\f-\g),
+}
+i.e. continuity\WTF{Wegen $\T(\a\f) = \a\T\f$ hat dies $\Q(\T\f) \leq \dots$ zur Folge, d.h. die Stetigkeit}. Conversely\WTF{Umgekehrt}: for continuous $\T$ there is an $\eps > 0$ such that $\Q(\f)\leq \eps$ implies $\Q(\T\f) \leq 1$, from which one easily deduces that for $\Q(\f) \leq 1$, $\Q(\T\f) \leq \inv{\eps}$.
+}. For this Hilbert's expression "bounded" is usual.
+
+If we consider the discontinuous realization $\hilberto$, then corresponding to each bounded linear operator there is an infinite matrix, and the associated bilinear form (of infinitely-many variables) belonging to the class of bounded bilinear forms, for which Hilbert has completely solved the eigenvalue problem (c.f. note 12). The operators of interest to quantum mechanics, however, do not belong to this category (c.f. above\WTF{ebendort}).
+
+For the continuous realizations $\funcSpace$, it is true that for cetain bounded operators $\T$ the integral-kernel representation analogous to the matrices 
+\uequ{
+\T\f(\P) = \intOmega\kernel(\P,\Q)\f(\Q)\dv_\Q
+}
+(integrated over $\Q$\WTF{es wird nach $\Q$ integriert}) is available, however, it is absent in the simplest case, e.g. the "identity operator" (which maps $\f$ to $\f$). We will carry out our considerations without in fact utilizing the matrix- or integral-kernel representation. --
+
+It is essential to recall some simple operators and operator-calculus rules; one is:
+\uequ{
+0 \f = 0, \quad 1 \f = \f
+}
+(the $0$ thus occurs in the forms: as a number, as a point in the $\hilbar$-space, and as the zero-operator; there is probably no danger of confusing them). Further,
+\uequ{
+(\a\T)\f &= \a\T\f \quad (\text{$\a$ a complex constant}),\\
+(\R)+ \T
+\f &= \R\f + \T\f,\\
+(\R\T)\f = \R(\T\f).}
+
+It is generally known, that operator-addition is commutative and associative, both multiplications are distributive and associative, however in general not commutative, and that $0$, $1$ play the roles of the zero and identity.
+
+We remark in closing: if $\T$ is a linear operator, and there is for some $\f$ in $\hilbar$ an $\f*$ so that (when $\T\g$ has any meaning at all\WTF{wenn $\T\g$ überhaupt Sinn hat})
+\uequ{
+\Q(\fstar,\g) = \Q(\f,\T\g)
+}
+always holds, then we call this $\fstar$ $\starred{\T}\f$. It is uniquely determined (to be everywhere dense???) if the $\g$ is meaningful for $\T\g$\WTF{Es ist eindeutig bestimmt, wenn die $\g$ für die $\T\g$ sinnvoll ist, überall dicht liegen}: if $\fstar_1, \fstar_2$ have these characteristics, then
+\uequ{
+\Q(\fstar_1,\g) = \Q(\fstar_2, \g), \quad \Q(\fstar_1 - \fstar_2, \g) = 0
+}
+for an everywhere-dense set of $\g$, thus for all $\g$, thus
+\uequ{
+\Q(\fstar_1-\fstar_2) = 0, \quad \fstar_1 = \fstar_2
+}
+
+
+For now we apply this requirement (for being everywhere-dense in $\g$ to be meaningful \WTF{für überall dicht liegende $\g$ sinnvoll zu sein} to all operators we consider\WTF{Diese Anforderung stellen wir von nun an an alle zu betrachtenden Operatoren}; it will be fulfilled for all those of real\WTF{wirklich} interest
+\footnote{Its significance is made clear by the following two examples:
+
+$\aOmega$ is the interval $0,1$, $\T$ the differential operator. $\T\f$ is not always well-defined\WTF{sinnvoll} (not all $\f(\x)$ are differentiable), but these $\f$ are probably everywhere dense: one may indeed already approximate (on average) any function to arbitrary accuracy\WTF{beliebig approximieren (en moyenne)} by a polynomial (which are differentiable functions!).
+
+$\aOmega$ is the interval $-\infty,+\infty$, $\T$ is multiplication by $\x$. $\T\f$ is not always well-defined ($\intXY{-\infty}{\infty}|\f(\x)|\dx$ can be finite, without $\intXY{-\infty}{\infty}\x^2|\f(\x)|^2\dx$ being so\WTF{($\intXY{-\infty}{\infty}|\f(\x)|\dx$ kann endlich sein, ohne $\intXY{-\infty}{\infty}\x^2|\f(\x)|^2\dx$ es ist}), but these $\f$ are everywhere-dense: all $\f$, which identically vanish outside of an (arbitratily-large, but finite) interval, belong to it.}.
+
+$\Tstar$ is, as one immediately sees, also a linear operator (we also require that is well-defined for everywhere-dense $\f$w. It is defined by the equation:
+\uequ{
+\Q(\f,\T\g) = \Q(\Tstar\f, \g).
+}eFrom the characteristics of $\Q$ (section IV.V) one easily proves (with the requisite meaningfulness-assumptions):
+\uequ{
+\starred{(\a\T)} &= \a\Tstar\\
+\starred{(\R}+ \T)
+ &= \starred{\R} + \Tstar\\
+\starred{(\R\T)} &= \Tstar\starred{\R}\\
+\starred{{\Tstar}} &= \T.}
+
+
+We call a linear operator symmetrical (specifically, complex Hermitian-symmetrical) when $\T=\Tstar$. With the help of the above equations one verifies without further ado the following statements:
+
+If $\T$ is symmetrical, then $\a\T$ is symmetrical if and only if $\a$ is real. If $\R$ and $\T$ are symmetrical, then so is $\R+\T$; on the other hand, $\R\T$ is only when $\R$ and $\T$ commute\WTF{vertauschbar sind} ($\T\R=\R\T$).
+
+$0$ and $1$ are both symmetrical.
+
+\section{VIII}
+Following these general remarks we now move to the consideration of a special class of operators: the Einzeloperators\footnote{This word is derived from Hilbert's description for the analogous bilinear forms: "Einzelforms".}. These are defined as:
+
+A symmetrical linear operator $\E$ (which is everywhere well-defined) is an Einzeloperator (abbreviated E. Op.) when $\E^2 = \E$. One sees immediately that $0$ and $1$ are E. Ops. Further, along with $\E$, $1-\E$ is always an E. Op., because
+\uequ{
+(1-\E)^2 = 1 - 2\E + \E^2 = 1 - 2\E + \E = 1 - \E.
+}
+
+We now want to derive some laws for E. Ops. While we will not need them all in the following, they still help\WTF{sind sie doch geeignet} to put the essence of these fundamental concepts in the right light. We rely mainly on the following two facts:
+
+An E. Op. maps some $\f$ to $\f$, and others to $0$; the first form its interior, the last its exterior. Each $\f$ in $\hilbar$ can be decomposed exactly into $\g+\h$, $\g$ in the interior and $\h$ in the exterior of $\E$: $\E\f$ then arises from $\f$ by the omission of the "exterior component" $\h$.
+
+There exists a certain ordering\WTF{Größenanordnung} between the E. Ops: namely, by the size of their interiors (or inversely by the size of their exteriors).
+
+Taking these results into consideration, one may skip\WTF{berschlagen} the following discussion.
+
+(The just-given definition of the interior and exterior of $\E$ will be used in it.) --
+
+Apparently we have
+\uequ{
+\Q(\E\f,\E\g) &= \Q(\f, \Estar\E\g) = \Q(\f, \E^2\g) = \Q(\f, \E\g)\\
+              &= \Q(\Estar\E\f, \g) = \Q(\E^2\f, \g) = \Q(\E\f, \g)
+}
+and thus particularly
+\uequ{
+\Q(\f,\E\f) = \Q(\E\f).
+}
+
+From this follows:
+
+\textbf{Proposition 1.} We always have
+$0 \leq \Q(\E\f) \leq \Q(\f)$.
+
+\textbf{Proof:} The first is trivial, the second applies because like $\E$, $1-\E$ is a linear operator:
+\uequ{
+\Q(\f,)\E\f
+ &= \Q(\f) - \Q(\f, (1-\E)\f),\\
+\Q(\E\f)     &= \Q(\f) - \Q((1-\E)\f) \leq \Q(\f). --}
+
+
+Thus each E. Op. is continuous; indeed, all E. Ops are even uniformly continuous.
+
+\textbf{Proposition 2.} When $\E$ and $\F$ are E. Ops, then $\E\F$ is an E. Op. if and only if they commute ($\E\F = \F\E$).
+$\E+\F$ is one if and only if $\E\F = 0$ (or $\F\E=0$). $\F-\E$ is
+one if and only if $\E\F=\E$ (or $\F\E=\E$).
+
+\textbf{Proof:} For $\E\F$, $\E\F=\F\E$ is already necesary and sufficient by symmetry, because this implies
+\uequ{
+(\E\F)^2 = \E\F\E\F = \E\E\F\F = \E^2\F^2 = \E\F,
+}
+so this case is taken care of.
+
+For $\E+\F$ and $\F-\E$ the symmetry is always present; only the relation $\T^2=\T$ needs to be examined.
+
+We first take $\E+\F$. If $\E+\F$ is an E. Op, then
+\uequ{
+\Q(\f,\E\f) + \Q(\f, \F\f) = \Q(\f, (\E+\F)\f)\\
+\Q(\E\f)+ \Q(\F\f) = \Q((\E+\F)\f) \leq \Q(\f);
+}
+for $\E\f=\f$ we thus have
+\uequ{
+\Q(\E\f) \leq 0, \F\f=0.
+}
+Now we always have $\E\E\g=\E\g$, thus $\F\E\g=0$; thus $\F\E=0$. Conversely, if $\F\E=0$, then $\E\F=0$ as well (while $\F\E$ is an E. Op, thus $\F,\E$ are commutable), thus
+\uequ{
+(\E+\F)^2 = \E^2+\E\F + \F\E + \F^2 = \E + 0 + 0 + \F = \E+\F,
+}
+and consequently $\E+\F$ is an E. Op.
+
+i.e.: $\F\E=0$ is necessary and sufficient; and since the roles of $\E$ and $\F$ are completely symmetrical, the same applies for $\E\F=0$.
+
+We now take $\F-\E$. It is an E. Op if and only if $1-(\F-\E)=\E+(1-\F)$ is one; however for this
+\uequ{
+\E(1-\F)=0, \E = \E\F
+}
+resp.
+\uequ{
+(1-\F)\E = 0, \E = \F\E
+}
+(when $\E$, $1-\F$ are E. Ops) is necessary and sufficient. We introduce the following expressions: when $\E+\F$ is an E. Op, then $\E,\F$ are disjoint \WTF{fremd};  when $\E-F$ is one, the $\E \leq \F$ (the proposition 2 thus provides for both simple necessary and sufficient conditions). One sees immediately: $\leq$ is an ordering-relation for the E. Ops, i.e. it satisfies: $\E\leq\E$; $\E\leq\F$, $\F\leq\E$ implies $\E=\F$; $\E\leq\F$, $\F\leq\G$ implies $\E\leq\G$. $0$ is before, $1$ after all $\E$. $\E \leq \F$ is the same as saying $\E$, $1-\F$ are disjoint, or also with $1-\F\leq  1-\E$.
+
+The interior resp. exterior of $\E$ shall now be morr closely examined. That both are closed linear manifolds follows from the linearity and continuity of $\E$. Further, one immediately sees that they are swapped in the transition from $\E$ to $1-\E$. The interior of $1$ and the exterior of $0$ contain all $\f$ in $\hilbar$; the exterior of $1$ or the interior of $0$ on the other hand contain only $0$.
+
+\textbf{Proposition 3.} The $\f$ lying in the interior of $\E$ are identical with $\E\g$ (arbitrary $\g$), those lying in the exterior of $\E$ are identical with $(1-\E)\g$.
+
+\textbf{Proof:} The second follows from the first, in which $\E$ is replaced by $1-\E$, and the first is proven thus: when $\f$ lies in the interior of $\E$, it is $=\E\f$, and thus has the desired form; if $\f=\E\g$ then
+\uequ{
+\E\f = \E\E\g = \E\g = \f,
+}
+i.e. $\f$ lies in the interior of $\E$.
+
+\textbf{Proposition 4.} $\f$ then lies in the interior resp. exterior of $\E$ if and only if $\Q(\E\f) = \Q(\f)$ resp. $=0$.
+
+\textbf{Proof:} The second is trivial ($\Q(\E\f)=0$ means $\E\f=0$); the first follows by exchanging $\E$ and $1-\E$.
+
+\textbf{Proposition 5.} Each $\f$ is decomposable in one and only one way into two summands $\g+\h$, $\g$ resp. $\h$ in the interior resp. exterior of $\E$; and indeed this decomposition is $\E\f + (1-\E)\f$.
+
+\textbf{Proof:} That $\E\f + (1-\E)\f$ is the desired decomposition is clear; it is unique because the interior and exterior of $\E$ are linear manifolds, without and common points other than $0$.
+
+\textbf{Proposition 6.} The interior resp. exterior of $\E$ consists of those (and only those) elements of $\hilbar$ which are orthogonal to each element of the exterior resp. interior of $\E$.
+
+\textbf{Proof:} When $\f$ resp. $\g$ lying in the interior resp. exterior of $\E$, then they are orthogonal:
+\uequ{
+\Q(\f,\g)=\Q(\E\f,\g)=\Q(\f,\E\g) = \Q(\f,0) = 0.
+}
+From this and proposition 5 immediately follow our assertion\WTF{Behauptung}.
+
+\textbf{Proposition 7.} $\E,\F$ are disjoint if and only if each $\f$ in the interior of $\E$ lies in the exterior of $\F$.
+
+\textbf{Proof:} If the condition is necessary and sufficient, then this means: for all $\f$ in the interior of $\E$, then $\F\f=0$, i.e. $\F\E\g=0$, i.e. $\F\E=0$, thus $\E$ and $\F$ are disjoint.
+
+\textbf{Proposition 8.} $\E \leq \F$ is equivalent with the statement that the interior of $\E$ is part of the interior of $\F$, or also that the exterior of $\F$ is part of the exterior of $\E$.
+
+\textbf{Proof:} $\E\leq\F$ means: $\E$ and $1-\F$ are disjoint; one applies proposition to $\E$, $1-\F$, and to $1-\F$,$\E$.
+
+\textbf{Proposition 9.} $\E \leq \F$ is equivalent to the statement that for all $\f$, $\Q(\E\f) \leq \Q(\F\f)$.
+
+\textbf{Proof:} This is sufficient, because: if $\f$ lies in the exterior of $\F$, then
+\uequ{
+\Q(\E\f) \leq \Q(\F\f) = 0, \E\f = 0,
+}
+i.e. $\f$ is also in the exterior of $\E$; thus is $\E\leq\F$. And it is necessary because $\E \leq \F$ implies
+\uequ{
+\Q(\E\f) = \Q(\E\F\f) \leq \Q(\F\f).
+}
+
+Now we are in a position to formulate the eigenvalue problem of the generalized symmetric operators with the help of the E. Ops, and that, as opposed to section III, the continuous spectrum comes to bear.
+
+\part*{The Eigenvalue Problem}
+\section*{IX}
+We have already mentioned that we are not satisfied with the most obvious formulation of the eigenvalue problem, which reads:
+
+$\T$ is a linear symmetric operator, and we week all (real) numbers $\l$ and all $\f \neq 0$ in $\hilbar$ for which
+\uequ{
+\T\f = \l\f
+}
+(the $\l$ are the eigenvalues, the $\f$ are the eigenfunctions).
+
+This formulation indeed has two important defects:
+
+First, the eigenfunctions are not uniquely fixed, even if one normalizes them so that $\Q(\f)=1$: an arbitrary factor of absolute value $1$ remains, indeed in the case of degenerate\WTF{mehrfacher} eigenvalues (i.e. an $\l$ belonging to multiple linearly-independent eigenfunctions) even an arbitrary orthogonal transformation of the eigenfunctions remains (section I$\vartheta$).
+
+Second, this Ansatz fails in the case of a continuous spectrum. If we fall back on the realizations $\hilberto$ resp. $\funcSpace$, then we find: there are indeed potential eigensequences $\seqx$ resp. eigenfunctions $\f(\P)$, however these do not belong to $\hilberto$ resp. $\funcSpace$, i.e.
+\uequ{
+\sumSquares{\x_n} \text{ resp. } \intSquares{\f(\P)}
+}
+is infinite\footnote{This raises the objection that we have allowed too much arbitrariness in the definition of $\hilberto$ resp. $\funcSpace$ (and this $\hilbar$)\WTF{Dies legt den Einwand nahe, wir hätten beim Abgrenzen von $\hilberto$ bezw. $\funcSpace$ (also von $\hilbar$) willkürlicherweise zu wenig zugelassen}: for some to remain in $\funcSpace$\WTF{um etwa bei $\funcSpace$ zu bleiben}, one must also permit functions with infinite $\intSquares{\f(\P)}$.
+
+This objection is in our opinion unfounded: we will show that for quantum mechanics, it is not the eigenfunctions that matter, but rather the entirety of properties of the continuous spectrum, and our $\hilbar$ provides exactly the appropriate framework to describe these. Further, allowing all $\f(\P)$ would still not suffice; this will now be clarified by two examples: one will be helped by the aforementioned extension of the function-space, the other will not.
+
+First: $\aOmega$ is the interval $-\infty,\infty$, $\T$ the well-known symmetrical quantum-mechanical operator
+\uequ{
+\p = \frac{\h}{2\pi\i}\opddX{\x}\dots.
+}
+
+As one immediately sees, the spectrum is the entire interval $-\infty,\infty$, and to the eigenvalues $\l$ belong the eigenfunctions $\exp{2\pi\i\frac{\l}{\h}\x}$. Because
+\uequ{
+\intXY{-\infty}{\infty}|\exp{2\pi\i\frac{\l}{\h}\x}|^2\dx = \intXY{-\infty}{\infty}\dx = \infty,
+}
+they belong to $\funcSpace$.
+
+Second: $\aOmega$ is as above, $\T$ the equally-important symmetrical operator
+\uequ{
+\q = \x\dots.
+}
+It is clear (and will in section X be exactly justified), that again each $\l$ from $-\infty$ to $\infty$ is an eigenvalue, only the eigenfunction must vanish for all $\x \neq \l$. Because such a function acts as the $0$ in any integral, we must regard it as $0$; i.e. there are no eigenfunctions (obviously one could regard the Dirac $\ddelta(\x-\l)$ (c.f. section I$\zeta$) as an eigenfunction, but it is "improper").
+
+One thus sees: there are no mathematically-unobjectionable function-domains in which the continuous spectrum could be handled directly.
+}.
+
+We must thus seek another formulization.
+
+We try to approximate $\hilbar$ by spaces of known constitution. For this purpose we take the discontinuous realization $\hilberto$: the space of all sequences $\seqx$ with finite $\sumSquares{\x_n}$. We may regard it as the limit of the $1-,2-,3-,\dots-$dimenational (complex) Euclidian spaces, if the number of dimensions increases beyond all limits.
+
+Thus let $\aOmegak$ be the $k$-dimensional Euclidian space: the space of all tuples $\seqXY{\x}{k}$. It is obvious that $\Q(\x,\y)$ is defined in $\aOmegak$ as $\sumXY{n=1}{k}\x_n\barred{\y_n}$ (i.e. as the inner product of vectors $\x$ and $\y$); then each linear operator $\opA$ in $\aOmegak$ is described by a matrix $\lbrace\auv\rbrace$ (in which $\opA$ maps the vector $\x$ to the vector $\y$ with
+\uequ{
+\y_\nu = \sumXY{n=1}{k}\auv\x_\mu \quad (\nu = 1,2, \dots, k)
+}
+), and the symmetry is equivalent to
+\uequ{
+\auv = \barred{\a_{\nu\mu}}.
+}
+
+It is known that the Hermitian form belonging to $\opA$
+\uequ{
+\opA(\x|\y) = \Q(\opA\x|\y) = \Q(\x,\opA\y) = \sumXY{\mu,\nu=1}{n}\auv\x_\mu\barred{\y_\nu}
+}
+can always be brought into the "major axis form"\WTF{Hauptachsenform}:
+\uequ{
+\opA(\x|\y) = \sumXY{p=1}{k}\l_p(\al_{p 1}\x_1 + \dots + \al_{pk}\x_n)
+                        \barred{(\al_{p 1}\y_1 + \dots + \al_{pk}\y_n)},
+}
+where the matrix $\lbrace\al_{\mu\nu}\rbrace$ is orthogonal (unitary), i.e. the "standard form"\WTF{Einheitsform}
+\uequ{
+\Q(\x|\y) = \sumXY{n=1}{k}\x_n\barred{\y}_n
+}
+is mapped to itself:
+\uequ{
+\sumXY{n=1}{k}\x_n\barred{\y}_n = 
+\sumXY{p=1}{k}(\al_{p 1}\x_1 + \dots + \al_{pk}\x_n)
+      \barred{(\al_{p 1}\y_1 + \dots + \al_{pk}\y_n)}.
+}
+
+The "eigenvalues" $\seqXY{\l}{k}$, as is well-known, are uniquely-determined up to their order\WTF{Reihenfolge}, but not the "eigenvectors" $\al_{1\nu},\al_{2\nu},\dots,\al_{3\nu}$ ($\nu=1,2,\dots,k$): each of them is still indeterminate up to a factor of absolute value 1 (the "phase"), and if several eigenvalues $\l_p$ coincide (they are"degeneraate)
+, they are even indeterminate up to an orthogonal (unitary) transformation between the corresponding eigenvectors.
+
+Nevertheless, it is easy to obtain a unique normal form for $\opA(\x|\y)$:
+
+We denote the different eigenvalues in $\seqXY{\l}{k}$ by $\seqXY{\L}{q}$ ($q \leq k$), and these are sorted by their value. Further, we put
+\uequ{
+\opE(\l; \x|\y) = \sumX{\L_p \leq \l}(\al_{p 1}\x_1 + \dots + \al_{pk}\x_k)
+                             (\barred{\al_{p 1}\y_1 + \dots + \al_{pk}\y_k}).
+}
+As one can easily convince oneself, the $\L_p$ and the $\opE(\l;\x|\y)$ -- despite the above-mentioned indeterminancy of the $\l_p$ and $\al_{\mu\nu}$ -- uniquely fixed. We call the matrix belonging to $\opE(\l; \x|\y)$
+\uequ{
+\opE(\l) = \lbrace\euv(\l)\rbrace.
+}
+Apparently,
+\uequ{
+\opA(\x|\y) = \sumXY{q=1}{p}\L_q\left\{ \opE(\L_q; \x|\y) - \opE(\L_{q-1};\x|\y) \right\}
+}
+($\L_0$ signifies any number $< \L_1$). Because $\opE(\l;\x|\y)$, considered as a function of $\l$, is constant on the intervals
+\uequ{
+\l < \L_1, \L_{q-1} \leq \l < \L_q (q=2,\dots,p), \L_p \leq \l,
+}
+we could also write:
+\uequ{
+\opA(\x|\y)   = \intXY{-\infty}{\infty}\l\opdiff{\opE(\l; \x|\y)}, \quad
+\Q(\x|\opA\y) = \intXY{-\infty}{\infty}\l\opdiff{\Q(\x|\opE(\l)\y)}.
+}
+(The integral $\intXY{-\infty}{\infty}$ is a so-called Stieltjes integral, c.f. appendix 3 for more information).
+
+Thus the $\opElxy$ are so-called Einzelform, i.e. they are symmetrical ($\euv(\l)=\barred{\euv(\l)}\sic$, and for the matrices $\opEl$
+\uequ{
+\opEl^2 = \opEl\footnote{
+It is not difficult to verify that $\opElxy$ is an Einzelform by direct calculation, that it has the form
+\uequ{
+\sum\L(\x)\barred{\L(\y)},
+}
+wherein the $\L$ are mutually orthogonal and normalized linear expressions of $\seqXY{\x}{k}$
+}).
+}
+We could thus regard the corresponding operators
+\uequ{
+\opEl\x = \y,\\
+\y_\nu = \sumXY{\mu=1}{k}\euv(\l)\x_\mu
+}
+as E. Ops in the space $\aOmegak$.
+
+Further, one easily sees that for $\l < \L_1$ resp. $\geq \L_p$
+\uequ{
+\opElxy = 0 \text{ resp. } = \sumTimesX{q}{\x}{\y},
+}
+i.e. $\opEl$ is null resp. is unitary\WTF{Einheit}; and that $\l \leq \primed{\l}$ implies
+\uequ{
+\opElXY{\x}{\x} \leq \opELXY{\primed{\l}}{\x}{\x}.
+}
+
+The matrix $\opEl$ is thus constant everywhere, with the exception of the eigenvalue-positions, where it makes discontinuous jumps; the same applies for $\opElXY{\x}{\x}$, which is furthermode monotonic non-decreasing. --
+
+This formulation is however not difficult to translate over to $\hilberto$, and thus to $\hilbar$ itself. We seek a symmetrical linear operator $\T$ and a family of E. Ops $\El$\WTF{Wir suchen da zu einem symm. lin. Op. $\T$ wieder eine Schar von E. Op. $\El$}, so that
+\uequ{
+\Q(\f,\T\g) = \intXY{-\infty}{\infty}\l\opdiff{\Q(\f,\El\g)}
+}
+always holds. We express this fact briefly as
+\uequ{
+\T\g = \intXY{-\infty}{\infty}\l\opdiff{(\El\g)}, \T =\intXY{-\infty}{\infty}\l\opdiff{\El}.
+}
+
+Thus for $\l \leq \primed{\l}$ we always have $\Q(\El\f) \leq \Q(\E(\lp)\f)$, i.e. $\E(\l) \leq E(\lp)$ (according to the monotony of $\opElXY{\x}{\y}$!). $\opEl$ has at most $k$ discontinuities, but because $k$ must become infinite, so that the $\aOmegak$ approximates $\hilbar$, we cannot ask for an analog for $\El$. On the other hand, the fact that $\opEl$ begins as null (small $\l$) and ends as the identity\WTF{Einheit} (large $\l$) can accordingly be interpreted as: for $\l \to +\infty$ resp. $-\infty$, $\El\f \to \f$ resp. $0$.
+
+Finally, if the $\opEl$'s jumps always lie to the left of the discontinuities (i.e. it is semi-continuous on the right -- that is, it is a sum $\sumX{\L_p \leq \l}$, not $\sumX{\L_p < \l}$), then we correspondingly demand for $\El$: for $\lp \to \l$, but $\lp > \l$, we always have $\E(\lp)\f \to \El\f$.
+
+We summarize our conditions as:
+
+When $\T$ is a symmetrical linear operator in $\hilbar$, then we say that $\T$ is represented in the eigenvalue form when we have found a family of E. Ops $\El$ (for each real $\l$), for which the following conditions apply:
+
+\begin{itemize}
+    \item{1.} \uequ{
+      \Q(\f, \T\g) = \intXY{-\infty}{\infty}\l\dQ(\f, \El\g)
+    }
+    or for short:
+    \uequ{
+      \T\g = \intXY{-\infty}{\infty}\l\opdiff{\left\{\El\g\right\}},
+      \T = \intXY{-\infty}{\infty}\l\dE(\l)
+    }  
+    \item{2a.} $\l \leq \lp$ implies $\El \leq \E(\lp)$.
+    \item{2b.} For $\l \to +\infty$ resp. $-\infty$, $\El\f \to \f$ resp. $0$.
+    \item{2c.} For $\lp \to \l$, where $\lp > \l$, $\E(\lp)\f \to \El\f$.
+    We also call $\El$ the partition of unity belonging to $\T$\footnote{The eigenvalue problem for bounded bilinear forms has been solved in essentially this form by Hilbert. However, we consistently neglect the separation of point and continuous spectrums that is typical in the literature.
+    
+    By the way, the operator
+    \uequ{
+    \T = \intXY{-\infty}{\infty}\l\dE(\l)
+    }
+    is obviously not always meaningful; one can show that $\T\f$ exists (in $\hilbar$) if and only if the number
+    \uequ{
+    \intXY{-\infty}{\infty}\l^2\dQ(\El\f)
+    }
+    is finite.
+     }.
+    \item{X.} The just-given definition of the eigenvalue representation of a symmetrical linear operator naturally still requires certain critical considerations.
+\end{itemize}
+
+At first it is not immediately clear whether each symmetrical linear operator permits an eigenvalue representation, and whether it is uniquely-determined. For bounded operators -- according to Hilbert's propositions -- there is one and only one such representation available (c.f. note 12), for unbounded operators at leastthe uniqueness remains fixed\WTF{für unbeschränkte Operatoren steht zumindest die Eindeutigkeit fest}\footnote{For the case of real symmetrical operators, the author\WTF{der Verf.} could show that one and only one solution always exists; for complex (Hermitian) symmetrical linear operators, the same could be supposed, but certain difficulties preclude a proof\WTF{für komplexe Operatoren ist dasselbe zu vermuten, dem Beweise stehen aber gewisse Schwierigkeiten entgegen.}. c.f. the Math. Annalen article mentioned in note 12.}.
+
+Further, it of course desirable to give a direct interpretation of the E. Op. $\E(\l)$.
+
+For this purpose we consider the simple case where $\T$ has a discrete spectrum: the eigenvalues $\seqX{\l}$ with the corresponding eigenfunctions $\seqX{\vY}$.
+
+It is known that $\seqX{\vY}$ forms (e.g. in a continuous realization, thus also in $\hilbar$) a complete orthonormal system, so
+\uequ{
+\f = \infsumn\Q(\f,\vY_n)\vY_n,
+}
+and because they are eigenfunctions,
+\uequ{
+\T\f = \infsumn\Q(\f,\vY_n)\l_n\vY_n
+}
+(because this is merely a preliminary treatment, we don't look into the questions of convergence). From this follows further:
+\uequ{
+\T\f = \intXY{-\infty}{\infty}\l\opdiff{\left[
+\sumX{\l_n \leq \l} \Q(\f,\vY_n)\vY_n
+\right]}.
+}
+But this is the desired eigenfunction representation, with
+\uequ{
+\El\f = \sumX{\l_n \leq \l}\Q(\f,\vY_n)\vY_n;
+}
+$\El\f$ evidently has the characteristics 1.-2. from section IX.
+
+The operator $\El$ thus acts as follows: one expands $\f$ in eigenfunctions of $\T$ ($\seqX{\vY}$) and cuts off all terms with eigenvalues $> \l$. The interior of $\El$ thus consists of all functions $\f$ whose expansion only contains eigenfunctions with eigenvalues $\leq 0$; i.e. the set of the linear combinations\WTF{die Menge der lin. Aggregate} of all eigenfunctions with eigenvalues $\leq \l$. --
+
+This is now also the meaning of $\El$ when it has a continuous spectrum: the interior of $\El$ (and those $\El$ defined according to section VI) consists of all linear combinanations (which in the case of a continuous spectrum could also be an integral) of all eigenfunctions of $\T$ with eigenvalues $\leq l$\footnote{How linear combinations belonging to $\funcSpace$ are formed from eigenfunctions not belonging to $\funcSpace$ (i.e. such as those with infinite $\intSquares{\vY}$) was shown in the first example in note 24:
+
+The eigenfunctions $\exp{2\pi\i\frac{\l}{\h}\x}$ are not square-integrable, but e.g. the linear combination
+\uequ{
+\intXY{\l_1}{\l_2}\exp{2\pi\i\frac{\l}{\h}\x}\dl = \frac{\h}{2\pi\i\l}\left(
+\exp{2\pi\i\frac{\l_2}{\h}\x} - \exp{2\pi\i\frac{\l_1}{\h}\x}
+\right)\times\inv{\x},
+}
+where the last factor $\inv{\x}$ makes it square integrable.
+}.
+
+This is admittedly not exact, but there is in many cases a clue\WTF{Fingerzeig} (because one knows or suspects the eigenfunctions also have a continuous spectrum\WTF{da man die Eigenfunktionen auch des kontinuierlichen Spektrums kennt oder vermutet}) as to the make-up\WTF{Aufsuchen} of $\El$; the exact definition at the end of section IX then permits the verification whether the thus-obtained $\El$ are correct. --
+
+For this latter phenomenon\WTF{Erscheinung} we want to provide two examples. We consider a continuous realization and let $\aOmega$ be the the interval $-\infty,\infty$. $\T$ will be the operator
+\uequ{
+\p = \frac{\h}{2\pi\i}\opddx\dots, \text{ resp. } \q = \x\dots,
+}
+as in note 24.
+
+In the first case we have the eigenfunctions $\explx$, so the eigenfunction expansion of a function $\f$ is thus the Fourier integral:
+\uequ{
+\f(\x) = \intXY{-\infty}{\infty}\left[
+\intXY{-\infty}{\infty}\explX{\z}\f(\z)\dz
+\right]\explx\dl
+}
+$\El$ brings about the "Cut-off of remainders"\WTF{$\El$ bewirkt das "Abschneiden des Restes"}:
+\uequ{
+\El\f(\x) = -\intXY{-\infty}{\l}\left[
+\intXY{-\infty}{\infty}\expLX{\lp}{\z}\f(\z)\dz
+\right]\expLX{\lp}{\x}\dlp.
+}
+
+In fact,
+\uequ{
+\intXY{-\infty}{\infty}\l\opdiff{\lbrace\El\f(\x)\rbrace} &=
+\intXY{-\infty}{\infty}\l\opdiff{\left\{
+\intXY{-\infty}{\l}\left[
+\intXY{-\infty}{\infty}\expmLX{\lp}{\z}\f(\z)\dz
+\right]\expLX{\lp}{\x}\dlp
+\right\}} = \\
+ &= \intXY{-\infty}{\infty}\l\left[
+   \intXY{-\infty}{\infty}\expmLX{\l}{\z}\f(\z)\dz
+ \right]\explx\dl = \\
+ &= \frac{\h}{2\pi\i}\primed{\f}(\x).
+}
+
+In the second case, such functions should be eigenfunctions which are nonzero only for $\x=\l$, which is impossible. However, it is to be expected that linear combinations of all eigenfunctions with eigenvalues $\leq \l$ are simply those functions which are nonzero only for $\x \leq \l$. $\El$ is thus defined as:
+\uequ{
+\El\f(x) = \left\{
+     \begin{array}{lr}
+       = \f(\x), & \text{ when } \x \leq \l, \\
+       0, & \text{ when } \x > \l.
+     \end{array}
+   \right.
+}
+
+One easily verifies that
+\uequ{
+\intXY{-\infty}{\infty}\l\opdiff{\lbrace\El\f(\x)\rbrace} = \x\f(\x).
+}
+
+Finally we consider a characteristic of the eigenvalue representation. It allows a quite simple representation of the powers of $\T$. Namely,
+\uequ{
+\T^n = \intXY{-\infty}{\infty}\l^n\dE(\l).
+}
+
+This is trivial for $n=0$, and true by definition for $n=1$; we prove it for $n=2$, and for all higher $\n$ one proves it in similar fashion (i.e. one moves exactly from $n$ to $n+1$ as we go from $1$ to $2$).
+
+We have:
+\uequ{
+\Q(\f,\T^2\g) =& \Q(\T\f,\T\g) = \intXY{-\infty}{\infty}\l\dQ(\T\f,\El\g) = \\
+ =& \intXY{-\infty}{\infty}\l\opdiff{\left[
+   \intXY{-\infty}{\infty}\lp\dQ(\E(\lp)\f,\E(\l)\g)
+ \right]} = \\
+ =& \intXY{-\infty}{\infty}\l\opdiff{\left[
+   \intXY{-\infty}{\infty}\lp\dQ(\f, \E(\lp)\E(\l)\g)
+ \right]} = \\
+ =& \intXY{-\infty}{\infty}\l\opdiff{\left[
+   \intXY{-\infty}{\infty}\lp\dQ(\f, \E(\min{\lp}{\l})\g)
+ \right]}.
+}
+For $\lp > \l$, $\min{\lp}{\l}$ is constant ($=\l$), so it is sufficient to restrict the inner integral to $-\infty,\l$:
+\uequ{
+\Q(\f,\T^2\g) &= \intXY{-\infty}{\infty}\l\opdiff{\left[
+\intXY{-\infty}{\l}\lp\dQ(\f,\E(\lp)\g)
+\right]} = \footnote{For Stieltjes iñtegrals the relation 
+\uequ{
+\intXY{A}{B}\u(\l)\opdiff{\left[
+  \intXY{A}{\l}\v(\lp)\dw(\lp)
+\right]}\dl = \intXY{A}{B}\u(\l)\v(\l)\dw(\l),
+} applies, where the relatkon
+\uequ{
+\intXY{A}{B}\u(\l)\opddX{\l}\left[
+  \intXY{A}{\l}\v(\l)\dl
+\right]\dl = \intXY{A}{B}\u(\l)\v(\l)\dl
+}
+corresponds to the usual ingegration.
+}\\
+ &= \intXY{-\infty}{\infty}\l\l\dQ(\f,\E(\l)\g)
+  = \intXY{-\infty}{\infty}\l^2\dQ(\f, \E(\l)\g),
+}
+or, in our abbreviated notation:
+\uequ{
+\T^2=\intXY{-\infty}{\infty}\l^2\dE(\l),
+}
+QED.
+
+We further introduce the following notation: for $\l \ leq \lp$, $\El \leq \E(\lp)$, so that $\E(\lp)-\E(\l)$ is an E. Op, we denote it by $\E(\l,\lp)=\E(\I)$, when $\I$ is the interval $\l,\lp$.
+
+\part*{The absolute value of operators}
+
+\section*{IX.}
+
+Before we proceed to the physical applications, we must still develop a final category of concepts, which we shall use.
+
+Let A be a linear operator (which, like $\CC{\A}$, is defined in an everywhere-dense subset of $\hilbar$). We take two complete orthonormal systems $\seqX{\vY}$, $\seqX{\Y}$ such that $\A\Y_\nu$ is defined\footnote{By choosing an everywhere-dense sequence $\seqX{\f}$ from the everywhere dense set where $\A\f$ is defined, and applying proposition 6 from section VI, the desired orthonormal system $\seqX{\Y}$ arises.}, and put:
+\uequ{
+[\A; \vY_\mu, \Y_\nu] = \sumXY{\mu,\nu=1}{\infty}|\Q(\vY_\mu,\A\Y_\nu)|^2
+}
+(this sum may be finite or infinite, but it is always defined, because only non-negative terms occur).
+
+This is then
+\uequ{
+\sumSquaresX{\mu}{\Q(\vY_\mu,\A\Y_\nu} = \Q(\A\Y_\nu),\\
+[\A; \vY_\mu, \Y_nu] = \infsumX{\nu}\Q(\A\Y_\nu),
+}
+i.e. the dependence of $[\A;\vY_\mu,\Y_\nu]$ on the $\vY_\mu$ is only apparent. However, because of
+\uequ{
+\sumSquaresX{\mu,\nu}{\Q(\vY_\mu, \A\Y_\nu} =
+\sumSquaresX{\mu,\nu}{\Q(\ACC\vY_\mu, \Y_\nu} =
+\sumSquaresX{\mu,\nu}{\Q(\Y_\nu, \ACC\vY_\mu}\\
+[\A;\vY,\Y] = [\ACC; \Y, \vY]
+}
+(when all $\ACC\vY_\mu$ are meaningful, c.f. note 30) the same applies for the $\Y_\nu$, and consequently $[\A; \vY, \Y]$ depends on $\A$ alone:
+\uequ{
+[\A;\vY,\Y] = [\A].
+}
+The last equation has the consequence:
+\uequ{
+[\A]=[\ACC].
+}
+
+We call the values $\sqrt{[\A]}$ the absolute value of the operator $\A$, which we shall now examine more closely. --
+
+First we determine $[\A]$ in the various realizations of $\hilbar$.
+
+In the discontinuous realization $\hilberto$, $\A$ is representable by a matrix
+\uequ{
+\lbrace\auv\rbrace, \auv = \barred{\a_{\nu\mu}}\quad(\mu,\nu=1,2,\dots).
+}
+The points
+\uequ{
+1,0,0,\dots,0,1,0,\dots,0,0,1,\dots,\dots
+}
+form, as one easily sees, a complete ortonormal system, and $\A$ takes them respectively to\WTF{Die Punkte...bilden, wie man leicht einsieht, ein vollst. norm. Orth.-System, $\A$ führt sie bezw. in ... über.} By setting them equal to $\seqX{\Y}$, we have\WTF{Indem wir sie gleich $\seqX{\Y}$ setzen, wird}:
+\uequ{
+[\A] = \infsumX{\nu}\Q(\A\Y_\nu) = \infsumX{\nu}\left[\infsumX{\mu}(\auv)^2\right]
+     = \sumSquaresX{\mu,\nu}{\auv}.
+}
+Thus: $[\A]$ is the sum of the absolute squares of all elements of the matrix.
+
+In the continuous realization $\funcSpace$ we only want to calculate $[\A]$ under the assumption that the operator $\A$ is representable by an integral kernel $\kernel$:
+\uequ{
+\A\f(\P) = \intOmega\kernel(\P,\Q)\f(\Q)\dv_\Q.
+}
+
+Then
+\uequ{
+[\A] &= \infsumX{\nu}\Q(\A\Y_\nu) = \\
+\infsumX{\nu}\intOmega|\A\Y_\nu(\P)|^2\dv_\P &=
+\infsumX{\nu}\intOmega|\intOmega\kernel(\P,\Q)\Y_\nu(\Q)\dv_\Q|^2\dv_\P =\\
+ = \intOmega\left[\sumSquaresX{\nu}{\intOmega\kernel(\P,\Q)\Y_\nu(\Q)\dv_\Q}\right] 
+&= \intOmega\left[\intOmega|\kernel(\P,\Q)|^2\dv_\Q\right]\dv_\Q \\
+&= \intOmega\intOmega|\kernel(\P,\Q)|^2\dv_\P\dv_\Q.
+}
+Thus: $[\A]$ is the integral over the absolute square of the integral kernel. --
+
+Second we derive the important characteristics of $[\A]$.
+
+\textbf{Proposition 1.} $[\A]$ is always $\geq 0$, and only $=0$ when $\A=0$ (consequently the same applies for $\sqrt{\A}$).
+
+\textbf{Proof:} $[\A]\geq 0$ is clear. $[\A]=0$ implies
+\uequ{
+\infsumX{\nu}\Q(\A\Y_\nu) = 0, \Q(\A\Y_1) \leq 0, \A\Y_1 = 0.
+}
+When $\f$ is any element in $\hilbar$ for which $\A\f$ is meaningful, then either $\f=0,\A\f=0$; or $\f \neq 0$, for $\vY=\inv{\sqrt{\Q(\f)}}\f$ $\Q(\vY)=1$ so that $\vY=\Y_1$ can be added to a complete orthonormal system $\seqX{\Y}$ (all $\A\Y_\nu$ meaningful!), and so $\A\vY=0$, $\A\f=0$.
+
+Consequently, $\A$ must be $=0$.
+
+\textbf{Proposition 2.} We always have
+\uequ{
+\sqrt{[\a\A]} &= |\a|\sqrt{[\A]} \\
+\sqrt{[\A + \B]} &\leq \sqrt{[\A]} + \sqrt{[\B]} \\
+\sqrt{[\A\B]} &\leq \sqrt{[\A]}\sqrt{[\B]}.
+}
+
+\textbf{Proof:} The first equation is trivial. The second follows from:
+\uequ{
+\Q((\A+\B)\Y_\nu) - \Q(\A\Y_\nu) - \Q(\B\Y_\nu) = 2\opReal\Q(\A\Y_\nu,\B\Y_\nu)
+}
+thus in absolute is\WTF{also absolut genommen}
+\uequ{
+\leq 2\sqrt{\Q(\A\Y_\nu)\Q(\B\Y_\nu)},
+}
+and after summation $\infsumX{\nu}$
+\uequ{
+[\A + \B] - [\A] - [\B] &\leq 2\infsumX{\nu}\sqrt{\Q(\A\Y_\nu)\Q(\B\Y_\nu)} \leq 
+\footnote{
+  The inequality
+    \uequ{
+      \sqrt{\a_1\b_1}+\dots+\sqrt{\a_n\b_n} \leq \sqrt{(\a_1+\dots+\a_n)(\b_1+\dots+\b_n)}
+    }
+  }
+\\
+&\leq 2\sqrt{\infsumX{\nu}\Q(\A\Y_\nu)\infsumX{\nu}(\B\Y_\nu)} =\\
+&= 2\sqrt{[\A][\B]},\\
+[\A+\B] &\leq [\A] + [\B] + 2\sqrt{[\A][\B]} = (\sqrt{[\A]} + \sqrt{[\B]})^2,\\
+\sqrt{[\A+\B]} &\leq \sqrt{[\A]} + \sqrt{[\B]}.
+}
+And the third can be proved by:
+\uequ{
+[\A\B] &= \sumSquaresX{\mu,\nu}{\Q(\vY_\mu,\A\B\Y_\nu)} 
+        = \sumSquaresX{\mu,\nu}{\Q(\ACC\vY_\mu,\B\Y_\nu)} \leq\\
+  &\leq   \infsumX{\mu,\nu}\Q(\ACC\vY_\mu)\Q(\B\Y_\nu)
+        = \infsumX{\mu}\Q(\ACC\vY_\mu) \infsumX{\nu}\Q(\B\Y_\nu) =\\
+       &= [\ACC][\B] = [\A][\B], \\
+\sqrt{[\A\B]} &\leq \sqrt{[\A]}\sqrt{[\B]}.
+}
+
+\textbf{Proposition 3.} The equation
+\uequ{
+[\A+\B] = [\A] + [\B]
+}
+applies when one of the following four equations is fulfilled:
+\uequ{
+\A\BCC = 0, \quad \ACC\B = 0, \quad \B\ACC = 0, \quad \BCC\A = 0.
+}
+
+\textbf{Proof:} For $\ACC\B = 0$, 
+\uequ{
+\Q((\A+\B)\vY_\nu) - \Q(\A\Y_\nu) - \Q(\B\Y_\nu) &= 2\opReal\Q(\A\Y_\nu, \B\Y_\nu) = \\
+&= 2\opReal\Q(\Y_\nu,\ACC\B\Y_\nu) = 0,
+}
+while after summation\WTF{als nach Summation}$\infsumX{\nu}$
+\uequ{
+[\A+\B]-[\A]-[\B]=0, [\A+\B] = [\A]+[\B].
+}
+We can replace $\A,\B$ by $\ACC,\BCC$, then obtain from $\ACC\B=0$ the sufficient condition $\CC{\ACC}\BCC= \A\BCC = 0$; further, we can swap $\A,\B$, which results in $\BCC\A=0$ and $\B\ACC=0$. --
+
+Obviously we have:
+\uequ{
+\sumSquaresX{\mu,\nu}{\Q(\A\vY_\mu,\B\Y_\nu)} = \sumSquaresX{\mu,\nu}{\Q(\vY_\mu,\ACC\B\Y_\nu)} = [\ACC\B].
+}
+
+The expression on the left-hand side (from $\A,B$, apparently dependent upon $\vY$ and $\Y$\WTF{offenbar von $\A,\B$, den $\vY$ und den $\Y$ abhängige}) thus only depends on $\ACC\B$. It shall play an important role later on, so we introduce for it a special\WTF{selbständige} notation $[A,\B]$ for it. We thus have:
+\uequ{
+[\A,\B]=[\ACC\B].
+}
+
+In particular, $\CC{(\ACC\B)} = \BCC\CC{\ACC} = \BCC\A$ implies
+\uequ{
+[\A,\B] = [\B, \A].
+}
+
+Proposition 2 implies:
+\uequ{
+[\a\A,\b\B] =|\a\b|^2[\A,\B].
+}
+
+By proposition 3, we have
+\uequ{
+[\A,\B+\C] =[\A,\B] + [\A, \C],
+}
+in the case when any of the four following conditions is fulfilled:
+\uequ{
+\ACC\B\CC{(\ACC\C)} = \ACC\B\CCC\A = 0, &\quad \CC{(\ACC\B)}\ACC\C = \BCC\A\ACC\C = 0,\\
+\ACC\C\CC{(\ACC\B)} = \ACC\C\BCC\A = 0, &\quad \CC{(\ACC\C)}\ACC\B = \CCC\A\ACC\B = 0.
+}
+Thus in any case, either $\B\CCC=0$ or $\C\BCC = 0$ is sufficient. --
+
+We will primarily deal with expressions $[\E,\F]$ where $\E,\F$ are E. Ops. When $\E,\F$ are exchangable\WTF{vertauschbar}, so that $\E\F$ is also an E. Op, then $[\E,\F]$ has a simple geometric meaning.
+
+Specifically,
+\uequ{
+[\E,\F]=[\CC{\E}] = [\E\F],
+}
+and thus there is an $[\E]$\WTF{Es ist nämlich $\dots,$ es handelt sich also von den $[\E]$}, where $\E$ is an E. Op. It is easy to specify a complete orthonormal system consisting of $\Y_\nu$ lying purely in the interior or in the exterior of $\E$\footnote{Let $\seqX{\f}$ resp. $\seqX{\g}$ be a sequence everywhere dense in the interior resp. exterior of $\E$. By applying proposition 6 from section VI, the orthonormal systems $\seqX{\varrho}$ und $\seqX{\sigma}$ can emerge from them. By proposition 6 in section VIII, $\varrho_1,\sigma_1,\varrho_2,\sigma_2,\dots$ is also an orthonormal system, and by proposition 5 from section XIII it spans an everywhere-dense linear manifold, i.e. it is complete.}, so:
+\uequ{
+[\E] = \infsumX{\nu}\Q(\E\Y_\nu) &= \sumX{\text{$\Y_\nu$ in the interior of $\E$}}\Q(\Y_\nu)
+                                  + \sumX{\text{$\Y_\nu$ in the exterior of $\E$}}\Q(0) = \\
+                                 &= \sumX{\text{$\Y_\nu$ in the imterior of $\E$}}1 =
+                                    \text{Number of $\Y_\nu$ in the interior of $\E$}.
+}
+This is however evidently the dimension of the interior of $\E$. Consequently is e.g. $[1]=\infty$ (because the interior of $1$ includes the entirety of $\hilbar$), and $[0]=0$.--
+
+Propositions 1 and 2 show that in fact $\sqrt{[\A]}$ can be interpreted as the absolute value of an operator. However, it is apparently only useful in the immediate vicinity of $0$: $\sqrt{[1]}$ is already infinite.
+
+\part*{The statistical interpretation of quantum mechanics}
+\section*{XII.}
+We are now in position to attack of our actual program: the mathematically-unobjectionable standardization\WTF{Vereinheitlichung} of quantum mechanics. To this purpose we would first like to consider the simplest possible case with unambiguous results, and to translate its (known) results into our notation: this will point us towards the generalized path of attack.
+
+To tbis purpose we consider the simplest possible case of continuous realization:
+
+Let $\aOmega$ be the $k$-dimensional Euclidian space, and let there be a quantum-mechanical system whose Schrdinger equation (c.f. section II) reads:
+\uequ{
+\H\Y - \l\Y = 0.
+}
+It is well-known\footnote{c.f. e.g. note 3} that the symmetrical limear operator $\H$ is formed as follows: one takes the classical-mechanical expression for the energy as a function of the coordinates $\seqXY{\q}{k}$ and the momenta $\seqX{\p}{k}$, and replaces each $\q_\mu$ by the operator $\q_\mu\dots$, ans each $\p_\mu$ by operator $\frac{\h}{2\pi\i}\oppddX{\q_\mu}\dots$ (one has a certain ambiguity here, because as ordinary the $\q_\mu,\p_\nu$ commute under multiplication, but on the other hand the operators $\q_\mu\dots$ and $\frac{\h}{2\pi\i}\oppddX{\q_\mu}\dots$ do not. A constraint of $\H$ is obviously that it must be symmetrical, but alone thus does not suffice to uniquely define it. This is one of the significant gaps in quantum mechanics.).
+
+We now assume that only a non-degenerate (i.e. consisting solely of one-fold eigenvalues) point spectrum is available; and we call the eigenvalues $\seqX{\l}$, and the corresponding (normalized) eigenfunctions $\seqX{\vY}$.
+
+We have already defined $\H$'s partition of unity $\E(\l)$ in section X. It is:
+\uequ{
+\E(\l)\f = \sumX{\l_n\leq \l}\Q(\f,\vY_n)\vY_n.
+}
+
+We also need the partition of unity $\F_\mu(\l)$ for the operators $\q_\mu,\dots$. This is a simple generalization of the same type as the last example considered in section X (where $k$ was only $=1$), that is:
+\uequ{
+\F_\mu(\l)\f(\seqXk{\q}) = \left\{
+     \begin{array}{lr}
+       \f(\seqXk{\q}) & \text{ for } \q_\mu \leq \l, \\
+       0, & \text{ for } \q_\mu > \l.
+     \end{array}
+   \right.
+}
+(This is due to the exact same considerations as in section X, and again the identity\WTF{das definitorische}
+\uequ{
+\q_\mu\f(\seqXk{\q}) = \intXY{-\infty}{\infty}\l\opdiff{\lbrace\F_\mu(\l)\f(\seqXk{\q})\rbrace}
+}
+is effortlessly verified.)
+
+In this case, Pauli and Dirac's probability-Ansatz reads\footnote{c.f. e.g. Jordan's paper cited in note 7}: when the system is found in the $\Nth{n}$ quantum state $(\l_n,\vY_n)$, then the probability that the coordinates $\q = (\seqXk{\q})$ lie in the $k$-dimensional hypercube\WTF{Quader} $\K$ (we write $\dq$ for $\dq_1\dq_2\dots\dq_k$)
+\uequ{
+\intX{\K}|\vY_n(\q)|^2\dq.
+}
+We could still somewhat generalize this Ansatz. If we only know that the energy lies in the interval $\I$, then thus probability will be 
+\uequ{
+\sumX{\l_n \text{ in } \I}\intX{\K}|\vY_n(\q)|^2\dq
+}
+(up to a normalization factor). In fact: when only one eigenvalue lies in $\I$, then this comes out of the earlier assertion; and when there are several, then it follows\WTF{so folgt es aus ihr}
+ if we (as is the common practice) regard the individual (non-degenerate) quantum states as \it{a priori} equally likely.
+  
+Since $\K$ resp. $\I$ are defined by the inequalities
+\uequ{
+\q_1' < \q_1 \leq \q_1'', \q_2' < \q_2 \leq \q_2'', \dots, \q_k' < \q_k \leq \q_k''
+}
+resp.
+\uequ{
+\lp < \l \leq \lpp,
+}
+we may also write this expression as:
+\uequ{
+\sumX{\l_n \text{ in } \I}\intX{\K}|\vY_n(\q)|^2\dq 
+&= \sumX{\l_n \text{ in } \I}\intXY{\q_1'}{\q_1''}\dots\intXY{\q_k'}{\q_k''}
+|\vY_n(\seqXk{\q})|^2\dq_1\dq_2\dots\dq_k = \\
+&= \sumX{\l_n \text{ in } \I}\intXY{-\infty}{\infty}\dots\intXY{-\infty}{\infty}
+|\F_1(\q_1',\q_1'')\times\dots\times\F_k(\q_k',\q_k'')\vY_n(\seqXk{\q})|^2\dq_1\dq_2\dots\dq_k = \\
+&= \sumX{\l_n \text{ in } \I}\intOmega
+|\F_1(\q_1',\q_1'')\times\dots\times\F_k(\q_k',\q_k'')\vY_n(\q)|^2\dq = \\
+&= \infsumn\intOmega
+|\F_1(\q_1',\q_1'')\times\dots\times\F_k(\q_k',\q_k'')\E(\lp,\lpp)\vY_n(\q)|^2\dq = \\
+&= \infsumn\Q(\F_1(\q_1',\q_1'')\times\dots\times\F_k(\q_k',\q_k'')\E(\lp,\lpp)\vY_n(\q)) =\\
+&= \left[\F_1(\q_1',\q_1'')\times\dots\times\F_k(\q_k',\q_k'')\E(\lp,\lpp)\right].
+}
+Now, as one can easily convince oneself, the $\F_\mu(\q_\mu',\q_\mu'')$ are all interchangable with one another, and from this one further concludes:
+\uequ{
+&= [\CC{(\F_1(\q_1',\q_1'')\times\dots\F_k(\q_k',\q_k''))},\E(\lp\lpp)] =\\
+&= [\F_k(\q_k',\q_k''), \dots\F_1(\q_1',\q_1''),\E(\lp\lpp)]\sic =\\
+&= [\F_1(\q_1',\q_1'')\times\dots\F_k(\q_k',\q_k'')\E(\lp\lpp)]
+}
+i.e.: if the energy lies in $\I$, then the (relative) probability that $\q_1$ lies in $\J_1$, ..., $\q_k$ lies in $\J_k$ is
+\uequ{
+[\E(\I),\F_1(\J_1)\times\dots\times\F_k(\J_k)].
+}
+According to an Ansatz due to Jordan, however, the value
+\uequ{
+\sumX{\l_n\text{ in }\I}\intX{\K}|\vY_n(\q)|^2\dq
+}
+is also to be regarded as the (relative) probability that $\l_n$, i.e. the energy, lies in $\I$ when $\q$ lies in $\K$ (i.e. $\q_1$ in $\J_1$, ... $\q_k$ in $\J_k$ -- c.f. note 7). i.e. more precisely: the Pauli-Jordan assertion\WTF{Behauptung} refers only to the limiting case of infinitely-small $\K$ (where after dividing through\WTF{Wegdividieren} by the proportionality factor "volume of $\K$" the probability 
+\uequ{
+\sumX{\l_n\text{ in } \I}|\vY_n(\q)|^2
+}
+is left over\WTF{übrigbleibt}). At the same time a correct result arises from it in opposite limiting case $\K=\aOmega$ (that is, the entire space):
+\uequ{
+\sumX{\l_n \text{ in } \I}\intOmega |\vY_n(\q)|^2\dq = 
+\sumX{\l_n \text{ in } \I} 1 = \text{ number of $\l_n$ in $\I$}.
+}
+i.e.: All quantized (non-degenerate) states are \it{a priori} equally likely, and un-quantized are not possible (both indeed belong to the foundational assumptions of the quantum theory).
+
+Consequently\WTF{Es ergibt sich also hier}: when $\q_1$ lies in $\J_1$, ... $\q_k$ in $\J_k$, the (relative) probability that $\l_n$ (the energy) lies in $\I$ is the same expression as before, which we now write as:
+\uequ{
+[\F_1(\J_1)\times\dots\times\F_k(\J_k), \E(\I)].
+}
+
+\section*{XIII.}
+The just-obtained results suggest the following Ansatz:
+
+Let $\seqXY{\R}{i}$ and $\seqXY{\S}{j}$ be $i+j$ symmetrical linear operators which represent given physically meaningful values (what this last concept -- which is fundamental in today's quantum mechanics -- of "representation of a value by an operator" exactly means, we cannot discuss here in detail. c.f. the remarks\WTF{Ausführungen} at the beginning of the last section on the relationship between the classical-mechanical Hamiltonian function and the "energy operator" $\H$). Let the partition of unity for $\R_\mu$ ($\mu=1,2,\dots,i$) resp. $\S_\nu$ ($\nu=1,2,\dots,j$) be $\E_\mu(\l)$ resp. $\F_\nu(\l)$.
+
+We assume that all $\E_\mu(\l)$ commute with one another, and likewise for all $\F_\nu(\l)$. We call this the complete commutability\WTF{vollständige Vertauschbarkeit} of the $\seqXY{\R}{i}$ resp. $\seqXY{\S}{j}$  with one another (for the complete-commutability of two operator $\T',\T''$, the usual commutability ($\T'\T''=\T''\T'$) is, as one easily shows, in any case necessary; it is also sufficient, if at least one of them is bounded. If both are unbounded, then certain difficulties of a formal nature arise, which we don't wish to go into here. Among all of the operators occuring in quantum mechanics, both are the same).
+
+We now make the following physical assumption:
+
+When the variables represented by $\seqXY{\R}{i}$ have assumed such values, which respectively lie in the intervals $\seqXY{\I}{i}$ 
+
+
+
+ the (relative) probability that the variables represented by $\seqXY{\S}{j}$ assume valuea respectively lying in the intervals $\seqXY{\J}{j}$, is
+\uequ{
+[\E_{\I_1}\times\dots\times\E_{\I_i},\F_{\J_j}\times\dots\times\F_{\J_j}] = 
+[\E_{\I_1}\times\dots\times\E_{\I_i}\times\F_{\J_j}\times\dots\times\F_{\J_j}].
+}
+(The latter equalitt applies because the $\E_{\I_\nu}$ all commute with eachother).
+
+Some conclusions are now drawn from this assumption, to demonstrate their usefulness. --
+
+\subsection*{$\alpha$}
+Both the preconditions\WTF{Voraussetzungen} ($\seqXY{\R}{i}$) and the conclusions\WTF{Behauptungen} ($\seqXY{\S}{j}$) can be freely interchanged with eachother, without changing the probability-distribution. This follows from the commutability of the $\E_\mu(\l)$ resp. $\F_\nu(\l)$, and hence also their differences $\E_\mu(\I_\mu)$ resp. $\F_\nu(\J_\nu)$, with eachother.
+
+\subsection*{$\beta$}
+Swapping all preconditions with all conclusions changes nothing (i.e. the probability distribution is as if they sprang from \it{a priori} probabilities\WTF{die Wahrscheinlichkeits-Verteilung ist so, als ob sie aus a priori-Wahrscheinlichkeiten entspränge}). This follows from the general formula $[\A,\B]=[\B,\A]$.
+
+\subsection*{$\gamma$}
+???\WTF{Nichtssagende} preconditions or conclusions can be freely added or removed (i.e. \WTF{solche, bei denen das Intervall $-\infty,\infty$ ist}). Then they require only the appearance or omission of a factor
+\uequ{
+\E_\mu(-\infty,\infty)\text{ or }\F_\nu(-\infty,\infty) = 1-0=1.
+}
+
+\subsection*{$\delta$}
+The multiplication law for probabilities does not apply in general (a corresponding weaker law -- Jordan's "composition law ).
+probability amplitudes -- probably applies, but we will not go into it here
+
+ This is not surprising, because the dependence-relationship\WTF{Abhängigkeits-Verhältnisse} of our probabilities can be arbitrarily complex; outside of this, we have to make do with relative probabilities\WTF{außerdem haben wir ja mit relativen Wahrsch. zu tun}.
+ 
+\subsection*{$\epsilon$}
+The probability addition law applies (this is indeed also satisfied in the usual probability calculus without considering the dependence-relationship). We must show: $\J_j'+\J_j''=\J_j$ implies
+\uequ{
+ &[\E_1(\I_1)\times\dots\times\E_i(\I_i)\times\F_1(\J_1)\times\dots\F_j(\J_j')] +\\
++&[\E_1(\I_1)\times\dots\times\E_i(\I_i)\F_1(\J_1)\times\dots\F_j(\J_j'')] =\\
+=&[\E_1(\I_1)\times\dots\times\E_i(\I_i)\times\F_1(\J_1)\times\dots\F_j(\J_j)].
+}
+(according to $\alpha.$ and $\beta.$ we can indeed restrict ourselves to the case where the last interval, $\J_j$, is decomposes.) One may also write this as:
+\uequ{
+[\A\F_j(\J_j')]+[\A\F_j(\J_j'')] = [\A\F_j(\J_j)].
+}
+
+According to proposition 3, section XI, this is certainly the case when
+\uequ{
+\A\F_j(\J_j')+\A\F_j(\J_j'') = \A\F_j(\J_j)\\
+\A\F_j(\J_j')\CC{(\A\F_j(\J_j''))} = \A\F_j(\J_j')\F_j(\J_j'')\ACC = 0.
+}
+$\F_j(\J_j')+\F_j(\J_j'')=\F_j(\J_j)$ has the first of these\WTF{hat das erste zur Folge}, but also the second, because then $\F_j(\J_j')$,$\F_j(\J_j'')$ are disjoint\WTF{fremd} (c.f. proposition 2, section VIII). But this is clear, because if there are some $\J_j',\J_j'',\J_j$ in the intervals $\l',\l''$ ,$\l'',\l'''$, $\l',\l'''$, then
+\uequ{
+\F_j(\J_j') &= \F_j(\l'') - \F_j(\lp),\\
+\F_j(\J_j'') &= \F_j(\l''') - \F_j(\l''),\\
+\F_j(\J_j) &= \F_j(\l''') - \F_j(\lp).
+}
+
+\subsection*{$\vartheta$}
+Our expression of the probability is invariant with respect to canonical transformations. By "canonical transformation" we understand the following (c.f. the citation in note 7):
+
+Let $\U$ be a linear operator with the property
+\uequ{
+\U\UCC = \UCC\U = 1,
+}
+we then call $\U$ orthogonal. The canonical transformation is such that each linear operator $\R$ is replaced by $\U\R\UCC$. With respect to this transformation, the values $\a\R,\R+\S,\R\S,\CC{\R}$ are obviously invariant, and thus also the properties of symmetry and being an E. Op, und between E. Ops, the relations $\leq$ and disjointness. Further, $\Q$ is invariant when $\hilbar$ is be mapped to itself with $\U$:
+
+\uequ{
+\Q(\U\f, \U\g) = \Q(\UCC\U\f,\g) = \Q(\f,\g),
+}
+thus along with $\seqX{\vY}$, $\seqX{\U\vY}$ is a complete orthonormal system, from which the invariance of $[\A]$ follows\WTF{also ist mit $\seqX{\vY}$ auch $\seqX{\U\vY}$ ein vollst. norm. Orth.-System, woraus die Invarianz von $[\A]$ folgt}. In addition, the eigenvalue representation (section IX) is obviously invariant.
+
+Thus, since none of the concepts we have used changed, the same applies to the (relative) probability based upon them\WTF{Da sich somit keiner der von uns benützten Begriffe ändert, gilt dasselbe von ddd auf ihnen fußenden (relativen) Wahrscheinlichkeit}.
+
+\part*{Applications}
+\section*{XIV}
+
+We now consider some physical applications.
+
+First, on the case of the Schrödinger equations. This was already discussed for non-degenerate systems in section XII, and when we also allow degeneracies, i.e. duplicate eigenvalues, this does not change the results there at all. The \it{a priori} probabilities of the individual energy levels, for example, are (c.f. the descriptions\WTF{Bezeichnungen} in section XII)
+\uequ{
+[\F_1(-\infty,\infty)\times\dots\times\F_k(-\infty,\infty),\E(\I)] = [1, \E(\I)] = [\E(\I)] =\\
+ = \text{Dimensionality of the $\f(\q)$ lying in the interior of $\E(\I)$}
+}
+
+In the interior of $\E(\I)$ however, as we know, are all linear combinations
+\uequ{
+\a_1\vY_{\nu_1}(\q) + \a_2\vY_{\nu_2}(\q)+\dots,
+}
+where $\l_{\nu_1},\l_{\nu_2},\dots$ are the eigenvalues of $\H$ lying in $\I$ (degenerate eigenvalues counted in their multiplicity), and $\vY_{\nu_1},\vY_{\nu_2},\dots$ their corresponding eigenfunctions. The designated dimensionality is thus the number of eigenvalues in $\I$.
+
+This result then means: the \it{a priori} probability of a quantized state is the multiplicity of the eigenvalues lying in it\WTF{des in ihm liegenden Eigenwertes}, and unquantized states are impossible\WTF{und nicht gequantelte Zustände sind unmöglich}. --
+
+Second we consider the case of sharp, causal dependence. We put $i=1,j=1$, and assume that a certain variable is given, and another will be sought, where the function of them is i.e causally determined by them\WTF{...wir nehmen an, eine gewisse Größe sei gegeben, während eine andere gesucht wird, die Funktion von ihr ist d.h. kausal durch sie bestimmt wird}. Let the operators belonging to them be $\R$ resp. $\S$, $\S=\f(\R)$, where $\f(\x)$ is a real function. We assume that $\f(\x)$
+is monotonically increasing.
+
+(The restrictions $\i=1,\j=1$, being inessential because of the motonicity of $\f(x)$, are included only to fix the orientation and simplify the calculation.)
+
+Let the partition of unity belonging to $\R$ be $\E(\l)$:
+\uequ{
+\R=\intLine\l\dE(\l).
+}
+So as we showed in section X,
+\uequ{
+\R^n = \intLine\l^n\dE(\l),
+}
+thus
+\uequ{
+\S=\f(\R) = \intLine\f(\l)\dE(\l) = \intLine\lp\dE(\g(\lp)),
+}
+where $\g$ is the inverse of $\f$. Then $\E(\g(\l))$ is the partition of unity belonging to $\S$.
+
+If $\J$ is the interval $\l',\l''$, then by $\g(\J)$ we understand the interval $\g(\l'),\g(\l'')$. Thus
+\uequ{
+\F(\J)=\E(\g(\J)),
+}
+and consequently
+\uequ{
+[\E(\I),\F(\J)]=[\E(\J)\F(\J)]\sic =  [\E(\I)\E(\g(\J))] = [\E(\I\g(\J))]
+}
+(if by $\I\g(\J)$ we understand the common parts of the intervals $\I$ and $\g(\J)$, it is easy to verify the relation according to which $\E(\I)\E(\J')$ always $=\E(\I\J')$).
+
+When the intervals $\I$,$\g(\J)$ have no common parts, then this is $=0$; but $\I\g(\J)$ is then empty when for no $\x$ in $\I$ does $\f(\x)$ belong to $\J$. Thus: to the causal connection no conflicting values occur\WTF{Also: der kausalen Bindung widerspdechende Werte kommdn nicht vor}.
+
+When $\I\g(\J)$ is not empty, then the interval $\I'$ is all $\x$ in $\I$ for which $\f(\x)$ lies in $\J$, i.e. those eligible in the sense of causal linkage\WTF{die im Sinne der kausalen Bindung in Frage kommen}. Thus the probability is:
+\uequ{
+[\E(\I')] &= \text{Dimensionality of the $\f$ lying in the interior of $\E(\I')$, or, as we know,}
+          &= \text{Number of the eigenvalues of $\R$ lying in $\I'$.}
+}
+
+i.e.: inside the causal linkages, when $\R$ is quantized, there is the usual quantum-theoretical result \WTF{innerhalb der kausalen Bindungen ergibt sich, wenn R gequantelte ist, das gewohnte quantentheoretische Resultat}. (Apparently this probability, when $\R$ has a continuous spectrum, and this protrudes into $\I'$, is equal to $\infty$.)
+
+With these two examples we hope to have shown that the statistical quantum mechanics, despite its probabilistic character, is quite capable of making precise and rigorous statements, and there is often occssion for this: e.g. in the cases of the absolutely precise exclusion principle\WTF{Quantenverbot} and causal linkage\WTF{kausalen Bindungen}.
+
+Finally, we consider thirdly the treatment of time-dependent systems given by Born\footnote{I owe this example to a remark from Herrn L. Nordheim.}:
+
+If the Hamiltonian function of the system depends explicitly on the time, then so does the associated operator $\H(\t)$ (the time will be treated as a number, not as a "variable", i.e. as an operator). Let there be no degeneracies; let the eigenfunctions at the time $\t_0$ be,
+\uequ{
+\seqX{\vY^{(0)}}
+}
+and at the time $\t$
+\uequ{
+\seqX{\vY^{(\t)}}.
+}
+
+Then, following Born\footnote{Zeitschr. für Physik, v 38, p. 803, v 40, p. 167 (1926).}, the probability that the system is at the time $\t$ in the $\Nth{\nu}$ state, when at the time $\t_0$ it was in the $\Nth{\mu}$ state, is $|\c_{\mu,\nu}(\t)|^2$, where $\cuvt$ is the $\uth$ coefficient of $\vYt_\nu$ as a series in $\seqX{\vYz}$:
+\uequ{
+\vYt_\mu = \sumXY{\nu=1}{\infty}\cuvt\vYz_\nu.
+}
+
+Let $\E_0(\l)$ be $\H(\t_0)$'s partition of unity, and $\E_\t(\l)$ that associated with $\H(\t)$. As we have seen in section X, the interior of $\E_0(\l)$ resp. $\E_\t(\l)$ consists of all linear combinations of $\vYz_\mu$ whose eigenvalues are $\leq \l$; thus the interior of $\E_0(\I)$ resp. $\E_\t(\I)$ consists of all linear combinations of $\vYz_\mu$ resp. $\vYt_\nu$ whose eigenvalues lie in $\I$.
+
+Now $\Iu$ contains an individual eigenvalue of $\H(0)$: the $\uth$, and $\Jv$ contains one from $\H(\t)$: the $\vth$. Then $\E_0(\Iu)$'s resp. $\E_\t(\Jv)$'s interior consists of multiples\WTF{Vielfachen} of $\vYz_\mu$ resp. $\vYt_\nu$, thus it is:
+\uequ{
+\E_0(\Iu)\f  &= \Q(\f, \vYz_\mu)\vYz_\mu\\
+\E_\t(\Jv)\f &= \Q(\f, \vYt_\mu)\vYt_\nu.
+}
+We now calculate $[\E_0(\Iu),\E_\t(\Jv)]$, which we maks use of the complete orthonormal system $\seqX{\vYz}$:
+\uequ{
+[\E_0(\Iu),\E_\t(\Jv)] = [\E_\t(\Jv)\E_0(\Iu)] = \sumXY{\varrho=1}{\infty}\Q(\E_\t(\Jv)\E_0(\Iu)\vYz_\varrho) = \\
+ = \Q(\E_t(\Jv)\vYt_Mu) = \Q(\Q(\vYz_\mu, \vYt_\nu)\times\vYt_\nu) = |\Q(\vYz_\mu,\vYt_\nu)|^2;
+}
+which is exactly Born's expression (because
+\uequ{
+\cuvt = \Q(\vYt_\nu,\vYz_\mu) = \barred{\Q(\vYz_\mu,\vYt_\nu)}).
+}
+
+\part*{XV.}
+As one sees, our Ansatz on the dual nature of the \WTF{Geschehens} (continuous-discontinuous) is justified by the fact that each variable resp. their corresponding symmetrical linear operators can be assigned a partition of unity $1$ in E. Op. $\E(\l',\l'')=\E(\l'')-\E(\l'), (\l'\leq \l'')$.
+
+The function $\E(\l)$ is (in the sense that it is understood for E. Ops) monotonically non-decreasing, and this monotonicity can show all characteristics which one knows from atoms: its increasing from $0$ (for $\l=-\infty$) to $1$ (for $\l=\infty$) can be accomplished in individual jumps (quantized states), or continuously (unquantized states), and between these could also lie in constant intervals\WTF{und dazwischen können auch Konstanz-Intervalle liegen} (forbidden states). The statement "the variables associated with $\R$ had one value lying in the interval $\l'<\x\leq \l''$" will in our calculations be represented by the E. Op. $\E(\l',\l'')$.
+
+If several statements are made: "the values of the variables $\seqXY{\R}{i}$ lie in the intervals $\seqXY{\I}{i}$, that the values $\seqXY{\S}{i}$ lie in the intervals $\seqXY{\J}{i}$" then the product
+\uequ{
+\E_1(\I_1)\times\dots\times\E_i(\I_i)\times\F_1(\J_1)\times\dots\times\F_j(\J_j)
+}
+must be formed (the multiplication law for probability applies in this transitive manner\WTF{in dieser übertragenen Weise}!); its squared absolute value
+\uequ{
+&[\E_1(\I_1)\times\dots\times\E_i(\I_i)\times\F_1(\J_1)\times\dots\times\F_j(\J_j)] =
+ = &[\E_1(\I_1)\times\dots\times\E_i(\I_i), \F_1(\J_1)\times\dots\times\F_j(\J_j)]
+}
+
+is then the (relative) probability of their co-existence\WTF{Zusammenbestehens}. One notes that in this schema the separation of cause and effect need not be present \it{a priori}, it is produced later by the commutation relations\WTF{Vertauschbarkeitsverhältnisse} themselves: if all $\E_\mu(\Iu)$ on the one hand and all $\F_\nu(\Jv)$ on the other commute with one another, then the product automatically decomposes into these two groups. Within each of these groups the order of thd factors is irrelevant ($\alpha.$ in section XIII), andlikewise tfor he order of both groups as a whole ($\beta.$ in section XIII) -- i.e. what one represents as the cause and what one represents as the effect.
+
+Naturally the commutation relations need not uniquely fix the separation of cause and effect: when e.g. when an $\E_varrho$ commutes with all $\E_\mu$ as well as all $\F_\nu$, then one can arbitrarily assign\WTF{zahlen} it to one group or the other,
+
+On the other hand however, certain assignments\WTF{Einteilungen} are prohibited from the outset: it is not possible in all cases to force commutable variables into absolutely-sharp causal relationships (c.f. the second example in section XIV) , that one (following the procedure from classical mechanics) can observe all coordinates and their conjugate momenta, and make them all "causes", i.e. $\R_\mu$s\WTF{es ist nicht möglich den bei vertauschbaren Größen in der Regel vorhandenen absolut  scharfen kausalen Zusammenhang dadurch in allen Fällen zu forcieren, daß man alle Koordinaten und deren konjugierte Momente beobachtet, und sie samt und sonders zu "Ursachen", d.h. zu $\R_\mu$-s, macht} (the inadmissibility of the foregoing was first pointed out by Dirac). Then the operators of a coordinate and its conjugate momentum are known to be non-commutable ($\q_\mu\times\dots$ and $\frac{\h}{2\pi\i}\oppddqu\dots$), and they will thus always automatically decompose: one must be a cause, and the other an effect (resp. observation and prediction). Even if one has observed everything, it is useless: the quantum mechanics (which encompasses almlst everything which we exactly know today about the atoms) does not go into the question at all\WTF{die Quantenmechanik geht auf die Fragestellung gar nicht ein}!
+
+In closing we again mention, that the applicability of our method is probably not yet exhausted by the foregoing. We want to come back to it on another occasion, along with certain formal mathematical questions that were left unsettled.
+
+\part*{Appendices}
+
+\section*{1}
+
+Let $\w$ be an eigenvalue, and $\seqX{\x}$ a sequence which is transformed by $\H$ into $\w$-times itself. If by the application of $\iS$ it goes over to $\seqX{\y}$, then it means the same thing as our condition that $\iS\H\S$ transforms $\seqX{\y}$ into $\w$ times itself.
+
+Now $\iS\H\S=\W$ transforms $\seqX{\y}$ into $\w_1\y_1,\w_2\y_2,\dots$, so $\y_\mu$ must $=0$ when $\w_\mu \neq \w$. i.e.: When $\w$ is different from all $\seqX{\w}$, then all $\y_\mu$ and hence all $\x_\mu$ are equal to $0$, i.e. $\w$ is not an eigenvalue. If on the other hand $\w$ is equal to some $\w_\mu$, perhaps $\w_{\mu'},\w_{\mu''},\dots$, then $\y_{\mu'},\y_{\mu''},\dots$ can be arbitrary (all other $\y_\mu=0$). $\seqX{\x}$ arises from $\seqX{\y}$ by a transformation with $\S$, so
+\uequ{
+\x_\mu=\sumXY{\mu=1}{\infty}\suv\y_\nu =
+\s_{\mu\mu'}\y_{\mu'} + \s_{\mu\mu''}\y_{\mu''} + \dots.}
+
+i.e. $\seqX{\x}$ can in fact be any linear combination of the columns $\s_{1\mu'},\s_{2\mu'},\dots,\s_{1\mu''},\s_{2\mu''},\dots,\dots$, and nothing else.
+
+\section*{2}
+
+We want to show that the space $\funcSpace$ of all functions $\f(\P)$ defined on $\aOmega$ ($\aOmega$ is an arbitrary $k$-dimensional surface in $l$-dimensional space, $\P$ is an arbitrary point in $\aOmega$, $\dv$ is the differential element of $\aOmega$) with finite $\intSquares{\f(\P)}$ satisfying the constraints A.-E. from section IV. For the usual Hilbert space $\hilberto$ (all sequences $\seqX{\x}$ with finite $\sumSquares{\x_n}$) the proof is trivial: because according to section V, every space with the properties A.-E. has the properties of $\hilberto$, and so $\hilberto$ has the properties A.-E.
+
+The definition of the operations $\a\f$ and $\f+\g$ is evident; it is clear that with $\f$, $\a\f$ also belongs to $\hilberto$, with $\f,\g$, $\f+\g$ belongs to $\funcSpace$ because of the inequality in note 16. We have defined $\Q(\f,\g)$, as was motivated in section III, as $\intOmega\f(\P)\barred{\g(\P)}\dv$. It is a finite value for all $\f,\g$ in $\funcSpace$ a finite value, because indeed
+\uequ{
+|\f(\P)\barred{\g(\P)}|\leq\inv{2}|\f(\P)|^2+\inv{2}|\g(\P)|^2,
+}
+and $\intSquares{\f(\P)}$, $\intSquares{\g(\P)}$ are finite.
+
+We now go through the conditions A.-E.!
+A.,B.: Obviously fulfilled.
+C.: We choose $k$ areas $\seqXY{\subHilbar}{k}$ from $\aOmega$ without any common points; let $\f_p(\P)=1$ resp. $0$, according to whether $\P$ belongs to $\subHilbar_p$ or not ($p=1,2,\dots,k$). The $\f_p$ ($p=1,2,\dots,k$) are linearly independent: because when
+\uequ{
+\a_1\f_1 + \dots + \a_k\f_k = 0,
+}
+then in specific in $\subHilbar_p$ we always have
+\uequ{
+\a_1\f_1(\P)+\dots+\a_k\f_k(\P)=0,
+}
+i.e. $\a_p=0$ ($p=1,2,\dots,k$).
+
+D: A general proof of this property, for all surfaces $\aOmega$, is hardly possible, without going deeper into the more exact concepts of generalized surfaces and the so-called Lebesgue measures\footnote{c.f. e.g. Carathéodory, Vorlesungen über reelle Funktionen (Lectures on real functions). Berlin-Leipzig 1918, chapters V.-IX. } We don't do this here, we want only to specify two characteristic cases of the everywhere-dense sequence $\seqX{\f}$ in $\funcSpace$.
+
+First let $\aOmega$ be the "$n$-dimensional cube" of all points $\seqXY{\x}{n}$
+\uequ{
+0 \leq \x_\nu \leq 1 \quad (\nu=1,2,\dots,n),
+}
+$\funcSpace$ is then the space of all (complex) functions $\f$ defined on $\aOmega$ with finite absolute-value-squared integral. We can also Fourier-expand such functions $\f(\P)=\f(\seqXY{\x}{n})$:
+\uequ{
+\f(\seqXY{\x}{n})=\\
+=\sumXY{\seqXY{\r}{n}=+\infty}{\infty} = \c_{\seqXY{\r}{n}}\exp{2\pi\i(\r_1\x_1+\r_2\x_2+\dots+\r_n\x_n)}
+}
+Now the partial sum
+\uequ{
+=\sumXY{\seqXY{\r}{n}=-N}{N} = \c_{\seqXY{\r}{n}}\exp{2\pi\i(\r_1\x_1+\r_2\x_2+\dots+\r_n\x_n)}
+}
+converges in mean to $\f$, for $N\to\infty$\footnote{A general and direct construction of an everywhere-dense (in $\funcSpace$) sequence has been given in my work mentioned in note 12.}.
+
+There is thus in an arbitrary neighborhood of each $\f$ in $\funcSpace$ a function of the form
+\uequ{
+=\sumXY{\seqXY{\r}{n}=-N}{B} = \c_{\seqXY{\r}{n}}\exp{2\pi\i(\r_1\x_1+\r_2\x_2+\dots+\r_n\x_n)},
+}
+thus also one such with rational $\c_{\seqXY{\r}{n}}$. This could however be written in the form of a known sequence\footnote{One can write all complexes in the form of a sequence of finitely-many rational numbers\WTF{Man kann alle Komplexe endlich vieler rationaler Zahlen bekanntlich in Gestalt einer Folge schreiben}.}.
+
+Second, let $\aOmega$ be the "$n$-dimensional (real) space" of all points $\seqXY{\x}{n}$, and $\funcSpace$ accorrdingly\WTF{...aller Punkte...überhaupt, $\funcSpace$ entsprechend}. We consider any (differentiable) function $\vY(\x)$ which maps the interval $0,1$ to the interval $-\infty,\infty$, and let $\Y(\y)$ be its inverse (e.g. $\ln\frac{\x}{1-\x}$ and $\frac{\exp{\y}}{\exp{\y}+1}$).
+
+Then generally:
+\uequ{
+\intXY{-\infty}{\infty}\dots\intXY{-\infty}{\infty}\f(\seqXY{\x}{k\nu})\dx_1\dots\dx_2 =\\
+\intXY{0}{1}\dots\intXY{0}{1}\f(\vY(\u_1),\dots,\vY(\u_n))\vY'(\u_1)\times\dots\times\vY'(\u_n)\du_1\times\dots\du_n;}
+
+and consequently we need only to choose $\seqX{\f}$ so that they are everywhere dense in the $\funcSpace$ from the first example; the $\seqX{\g}$,
+\uequ{
+\g_\mu(\seqXY{\x}{n}) = \frac{\f_\mu(\Y(\x_1),\dots,\Y(\x_n))}{\vY'(\Y(\x_1))\times\dots\times\vY'(\Y(\x_n))}
+}
+are then obviously everywhere dense in our example.
+
+E: Let $\seqX{\f}$ be a sequence of functions in $\funcSpace$, and to each $\epsilon > 0$ there is a $\N=\N(\epsilon)$, so that $\N\leq m \leq n$ implies
+\uequ{
+\intSquares{\f_m(\P)-\f_n(\P)} \leq \epsilon.
+}
+
+We select a monotonically-increasing sequence of numbers $\seqX{\N}$ such that
+\uequ{
+\N_\nu \geq \N\left(\inv{8^\nu}\right).
+}
+Then
+\uequ{
+\intSquares{\f_{\N_{\nu+1}}(\P) - \f_{\N_\nu}(\P)} \leq \inv{8^\nu}.
+}
+Each point $\P$, for which
+\uequ{
+|\f_{\N_{\nu+1}}(\P) - \f_{\N_\nu}(\P)| \geq \inv{2^\nu},
+}
+thua forms a flat surface of measure (surface area\footnote{by surface area, the Lebesgue measure is specifically\WTF{eigentlich} understood (c.f. note 37)}) $\leq \inv{2^\nu}$.
+
+Those for which
+\uequ{
+|\f_{\N_{\nu+1}}(\P) - \f_{\N_\nu}(\P)| &\leq \inv{2^\nu}\\
+|\f_{\N_{\nu+2}}(\P) - \f_{\N_{\nu+1}}(\P)| &\leq \inv{2^{\nu+1}}\\
+|\f_{\N_{\nu+3}}(\P) - \f_{\N_{\nu+2}}(\P)| &\leq \inv{2^{\nu+2}}\\
+\dots\dots
+}
+do not apply, thus have a measure
+\uequ{
+\leq \inv{2^\nu} + \inv{2^{\nu+1}} + \inv{2^{\nu+2}} + \dots = \inv{2^{\nu-1}}.
+}
+Thus everywhere where the above inequalities apply, the sequence $\f_{\N_1}(\P),\f_{\N_2}(\P),\dots$ converges; those points where this is not the case, thus form a flat surface with a measure $\leq \inv{2^{\nu-1}$. This holds for all $\nu$, thus it has the measure $0$.
+
+The limits of $\f_{\N_\nu}(\P)$ thus exist everywhere (except at most a set of measure $0$), so we call it $\f(\P)$\WTF{er heiße $\f(\P)$}.
+
+When $m\geq\N = \N(\epsilon)$, then for $\N_\nu \geq m$, i.e. for all except at most finitely-many $\N_\nu$,
+\uequ{
+\intSquares{\f_m(\P) - \f_{\N_\nu}(\P)} \leq \epsilon;
+}
+thus we may let $\nu\to\infty$:
+\uequ{
+\intSquares{\f_m(\P) - \f(\P)} \leq \epsilon;
+}
+i.e.: $\f$ belongs to $\funcSpace$, and the sequence $\seqX{\f}$ converges to $\f$.
+
+\section*{3}
+The Stieltjes integral
+\uequ{
+\intXY{a}{b}\f(\x)\opdiff{\vY(\x)}
+}
+is defined when $a,b$ is a finite or infinite interval, $\f(\x)$ is a continuous function in this ingerval (also at $a$ and $b$!), and $\vY(\x)$ is there a monotonically non-decreasing function -- or the difference of two such functions (function of bounded variation\WTF{Funktion beschränkter Schwankung}). It is defined, analogously to the Riemann integral at the limit-value of the expression
+\uequ{
+\sumXY{n=1}{\N}\f(\x_n')(\vY(\x_n) - \vY(\x_{n-1}))
+}
+($a=\x_0\leq\x_1'\leq\x_1\leq\x_2'\leq\x_2\leq\dots\leq\x_{\N-1}\leq\x_{\N-1}'\leq\x_\N = b$, by arbitrarily-fine division $\seqXY{\x}{n}$ of the interval $a,b$\footnote{Stieltjes, Recherches sur les fractions continues, Annalea de la Faculté des sciences de Toulouse, 1894/95, chapter VI. An abbreviated presentation is given in e.g. Carlemann, Équations Intégrales  noyeau réel singulier, Upsala 1923, p. 7-9.}.
+
+Without entering into detail on this,  take the following geometric illustration (for monotonic $\vY$):
+
+One draws on the $\x,\y$-plane the curve
+\uequ{
+\x &= \vY(\u)\quad(a \leq \u \leq b)\\
+\y &= \f(\u)
+}
+(when $\x$ falls in a hole\WTF{Loch}, because $\vY(\u)$ is discontinuous, then one horizontally connects to the adjactent $\f(\u)$),
+\uequ{
+\intXY{a}{b}\f(\u)\opdiff{\vY(\u)}
+}
+is then the area bewteen this curve, the $\x$-axis, and the flat surfaces lying on the abcissae $\x=\vY(a)$ and $\y=\vY(b)$ (c.f. figs a-c).
+
+\end{document}

@@ -1,0 +1,169 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\renewcommand*\rmdefault{ppl}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{marginnote}
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+
+\nff{\WTF}{#1 (\textit{#2})}
+
+\nf{\translator}{\footnote{\textbf{Translator note:}#1}}
+\nc{\sic}{{}^\text{(\textit{sic})}}
+
+\newcommand{\nequ}[2]{
+\begin{align*}
+#1
+\tag{#2}
+\end{align*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{align*}
+#1
+\end{align*}
+}
+
+\nf{\sskip}{...\{#1\}...}
+\nff{\iffy}{#2}
+\nf{\?}{#1}
+\nf{\tags}{#1}
+
+\nf{\limX}{\underset{#1}{\lim}}
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+%\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+\nff{\intXY}{\underset{#1}{\overset{#2}{\int}}}
+
+\nc{\fluc}{\overline{\delta_s^2}}
+
+\rf{\exp}{e^{#1}}
+
+\nc{\grad}{\operatorfont{grad}}
+\rc{\div}{\operatorfont{div}}
+
+\nf{\pddt}{\frac{\partial{#1}}{\partial t}}
+\nf{\ddt}{\frac{d{#1}}{dt}}
+
+\nf{\inv}{\frac{1}{#1}}
+\nf{\Nth}{{#1}^\text{th}}
+\nff{\pddX}{\frac{\partial{#1}}{\partial{#2}}}
+\nf{\rot}{\operatorfont{rot}{#1}}
+\nf{\spur}{\operatorfont{spur\,}{#1}}
+
+\nc{\lap}{\Delta}
+\nc{\e}{\varepsilon}
+\nc{\R}{\mathfrak{r}}
+
+\nc{\Y}{\psi}
+\nc{\y}{\varphi}
+
+\nf{\from}{From: #1}
+\nf{\rcpt}{To: #1}
+\rf{\date}{Date: #1}
+\nf{\letter}{\section{Letter #1}}
+\nf{\location}{}
+
+\title{Pauli - Supplements}
+
+\begin{document}
+
+\letter{251c}
+\rcpt{Rosenfeld}
+\date{September 30, 1930}
+\location{Zurich}
+\tags{self-energy}
+
+Dear Herr Rosenfeld!
+
+Many thanks for your card. Now I would like to ask you about a generalization of the results of your paper on the gravitational energy of a light quantum, or induce you to answer the question by calculation. (If you have the answer, you should add something about it in the corrections.)
+
+You specifically assume that in the initial state the momenta of the light quanta are exactly known, thus the positions are \WTF{not defined at all}{beliebig unbestimmt}. It is for me of the greatest interest to know whether the result that the perturbation energy $=\infty$ remains even in the most general initial state where $N_r$ is \textit{non}-diagonal, i.e. characterized by the most general (complex) eigenfunctions $\varphi_r(N_r)$, which only satisfy the conditions
+\uequ{
+\sumXY{N_r=0}{\infty}{|\varphi_r(N_r)|^2} = 1
+\quad
+\sumX{r}{\sumX{N_r}{N_r}{|\varphi_r(N_r)|^2}} = N
+\quad
+(\varphi_r(N_r) = 0 \text{ for } N_r > N).
+}
+We could however restrict ourselves to the case that \textit{one} light quantum is present ($N=1$), so that we always have
+\uequ{
+\varphi_r(N_r) = 0 \quad \text{ for } N_r > 1;\\
+|\varphi_r(N_r = 0)|^2 + |\varphi_r(N_r = 1)|^2 = 1;\\
+\sumXY{r}{\infty}{|\varphi_r(N_r = 1)|^2} = 1
+}
+(for short I write $\varphi_r(1_r)$ for $\varphi_r(N_r = 1)$).
+
+Up to the middle of page 6 of your manuscript everything then \?{remains}, only the form of the diagonal elements belonging to the state is different. \textit{I would like to know what (for $N=1$) the general formula for the perturbation energy looks like}; in the case of $N=0$ (\textit{no} light quanta) nothing will change. Of interest is the finiteness or non-finiteness of the difference in the perturbation energies for $N=1$ and $N=0$. -- Naturally your previous calculation corresponds to the special case $\varphi(1_n) = \delta{rn}$, where $r$ is a specific index, and in this special case you have shown that the difference under discussion is infinite. In the general case the diagonal part of \?{any operator $D_{rsmn}$ acting on only the 4 eigenvibrations $r,s,m,n$} is naturally given by
+\uequ{
+\sumX{N_r,N_s,N_m,N_n}{\varphi_r^*(N_r)\dots\varphi_m^*(N_m)D_{rsmn}\left\{
+\varphi_r(N_r)\varphi_s(N_s)\varphi_n(N_n)\varphi_m(N_m)\right\}},
+}
+where the $A,B$ act in the known fashion on the $N_r$. The essential distinction with respect yo your calculation occurs in the transition from equation (22) to equation (24). -- If one has the general \?{end formula}, one can e.g. insert the well-known Gauss distribution for the $\varphi_r(1_r)$ (written one-dimensionally and without polarization for simplicity):
+\uequ{
+\varphi_r(1_r) = \text{const}\times \exp{-\frac{(k_r - \overline{k})^2}{(2\Delta k)^2}} + 2 p i \overline{x}(k_r - \overline{k}).
+}
+
+Even in the general case, the gravitational self-energy of the light quantum and the electromagnetic self-energy of the electron will be analogous. I would like to have an answer from you \textit{as soon as possible}, whether the self-energy is also infinite in the general case, or whether this only happens in the special cases $\Delta k=0$ and $\Delta k=\infty$. (I rather suspect the first.)
+
+Many greetings to you, Bohr, Klein, Landau, Gamow, etc.
+
+From your W. Pauli
+
+\letter{271a}
+\rcpt{Rosenfeld}
+\date{April 12, 1931}
+\location{Zurich}
+\tags{}
+
+Dear Herr Rosenfeld!
+
+Yesterday I wrote Bohr a long letter, among other things about your calculation concerning the self-energy of the oscillator. But since in this lettwr I hadn't made one point sufficiently clear, I want to briefly add something here. Gamow has written me that he has now proven that the questionable self-energy is actually infinitely-large. Now it occurs to me that it could perhaps be more clear, if one considers the non-stationary solution in which at the time $t=0$ no light quanta are present and the oscillator is in the ground state. One then has to consider at a later time $t>0$ the expectation values (a) of the oscillator energy for a given number of light quanta and (b) of the total radiation energy for a given state of the oscillator.
+\uequ{
+&(a) \quad \sumX{n}{n|\varphi(N_1,\dots,N_r,\dots,n,t)|^2}\\
+&(b) \quad \sumX{r}{\sumX{N_r}{\left(\sum{N_r h\nu_r\right)}
+|\varphi(N_1,\dots,N_r,\dots,n,t)|^2}.
+}
+
+In the letter to Bohr I have already opined that (a) must be infinitely great. Now I rather believe that
+
+(b) must become infinitely great
+
+(a) however does not, and indeed it might suffice to take $n$ approximately equal to 1 and set all $N_r$ to zero except for one, which is equal to 1.
+
+The probability of the presence of a light quantum of very short wavelength might not decrease sufficiently strongly with $\nu_r$, so that the $\sum$ will probability diverge. Naturally these are all states whose total energy is different from that of the initial state (\?{\textit{no} vanishing resonance denominators}).
+
+Of course physically it means the same, when either
+
+(1) no \textit{stationary} solutions with finite energy exist, or
+
+(2) the expectation value of the energy after an arbitrarily-brief time $t$ is already infinitely-great. (When the oscillator $t=0$ is in the ground state and with \textit{no} photon.)
+
+Please send me your calculations \textit{as soon as possible}, as well as your results concerning the case under consideration here of the non-stationary solutions.
+
+With many greetings to you, Bohr and the others.
+
+Your W. Pauli
+
+\end{document}

@@ -1,0 +1,441 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{titling}
+\usepackage[utf8]{inputenc}
+%\newcommand{\location}[1]{}
+%\newcommand{\publication}[1]{}
+\newcommand{\textbb}[1]{\textbf{#1}}
+\newcommand{\WTF}[1]{\textbf{???}\textit{#1}\textbf{???}}
+\newcommand{\?}[2]{#1\footnote{\textsc{Translator note}: #2}}
+\newcommand{\nequ}[2]{\begin{align*}\tag{#1}#2\end{align*}}
+\newcommand{\uequ}[1]{\begin{align*}#1\end{align*}}
+\renewcommand{\operatorfont}[1]{\texttt{#1}}
+\newcommand{\grad}{\operatorfont{grad}}
+\renewcommand{\div}{\operatorfont{div}}
+\newcommand{\curl}{\operatorfont{curl}}
+\newcommand{\rot}{\,\operatorfont{rot}\,}
+\renewcommand{\exp}[1]{e^{#1}}
+\newcommand{\pXpY}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ppXpYY}[2]{\frac{\partial^2 #1}{\partial {#2}^2}}
+\newcommand{\dXdY}[2]{\frac{d{#1}}{{d{#2}}}}
+\newcommand{\ddXdYY}[2]{\frac{d^2{#1}}{d{#2}^2}}
+\newcommand{\mf}[1]{\mathfrak{#1}}
+\newcommand{\Nth}[1]{{#1}^\text{th}}
+
+\newcommand{\publication}[1]{%
+    \gdef\puB{#1}}
+\newcommand{\puB}{}
+\renewcommand{\maketitlehooka}{%
+    \par\noindent \puB}
+
+
+\newcommand{\location}[1]{%
+    \gdef\loB{#1}}
+\newcommand{\loB}{}
+\renewcommand{\maketitlehooka}{%
+    \par\noindent \loB}
+
+%\newcommand{\dX}[2]{\frac{d#1}{{#2}}}
+%\newcommand{\dY}[1]{{d#1}}
+%\newcommand{\pX}[1]{\frac{\partial{#1}}}
+%\newcommand{\pY}[1]{{\partial{#1}}}
+
+\begin{document}
+
+\title{Quantum electrodynamics in configuration space}
+
+\author{L. Landau \and R. Peierls}
+\location{Zurich}
+\publication{Zeitschrift für Physik, volume 62}
+\date{1930/02/12}
+
+\maketitle
+
+\abstract{The electromagnetic field and its interaction with matter are described by a Schroedinger equation in the configuration space of light quanta. The results are identical with those of Heisenberg and Pauli.}
+
+\section*{Introduction.} Heisenberg and Pauli\footnote{W. Heisenberg and W. Pauli, ZS. f. Phys. \textbf{56}, 1, 1929; \textbf{59}, 128, 1930 (cited as l.c. I and II.)} have put forward a quantum theory of the electromagnetic field and its interaction with matter. In it, they use the method of quantized waves. It seems convenient to us to introduce the light quanta analogously to the usual quantum mechanics of configuration space. In carrying this out it is shown that the form of the equations can be derived from a few physically-plausible assumptions. The considerations of Dirac et al\footnote{P.A.M. Dirac, Procl Roy. Soc. London (A) \textbf{114}, 243, 1927; P. Jordan, ZS. f. Phys. \textbf{45}, 766, 1927; O. Klein and P. Jordan, ibid \textbf{45}, 751, 1927; P. Jordan and E. Wigner, ibid \textbf{47}, 631, 1928.} lead us to suspect that the equations are equivalent to one another, which we also confirm in the fourth section by direct calculation.
+
+In particular the difficulty that the interaction of a particle with itself becomes infinitely large is not removed here. The equations are thus certainly not yet physically correct, and we also do not believe that this problem can be rectified by a purely formal change. 
+
+\section{Wave equation for a light quantum.} Now again the opinion has been voiced that it is not possible to put together a wave equation for light quanta, since for them no conservation of particle number applies. Pauli and Heisenberg\footnote{W. Heisenberg and W. Pauli, l.c. II, p. 190.} first expressed that this difficulty can be easily overcome: One must consider a system of functions in $0,3,6,\dots$ -dimensional space, from which the $N^\text{th}$ supply the probability that $N$ particles are present, and that the configuration of these particles is given by the point in the $3N$-dimensional space in question. These functions are then connected by a simultaneous system of equations.
+
+As preparation we first consider the case that no matter is present. Then these functions will be independent of one another and one can constrain oneself to considerations of "single-quanta". Of the three-dimensional equations it must be demanded that their solutions correspond to all possible states of motion and polarization of a light quantum, i.e. all solutions of the Maxwell equations:
+\nequ{1a}{
+\mf{\dot{E}} = c\rot \mf{H},
+}
+\nequ{1b}{
+\mf{\dot{H}} = -c\rot\mf{E},
+}
+\nequ{2}{
+\div\mf{E} = \div\mf{H} = 0.
+}
+But our functions must be distinguished from these solutions by having time-dependence $\exp{i\omega t}$ for a light quantum of frequency $\omega$, so that (in interaction with matter) the energy law applies. We also need not ask that $\mf{E}$ and $\mf{H}$ are real. But instead of these we have to set another auxiliary condition, which expresses that only quanta with positive energy are present. We investigate this condition for the case of a linearly-polarized plane wave:
+\uequ{
+\mf{E} = \mf{E}_0 \exp{i\left[\omega t + (\mf{k}, \mf{r})\right]},\quad
+\mf{H} = \mf{H}_0 \exp{i\left[\omega t + (\mf{k}, \mf{r})\right]}.
+}
+If $\omega$ is negative, we could replace it by $(-c|\mf{f}|)$. (In the usual notation a negative frequency is associated with a positive energy.) For this case, it follows from the Maxwell equations:
+\nequ{3}{
+-ik\mf{E} = \rot\mf{H} \quad k=|\mf{k}|.
+}
+For every other solution we have to require that (3) is valid for every Fourier component of $\mf{E}$ and $\mf{H}$. For brevity we introduce an operator $\sqrt{\Delta}$, which is defined by taking a function
+\uequ{
+\Phi(\mf{r}) = \int\phi(\mf{f})\exp{i(\mf{kr})}d\Omega\quad
+d\Omega = dk_x dk_y dk_z
+}
+into
+\nequ{4}{
+\sqrt{\Delta}\Phi = \int ik\cdot \phi(\mf{k})\exp{i(\mf{kr})}d\Omega.
+}
+The notation $\sqrt{\Delta}$ is justified by the fact that repeating this operation obviously leads to the Laplacian operator. Then we must demand as an auxiliary condition that
+\nequ{5}{
+-\rot{\mf{H}} = \sqrt{\Delta}\mf{E}.
+}
+This condition is trivially compatible with the Maxwell equations. Now however $\mf{H}$ is uniquely determined by $\mf{E}$, so that now only one of the two functions needs to be determined. There is now only very little left of the relations to the field quantities, so we no longer denote the wavefunction by $\mf{E}$, but rather with $\mf{F}$. From (1a), (2) and (5) it then follows:
+\nequ{6a}{
+\frac{1}{c}\mf{\dot{F}} = -\sqrt{\Delta}\mf{F},
+}
+\nequ{6b}{
+\div\mf{F} = 0.
+}
+However, we must still add one more normalization condition, which says that it is dealing with a quantum. It is convenient to do this in the following manner: if one has a monochromatic wave, then in the classical Maxwell theory the total energy is given by
+\uequ{
+\frac{1}{2}\int\left(\mf{E}^2 + \mf{H}^2\right)dV,
+}
+the number of light quanta is thus given by
+\uequ{
+\frac{1}{2 h |\omega|}\int\left(\mf{E}^2 + \mf{H}^2\right)dV
+}
+($h=\frac{1}{2\pi}\cdot\text{Planck's constant}$). We will therefore write
+\nequ{7}{
+\frac{1}{2h|\omega|}\int\mf{F}\mf{F}^*dV
+}
+as the number of light quanta for a monochromatic wave\footnote{(7) is allowed since according to (5) and (2) $\int\mf{E}\mf{E}^*dV = \int\mf{H}\mf{H}^*dV.$} Because of our auxiliary condition we could again replace $|\omega|$ by $ck$ and then for an arbitrary field function, which we assume is in the form
+\uequ{
+\mf{F}(\mf{r}) = \int\mf{f}(\mf{k})\exp{i(\mf{kr})}d\Omega
+}
+at a given time, we calculate the number of quanta:
+\nequ{8}{
+N=\frac{1}{2h}\int dV \int \frac{\mf{f}(\mf{k})\mf{f}^*(\mf{k}')}{ck}
+\exp{i(\mf{k} - \mf{k}')\mf{r}}d\Omega d\Omega'.
+}
+Corresponding to (4) we define the operator
+\nequ{9}{
+\frac{1}{\sqrt{\Delta}}\Phi(\mf{r}) = 
+\int \frac{1}{ik}\phi(\mf{k})\exp{i(\mf{kr})}d\Omega,
+}
+which according to the Fourier theorem can also be written as an integral operator:
+\nequ{9a}{
+\frac{1}{\sqrt{\Delta}}\Phi(\mf{r}) = \frac{1}{2\pi^2 i}
+\int \frac{\Phi(\mf{r}')}{|\mf{r}-\mf{r}'|^2} dV'.
+}
+With this definition, (8) becomes:
+\nequ{10}{
+N = \frac{i}{2hc}\int \mf{F}^*(\mf{r})\frac{1}{\sqrt\Delta}\mf{F}(\mf{r})dV - 
+\frac{1}{4\pi^2 hc}\int \frac{\mf{F}^*(\mf{r})\mf{F}(\mf{r}')}{\left|\mf{r}-\mf{r}'\right|^2}{dV}{dV'}
+}
+and the normalization condition says that the integral (10) should have the value $1$.
+
+One can however not define $\mf{F}^*\frac{1}{\sqrt{\Delta}}\mf{F}$ as a probability density, since this quantity is not positive-definite.
+
+It has however not succeeded in finding the correct expression for the probability density.
+
+\section{Several particles without interaction.} We now turn to the case of arbitrarily many light quanta and electrons. Fo that it will suffice however to write out the equations for the case of one electron, since the one for several equations can then be obtained from a simple generalization. Let $N$ be the number of quanta, so one needs to set up an equation in $(3N+3)$-dimensional space. The solutions must be products of solutions of equations (6) with a solution of the force-free Dirac equation. Hence one must have a quantity with $4\cdot 3^N$ components. We denote it with 
+\nequ{11}{
+\left. F^N_{m_1 m_2 \dots m_N \varrho}\right|(\mf{q}_1, \mf{q}_2, \dots, \mf{q}_N, \mf{Q}, t).
+}
+$\varrho$ refers to the index of the Dirac function, $m_\nu$ denotes the three directions in space of the $\nu^\text{th}$ quantum, $\mf{Q}=Q_1 Q_2 Q_3$ are the coordinates of the electron, $\mf{q} = q_1^\nu, q_2^\nu, q_3^\nu$ those of the $\nu^\text{th}$ quantum. For readability we shall however often leave off the indices and simply write $F^N$. It is then understood that a differential operator which acts on the coordinates of the $\Nth{\nu}$ particle always \?{refers to}{sich...bezieht} the index $m_\nu$, e.g. $\div_\nu = \sum\limits_{m_\nu}\pXpY{}{q_{m_\nu}^\nu}$. Differential operators without indices refer to the electron coordinates. Likewise the Dirac matrices, $\alpha^1, \alpha^2, \alpha^3, \alpha^4 = \alpha$, where the first three can also be written as the vector $\mf{a}$ without using indices, and then always acting on the index $\varrho$ of the function $F$ behind it.
+
+According to our definition, because of (6) the function $F$ satisfies the equation
+\nequ{12}{
+\left(\frac{1}{c}\pXpY{}{t} + (\mf{a}, \grad) + \frac{imc}{h}\alpha\right)F^N + \sum\limits_\nu\sqrt{\Delta_\nu} F^N = 0.
+}
+In the well-known manner, we of course choose not the simple product-functions, but rather the linear combinations that remain unchanged when the points $q_\nu$ and the associated indices are permuted in the same way (symmetry principal).
+
+For clarity we explicitly write out these equations for the case $N=0$ and $N=1$:
+\nequ{13}{
+\frac{1}{c}\pXpY{}{t}F_\varrho^0 + \left(\mf{a}_{\varrho\sigma}\grad\right)F_\sigma^0 + \frac{imc}{h}\alpha_{\varrho\sigma}F_\sigma^0 = 0,
+}
+\nequ{14}{
+\frac{1}{c}\pXpY{}{t}\mf{F}_\varrho^1 + \left(\mf{a}_{\varrho\sigma}\grad\right)\mf{F}^1 + \frac{imc}{h}\alpha_{\varrho\sigma}\mf{F}_\sigma^1 + \sqrt{\Delta_1}\mf{F}_\varrho^1 = 0.
+}
+Outside of that, the auxiliary condition still always applies
+\nequ{12a}{
+\div_1 F^N = 0,
+}
+i.e. e.g.:
+\nequ{14a}{
+\div_1 F^1(\mf{q}_1, \mf{Q}) = 0.
+}
+For normalization we have to ask that
+\nequ{15}{
+J_N = \left(\frac{i}{2hc}\right)^N
+\int F^{*N}\frac{1}{\sqrt{\Delta_1}}&\dots\frac{1}{\sqrt{\Delta_N}}
+\cdot F^N dW dV_1 \dots dV_N = 1,\\
+dW &= dQ_1 dQ_2 dQ_3,\\
+dV_\nu &= dq_1^\nu dq_2^\nu dq_3^\nu.
+}
+It is evident from the derivation in (12) that (12a) as well as (15) are compatible with the equations, i.e. they apply for all times if they are fulfilled at time zero.
+
+\section{Interaction.} If we want to calculate the interaction of the particles on one another, then we have to change the equations in many ways. First, there is certainly no longer any conservation law for the number of light quanta. And so then we could no longer demand of the integral $J_N$ in (15) that it remains constant. It should rather specify the probability that just $N$ quanta are present. But we must still always demand that there is a condition of the form
+\nequ{16}{
+\sum\limits_{N=0}^\infty J_N = 1.
+}
+This condition must naturally apply for all times, and we will see that the possibilities for setting up the equations are very constrained by this.
+
+Still, we have to take care that the classical equation (2) only apply for the matter-free case and otherwise is to be replaced by 
+\nequ{17}{
+\div\mf{E} = \varrho.
+}
+We will initially leave open how this equation is generally formulated in our theory, i.e. what we have to generally put in place of (12a). But for the case $N=1$, i.e. for (14a), this question is easy to answer. This expression denotes the charge density at the position $\mf{q}$, under the assumption that the electron is found at point $\mf{Q}$. It is unlikely to find a more plausible expression for this than
+\nequ{18}{
+\div_1\mf{F}_\varrho^1(\mf{q}\mf{Q}) = e\cdot \delta (\mf{q} - \mf{Q})\cdot F_\varrho^0(\mf{Q}).
+}
+$\delta(\mf{r}) = \delta(x)\cdot\delta(y)\cdot\delta(z)$ is the three-dimensional singular Dirac function\footnote{P.A.M. Dirac, Proc. Roy. Soc. London (A) \textbf{113}, 621, 1927.}.
+
+But now we must notice that the relation (5) only applies to the divergence-free part of $\mf{E}$. If we split $\mf{E}$ into a divergence-free and a rotation-free (transversal and longitudinal) part, one easily reflects that the first is given by 
+\uequ{
+-\frac{\rot\rot}{\Delta}\mf{E}.
+}
+So in (12) we must replace the operator $\sqrt{\Delta_\nu}$ by
+\nequ{19}{
+-\frac{\rot_\nu \rot_\nu}{\sqrt{\Delta_\nu}}.
+}
+Likewise, we could demand that the normalization integral for the transversal part of $F$ takes the form (10). For the contribution of the longitudinal portion there is still an arbitrary factor. The equations however take their simplest form if 
+one keeps the integral (10) for the total $F$. This notation clearly means that for a longitudinal quantum, there is a corresponding electrical field strength of equal magnitude as that for a transversal quantum of the same wavelength.
+
+Additionally we have to express the action of the field on the electrion. An individual electron must execute a force-free motion as long as there are no quanta present at all, i.e. as long as only $F^0$ is nonzero, otherwise it will in general be deflected as soon as a quantum is present. We must therefore add to the equation (13) yet another term, which depends on $\mf{F}^1$. This term must naturally be analogous to the potential term in the Dirac equation, however with a charachteristic distinction. Namely, considering an electron under the influence of a prescribed external, constant electrical field, then classically its energy is $e\cdot V$. If however we consider the total field as created by electrons, then we must set the energy of each electron to $\frac{1}{2} eV$ in order to get the correct interaction, since otherwise we will count the same energy twice. This circumstance, sufficiently well-known in the classical theory, \WTF{means that we have to insert only half of the potential into the Dirac equation}{bringt es mit sich, dass wir in die Dirac-gleichung nur die Haelfte der Potentiale einzusetzen haben}. Up to now we have always only worked with the field strengths and must now still express the potentials through the field strengths. This determination is only unique if we set a condition for the potentials whereby the condition
+\nequ{30}{
+\div\mf{U} = 0
+}
+is conveniently manifest. With this condition and the equations
+\uequ{
+\mf{E} = -\grad\varphi - \frac{1}{c}\dot{\mf{U}},\quad
+\mf{H} = \rot\mf{U}
+}
+the potentials can be represented as\footnote{The meaning of the operator $\frac{1}{\Delta}$ is immediately apparent from the preceding.}
+\nequ{21}{
+\mf{U} = -\frac{\rot}{\Delta}\mf{H};\quad\varphi = -\frac{\div}{\Delta}\mf{E}.
+}
+The quantities which we insert in place of $\varphi\cdot\psi_\varrho$, $\mf{U}\cdot\psi_\varrho$ in the Dirac equation will thus, in view of (5), (19) and (21), have the form:
+\nequ{22}{
+-\frac{1}{2}\frac{\div_1}{\Delta_1}F_\varrho^1(\mf{q},\mf{Q}); \quad
+-\frac{1}{2}\frac{\rot_1\rot_1}{\Delta_1^{3/2}}F_\sigma^1(\mf{q},\mf{Q}),
+}
+so that the equation (18) goes over to
+\nequ{23}{
+\frac{1}{c}\pXpY{}{t}F^0 + (\mf{a},\grad)F^0 + \frac{imc}{h}\alpha F^0\\
++ \frac{ie}{2hc}\left[
+\frac{\div_1}{\Delta_1}F^1(\mf{Q},\mf{Q}) + 
+\mf{a}\frac{\rot\rot_1}{\Delta_1^{3/2}}F^1(\mf{Q},\mf{Q})
+\right] = 0.
+}
+This additional term in the expression for $\pXpY{F^0}{t}$ also supplies a contribution to $\pXpY{J_0}{t}$. Because normalization is maintained, this change must be compensated by a corresponding change in $J_1$. So we must add yet another term to (14) which depends on $F^0$. (Physically, that means that from the existence of an action of the field on the electron, there necessarily follows the existence of a corresponding action of the electron on the field.) To specify the form of this term, we calculate $\pXpY{}{t}J_0$. With that one can be easily convinced that the longitudinal parts of (22), in view of (18), supply no contribution, so that we can omit the first term of (22) and replace the second by
+\uequ{
+\frac{ie}{2hc}\mf{a}\frac{1}{\sqrt{\Delta_1}}F^1(\mf{QQ}).
+}
+Finally we obtain
+\uequ{
+\frac{1}{c}\pXpY{J_0}{t} = &+\int F^{*0} \frac{ie}{2hc}\mf{a}\frac{1}{\sqrt{\Delta_1}}F^1(\mf{Q},\mf{Q})dW\\
+ & +\int F^{0}(\mf{Q}) \frac{ie}{2hc}\mf{a}^*\frac{1}{\sqrt{\Delta_1}}F^{*1}(\mf{Q},\mf{Q})dW.
+}
+That can be rearranged to
+\uequ{
++\frac{i}{2hc}\int\frac{1}{\sqrt{\Delta_1}}F^{*1}(\mf{qQ})\cdot
+\delta(\mf{q}-\mf{Q})e\mf{a} F^0(\mf{Q})dV_1 dW + \dots.
+}
+Thus it is seen that, for the consistency of $\sum J_N$, it is necessary that we add to (14) a term
+\nequ{24}{
+e\mf{a}\delta(\mf(q) - \mf{Q})\cdot F^0(\mf{Q}).
+}
+The occurance of this term is now exactly what should be expected in this position, since $e\mf{a}\delta(\mf{q} - \mf{Q})$ is indeed the expression for the current density at the position $\mf{q}$ in the Dirac theory, and the term corresponds exactly to the term with the current density in the Maxwell equations. Here we also get another confirmation for the factor $\frac{1}{2}$ in the potential terms in the \WTF{zeroth}{nullten} equation.
+
+One could also deduce the form of this additional term from the compatibility of the divergence condition with the equations. Namely, forming the divergence of equation (24) with the addition of (24) and looking back to (18), (13) is obtained, multiplied with a factor $\delta(\mf{q} - \mf{Q})$. With that, the compatibility of the equations is proven, up to the additional term that distinguishes (23) from (13). So two things still must be changed: first we must add a corresponding  additional term in (14) and aside from that we must still assume an auxiliary condition analogous to (18) between $F^2$ and $F^1$. But then it follows from the consistency of normalization that we must add terms analogous to (24) into the equation for $F^3$. Finally one must generally posit in general the following equation:
+\nequ{25}{
+&\left(\frac{1}{c}\pXpY{}{t} + (\mf{a}\grad) + \frac{imc}{h}\alpha\right)F^N - 
+\sum\limits_\nu\frac{\rot_\nu \rot_\nu}{\sqrt{\Delta_\nu}}F^N\\
+&+\frac{ie}{2hc}\left[\frac{\div_{N+1}}{\Delta_{N+1}}F^{N+1}
+(\mf{q}_1,\dots,\mf{q}_N,\mf{Q},\mf{Q}\right.\\
+&\left.+\frac{\mf{a}\rot_{N+1}\rot_{N+1}}{\Delta_{N+1}^{3/2}}\cdot F^{N+1}
+(\mf{q}_1,\dots,\mf{q}_N,\mf{Q},\mf{Q}\right]\\
+&+e\mf{a}\sum\limits_\nu F^{N-1}(\mf{q}_1,\dots,\mf{q}_{\nu-1},\mf{q}_{\nu+1},\dots,\mf{q}_N,\mf{Q})\cdot(\mf{q}_\nu-\mf{Q})=0
+}
+and then require as auxiliary conditions:
+\nequ{25a}{
+\div_\nu F^N = e\delta(\mf{q}_\nu-\mf{Q})F^{N-1}(\mf{q}_1,\dots,\mf{q}_{\nu-1},\mf{q}_{\nu+1},\dots,\mf{q}_N,\mf{Q}).
+}
+We could now immediately specify how the equations are to be generalized to the case of several electrons: one need not assume any interaction between the electrons, but rather add the interaction terms between the individual electrons and the light quanta. Also the number of equations is not increased, since we assume the conservation of particle number for matter. For this case one obtains\footnote{The matrices $\mf{a}_p$, $\alpha_p$ act on the index $\varrho_p$ associated with the $\Nth{p}$ electron of the function behind it.}:
+
+\nequ{26}{
+&\left(\frac{1}{c}\pXpY{}{t} + \sum\limits_p(\mf{a}_p \grad_p) + \frac{imc}{h}\alpha_p\right)F^N(\mf{q}_1,\dots,\mf{q}_N,\mf{Q}_1,\dots,\mf{Q}_n)\\
+&\quad\quad\quad\quad- \sum\limits_\nu\rot_\nu\rot_\nu\frac{1}{\sqrt{\Delta_\nu}}F^N\\
+& + \frac{ie}{2hc}\sum\limits_p\left[\frac{\div_{N+1}}{\Delta_{N+1}}F^{N+1}(\mf{q}_1,\dots,\mf{q}_n,\mf{Q}_p,\mf{Q}_1,\dots,\mf{Q}_n)\right.\\
+& + \mf{a}_p\frac{\rot_{N+1}\rot_{N+1}}{\Delta_{N+1}^{3/2}}F^{N+1}(\mf{q}_1,\dots,\mf{q}_n,\mf{Q}_p,\mf{Q}_1,\dots,\mf{Q}_n)\\
+& + e\sum\limits_{p,\nu}\mf{a}_p\delta(\mf{q}_\nu - \mf{Q}_p) F^{N-1}(\mf{q}_1,\dots,\mf{q}_{\nu-1},\mf{q}_{\nu+1},\dots,\mf{q}_N,\mf{Q}_p,\mf{Q}_1,\dots,\mf{Q}_n)\\
+}
+and
+\nequ{26a}{
+\div_\nu F^N(\mf{q}_1,\dots,\mf{q}_N,\mf{Q}_1,\dots,\mf{Q}_n)\\
+ = e\sum\limits_p \delta(\mf{q}_\nu - \mf{Q}_p)F^{N-1}(\mf{q}_1,\dots,\mf{q}_{\nu-1},\mf{q}_{\nu+1},\dots,\mf{q}_N,\mf{Q}_p,\mf{Q}_1,\dots,\mf{Q}_n).
+}
+
+\section{Relation to the Heisenberg-Pauli theory.} In this section we want to show that the equations set up here are fully equivalent with those of Heisenberg and Pauli. For this purpose, we also produce the proof of the relaativistic invariance of our equations, which does not strictly follow from our derivation in the three-dimensional notation, which has a privileged coordinate system. Naturally one could also directly verify the invariance by adapting the operator $\Lambda$ (cf l.c. II) associated with a Lorentz transformation for our equations.
+
+To get a direct comparison between the two theories, it is proposed that the Heisenberg-Pauli equations undergo a transformation. Namely it is convenient for our purposes, to work not with standing waves in a cavity, but rather with travelling waves which are subjected to a periodic boundary condition in order to obtain discrete eigenfunctions.
+
+It is also noticed that we have used Heaviside units for the field strengths and replaced $h/2\pi$ by $h$. One then obtains for the Hamiltonian function, up to the matter part, in whose treatment nothing is changed [cf l.c. II, equation (42)]:
+\nequ{27}{
+H = \int dV \left[\frac{1}{4}\left(\pXpY{\Phi_i}{x_k} - \pXpY{\Phi_k}{x_i}\right)^2 + \frac{c^2}{2}\Pi^2_k + e\Phi_k\alpha_{\varrho\sigma}^k\psi_\varrho^*\psi_\sigma\right].
+}
+We expand $\Phi$ and $\Pi$ in a Fourier series:
+\nequ{28}{
+\Phi_i = \frac{1}{\sqrt{4\pi}}\cdot L^{-3/2}\cdot\sum\limits_t\exp{\frac{2\pi i\mf{kr}}{L}}
+\sqrt{\frac{cL}{k}}\left[\mf{e}_i^{\mf{k}1}(A_{\mf{k}1} - A_{\mf{k} - 1})\right.\\\left.
++ \mf{e}_i^{\mf{k}2}(A_{\mf{k}1} - A_{\mf{k} - 1})
++ \mf{e}_i^{\mf{k}3}q_{23}\sqrt{2}\right],\\
+}
+\nequ{29}{
+\Pi_i = L^{-3/2}\sum\limits_t\exp{\frac{2\pi i \mf{kr}}{L}}
+\sqrt{\frac{\pi k}{Lc}} \left[ -i\mf{e}_i^{\mf{k}1}
+(A_{\mf{k}1} - A_{\mf{k} - 1})\right.\\ \left.
+ - i\mf{e}_i^{\mf{k}2}(A_{\mf{k}2} - A_{\mf{k} - 2})
+ + \mf{e}_i^{\mf{k}3} p_{\mf{k}3}\cdot \sqrt{2}\right].
+}
+Here $\mf{e}^{\mf{k}1}$, $\mf{e}^{\mf{k}2}$ are vectors of magnitude 1 orthogonal to $\mf{k}$ and $\mf{e}^{\mf{k}3}\parallel\mf{k}$. Further, $\mf{e}^{\mf{k}1} = \mf{e}^{-\mf{k}1}$, $\mf{e}^{\mf{k}2} = \mf{e}^{-\mf{k}2}$, but $\mf{e}^{\mf{k}3} = -\mf{e}^{-\mf{k}3}$. Then, the following commutation relations hold:
+\nequ{30}{
+\left[A_{\mf{k}\lambda}, A_{\mf{k}-\lambda}\right] = 0;\quad
+\left[A_{\mf{k}\lambda}, A_{-\mf{k},\lambda}\right] = 0;\quad
+\left[A_{\mf{k}\lambda}, A_{-\mf{k}-\lambda}\right] = h\quad (\lambda=1,2),
+}
+\nequ{30a}{
+\left[p_{\mf{k}3}, q_{-\mf{k}3}\right] = -ih.
+}
+These relations, as well as the remark that $\Phi$, $\Pi$ are real quantities, and so their operators are Hermitian, justify the ansatz
+\nequ{31}{
+A_{\mf{k}\lambda} = \sqrt{h}\exp{-\frac{i\Phi_{\mf{k}\lambda}}{h}}
+\cdot N_{\mf{k}\lambda}^{1/2};
+A_{-\mf{k}-\lambda} = \sqrt{h}N_{\mf{k}\lambda}^{1/2}
+\exp{\frac{i\Phi_{\mf{k}\lambda}}{h}}.
+}
+For the longitudinal part however another procedure is convenient: it is still subject to the auxiliary condition, which in our variables is written:
+\nequ{32}{
+\left(p_{\mf{k}3} + \frac{ie}{\sqrt{8\pi^3 c k^3}}
+\exp{-\frac{2\pi i \mf{kQ}}{L}}\right)
+\varphi\left(N_{\mf{k}\lambda}, P_{\mf{k}3}, \mf{Q}\right) = 0.
+}
+Those functionals that satisfy these conditions form \?{a closed subsystem}{ein mit anderen nicht kombinierendes Teilsystem}, and for all $q$-numbers only those matrix elements that are associated with two states compatible with this condition have physical meaning.
+
+We shall now, instead of (32), introduce the condition
+\nequ{32a}{
+\left(\right)\varphi = 0;\quad
+B_{\mf{k}3} = p_{\mf{k}3} + iq_{-\mf{k}3}
+}
+and accordingly replace $p_{\mf{k}3}$ by $B_{\mf{k}3}$ in the Hamiltonian function. In this way we obtain another functional, but the relations between all gauge-invariant quantities remain unchanged, since in the subsystem selected out by (32a) all matrix elements of $q_{\mf{k}3}$ vanish, as is easily seen by writing (32a) for $-\mf{k}$ and going over to the complex conjugate on both sides. This possibility comes from the fact that the reality of the longitudinal part of the field strengths is not a new requirement, but rather already follows from $\div\mf{E} = \varrho$. For the quantities $B_{\mf{k}3}$ there are now commutation relataions which are analogous to (30), so that we could put
+\nequ{33}{
+B_{\mf{k}3} = -i\sqrt{h}\exp{-\frac{i}{h}\Phi_{k3}}N_{\mf{k}3}^{1/2}.
+}
+In the part in the Hamiltonian function with $B_{\mf{k}3}B_{-\mf{k}3}$ one conveniently expressed a factor by (32a). So finally, instead of the final equation (l.c. II, 69), one gets:
+\nequ{34}{
+\left[\left(-E + \sum N_{\mf{k}\lambda} h \omega_{\mf{k}\lambda}\right)\delta_{\varrho\sigma} - 
+ikc\left(\mf{a}_{\varrho\sigma}\grad\right) + 
+mc^2\alpha_{\varrho\sigma}\right]\varphi_\sigma
+\left\{N_{\mf{k}\lambda,\mf{Q}}\right\}\\
+- \frac{1}{4\pi}\sum\limits_t\sqrt{\frac{h}{\pi c k^3}}
+\omega_\mf{k}\left(N_{\mf{k}3} + 1\right)^{1/2}
+\exp{\frac{2\pi i \mf{kQ}}{L}}\varphi_\varrho
+\left(\dots N_{\mf{k}3} + 1\dots\right)\\
++ \frac{1}{\sqrt{4\pi}}\cdot \sum\limits_{k,\lambda=1,2}
+e\mf{a}_{\varrho\sigma}\sqrt{\frac{hc}{k}}\cdot\frac{1}{L}\\
+\quad \cdot \mf{e}_{\mf{k}\lambda}\left[N_{\mf{k}\lambda}^{1/2}
+\exp{-\frac{2\pi i \mf{kQ}}{L}} \varphi_\sigma(\dots, N_{\mf{k}\lambda} - 1, \dots \mf{Q})\right.\\\left.
++ \left(N_{\mf{k}\lambda + 1}\right)^{1/2} \exp{\frac{2\pi i \mf{kQ}}{L}}
+\varphi_\sigma(\dots, N_{\mf{k}\lambda} + 1, \dots \mf{Q})\right]\\
+\frac{1}{\sqrt{4\pi}}\sum\limits_\mf{k}e\mf{a}_{\varrho\sigma}
+\sqrt{\frac{hc}{k}}\frac{1}{L}\mf{e}_{\mf{k}3}
+\exp{-\frac{2\pi i \mf{kQ}}{L}}N_{\mf{k}3}^{1/2}
+\varphi_\sigma\left(\dots,N_{\mf{k}3}-1,\dots \mf{Q}\right) = 0
+}
+with the auxiliary condition
+\nequ{34a}{
+\sqrt{h}\left(N_{\mf{k}3} + 1\right)^{1/2}\cdot
+\varphi\left(N_{\mf{k}3} + 1, \dots \mf{Q}\right) = 
+e\cdot\frac{\exp{-frac{2\pi i\mf{kQ}}{L}}}{\sqrt{8\pi^3 c k^3}}
+\varphi\left(N_{\mf{k}3} \dots \mf{Q}\right).
+}
+We, in the well-known manner\footnote{c.f. e.g. P.A.M. Dirac, Proc. Roy. Soc. London (A) \textbf{114}, 243, 1927.}, we form the functions:
+\uequ{
+F_\varrho^0 = \varphi_\varrho(0,0,\dots,0,\mf{Q}),\\
+F_\varrho^1(\mf{q},\mf{Q}) = \sqrt{4\pi}\cdot icL^{-3/2}
+\sum\limits_{\mf{k},\lambda}\mf{e}_{\mf{k}\lambda}
+\sqrt{\frac{kh}{Lc}}\exp{\frac{2\pi i\mf{kq}}{L}}
+\varphi_\varrho(0\dots 1_{\mf{k}\lambda} \dots \mf{Q}),
+F_\varrho^2(\mf{q}\mf{q}'\mf{Q}) = -4\pi c^2 L^{-3}\\
+\left\{{\sum\limits_{\mf{k}\mf{k}'\lambda\lambda'}}'
+\frac{1}{\sqrt{2}}\sqrt{kk'}\frac{h}{Lc}
+\mf{e}_{\mf{k}\lambda}\mf{e}_{\mf{k}'\lambda'}
+\exp{\frac{2\pi i(\mf{kq} + \mf{k}'\mf{q}')}{L}}
+\varphi_\varrho(0\dots 1_{\mf{k}\lambda} \dots 1_{\mf{k}'\lambda'}\dots)\right.\\ \left.
++ \sum\limits_{\mf{k}\lambda}k\cdot \frac{h}{Lc}
+\mf{e}_{\mf{k}\lambda}\mf{e}_{\mf{k}\lambda}
+\exp{\frac{2\pi i}{L}\mf{k}(\mf{q} + \mf{q}')}
+\varphi_\varrho(0\dots 2_{\mf{k}\lambda} \dots
+\right\} \text{ etc }
+}
+We now take (34) for the case where all $N=0$; we express the $\varphi(0\dots 1, 0\dots \mf{Q})$ appearing in this equation by $F^1$. In this manner we obtain (25) for $N=0$. Likewise we get to (25,1) if we put all $N=0$ in (33), up to a certain $\mf{k}\lambda$ for which $N_{\mf{k}\lambda} = 1$, then we multiply by
+\uequ{
+i\sqrt{4\pi}c L^{-3/2} \sqrt{\frac{kh}{Lc}}\mf{e}_{\mf{k}\lambda}
+\exp{\frac{2\pi i\mf{kq}}{L}}
+}
+and sum over all $\mf{k}$ and $\lambda$.
+
+Further, one can easily be convinced in the same manner that (33a) is identical with (25a), and that the normalization condition
+\uequ{
+\sum\limits_{N_1}\sum\limits_{N_2}\dots\sum\limits_{N_{\mf{k}\lambda}}\int
+\varphi_\varrho\left\{N_{\mf{k}\lambda}\mf{Q}\right\}
+\varphi^*_\varrho\left\{N_{\mf{k}\lambda}\dots\mf{Q}\right\}
+dW = 1
+}
+leads to (16).
+
+With that, the identity of the two systems of equations is proven.
+
+\section{Momentum and field operators.} It will be expected that the operator for the total momentum is given here by
+\nequ{35}{
+-ih\sum\limits_n\grad_n,
+}
+where the summation is carried out over all particles (matter and light quanta). It is immediately seen that (35) is really an intergral over the equations of motion, since in (25) only differences in coordinates explicitly occur. One can also see that (35) is the only quantity relevant for this purpose.
+
+Further, it is still interesting to set up the operator of the electric and magnetic field strengths at a point $\mf{r}$. To this end we remark that for these operators the Maxwell equations must be fulfilled as $q$-number relations. In particular that must apply for the equation $\div\mf{E} = \varrho$, and from that it is seen that the longitudinal part of the electrical field must be represented by the operator
+\uequ{
+\mf{E}_\text{long}(\mf{r})F^N(\mf{q}_1 \dots \mf{q}_N \mf{Q})
+ = F^{N+1}_\text{long}(\mf{q}_1 \dots \mf{q}_N, \mf{r}, \mf{Q}).
+}
+It would now be convenient to in general set
+\nequ{36}{
+F^N \to F^{N+1}(\mf{q}_1 \dots \mf{q}_N, \mf{r}, \mf{Q}).
+}
+for the field operator. But that is not permitted, since though the longitudinal part of (36) is Hermitian because of the condition (25a), the transversal part still is not. We must then make the transversal part of (36) Hermitian as well, \?{which leads to the operator}{so auf den Operator...gefuhrt}\footnote{Because of the circumstance discussed in the fourth section, the longitudinal part of th efield operator is not uniquely determined; one could also define an operator which is identically Hermitian, but satisfies the Maxwell equations only as a consequence of the auxiliary conditions.}
+\nequ{37}{
+\mf{E}_l(\mf{r})F^N_{m\varrho}(\mf{q}_1 \dots \mf{q}_N \mf{Q})
+ = \frac{1}{2}\left\{F_{m_1 \dots m_N l \varrho}^{N+1}
+ \left(\mf{q}_1 \dots \mf{q}_N \mf{rQ} \right) \right.\\
++ \frac{\grad\div_{N+1}}{\Delta_{N+1}}
+F_{m_1 \dots m_N l \varrho}^{N+1}\left(\mf{q}_1 \dots \mf{q}_N \mf{r}_1\mf{Q} \right)\\
++ ih\cdot\sum\limits_\nu\left[\sqrt{\Delta_\nu}
+\delta_{m_\nu l}- \frac{1}{\sqrt{\Delta_\nu}}
+\frac{\partial^2}{\partial x_l \partial q_{m_\nu}^\nu }\right]\\
+\delta(\mf{q}_\nu - \mf{r})
+F_{m_1 \dots m_{\nu - 1} m_{\nu + 1} m_N l \varrho}^{N-1}
+\left(\mf{q}_1 \dots \mf{q}_{\nu - 1} \mf{q}_{\nu + 1} \dots \mf{q}_N \mf{Q} \right).
+}
+It can be worked out that (37) actually fulfills the Maxwell equations, and that will lead by adapting Heisenberg and Pauli's operators as in (37).
+
+The operator of the magnetic field strengths can be defined in an analogous way, if one notices that our function $\mf{F}$ is the simultaneous representation of the electric and magnetic field strengths and Hermitize it again. Naturally the same commutation relations apply for this operator as with Heisenberg and Pauli.
+
+The authors owe great thanks to Herrn Prof. Pauli for numerous critical remarks.
+
+Zurich, Physikal. Institut of the ETH.
+
+January 1930.
+\end{document}

@@ -1,0 +1,89 @@
+\letter{93}
+\from{Heisenberg}
+\date{June 24, 1925}
+\location{Goettingen}
+
+Dear Pauli!
+
+Regarding the Hanle effect I don't know whether it is at all possible to come to a unique decision. The reason lies just in the fact that one certainly doesn't know whether or not the Stark effect components $\Delta m = 0 \parallel$, $\Delta m = \pm 1 \perp$ are polarized here. (The Rubinowitz-Bohr \WTF{rule}{Satz} may indeed not apply). Our theoretical viewpoint is distinguished from it insofar as you regard the \WTF{splitting}{Aufspaltung} as given and use suitable oscillators in its representation; while I always try to stick to the \WTF{mechanics of the model}{die Mechanik des Modells}. From this last reason I also assume that, with the $\sigma$-components, there are always \textit{circular} vibrationa - since in the model this is undoubtedly the case, so far as a splitting is present at all (or I am crazy here, but that applies anyway, I believe, for every axially-symmetric field?) -- \?{which just happens to be unpolarized, since all atoms act in concert}. (This statement of circular components also has a theoretical meaning, since one could indeed, according to Stern's experiment, separate out all atoms with a certain quantum number $m$ \?{and from those actually get circular components}).
+
+As regards my arguments though however, you are probably right, that they are not convincing either. My specific line of reasoning was this: from the theory I concluded that \?{without a field} linear and circular polarized radiation give 100\% polarized fluorescent light, \textit{even} when the light-field is \textit{strong}. It then seems to me to be simplest to assume that ellipticalnloght yields 100\% polarization, even when it is strong, and Hanle indeed also observed \?{with} elliptical light. But you are right that it is not at all certain that the 100\% still applies when the elliptical light is \textit{strong}. \textit{If} it is correct, then that would mean that Hg behaves like an \textit{isotropic harmonic oscillator} and then, \?{as with the 2 frequencies in the previous letter}, one will probably have also have 100\% polarization in the field. But the assumption of harmonic isotropic oscillators still doesn't even follow from the 100\% polarization with linear and circukar polarized light. E.g. \?{if the \textit{an}harmonic oscillator achieves the same, it still gives for elliptical light in a \textit{strong} light field probably not 100\% and naturally gives a Hanle effect}. Nevertheless I don't know whether the isotropic \textit{harmonic} oscillator is yet the simpler and mor natural. So - nothing definite can be said, there's not even a classical analogy, since it deals with the combination of a degenerate and a non-degenerate term.
+
+\skipped{pargraph about experimental results}
+
+Before I go into my own dumb work, I want to write you about something rather funny: you're familiar with Einstein's new paper about the atoms which move according to the wave theory? One applies this theory to slow electrons and obtains the Ramsauer nobel has curves ("scattering of light by colloidal particle") or even better: one fires slow electrons at a crystal lattice and gets a \?{1st order spectrum, 2nd order spectrum}, etc, these experiments gave been performed long ago and are in an article by Minkowski and Sponer (\?{the name of who did the experiment, I can no longer recall}, he used a metal instead of a crystal lattice, which was \WTF{incandescent}{durchgeglüht}, thus "\WTF{monocrystalline}{Einkrystalle}"). Whether what I write here is rubbish, I don't know, \?{Herrn Elsasser claims it is, and I almost believe it.}
+
+I have almost no desire to write about my own work, since everything is still unclear to even me, and I can only vaguely guess what it will become; but perhaps the basic ideas are nonetheless correct. The basic principle is: in the calculation of any quantities, such as energy, frequency, etc, only relations between in-principle controllable quantities occur. (So far it seems to me that e.g. the Bohr theory for hydrogen is much more formal than e.g. the Kramer dispersion theory.) So in the oscillator the equation of motion is
+\uequ{
+\ddot{q} + \omega^2 q = 0;
+}
+one puts symbolically
+\uequ{
+q = a(n, n-1)\exp{i\omega(n, n-1)t},
+}
+then one of course gets
+\uequ{
+\omega(n,n-1) = \omega_0;
+}
+in the annarmonic oscillator one gets e.g.
+\uequ{
+\ddot{q} + \omega^2 q + \lambda q^2 = 0.\\
+a_2(n,n-2)(-\omega^2(n,n-2) + \omega_0^2) + \lambda a_1(n,n-1) a_1(n-1,n-2) = 0. etc.
+}
+The most important thing, however, is the fixing of the constants, i.e. the quantum condition:
+
+Classically:
+\uequ{
+J=2\pi m\sum{a_\tau^2 (\omega t)\times \tau},\text{(where }
+q = \sum{a_\tau \exp{i\omega t\times \tau}};
+p = m\dot{q} = \sum{[mi]a_\tau (\tau\omega)\exp{i\omega [\tau\times t]}}
+\text{)}
+}
+or
+\uequ{
+1 = 2\pi m\sum{\tau\pddX{}{J} \times (a^2_i \omega\tau)};
+}
+quantum mechanically, this becomes:
+\uequ{
+h = 2\pi m \sumX{\tau}{\left\{
+a^2(n + \tau, n)\omega(n + \tau, n) -
+a^2(n, n - \tau)\omega(n, n - \tau)
+\right\}}.
+}
+So with the oscillator:
+\uequ{
+\left(q = \inv{2}\left[
+a(n, n - 1)\exp{i\omega t} + 
+a(n, n - 1)\exp{-i\omega t}
+\right]\right)\\
+h = \pi m \left[
+a^2(n,n+1) - a^2(n,n-1)
+\right]\omega_0.
+}
+
+From this equation, one might think that the $a(n,n-1)$ can only be ascertained up to an additive constant. This is however not the case; since there must be a lowest state, from which no further jumps are possible; the \textit{definition} of the \?{normal state} is that \textit{the $a$ vanish (\WTF{downwards}{nach abwärts})}. In this way the constants are fixed. If one fixes the number $n$ so that for the normal state $n=0$ (this is not a physical statement), then we get:
+\uequ{
+a^2(n,n-1) = \frac{nh}{m\pi\omega_0}.
+}
+
+The energy is (the squares of $\dot{q}$ and $q$ are again meant symbolically):
+\uequ{
+W=\frac{m}{2}\left(\dot{q}^2 + \omega_0^2 q^2\right)\\
+ = \frac{m}{2}\left[
+ -\omega_0^2\frac{\left(a(n,n-1)\exp{+i\omega t} - a\exp{-i\omega t}\right)^2}{4}
+ +\omega_0^2\frac{a\left(\exp{+i\omega t} + \exp{-i\omega t}\right)^2}{4}
+ \right]\\
+ = \frac{m}{2}\omega_0^2 \frac{a^2(n,n+1) + a^2(n,n-)}{2}
+ = \frac{\left(n+\inv{2}\right)\omega_0 h}{2\pi}.
+}
+
+For the anharmonic oscillator we get essentially your form "B":
+\uequ{
+E = \left(n + \inv{2}\right)h\nu + \beta\left(n^2 + n + \inv{2}\right).
+}
+
+I would be very grateful if you could write me what argumemts there are in favor of this formula. Aside from the formulation of the quantum conditions I am still not quite satisfied with the whole schema. The strongest objection seems to me to be that the energy, written as a function of $\dot{q}$ and $q$, \?{in general need not be constant}, even if the equations of motion are fulfilled; this last fact lies in the fact that the product of two Fourier series is not uniquely defined - but I don't want to bore you with such things any longer. I've worked out the rotator in more detail, there one can get the Kronig and Kemble formulae; but as I said, \?{I must try out the procedure according to the Voss method for a while longer}. I would also like to understand what the equations of motion actually mean, if one interpreted them as relations between the transition probabilities.
+
+Many greetings to all the Hamburgers!
+
+Your W. Heisenberg

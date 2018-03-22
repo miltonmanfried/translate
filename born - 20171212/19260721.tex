@@ -1,0 +1,822 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[utf8]{inputenc}
+\newcommand{\location}[1]{#1}
+\newcommand{\publication}[1]{#1}
+\newcommand{\textbb}[1]{\textbf{#1}}
+\newcommand{\WTF}[1]{\textbf{???}\textit{#1}\textbf{???}}
+\newcommand{\?}[2]{#1\footnote{\textsc{Translator note}: #2}}
+\newcommand{\nequ}[2]{\begin{align*}\tag{#1}#2\end{align*}}
+\newcommand{\uequ}[1]{\begin{align*}#1\end{align*}}
+\renewcommand{\operatorfont}[1]{\texttt{#1}}
+\newcommand{\grad}{\operatorfont{grad}}
+\renewcommand{\div}{\operatorfont{div}}
+\newcommand{\curl}{\operatorfont{curl}}
+\renewcommand{\exp}[1]{e^{#1}}
+\newcommand{\pXpY}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ppXpYY}[2]{\frac{\partial^2 #1}{\partial {#2}^2}}
+\newcommand{\dXdY}[2]{\frac{d{#1}}{{d{#2}}}}
+\newcommand{\ddXdYY}[2]{\frac{d^2{#1}}{d{#2}^2}}
+
+%\newcommand{\dX}[2]{\frac{d#1}{{#2}}}
+%\newcommand{\dY}[1]{{d#1}}
+%\newcommand{\pX}[1]{\frac{\partial{#1}}}
+%\newcommand{\pY}[1]{{\partial{#1}}}
+
+\begin{document}
+
+\title{Quantum mechanics of collision processes}
+\footnote{A provisional section of this: ZS. f. Phys. \textbb{37}, 863, 1926.}
+
+\author{Max Born}
+\location{Goettingen}
+\publication{Zeitscrift für Physik 38}
+\date{1926/07/21}
+\abstract{The Schroedinger form of quantum mechanics allows defining the likeliness of a state in a natural way, with the help of the intensity of the associated eigenvibration. This interpretation leads to a theory of collision processes in which the transition probabilities are determined through the asymptotic behavior of aperiodic solutions.}
+
+
+\section*{Introduction} The collision processes have not only provided convincing experimental proof for the fundamental assumptions of the quantum theory, but also appear suitable for giving a clarification of the physical significance of the formal laws of the so-called "quantum mechanics". Though it seems this always supplies the correct term values of stationary states and the correct amplitudes of the vibrations given off in the transitions, opinions are divided on the physical interpretation of the formulae. The matrix form of quantum mechanics\footnote{W. Heisenberg, ZS. f. Phys. \textbb{33}, 879, 1925; M. Born and P. Jordan, ibid \textbb{34}, 858, 1925; M. Born, W. Heisenberg and P. Jordan, ibid \textbb{35}, 557, 1926. See also P.A.M. Dirac, Proc. Roy. Soc. \textbb{109}, 642, 1925; \textbf{110}, 561, 1926} founded by Heisenberg and developed by him, together with Jordan and the author of this volume, starts from the idea that an exact representation  of the processes in space and time is impossible, and hence one must be satisfied with setting up relations between observable quantities, which could only be interpreted as properties of motion in the classical limiting case. Schroedinger\footnote{E. Schroedinger, Ann. d. Phys. \textbb{79}, 361, 489, 734, 1926. C.f. especially the second part, p. 499. Further, Nature \textbb{14}, 664, 1926.} on the other hand seems to ascribe to the waves, which following de Broglie's process he sees as the moving force behind atomic processes, a reality of the same type as that possessed by light waves; he attempts to build up "wave packets which have relatively small extent in all directions" and which apparently are to directly represent the moving corpuscle.
+
+Neither of these interpretations seems satisfactory to me. I would like to attempt to give a third interpretation and test its utility on collision processes. To that end I take up a remark by Einstein on the relation between wave fields and light quanta; he said basically that the waves only exist to show the way for the corpuscular light quanta, and in this ii sense he speaks of a "Gespensterfeld". This determines the probability that a light quantum — the carrier of energy and momentum — takes a given path; the field itself however has no energy and no momentum.
+
+To connect these ideas directly to quantum mechanics, it is probably better to wait until the place of the electromagnetic field has been determined in this formalism. If however one imagines a total analogy between light quanta and electrons, the laws of electron motion can be formulated in a similar manner. And here it is convenient to view the de Broglie-Schroedinger waves as the "Gespensterfeld", or better, as the "guiding field".
+
+I would like to try to pursue the hypothesis as follows: the guiding field, represented by a scalar function $\psi$ of the coordinates of all component particles and the time, propagating according to the Schroedinger differential equation. Momentum and energy however are carried over however as if the corpuscles are actually flying around. The paths of these corpuscles are only determined so far as the energy and momentum law constrains them; otherwise there is only a probability for the selection of a certain path determined by the value distribution of the $\Psi$ function. That could be summarized, somewhat paradoxically: the motion of the particle follows probability laws, the probability itself however propagates in harmony with the causal laws\footnote{That means that knowledge of the state in all points at an instant fixes the distribution of the states at all later times.})
+
+Surveying the three steps of the development of quantu`m theory, it is seen that the lowest, that for periodic processes, is totally unsuited for testing the utility of such a hypothesis. Somewhat better is the second, the one for aperiodic, stationary processes; we were occupied with this in the previous work. Only the third step, however, the one for non-stationary courses, can be really decisive; here it must be shown whether the \WTF{interference-damped "probability waves} suffice to explain those phenomena which seem to point towards a \WTF{space-time-less} coupling.
+
+A sharpening of the concepts is only possible on the basis of mathematical developments\footnote{In working out the mathematics in this paper, I have been helped in the most friendly way by Herr Prof. N. Wiener from Cambridge Mass. Here I want to express my thanks for that, and acknowledge that without him I would not have reached the gold.}; hence we immediately devote ourselves to this, in order to get back to the hypothesis itself later.
+
+\section{Definition of the \WTF{weight} and frequency for periodic systems.} We begin with a totally formal consideration of the discrete stationary states of a non-degenerate system. This may be characterized by the Schroedinger differential equation
+\nequ{1}{[H - W, \psi]=0.}
+The eigenfunctions are normalized to 1\footnote{For simplicity I set the density functions equal to 1.}:
+\nequ{2}{\int\psi_n(q)\psi_m^*(q)dq = \delta_{nm}.}
+Any arbitrary function $\psi(q)$ can be expanded in eigenfunctions:
+\nequ{3}{\psi(q)=\sum{n}c_n\psi_n(q).}
+
+Up to now, attention has been paid only to the eigenvibrations $\psi_n$, and the eigenvalues $W_n$. For our hypothesis put forward in the introduction it is convenient to bring the superposed functions represented by (3) together with the probability that the state occurs in a cluster of identical, un-coupled atoms with a certain frequency.
+
+The completeness relation
+\nequ{4}{\int\left|\psi(q)\right|^2 dq = \sum{n}\left|c_n\right|^2}
+leads to seeing this integral as the number of atoms. Since it has the value 1 for the occurrence of an individual normalized eigenvibrations (or: the a-priori weight of the states are 1), $|c_n|^2$ denotes the frequency of the state $n$ and the total number is composed of these parts added together.
+
+In order to justify this meaning, we consider the motion of a point-mass in three-dimensional space under the action of a potential energy $U(x,y,z)$; then the differential equation (1) is
+\nequ{5}{
+\Delta\psi + \frac{8\pi^2\mu}{h^2}\left(W-U\right)\psi = 0.
+}
+Now putting for $W$ and $\psi$ an eigenvalue $W_n$ and an eigenfunction $\psi_n$, multiplying the equation by $\psi_m^*$ and integrating over space ($dS=dx dy dz$), one obtains:
+\uequ{
+\int\int\int\left\{
+\psi^*_m\Delta\psi_n + \frac{8\pi^2\mu}{h^2}\left(W_n - U\right)\psi_n\psi^*_m
+\right\}dS = 0.
+}
+According to Green's law, using the orthogonality relations (2), that gives
+\nequ{6}{
+\delta_{mn}W_n = \int\int\int\left\{\frac{h^2}{8\pi^2\mu}\left(\grad\psi_n\cdot\grad\psi^*_m\right)+U\psi_n\psi_m^*\right\}dS.
+}
+Every energy level can thus be interpreted as a space integral of the eigenvibrations.
+
+Now if one forms the corresponding integral for an arbitrary function
+\nequ{7}{
+W=\int\int\int\left\{\frac{h^2}{8\pi^2\mu}\left|\grad\psi\right|^2 + U\left|\psi\right|^2
+\right\}dS,
+}
+then by inserting the expansion (3) for it, one obtains the expression
+\nequ{8}{
+W=\sum{n}\left|c_n\right|^2 W_n.
+}
+According to our interpretation of $\left|c_n\right|^2$ the right side of the mean value of the total energy of a system of atoms; this mean value can thus be represented as a space integral of the function $\psi$.
+
+But otherwise nothing essential can come out of our hypothesis as long as we remain within periodic processes.
+
+\section{Aperiodic systems.} So we go over to aperiodic processes and first for simplicity consider the case of straight-line unaccelerated motion along the $x$-axis. Here the differential equation runs
+\nequ{1}{
+\frac{d^2\psi}{dx^2} + k^2\psi = 0, \quad
+k^2 = \frac{8\pi^2\mu}{h^2}W;
+}
+its eigenvalues are all positive values $W$ and its eigenfunctions are
+\uequ{
+\psi = c\exp{\pm ikx}.
+}
+In order to be able to define weights and densities, one must first of all normalize the eigenfunctions. The integral formula analogous to (2) breaks down (the integral is divergent); it is convenient to use, instead of the "mean value":
+\nequ{2}{
+\lim{a\to\infty}\frac{1}{2a}\int\limits_{-a}^{+a}\left|\psi(k,x)\right|^2 dx =
+\lim{a\to\infty}\frac{c^2}{2a}\int\limits_{-a}^{+a}\exp{ikx}\exp{-ikx} dx = 1;
+}
+from that it follows that $c=1$ and one has as normalized eigenfunctions
+\nequ{3}{
+\psi(k,x) = \exp{\pm ikx}.
+}
+
+Every function of $x$ can be put together from these. Hence the scale of $k$ is still to be chosen, i.e. it must be determined what section will have exactly the weight 1. For this purpose, consider the free motion as the limiting case of a periodic one, namely the eigenvibrations of an infinite piece of the $x$-axis. Then it is well-known what number per unit length and per interval $(k,k+\Delta k)$ is equal to $\frac{\Delta k}{2\pi} = \Delta\left(\frac{1}{\lambda}\right)$, where $\lambda$ is the wavelength. Thus one also puts
+\nequ{4}{
+\psi(x) = \int\limits_{-\infty}^{\infty} c(k)\psi(k,x)d\frac{k}{2\pi}=
+\frac{1}{2\pi}\int\limits_{-\infty}^{\infty}c(k)\exp{ikx}dk
+}
+with
+\nequ{5}{c(-k)=c^*(k)}
+we then expect that $|c(k)|^2$ will be the measure of the frequency tor the interval $\frac{1}{2\pi}dk$.
+
+For a mixture of atoms in which the eigenfunctions occur in the distribution given by $c(k)$, the quantity analogous to \S 1, (4) is represented by the integral
+\nequ{6}{
+\int\limits_{-\infty}^{\infty}\left|\psi(x)\right|^2 dx = 
+\frac{1}{(2\pi)^2} \int\limits_{-\infty}^{\infty}dx \int\limits_{-\infty}^{\infty}\left| \int\limits_{-\infty}^{\infty}c(k)\exp{ikx}dk\right|^2.
+}
+If we take the case that only the small interval $k_1 \leq k \leq k_2$, then
+\uequ{
+\int\limits_{-\infty}^{\infty} c(k)\exp{ikx}dk = \overline{c}\int\limits_{k_1}^{k_2} \exp{ikx} dk = \frac{\overline{c}}{ix}(\exp{ik_2 x} - \exp{ik_1 x}),
+}
+where $\overline{c}$ denotes the mean value. Hence one has
+\uequ{
+\int\limits_{-\infty}^{\infty}|\psi(x)|^2 dx &= 
+\frac{|\overline{c}|^2}{4\pi^2} \int\limits_{-\infty}^{\infty} \frac{dx}{x^2}(\exp{ik_2 x} - \exp{ik_1 x})(\exp{-ik_2 x} - \exp{-ik_1 x})\\
+&= \frac{|\overline{c}|^2}{4\pi^2} 4 \int\limits_{-\infty}^{\infty} \frac{dx}{x^2}
+\sin^2\frac{k_2-k_1}{2}x = \frac{1}{2\pi}|\overline{c}|^2(k_2 - k_1).
+}
+Now, according to de Broglie, the momentum of translatory motion belonging to the eigenfunction (3) is
+\nequ{7}{p = \frac{h}{\lambda} = \frac{h}{2\pi}k.}
+It is perhaps not superfluous to remark that this can also be interpreted as a "matrix"; there matrices in the continuous spectrum are not defined by integrals but rather by mean values, so
+\nequ{8}{
+p(k,k') &= \frac{h}{2\pi i}\lim{a\to\infty}\frac{1}{2a}\int\limits_{-a}^{+a}\psi^*(k,x)\frac{\partial\psi(k',x)}{\partial x}dx\\
+&= \frac{h}{2\pi i}\lim{a\to\infty}\frac{1}{2a}\int\limits_{-a}^{+a}\exp{-ikx}ik'\exp{ik'x}dx.\\
+p(k,k') &= \begin{cases}
+ \frac{h}{2\pi} k & \text{ for } k=k'\\
+ 0 & \text{ for } k \neq k'.
+ \end{cases}
+}
+Now, replacing $\Delta k = k_2 - k_1$ by $\frac{2\pi}{h}\Delta p$, one finally gets
+\nequ{9}{
+\int\limits_{-\infty}^{\infty}\left|\psi(x)\right|^2 dx = |\overline{c}|^2\frac{\Delta p}{h}.
+}
+With that one has the result that a cell of spatial extent $\Delta x=1$ and \WTF{momentum extent} $\Delta p = h$ has weight 1, in agreement with the repeatedly-experimentally-confirmed hypothesis of Sacker and Tetrode\footnote{A. Sacker. Ann. d. Phys. \textbb{36}, 958, 1911; \textbb{40}, 67, 1913; H. Tetrode, Phys. ZS. \textbb{14}, 1913; Ann. d. Phys. \textbb{38}, 434, 1912.}, and that  $|c(k)|^2$ is the probability for a motion with momentum $p=\frac{h}{2\pi}k$.
+
+Now we turn to accelerated motion. Here one can naturally define a given distribution of tracks in an analogous manner. But in collision processes this is not a rational question. In these processes every motion has a straight-line asymptote before and after the collision. So the particles are in a practically free state for a very long time (in comparison to the duration of the actual collision) before and after the collision. Hence one comes into agreement with the experimental situation with the following interpretation: for the asymptotic motion before the collision let the distribution function $|c(k)|^2$ be known; from that, the distribution function after the collision can be calculated.
+
+Naturally the topic here is a stationary \?{beam of particles}{Teilchenstrom}. Mathematically from here the task runs as follows: the stationary \?{wave field}{Schwingungsfeld} $\psi$ must be split up into incoming out outgoing waves; there are asymptotically plane waves. Now one represents both with Fourier integrals of the form (4) and selects the coefficient function $c(k)$ for the incoming waves arbitrarily; then it is to be shown that the $c(k)$ for the incoming waves are totally fixed. \?{They supply the distribution
+into which a past particle mixture is transformed by the collision}{Sie liefern die Verteilung, in die ein vorgegebenes Teilchengemisch durch die Stöße verwandelt wird.}
+
+To see the relationships more clearly, we next treat the one-dimensional case.
+
+\section{The asymptotic behavior of eigenfunctions in the continuous spectrum with one degree of freedom.} The Schroedinger differential equation reads:
+\nequ{1}{
+\frac{d^2\psi}{dx^2} + \frac{8\pi^2\mu}{h^2}\left(W-U(x)\right)\psi=0,
+}
+where $U(x)$ denotes the potential energy. For brevity we put
+\nequ{2}{
+\frac{8\pi^2\mu}{h^2}W = k^2,\quad
+\frac{8\pi^2\mu}{h^2}U= V(x);
+}
+then we have
+\nequ{3}{\frac{d^2\psi}{dx^2}+k^2\psi = V\psi.}
+We investigate the asymptotic behavior of the solution at infinity. So, to have simple relationships, we provisionally assume that $V(x)$ vanishes more quickly than $x^{-2}$ at infinity, i.e.
+\nequ{4}{\left|V(x)\right|<\frac{K}{x^2},}
+where $K$ is a positive number\footnote{With this assumption, the pure Coulomb case and the dipole fields are excluded.}
+
+We now determine $\psi(x)$ by an iterative procedure; let
+\nequ{5}{u_0(x) = \exp{ikx}}
+and let $u_1(x)$, $u_2(x)$, ... be those solutions of the successive approximations
+\uequ{
+\frac{d^2 u_n}{dx^2}+k^2 u_n = V u_{n-1}
+}
+which vanish for $x\to+\infty$.
+
+Then
+\uequ{
+u_n(x) = \frac{1}{k}\int\limits_x^\infty u_{n-1}(\xi) V(\xi) \sin{kl(\xi - x)}d\xi,
+}
+as can be directly verified. One has
+\uequ{
+\left|u_n(x)\right| 
+\leq 
+\frac{1}{k}\int\limits_x^\infty
+\left|u_{n-1}(\xi)\right|
+\cdot
+\left|V(\xi)\right|d\xi.
+}
+We now show that 
+\uequ{
+\left|u_n(x)\right| \leq \frac{1}{n!}\left(\frac{K}{kx}\right)^n.
+}
+It is correct for $n=0$, since it follows from (5) that $|u_0(x)|\leq 1$. If we now assume that it is correct for $n-1$:
+\uequ{
+\left|u_{n-1}(\xi)\right| \leq \frac{1}{(n-1)!}\left(\frac{K}{k\xi}\right)^{n-1},
+}
+then it follows that
+\uequ{
+\left|u_n(x)\right|\leq\frac{1}{k}\frac{1}{(n-1)!}\left(\frac{K}{k}\right)^{n-1}\cdot K
+\int\limits_x^\infty\xi^{-n+1}\xi^{-2}d\xi = \frac{1}{n!}\left(\frac{K}{kx}\right)^2,
+}
+as was claimed.
+
+Consequently, the series
+\nequ{6}{
+\psi(x) = \sum\limits_{n=0}^\infty u_n(x)
+}
+converges uniformly for every finite interval; it can be differentiated term-wise arbitrarily-many times and hence is, as is easily seen, the sought solution to our differential equation.
+
+Since however all $u_1, u_2, \dots$ vanish for $x\to\infty$, the function $\psi$ is asymptotically equal to $u_0 = \exp{ikx}$ at positive infinity.
+
+That is how one shows that it gives a solution that is asymptotically equal to $\exp{-ikx}$ for $x\to +\infty$. Since the general solution only has two constants, they must for $x\to +\infty$ asymptotically have the form
+\nequ{7}{\psi^+(x)=a\exp{ikx}+b\exp{-ikx}.}
+Here the degeneracy of the system makes an appearance; to each energy value $W$ there belong two values $k$ and $-k$ and two linearly independent solutions.
+
+In a completely similar manner it follows that the general solution for  $x\to-\infty$ must have the same form:
+\nequ{8}{\psi^-(x)=A\exp{ikx}+B\exp{-ikx}.}
+Here the amplitudes $A, B$ are definite functions of $a,b$.
+
+We now decompose the solution into incoming and outgoing waves; additionally we add the time factor $\exp{ikvt}$ ($kv=2\pi v = \frac{2\pi}{h}W$ and put
+\nequ{9}{
+a = c_i \exp{i\varphi_i t}, \quad & A = C_o \exp{i\phi_o t},\\
+b = c_i \exp{-i\varphi_o t}, \quad & B = C_o \exp{-i\phi_i t}.
+}
+Then
+\nequ{10}{
+\psi^+(x) = c_i \exp{ik(x+vt+\varphi_i)} + c_o \exp{-ik(x-vt+\varphi_o)},\\
+\psi^-(x) = C_o \exp{ik(x+vt+\phi_o)} + C_i \exp{-ik(x-vt+\phi_i)}.
+}
+The real part of the terms marked with the index $i$ represent the incoming waves, that of the terms marked with the index $a$ are the outgoing waves.
+
+We are interested in the case that there is only one incoming wave, at $x=+\infty$; then $C_i=0$, moreover one can set $\varphi_{i} = 0$. Then one has
+\nequ{11}{
+\psi^+(x) = c_i \exp{ik(x+vt)} + c_o \exp{-ik(x-vt+\varphi_o)},\\
+\psi^-(x) = C_o \exp{ik(x+vt+\phi_o)}.
+}
+We have shown that by integration $\psi^-(x)$ is determined by $\psi^+(x)$, i.e. $A,B$ are definite functions of $a,b$. \WTF{In our case $C_i=0$ is $B=0$}, so one has two equations in the form
+\nequ{12}{
+A=A(a, b)\\
+0=B(a,b).
+}
+From the second, $b$ can be expressed by $a$ and then $A$ can be expressed by $a$ from the first. But that means that the constants of the reflected wave and the constants of the transmitted wave can be calculated from the amplitude of the incoming wave. 
+
+One can now show that there is a relation between the intensities of the three waves. This can be found most easily with the help of the energy law.
+
+\section{The law of conservation of energy.} In order to derive this law, we turn back to that form of the Schroedinger differential equation in which the supposition of the purely time-periodic vibration  has not yet been made, and so to a wave equation of the form
+\nequ{1}{
+\frac{\partial^2\psi}{\partial x^2} - \frac{1}{v^2}\frac{\partial^2 \psi}{\partial t^2} =0.
+}
+Here $v$ is the wave velocity. One arrives at Schroedinger's equation, if, with de Broglie\footnote{We neglect relativity and calculate with classical mechanics.}, one puts
+\uequ{
+&h\nu = W = \frac{\mu}{2}u^2 + U,\\
+v=\lambda \nu, &\\
+&\frac{h}{\lambda} = p = \mu u;
+}
+then 
+\nequ{2}{
+\frac{1}{v^2} = \frac{h^2}{\lambda^2}\frac{1}{h^2 \nu^2} = \frac{\mu^2 u^2}W^2 = \frac{\frac{\mu}{2}u^2\cdot 2\mu}{W^2},\\
+\frac{1}{v^2} = \frac{2\mu}{W^2}(W-U).
+}
+If we now seek solutions whose time-dependence is given by $\exp{2\pi i\nu t} = \exp{\frac{2\pi i}{h}Wt}$, then we get
+\uequ{
+\frac{d^2\psi}{dx^2}+\frac{8\pi^2\mu}{h^2}(W-U)\psi = 0.
+}
+However, we now fix our eyes on the general form (1) and multiply the equation by $\frac{\partial\psi}{\partial t}$.
+
+Now
+\uequ{
+\ppXpYY{\psi}{x}\pXpY{\psi}{t} 
+& = \pXpY{}{x}\left(\pXpY{\psi}{x}\pXpY{\psi}{t}\right) - \pXpY{\psi
+}{x}\frac{\partial^2 \psi}{\partial x \partial t}\\
+& = \pXpY{}{x}\left(\pXpY{\psi}{x}\pXpY{\psi}{t}\right) - \pXpY{
+}{t}\frac{1}{2}\left(\pXpY{\psi}{x}\right)^2.
+}
+Hence we obtain, if $v$ only depends on $x$:
+\nequ{3}{
+\pXpY{}{x}\left(\pXpY{\psi}{x}\pXpY{\psi}{t}\right) - 
+\pXpY{}{t}\left(\frac{1}{2}\left(\pXpY{\psi}{x}\right)^2 + \frac{1}{2v^2}\left(\pXpY{\psi}{t}\right)^2\right) = 0.
+}
+Integrating over space, we get
+\nequ{4}{
+\left[\pXpY{\psi}{x}\pXpY{\psi}{t}\right]_{-\infty}^{+\infty} - 
+\pXpY{}{t}\int\limits_{-\infty}^{+\infty}\frac{1}{2}\left\{\left(\pXpY{\psi}{x}\right)^2 + \frac{1}{v^2}\left(\pXpY{\psi}{t}\right)^2\right\}dx = 0.
+}
+Here, as shown in \S1, the space integral denotes the total energy present in space. But its expression does not interest us, since it \?{depends on}{uns auf die...Energie ankommt} the energy flowing in and out, which is represented by the boundary parts. For a time-periodic process the mean time of the part term vanishes, and using the notation introduced in \S3, (7) and (8):
+\nequ{5}{
+\overline{\pXpY{\psi^-}{x}\pXpY{\psi^-}{t}}
+= \overline{\pXpY{\psi^+}{x}\pXpY{\psi^+}{t}}.
+}
+This equation says that the inflowing energy is equal to the outflowing energy. By inserting here the real part of the expressions \S3, (10), we obtain:
+\nequ{6}{C_o^2 -C_i^2 = c_i^2- c_o^2,}
+or if the case $C_i=0$ (as in equation (11), \S3):
+\nequ{7}{c_i^2 = c_o^2 + C_o^2.}
+But that means that for every elementary wave of given $k$, the inflowing intensity is split into the intensities of the two waves scattered to left and right; or, in the language of the corpuscular theory: if a particle with a given energy encounters an atom, then it will either be reflected or it will continue on; the sum of the probabilities for these two results is 1.
+
+The law of conservation of energy thus has the conservation of particle number as a consequence. The grounds for this lie in the degeneracy of the system; to each energy value there are several associated motions, and these \?{are interrelated}{in Beziehung gesetzt}.
+
+\section{Generalization to three degrees of freedom. Inertial motion.} We now consider a particle moving in space under the action of a potential energy $U(x, y, z)$. Then, analogously to (1), one has the differential equation:
+\nequ{1}{
+	\Delta\psi - \frac{1}{v^2}\ppXpYY{\psi}{t} = 0,
+}
+where $v$ is again given in the region of classical mechanics via (2), \S4. Here the conservation law reads
+\nequ{2}{
+\div\left(\pXpY{\psi}{t}\grad\psi\right) - \pXpY{}{t}\frac{1}{2}\left\{(\grad\psi)^2 + \frac{1}{v^2}\left(\pXpY{\psi}{t}\right)^2 \right\}dS = 0,
+}
+or, integrating over space:
+\nequ{3}{
+\int_\infty \pXpY{\psi}{t}\pXpY{\psi}{\nu}d\sigma - 
+\pXpY{}{t}\int \frac{1}{2}
+\left\{(\grad\psi)^2 + \frac{1}{v^2}\left(\pXpY{\psi}{t}\right)^2 \right\}dS = 0,
+}
+where $dS = {dx}{dy}{dz}$ and $d\sigma$ is the element of an infinitely-distant closed surface, with outer normal $\nu$. For time-periodic processes it follows from this that the mean time
+\nequ{4}{
+\overline{\int_\infty\pXpY{\psi}{t}\pXpY{\psi}{\nu}d\sigma} = 0.
+}
+For this case the differential equation reads
+\nequ{5}{
+\Delta\psi + \left(k^2 - V\right)\psi = 0,
+}
+where we put
+\nequ{6}{
+k^2 = \frac{8\pi^2\mu}{h^2}W,\quad V(x,y,z) = \frac{8\pi^2\mu}{h^2}U(x,y,z).
+}
+
+For inertial motion ($V=0$) one has the differential equation
+\nequ{7}{
+\Delta\psi + k^2\psi = 0
+}
+and the solution is
+\nequ{8}{
+\psi = \exp{i\left(\mathfrak{k}\mathfrak{r}\right)};
+}
+here $\mathfrak{r}$ is the vector $x, y, z$, and the vector $\mathfrak{k}$ satisfies the equation
+\nequ{9}{
+\left|\mathfrak{k}\right|^2 = k_x^2 + k_y^2 + k_z^2 = k^2;
+}
+up to a factor, it is equal to the momentum vector
+\nequ{10}{
+\mathfrak{p} = \frac{h}{2\pi}\mathfrak{k}.
+}
+
+The \textsc{de Broglie} wavelength is given by $\frac{h}{\lambda} = p = |\mathfrak{p}| = \frac{h}{2\pi}k$. The solution (8) is to be considered to be normalized in the sense of the mean calculation (see (2), \S2). We abbreviate a function of $x,y,z$ with $f(\mathfrak{r})$, a function of $k_x,k_y,k_z$ with $\mathfrak{k}$ etc. Let $dS = {dx}{dy}{dz}$.
+
+The most general solution of (7) is
+\nequ{11}{
+\psi(\mathfrak{r}) = u_0(\mathfrak{r}) = \int c(\mathfrak{s})\exp{ik(\mathfrak{rs})}d\omega, c(\mathfrak{s}) = c^*(\mathfrak{s}),
+}
+where $\mathfrak{s}$ is a unit vector and $d\omega$ is an element of a spatial angle. It represents inertial motion in all possible directions with the same energy; according to our principles $\left|c(\mathfrak{s})\right|^2$ is the number of particles moving in the direction $\mathfrak{s}$ per unit angle.
+
+We derive an asymptotic representation for $u_0$, which clearly shows how $u_0$ behaves at infinity. Although the result can be obtained very easily, we want to calculate it here by means of a general method which can be carried over to the complicated cases to be treated later. We imagine a new rectilinear coordinate system $X, Y, Z$, introduced with the help of the orthogonal transformation:
+\nequ{12}{
+x = a_{11}X + a_{12}Y + a_{13}Z, \quad & X = a_{11} x + a_{21} y + a_{31}z,\\
+y = a_{21}X + a_{22}Y + a_{23}Z, \quad & Y = a_{12} x + a_{22} y + a_{32}z,\\
+z = a_{31}X + a_{32}Y + a_{33}Z, \quad & Z = a_{13} x + a_{23} y + a_{33}z.
+}
+At the same time, we introduce instead of the unit vector $\mathfrak{s}$ the new unit vector $\mathfrak{S}$ with the help of the same orthogonal transformation; then the unit angle $d\omega$ goes over to a new $d\Omega$ and
+\nequ{13}{
+\mathfrak{rs} = \mathfrak{RS}.
+}
+Now we specifically choose the new coordinate system so that
+\nequ{14}{
+X = 0,\quad Y = 0;
+}
+then
+\nequ{15}{
+Z = r = \sqrt{x^2 + y^2 + z^2}.
+}
+Our integral becomes
+\uequ{
+u_0(x,y,z) = & u_0(a_{13}Z, a_{23}Z, a_{33}Z)\\
+           = & \int d\Omega c\left(a_{11}\mathfrak{S}_x + a_{12}\mathfrak{S}_y + a_{13}\mathfrak{S}_z, ... \right)\exp{ikZ\mathfrak{S}_z}.
+}
+From now on, we introduce the polar coordinates for $\mathfrak{S}$:
+\nequ{16}{
+\mathfrak{S}_x = \sin{\vartheta}\cos{\varphi},\quad
+\mathfrak{S}_y = \sin{\vartheta}\sin{\varphi},\quad
+\mathfrak{S}_z = \cos{\vartheta},
+}
+and set $\cos{\vartheta} = \mu$; then
+\uequ{
+u_0 = \int\limits_0^{2\pi}d\varphi\int\limits_{-1}^{+1}d\mu
+c\left(\sqrt{1-\mu^2}
+(a_{11}\cos{\varphi} + a_{12}\sin{\varphi}) + \mu a_{13}, ...
+\right)\exp{ikZ\mu}
+}
+Via partial integration it follows that
+\uequ{
+u_0 = 
+\frac{1}{ikZ}\int\limits_0^{2\pi}d\varphi\left\{
+c(a_{13}, a_{23}, a_{33})\exp{ikZ} - 
+c(-a_{13}, -a_{23}, -a_{33})\exp{-ikZ}\right\} - \\
+\frac{1}{ikZ}\int\limits_0^{2\pi}d\varphi\dXdY{}{\mu}
+c\left(\sqrt{1-\mu^2}(a_{11}\cos{\varphi} + a_{12}\sin{\varphi})
+ + \mu a_{13}, ...\right)\exp{ikZ\mu} d\mu.
+}
+Reapplying the same process shows that the second part vanishes like $Z^{-2}$. Now if one inserts $Z=r, a_{13} = \frac{x}{Z} = \frac{x}{r}, \dots$, then the asymptotic representation is obtained:
+\nequ{17}{
+u_0^\infty(x,y,z) = \frac{2\pi}{ikr}\left\{
+c\left(\frac{x}{r},\frac{y}{r},\frac{z}{r}\right)\exp{ikr} - 
+c\left(-\frac{x}{r}, -\frac{y}{r}, -\frac{z}{r}\right)\exp{-ikr}
+\right\},
+}
+or, using real notation with $c=|c|\exp{ik\gamma}$:
+\nequ{18}{
+u_0^\infty(x,y,z) = \frac{4\pi}{k}\left|
+c\left(\frac{x}{r},\frac{y}{r},\frac{z}{r}\right)\right|
+\frac{\sin{k}\left(r + \gamma\left[\frac{x}{r},\frac{y}{r},\frac{z}{r}\right]\right)
+}{r}
+}
+This means that $u_0$ behaves asymptotically like a spherical wave with a direction-dependent amplitude and phase; the intensity, as a function of the direction $\mathfrak{s} = \frac{\mathfrak{r}}{r}$, defines the likelihood of the particle arriving in solid angle $d\omega$ with axis $\mathfrak{s}$:
+\nequ{19}{
+\Phi_0 d\omega = \left|c(\mathfrak{s})\right|^2 d\omega
+}
+
+\section{Elastic collisions.}
+We now turn to the integration of the general equation (5), \S5
+\nequ{1}{
+\Delta\psi _ (k^2-V)\psi = 0;
+}
+physically it represents the case where an electron collides with an un-excitable atom.
+
+As in \S3 we define $\psi$ by an iterative procedure, in which the just-introduced function $u_0$, (11) \S5 serves as the starting point. Then we calculate $u_1, u_2, \dots$ in order from the approximation equations
+\nequ{2}{
+\Delta u_n k^3 u_n = V u_{n-1} =F_{n-1}.
+}
+The \textsc{Green} theorem supplies the solution which corresponds to outgoing waves with time factor $\exp{ik\nu t}$, in the form:
+\nequ{3}{
+u_n(\mathfrak{r}) = -\frac{1}{4\pi}\int F_{n-1}(\mathfrak{r}')
+\frac{\exp{-ik|\mathfrak{r}-\mathfrak{r}'|}}{\mathfrak{r}-\mathfrak{r}'}dS',
+}
+where $\mathfrak{r}'$ denotes the vector with components $x',y',z'$ and $dS' = {dx'}{dy'}{dz'}$. The convergence of the procedure can be proven by assuming that $V$ goes to zero like $r^{-2}$\footnote{For this reason the case of ions is excluded; with these one need not take a straight-line motion, but rather a hyperbolic track of the electron, as the starting point. See also a soon-to-appear treatment by J.R. Oppenheimer, Proc. Cambridge Phil. Soc., July 26th 1926. }; yet we don't go into it, but rather only assume that the series
+\uequ{
+\psi(\mathfrak{r}) = \sum\limits_{n=0}^{\infty} u_n(\mathfrak{r})
+}
+represents the solution.
+
+We investigate the asymptotic behavior of $u_n(\mathfrak{r})$. In detail, we write:
+\uequ{
+u_n(x,y,z) = -\frac{1}{4\pi}\iiint F_{n-1}(x'y'z')
+\frac{\exp{-ik\sqrt{(x-x')^2+(y-y')^2+(z-z')^2}}}{\sqrt{(x-x')^2+(y-y')^2+(z-z')^2}}{dx'}{dy'}{dz'}.
+}
+Now we again execute the coordinate rotation specified in \S5 and subject the integration variables to the same rotation. Then
+\nequ{4}{
+u_n(x,y,z) = &u_n(a_{13}Z, a_{23}Z, a_{33}Z)\\
+= &-\frac{1}{4\pi}\iiint F'_{n-1}(X',Y',Z')
+\frac{\exp{-ik\sqrt{X'^2 + Y'^2 + (Z-Z')^2}}}{\sqrt{X'^2 + Y'^2 + (Z-Z')^2}} {dX'}{dY'}{dZ'};
+}
+hence
+\nequ{5}{
+F'_{n-1}(X',Y',Z') = F_{n-1}(a_{11}X' + a_{12}Y' + a_{13}Z', \dots).
+}
+Now we introduce polar coordinates:
+\uequ{
+X' = \varrho \sin\vartheta \cos\varphi,\quad
+Y' = \varrho \sin\vartheta \sin\varphi,\quad
+Z' = \varrho \cos\vartheta.
+}
+Then
+\uequ{
+u_n = -\frac{1}{4\pi}
+\int\limits_0^{2\pi}d\varphi
+\int\limits_0^\infty \varrho^2 d\varrho
+\int\limits_0^\pi \sin\vartheta d\vartheta F'_{n-1}(\varrho\sin\vartheta\cos\varphi, ...)\\
+\frac{\exp{-ik\sqrt{\varrho^2 + Z^2 + 2\varrho Z\cos\vartheta}}}{\sqrt{\varrho^2 + Z^2 - 2\varrho Z\cos\vartheta}}.
+}
+Finally, we ntroduce instead of $\vartheta$ the integration variable $\mu$ by
+\uequ{
+\sqrt{\varrho^2 + Z^2 - 2\varrho Z\cos\vartheta} = & Z\mu,\\
+\sin\vartheta d\vartheta = \frac{Z}{\varrho}\mu{d\mu};
+}
+with that, the limits of the integration become
+\uequ{
+\vartheta = 0;\quad
+\mu = \left|\frac{\varrho}{Z}-1\right|;\quad
+\vartheta = \pi;\quad
+\mu = \frac{\varrho}{Z} + 1
+}
+and $\cos\vartheta$, $\sin\vartheta$ become certain functions $c(\varrho,Z,\mu)$, $s(\varrho,Z,\mu)$ which take the values $c=1$, $s=0$ at the lower limits, and the values $c=-1$, $s=0$ at the upper limits. So, we obtain
+\uequ{
+u_n = -\frac{1}{4\pi}
+\int\limits_0^{2\pi}d\varphi
+\int\limits_0^\infty \varrho d\varrho \int\limits_{\left|\frac{\varrho}{Z}-1\right|}^{\frac{\varrho}{Z}+1} 
+F'_{n-1}(\varrho s\cos\varphi, \varrho s\sin\varphi, \varrho c)\exp{-ik\mu Z}d\mu
+}
+Via partial integration one obtains, as in \S5, the asymptotic representation:
+\uequ{
+u_n^\infty = \frac{1}{4\pi}
+\int\limits_0^{2\pi}d\varphi
+\int\limits_0^\infty \varrho d\varrho
+\frac{1}{ikZ}\left\{
+F'_{n-1}(0, 0, \varrho)\exp{-ik(Z + \varrho)} - 
+F'_{n-1}(0, 0, -\varrho)\exp{-ik\left|Z - \varrho\right|} 
+\right\}.
+}
+Here, according to (5),
+\uequ{
+F'_{n-1}(0,0,\varrho) =& F_{n-1}(a_{13}\varrho,a_{23}\varrho, a_{33}\varrho)
+ = F_{n-1}\left(\frac{\varrho x}{r}, \frac{\varrho y}{r}, \frac{\varrho z}{r}\right),\\
+F'_{n-1}(0,0,-\varrho) = &F_{n-1}(-a_{13}\varrho,-a_{23}\varrho,-a_{33}\varrho)
+= F_{n-1}\left(-\frac{\varrho x}{r}, -\frac{\varrho y}{r}, -\frac{\varrho z}{r}\right).
+}
+So
+\uequ{
+u_n^\infty = \frac{\exp{-ikr}}{2ikr}\int\limits_0^\infty\varrho d\varrho
+F_{n-1}\left(\frac{\varrho x}{r}, \frac{\varrho y}{r}, \frac{\varrho z}{r}\right)
+\exp{-ik\varrho}\\
+- \frac{\exp{-ikr}}{2ikr}\int\limits_0^r \varrho d\varrho
+F_{n-1}\left(-\frac{\varrho x}{r}, \dots \right)\exp{ik\varrho}
+- \frac{\exp{ikr}}{2ikr}\int\limits_r^\infty \varrho d\varrho
+F_{n-1}\left(-\frac{\varrho x}{r}, \dots\right)\exp{-ik\varrho}.
+}
+Here, the last integral vanishes for $r\to\infty$; since there we assume that $|V|\leq ar^{-2}$, then because $|u_0|\leq br^{-1}$:
+\uequ{
+\left(F_{n-1}\right| \leq \frac{A}{r^3},
+}
+and so
+\uequ{
+\left|\int\limits_r^\infty \varrho d\varrho F_{n-1}\left(-\frac{\varrho x}{r},\dots\right)\exp{-ik\varrho}\right|
+\leq A\int\limits_r^\infty\frac{d\varrho}{\varrho^2} = \frac{A}{r}.
+}
+With that we finally obtain:
+\nequ{6}{
+u_n^\infty = \frac{\exp{-ikr}}{2ikr}\int\limits_0^\infty \varrho d\varrho
+\left\{F_{n-1}\left(\frac{\varrho x}{r}, \dots\right)\exp{-ik\varrho}
+- F_{n-1}\left(-\frac{\varrho x}{r}, \dots\right)\exp{-ik\varrho}\right\}
+}
+This can however be brought into a more transparent form. For that purpose we introduce the fourier coefficients of the function $F_{n-1}$
+\nequ{7}{
+f_{n-1}(\mathfrak{f}) &= \frac{1}{(2\pi)^3}\iiint F_{n-1}(\mathfrak{r})
+\exp{-i\mathfrak{rk}}dS
+&= \frac{1}{(2\pi)^3}\int\limits_0^\infty r^2 dr \iint d\omega F_{n-1}
+(r\mathfrak{s})\exp{-ir(\mathfrak{ks})}.  
+}
+According to the procedure that has already been carried out twice, we determine the asymptotic value and obtain:
+\uequ{
+f_{n-1}^\infty\left(k_x,k_y,k_z\right)\\
+= \frac{1}{4\pi^2 ik}\int\limits_0^\infty r dr \left\{
+F_{n-1}\left(\frac{rk_x}{k},\dots\right)\exp{ikr} - 
+F_{n-1}\left(-\frac{rk_x}{k}, \dots\right)\exp{-ikr}
+\right\}. 
+}
+Hence
+\nequ{8}{
+f_{n-1}^\infty\left(-k\frac{x}{r}, -k\frac{y}{r}, -k\frac{z}{r}\right)\\
+ = \frac{1}{4\pi^2 ik}\int\limits_0^\infty \varrho d\varrho \left\{
+F_{n-1}\left(\frac{\varrho x}{r}, \dots \right)\exp{-i\varrho k} -
+F_{n-1}\left(-\frac{\varrho x}{r}, \dots \right)\exp{i\varrho k}
+ \right\}.
+}
+If we now insert that into (6), then we finally obtain:
+\nequ{9}{
+u_n^\infty (x, y, z) = 2\pi^2 f_{n-1}^\infty\left(-k\frac{x}{r}, -k\frac{y}{r}, -k\frac{z}{r}\right)\frac{\exp{-ikr}}{r}.
+}
+Comparing that with the formulae (11) and (18) of \S5, we see that an observer at infinity will see the scattered ray as a plane wave with the amplitude dependent on the direction $\mathfrak{s}$
+\uequ{
+\frac{k}{2\pi}2\pi^2 \left|f_{n-1}^\infty\left(-k\mathfrak{s}\right)\right|
+ = k\pi\left|f_{n-1}^\infty\left(-k\mathfrak{s}\right)\right|;
+}
+so, the probability that an electron will be deflected in a solid angle $d\omega$ with central direction $\mathfrak{s}$:
+\nequ{10}{
+\Phi d\omega = \pi^2 k^2\left|\sum\limits_{n=0}^\infty f_n^\infty(-k\mathfrak{s})\right|^2 d\omega.
+}
+The full solution has the asymptotic form
+\uequ{
+\psi^\infty = u_0^\infty + \sum\limits_{n=1}^\infty u_n^\infty = 
+\frac{2\pi}{k}\left\{\left|c(\mathfrak{s})\right|\exp{ik(r+\delta)}
+ + k\pi\sum\limits_{n=1}^\infty f_n^\infty(-k\mathfrak{s})\exp{-ikr}\right\}.
+}
+Appending here the time factor $\exp{ik\nu t}$ easily yields the formula (4) \S5, "conservation of particle number".
+
+To the first approximation, one has:
+\nequ{11}{
+\Phi d\omega = \pi^2 k^2 \left| f_0^\infty (-k\mathfrak{s})\right|^2 d\omega,
+}
+where one either calculates $f_0$ rigorously from the formula
+\nequ{12}{
+f_0(\mathfrak{f}) = \frac{1}{(2\pi)^3}\int F_0(\mathfrak{r})\exp{-i(\mathfrak{fr})}dS
+}
+or use the asymptotic expression (following (8))
+\nequ{13}{
+f_0^\infty(-k\mathfrak{s}) = \frac{1}{4\pi^2 ik}
+\int\limits_0^\infty \varrho d\varrho \left\{F_0(\varrho\mathfrak{s})\exp{ik\varrho} - 
+F_0(-\varrho\mathfrak{s})\exp{-ik\varrho}
+\right\}.
+}
+
+\section{Inelastic electron collisions.} Let an atom (or a molecule; we will always say "atom") be given by a Hamiltonian function $H^a(p,q)$\footnote{We briefly write $p,q$ instead of $p_1,p_2,\dots,p_f$ $q_1, \dots, q_f$.}; if the Schroedinger differential equation for this system is solved, one also knows the eigenvalues $W^a_n$ and eigenfunctions $\psi^a_n(q)$ which identitically satisfy the equations
+\nequ{1}{
+\left[H^a - W_n^a, \psi_n^a \right] = 0.
+}
+
+An electron collides with this atom; the Hamiltonian function of the free electron is
+\uequ{
+H^e = \frac{1}{2\mu}(p_x^2 + p_y^2 + p_z^2),
+}
+the eigenvalues are all positive numbers $W^e$ and the eigenfunctions
+\nequ{2}{
+\exp{\pm k(\mathfrak{rs})}, \quad k^2 = \frac{8\pi^2\mu}{h^2} W^e;
+}
+the general solution which correspond to incoming waves is
+\nequ{3}{
+\psi_k^e = \int\limits_{\mathfrak{rs}>0}c^0(\mathfrak{s})\exp{ik(\mathfrak{rs})}d\omega;
+}
+it satisfies the differential equation
+\nequ{4}{
+\left[H^e - W^e, \psi_k^e\right] = 0 \quad 
+\text{ or } \
+`Delta\psi_k^e + k^2\psi_k^e = 0.
+}
+Between the atom and the electron, there is a potential energy
+\nequ{5}{
+U(q; x,y,z).
+}
+
+The interaction between the two particles leads to the Hamiltonian function:
+\uequ{
+H = H^0 + \lambda H^{(1)}
+}
+where
+\uequ{
+H^0 &= H^a + H^e,\\
+\lambda H^{(1)} &= U.
+}
+The unperturbed system has the solution
+\uequ{
+W_{nk}^0 = W_n^a + W^e, \quad \psi_{nk}^0 = \psi_n^a\psi_k^e.
+}
+We solve the Schroedinger differential equation for the perturbed system
+\uequ{
+\left[H-W,\psi\right] = 0
+}
+using the \textit{Ansatz}
+\uequ{
+\psi = \psi^0 + \lambda^{(1)} + \dots.
+}
+Then one obtains the approximation equations
+\uequ{
+\left[H^0 - W_{nk}^0, \psi_{nk}^{(1)}\right] &= -U\psi_{nk}^0,\\
+\left[H^0 - W_{nk}^0, \psi_{nk}^{(2)}\right] &= -U\psi_{nk}^1,\\
+\dots \dots
+}
+whose left sides coincide. We write them in detail:
+\uequ{
+\left[H^a,\psi_{nk}^{(1)}\right] + \left[H^e,\psi_{nk}^{(1)}\right]
+ - W_{nk}^0 \psi_{nk}^{(1)} = -U_{nk}^0,
+}
+or
+\uequ{
+\left[H^a,\psi_{nk}^{(1)}\right] - \frac{h^2}{8\pi^s\mu}\Delta\psi_{nk}^{(1)}
+ - W_{nk}^{(0)}\psi_{nk}^{(1)} = -U\psi_{nk}^0.
+}
+We attempt to solve this equation using the \textit{Ansatz}:
+\uequ{
+\psi_{nk}^{(1)} = \sum\limits_m u_{nm}^{(1)}(\mathfrak{r})\psi_m^a,
+}
+i.e. by an expansion in the eigenfunctions of the unperturbed atom alone, whose coefficients are still-undetermined functions of the position vectors $\mathfrak{r}$ of the electron.
+
+Non, according to (1),
+\uequ{
+\left[ H^a, \psi_{nk}^{(1)}\right] 
+&= \sum\limits_m u_{nm}^{(1)}(\mathfrak{r}) \left[H^a, \psi_m^a\right]\\
+&= \sum\limits_m u_{nm}^{(1)}(\mathfrak{r}) W_m^a \psi_m^a.
+}
+We expand the given function on the right side in the same manner:
+\uequ{
+U\psi_{nk}^0 = \psi_k^e\cdot U\psi_n^a = \psi_k^e \sum\limits_m U_{nm}\psi_m^a;
+}
+the coefficients form the matrix associated with the potential energy. If we insert this expression in the differential equation, then we obtain
+\uequ{
+\sum\limits_m \psi_m^a\left\{u_{nm}^{(1)} W_m^a - \frac{h^2}{8\pi^2\mu}\Delta u_{nm}^{(1)} - u_{nm}^{(1)}(W_n^a + W^e)\right\} \\
+ = -\sum\limits_m\psi_m^a U_{nm}\psi_k^e.
+}
+By equating the coefficients of $\psi_m^a$ we get from this a differential equation for $u_{nm}^{(1)}(\mathfrak{r})$; we multiply this with $-\frac{8\pi^s\mu}{h^2}$ and use the abbreviation
+\nequ{6}{
+V = \frac{8\pi^2\mu}{h^2}U
+V_{nm} = \frac{8\pi^2\mu}{h^2}U_{nm},
+}
+\nequ{7}{
+k_{nm}^2 = \frac{8\pi^2\mu}{h^2}U\left(W_n^a - W_m^a + W^e\right) = 
+\frac{8\pi^2\mu}{h^2}U\left(h\nu_{nm}^a + W^e\right);
+}
+then we find
+\nequ{8}{
+	\Delta u_{nm}^{(1)} + k_{nm}^2 u_{nm}^{(1)} = V_{nm}\psi_k^e.
+}
+With that, we have returned the problem to the previously-treated case of inelastic collusions; also since all following approximations lead to the same wave equation. The distinction from earlier however is the following: any transition ($n \to m$) of the atom coincides with a specific differential equation, whose right side is determined by the corresponding matrix element of the potential energy. Further, in place of the $k$ value of the incoming wave, there is every time another value $k_{nm}$ which corresponds to the energy
+\nequ{9}{
+W_{nm}^e = V_{nm} = \frac{8\pi^2\mu}{h^2} k_{nm}^2 = h\nu_{nm}^a + W^e.
+}
+From this there already follows the qualitative foundation of electron collisions: the energy of the electron after the collision is in general not equal to that before the collision, but rather \WTF{differs by an energy-step $h\nu_{nm}^a$ of the atom}. To every collision process there is an associated probability function
+\nequ{10}{
+\Phi_{nm} = \pi^2 k^2_{nm}\left|f_0^\infty(-k_{nm}\mathfrak{s})\right|^2,
+}
+which can be calculated with the help of formula (12) or (13) \S6.
+
+\section{Physical consequences.} Next we show that our formulae correctly give back the qualitative behavior of colliding atoms, and so the actuality of the "\?{energy thresholds}{Energieschwellen}", which have always been seen as the cornerstones of quantum theory and as the grossest contradiction against classical mechanics.
+
+We order the energy levels of the atom by magnitude:
+\uequ{
+W_0^a < W_1^a < W_2^a < \dots
+}
+The index 0 thus denotes the ground state, and it is
+\uequ{
+h\nu_{nm}^a = W_n^a - W_m^a > 0 \quad \text{ for } n > m.
+}
+We next consider the case that the atom starts in the ground state. Then all $\nu_{m0}^a > 0$, and from (9) \S7 it follows that
+\uequ{
+W_{0m}^e = W^e - h\nu_{m0}^a.
+}
+Now if $W^e < h\nu_{10}^a$, then $W_{0m}^e$ would be negative for $m>0$, which is impossible; so we must have $m=0$, hence
+\uequ{
+W_{00}^e = W^e.
+}
+So instead there is an "elastic" collision, with \?{yield}{Ausbeute} $\Phi_{00}$. If we let $W^e$ increase until
+\uequ{
+h\nu_{10}^a < W^e < h\nu_{20}^a,
+}
+then $W_{0m}^e$ will only become positive for $m=0$ and $m=1$; one thus has either elastic reflection with \WTF{yield} $\Phi_{00}$ or \WTF{resonant excitation} with yield $\Phi_{01}$.
+
+If we increase $W^e$ further, until
+\uequ{
+h\nu_{20}^a < W^e < h\nu_{30}^a,
+}
+then there are three cases:
+
+Elastic reflection with yield $\Phi_{00}$, excitation of the first quantum jump with $\Phi_{01}$, excitation of the second quantum jump with $\Phi_{02}$. It continues in the same manner.
+
+Now we focus on the case where the atom is in the second quantum state at the start ($n=1$); then $\nu_{10}^a > 0$ and $\nu_{1m}^a < 0$ for $m=2,3,\dots$.
+
+Thus one has
+\uequ{
+W_{10}^e &= W^e + h\nu_{10}^a,\\
+W_{11}^e &= W^e,\\
+W_{1m}^e &= W^e - h\nu_{m1}^a, \quad m=2,3,\dots
+}
+If now $W^e < h\nu_{21}^a$, then $W_{1m}^e$ is negative for $m=2,3,\dots$; then there is only either  a collusion o fthe second type with energy transfer to the electron of $h\nu_{10}^a$ and yield $\Phi_{10}$, or elastic reflection with yield $\Phi_{11}$.
+
+If
+\uequ{
+h\nu_{21}^a < W^e < h\nu_{31}^a,
+}
+then the excitation of the state $n=2$ with yield $\Phi_{12}$ will occurs in these processes. So it continues.
+
+In the general case, if the atom starts in state $n$, for
+\uequ{
+W^e < h\nu_{n+1,n}^a
+}
+there are only collisions of the second type, in which the atom falls into the states $0,1,\dots,n-1$ and pass off the energy values $h\nu_{n0}^a, h\nu_{n1}^a,\dots,h\nu_{n.n-1}^a$
+to the electron, with yield $\Phi_{n0}, \Phi_{n1}, \dots, \Phi_{n,n-1}$, and the elastic reflection $\Phi_{nn}$. If $W^e$ increases over $h\nu_{n+1,n}^a$, then there are excitations with yield $\Phi_{n,n+1},\Phi_{n,n+2},\dots,\Phi_{n,m}$ when
+\uequ{
+h\nu_{n+1,n}^a < W^e < h\nu_{m+1,n}^a.
+}
+Te next task would be to discuss the formula (10) \S7 for the yield; but we will be satisfied here with a completely provisional, probably also quite contestable consideration. We assume that the potential $U$ is expanded in powers of $r^{-1}$; for a neutral atom one then has to first approximation the dipole term
+\nequ{1}{
+U(x,y,z) = \frac{e}{r^3}\left(\mathfrak{Br}\right),
+}
+where $\mathfrak{V}(q)$ is the electric moment of the atom. To this we assign the matrix $\mathfrak{V}_{mn}$. Then, according to (6), \S7:
+\nequ{2}{
+V_{nm} = \frac{8\pi^2 \mu e}{h^2}\left(\mathfrak{V}_{nm}\frac{\mathfrak{r}}{r^3}\right).
+}
+Naturally this \textit{Ansatz} can only be correct for electrons which pass by the atom at a considerable distance. Thus we constrain our considerations to such electrons for which $r>r_0$\footnote{The exclusion of central collisions means the provisional abandonment of the explanation of an especially interesting group of phenomena, namely the penetrability of atoms for slow electrons (Ramsauer effect).}, and hence we write, according to (13) \S6:
+\uequ{
+f_0^\infty(-k_{nm}\mathfrak{s}) = \frac{1}{4\pi^2 ik_{nm}}
+\int\limits_{r_0}^\infty \varrho d\varrho\left\{
+F_{nm}(\varrho\mathfrak{s})\exp{-i\varrho k_{nm}} - 
+F_{nm}(-\varrho\mathfrak{s})\exp{i\varrho k_{nm}}.
+\right\}
+}
+We now assume that the arriving electrons form a parallel bundle, corresponding to a plane wave; then
+\uequ{
+F_{nm}(\varrho\mathfrak{s}) = V_{nm}\exp{ik\varrho\mathfrak{s}_z} = 
+\frac{8\pi^2 \mu e}{h^2}\left(\mathfrak{V}_{nm}, \mathfrak{s}\right)
+\frac{\exp{ik\varrho\mathfrak{s}_z}}{\varrho^2}.
+}
+Henceforth will
+\nequ{3}{
+i\pi k_{nm} f_0^\infty(-k_{nm}\mathfrak{s}) = 4\pi\frac{\mu e}{h^2}
+\left(\mathfrak{V}_{nm},\mathfrak{s}\right)A,
+}
+were with $\mathfrak{s}_z = \cos\vartheta$
+\nequ{4}{
+A=\int\limits_{r_0}^\infty \frac{d\varrho}{\varrho}
+\cos\left[\varrho (k\cos\vartheta - k_{nm}\right],
+}
+or
+\nequ{5}{
+A=-C_i\left(r_0\left[k\cos\vartheta - k_{nm}\right]\right),
+}
+where $C_i(x)$ denotes the cosine integral\footnote{S.E. jahnke and F. Emde, Function Tables, Leipzig 1909, S. 19.}.
+
+According to (10) \S7, the yield function will then be
+\nequ{6}{
+\Phi_{nm} = \frac{16\pi^2\mu^2 c^2}{k^4}\left|\mathfrak{V}_{nm},\mathfrak{s}\right|^2A^2.
+}
+Finally, averaging over all positions of the atoms, the mean values of the product of the two components of $\mathfrak{V}_{nm}$ vanish and the mean values of the square of the components are equal to $\frac{1}{3}\left|P_{nm}\right|^2$, where $P$ denotes the contribution of the electric moment. Thus one obtains
+\nequ{7}{
+\Phi_{nm} = \frac{16\pi^2 \mu^2 c^2}{3h^2}\left|P_{nm}\right|^2 A^2.
+}
+We will briefly discuss this expression for the yield function.
+
+Next one sees that in our approximationthe yield is proportional to $\left|P_{nm}\right|^2$, i.e. to $m\neq n$ the coefficients of the transition probabilities $b_{nm}$ of the Einstein radiation theory, which correspond to the processes of absorption and stimulated emission in the radiation field (not with the probabilities of spontaneous emission $a_{nm} = \frac{8\pi h\nu_{nm}^3}{c^3} b_{nm}$)\footnote{S.J.H. van Vleck, Phys. Rev. \textbf{23}, 330, 1924; Journ. Opt. Soc. Amer. \textbb{9}, 27, 1924. M. Born and P. Jordan, ZS. f. Phys. \textbf{33}, 479, 1925.}.
+
+The yield of the elastic reflections is proportional to $|P_{nm}|^2$, a quantity which is \?{not visually ideal}{optisch nicht wirksam}. The diagonal elements of the matrix $P_{nm}$ are in general equal to zero\footnote{With the harmonic oscillator e.g. they are zero, with the anharmonic oscillator they are present.}; namely, outside of a few cases, where there is a linear Stark effect (like with the hydrogen atom). Herr Pauli has shared with me that he has even been able to derive the vanishing of the diagonal elements of the quadropole and higher moments for the $s$-terms of the alkalines and the ground states of the nobel gasses and earth-alkalines, a result hat represents the exact expression for the spherical symmetry of the \?{effective range}{Wirkungsbereichs} of the atom. Our approximation thus does not sufffice`for calculating elastic reflections, for these one must take the approximation one step further.  This should shortly happen, in order to get the chance to test our theory on the \?{great deal of observations}{gro{\ss}en Beobachtungsmaterial} (Lenard and others) on the \?{mean free paths}{freie Wegl\"angen} of electrons in unexcited gasses. Without precise calculations one can see that the yield is determined by terms which are fourth order in $P_{nm}$. These terms are naturally much smaller than the $\left|P_{nm}\right|^2$. Hence we could understand that the normal cross-section of the atom ($n=0$) for slow electrons is very much smaller (on "\WTF{gas-kinetic}" order of magnitude) than that for fast electrons, which could be excited\footnote{One will find literature on this topic in the just-released book by J. Franck and P. Jordan, Anregung von Quantenspr\"ungen durch St\"o{\ss}e (Berlin, J. Springer, 1926).}.
+
+The depdendence of the yield on the direction will be determined by the function $A^2$ according to (5). It apparently corresponds to a diffraction phenomenon.
+
+This consequence of the de Broglie theory was derived some years ago by W. Elsasser\footnote{W. Elsasser, Die Naturwiss. \textbb{13}, 711, 1925. The magnitude relation which underlies Elsasser's reflection is based on the de Broglie formula for the wavelengths: \uequ{\lambda = \frac{2\pi}{k} = \frac{h}{\sqrt{2\mu W}}}. For 300 volt rays one has approximately $\lambda = 7\cdot 10^{-9}\text{cm}$, so waves of atomic dimensions.} By taking the wave hypothesis seriously, he concludes that slow electrons must be deflected from atoms in such a way that their distribution after the collision somewhat coincides with the intensity of light diffracted on a small sphere\footnote{S.K. Schwarzschild, Sitzungsber. d. Kgl. Bayer. Akad. d. Wiss., S. 293, 1901; G. Mie, Ann. d. Phys. \textbb{25}, 377, 1908; P. Debye, Ann. d. Phys. \textbb{30}, 57, 1909.}. Hence he connects the observations of Ramsauer on the mean free paths of electrons\footnote{C. Ramsauer, Ann. d. Phys. \textbb{64}, 513, 1921; \textbb{66}, 546, 1921; \textbb{72}, 345, 1923. For further literature see Ergebnisse der exakten Naturwissenschaften, 3rd volume (Berlin, J. Springer, 1924), article by R. Minkowski and H. Sponer, p. 67.} and the experiments of Davisson and Kunsman\footnote{Davisson and Kunsman, Phys. Rev. \textbb{22}, 243, 1923.} on the angular distribution of electrons reflected on a platinum plate. Meanwhile the correctness of the reflections have been proven through experiments by Dymond\footnote{Dymond, Nature. (in progress; I credit the knowledge of this work for the insight in a letter which Herr Dymond has sent to Herrn J. Franck.)}, who has directly observed the occurrence of interference maxima in reflected electrons in helium. A testing of our formulae on the observational material shall follow later.
+
+\section{Closing remarks.} On the grounds of the preceding reflections I would like to express the opinion that quantum mechanics is not only the problem of stationary states, but also of formulating and enabling the solution of transition processes. The Schroedinger interpretation seems by far the easiest way to set this situation right; in addition, it makes it possible to maintain the usual ideas of space and time, in which the results play out in a totally normal way. However, the proposed theory does not agree with the consequence of causal certainty of individual processes. I have especially stressed this indeterminism in my provisional communication, since it seemed to me to be in best correspondence with the practice of the experimentors. But it of course to those who will not accept it calmly, to assume that there are further parameters still not introduced in the theory that determine the individual processes. In classical mechanics there are the "phases" of motion, e.g. the coordinates of the particles in a definite moment. It seems to me unlikely for now that quantities which correspond to these phases could be \?{naturally}{zwanglos} introduced into the new theory; but Herr Frenkel has told me that perhaps this is yet possible. Be that as it may, this possibility would not change the practical indeterminism of collision processes, since one cannot indeed specify the values of the phases; they must in the end lead to the same formulae as the "phaseless" theory proposed here.
+
+I would like to believe that the laws of motion for light quanta can be treated in a completely analogous manner\footnote{The difficulties which have been found in optics with the introduction of the \textit{"Gespensterfeld"} seem to me to be based in part on the tacit assumption that \WTF{Wellenzentrum} and emitted particles must be at the same position. But already with the Compton effect this is certainly not the case and will probably never be true in general.}. But then, even in the basic problem of free radiation, there is no time-periodic process, but rather an \WTF{Abklingungsproze\ss}, and so not a boundary value problem, but rather an initial-value problem for the coupled wave equations for Schroedinger's $\psi$-values and of the electromagnetic field. To investigate the laws of this coupling is probably one of the most pressing problems; it is being worked on in several places that I know of\footnote{See e.g. the just-published treatment by O. Klein, ZS. f. Phys. \textbb{37}, 895, 1926.} When these laws are formulated, it will perhaps be possible to draw up a rational theory of the lifetime of states, of transition probabilities in radiation processes, of damping and line-breadths.
+
+\end{document}
+  

@@ -1,0 +1,970 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{caption}
+
+\renewcommand*\rmdefault{ppl}
+
+\newcommand{\tn}[1]{\footnote{\textbf{Translator note:} #1}}
+
+\newcommand{\footcite}[3]{\textsc{#1}, \textit{#2}, #3}
+
+%\newcommand{\var}[1]{\pmb{#1}}
+%\newcommand{\coord}[1]{\var{#1}}
+%\newcommand{\const}[1]{#1}
+%\newcommand{\operator}[1]{\var{#1}}
+
+\newcommand{\var}[1]{#1}
+\newcommand{\vect}[1]{\vec{\var{#1}}}
+\newcommand{\coord}[1]{#1}
+\newcommand{\const}[1]{#1}
+\newcommand{\operator}[1]{\pmb{#1}}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+\newcommand{\barred}[1]{
+\overline{#1}
+}
+
+%\newcommand{\inv}[1]{{#1}^{-1}}
+\newcommand{\func}[1]{\pmb{#1}}
+\newcommand{\functional}[1]{\pmb{#1}}
+
+\newcommand{\comp}[1]{{#1}}
+
+\newcommand{\primed}[1]{{#1^{\prime}}}
+\newcommand{\CC}[1]{{#1^{*}}}
+
+\newcommand{\unit}[1]{#1}
+%\newcommand{\ddt}[1]{\frac{d#1}{dt}}
+\newcommand{\ddt}[1]{\dot{#1}}
+\nc{\opddt}{\frac{d}{dt}}
+
+
+\newcommand{\pddX}[1]{
+\frac{\partial}{\partial{#1}}
+}
+\nc{\pddxk}{\pddX{\xk}}
+\nc{\pddt}{\pddX{\t}}
+
+\newcommand{\dXdY}[2]{
+\frac{d{#1}}{d{#2}}
+}
+
+\newcommand{\pdXdY}[2]{
+\frac{\partial {#1}}{\partial {#2}}
+}
+\newcommand{\pddXdYY}[2]{
+\frac{\partial^2 {#1}}{\partial {#2}^2}
+}
+\newcommand{\pddtt}[1]{\pddXdYY{\qr}{\t}}
+
+% psi_r, rho(x), rho, psi{*dot}, m,c,h,L (lagrangian),x^nu\mu,x^k,t,dx_1...4, T_munu, delta_munu, H\Hbar, H_{01}, T_44, dV
+% G_k, i, T_4k, q numbers, pi*, I?, dirac, x, x', t, [A, B](generic funcs), f (genreric func), f_kl, S_k, S_4, i_rho, S_nu, nu (index), 
+% \vec{i} (current), e\ebar (charge), N (num particles), veck, vecx, vecl, veckvecx L(norm len), V(vol), sqrtV
+% (p_k, q_k)(*, dot), E_{kl}, vec(G) - momentum, vec(I) - total current, vec(S), (a_k,b_k)(*, dot, also _l)
+% sqrt(E_k), sqrt(2), N^{+\-}_{k\-k}, vec(x){'}, psi_{1\2}{*}(vec(x), t), dk_{123}, g(x) (propagator)
+% 1/sqrt(-h^2lap + m^2c^2), pi_{12}{*}, g_{+-}, c_{123} (arb coefs), phi_{0k nu}, vec{phi}_kl, phi^0_kl
+% v (freq), Z (atomic num), Q
+
+%%%%%%%%%%:
+
+% q numbers, I?, [A, B](generic funcs),
+% 1/sqrt(-h^2lap + m^2c^2), phi_{0k nu}, vec{phi}_kl, phi^0_kl
+% v (freq), Z (atomic num), Q
+
+\nc{\Y}{\var{\psi}}
+\nc{\YCC}{\CC{\Y}}
+\nc{\Ydot}{\ddt{\Y}}
+\nc{\YdotCC}{\CC{\Ydot}}
+\nc{\Yr}{{\Y_{\comp{r}}}}
+\nc{\YrCC}{\Y^{*}_{\comp{r}}}
+\nc{\Yk}{{\Y_{\comp{k}}}}
+\nc{\YkCC}{{\Yk^{*}}}
+\nc{\Yone}{{\Y_\comp{1}}}
+\nc{\Ytwo}{{\Y_\comp{2}}}
+\nc{\YoneCC}{{\Y^{*}_\comp{1}}}
+\nc{\YtwoCC}{{\Y^{*}_\comp{2}}}
+
+\nc{\phizero}{{\var{\phi}_{0}}}
+\nc{\phik}{{\var{\phi}_{\comp{k}}}}
+\nc{\phiu}{{\var{\phi}_{\comp{\mu}}}}
+\nc{\phiv}{{\var{\phi}_{\comp{\nu}}}}
+\nc{\Fuv}{{\var{F}_{\mu\nu}}}
+
+\nc{\vphi}{\vect{\phi}}
+\nc{\vphikl}{\vphi_\comp{kl}}
+\nc{\phizerokl}{{\var{\phi}^{0}_\comp{kl}}}
+
+\rc{\P}{\var{\rho}}
+\nc{\ik}{{\var{i}_\comp{k}}}
+\nc{\iP}{{\var{i}_{\P}}}
+\nc{\vi}{\vect{i}}
+\nc{\vI}{\vect{I}}
+\nc{\ebar}{\barred{\var{e}}}
+\nc{\N}{\var{N}}
+\nc{\Nplus}{{\N^{+}_{\comp{k}}}}
+\nc{\Nminus}{{\N^{-}_{\comp{-k}}}}
+
+\rc{\i}{\const{i}}
+\nc{\I}{\const{I}}
+\nc{\m}{\const{m}}
+\nc{\mm}{{\m^2}}
+\rc{\c}{\const{c}}
+\nc{\cc}{{\c^2}}
+\nc{\h}{\const{h}}
+\nc{\hh}{{\h^2}}
+\nc{\V}{\const{V}}
+\nc{\e}{\const{e}}
+\nc{\len}{\const{L}}
+\nc{\sqrtV}{\sqrt{\V}}
+\nc{\Z}{\const{Z}}
+\nc{\Q}{\const{Q}}
+
+\newcommand{\inv}[1]{\frac{1}{#1}}
+
+\nc{\iu}{\comp{\mu}}
+\nc{\iv}{\comp{\nu}}
+
+\rc{\L}{\functional{L}}
+\rc{\H}{\functional{H}}
+\nc{\Hbar}{\barred{\functional{H}}}
+\nc{\Hzero}{{\functional{H}_0}}
+\nc{\Hone}{{\functional{H}_1}}
+
+\nc{\x}{\var{x}}
+\nc{\xp}{\primed{\var{x}}}
+\nc{\xu}{{\x^\mu}}
+\nc{\xv}{{\x^\nu}}
+\nc{\xk}{{\x^k}}
+\rc{\t}{\var{t}}
+\nc{\tp}{\primed{\t}}
+\rc{\k}{\var{k}}
+\nc{\kk}{{\k^2}}
+
+\nc{\vx}{\vect{x}}
+\nc{\vxp}{\primed{\vect{x}}}
+\nc{\vk}{\vect{k}}
+\nc{\vl}{\vect{l}}
+
+\nc{\pk}{{\var{p}_\comp{k}}}
+\nc{\pl}{{\var{p}_\comp{l}}}
+\nc{\pkCC}{{\var{p}^{*}_\comp{k}}}
+\nc{\plCC}{{\var{p}^{*}_\comp{l}}}
+\nc{\pkdot}{\ddt{\pk}}
+\nc{\pkdotCC}{{\ddt{\pkCC}}}
+
+\nc{\pp}{\var{\pi}}
+\nc{\ppCC}{\CC{\pp}}
+\nc{\ppk}{{\var{\pi}_\comp{k}}}
+\nc{\ppl}{{\var{\pi}_\comp{l}}}
+
+\nc{\ppkCC}{{\var{\pi}^{*}_\comp{k}}}
+\nc{\pplCC}{{\var{\pi}^{*}_\comp{l}}}
+
+\nc{\ppone}{{\var{\pi}_\comp{1}}}
+\nc{\pptwo}{{\var{\pi}_\comp{2}}}
+
+\nc{\pponeCC}{{\var{\pi}^{*}_\comp{1}}}
+\nc{\pptwoCC}{{\var{\pi}^{*}_\comp{2}}}
+
+\nc{\qk}{{\var{q}_\comp{k}}}
+\nc{\ql}{{\var{q}_\comp{l}}}
+
+\nc{\qkCC}{{\var{q}^{*}_\comp{k}}}
+\nc{\qlCC}{{\var{q}^{*}_\comp{l}}}
+
+\nc{\qkdot}{\ddt{\qk}}
+\nc{\qkdotCC}{{\ddt{\qkCC}}}
+
+\nc{\Yxu}{\pdXdY{\Y}{\xu}}
+\nc{\Yxv}{\pdXdY{\Y}{\xv}}
+\nc{\Yxk}{\pdXdY{\Y}{\xk}}
+\nc{\YxkCC}{\pdXdY{\YCC}{\xk}}
+\nc{\YxuCC}{\pdXdY{\YCC}{\xu}}
+\nc{\YxvCC}{\pdXdY{\YCC}{\xv}}
+\nc{\Yt}{\pdXdY{\Y}{\t}}
+\nc{\YtCC}{\pdXdY{\YCC}{\t}}
+
+\nc{\Yonet}{\pdXdY{\Yone}{\t}}
+\nc{\Ytwot}{\pdXdY{\Ytwo}{\t}}
+\nc{\YoneCCt}{\pdXdY{\YoneCC}{\t}}
+\nc{\YtwoCCt}{\pdXdY{\YoneCC}{\t}}
+
+\nc{\Yonexv}{\pdXdY{\Yone}{\xv}}
+\nc{\Ytwoxv}{\pdXdY{\Ytwo}{\xv}}
+\nc{\YoneCCxv}{\pdXdY{\YoneCC}{\xv}}
+\nc{\YtwoCCxv}{\pdXdY{\YoneCC}{\xv}}
+
+
+\nc{\ak}{{\var{a}_{\comp{k}}}}
+\nc{\al}{{\var{a}_{\comp{l}}}}
+
+\nc{\akCC}{{\var{a}^{*}_{\comp{k}}}}
+\nc{\alCC}{{\var{a}^{*}_{\comp{l}}}}
+
+\nc{\akdot}{\ddt{\ak}}
+\nc{\aldot}{\ddt{\al}}
+
+\nc{\bk}{{\var{b}_{\comp{k}}}}
+\nc{\bl}{{\var{b}_{\comp{l}}}}
+
+\nc{\bkCC}{{\var{b}^{*}_{\comp{k}}}}
+\nc{\blCC}{{\var{b}^{*}_{\comp{l}}}}
+
+\nc{\bkdot}{\ddt{\bk}}
+\nc{\bldot}{\ddt{\bl}}
+
+\newcommand{\dx}[1]{{\var{dx}_{#1}}}
+\newcommand{\dk}[1]{{\var{dk}_{#1}}}
+\nc{\dV}{\var{dV}}
+\nc{\dVp}{\var{\primed{dV}}}
+\nc{\dkkk}{\dk{1}\dk{2}\dk{3}}
+
+\newcommand{\Tij}[2]{{\var{T}_{\comp{#1}\comp{#2}}}}
+\nc{\Tuv}{\Tij{\mu}{\nu}}
+\nc{\Gk}{{\var{G}_\comp{k}}}
+\newcommand{\Si}[1]{{\var{S}_\comp{#1}}}
+\nc{\Su}{\Si{\iu}}
+\nc{\Sv}{\Si{\iv}}
+\nc{\Sk}{\Si{k}}
+\nc{\Ek}{{\var{E}_\comp{k}}}
+\nc{\El}{{\var{E}_\comp{l}}}
+\nc{\vG}{\vect{G}}
+\nc{\vS}{\vect{S}}
+
+\nc{\f}{\var{f}}
+\nc{\fkl}{{\var{f}_\comp{kl}}}
+\nc{\cx}{{\var{c}_{1}}}
+\nc{\cy}{{\var{c}_{2}}}
+\nc{\cz}{{\var{c}_{3}}}
+
+\nc{\dirac}{\func{\delta}}
+\nc{\g}{\func{g}}
+\nc{\gplus}{\func{g_{+}}}
+\nc{\gminus}{\func{g_{-}}}
+\nc{\gplusminus}{\func{g_{\pm}}}
+
+\nc{\deltauv}{{\const{\delta}_\comp{\mu\nu}}}
+\nc{\deltakl}{{\const{\delta}_\comp{kl}}}
+
+\nc{\A}{\var{A}}
+\nc{\B}{\var{B}}
+
+\nc{\del}{\operator{\nabla}}
+\nc{\lap}{\del^2}
+\rc{\div}{\operator{div}}
+\nc{\grad}{\operator{grad}}
+\renewcommand{\exp}[1]{\const{e}^{#1}}
+\newcommand{\commutator}[2]{\left[ #1, #2 \right]}
+\newcommand{\anticommutator}[2]{\left[ #1, #2 \right]_{+}}
+
+\nc{\eikx}{\exp{\i(\vk\vx)}}
+\nc{\eikxxp}{\exp{\i\vk(\vx - \vxp)}}
+\nc{\emikx}{\exp{-\i(\vk\vx)}}
+\nc{\emikxxp}{\exp{-\i\vk(\vx - \vxp)}}
+\nc{\eiEkht}{\exp{\i\frac{\Ek}{\h}\t}}
+\nc{\emiEkht}{\exp{-\i\frac{\Ek}{\h}\t}}
+\nc{\eihhEkt}{\exp{\frac{\i}{\hh}\Ek\t}}
+\nc{\emihhEkt}{\exp{-\frac{\i}{\hh}\Ek\t}}
+
+\nc{\sqtwo}{\sqrt{2}}
+\nc{\isqtwo}{\frac{\i}{\sqrt{2}}}
+\nc{\sqEk}{\sqrt{\Ek}}
+
+\newcommand{\isqEk}[1]{\frac{#1}{\sqEk}}
+\newcommand{\sqV}{\sqrt{\V}}
+\newcommand{\isqV}{\inv{\sqV}}
+
+\renewcommand{\it}[1]{\textit{#1}}
+\renewcommand{\sc}[1]{\textsc{#1}}
+
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumk}{\underset{k}{\sum}}
+\newcommand{\suml}{\underset{l}{\sum}}
+\newcommand{\sumr}{\underset{r}{\sum}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+\nc{\sumv}{\sumX{\nu}}
+
+\newcommand{\limit}[1]{\lim_{#1}}
+\newcommand{\inner}[2]{(#1, #2)}
+
+\newcommand{\nequ}[2]{
+\begin{equation*}
+#1
+\tag{#2}
+\end{equation*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{equation*}
+#1
+\end{equation*}
+}
+
+\newcommand{\TN}[1]{
+\footnote{\sc{Translator note}: #1}
+}
+
+\title{Pauli - 1936 - Relativistic quantum theory of Bose-Einstein particles \footnote{All of the following considerations result from a common work with \sc{M. V. Weisskopf}, of which one part only has beeb published in \it{Helvetica Physica Acta} 7. 709, 1934}}
+
+\begin{document}
+
+\section{Introduction}
+
+One knows that \sc{Dirac} has used for the wave equations of first order with four components $\Yr$
+("spinors"), the postulate that the particle density $\P(\x)$ must be positive-definite and of the form
+
+\uequ{
+\P(\x) = \sumr\YrCC\Yr.
+}
+
+\sc{Dirac} thinks that this postulate may be imposed \it{a priori} based on the general theory of transformations in wave mechanics, and independently of the empirical fact that the electron has an angular momentum equal to $1/2 \h$. This argument is correct as far as only one particle is concernes, or more exactly as long as one can admit without contradiction that one particle is in play. The posterior development of \sc{Dirac}'s theory has lead to the supposition that the production and annihilation of pairs of particles having opposite electrical charges forms an inseparable parr of the relativistic theory of material particles. In this case, the situation is radically changed, and the arguments given earlier by \sc{Dirac} are no longer applicable \it{a priori}; in fact, it happens in this case that one no longer finds an expression of the particle density (which in general will no longer be measurable in a spatial domain of the order $\h/\m\c$), but rather one component of an electric charge density, with both positive and negative eigenvalues and secondly, an expression of the energy density with only positive eigenvalues. I will not report here how one had tried to solve the latter problem in \sc{Dirac}'s hole theory, but I want to insist on the fact that starting from the second-order \sc{Schrödinger-Gordon} wave equation, it is possible to develop a relativistic theory of particles without spin and with \sc{Bose-Einstein} particles, a theory which implies pair-production and which is maybe more satisfactory from the logical and pedagogical points of view than \sc{Dirac}'s hole theory. In fact, in the theory in question, it is not necessary to introduce by artifical limiting methods to get a definite value via subtracting two infinite sums, as in the case of the hole theory. In addition, in the scalar theory, the energy is positive-definite as in the case whete one considers the functions $\Yr$ and its complex conjugate $\YrCC$ as ordinarg numbers. The superquantization resulting from the general \sc{Heisenberg-Pauli} formalism is necessary for obtaining the production and annihilation of pairs of \it{discontinuous quanta} of the energy and of electric charge. We will give in paragraph 2 the application of this superquantization formalism with the relativistic scalar equation in the case of the absense of exterior forces. The third paragraph contains a detailed analysis of the possibilities of formally developing a relativistic scalar theory for spinless particles, but obeying the exclusion theory. One arrives at the satisfactory result that the properties of measurability of the electric density would be much more complicated in the case of the exclusion principle than in the case of \it{Bose-Einstein} statistics, and that the latter case is distinguished from the first, as it is from the purely formal point of view. Also, one must admit that it is uncertain that one may apply the theory in question to reality, because the spinless particles -- like the $\alpha$ particle -- are all compound particles. It is impossible to know what role the structure of these particles will play in the relativistic domain. Nonetheless, we will give in paragraph 4 some brief indications on the magnitude of certain effects which are produced in the presence of exterior forces, and we will compare these results with the analogous results from the hole theory.
+
+\section{The quantization of the wave fields in the absense of a field}
+
+One thinks that one may write the scalar relativistic wave equation
+
+\nequ{
+\lap\Y - \inv{\cc}\pddXdYY{\Y}{\t} - \frac{\mm\cc}{\hh}\Y = 0
+}{1}
+
+derived from the \sc{Lagrangian}
+
+\uequ{
+\begin{split}
+\L &= -\hh\cc\sumXY{\nu=1}{4}\YxvCC\Yxv - \mm\c^4\YCC\Y \\
+ &= \hh\YtCC\Yt - \hh\cc\sumXY{k=1}{3}\YxkCC\Yxk - \mm\c^4\YCC\Y
+\end{split}
+}
+
+by using the variational principle
+
+\uequ{
+\delta\int\L\dx{1}\dx{2}\dx{3}\dx{4} = 0.
+}
+
+The relativistic energy-momentum tensor becomes
+
+\uequ{
+\Tuv = -\hh\cc\left( \YxuCC\Yxv + \YxvCC\Yxu \right) - \L\deltauv,
+}
+
+from which one deduces the energy (Hamiltonian function)
+
+\nequ{
+\Hbar = \int\Tij{4}{4}\dV = \int\{\hh\YtCC\Yt +\hh\cc\sumXY{k=1}{3}\YxkCC\Yxk + \mm\c^4\YCC\Y\}\dV
+}{2}
+
+and for the momentum
+
+\nequ{
+\Gk = \frac{\i}{\c}\int\Tij{4}{4}\dV = -\int\hh\left( \YtCC\Yxk + \YxkCC\Yt \right)\dV.
+}{3}
+
+One sees that the expression for the energy density is positive-definite.
+We will now consider $\YCC$ and $\Y$ as operators (q numbers) and $\YCC$ is the hermitian conjugate of $\Y$. Following the canonical quantisation formalism one must introduce the momenta $\pp$ and $\ppCC$, canonically conjugate to $\Y$ and $\YCC$, via the equations
+
+\nequ{
+\pp = \inv{\h}\pdXdY{\L}{\Yt}=\h\YtCC, \ppCC = \inv{\h}\pdXdY{\L}{\YtCC} = \h\Yt
+}{4}
+
+and posit the commutation relations
+
+\nequ{
+\i\commutator{\pp(\x, \t)}{\Y(\xp, \t)} = \dirac(\x - \xp), \i\commutator{\ppCC(\x, \t)}{\YCC(\xp, \t)} = \dirac(\x - \xp),
+}{I}
+
+where $\dirac(\x)$ is the \sc{Dirac} function and where the bracket $\commutator{\A}{\B}$ is the commutator of $\A$ and $\B$:
+
+\uequ{
+\commutator{\A}{\B} = \A\B - \B\A.
+}
+
+The quantities $\Y$, $\YCC$ and $\pp$, $\ppCC$ commute with one another; similarly, $\pp$ commutes with $\YCC$ and $\ppCC$ with $\Y$.
+
+Onw will verify the rule
+
+\nequ{
+\pdXdY{\f}{\t} = \frac{\i}{\h}\commutator{\Hbar}{\f}
+}{4}
+
+for the quantities $\Y, \YCC, \pp, \ppCC$ and in addition
+
+\nequ{
+\pdXdY{\f}{\xk} = \frac{\i}{\h}\commutator{\Gk}{\f}.
+}{5}
+
+Ths set of factors in the momentum expression is chosen such that this latter expression constitutes a hermitian operator.
+
+We will consider the expressions for the components of the electrical charge-current four-vector, where we write $\ik = \c\Sk$ for the current, $\Si{4} = \iP$ for the charge density and which satisfies the equation of continuity
+
+\nequ{
+\sumXY{\nu = 1}{4}\pdXdY{\Sv}{\xv} = 0, \text{ where } \pdXdY{\P}{\t} + \div \vi.
+}{6}
+
+$\e$ being the absolute value of the charge of a particle, the $\Sv$ are given in this case by
+
+\nequ{
+\Sv = \e\h\c\i\left( \YxvCC\Y - \Yxv\YCC \right)
+}{7}
+
+where
+
+\nequ{
+\P = -\e\h\i\left( \YtCC\Y - \Yt\YCC \right)
+}{7a}
+
+\nequ{
+\Sk = \e\h\c\i\left( \YxkCC\Y - \Yxk\YCC \right).
+}{7b}
+
+The order of factors in $\P$ have been chosen in such a manner that -- without altering the hermitian character of $\P$ -- there is no zero-point density in the vacuum (as we will see later).
+
+With the help of (4) we can write the expression for $\P$:
+
+\nequ{
+\P = -\e\i(\pp\Y - \ppCC\YCC).
+}{8}
+
+The equations (I) we can deduce the fundamental property of $\P$: \it{the values of $\P$ at two spatial points $\x$ and $\xp$ commute}:
+
+\nequ{
+\commutator{\P(\x)}{\P(\xp)} = 0.
+}{9}
+
+In fact, it is this property of $\P(\x)$ which permits us to speak of a measurable spatial distribution of the electic charge, even in the case of spatial domains which are on the order of $\h/\m\c$.
+We will see later that the total charge
+
+\uequ{
+\ebar = \int\P\dV
+}
+
+takes eigenvalues $(0, \pm 1, \pm 2, ... \pm N)\e$. Because the eigenvalues of $\P(\x)$ are independent of $\x$ it results from (9) that the eigenvalues of $\P(\x)$ are
+
+\uequ{
+ (0, \pm 1, \pm 2, ... \pm N)\e\dirac(\x - \xp),
+}
+
+$\xp$ taking an arbitrary value \footnote{For a direct demonstration see \it{Helvetica Physica Acta, l.c.}}.
+
+We will now pass to expressions of various physical quantities in momentum space. In order to use sums rather than integrals in this space, we utilise the method of introducing a periodicity condition, requiring the wave functions be periodical relative to a cube of length $\len$ (and volume $\V = \len^3$). In this case, the components of the wave vector $\vk$, which appear in the phases $\exp{\i(\vk\vx)}$ of the waves, must be equal to integer multiples of $\frac{2\pi}{\len}$.
+We may now write
+\nequ{
+\Y = \inv{\sqrtV}\sumk\qk\eikx, \YCC = \inv{\sqrtV}\sumk\qkCC\emikx,
+}{10a}
+\nequ{
+\ppCC = \inv{\sqrtV}\sumk\pk\eikx, \pp = \inv{\sqrtV}\sumk\pk\emikx,\footnote{\sc{Translator note}: Presumably the first factor in the sum in the first part of (10b) should be $\pkCC$, but has been left as printed}
+}{10b}
+
+with the inversion formulae
+
+\nequ{
+\qk = \inv{\sqrtV}\int\Y\emikx\dV, \qkCC = \inv{\sqrtV}\int\YCC\eikx\dV,
+}{10c}
+
+\nequ{
+\pkCC = \inv{\sqrtV}\int\ppCC\emikx\dV, \pk = \inv{\sqrtV}\int\pp\eikx\dV.
+}{10d}
+
+The operators $\pk, \qk, \pkCC, \qkCC$ satisfying the commutation relations
+
+\nequ{
+\i\commutator{\pk}{\ql} = \deltakl,
+}{II}
+
+all the other variables commuting with one another.
+
+If we put, as an abbreviation,
+
+\nequ{
+\Ek^2 = \cc(\hh\kk + \mm\cc),
+}{11}
+
+and
+
+\nequ{
+\Ek = +\c\sqrt{\hh\kk + \mm\cc},
+}{11a}
+
+we derive from (2) and (3) the total energy and momentum
+
+\nequ{
+\Hbar = \sumk(\pkCC\pk + \Ek^2\qkCC\qk)
+}{12}
+
+and
+
+\nequ{
+\vG = -\i\h\sumk\vk(\pk\qk - \qkCC\pkCC).
+}{13}
+
+The rule (4) finally gives
+
+\nequ{
+\pk = \h\qkdotCC, \pkCC = \h\qkdot,
+}{14a}
+
+\nequ{
+\pkdot = -\inv{\h}\Ek^2\qkCC, \pkdotCC = -\inv{\h}\Ek^2\qk.
+}{14b}
+
+The total ekectric charge then becomes, following (8):
+
+\nequ{
+\ebar = \int\P\dV = -\e\i\sumk(\pk\qk - \pkCC\qkCC)
+}{15}
+
+and the total current:
+
+\nequ{
+\inv{\c}\vI = \int\vS\dV = 2\h\c\sumk\vk\qkCC\qk.
+}{16}
+
+We wish to show, that the parts of the energy, the momentum and the total charge which correspond to a certain proper oscillation $\vk$ may be decomposed simultaneously into two otber terms, which one may interpret in a simple manner. Towards this goal, we will introduce in place of $\pk, \pkCC, \qk, \qkCC$ the variables $\ak, \akCC, \bk, \bkCC$ defined by the following equations:
+
+\nequ{
+\pk = \frac{\sqrt{\Ek}}{\sqrt{2}}(\akCC + \bk), \qk = \frac{-\i}{\sqrt{2}\sqrt{\Ek}}(-\ak +\bkCC),
+}{17}
+
+\nequ{
+\pkCC = \frac{\sqrt{\Ek}}{\sqrt{2}}(\ak + \bkCC), \qkCC = \frac{-\i}{\sqrt{2}\sqrt{\Ek}}(\akCC - \bk),
+}{17*}
+
+with the inversion formulae
+
+\nequ{
+\ak = \inv{\sqrt{2}}\left( \inv{\sqrt{\Ek}}\pkCC - \i\sqrt{\Ek}\qk\right),
+\akCC = \inv{\sqrt{2}}\left( \inv{\sqrt{\Ek}}\pk + \i\sqrt{\Ek}\qkCC\right),
+}{18a}
+
+\nequ{
+\bk = \inv{\sqrt{2}}\left( \inv{\sqrt{\Ek}}\pk - \i\sqrt{\Ek}\qkCC\right),
+\bkCC = \inv{\sqrt{2}}\left( \inv{\sqrt{\Ek}}\pkCC + \i\sqrt{\Ek}\qk\right).
+}{18b}
+
+The new variables satisfy the very simple commutation relations
+
+\nequ{
+\commutator{\ak}{\alCC} = \deltakl,
+\commutator{\bk}{\blCC} = \deltakl
+}{III}
+
+the brackets of other pairs of variables being equal to zero.
+One derives, in addition, from (12), (13), (15), (16):
+\nequ{
+\Hbar = \sumk\Ek\inv{2}(\ak\akCC + \akCC\ak + \bkCC\bk + \bk\bkCC) = \sumk\Ek(\akCC\ak + \bkCC\bk + 1).
+}{19}
+
+\nequ{
+\vG = \h\sumk\vk\inv{2}(\akCC\ak + \ak\akCC - \bkCC\bk - \bk\bkCC) = \h\sumk\vk(\akCC\ak - \bkCC\bk),
+}{20}
+
+\nequ{
+\ebar = \e\sumk\inv{2}(\akCC\ak + \ak\akCC - \bkCC\bk - \bk\bkCC) = \e\sumk(\akCC\ak - \bkCC\bk).
+}{21}
+
+\nequ{
+\begin{split}
+\inv{\c}\vI &= \e\sumk\frac{\h\c\vk}{\Ek}(\akCC\ak + \bk\bkCC - \akCC\bkCC - \ak\bk) \\
+&= \e\sumk\frac{\h\c\vk}{\Ek}(\akCC\ak + \bkCC\bk - \akCC\bkCC - \ak\bk + 1).
+\end{split}
+}{22}
+
+In applying the rule (4) -- or by comparing (18a), (18b) with (14a), (14b) -- one finds
+\nequ{
+\akdot = -\i\frac{\Ek}{\h}\ak,
+\bkdot = -\i\frac{\Ek}{\h}\bk,
+}{23}
+
+where
+
+\nequ{
+\ak = \ak(0)\emiEkht, \bk = \bk(0)\emiEkht,
+}{24}
+
+\nequ{
+\akCC = \akCC(0)\eiEkht, \bkCC = \bkCC(0)\eiEkht.
+}{24*}
+
+One may consequently say that $\ak$ and $\bk$ have negative frequencies and $\akCC$ and $\bkCC$ have positive frequencies. Or, taking account of (17), that $\frac{\i}{\sqrt{2}}\frac{\ak}{\sqrt{\Ek}}$ is the part of $\qk$ corresponding to a negative frequency, and $\frac{-\i}{\sqrt{2}}\frac{\bkCC}{\sqrt{\Ek}}$ is the part of $\qk$ corresponding to a positive frequency, $\frac{\sqrt{\Ek}}{\sqrt{2}}\bk$ and $\frac{\sqrt{\Ek}}{\sqrt{2}}\akCC$ being the parts analogous to $\pk$. These results play an important role in the following.
+
+In passing to the physical interpretation of formulas (19) through (22), we remark that it results from (III) that $\akCC\ak$ and $\bkCC\bk$ have eigenvalues 0, 1, 2, ... . In taking account in particular of (20) and (21), we may say that:
+
+\it{The $\Nplus$ and $\Nminus$ defined by}
+
+\nequ{
+\Nplus = \akCC\ak, \Nminus = \bkCC\bk
+}{25}
+
+\it{are, respectively, the number of particles of charge} $ + \e$ \it{and momentum} $ + \h\vk$ \it{and the number of particles with charge }$ - \e$\it{ and momentum }$ - \h\vk$.
+
+The terms with coefficient +1 in (19) and (22) may be interpreted as the zero-point energy / current, that is to say of the vacuum (unobservable quantities). The terms in $\ak\bk$ and $\akCC\bkCC$ in the expression for $\vI$ are very important. They prevent the total current from being constant with respect to time and correspond exactly with \sc{Schrödinger's} "trembling motion", because according to (24) they depend on time via the intermediary factors $\emihhEkt$ and $\eihhEkt$. Thus we shall see in paragraph 4 that these terms are analogous to those which, in the case of a field, give rise to pair production and annihilation.
+
+\section{Possible generalizations of the theory: The problrm of a scalar theory with the exclusion principle}
+
+To say if a theory of particles with null spin but obeying the exclusion principle is possible, we must first have a more detailed discussion on the physical significance of the variables $\ak, \akCC$ and $\bk, \bkCC$. We will again remark that $\isqtwo\isqEk{\ak}$ and $-\isqtwo\isqEk{\bkCC}$ are the terms of $\qk$ having respectively negative and positive frequency.
+We now form the terms corresponding to $\Y(\x)$ (see 10a):
+
+\nequ{
+\Yone(\vx, \t) = \isqV\sumk\isqtwo\isqEk{\ak}\eikx,
+\Ytwo(\vx, \t) = \isqV\sumk-\isqtwo\isqEk{\bkCC}\eikx
+}{26}
+
+and
+
+\nequ{
+\begin{split}
+\YoneCC(\vx, \t) &= \isqV\sumk-\isqtwo\isqEk{\akCC}\emikx,\\
+\YtwoCC(\vx, \t) &= \isqV\sumk\isqtwo\isqEk{\bk}\emikx.
+\end{split}
+}{26a}
+
+We will find the commutation relations by taking account of (III)
+
+\uequ{
+\begin{split}
+\commutator{\Yone(\vx, \t)}{\YoneCC(\vxp, \t)}
+&= \inv{2}\inv{\V}\sumk\frac{\eikxxp}{\Ek}
+ = \inv{2}\inv{\V}\sumk\frac{\eikxxp}{\sqrt{\hh\kk + \mm\cc}}. \\
+\commutator{\Ytwo(\vx, \t)}{\YtwoCC(\vxp, \t)}
+&= -\inv{2}\inv{\V}\sumk\frac{\eikxxp}{\Ek}
+ = -\inv{2}\inv{\V}\sumk\frac{\eikxxp}{\sqrt{\hh\kk + \mm\cc}}.
+\end{split}
+}
+
+We define the function $\g(\x)$ by
+
+\nequ{
+\g(\x) = \limit{\len \rightarrow \infty}\inv{\V}\sumk\frac{\eikx}{\sqrt{\hh\kk + \mm\cc}}
+ = \inv{(2\pi)^3}\int\frac{\eikx}{\sqrt{\hh\kk + \mm\cc}}\dkkk.
+}{27}
+
+These relations are written by ignoring the difference between finite $\len$ and infinite $\len$
+
+\nequ{
+\commutator{\Yone(\vx, \t)}{\YoneCC(\vxp, \t)} = \inv{2}\g(\vx - \vxp),
+}{$28_1$}
+
+\nequ{
+\commutator{\Ytwo(\vx, \t)}{\YtwoCC(\vxp, \t)} = -\inv{2}\g(\vx - \vxp).
+}{$28_2$}
+
+\it{All the quantities with index 1 commute with all the quantities with index 2.} We may also write the definition of $\g(\x)$ in a symbolic manner by remarking that the \sc{Dirac} function $\dirac(\x)$ is equal to
+
+\uequ{
+\dirac(\x) = \inv{(2\pi)^3}\int \eikx\dkkk,
+}
+
+and that $\hh\kk + \mm\cc$ correspond to the operator $-\hh\lap + \mm\cc$:
+
+\nequ{
+\g(\x) = \inv{\sqrt{-\hh\lap + \mm\cc}}\delta(\x)
+}{27a}
+
+More generally and for a function $\f(\x)$ where
+
+\uequ{
+\inv{\sqrt{-\hh\lap + \mm\cc}}. \f(\x) = \int\g(\vx - \vxp)\f(\vxp)\dVp.
+}
+
+One finds, in addition, following (23)
+
+\uequ{
+\pponeCC = \h\Yonet = \isqV\sumk\frac{\ak}{\sqtwo}\sqEk\eikx,
+\pptwoCC = \h\Ytwot = \isqV\sumk\frac{\bkCC}{\sqtwo}\sqEk\eikx
+}
+
+or with the preceding symbolic expressions
+
+\nequ{
+\begin{split}
+\pponeCC = \h\Yonet &= -\i\sqrt{-\hh\lap + \mm\cc}\Yone;\\
+\pptwoCC = \h\Ytwot &= +\i\sqrt{-\hh\lap + \mm\cc}\Ytwo;
+\end{split}
+}{29}
+
+\nequ{
+\begin{split}
+\ppone = \h\YoneCCt &= +\i\sqrt{-\hh\lap + \mm\cc}\YoneCC;\\
+\pptwo = \h\YtwoCCt &= -\i\sqrt{-\hh\lap + \mm\cc}\YtwoCC;
+\end{split}
+}{29*}
+
+\it{The functions $\Yone, \Ytwo$ and $\YoneCC, \YtwoCC$ are scalar with respect to the \sc{Lorentz} group.} In fact, the property that a wave function has only frequencies of the same sign is conserved by \sc{Lorentz} transformations.
+
+We remark that the commutation relations are also invariants with respect to the relativity group, because by virtue of (24) one may generalize them for $\t \neq \tp$ in the following manner. We define
+
+\nequ{
+\gplus(\vx, \t) = \inv{(2\pi)^3}\int\frac{
+\exp{\i(\vk\vx + \sqrt{\hh\kk + \mm\cc}\c\t)}
+}{
+\sqrt{\hh\kk + \mm\cc}
+}\dkkk
+}{30}
+
+
+\nequ{
+\gminus(\vx, \t) = \gplus(\vx, -\t) = \inv{(2\pi)^3}\int\frac{
+\exp{\i(\vk\vx - \sqrt{\hh\kk + \mm\cc}\c\t)}
+}{
+\sqrt{\hh\kk + \mm\cc}
+}\dkkk.
+}{30*}
+
+One may replace these expressions by:
+
+\uequ{
+\gplus(\vx, 0) = \gminus(\vx, 0) = \inv{\sqrt{-\hh\lap + \mm\cc}}\dirac(\x),
+}
+
+\uequ{
+\inv{\c}\left( \pdXdY{\gplus}{\t} \right)_{\vx, 0} = 
+-\inv{\c}\left( \pdXdY{\gminus}{\t} \right)_{\vx, 0} = \i\dirac(\vx),
+}
+
+\uequ{
+\left(
+\lap - \inv{\cc}\frac{\partial^2}{\partial\t^2} - \frac{\mm\cc}{\hh}
+\right)\gplusminus = 0.
+}
+
+One then has
+
+\nequ{
+\commutator{\Yone(\vx, \t)}{\YoneCC(\vxp, \tp)} = \inv{2}\gminus(\vx - \vxp, \t - \tp),
+}{$31_1$}
+
+\nequ{
+\commutator{\Ytwo(\vx, \t)}{\YtwoCC(\vxp, \tp)} = -\inv{2}\gplus(\vx - \vxp, \t - \tp).
+}{$31_2$}
+
+and one sees following (30) that the functions of the second member (???) are the relativistic scalars.
+It is true that the definitions given for $\Yone, \Ytwo$ and their commutation relations are only invariant for free particles and that it is necessary to modify them in the case of the presence of electromagnetic fields. One may, it seems -- though not unambiguously -- resolve this problem following a method which \sc{Dirac}\footnote{\sc{P.A.M. Dirac}, \it{Proc. Cambr. Phil. Soc.} \textbf{30}, 150, 1934.} has given for the analogous problem in the hole theory. The principle of this method is to characterize the function $\g(\vx, \t)$ by its singularities on the "light cone" $\vx^2-\cc\t^2 = 0$ rather than by (30).
+We will not discuss this last problem and we will pass to the discussion of the expression for the charge-current-density four-vector in the case of the absence of forces. Substituting $\Y = \Yone + \Ytwo$ in (7) one obtains three groups of terms:
+
+\nequ{
+\begin{split}
+\Sv &= \e\h\c\i\left[
+\left(\YoneCCxv\Yone - \YoneCC\Yonexv\right)
++ \left( \Ytwo\YtwoCCxv - \Ytwoxv\YtwoCC\right) \right. \\
+&+ \left. \left( \YoneCCxv\Ytwo - \YtwoCC\Yonexv + \YtwoCCxv\Yone - \YoneCC\Ytwoxv\right)
+\right]\footnote{\sc{Translator note}: The first term seems to read $\YxvCC\Yone$, but it is possible that the subscript in the numerator was obscured on the copy, so I restored it.}
+\end{split}
+}{32}
+
+One sees that we have changed the order of a certain number of factors. In effect one has
+
+\uequ{
+\YtwoCC\Yonexv = \Yonexv\YtwoCC, \YoneCC\Ytwoxv = \Ytwoxv\YoneCC
+}
+
+and following (28), (29)
+
+\uequ{
+-\YoneCC\Yonexv + \Ytwo\YtwoCCxv = -\Yonexv\YoneCC + \YtwoCCxv\Yone.
+}
+
+This changing of order of factors will be seen to be opportune for Fermi statistics.
+It is essential to remark that each of the three groupsnof terms is covariantnwith respect to the relativity group and is independent of the two others. \it{Consequently, one may attempt to generalize the theory by putting}
+
+\nequ{
+\begin{split}
+\Sv &= \h\c\i\left[
+\cx\left(\YoneCCxv\Yone - \YoneCC\Yonexv\right)
++ \cy\left( \Ytwo\YtwoCCxv - \Ytwoxv\YtwoCC\right) \right. \\
+&+ \left. \cz\left( \YoneCCxv\Ytwo - \YtwoCC\Yonexv + \YtwoCCxv\Yone - \YoneCC\Ytwoxv\right)
+\right]
+\end{split}
+}{32}
+
+with real indeterminate coefficients $\cx, \cz, \cy$. One easily finds that this expression is: (1) hermitian; (2) covariant from the relativistic point of view, and (3) that it satisfies the continuity equation $\sumX{\nu}\pdXdY{\Sv}{\xv} = 0$.
+
+In addition, one obtains from (29) the total charge
+
+\nequ{
+\ebar = \int\P\dV = \sumk(\cx\akCC\ak - \cy\bkCC\bk)
+}{21a}
+
+in place of (21). The meaning of the constants $\cx$ and $\cy$ is thus the charge of particles 1 and 2, whereas $\cz$ determines the frequency of the pair-production process.
+
+This raises the following question: in what manner is the case $\cx = \cy = \cz = 1$ of our theory from paragraph 1 distinguished from the general case? \it{The answer is given by the condition (9) on the permutability of $\P(\x)$ and $\P(\xp)$}. If one calculates $\commutator{\P(\x)}{\P(\xp)}$ with the general expression (31a), one finds, after a slightly long calculation, that this expression is not equal to zero, but if one has
+
+\uequ{
+\cx^2 = \cy^2 = \cz^2 \text{ and } \cx\cz = \cy\cz
+}
+
+that is to say, $\cx = \cy$ and $\cz = \pm\cx$. But the sign of $\cz$ is arbitrary, because one may substitute for $\Ytwo$ and $\YtwoCC$ $-\Ytwo$ and $-\YtwoCC$ without changing the commutation relations. \it{The case of paragraph 1 is consequently the only where $\P(\x)$ and $\P(\xp)$ are commutable}.
+One may now establish the theory for the case of the exclusion principle. Because $\Nplus$ and $\Nminus$ have eigenvalues 0, 1 one may put
+
+\nequ{
+\begin{split}
+\anticommutator{\ak}{\alCC} &= \deltakl, \\
+\anticommutator{\bk}{\blCC} &= \deltakl, \\
+\anticommutator{\ak}{\blCC} &= 
+\anticommutator{\akCC}{\bl} = 
+\anticommutator{\ak}{\al} = 
+\anticommutator{\bk}{\bl} = 0,
+\end{split}
+}{III'}
+
+where $\anticommutator{A}{B}$ is the abbreviation for $AB + BA$ and one finds
+
+\nequ{
+\begin{split}
+\anticommutator{\Yone(\vx, \t)}{\YoneCC(\vxp, \t)} &= \inv{2}\g(\vx - \vxp) \\
+\anticommutator{\Ytwo(\vx, \t)}{\YtwoCC(\vxp, \t)} &= +\inv{2}\g(\vx - \vxp).
+\end{split}
+}{28'}
+
+The relations (29) remain equally valid in the case of \sc{Fermi} statistics. (32a) is already written in such a manner that the relativistic covariance conditions and the continuity equation are satisfied. It is important to signal that the coefficients $\cx, \cy, \cz$ must be real for the $\P(\x)$ to be hermitian. If one seeks the conditions for which $\commutator{\P(\x)}{\P(\xp)}_{-} = 0$ in the case of the exclusion principle, one finds
+
+\uequ{
+\cx^2 = \cy^2 = -\cz^2, \cx\cz = \cy\cz.
+}
+
+The - sign in front of $\cz$ has the effect, that the sole possible solution with real coefficients is the banal solution $\cx = \cy = \cz = 0.$ One may then summarize: \it{In the case of the exclusion principle it is impossible to satisfy simultaneously the condition of relativistic invariance and the condition that $\P(\x)$ and $\P(\xp)$ are commutable}. 
+We have not tried to verify the possibility of a theory with the $\P(\x)$ not commuting at different spatial points -- which certainly would give rise to difficulties with the commutation relations of the electromagnetic field -- and we will be content to note, that the case of \sc{Bose-Einstein} statistics is distinguished by their simplicity in the case of the scalar relativistic theory.
+
+\section{Case of the presence of an electromagnetic field; comparison of results with the hole theory}
+
+Returning to the theory developed in paragraph 2, we come to the discussion of the case where an electromagnetic field appears. To simplify, we consider the potentials $\phiu$ and the field $\Fuv$ as ordinary numbers. One has then a \sc{Lagrangian} of the matter field.
+
+\nequ{
+\L = -\hh\cc\sumXY{\nu}{4}\left(
+\YxvCC + \frac{\i\e}{\h\c}\phiv\YCC
+\right)\left(
+\Yxv - \frac{\i\e}{\h\c}\phiv\Y
+\right) - \mm\c^4\YCC\Y.
+}{33}
+
+The momenta canonically-conjugate to $\Y$, $\YCC$ become
+
+\nequ{
+\pp   = \inv{\h}\frac{\partial\L}{\partial\left(\Yt\right)} = \h\YtCC - \i\e\phizero\YCC,
+\ppCC = \inv{\h}\frac{\partial\L}{\partial\left(\YtCC\right)} = \h\Yt + \i\e\phizero\YCC
+}{34}
+
+expressions which replace the expressions (4). The Hamiltonian function becomes
+
+\nequ{
+\H = \int(\pp\Ydot + \ppCC\YdotCC - \L)\dV = \Hzero \Hone,
+}{35}
+
+with
+
+\nequ{
+\Hzero = \int\lbrace
+\pp\ppCC + \hh\cc\sumXY{k=1}{3}\YxkCC\Yxk + \mm\c^4\YCC\Y
+\rbrace\dV
+}{$35_0$}
+
+and
+
+\nequ{
+\begin{split}
+\Hone &= \i\e\int\phizero(\ppCC\YCC - \pp\Y)\dV \\
+      &+ \int\left\{
+\e\h\c\sumXY{k=1}{3}\phik\left(
+\YCC\Yxk - \YxkCC\Y
+\right) + \e^2 \sumXY{k=1}{3}\phik^2\YCC\Y\right\}\dV.
+\end{split}
+}{$35_1$}
+
+These are the new expressions for $\pp$ and $\ppCC$ which replace the canonical commutation relations
+
+\nequ{
+\i\commutator{\pp(\x, \t)}{\Y(\x,\t)} = \dirac(\x - \xp),
+\i\commutator{\ppCC(\x, \t)}{\YCC(\xp, \t)} = \dirac(\x - \xp).
+}{I}
+
+The components of the electric charge-current density four-vector which satisfies the continuity equation, giving
+
+\nequ{
+\Sv = \e\h\c\i\left[
+\left(
+\YxvCC + \frac{\i\e}{\h\c}\phiv\YCC
+\right)\Y - \left(
+\Yxv - \frac{\i\e}{\h\c}\phiv\Y
+\right)\YCC
+\right]
+}{36}
+
+where
+
+\nequ{
+\begin{split}
+\P = -\i\Si{4} &= -\e\i\left[
+\left(
+\h\YtCC - \i\e\phizero\YCC
+\right)\Y - \left(
+\h\Yt + \i\e\phizero\Y
+\right)\YCC
+\right] \\
+ &= -\e\i(\pp\Y - \ppCC\YCC),
+\end{split}
+}{36a}
+
+\nequ{
+\Sk = \i\h\c\left(
+\YxkCC\Y - \Yxk\YCC
+\right) - 2\e\phik\YCC\Y.
+}{36b}
+
+The second expression for $\P$ shows that the statements of the commutation property and of the eigenvalues of $\P(\x)$ remain the same here as in the case as the absense of forces.
+The wave equation is, conforming with rule (4),
+
+\nequ{
+\begin{split}
+\sumXY{k=1}{3}\left(
+  \pddxk - \frac{\i\e}{\h\c}\phik
+\right)\left(
+  \pddxk - \frac{\i\e}{\h\c}\phik
+\right)\Y \\
+-\left(
+\inv{\c}\pddt + \frac{\i\e}{\h\c}\phizero
+\right)\left(
+\inv{\c}\pddt + \frac{\i\e}{\h\c}\phizero
+\right)\Y - \frac{\mm\cc}{\hh}\Y = 0.
+\end{split}
+}{37}
+
+One may introduce in the Hamiltonian function the momentum space and the variables $\ak, \akCC, \bk, \bkCC$ defined as in paragraph 2. $\H^0$ \TN{sic. Probably $\Hzero$?} is given by formula (19) and by introduxing the matrix element $\fkl$ corresponding to a function $\f(\x)$ defined by
+
+\nequ{
+\fkl = \inv{\V}\int\f(\x)\exp{-\i(\vk - \vl)\vx}\dV;
+}{38}
+
+one finds for $\H$, defined by ($35_1$):
+
+\nequ{
+\begin{split}
+\Hone &= \inv{2}\e\sumk\suml\phizerokl\left[
+\frac{\Ek + \El}{\sqrt{\Ek\El}}(\akCC\al - \blCC\bk) + \frac{\Ek - \El}{\sqrt{\Ek\El}}(\al\bk - \akCC\blCC)
+\right] \\
+ &+ \inv{2}\sumk\suml\inv{\sqrt{\Ek\El}}
+ \left[
+   \h\c\e\inner{\vphikl}{\vk + \vl} - \e^2\left(
+   \vphi^2\right)_{\comp{kl}}
+ \right] \\
+ &\times(\akCC\al + \bk\blCC - \akCC\blCC - \bk\al).
+\end{split}
+}{39}
+
+One easily sees that these are the matrix elements coming from the $\al\bk$ and $\akCC\blCC$ which gives rise to the production and annihilation of pairs.
+The frequency of these processes provoked by the absorbtion of a single photon $\h\nu$ in the \sc{Coulomb} field of the nucleus with charge $\Z\e$ is of the same order of magnitude as the hole theory. For the case $\h\nu \gg \m\cc$ the (cross?) section of total action is given by
+
+\uequ{
+\Q \approx \frac{\Z^2\e^2}{\h\c}\left(\frac{\e^2}{\m\cc}\right)^2\log{\frac{2\h\nu}{\m\cc}},
+}
+
+the numerical factors are different in the two theories. In general, one may say, that each effect related to pair production which exists in the hole theory, exists also in the preceding theory. It is thus for example in the scattering of light by light, or the coherent scattering of a photon in the field of a nucleus.
+Unfortunately, the conclusions relative to the existence of an infinite electromagnetic polarization of the vacuum and an infinite proper energy of particles are the same in the two theories. The two effects diverge as the integral $\int\frac{d|\k|}{|\k|}$ in momentum space as in the original form of the \sc{Dirac} hole theory \footnote{See for the vacuum polarization: Report of the Solvay Congress 1933, \sc{Dirac}'s report. For the proper energy of the particles see \sc{V. Weisskopf}, \it{Zs. f. Phys.} \textbf{89}, 27 and \textbf{90}, 817, 1934.}.
+I believe that these difficulties cannot be discarded because for a theory permitting the explanation of the numerical value of the constant $\frac{\e^2}{\h\c}$ and for this purpose it is necessary to find totally new points of view.
+
+\end{document}

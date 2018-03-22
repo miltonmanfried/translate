@@ -1,0 +1,234 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\renewcommand*\rmdefault{ppl}
+
+\newcommand{\tn}[1]{\footnote{\textbf{Translator note:} #1}}
+
+\newcommand{\footcite}[3]{\textsc{#1}, \textit{#2}, #3}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+
+\newcommand{\nequ}[2]{
+\begin{align*}
+#1
+\tag{#2}
+\end{align*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{align*}
+#1
+\end{align*}
+}
+
+\newcommand{\TN}[1]{
+\footnote{\sc{Translator note}: #1}
+}
+
+\nc{\sic}{\TN{sic}}
+
+\newcommand{\var}[1]{#1}
+\newcommand{\vect}[1]{\vec{\var{#1}}}
+\newcommand{\coord}[1]{#1}
+\newcommand{\const}[1]{#1}
+\newcommand{\op}[1]{
+\mathcal{#1}
+}
+
+\newcommand{\primed}[1]{{#1^{\prime}}}
+\newcommand{\pprimed}[1]{{#1}^{\prime\prime}}
+\newcommand{\CC}[1]{{#1^{*}}}
+
+\newcommand{\unit}[1]{#1}
+\newcommand{\dotddt}[1]{\dot{#1}}
+\nc{\opddt}{\frac{d}{dt}}
+\newcommand{\inv}[1]{\frac{1}{#1}}
+\newcommand{\opinv}[1]{{#1}^{-1}}
+
+\newcommand{\oppddX}[1]{
+\frac{\partial}{\partial{#1}}
+}
+\nc{\oppddxk}{\oppddX{\xk}}
+
+\newcommand{\pddt}[1]{\pdXdY{#1}{\t}}
+
+\newcommand{\dXdY}[2]{
+\frac{d{#1}}{d{#2}}
+}
+
+\newcommand{\ddt}[1]{\dXdY{#1}{\t}}
+
+\newcommand{\pdXdY}[2]{
+\frac{\partial {#1}}{\partial {#2}}
+}
+\newcommand{\pddXdYY}[2]{
+\frac{\partial^2 {#1}}{\partial {#2}^2}
+}
+\newcommand{\pddtt}[1]{\pddXdYY{\qr}{\t}}
+
+\newcommand{\barred}[1]{
+\overline{#1}
+}
+
+\newcommand{\hatted}[1]{\widehat{#1}}
+
+\newcommand{\func}[1]{\pmb{#1}}
+\newcommand{\WF}[1]{\var{#1}}
+
+\renewcommand{\it}[1]{\textit{#1}}
+\renewcommand{\sc}[1]{\textsc{#1}}
+
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumk}{\underset{k}{\sum}}
+\newcommand{\suml}{\underset{l}{\sum}}
+\newcommand{\sumr}{\underset{r}{\sum}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+\nc{\sumv}{\sumX{\nu}}
+\newcommand{\prodX}[1]{\underset{#1}{\prod}}
+\nc{\prodk}{\prodX{k}}
+\nc{\prodl}{\prodX{l}}
+
+\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+
+\renewcommand{\exp}[1]{\const{e}^{#1}}
+%\newcommand{\dirac}{\func{\delta}}
+
+\nff{\deltaLL}{\var{\delta}_{{#1}{#2}}}
+\nc{\deltauv}{\deltaLL{\iMu}{\iNu}}
+%%%%% constants %%%%%
+%%% indices %%%%%
+\nff{\nidx}{
+  \nc{#1}{#2}
+}
+\nidx{\iMu}{\mu}
+\nidx{\iNu}{\nu}
+
+%%%%% labels %%%%%
+\nff{\nlbl}{
+  \nc{#1}{#2}
+}
+\nlbl{\neutron}{N}
+\nlbl{\proton}{P}
+
+%%%%% generic variables %%%%%
+\nff{\nvar}{\nc{#1}{\var{#2}}}
+\nvar{\ddelta}{\delta}
+\nvar{\dirac}{\alpha}
+\nff{\diracXY}{{\dirac^{#1}_{#2}}}
+\nf{\diracNX}{\diracXY{\neutron}{#1}}
+\nf{\diracPX}{\diracXY{\proton}{#1}}
+\nc{\diracNu}{\diracNX{\iMu}}
+\nc{\diracNv}{\diracNX{\iNu}}
+\nc{\diracNi}{\diracNX{i}}
+\nc{\diracPu}{\diracPX{\iMu}}
+\nc{\diracPv}{\diracPX{\iNu}}
+\nc{\diracPi}{\diracPX{i}}
+\nvar{\x}{x}
+\nc{\xN}{\x^{\neutron}}
+\nc{\xP}{\x^{\proton}}
+
+\nvar{\p}{p}
+\nff{\pXY}{\p^{#1}_{#2}}
+\nf{\pNX}{\pXY{\neutron}{#1}}
+\nc{\pNi}{\pNX{i}}
+\nf{\pPX}{\pXY{\proton}{#1}}
+\nc{\pPi}{\pPX{i}}
+
+\nvar{\Y}{\Psi}
+\nf{\YL}{\Y_{#1}}
+\nc{\Ya}{\YL{\alpha}}
+\nc{\Yb}{\YL{\beta}}
+\nff{\YLL}{\Y_{{#1}{#2}}}
+\nc{\Yab}{\YLL{\alpha}{\beta}}
+
+\nvar{\E}{E}
+\renewcommand{\H}{\var{H}}
+
+% vectors
+\nff{\nv}{
+  \nc{#1}{\vect{#2}}
+}
+
+\nf{\vdiracX}{
+  \vdirac^{#1}
+}
+
+\nc{\dvx}{{d\vx}}
+
+\nv{\vdirac}{\alpha}
+\nc{\vdiracN}{\vdiracX{\neutron}}
+\nc{\vdiracP}{\vdiracX{\proton}}
+
+\nv{\vp}{p}
+\nc{\vpN}{\vp^\neutron}
+\nc{\vpP}{\vp^\proton}
+
+\nv{\vx}{x}
+\nc{\vxN}{\vx^\neutron}
+\nc{\vxP}{\vx^\proton}
+
+% groups?
+
+\author{N. Kemmer}
+\date{December 12, 1936}
+\title{On the theory of the Neutron-Proton interaction}
+
+\begin{document}
+\maketitle
+
+\abstract{
+For the description of a dynamical system consisting of one Neutron and one Proton, we start from a wavefunction - the Dirac equation which underlies one-body problems. The mathematical features of the equation will be examined. The approach is only relativistically invariant if the spatial dependence of the interaction has the form of the $\ddelta$ function (local interaction). For potential functions of a finite extent give only an approximate estimate of the relativistic corrections, but have over prior analogous estimates\cite{1} the advantage that they take account of the spin in a relativistically-consistent manner. However, even here there remain relativistic corrections for Kraftreichweiten (far-field region?) of the usually-assumed very small order of magnitude, but in the transition to the \it{near-field} the change is quite substantial; on his basis
+ \sc{Thomas's}\cite{2} non-relativistic calculation proving the incompatibility of the local-interaction hypothesis with the well-known experimental data for the binding energies of light nuclei, cannot be regarded as decisive. While it will not be undertaken, Thomas's relativistic calculation for H3 shows, it will be noted, that here as with Thomas the hypothesis of \it{normalized} $\ddelta$ functions for the interaction are already incompatible with a finite binding energy for deuterons, so that a satisfactory representation of the N-P interaction as a local interaction does not seem to be possible anyway.}
+ 
+\section{General approach}
+We consider a two-body system that consists of a neutron (N) and a proton (N), where the masses of both are assumed to be equal to M. As in the Dirac equation a momentum vector $\pNi$ and matrix vector $\diracNi$ will be assigned to the neutron, whereby the $\diracNi$ together with $\diracNX{4} = \beta^N$ satisfy the usual commutation relations
+\uequ{
+\diracNu\diracNv + \diracNv\diracNu = 2\deltauv (\mu,\nu = 1,...,4).
+}
+The variables $\pPi,\diracPi$ and $\diracPX{4}=\beta^P$ are defined similarly.
+
+Likewise,
+\uequ{
+\diracPu\diracPv + \diracPv\diracPu = 2\deltauv (\mu,\nu = 1,...,4).
+}
+
+All $\neutron$-operators commute with all $\proton$-operators, in particular:
+\uequ{
+\diracNu\diracPv - \diracPv\diracNu = 0.
+}
+
+When we start from the usual four-component representation for each of the two matrix systems, we immediately get a 16-component representation of the combined system. Accordingly our wavefunction $\Y$ will have sixteen components $\Yab$ ($\alpha=1,...,4;\beta=1,...,4$), which transforms as the product of the components of the two solutions of the Dirac equation, $\Ya^{(1)}\Yb^{(2)}$.
+
+These $\Y$ should now satisfy the wave function
+\nequ{
+\left[-\E + \H\right]\Y(\xN, \xP) = \\
+\left[\right]
+}{1}
+
+where the $Omega$ symbolizes the exchange interaction. (In our notation the $\E, \p, MMM$ all have the dimension of a length, respectively $\h\c, \h, \h\opinv{\c}$, measured in CGS units)
+
+\begin{thebibliography}{9}
+
+\bibitem{1}
+  \sc{D. Blochnizew}, Sow. Phys. \emph{8} 270, 1935; \sc{H. Margenau}, Phys. Rev. \emph{50},  342, 1936; \sc{E. Feenberg}, Phys. Rev. \emph{50}, 674, 1936.
+  
+\bibitem{2}
+  \sc{L. H. Thomas}, Phys. Rev. \emph{47} 903, 1935.
+
+\end{thebibliography}
+
+
+
+\end{document}

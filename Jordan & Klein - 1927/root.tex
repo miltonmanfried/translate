@@ -1,0 +1,439 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{marginnote}
+
+\renewcommand*\rmdefault{ppl}
+
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+
+\nff{\WTF}{#1 (\textit{#2})}
+
+\newcommand{\nequ}[2]{
+\begin{align*}
+#1
+\tag{#2}
+\end{align*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{align*}
+#1
+\end{align*}
+}
+
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+
+\rf{\exp}{e^{#1}}
+
+\nc{\grad}{\operatorfont{grad}}
+\rc{\div}{\operatorfont{div}}
+
+\nf{\pddt}{\frac{\partial{#1}}{\partial t}}
+\nf{\ddt}{\frac{d{#1}}{dt}}
+
+\nff{\pddX}{\frac{\partial{#1}}{\partial{#2}}}
+
+\nc{\R}{\mathfrak{r}}
+\rc{\P}{\mathfrak{p}}
+\nc{\J}{\mathfrak{J}}
+\nc{\Y}{\varphi}
+\nc{\YCC}{\varphi^*}
+\nc{\lap}{\Delta}
+\nc{\e}{\epsilon}
+
+\title{On the many-body problem in quantum theory}
+\author{P. Jordan and O. Klein}
+\date{October 4, 1927}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Following Dirac, the symmetric solution of the wave equation in configuration space for a number of electrical particles by considering their interaction will be represented by a "quantization" of the de Broglie wave in three-dimensional space.
+\end{abstract}
+
+The so-called wave equation in coordinate space (with the corresponding matrix-mechanical equations of motion) is known to form a transcription of the many-body problem of the classical point-mechanics, which satisfies all of the requirements of the quantum theory, and which has led to a quantitative treatment of the most important problems of the structure of atoms that is in agreement with experiment. By its nature however the domain of applicability of this method is limited, in that the classical equations of motion of a number of electrical particles can only be brought into Hamiltonian form when the finite {speed of propagation} of the electromagnetic field can be ignored. It has therefore still not been possible to find a treatment of the quantum-mechanical many-body problem compatible with the essence of relativity. 
+
+In the classical theory the difficulty in question is known to be overcome by introducing alongside the coordinates of the particles the so-called field-variables, which have to satisfy specific equations -- the field equations -- which together with the equations of motion obey a generalized Hamiltonian principle. By analogy, a rational solution of the generalized many-body problem of the quantum theory is probably only to be expected in connection with a revision of the overall field theory in the sense of the quantum postulate.
+
+Fundamental to the efforts in this direction is obviously Einstein's light-quantum theory, through which the (especially important in this connection) "wave-particle" dualism was first introduced into physics. Then for the many-body problem Einstein's work on gas-degeneracy comes into consideration, where he (in conjunction with de Broglie) had compared an ideal gas with a system of quantized waves in three-dimensional space\footnote{c.f. the investigations of Born, Heisenberf and Jordon on the fluctuation characteristics of radiation, and further the meaningful contributions in this direction which Dirac has given in his investigations on the interaction between radiation and matter, as well as a forthcoming paper by Pauli and Jordan on invariant quantum electrodynamics.}. This viewpoint should therefore be suitable for an attack on the relativistic many-body problem, because here the matter and the field are described mathematically in the same manner, namely by partial differential equations. In fact in the wave mechanical one-body problem we have in its connection with the field theory a "classical model" that satisfies the requirements of relativity, and it thus suggests to examine whether this can be used as a foundation for the many-body problem, in which one subjects the values occuring therein -- electromagnetic potentials and Schrödinger wave functions -- to a "quantization". As preparation for such an attempt we show in the preseng work that it is possible, from this viewpoint in the special case where the finite propagation velocity of the field is ignored, to arrive at results whihc coincide with the wave function in coordinate space. Here we are close to a work by Dirac, where the corresponding problem for a number of energetically-independent particles was solved\footnote{P.A.M. Dirac, Proc. Roy. Soc. London (A) \textbf{144}, 243, 1927}. Like Dirac, we restrict ourselves to the case where the eigenfunctions in coordinate space are symmetric in the particles, although in view of the recently-given generalization of Dirac's considerations by one of the authors\footnote{P. Jordan, ZS. f. Phys. \textbf{44}, 473, 1927. (The results of this work are incorrect in two points; a correction will soon follow.}, the results could probably also apply in the antisymmetric case.
+
+Together with the problem of a unified treatment of light- and matter waves obviously comes certain fundamental difficulties, which Schrödinger\footnote{E. Schrdinger, Ann. d. Phys. \textbf{82}, 265, 1927.} has pointed to with particular emphasis, and which it becomes apparent that with the presently-available tools - without a "quantization" of wavez - is not possible to set up a "closed" system of field equations, in which the Schrödinger theory of the hydrogen atom is included. In particular, some facts, which we shall come to in section 3 of this work, seem to indicate that even the difficulties discussed by Schrödinger a natural solution can be found throufh the continuation of the same theorie to which we here provide a contribution.
+
+§1. Quantization of the de Broglie waves in the case of electric interaction.
+
+We shall consider a system of electron waves, which is partly influenced by an external electrostatic field and partly influenced by the eigen-field calculated according to the Schrödinger density hypothesis. Here we shall neglect the magnetic interaction as well as the influence of the propagation velocity of the electric field and the relativistic correction. We shall later substantially generalize this assumption and in particular also be able to take the magnetic force into consideration. In order to avoid the convergence velocity, we will further assume that the waves are found in a finite closed box, on whose walls the wave amplitudes and the electrical potential should vanish. We describe a point in space by a radius vector $\R$. Correspondingly, we represent a function $\Y$ of the position $\R$ in space by $\Y(\R)$. Now let $\Y(\R,t)$ and $\YCC(\R,t)$, the complex conjugate wave amplitudes, be considered as functions of $\R$ and the time $t$, and $V(\R,t)$ represent the electric potential. The functions $\Y$ and $\YCC$ should then, apart from individual points where the potential from the external field becomes singular (point charges), satisfu the following differential equations:
+
+\nequ{
+-\frac{h^2}{8\pi^2\mu}\lap\Y + \frac{h}{2\pi i}\pddt{\Y} - \e V\Y &= 0\\
+-\frac{h^2}{8\pi^2\mu}\lap\YCC - \frac{h}{2\pi i}\pddt{\YCC} - \e V\YCC &= 0\\
+ \lap V &= 4\pi\e\YCC\Y.
+}{1}
+
+Here $h$ signifies the Planck constant, $\mu$ the electron mass and $-\e$ the electron charge, wbile $\lap$ is the Laplacian differential operator\footnote{We restrict ourselves here to the case of identical particles; it causes however no difficulty to consider additional types of particles, e.g. protons and neutrons, in a similar manner.}. According to the third equation we may now put:
+\nequ{
+V(\R) = V_0(\R) - \e\int G(\R, \R^\prime)\YCC(\R^\prime)\Y(\R^\prime)dv',
+}{2}
+
+where $V_0$ is the potential of the "external" fiels at the point $\R$, while $G(\R,\R')$ is the Green function of the Laplacian equation of the area bounded by the box, and $dv'$ is a space differential in the neighborhood of the point $\R'$. The integration ranges over this entire domain. If the box is large, the following is known to apply to a good approximation:
+\nequ{
+G(\R,\R') = \frac{1}{|\R-\R'|},
+}{3}
+where $|\R-\R'|$ is the length of the vector $\R-\R'$, i.e. the distance between the points $\R$ and $\R'$.
+
+It is known that system of equations (2) can be derived from a Hamiltonian principle, which we can give the following form:
+
+\nequ{
+\delta\intXY{t_0}{t}dt\int L dv = 0,
+}{4}
+
+where
+\nequ{
+L = \frac{h^2}{8\pi^2\mu}(\grad\YCC \grad\Y) + \frac{h}{4\pi i}\left(\YCC\pddt{\Y} - \pddt{\YCC}\Y\right) \\
+- \e V \YCC\Y - \frac{1}{8\pi}(\grad(V-V_0))^2,
+}{5}
+and where the variations of $\YCC$, $\Y$ and $V$ should vanish at the boundary of the fixed \WTF{imaginary}{gedachten} space-time domain of integration.
+
+Let $u_s(\R)$ be the normalized eigenfunctions of the equation
+\nequ{
+\frac{h^2}{8\pi^2\mu}\lap u + (E + \e V_0)u = 0,
+}{6}
+and $E_s$ the corresponding eigenvalues, i.e. the eigenvalue of the system if the external field alone is present. We can now expand the functions $\Y$ and $\YCC$ in the eigenfunctions $u_s$, where we put
+\nequ{
+\Y(\R,t) &= \sumX{s} b_s(t)u_s(\R),\\
+\YCC(\R,t) &= \sumX{s} b^*_s(t)u_s(\R),
+}{7}
+where $b_s$ and $b^*_s$ are complex-conjugate functions of the time only. If we introduce these expressions into $L$, then on consideration of (2) and (6) on grounds of normalization of the eigenfunctions $u_s(\R)$ we obtain:
+\nequ{
+M = \int L dv = \sumX{s} b^*_s b_s E_s &+ \frac{\e^2}{2} \sumX{\mu\nu r s}A(\mu\nu | r s)b^*_r b^*_s b_\mu b_\nu \\
+& + \frac{h}{4\pi i}\sumX{s}\left(b^*_s\ddt{b_s} - \ddt{b^*_s}b_s\right),
+}{8}
+where
+\nequ{
+A(\mu\nu|r s) = \int\int G(\R',\R'')u_\mu(\R')u_\nu(\R'')u_r(\R')u_s(\R'')dv'dv''.
+}{9}
+
+The variational principle (4) now assumes the form
+\nequ{
+\delta\int M dt = 0,
+}{10}
+which is the form of the Hamiltonian principle of mechanics.
+
+Next we calculate the total energy of the system. According to the well-known laws of quantum mechanics we could put:
+\nequ{
+E = \int dv \left\{ \frac{h^2}{8\pi^2\mu} (\grad\YCC \grad\Y) - \e V_0\YCC\Y
+  + \frac{1}{8\pi}(\grad(V-V_0))^2 \right\},
+}{11}
+from which follows:
+\nequ{
+E = \sumX{s}b^*_s b_s E_s + \frac{\e^2}{2} \sumX{\mu\nu r s}A(\mu\nu | r s) b^*_r b^*_s b_\mu b_\nu .
+}{12}
+
+Comparing (10) with (8), the following canonical equations for $b_s$ and $b^*_s$ follow:
+\nequ{
+\frac{h}{2\pi i}\ddt{b_s} = -\pddX{E}{b^*_s},\quad
+\frac{h}{2\pi i}\ddt{b^*_s} = \pddX{E}{b^*_s},
+}{13}
+according to which $\frac{h}{2 \pi i}b_s$ and $b^*_s$ represent a pair of canonically-conjugate \WTF{variables}{Veränderliche}.
+
+Because of this last result we can now, following Dirac's process, replace the quantities $\frac{h}{2\pi i}b_s$ and $b^*_s$ by conjugate q-numbers $\frac{h}{2\pi i}b_s$, $b^\dagger_s$\footnote{Regarding the reasons for the change of the symbols $b^\dagger$ instead of $b^*$ in the transition to q-numbers see the footnote on page 756.}. The quantities $b_s$ amd $b^\dagger_s$ are no longer "commutable", but rather are subject to the relation
+\nequ{
+b^\dagger_\nu \frac{h}{2\pi i}b_\mu - \frac{h}{2\pi i}b_\mu b^\dagger_\nu = \frac{i h}{2\pi}\delta_{\mu\nu}\\
+\text{ or } \\
+b_\mu b^\dagger_\nu - b^\dagger_\nu b_\mu = \delta_{\mu\nu},
+}{14}
+through which the equations (13) go over into the following q-number-equations:
+\nequ{
+\frac{h}{2\pi i}\ddt{b_s} = E b_s - b_s E,\quad
+\frac{h}{2\pi i}\ddt{b^\dagger_s} = E b^\dagger_s - b^\dagger_s E.
+}{15}
+
+In order to make the problem definite, we must still however \WTF{fix}{eine Festsetzung treffen} the order of factors in the expression for $E$. We return to this question later ans be content for the moment to base the following considerations on the order chosen in (12).
+
+Through the relations (14) and (15), the well-known requirements of quantum theory are fulfilled; as we shall now see, these Ansatzes lead to the particle-symmetric solutions of the corresponding wave equations in coordinate space. As one of the authors has shown\footnote{P. Jordan, ZS. f. Phys., l.c.}, the relations (14) do not however represent the only possible solutions to the problem of the problem of the introduction of quantum theory in the case at hand, but rather there is a further possibility which -- at least in the case where the interaction of the particles is neglected -- leads to the antisymmetric case of the coordinate-space wave equation.
+
+We now introduce, following Dirac\footnote{P.A.M. Dirac, Proc. Roy. Soc., l.c.}, instead of the complex amplitudes $b_s$ and $b^\dagger_s$ the real quantities $N_s$ and $\Theta_s$, in which we put
+\nequ{
+b_s = \exp{-\frac{2\pi i}{h} \Theta_s} N_s^{\frac{1}{2}},\quad
+b^\dagger_s = N^\dagger_s\exp{\frac{2\pi i}{h}\Theta_s},
+}{16}
+where the eigenvalues $N'_s$ of $N_s$ have the \textit{anschauliche} meaning of the possible numbers of electrons in the state $s$ with \WTF{neglect}{Loslösung} of the mutual coupling of the electrons\footnote{The $b^\dagger_s$ are derived from $b_s$ not only by replacing $i$ by $-i$, but also reversing the order of multiplication; we therefore use the notation $b^\dagger$ corresponding to a recent proposal, to denote such "adjoint" quantities by a $\dagger$.}. We then obtain
+\nequ{
+E=\sumX{s}N_s E_s\\
++\frac{\e^2}{2}\sumX{\mu\nu r s}
+A(\mu\nu | r s)N_r^{\frac{1}{2}}
+\exp{\frac{2\pi i}{h}\Theta_r}N_s^{\frac{1}{2}}
+\exp{\frac{2\pi i}{h}(\Theta_s - \Theta_\mu)}N_\mu^{\frac{1}{2}}
+\exp{-\frac{2\pi i}{h}\Theta_\nu} N_\nu^{\frac{1}{2}}
+}{17}
+while the relations, which express the non-commutability of $N_\mu$ and $\exp{\frac{2\pi i}{h}\Theta_\mu}$, assume the following form:
+\nequ{
+N_\mu \exp{\frac{2\pi i}{h}\Theta_\mu} - \exp{\frac{2\pi i}{h}\Theta_\mu} N_\mu = \exp{\frac{2\mu i}{h}\Theta_\mu}\quad\text{sic}.
+}{18}
+This relation shows that $N_\mu$ and $\Theta_\mu$ are canonical conjugates, and that $\exp{\frac{2\pi i}{h}\Theta_\mu}$ can be considered as an operator which, applied to a function of the quantities $N'$, replaces $N'_\mu$ by $N'_\mu - 1$.
+
+Now let $\Y(N'_1, N'_2, ...)$ be the function of the quantities $N'_1,N'_2,...,$ which, according to the general theory of Dirac and one of the authors has the meaning that $|\Y|^2$ represents the probability function for the quantities $N'$ neglecting the mutual coupling of the electrons, and which corresponds to the Hamilton-Jacobi function of classical mechanics. They satisfy the following equation of the Schrödinger type:
+\nequ{
+-\frac{h}{2\pi}\pddt{\Y(N'_1,N'_2,...)} = E\Y(N'_1,N'_2,...),
+}{19}
+
+Where $E$ shall be be given by the expression (17). This can be transformed on the basis of the operator characteristics of the quantity $\exp{\frac{2\pi i}{h}\Theta_\mu}$ as follows. One has
+
+\nequ{
+N_r^{\frac{1}{2}}\exp{\frac{2\pi i}{h}\Theta_r}
+N_s^{\frac{1}{2}}\exp{\frac{2\pi i}{h}(\Theta_s - \Theta_\mu)}N_\mu^{\frac{1}{2}}
+\exp{-\frac{2\pi i}{h}\Theta_\nu}N_\nu^{\frac{1}{2}} \\
+= N_r^{\frac{1}{2}}(N_s - \delta_{r s})^{\frac{1}{2}}
+(N_\mu + 1 - \delta_{\mu s} - \delta_{\mu r})^{\frac{1}{2}} \\
+(N_\nu + 1 + \delta_{\mu\nu} - \delta_{s \nu} - \delta_{r \nu})
+\exp{\frac{2\pi i}{h}(\Theta_r + \Theta_s - \Theta_\mu - \Theta_\nu)}
+}{20}
+and thus
+\nequ{
+-\frac{h}{2\pi i}\pddt{\Y(N'_1,N'_2,...)} = \sumX{s}N'_s E_s \Y(N'_1, N'_2,...)\\
++ \frac{\e^2}{2}\sumX{\mu\nu r s}A(\mu\nu|r s){N'_s}^{\frac{1}{2}}
+(N'_r - \delta_{r s})^{\frac{1}{2}}(N'_r - \delta_{r s})^{\frac{1}{2}}\\
+(N'_\nu + 1 - \delta_{\nu s} - \delta_{\nu r})^{\frac{1}{2}}
+(N'_\mu + 1 + \delta_{\mu \nu} - \delta_{\mu s} - \delta_{\mu r})^{\frac{1}{2}}\\
+\exp{\frac{2\pi i}{h}(\Theta_r + \Theta_s - \Theta_\mu - \Theta_\nu)} \Y(N'_1,N'_2,...).
+}{21}
+
+From (21) one sees that the eigenvalues of the quantities $N_r$ are actually whole numbers. Further, from the equations (15) easily follows that the quantities $N = \sumX{s}N_s = \sumX{b_s^\dagger b_s}$ are constant in time, i.e. form a diagonal matrix, which corresponds to the conservation of electricity on the basis of "classical" equations (1). We first consider the case that there is only a single particle present, so that \WTF{approximately}{etwa}
+\nequ{
+N'_s = \delta_{s \sigma}\quad\text{??? $\delta_{s 0}$?}
+}{22}
+In this case the operator representing the interaction must reduce to null. In fact in the sum $\sumX{\mu\nu r s}$ only certain terms with $s = \sigma$ remain. However this contains the factor $N'_r - \delta_{r \sigma}$, which according to (22) always vanishes.
+
+§2. Comparison with the wave equation in coordinate space.
+To justify equation (21) in the case of several particles we have to compare it with that of Dirac on the ground of representation of the many-body problem given by Schrödinger's method with symmetrical eigenfunctions. We number the atoms with $k=1,2,...,N$; the Schrödinger equation then reads
+\nequ{
+\sumX{k}\left\{-\frac{h^2}{8\pi^2\mu}\lap_k\Y - \e V_0(\R_k)\Y\right\} 
++ \e^2\sumX{k<l}G(\R_k,\R_l) + \frac{h}{2\pi i}\pddt{\Y} = 0,
+}{23}
+where $\lap_k$ represents the Laplacian operator corresponding to the coordinates of the $k^{\text{th}}$, while $\R_k$ signifies the coordinate vector of the same points, and $G(\R_k,\R_l)$ represents the Green function corresponding to the positions of the particles represented by $k$ and $l$. We solve the equation (23) through an Ansatz
+\nequ{
+\Y = \sumX{n_1,n_2,...}b(n_1,n_2,...)u_{n_1}(\R_1)u_{n_2}(\R_2)...,
+}{24}
+where the $u_n$ as in previous paragraphs denote the eigenfunctions of the unperturbed one-electron problem. \WTF{It must along with $b(n_1,n_2,...)$ be a symmetrical function of its arguments}{Es muß dabei $b$ eine symmetrische Funktion seiner Argumente sein}. Inserting (24) into (23) yields, taking (6) into account,
+\nequ{
+-\frac{h}{2\pi i}\pddt{b(n_1,n_2,...)} = \sumX{k}E_{n_k} b(n_1,n_2,...)\\
++ \e^2 \sumX{k<l}\sumX{m_k m_l}A(m_k m_l| n_k n_l)b(n_1,n_2,...,m_k,...,m_l,...).
+}{25}
+
+Since $b$ is symmetrical in $n_1, n_2, ...$, we could also regard these quantities as functions of the numbers $N'_1, N'_2,...$, where $N'_r$ represents the number of those $n_k$ which are equal to $r$; i.e. $N'_r$ has the same meaning as in the preceding paragraphs. Here we must, as put forward by Dirac, because of the meaning of $|b|^2$ as a state-probability, change the nornalization; with Dirac, we put
+\nequ{
+b(N'_1,N'_2,...) = \left(\frac{N'!}{N'_1! N'_2! ...}\right)^{\frac{1}{2}} b(n_1,n_2,...),
+}{26}
+where $N' = \sumX{k}N'_r$ and \WTF{the $n_1, n_2, ...$ represent one of the systems of values belonging to a specific $N'_1,N'_2,...$}{die $n$ eins der zu den bestimmten Zahlen $N'$ gehörigen Wertesysteme der Zahlen $n_k$ bezeichnen}. Henceforth it becomes, as is easily seen, \WTF{also by collapsing indices}{Es wird nunmehr,..., auch bei zusammenfallenden Indizes}
+\nequ{
+b(n_1,n_2,...,n_{k-1},m_k,n_{k+1},...,n_{l-1},m_l,m_{l+1},...)\text{sic} \\
+= \exp{\frac{2\pi i}{h}(\Theta_{n_k} + \Theta_{n_l} - \Theta_{m_k} - \Theta_{m_l})}
+\left(\frac{N'_1! N'_2! ...}{N'!}\right)^{\frac{1}{2}} b(N'_1,N'_2,...),
+}{27}
+where $\exp{\frac{2\pi i}{h}\Theta_\mu}$, as before, denotes an operator which, applied to a function of the $N'_\mu$ corresponding to $\Theta_\mu$, replaces the numbed $N'_\mu$ by $N'_\mu - 1$. With this we obtain
+\nequ{
+&-\frac{h}{2\pi i}\pddt{b(N'_1,N'_2,...)} = b(N'_1,N'_2,...) \sumX{r}N'_r E_r\\
+&+ \e^2 \sumX{k<l}\sumX{m_k m_l} A(m_k m_l | n_k n_l)(N'_1! N'_2! ...)^{-\frac{1}{2}}\\
+&\exp{\frac{2\pi i}{h}(\Theta_{n_k} + \Theta_{n_l} - \Theta_{m_k} - \Theta_{m_l})}
+(N'_1! N'_2! ...)^{\frac{1}{2}} b(N'_1,N'_2,...).
+}{28}
+
+We introduce the summation so that we first, with fixed $k,l$ allow the numbers $\mu = m_k$, $\nu = m_l$ to run through all values $1,2,...$; thus arises a sum $\sumX{\mu\nu}A(\mu\nu|n_k n_l)$. The summation over $k$ and $l$ is taken so that we collect together those terms, in which $n_k = r$ and $n_l = s$. For a given system of values $n_1,n_2,...$ these terms are $N'_r N'_s$ when $r \neq s$, and $\frac{1}{2}N'_r(N'_r - 1)$, but in the first case a factor of $\frac{1}{2}$ must be added, because otherwise in the summation over $r$ and $s$ every pair of electrons would be counted twice. Thus we finally obtain:
+\nequ{
+-\frac{h}{2\pi i} \pddt{b(N'_1,N'_2,...)} = b(N'_1,N'_2,...)\sumX{r}N_r E_r\\
++ \frac{\e^2}{2}\sumX{\mu\nu r s}A(\mu\nu|r s)N'_r(N'_s - \delta_{rs})
+&\left\{{N'_1}!{N'_2}!...\right\}^{-\frac{1}{2}}
+\exp{\frac{2\pi i}{h}(\Theta_r + \Theta_s - \Theta_\mu - \Theta_\nu)} \\
+&\left\{{N'_1}!{N'_2}!...\right\}^{\frac{1}{2}}b(N'_1,N'_2,...).
+}{29}
+It is however
+\nequ{
+&\left\{\prod_\varrho N'_\varrho ! \right\}^{-\frac{1}{2}}
+\exp{\frac{2\pi i}{h}(\Theta_r + \Theta_s - \Theta_\mu - \Theta_\nu)}
+\left\{\prod_\sigma N'_\sigma ! \right\}^{\frac{1}{2}} \\
+=& \left\{\prod_\varrho N'_\varrho ! \right\}^{-\frac{1}{2}}
+\left\{
+\prod_\sigma(N'_\sigma - \delta_{\sigma r} - \delta_{\sigma s} + \delta_{\sigma\mu} + \delta_{\sigma\nu})!
+\right\}^\frac{1}{2}
+\exp{\frac{2\pi i}{h}(\Theta_r + \Theta_s - \Theta_\mu - \Theta_\nu)} \\
+=& \left\{N'_r(N'_s - \delta_{rs})\right\}^{-\frac{1}{2}}\left\{
+(N'_\nu + 1 - \delta_{\nu s} - \delta_{\nu r})
+(N'_\mu + 1 + \delta_{\mu\nu} \right. \\
+& \left. - \delta_{\mu s} - \delta_{\mu r})
+\right\}^{\frac{1}{2}}
+\exp{\frac{2\pi i}{h}(\Theta_r + \Theta_s - \Theta_\mu - \Theta_\nu)},
+}{30}
+Consequently (29) is the same equation as (21), or
+\nequ{
+\Y(N'_1, N'_2, ...) = b(N'_1,N'_2,...).
+}{31}
+
+§3. On the questiom of the order of factors in the energy expression
+
+We woukd like to make some remarks here about the question of the order of factors in the expression (12) for the total energy of the wave system and for this purpose we shall again consider the variational principle (4). Let $\nu(\R' - \R'') = \nu(\R'' - \R')$ be a singular matrix which is defined so that
+\nequ{
+\int\nu(\R - \R')\Y(\R')dv' = \lap\Y(\R).
+}{32}
+We could then write
+\nequ{
+\int(\grad\YCC\grad\Y)dv = -\int\int\nu(\R'-\R'')\YCC(\R')\Y(\R'')dv' dv'',
+}{33}
+and consequently
+\nequ{
+\mathbb{L} &= \int L dv = \frac{h}{4\pi i}\int\left\{
+\YCC(\R)\pddt{\Y(\R)} - \pddt{\YCC(\R)}\Y(\R)
+\right\}dv\\
+&- \frac{h^2}{\pi^2\mu}\int\int\eta(\R'-\R'')\YCC(\R')\Y(\R'')dv' dv''\\
+&+ \frac{\e^2}{2}\int\int G(\R',\R'')\YCC(\R')\Y(\R')\YCC(\R'')\Y(\R'')dv' dv''.
+}{34}
+Likewise we obtain
+\nequ{
+E &= -\frac{h^2}{8\pi^2\mu}\int\int\eta(\R'-\R'')\YCC(\R')\Y(\R'')dv' dv''\\
+&- \e\int V_0\YCC\Y dv + \frac{\e^2}{2}\int\int G(\R',\R'')\YCC(\R')\Y(\R')\YCC(\R'')\Y(\R')dv' dv''.
+}{35}
+
+In this form (4) represents the Hamiltonian principle of a system of infinitely-many unknowns, in which $\frac{h}{2\pi i}\Y(\R)$ and $\YCC$ play for all points of space $\R$ the role of canonical variables. By taking the limit of the case of finitely-many unknowns we are led to the following quantum conditions:
+\nequ{
+\Y(\R')\Y^{\dagger}(\R'') - \Y^{\dagger}(\R'')\Y(\R') = \delta(\R'-\R''),
+}{36}
+where $\delta(\R'-\R'')$ corresponds to the symbolic function introduced by Dirac and, when $F(\R)$ is an arbitrary function of $\R$, is defined by
+\nequ{
+F(\R) = \int F(\R')\delta(\R' - \R)dv'.
+}{37}
+In fact we could, on the basis of (36), as is easily shown, represent the equations for $\Y$ and $\YCC$ (whose classical analogue follows from the variational principle (4)) in the following form:
+\nequ{
+\frac{h}{2\pi i} \pddt{\Y(\R)} &= E\Y(\R) - \Y(\R)E,\\
+\frac{h}{2\pi i} \pddt{\Y^{\dagger}(\R)} &= E\Y^{\dagger}(\R) - \Y^{\dagger}(\R)E,
+}{38}
+so that the requirements of the quantum theory are actually fulfilled. If we replace (7) by the corresponding q-numbers,
+\nequ{
+\Y(\R) &= \sumX{s}b_s(t)u_s(\R),\\
+\Y^{\dagger}(\R) &= \sumX{s}b^{\dagger}_s(t)u_s(\R),
+}{7'}
+then we couls go directly from (14) to (36), and vice versa\footnote{This connection between equations (7'), (14), (36) will be extensively discussed in a following work with Jordan. On the generalizations of the equation in the relativistically-invariant quantum electrodynamics see an upcoming paper by Pauli and Jordan.}.
+
+In (35) we have chosen the order of factors which naturally results when we take the system of equations (1) over into the quantum theory. However, this is not correct, as a comparison with (12) on the basis of (7) shows, but rather in the last term of (35), in the replacement of the c-numbers $\Y,\YCC$ by the q-numbers $\Y,\Y^\dagger$, both the middle factors $\Y(\R')$ and $\Y^\dagger(\R'')$ must be exchanged. Now according to (36)
+\uequ{
+\Y(\R')\Y^\dagger(\R'') = \Y^\dagger(\R'')\Y(\R') + \delta(\R' - \R'').
+}
+Thus, when we denote the $E$ occurring in (35) with $E'$, and write $E$ for the correct equation, we obtain:
+\uequ{
+E = E' - \frac{\e^2}{2}\int\int G(\R',\R'')\Y^\dagger(\R')\Y(\R'')\delta(\R'-\R'')dv' dv''
+}
+or, if for a moment we disregard the singularity of $G(\R',\R'')$ for $\R'=\R''$:
+\nequ{
+E = E' - \frac{\e^2}{2}\int G(\R,\R)\Y^\dagger(\R)\Y(\R)dv
+}{39}
+This expression has an \textit{anschauliche} meaning.
+
+The interaction energy of a system of mass points is classical when between any two there is an interaction energy $\e^2 G(\R_k,\R_l)$, given by
+\uequ{
+\frac{\e^2}{2} \sumX{k\neq l}G(\R_k,\R_l) = 
+\frac{\e^2}{2}\sumX{k,l}G(\R_k,\R_l) - 
+\frac{\e^2}{2}\sumX{k}G(\R_k,\R_k)
+}
+If now in the volume element $dv'$ there lie exactly $N(\R')dv'=\Y^\dagger(\R')\Y(\R')dv'$ of these mass points, the one may replace the above sum by the integral:
+\nequ{
+\frac{\e^2}{2}\int\int G(\R',\R'')N(\R')N(\R'')dv' dv'' - \frac{\e^2}{2}\int G(\R, \R) N(\R) dv.
+}{40}
+
+The expression of the interaction energy, which we have used above, is thus in fact exactly that which one would expect, with appropriate changes, from the analogous classical theory. The non-commutative multiplication of quantum mechanics makes it possible in a remarkable manner, to express the differnce of a twofold and a onefold volume integral in (40) by a single twofold volume integral; thereby it is possible in quantum mechanics, in an analytically simple manner, to to express that the "self-field" of an electron does not effect this in the same manner as the "external field" -- a distinction which within the classical theory is very unsatisfactory and appears difficult to formulate exactly.
+
+§4. Treatment of the generalized interaction between particles
+
+We shall now proceed to take into account the magnetic interaction between the electrons, up to order $\frac{1}{c^2}$. It must then also correspond with the terms proportional to $\frac{1}{c^2}$ in the energy of each individual particle which arises from the relativistic mass variability. Additionally the retardation of the electric (not the magnetic) field already supplies an energy correction of the order $\frac{1}{c^2}$; we will return to these corrections at the conclusion. Before we consider the just-posed problem in more detail, we would like to clarify that the results recounted in the previous paragraphs allow a very far-reaching generalization. Namely we shall consider a many-body problem whose energy in the corpuscular-theoretical representation has the form
+\nequ{
+H=\sumX{k}H_1(p_k,q_k) + \frac{1}{2}\sumX{k,l}^{\prime}H_2(p_k,q_k;p_l,q_l)
+}{41}
+Here the energy $H_1(p_k,q_k)$ of an individual particle - $p_k,q_k$ shall always represent the momenta and coordinates the $k^{\text{th}}$ particle - can be completely arbitrarily chosen (though for all particles in the same manner); between any two pass points then there exists an equally arbitrary interaction $H_2$, where
+\uequ{
+H_2(p_k,q_k;p_l,q_l) = H_2(p_l,q_l;p_k,q_k)
+}
+can be chosen. The summation symbol $\sumX{k,l}^{\prime}$ shall again denote summation with $k=l$ excluded. These suppositions are sufficient in order to allow the application of the considerations developed above: if we only consider symmetrical eigenfunctions, we can replace in our (41) by an equivalent wave problem with quantized waves. The energy of the total system can be represented by the $b^{\dagger}_r,b_s$ resp. the quantized wave amplitudes $\Y^{\dagger}(\R),\Y(\R)$ connected with them via (7'); and indeed one obtains for this energy the expression
+\nequ{
+H = &\int dv' \Y^\dagger(\R') H_1\left(\frac{h}{2\pi i}\pddX{}{q'}, q'\right)\Y(\R')\\
++\frac{1}{2}\int & \int dv' dv'' \Y^\dagger(\R')\Y^\dagger(\R'')
+H_2\left(\frac{h}{2\pi i}\pddX{}{q'}, q';\frac{h}{2\pi i}\pddX{}{q''}, q''\right)\Y(\R')\Y(\R'')
+}{42}
+
+In proving this general formula, literally the same considerations are introduced which we have used above for the special case.
+
+If we now attempt to determine the magnetic interaction of electrons, it is seen that the methods used up to now do not supply a unique specification. One can classical calculate this interaction, as  Darwin has shown, from a Hamiltonian function
+\nequ{
+H_{kl} = -\frac{\e^2}{2 c^2 \mu^2}\frac{\P_k\P_l}{r_{kl}},
+}{43}
+where $\P_k$ and $\P_l$ are the electrons' momentum vectors and $\R_{kl} = |\R_k - \R_l|$. Using the ordinary methods based on matrix theory or Schrödinger wave equation in coordinate space, there now results for the exact quantum-theoretical translation of this equation a difficulty, in that in $H_{kl}$ non-commutable quantities are multiplied with one another, so that the requirement of a close analogy to the classical formula (43) is not sufficient in order to determine the order of these factors\footnote{Such a difficulty does not occur in problems of the type $H=\frac{1}{2m}\P^2 - \frac{\e^2}{r}$.}. We will however see that my representing the electrons by quantized waves inevitably leads to a definite Ansatz for the magnetic interaction energy. By bringing this into the form of the interaction energy in (42), we obtain by virtue of our generalized rule the possibility of determining also the form (41) of the energy and with it to specify the exact quantum mechanical analogue of the classical formula (43).
+
+If we first use the $\Y(\R)$-waves in their unquantized form (thus the Schrödinger wave of a single electron), then, when $\J(\R)$ is the electic current density, we will represent the magnetic interaction energy according to the Biot-Savart law (as also follows from the wave-mechanical variation principle) in the form
+\nequ{
+-\frac{1}{2c^2}\int\int\left\{\J(\R')\J(\R'')\right\}G(\R',\R'')dv' dv''.
+}{44}
+
+In the approximation that we are considering we thus have to put
+\nequ{
+\J = -\frac{\e}{2\mu}\frac{h}{2\pi i}\left\{\YCC\grad\Y - \Y\grad\YCC \right\}.
+}{45}
+If we now go from the c-numbers $\YCC,\Y$ to the q-numbers $\Y^{\dagger},\Y$, then we have to, in view of (45), replace the expression (44) by
+\nequ{
+H_1 = \frac{\e^2 h^2}{32\pi^2 c^2} & \int\int dv' dv'' G(\R',\R'')\left\{
+\Y^\dagger(\R')\Y^\dagger(\R'')\grad\Y(\R')\grad\Y(\R'')\right.\\
+ &- \Y^\dagger(\R')\grad\Y^\dagger(\R'')\grad\Y(\R')\Y(\R'')\\
+ &- \grad\Y^\dagger(\R')\Y^\dagger(\R'')\Y(\R')\grad\Y(\R'')\\
+ &\left.
+ + \grad\Y^\dagger(\R')\grad\Y^\dagger(\R'')\Y(\R')\Y(\R'')
+\right\}.
+}{46}
+Through partial integration we could bring this expression into the form of (42):
+\nequ{
+H_1 = \frac{\e^2 h^2}{32\pi^2 c^2}\int\int dv' dv''
+      \Y^\dagger(\R')\Y^\dagger(\R'')\Omega\Y(\R')\Y(\R''),
+}{47}
+where the operator $\Omega$ is given by
+\nequ{
+\Omega &= G \grad'\grad''... + \grad'G\grad'' ... + \grad'' G\grad' ...\\
+       &+ G \grad'\grad''...\\
+       &= 2(\grad' G \grad'' ... + \grad'' G \grad'...)
+}{48}
+The $\grad',\grad''$ are to be understood as the gradients of functions of $\R'$ resp. $\R''$; that the two expressions in (48) coincide is found by consideration of\footnote{In equation (49) the quantity $\grad'\grad'' G$ occurs, which is naturally to be distinguished from the operator $\grad'\grad'' G...$ in (48).}
+\nequ{
+\grad'\grad'' G = -\div'\grad' G = 0.
+}{49}
+
+From (48) we then abstract the quantum-theoretical analogue of the formula (43) in the form
+\nequ{
+H_{kl} = -\frac{\e^2}{4 c^2 \mu^2}\left\{\P_k\frac{1}{r}\P_l + \P_l\frac{1}{r}\P_k\right\}.
+}{50}
+
+Although these formula have been derives from considerations which assume the validity of the Bose-Einstein statistics instead of the Pauli statistics for electrons, they should nonetheless be valid independent of this assumption; because apparently the formula (50) is of such a type that they no longer contain any reference to a specific choice of statistics.
+
+Finally concerning the effects proportional to $\frac{1}{c^2}$, which result from the retardation of the electrical interaction, we will be content to emphasize that these can be treated, following the aforementioned investigation by Darwin, in entirely the same manner as the magnetic interaction.
+
+We thank the International Education Board for making our collaboration possible. We owe hearty thanks to Herrn Prof. Niels Bohr for the many instructive conversations on the foundations of the quantum theory.
+
+
+
+\end{document}
+

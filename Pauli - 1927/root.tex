@@ -1,0 +1,329 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\renewcommand*\rmdefault{ppl}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{marginnote}
+\newcommand{\nf}[2]{
+\newcommand{#1}[1]{#2}
+}
+\newcommand{\nff}[2]{
+\newcommand{#1}[2]{#2}
+}
+\newcommand{\rf}[2]{
+\renewcommand{#1}[1]{#2}
+}
+\newcommand{\rff}[2]{
+\renewcommand{#1}[2]{#2}
+}
+
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+
+\nff{\WTF}{#1 (\textit{#2})}
+
+\nf{\translator}{\footnote{\textbf{Translator note:}#1}}
+
+\newcommand{\nequ}[2]{
+\begin{align*}
+#1
+\tag{#2}
+\end{align*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{align*}
+#1
+\end{align*}
+}
+
+\nff{\iffy}{#2}
+\nf{\?}{#1}
+
+\newcommand{\sumXY}[2]{\underset{#1}{\overset{#2}{\sum}}}
+\newcommand{\sumX}[1]{\underset{#1}{\sum}}
+\newcommand{\intXY}[2]{\int_{#1}^{#2}}
+
+\nc{\fluc}{\overline{\delta_s^2}}
+
+\rf{\exp}{e^{#1}}
+
+\nc{\grad}{\operatorfont{grad}}
+\rc{\div}{\operatorfont{div}}
+
+\nf{\pddt}{\frac{\partial{#1}}{\partial t}}
+\nf{\ddt}{\frac{d{#1}}{dt}}
+
+\nf{\inv}{\frac{1}{#1}}
+\nf{\Nth}{{#1}^\text{th}}
+\nff{\pddX}{\frac{\partial{#1}}{\partial{#2}}}
+\nf{\rot}{\operatorfont{rot}{#1}}
+
+\nc{\lap}{\Delta}
+\nc{\e}{\varepsilon}
+\nc{\R}{\mathfrak{r}}
+
+\nc{\Y}{\psi}
+\nc{\y}{\varphi}
+
+\nf{\from}{From: #1}
+\rf{\rcpt}{To: #1}
+\rf{\date}{Date: #1}
+\nf{\letter}{\section{Letter #1}}
+\nf{\location}{}
+
+\title{Pauli correspondence 1926-1927}
+
+\begin{document}
+
+\letter{152}
+\from{Ehrenfest}
+\date{January 24, 1927}
+Dear, fearsome Pauli!
+
+Many thanks for your two postcards. You see, the circumstance
+that for example in the Helium atom the two electrons may have the same \WTF{translatiom quanta}{Translationsquanten}, in the case that they onlybhave different spin, I've not really \WTF{looked over}{übersehen} this circumstance. But I reassured my conscience with the following \WTF{deliberately self-deluding lullaby}{bewußt selbstbetrügerischen Schlummerliedchen}: because of the magnetic attraction force the electrons with the SAME spin are mutually penetrable, since then the electrostatic repulsion is overwhelmed by the strongly-increasing magnetic attraction, as soon as the electrons come close together. With "opposing" spins on the other hand the magnetic repulsion adds to the electrostatic repulsion.
+
+Now, Pauli, you understand that don't want to print such a swindle (\WTF{even I!}), if I can somehow avoid it. 
+
+
+\letter{153}
+\from{Heisenberg}
+\date{February 5, 1927}
+\location{Copenhagen}
+
+Dear Pauli!
+
+Your letter has brought me very much joy; I am in complete agreement with your opinions and there is also a unity between us about the relativistic questions that I haven't \WTF{put out}{herausgebracht} up to now. There is in particular one question, about which you perhaps nonetheless already know something: what is perturbation theory of the relativistic Schr\"odinger equation? What corresponds to the expansion in eigenfunctions in the relativistic case? The mathematicians must know something about it, since the problem is certainly already treated somewhere. Perhaps I'll ask Courant sometime!?
+
+Darwin is said to be writing or have written a note in Nature about the representation of spin with polarized de Broglie waves. I must say that I no longer believe in it at all. First: if one has light quanta, each with two \WTF{orientations}{Einstellungen} (thus light quanta with "spin"), in order to somehow symbolize the polarization of the light waves and then select out the symmetrical solutions, then one no longer gets, as far as I can see, Planck's formula (with the correct factor of 2), but rather something totally different. Further: I also believe that for the spin a new degree of freedom, and in the differential equations a new variable, are essential. One could argue for this like so: I am convinced that the "structure of the electron" is not a question that can be solved trough the solution of nonlinear DiffEqs. If one makes this into a \textit{postulate}, it follows immediately (so it seems to me) that we always have to do it with DiffEqs in \textit{phase space} ($3N$ dimensions, or $4N$ in the relativistic case), as is indeed evidenton other grounds as well. But even for the individual electron 4 dimensions are too few. Otherwise the value of the "spin" must be somehow linked to the value of the electron etc by DiffEqs, which I don't believe for the aforementioned reasons. Such arguments are probably not compelling, but \WTF{for my purposes}{für meinen Hausgebrauch} it completely suffices - so much so that I have wagered with Dirac that spins aa well as the structure of the nucleus will be understood in three years at the earliest; while Dirac asserts that in three months (reckoned from the start of Decemeber) Spin will be understood. I think similarly about the different statistics. I hold Ehrenfest's work to be a total failure. Against this paper I must apply the well-known critique: \WTF{first I myself have done it myself}{Erstens hab' ich's selber gemacht} and second it is false. If the electrons were point particles, such arguments would \textit{perhaps} make sense; but even then it \WTF{comes down to the repulsion law}{kommt ... auf das Abstoßungsgesetz an}, whether the Schr\"odinger equation has singularities at the points $x_1=x_2,y_1=y_2$, etc or not; for antisymmetric functions they certainly have a zero there, since they don't need to be free of singularities. If however one takes the spin into consideration, everything is completely different. "With anti-parallel spin electrons repel eachother, with parallel they attract." \WTF{That of course beats everything}{Da hört sich denn doch alles auf}. Counterproof:
+
+TODO-IMAGE:
+(+-)(+-) attract ; $(\pm)(\pm)$ repel
+(+-)(-+) repel; $(\pm)(\mp)$ attract
+
+The singularities of the Schr\"odinger function for the spin case are not to be overlooked and are certainly involved with the question of the structure of the nucleus. But I find it impossible to draw from that conclusions for the antiparallel solutions\footnote{In my first work on resonance I have examined this whole complex of questions really very closely and had clarified the serious difficulties.}. Also, Ehrenfest's amd Uhlenbeck's last note in Zeitschrift f\"ur Physik 41, 1st issue is totally incomprehensible to me. We've known that for a long time, it is also in Dirac's and my papers (e.g. Dusseldorf lecture), additionally it is totally trivial that the classical statistics apply when \textit{all} solutions are taken. That all quantum-mechanical papers are once again published \`a la Wave Mechanics is nonetheless rather annoying.
+
+For my private enjoyment I am occupying myself with the logical foundations of the whole $pq-qp$ swindle (nonrelativistically) and \?{will also similarly clarify several relationships}. I found Jordan's essay in Naturwissenschaften quite nice - in places nit very exact. What does, for example, "the probability that the electron is at a given \textit{[bestimmten]} point" mean, if the concept "position of the electron" is not properly defined. But I otherwise have found great pleasure in readimg something rather non-mathematical. However, I could not understand Jordan's big paper in the ZS. The "postulates" are so intangible and undefined, \?{I cannot make heads or tails of it}. Bjt that's enough for now, and many greetings to all physicists! With youthful \WTF{contempt}{Wurschtigkeit} to all \WTF{continuous? Continuum?}{kontinuierlichen} swindles!
+
+\letter{154}
+\from{Heisenberg}
+\date{February 23, 1927}
+\location{Copenhagen}
+
+Dear Pauli!
+
+Many thanks for the letter and card. I am very much in agreememt with your program regarding electrodynamics; but not totally with the analogy: Quantum-Wave-Mechanics: Classical Mechanics = Quantum-electrodynamics: classical Maxwell theory. That one should quantize the Maxwell equations, in order to arrive at light quanta etc ala Dirac, however I believe already that one should perhaps also later quantize the de Broglie waves, in order to get the charge and mass and statistics (!!) of electrons and nuclei.
+
+But I haven't given much thought to this question. Now I would like to write you on a part of the reflections that I have made on the \textit{anschaulich} meaning of the \?almost-mathematically-complete} (non-relativistic) Dirac-Jordan quantum mechanics, and thereby hope to also make it clear to myself. Thus I begin:
+
+1. What is understood by "position of the electron"? This question is to be replaced by another following the well-known pattern: "How does one \textit{determine} the position of the electron?". One takes a microscope with sufficiently-good \WTF{resolving power}{Auflösungsvermögen} and views the electron with it. The precision depends on the wavelength of the light. With sufficiently short-waved light the position of the electron can, at a certain time (\?{eventually its variable}), be fixed \textit{arbitrarily}-precisely; the same can be achieved by colliding very fast particles with the electron. It also has \textit{this} meaning when we describe the electron as a corpuscule. According to experience, we completely perturb the electron in its mechanical behavior by the Compton effect resp. collision in such an observation of its position. The momentum $p$ is, at the instant where the position is "$q$", totally undefined: $pq-qp=\frac{h}{2\pi i}$.
+
+2. What is understood by the "\WTF{path}{Bahn}" of an electron? By path one understands a sequence of space points, which fix the position of the electron at different times. "The planet $X$ moves in the path $B$ around the sun" means: by observations, which have a negligible influence on the motion of the planet, it is possible to fix the planet to those different positions at different times.
+
+3. It is also meaningless to speak about the $1S$-"\WTF{orbit}{Bahn}". Since we claim to want to determine the position of the electron essentially \textit{more precisely} than $10^{-8}cm$, \?{the atom} will already be disturbed by an \textit{individual} observation. The word "$1S$-orbit" is thus already pure nonsense, without knowledge of the theory. By contrast, this position-determination can be releated on many $1S$ hydrogen atoms; thus it must give an exactly-\WTF{determinable}{feststellbare} probability function for the position an electron (this is the well-known $\Y_{1S}(q)\Y^*_{1S}(q)$), if the energy $1S$ is given beforehand. \iffy{Isn't the PF what gets averaged?}{The probability function corresponds to the mean value of the classical "orbit" over all \textit{phases}}. One can, as Jordan does, say that the laws of nature are statistical. But one can, and this seems to be to be essentially deeper, say with Dirac that all statistics only enter in through our experiments. That we don't know where the electron will be at the instant of our experiment comes only from the fact that we don't know the phases beforehand if we know the energy:
+\uequ{
+Jw-wJ = \frac{h}{2\pi i}!
+}
+and in the classical theory it would not be different in \textit{this} point. That we are \textit{not able} to discover the phases, without again disturbing the atom, is characteristic of QM.
+
+4. Entirely analogous considerations can be applied to the velocity of the electron. For the definition of the phrase "velocity of the electron", let the following experiment apply: at a certain time $t$ one makes all the forces on the electron immediately zero, then the electron will continue moving in a "straight line"; then one determines the velocity perhaps via the Doppler effect of the reddest-possible light. The precision will be greater, the redder the light, then however the  electron must run correspondingly \textit{long} without additional forces. After that, one switches the forces on again. The precision depends on the length of the path which the electton travelled without forces:
+\uequ{
+pq-qp=\frac{h}{2\pi i}.
+}
+
+Here one can again draw the same conclusions as above about the impossibility of a function $p(t)$ for the $1S$-orbit of an atom.
+
+5. Such considerations can be repeated for canonical coordinates of various types. One will always find that all conceivable experiments have this property: if a variable $p$ is messurable to a precision which is characterized by the mean error $p_1$, then the canonically-conjugate coordinate $q$ can be simultaneously specified only with a precision which is characterized by the mean error $q_1 \approx \frac{h}{2\pi p_1}$. Mathematically this can also be interpreted, according to Dirac-Jordan as: let $(q,\eta)$ be a probability amplitude for $q$ for a certain parameter $\eta$ of the type that $(q,\eta)$ differs significantly from zero only in the region $q_0-q_1 < q < q_0+q_1$, then
+\uequ{
+TODO
+}
+only differs significantly from zero, as one sees from this equation, when the order of magnitude of $\frac{(p-p_0)q_1}{k}$ is not greater than $1$. i.e. if $p_1=\frac{k}{q_1}$, then $(p,\eta)$ will differ significantly from zero only between $p_0-p_1 < p < p_0 + p_1$. In other words: \?{we can,
+instead of demanding $q$ as a diagonal matrix, to also \WTF{put forward}{vorgeben} any other form of $q$: $q(\eta',\eta'')$ with respect to a probability amplitude $(q,\eta)$}. I have not carried this mathematical possibility forward any further; it seems to me however that it doesn't supply anything new beyond Dirac. If e.g. $q$ is fixed as a matrix $q(\eta',\eta'')$, then the linear integral equation
+\uequ{
+q\{q,\eta''\} = \int\{q,\eta'\}\times q(\eta', \eta'') d\eta
+}
+supplies the transformation function $(q,\eta)$ and everything else. Thus we leave again the mathematics and get into the physics. According to the previous, one can say: the commutation relations are for QM what the relativity of simultanaety is to the theory of relativity. If there was ever an experiment that allowed the $p$ and $q$ to be determined simultaneously and \textit{exactly}, then QM would necessarily be false. One cannot assign to the quantum-mechanical variables or matrices a definite number, but a \textit{number} with a given \textit{uncertainty}. For these \textit{numbers}, the (\textit{classical}) Hamiltonian equations apply \textit{within the given precision}. (This is easy to prove.)
+
+6. The transition from micro- to macro-mechanics
+
+The following reflections are actually the most important of all to me: first I would like to say how this transition (from micro- to macro-mechanics) does \textit{not} go. Schr\"odinger assumes that it is possible to add eigenfunctions of the atom so that the resulting wavepacket remains together for arbitrary times and supplies the periodic motion of the electron. Now one can however easily see: such wavepackets must, like the electron in the classical orbit, give rise to radiation \?{in Fourier series} (frequency many whole-number multiples of a base frequency). But eigenfunctions \textit{never} do that -- except in the special case of the oscillator. It does, however, \textit{approximately}, but that only means that the wavepacket only \WTF{disperses}{zerläuft} after a sufficiently \textit{long} time. (Even the phase relations, as you know, are different than the classical case.) This shows that Schr\"odinger's proposal \WTF{doesn't work}{nicht geht}, and that it seems totally hopeless to arrive at an "orbit". This difficulty has indeed been long-recognized, and has been attempted from time to time to \WTF{explain}{hinauszureden} the \WTF{beam width}{Strahlungsbreite}; entirely without reason, \?{first since this \WTF{explanation}{Ausred} fails like in the $H$-atom}, and second since the transition to the classical theory must be imaginable even without radiation.
+
+The solution can now, I believe, be pregnantly expressed through the sentence: \textit{The orbit only comes into being by our observing it}\footnote{Scattered light and collisions are always equivalent, I have always thought of scattered light; but since I specifically don't want to include radiation forces, collisions would probably be more consistent}. By this I mean: in high quantum "states" we are able to illuminate the electron with light of sufficiently long wavelength, so that the precision of the determination of the position of the electron is sharp with respect to the dimensions of the orbit, but the electron is still \textit{relatively} little-disturbed by compton scattering. (\?{True it will kick it from the ~1,000,000 into the ~1,001,000 "quantum orbit", but it still doesn't toss it)out of the atom}. If we has made such an observation at time $t_0$, then we will construct a solution to the quantum mechanical equations which provide the position $q_0$ for the electron with the appropriate uncertainty; e.g. a wave packet \`a la Schr\"odinger. \?{Corresponding to the \textit{uncertainty} of this determination of the position, the location of the electron after some time is to be determined only statistically}. The wavepacket has (as even the \WTF{orbit systems} in the \textit{classical} phase space would do!!) spread (excluding special cases, like force-free motion). By a new observation the position is newly determined. 
+
+From the multitude of the possibilities given by the widened wavepacket, a specific solution will again be selected put by experiment, which one may again -- \iffy{corresponding to the appropriate uncertainty} -- replace by a suitable wavepacket, which spreads out again, and so on. At first one would like to object that it would be meaningless \?{if one creates by the observation itself so to say an orbit by constant reduction of the wavepacket}; it should however come out the same, up to the mechanical influence of the collision, for the position around the time $t_2$, whether I had made an observation at the time $t_1$ or not. That this objection is not legitimate lies just in the \textit{linearity} of the transformation- or wave-equations, and this seems to me to be the deepest basis \textit{for} any linearity (which I would not give it up for any price in relativiatic QM). If namely we there is no observation at time $t_1$, then I don't know where the electron was at time $t_1$; thus with respect to the behavior at time $t_2$ I must reckon with \textit{all} possibilities at the time $t_1$; i.e. add all solutions which correspond to the possibilities at the time $t_1$, and thereby arrive back at a larger wavepacket. The sum of solutions is just a solution again! From the profusion of the possibilities given by the spread-out wavepacket the experiment will again select out a definite solution as given, which one again may replace by a suitable wavepacketb- corresponding to the appropriate imprecision, this spreads out again, and so forth. At first one might object that it is meaningless \?{to say that one creates the observation itself so to say only one orbit,} through continuous reduction of the wavepacket; nevertheless, up to the mechanical influence of collisions, it should come out the same for the position at time $t_2$ whether I had observed at time $t_1$ or not. That this objection is not legitimate lies just in the \textit{linearity} of the transformation oe the wave functions, and this seems to me to be the deepest grounds \textit{for} any linearity (why I won't give it up for any prixe even for relativistic QM). Namely, if there is no observation at time $t_1$, I don't know where the electron was at time $t_1$; thus with respect to the behavior at time $t_2$ I must reckon with \textit{all} possibilities at the time $t_1$; i.e. all solutions which correspond to possibilities at time $t_1$, added up, and \?{returning with that to a greater wavepacket}. The sum of solutions is just again a solution!! The above objection raised against Schr\"odinger because of the periodicity of the orbit is thus to be answered with: the radiation pressure of the light, with which I observe (or the collisions of the particles) \textit{corrects} the periodicity-character to that of an "orbit". The orbits are, corresponding to the imprecision in the initial conditions, only approximate, i.e. statistically determined. Because of this uncertainty, \?{they} are is also classical, but the statistics are different.
+
+It may at first be disconcerting that all experimental data should be interpreted so that from all solutions of the matrix elements, such solutions are selected out which correspond to the definite "state", and that the \textit{essential} imprecision in these initial conditions limits our experience to a statistical character. Thus I would like to give some examples to show what I mean.
+
+7. Let there be atoms in state 2, which can transition to the normal state 1 via radiation. The solution of the wave equation can, following Dirac-Born, be written in the form
+\uequ{
+\Y(q,t) = \exp{-\frac{bt}{2}}\Y(q,E_2)\exp{-\frac{1}{ik}E_2 t}
+          + \sqrt{1-\exp{-bt}}\Y(q,E_1)\exp{-\frac{1}{ik}E_t},
+}
+
+if I know at the time $t=0$ that the atom is in state 2. In order to determine the energy, a Stern-Gerlach experiment (with e.g. gravitation) is carried out. In order to see the energy with a given precision, one must let the atom run through \?{a certain portion of the path}; we say: one separates the whole path in pieces of length $l$cm and determines the deflection in each. One can write this as: if one breaks the time up into pieces of length $T$, then the precision of the energy-determination is constrained by $T$. Then one forms, following Dirac, the transformed wavefunctions $\Y(q,E)$:
+\uequ{
+\Y(q,E)^{t=T}_{t=0} &= \intXY{0}{T}\Y(q,t)\exp{\frac{tE}{ik}}dt;\\
+\Y(q,E)^{t=2T}_{t=T} &= \intXY{T}{2T}\Y(q,t)\exp{\frac{tE}{ik}}dt;\\
+\Y(q,E)^{t=3T}_{t=2T} &= \text{etc.}
+}
+
+The $\Y(q,E)$ directly give the probability of a certain energy $E$. e.g.
+\uequ{
+\Y(q,E)^T_0 = \Y(q,E_2)\intXY{0}{T}\exp{-bt+\frac{E-E_2}{ik}t}dt
+            + \Y(q,E_1)\intXY{0}{T}(1-\exp{-bt})\exp{\frac{E-E_1}{ik}t}dt.
+}
+
+The \textit{moment of transition} is determinable in thus manner up to quantities of order
+$T$ and $T$ can be \WTF{squeezed down}{herabgedrückt} to values of the order $\frac{k}{E_1-E_2}$:
+\uequ{
+(Et-tE = ik).
+}
+
+The wave equation and its solution should however be interpreted as follows: if in the time interval $10T$ to $11T$ the atom is \textit{measured} to be in state 2, \?{then all following} should be described by \textit{those} solutions which for $t=11T$ are composed of $\Y(q,E_2)$ alone (as earlier for $t=0$). \textit{If I measure} that in the interval $50T$ through $51T$ the atom is in the state 1, then in the description \?{of all following} \textit{those} solutions are used, which for $t=51T$ are composed of $\Y(q,E_1)$ alone. The latter solution then says \textit{more} than the old one, namely, that the atom has no further transitions. That this interpretation of the wave equation is possible comes from the fact that the sum of solutions is again a solution.
+
+8. From all this it emerges that even e.g. the moments of transition have a meaningful place in QM and are not better- or worse-determined than the energies of "stationary" states. The true quantum-mechanical equations, which determine everything, are just the matrix relations. For these relations it is irrelevant\?{which "principle axis" direction one puts the coordinates}; i.e. what one writes as a diagonal matrix or as an \WTF{otherwise specified}{irgendwie gegebene} matrix. The singling out of a certain numerical value of such a coordinate however necessarily means that only one part of the whole quantum mechanical mechanism \?{is known, which allows only \textit{inaccurate} conclusions about the other parts}.
+
+The "energy" or the "stationary states" hereafter forfeit their preferential position which they had held for so long ahead of the quantities "electron position" etc: one can easily construct an example whereby e.g. from the atoms only the \textit{phases}, i.e. the values of the $w$ are exactly \textit{known}, while then the energy and the $J$ are essentially \textit{indeterminate}. This is resonance-fluorescence!! All atoms vibrate in phase; the question as to which stationary states the atoms radiate fluorescent light is obviously meaningless, and this old question from Bohr-Kramers would not be in principle unanswerable if QM were false, since then $Jw-wJ=ik$ would be impossible. Now it is clear what Bohr's famous thought experiment means, about which we spoke in Dusseldorf. In fluorescence the phases are determined, the energies undetermined; if the magnetic field changes the mechanical system so that the energy becomes determinate, then the phases will become indeterminate; $Jw-wJ=ik$. Our solution in Dusseldorf was thus correct.
+
+So, this example cwn be continued ad infinitum. If one believes, as I do, that physical laws are \textit{anschaulich}-ly understood, \?{if one can in any case say what comes put from this helps such considerations as above a bit}; it has in any case eased my conscience. But I see very well that one can coukd at first say that it is \WTF{nothing new}{old snow?}; second, that it is vague speculation without real basis, and finally that it is really still quite unclear in many points; I know this very well, but in order to make it clearer, I must write you about it. Now I hope for your unrelenting criticism. Many greetings to the whole institute, especially to you yourself.
+
+W Heisenberg.
+
+\letter{155}
+\from{Heisenberg}
+\date{March 2, 1927}
+\location{Copenhagen}
+
+Dear Pauli!
+
+As an appendix to my 14-page letter (which you have nonetheless received?) I would like to answer another of your questions
+
+
+1. Bohr is at the moment relaxing on Norway, I've still not spoken to him about your work. I myself found your paper very beautiful, although I no longer believe in Fermi-Dirac statistics for actual gasses. For electrons it is certainly correct. 2. Many thanks for your reprints! 3. If you know more about the Volterra mathematics, you must write me. 4. I have answers Ehrenfest on your behalf with a quote from the politician Radowitz: "\WTF{Denials}{Dementi's} never have the charm and effect of the false reports". 5. Darwin's work on the spinning electron (Nature) "I don't know (since I couldn't understand it), but I disapprove of it." 6. I could not understand your argument via the half-integral nature of the spinning electron and the \WTF{eventual}{evtl.} half-integral nature of the hydrogen atom. In the matrix notation it is however clear that half-integral \textit{hydrogen} would lead to misfortune, with spinning electrons however it would \textit{not}. 7. Here Fues is calculating gold collisions, \WTF{decay}{Abklingung} of de Broglie waves, line breadths, etc with pleasing results.
+
+So, write again soon! Many greetings!
+
+W. Heisenberg
+
+\letter{156}
+\from{Heisenberg}
+\date{March 9, 1927}
+\location{Copenhagen}
+
+Dear Pauli!
+
+Many thanks for your letter with the indulgent criticism. Since I had written the letter to you, my conscience has been put at such ease that I even attempted to write up thd whole story in some detail; in particular your letter has inspired me to further acts, so that I have now finished a provisional manuscript that I send to you with the request that you send it back here\footnote{Registered, since I don't have a copy} in a couple of days. It is basically the same inside, as in the letter.
+You questions regarding the Stern-Gerlach experiment, as regards Bohr's experiment, have hopefully been treated so to be understandable. The Bohr experiment, as far as one can disregard the theory of spontaneous radiation, has been treated quantitatively - \?{as you will indeed see}. If what I've done there is dumb, then you will say so! I'm not \WTF{in total agreement}{einig} with the "main point" of your criticism. I don't believe at all that one can \?{somehow make the quantitative laws plausible} from the equation $p_1 q_1 \approx \frac{h}{2\pi i}$. But in QM that is no different than anything else. e.g. the principle of the constancy of the speed of light in the relativity theory is also not justified. Why should the speed of light not depend on the masses \?{at infinity}? The assumption of \textit{constant} velocity is only the simplest, one one assumes Einstein's definition of simultinaeity. So I also believe: once one knows that $p$ and $q$ are not simple numbers, but rather that $p_1 q_1 \approx \frac{h}{2\pi i}$, then the assumption that $p$ and $q$ are matrices is just the simplest imaginable. Naturally, I can see that this formulation can seem unsatisfactory, but is it not the same arbitrariness that we meet with in all physical theories? I've written about this in the conclusion. This conclusion is however mainly still very dubious, and I can imagine totally changing it ten times, or leaving it entirely alone. The last sentence was obviously written in a sudden rage about some recently-released papers; but that can probably \WTF{???}{so stehenbleiben}.
+
+Your critique of my zoological paper is probably not quite \WTF{as badly-justified as you say}{so schlimm berechtigt, wie Sie tun}. The confusion has in part come from the fact that I entirely changed and adjusted the paper just before the door closed. But as regards you criticism, there was naturally some truth in it. \WTF{At least, that will be OK anyway}{Immerhin, richtig wird's schon sein}, and if you therefore write a note about magnetism, that is only good. I found your calculations about spin quite nice and am in favor of you publishing them. I sent them on to Jordan yesterday. I found Darwin's note to be ever more abominable.
+
+Bohr is still in Norway, things are going rather better for him. Unfortunate I have no holidays right now, so I can't go as well; but at Easter I'll perhaps travel to Germany for two weeks. -- \WTF{How was the presentation on QM?}{Wie war's eigentlich mit den Referaten über QM.} -- But write me again soon. Many greetings to the whole institute!
+
+W. Heisenberg
+
+\letter{157}
+\rcpt{Jordan}
+\date{March 12, 1927}
+\location{Hamburg}
+
+Dear Jordan!
+
+Many thanks for your card. I have meanwhile expanded my calculations over the magnetic electron in the following two points. First I looked for the most general linear substitution
+\uequ{
+\sigma_x(\Y_\alpha) = C^{(x)}_{11}\Y_\alpha + C^{(x)}_{12}\Y_\beta\\
+\text{etc for $y,z$}\\
+\sigma_x(\Y_\beta) = C^{(x)}_{21}\Y_\alpha + C^{(x)}_{22}\Y_\beta
+}
+with Hermitian matrices $C$ and $\sigma_x^2 + \sigma_y^2 + \sigma_z^2$ a diagonal matrix,\?{which, inserted as operators for $\sigma_x,\sigma_y,\sigma_z$} which fulfill the relations $\sigma_x \sigma_y - \sigma_y \sigma_x = 2 i \sigma_z$. These most general $C^{(x)}, C^{(y)}, C^{(z)}$ which could be physically found, apparently emerge from my special $\sigma^0$ by the substitution $\sigma=S\sigma^0 S^{-1}$, $S$ being orthogonal. Second I establish that my equations of motion could be derived from a variational principle. In this,
+\uequ{
+\Y_\alpha \overline{\Y}_\alpha &- \Y_\beta \overline{\Y}_\beta \\
+\Y_\beta \overline{\Y}_\alpha &+ \Y_\alpha \overline{\Y}_\beta \\
+i(\Y_\beta \overline{\Y}_\alpha &- \Y_\alpha \overline{\Y}_\beta)
+}
+(overline = complex conjugare value) function formally as volume densities of the $x$-, $y$- and $z$-components of the spin. Now your remark that, in addition to the mentioned relations we also have
+\nequ{
+\sigma_x \sigma_y = -\sigma_y \sigma_x = i\sigma_z, \dots \text{etc}\\
+\sigma_x^2 = \sigma_y^2 = \sigma_z^2 = 1,
+}{I}
+is very welcome. Namely I see that these relations exactly state that there are only \textit{two} \WTF{possible values}{Lagen} of the spin in the field. If in the Larmor precession about the $z$-axia in the \textit{classical} theory one multiplies \?{by} $\sigma_x$, $\sigma_y$ (or $\sigma_x^2$) then there occurs a term with $\exp{2iot}$ ($o$=precession frequency). This corresponds to transitions in the momentum quantum number $m_s$ by \textit{two} units. But if $m_s$ only has the values $\pm \frac{1}{2}$, then there is no $\Delta m_s = \pm 2$ and hence your \textit{expanded} equations (I) apply as matrix or operator equations. Conversely, I suspect that it can be deduced from (I) that  $m_s$ can only be $\pm \frac{1}{2}$ (while it is well-known that the usual equations $[\sigma\sigma]=2i\sigma$ can be satisfied with arbitrary integer or half-integer values of $S$).
+
+The problem of relativistic generalization (higher approximations) is perhaps now already solvable. One shouls replace $\sigma_x,\sigma_y,\sigma_z$ by the six-vector $\sigma_{ik}$ and then somehow re-interpret the equations $\sigma_ik Pk = 0$ quantum-theoretically (in the case of \textit{resting} electrons the $\sigma_{i4}$ vanish for $i=1,2,3$). I still haven't thought it over further, since I am now zealously occupied with functional mathematics. I want to \WTF{write}{mir...zusammenschreiben} a bit on the classical part sometime soon. I think I have now better understood the essence of Hamilton-Jacobi theory of the Maxwell equations. My primary source is a (French) book by P. L\`evy. Leçons d'analyse fonctionelle, Paris 1922. We will indeed see whether I can bring Quantum Electrodynamics \WTF{to fruition}{zustande bringe}. For now I'm of good cheer!
+
+What would you say about you, Born or Franck meeting up in Gottingen around 4th through 6th or 19th-20th of April? In between (6th through 18th) I am of course taking a trip to the South of Germany for a rest.
+
+Many greetings, from Gordon as well
+
+Your W. Pauli
+
+\letter{165}
+\from{Heisenberg}
+\date{June 3, 1927}
+\location{Copenhagen}
+
+\nc{\J}{\mathfrak{J}}
+\nc{\M}{\mathfrak{M}}
+\nc{\U}{\mathfrak{U}}
+\rc{\L}{\mathcal{L}}
+\rc{\H}{\mathcal{H}}
+\nc{\B}{\mathfrak{B}}
+\nc{\E}{\mathfrak{E}}
+
+Dear Pauli!
+
+Thank god that you're once again writing about physics and forgetting everything else; \?{however I probably still have not understood much of the new work; at the moment I believe that I have only completely understood your and Jordan's preparatory paper}. The case you consider, of a Lagrange function which only depends on $q$ and $\dot{q}$ and in which the $p_0$ and $q_0$ can be independently and arbitrarily chosen, is indeed certainly in order, as you write. However, as you write, it is bot applicable to electrodynamics, since ($\div\mathfrak{U}=$) $\div\mathfrak{E}=0$. This also directly shows your commutation relations, whose factor of 2 is certainly in order. Now I believe that your and Jordan's theory can nevertheless be applied after a few detours, where however the invariant notation gets entirely "\WTF{lost in the weeds}{in die Binsen geht}". Namely, one introduces the Hertzian vector $\J$:
+\uequ{
+\rot\J = \U;
+}
+and furthermore the vector
+\uequ{
+\M=\frac{1}{c}\dot{J}.
+}
+Then we have for $\J$ resp. $\M$ the equations
+\uequ{
+\Delta\J - \frac{1}{c} \ddot{\J} = 0 \text{resp.} 
+\Delta\M - \frac{1}{c} \ddot{\M} = 0.
+}
+This is derived from the variational principle:
+\uequ{
+\L = -\frac{1}{2}\int[(\rot{\M})^2 + (\div\M)^2 - \frac{1}{c^2} \dot{\M}^2]dx\,dy\,dz\,dt.
+}
+
+That I take $\M$ and not $\J$ is due to dimensional considerations. The Hamiltonian function becomes
+\uequ{
+\H = \frac{1}{2}\int dx\,dy\,dz[(\rot\M)^2 + (div\M)^2 + \frac{1}{c^2}\dot{\M}^],
+}
+$\B = \frac{1}{c^2} \dot{\M}$, and the commutation relations are
+\uequ{
+\B^1_k \M^2_k - \M^2_k \B^1_k = \frac{h}{2\pi i}\delta(1 - 2)
+}
+or
+\uequ{
+\dot{\M}^1_k \M^2_k - \M^2_k \dot{\M}^1_k = \frac{h}{2\pi i} c^2 \delta(1-2).
+}
+
+The commutation rules thus apply here -- (Hurrah!! Jordan just telephoned me, and said you are coming to Copenhagen Tuesday, that is one of the many really good ideas that you've had!) -- in your form, for each coordinate. i.e.
+\uequ{
+\B^1 \M^2 - \M^2 \B^1 = 3\frac{h}{2\pi i}\delta(1-2).
+}
+
+From there one also easily arrives back at your relation between $\E$ and $\U$:
+\uequ{
+\U^1 \E^2 - \E^2 \U^1 = 2\frac{h}{2\pi i}\delta(1-2).
+}
+
+The \WTF{move}{Schluß} from $\M$ to $\J$ will probably have no difficulties either. But about the whole method it is natural to say: \WTF{Awful}{schön ist anders}; since all invariance \WTF{has gone to the devil}{ist beim Teufel}. \?{I believe that one should earnestly work with variation problems with boundary consitions, otherwise you'll never get the right answer}.
+
+But now we could discuss this all on Tuesday, I am wildly excited about your visit. Many heartfelt greetings
+
+Your W. Heisenberg
+
+
+\end{document}

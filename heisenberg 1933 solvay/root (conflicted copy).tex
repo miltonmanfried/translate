@@ -1,0 +1,338 @@
+\documentclass{article}
+
+\renewcommand*\rmdefault{ppl}
+
+% Uncomment the following line to allow the usage of graphics (.png, .jpg)
+%\usepackage[pdftex]{graphicx}
+% Allow the usage of utf8 characters
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\newcommand{\var}[1]{\pmb{#1}}
+\newcommand{\const}[1]{#1}
+\newcommand{\nc}[2]{
+  \newcommand{#1}{#2}
+}
+\newcommand{\rc}[2]{
+  \renewcommand{#1}{#2}
+}
+\newcommand{\comp}[1]{{#1}}
+\newcommand{\element}[1]{\textbf{#1}}
+\newcommand{\isotope}[3]{
+{{}^{#3}_{#2}\element{#1}}
+}
+\newcommand{\vect}[1]{\vec{\var{#1}}}
+\newcommand{\primed}[1]{{#1^{\prime}}}
+
+\nc{\PprimeKl}{\var{\primed{P}}_\comp{Kl}}
+\nc{\PKl}{\var{P}_\comp{Kl}}
+
+\newcommand{\unit}[1]{#1}
+%\newcommand{\ddt}[1]{\frac{d#1}{dt}}
+\newcommand{\ddt}[1]{\dot{#1}}
+\nc{\opddt}{\frac{d}{dt}}
+
+\nc{\pk}{{\var{p}_\comp{k}}}
+\nc{\qk}{{\var{q}_\comp{k}}}
+\nc{\mk}{{\var{m}_\comp{k}}}
+\nc{\Bk}{{\var{\beta}_\comp{k}}}
+\nc{\ms}{{\var{m}_\comp{s}}}
+\nc{\Bs}{{\var{\beta}_\comp{s}}}
+\nc{\XJ}{\var{\mathfrak{J}}}
+\nc{\rkl}{\var{r}_{\comp{kl}}}
+\nc{\rKl}{\var{r}_{\comp{Kl}}}
+
+\nc{\vrk}{\vect{r}_{\comp{k}}}
+\nc{\vrl}{\vect{r}_{\comp{l}}}
+\nc{\rhok}{\var{\rho}_{\comp{k}}}
+\nc{\spink}{\var{\sigma}_{\comp{k}}}
+\nc{\vrK}{\vect{r}_{\comp{K}}}
+\nc{\rhoK}{\var{\rho}_{\comp{K}}}
+\nc{\spinK}{\var{\sigma}_{\comp{K}}}
+\nc{\spinl}{\var{\sigma}_{\comp{l}}}
+
+\newcommand{\isoX}[1]{\var{\rho}^\comp{#1}}
+\newcommand{\isoKX}[2]{\var{\rho}_\comp{#1}^\comp{#2}}
+
+\nc{\isox}{\isoX{\xi}}
+\nc{\isoy}{\isoX{\eta}}
+\nc{\isoz}{\isoX{\zeta}}
+
+\nc{\isokx}{\isoKX{k}{\xi}}
+\nc{\isoky}{\isoKX{k}{\eta}}
+\nc{\isolx}{\isoKX{l}{\xi}}
+\nc{\isoly}{\isoKX{l}{\eta}}
+
+\newcommand{\vrX}[1]{\vect{r}_{\comp{#1}}}
+\newcommand{\rhoX}[1]{\var{\rho}_{\comp{#1}}}
+\newcommand{\spinX}[1]{\var{\sigma}_{\comp{#1}}}
+
+\newcommand{\bond}[2]{#1 -- #2}
+\rc{\H}{\element{H}}
+\nc{\Hplus}{\element{H}^{+}}
+\nc{\He}{\element{He}}
+\nc{\HeFourTwo}{\isotope{He}{4}{2}}
+\nc{\HOneOne}{\isotope{H}{1}{1}}
+\nc{\nOneZero}{\isotope{n}{1}{0}}
+\nc{\electron}{\varepsilon^{-}}
+
+\nc{\half}{\frac{1}{2}}
+\newcommand{\halfX}[1]{\frac{#1}{2}}
+
+
+\nc{\cm}{\unit{cm}}
+\nc{\R}{\const{R}}
+\rc{\r}{\var{r}}
+\rc{\c}{\const{c}}
+\nc{\e}{\const{e}}
+\nc{\p}{\var{p}}
+\nc{\rzero}{{\const{r}_0}}
+\nc{\M}{\const{M}}
+\nc{\m}{\const{m}}
+\nc{\C}{\const{C}}
+\nc{\Na}{\const{N_\alpha}}
+
+\newcommand{\ee}[2]{{{#1}\times 10^{#2}}}
+\newcommand{\E}{\var{E}}
+\newcommand{\Etotal}{\pmb{\mathcal{E}}}
+\newcommand{\avg}[1]{\overline{#1}}
+\newcommand{\KEavg}{{\avg{\E}_{kinetic}}}
+\nc{\PEavg}{\avg{\E}_{potential}}
+
+\newcommand{\valKEavg}{
+    \frac{1}{2\M} {\left( \frac{\hbar}{\rzero} \right)}^2
+}
+
+\newcommand{\ser}[2]{\underset{#1}{\sum} #2 }
+
+\newcommand{\valrzero}{\frac{\e^2}{\m\c^2}}
+\newcommand{\iFSC}{\frac{\hbar\c}{\e^2}}
+
+\newcommand{\nequ}[2]{
+\begin{equation*}
+#1
+\tag{#2}
+\end{equation*}
+}
+
+\newcommand{\uequ}[1]{
+\begin{equation*}
+#1
+\end{equation*}
+}
+
+% Start the document
+\begin{document}
+\title{General theoretical considerations on The Structure of Atomic Nuclei}
+\author{Werner Heisenberg}
+\maketitle
+\tableofcontents
+% Create a new 1st level heading
+\section{Review of principles}
+Since the experimental data concerning the structure of atomic nuclei have not thus far provided new physical notions going beyond quantum mechanics, it is necessary to first examine to what extent the wave/quantum mechanics may be utilized in this new domain. Determining as precisely
+ as possible the limits of applicability of the quantum mechanics is one of the first tasks of a theory of nuclei.
+Gamow, Condon and Gurney \footnote{\textsc{G. Gamow}, Der Bau des Atomkerns und die Radioaktivität (Leipzig, 1932)} have shown by there theory of $\alpha$ -disintegration that the heavy constituents of nuclei ($\alpha$ particles and protons) are subject in the interior of nuclei to energetic conditions analogous to those of the atomic electrons outside the nucleus. The disintegration energies of radioactive elements and those which are needed for the disintegration of light nuclei are small with respect to the proper energy of heavy particles (if $\M$ is the mass of a proton, $\c$ the speed pf light, one has $\M\c^2 = \ee{1.5}{-3}$ erg; the disintegration energies are between $\ee{1}{-6}$ and $\ee{1}{-5}$ erg). Correspondingly, the measured nuclear radii are notably larger than the characteristic length of relativistic effe ts for the protons $\frac{\hbar}{\M\c} = \ee{2}{-14}$cm. One may consequently expect that quantum mechanics, in its present form, is applicable to the movement of heavy particles in the atomic nuclei and that the fundamental notions introduced by Bohr in the theory of quanta (stationary states, frequency relations, probability transition) may be extended to these particles, and finally that the developments of the quantum mechanics in the direction of the theory of relativity doesn't play a secondary role. In fact, the discontinuous series of disintegration energies, their connection with the $\gamma$ ray spectrum and the success of the theory of $\alpha$ disintegration (see Gamow's report) showing that the heavy constituents of the nucleus behave well in a manner comforming with quantum mechanics.
+Bohr \footnote{\textsc{N. Bohr}, Atomic stability and conservation laws, Convengo di Fisica Nucleare (Rome, 1932).} has indicated a simple qualitative relation between the size of the nuclei amd the mass defect, as a consequence of the applicability of the quantum mechanics to the movement of heavy particles in the interior of the nucleus. If for example, $\rzero$ represents the nuclear radius of helium, the result of the indeterminacy relation the following expression for the domain $\Delta\p$ of variation if the momentum of a proton in the interior of a helium nucleus:
+
+\nequ{
+\Delta\p \approx \frac{\hbar}{\rzero}
+}{1}
+
+and thefefore for its average kinetic energy
+
+\nequ{
+\KEavg \approx \valKEavg
+}{2}
+
+Since in general the average kinetic energy of a particle is of the same order as the value of the average potential energy and the total energy, one obtains the mass defect of the helium nucleus measured in energy on the order of $4\times\valKEavg$. If one admits after Chadwick's experiments:
+
+\uequ{
+\rzero \approx \valrzero = \ee{2.81}{-13}\cm
+}
+
+($\m$ is the mass of the electron), it results in
+\uequ{
+\text{mass defect} \approx 4\times\frac{1}{2\M}(\m\c)^2\left( \iFSC \right)^2 \approx 0.01\M\c^2
+}
+
+of the same order as the experimental value $0.029\M\c^2$.
+
+These considerations call for two remarks which will be used for the subsequent discussion: in the first place, we have completely ignored the contribution of the mass defect of negative charges which may be contained in the nucleus, and this may not be justified theoretically by the point of view of the quantum mechanics; in the second place, it will stress that the forces assuring the cohesion of the nucleus are certainly of another nature than those of coulomb, which are introduced by the application of the quantum mechanics for exterior electrons. In effect the Coulomb forces would result in the helium nucleus having a mass defect on the order of
+
+\uequ{
+\frac{(2\e)^2}{\rzero} \approx 4\m\c^2 = 0.002\M\c^2,
+}
+
+That is to say only one fifteenth of the experimental mass defect. We deduce that, in the light atoms, the Coulomb forces have only a secondary importance with respect to other unknown nuclear actions, and these cannot be very important in the heavy atoms, since they increase as the square of the charge of the nucleus. We have no theoretical means to study the forces which act between the diverse heavy constituents; however the actual experimental data permit us to achieve some general conclusions on the nature of these forces. We subsequently examine this point in more detail.
+
+When one tries to interpret the fact that certain atomic nuclei disintegrate with the emission of $\beta$ rays, assuming that the negative electrons are just like the $\alpha$ particles and the protons as independent constituents of the nucleus, one is immediately faced with an ensemble of difficulties of principle whose whose solution does not appear possible in the current state of the theory. We know that the quantum mechanics treats the electrons as point particles which act on each other in conformance with the laws of the Maxwell theory. This manner of proceding is only admissible, however, if the distances between the point charges are large with respect to $\valrzero$. In fact, the theory of the inertia of energy suggests that the Coulomb law ceases to be exact at distances from the center of the electron smaller than the order of $\valrzero$, $\m$ being the mass of the electron. This result may also be expressed by saying that the radius of the electron is on the order of $\valrzero$. As the linear dimensions of atomic nuclei are scarcely larger than $\valrzero$, there can be no question of applying the quantum mechanics to the movement of electrons in the interior of nuclei. Thus the circumstances in which the electrons are found are so far removed from the domain of application of the known laws that ao far no conclusion concerning the movements of the light constituents in the atomic nuclei may not be obtained by the Lorentz electron theory, nor by the quantum mechanics, nor by the application of the correspondence principle. It also follows, as a last consequence, that the fact that the electrons figure as nuclear constituents, possesses no definite meaning in spite of the fact mentioned above that many nuclei emit $\beta$ rays.
+To this situation corresponds the experimental fact that, everywhere where the behavior of negative charges in the interior of the nucleus, experience leads to results without analogy to known laws. For example, while quantum mechanics provides the validity of the Bose statistics for the systems consisting of protons and electrons of even total charge and angular momentum, and Fermi statistics when the total charge is odd and when the angular momentum is a multiple of $\frac{1}{2}$, it seems that the statistics and the angular momentum of a nucleus depends in reality on the parity of the \textit{mass} \footnote{C.f. \textsc{S. Goudsmit}, \textit{Phys. Rev.}, v43, 1933, p. 636, and \textsc{E. Fermi} and \textsc{E. Segré}, \textit{Zeits. f. Phys.}, v82, 1933, p. 729.}.
+In addition, while the energy of a particle projected during a disintegration is expected to be entirely defined by the difference in mass of the nucleus before and after the disintegration, it seems that no simple relation is satisfied in the case of primary $\beta$ emission \footnote{C.f. \textsc{Bohr}, \textit{Convengo di Fisica nucleare} (Rome, 1932).}.
+To this difficulty resulting from the immediate experience is also added others, when attempting to develop a theoretical test, with the aid of quantum mechanics, if the behavior of nuclear electrons. It thus appears first of all impossible from the point of view of the Dirac electron theory for an electron to be bound to a proton in a domain on the order of $\valrzero$ (c.f. the Klein paradox). Next, an application of the indeterminacy relations to movement of the electron in the nucleus leads to, by analogy with the equations (1) and (2), that momenta on the order of
+
+\nequ{
+\Delta\p \approx \frac{\hbar}{\rzero} = \frac{\hbar\c}{\e^2}\m\c,
+}{3} 
+
+and an average kinetic energy
+
+\nequ{
+\KEavg \approx \Delta\p \times \c \approx \frac{\hbar\c}{\e^2}\m\c^2 \approx 137 \m\c^2.
+}{4}
+
+If we want to conclude, for the proton, that the mass defect must be the same order of magnitude as the average kinetic energy, we obtain values too large for the mass defect of the resultant mass in the presence of an electron in the nucleus. Besides, Bechert \footnote{I am very thankful to \textsc{M. Bechert} for communicating the following reasoning to me by letter} has shown that even in the Coulomb field it is not legitimate to evaluate the total energy $\Etotal$ from just the kinetic energy. The equation
+
+\nequ{
+\overline{
+  \ser{k}{(\ddt{\pk}\qk + \pk\ddt{\qk})}
+} = \overline{
+  \ser{k}{\opddt{(\pk\qk)}}
+} = 0
+}{5}
+
+results in the case of the Coulomb field
+
+\uequ{
++ \PEavg + 
+\overline{
+  \ser{k}{
+    \frac{\mk\ddt{\qk}^2}{\sqrt{1-\Bk^2}}
+  }
+} = \PEavg + \KEavg + 
+\overline{
+  \ser{s}{
+      (\ms\c^2 - \ms\c^2\sqrt{1-\Bs^2})
+  }
+} = 0
+}
+
+and consequently
+
+\nequ{
+\Etotal = - \overline{\ser{s}{\ms\c^2(1-\sqrt{1-\Bs^2})}}
+}{6}
+
+The mass defect of the electron always remains less than $\m\c^2$ in the case of the Coulomb field. It is naturally impossible to say whether this result is applicable to the theory of nuclei, since as noted above, the actions of the interior of the nucleus certainly don't follow the Coulomb law.
+The assertion that the laws of quantum mechanics may be applied to individual heavy nuclear constituents, excluding electrons, has the restriction that, according to the self-same quantum theory, the protons cannot be the only nuclear constituents, because they repel eachother according to the Coulomb law, and it is by grace of the presence of negative charges that the association of protons in the nucleus is rendered possible.  In any case, a clear separation between the domains which the quantum mechanics are or are not applicable may be obtained by grace of the clearly defined hypotheses concerning the structure of atomic nuclei.
+
+\section{Hypotheses on the structure of nuclei}
+
+If one is looking to represent in better detail the structure of atomic nuclei, one must first of all take account of the essential fact that the masses of these nuclei seem to be mostly integer multiples of a quarter of the atomic mass of helium, and not integer multiples of the mass of the proton. As a result it seems that the atomic nuclei are formed for the most part of $\alpha$ -particles, which is confirmed by the fact that the radioactive nuclei may disintegrate with the emission of $qalpha$ -rays. To the question of identifying the other constituents of the nucleus, experience does not allow us to decisively decide between the diverse possibilities.
+
+\subsection{Gamow's "blob" model}
+
+Gamow admits that the $\alpha$ -particles, which act upon one another with forces that decrease very rapidly as a function of the distance, may also be associated with negative charges (nuclear electrons); apart from these electrons, the free protons may also exist in the nucleus. The actions between $\alpha$ particles are envisaged by Gamow as analogous to the Van der Waals forces between molecules; he thus first of all admits a finite radius for the $\alpha$ particle, with a rapidly-decreasing attractive force replaced, with increasing distance, by the Coulomb repulsion. The atomic nucleus thus appears as a system, which may be compared with a liquid droplet, whose cohesion results from the surface tension. This conception from Gamow makes good account of the experimental fact that the mean density of the nucleus seems to be independent of its dimensions (the nuclear radius increases as the cubic root of the atomic masses). In addition, it predicts, at least qualitatively, the observed dimunition of the mass defect of $\alpha$ -particles when their atomic mass increases and it attributes this to the influence of the Coulomb forces. On the contrary, the hypothesis of nuclear electrons runs into these difficulties: the Coulomb forces for these electrons cannot account for the value of the mass defect via nuclear electrons, the experimental value appearing too large. Also, the above-mentioned experimental results concerning the statistics and the spin of nuclei force us to admit nuclear electrons possessing an integer angular momentum and following the Bose statistics, in contradiction with the usual properties of electrons. Finally, it is difficult to understand why, despite the mutual energetic actions between the electrons and $\alpha$ -particles, the disintegration energies with $\alpha$ emission have well-defined values, whereas the primary $\beta$ rays are clearly continuous.
+Gamow's "blob" model leads to attributes to a nucleus only composed of $\alpha$ -particles an energy of the form
+
+\nequ{
+\Etotal = -\C\Na + \frac{(2\e\Na)^2}{\const{r}},
+}{7}
+
+where $\Na$ represents the number of $\alpha$ particles and $\const{r}$ is the nuclear radius. The first term on the left corresponds to the rapidly-decreasing attractive forces between the $\alpha$ particles, and the second to the Coulomb forces. If one writes:
+
+\uequ{
+\const{r} = \R\sqrt[3]{\Na},
+}
+
+this results in
+
+\nequ{
+\Etotal = -\C\Na + 4\frac{\e^2}{\R}(\Na)^{\frac{5}{3}}.
+}{8}
+
+The mass defect curve represented by equation (8) presents a minimum and predicts that the nuclei containing a large number of alpha particles must disintegrate spontaneously with $\alpha$ emission. For the nuclei containing electrons in addition to $\alpha$ particles, Gamow admits relations analogous to (8), but which cannot be deduced directly from the model. The hypothesis of the stability of a nucleus with respect to $\beta$ disintegration may be determined with the balance of energy in the disintegration processes under consideration, and in using the observed mass defects from Aston, Gamow obtained the known schema of figure 1 ???????? for the mass defect as a function of the number of electrons and of $\alpha$ particles. We will return later to the legitimacy of the hypothesis concerning the stability with respect to $\beta$ disintegration.
+The numerous difficulties coming from the introduction of nuclear electrons makes it necessary that we examine thus the other possible hypotheses for the structure of nuclei.
+
+\subsection{Introduction of neutrons as nuclear constituents}
+
+In the first place, on the new possibilities resulting from the discovery of the neutron by Curie and Joliot \footnote{\textsc{I. Curie} and \textsc{F. Joliot}, \textit{C. R. Acad. Sc.}, vol 194, 1932, p. 273, 876.} and by Chadwick \footnote{\textsc{J. Chadwick}, \textit{Nature}, 1932, p. 312; \textit{Proc. Roy. Soc.}, 17136, 1932, p. 692.}. This discovery is not concerned only with the existence of a particle of mass 1 and charge 0, but also shows the manner that these neutrons may figure as independent constituents of the nucleus alongside the protons and $\alpha$ particles. The experimental laws relating to spin and statistics of nuclei leading to the assumption that the neutron follows the Fermi statistics and possesses a half-integer spin. This leads to the assumption that the spin of the neutron is $\frac{1}{2}$.
+Many schemas for the structure of the nucleus are compatible with this hypothesis and are obtained by introducing as nuclear constituents alongside the $\alpha$ particles and neutrons, the protons and electrons, or only the neutrons ans protons. These schemas have been discussed very completely by Perrin \footnote{\textsc{F. Perrin}, \textit{Soc. Franc. d. Physique}, vol 324, 1932, p. 96; \textit{C. R. Acad. Sc.}, vol 194, 1932, p. 343; vol 194, 1932, p. 2211; vol 195, 1932, p. 236.}, Iwanenko \footnote{\textsc{D. Iwanenko}, \textit{Nature}, vol 129, 1932, p. 312.}, Gapon \footnote{\textsc{E. Gapon}, \textit{Zeits. f. Phys.}, v. 79, 1932, p. 676; v. 81, 1933, p. 419; v. 82, 1933, p. 404; \textit{E. N. G.} and \textsc{D. Iwanenko}, \textit{Naturw.}, v. 20, 1932, p. 792.}, Bartlett \footnote{\textsc{J. Bartlett}, ??????} and Landé \footnote{\textsc{A. Landé} ?????}; it will suffice for this report to show a few selected schema exemplifying their characteristic differences. (We will here employ the symbols $\He$ = $\HeFourTwo$, proton = $\HOneOne$, neutron = $\nOneZero$, electron = $\electron$):
+(????? Table 1 ?????)
+The last column contains a different expression than that contained in the preceding; one there considers as well the $\alpha$ particles which are composed of two neutrons and two protons. The schema of the second column considers the neutrons as elementary, non-dissociable constituents and, to take account of the $\beta$ disintegration the radioactive elements, introduced explicitly, alongside the neutrons, the electrons as nuclear constituents. Athough this conception leads to the interesting point of view on the $\beta$ radioactivity of elements, -- F. Perrin connects for example the $\beta$ of $\isotope{K}{41}{19}$ with the first appearance of a nuclear electron (c.f. Table I) -- it raises the same objections as the schema I from Gamow due to the introduction of nuclear electrons. On the contrary, the third and fourth conceptions interpreting the empirical laws concerning the spin and statistics of nuclei by making an appeal to the simple properties of neutrons, but faces difficulties concerning the $\beta$ activity; in fact, we must admit in the third and fourth conceptions that the neutron may, in favorable circumstances, decompose itself into a proton and an electron. It is true that, even in this hypothesis, it is difficult to give a precise meaning to the assertion that a neutron is composed of an electron and a proton, because it could lead, in the literal interpretation, to inaccurate conclusions concerning the spin and statistics of the neutron; in addition, the neutron experimentally manifests a strong stability much larger than would seem to result from their mass defect with respect to the combination of a proton and a neutron (this neutron mass defect is, after Chadwick, is in the environment of 1 to 3 million electron-volts, while in the disintegration of $\isotope{Be}{9}{4}$ the neutrons are driven from the nucleus with energies ranging from 8 million electron-volts. F. Perrin, in his report for the Leningrad Congress, issued a credible hypothesis for the appearance of a $\beta$ particle in $\beta$ disintegration must be accompanied by the production of a pair of positive and negative electrons along with a $\gamma$ quantum (c.f. Joliot's report), and which, consequently, in favorable energetic conditions, one may have in addition to the decomposition of a neutron into a proton and a negative electron a proton into a neutron and a positive electron. Although this hypothesis remains without a precise theoretical base, it seems possible to reconcile the stability of the neutron and of the proton with the experimental fact of the $\beta$ disintegration of certain elements. If one considers the preceding difficulties as necessary consequences of the impossibility of applying the quantum mechanics to electrons in the nucleus, the schemas 3 and 4 seem to present over 1 and 2 the advantage of making clear the limits of applicability of quantum mechanics. The schemas 3 and 4 bring into evidence the fact that the current theories do not permit one to approach the question of mutual actions between neutrons and protons, thus the problem of $\beta$ activity. On the other hand, if one introduces a law of action determined between neutrons and protons, the question of the structure of the nucleus may be studied completely by the application of the laws of quantum mechanics. Although the conceptions 3-4 are barely better justified by experiment than the first two, it seems useful to develop the consequences of the application of the quantum mechanics.
+\subsection{The laws of mutual action}
+The mutual action between protons and neutrons may, whether it is envisaged as an ordinary force, or, by analogy with the case of molecules, be considered as an exchange action; the first hypothesis corresponds to the idea of an elementary, indissociabld neutron, whereas the second is applied in a natural way with schemas 3 and 4. Varioua other hypotheses are also possible to describe this exchange action. One may first of all admit an analogy as close as possible between the mutual proton-neutron action and that which intervenes between the molecules $\bond{\H}{\Hplus}$. The action in this case that of an exchange action where the negative charge passes from one particle to another without modifying eachothers' spin. On the contrary, one may start from the most important experimental laws concerning the nucleus and see which exchange interactions permit taking account as accurately as possible (?.????). Majorana has shown that one thus leads to a type of action wherein the negative charge and the spin are simultaneously exchanged between the particles. We will further examine the mathematicak expression of this conception.
+Various hypotheses are equally possible as concerns the mutual interaction of neutrons. It seems besides that this action between neutrons in the nucleus are much smaller than between a neutron and a proton, such that one obtains a reasonable approximation to reality by initially ignoring them completely.
+By introducing this hypothesis and assuming also that, in the light nuclei, the Coulomb forces between protons being likewise ignored in the first approximation, one obtains the following results: for a nucleus of a given mass, the condition most favorable to energetic stability is equal numbers of protons and neutrons (thus resukys from the symmetry in this problem with respect to neutrons and protons). For the heavy nuclei, the electric repulsion of the protons displaces the configuration of minimal energy by a smaller number of protons and a greater number of neutrons. The fact that these results are in good accord with the experimental data relative to nuclei provides, inversely, an argument in favor of the hypothesis that the mutual neutron-neutron interaction is much weaker than that of a neutron on a proton.
+The mathematical representation of the exchange action may develop in two different manners.
+\begin{enumerate}
+    \item One may introduce for each nuclear particle five coordinates: three for the position $\vrk$ one for the spin $\spink$, and one variable $\rhok$ which takes the value +1 or -1 following whether the particle is a neutron or a proton;
+    \item Each particle is characterized by four variables: $\vrk$ abd $\spink$, but the coordinates will be designated in a different manner for neutrons and protons (e.g. $\vrK$, $\spinK$ and $\vrk$, $\spink$).
+\end{enumerate}
+
+The Schrödinger function is described thus: in the first case
+
+\uequ{
+\psi(\vrX{1}, \spinX{1}, \rhoX{1}; \vrX{2}, \spinX{2}, \rhoX{2}, ...)
+}
+
+and in the second
+
+\uequ{
+\psi(\vrX{I}, \spinX{I}; \vrX{II}, \spinX{II}; ... \vrX{1}, \spinX{1}; \vrX{2}, \spinX{2}; ... )
+}
+
+The relations between the two schemas are expressed by the equations
+
+\nequ{
+\begin{split}
+\psi(\vrX{1}, \spinX{1}, +1; \vrX{2}, \spinX{2}, +1, ...) &= \psi(\vrX{I}, \spinX{I}; \vrX{II}, \spinX{II}; ...),\\
+\psi(\vrX{1}, \spinX{1}, -1; \vrX{2}, \spinX{2}, +1, ...) &= \psi(\vrX{I}, \spinX{I}; \vrX{1}, \spinX{1}; ...),\\
+\psi(\vrX{1}, \spinX{1}, -1; \vrX{2}, \spinX{2}, -1, ...) &= \psi(\vrX{1}, \spinX{1}; \vrX{2}, \spinX{2}; ...),
+\end{split}
+}{9}
+
+If one introduces the matrices:
+
+\uequ{
+\isox = \begin{vmatrix}
+ 0 & 1\\
+ 1 & 0
+\end{vmatrix};
+\isoy = \begin{vmatrix}
+0 & -i\\
+i & 0
+\end{vmatrix},
+}
+
+the mutual action term in the Hamiltonian function under the hypothesis of a simple exchange of negative charge (figure 2)
+
+??????Figure 2???????
+??????Figurev3????????
+
+and with the first representation becomes:
+\nequ{
+\XJ(\rkl)\frac{1}{2}\left[ \isokx\isolx + \isoky\isoly \right]
+}{10}
+
+or, in the second representation:
+
+\nequ{
+-\XJ(\rKl)\PprimeKl
+}{11}
+
+where $\PprimeKl$ represents the permutation operator of the variables $\vrK$, $\spinK$, with $\vrX{l}$ $\spinX{l}$.
+The exchange action introduced by Majorana which will be discussed later (which is represented schematically in figure 3) leads on the contrary to the Hamiltonian in the terms which are written in the first representation:
+
+\nequ{
+\XJ(\rkl)\frac{1}{4}\left[ \isokx\isolx + \isoky\isoly \right]\left[ 1 + (\spink\spinl) \right],
+}{12}
+
+and in the second representation:
+
+\nequ{
+-\XJ(\rKl)\PKl
+}{13}
+
+where $\PKl$ is the operator corresponding to the permutation of spacial coordinates $\vrK$ and $\vrl$.
+To reduce the number of possible hypotheses for exchange action, Majorana \footnote{\textsc{E. MAJORANA, Zeits. f. Phys., t. 82, ig33, p. i37} appealed to the simplest experimental facts.
+
+\section{Applications}
+\subsection{Mass-defect and stability of nuclei}
+\subsection{Diffusion and disintegration}
+
+% Uncomment the following two lines if you want to have a bibliography
+%\bibliographystyle{alpha}
+%\bibliography{document}
+
+\end{document}

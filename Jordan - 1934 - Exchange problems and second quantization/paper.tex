@@ -1,0 +1,154 @@
+\begin{paper}{1}
+\begin{header}
+\title{Exchange problems and second quantization.}
+\author{Pascual Jordan}
+\location{Rostock}
+\note{Received on August 3rd, 1934.}
+\makeheader
+\end{header}
+
+
+\begin{abstract}
+It is shown that the wave mechanical exchange problems permit a very simplified treatment by using the method of second quantization.
+\end{abstract}
+
+\section{} It is known that the many-body problem of quantum mechanics can be treated by two outwardly very different-seeing but actually mathematically equivalent methods. For the case that concerns us here of a many-body problem with particles subject to the Pauli exclusion principle, on the one hand there is the method of antisymmetric wavefunctions in the multidimensional coordinate space given by Heisenberg and Dirac, on the other hand the method of quantized waves ("second quantization") in the form given by Wigner and the author\footnote{P. Jordan and E. Wigner, ZS. f. Phys. 47, 631, 1928.}.
+
+The "exchange problems", as they in particular appear in many forms in \textit{chemistry}, have up to now only been treated by the first method, initially as is well known (Wigner, Neumann and associated investigations) \?{by appealing to}{unter Heranziehung des} the full apparatus of the representation theory of groups; later (Dirac, Slater, Born) by applying considerations that can be summarized as those parts of representation theory which are left over after cutting away all portions of this theory that are not immediately crucial for this physical purpose. Although the simplification achieved in this manner appears quite striking, there still remains an extensive and complicated mathematical apparatus that is necessary even for the simplified theory, in particular if one wants to give a truly satisfactory mathematical proof and will not be constrained to making intuitive or \?{merely credible}{glaubhaft} statements, whose complete \textit{proof} is then left to the systematic representation theory.
+
+It is now convenient to ask the same thing turns out with the method of second quantization; and even the idea that perhaps a considerable economization of mathematical mathematical could be achieved after some mathematically-nontrivial transition from the coordinate space method to the method of quantized waves is carried out. Closer investigation confirms this idea. In the following it shall be seen that Dirac's famous formula\footnote{P.A.M. Dirac, Proc. Roy. Soc. London (A) 123, 714, 1929. Formula 26 p731.}
+\nequ{1}{
+V=V_1 - \frac{1}{2}\sum\limits_{r<s}V_{rs} \left\{1 + \mathfrak{s}_r\mathfrak{s}_s\right\},
+}
+resp. a formula equivalent with it, which can be derived on the basis of the method of second quantization by a totally primitive arithmetic operation, while with Dirac it only appeared as the result of a quite circuitous examination of permutations and their representations.
+
+\section{} We consider a many-electron problem with $N$ electrons, $N$ interpreted as variable and as a $q$-number. This number $N$ shall be a diagonal matrix, and we initially consider the eigenvalue $1$ of $N$, i.e. the special case of the \textit{one-electron problem}.
+
+Let the energy for one-electron problem be the \textit{diagonal matrix}
+\nequ{2}{
+H^0_{r\varrho t\tau} = \delta_{rt}\delta_{\varrho\tau}W_r^0.
+}
+The energy is to be \textit{independent} of the \textit{spin variables} of the electron, but there should \textit{otherwise be no degeneracy} in the one-electron problem. Each energy value $W_r^0$ then denotes a stationary state of statistical weight 2; the Latin indices run from 1 to $\infty$; the Greek, which correspond to the spin, run from 1 to 2.
+
+If we now consider the \textit{two-electron problem}, then there shall be an interaction energy
+\nequ{3}{
+H_{rr'\varrho\varrho'tt'\tau\tau'}^1 = H_{rr'tt'}^1\delta_{\rho\tau}\delta_{\varrho'\tau'}^1
+}
+between the electrons, which is again \textit{independent} of the spin directions. Then
+\nequ{4}{
+H_{rr'tt'}^1 = H_{r'rt't}.
+}
+
+For the \textit{many-electron problem}, there shall be \textit{no} further energy outside the pairwise interaction between each two electrons. So we could write down the general energy for a many-electron problem with indeterminate $N$ (=$q$-number!) as
+\nequ{5}{
+H &= H_0 + H_1;\\
+H_0 &= \sum\limits_r W_r^0 \left(N_{r_1} + N_{r_2}\right);\\
+H_1 &= \frac{1}{2}\sum\limits_{\substack{rr'tt'\\ \varrho\varrho'}}
+H^1_{rr'tt'}a_{r\varrho}^\dagger a_{r'\varrho'}^\dagger
+a_{t'\varrho'}a_{t\varrho},
+}
+where
+\nequ{6}{
+N_{r\varrho} = a_{r\varrho}^\dagger a_{r\varrho};\quad
+&\sum\limits_{r\varrho}N_{r\varrho} = N;\\
+a_{r\varrho}^\dagger a_{t\tau} + a_{t\tau}a_{r\varrho}^\dagger &= 
+\delta_{rt}\delta_{\varrho\tau};\\
+a_{r\varrho}a_{t\tau} + a_{t\tau}a_{r\varrho} &= 0.
+}
+The matrix $N_{r\varrho}$ has eigenvalues 0 and 1. 
+
+In order to solve the problem formulated this way, because of the degeneracy $H_0$, a \textit{secular problem} must be solved first; after its completion the rest if given by a trivial perturbation calculation. Degeneracy enters into $H_0$ because each summand
+\nequ{7}{
+W_r^0\left(N_{r_1}+N_{r_2}\right)
+}
+possesses a \textit{twofold} eigenvalue $W_r^0$ (in addition to the two \textit{onefold} eigenvalues 0 and $2W_r^0$). Our earlier supposition that $W_r^0 \neq W_t^0$ for $r\neq t$ is \?{sharpened}{verschärften} into the assumption that \textit{outside} those just indicated there are \textit{no} further degeneracies in $H_0$.
+
+After that, we could proceed in the following fashion to determine the "\textit{part $\overline{H}_1$ of $H_1$ that commutes with $H_0$}" which is \textit{decisive} for the secular problem. First we determine the part of $H_1$ that commutes with the individual summands (7). Let it be called $O_r H_1$: it is shown that $O_r H_1$ emerges from $H_1$ by a certain \textit{linear operator} so that we can define a corresponding \textit{operator} $O_r$ (but which, let it be noted, is an operator that acts on \textit{matrices}!). We then form the \textit{product} of all the operators (they \textit{commute})
+\nequ{8}{
+O=\prod\limits_r O_r
+}
+and we obtain $\overline{H}_1$ in the form
+\nequ{9}{
+\overline{H}_1 = OH_1.
+}
+
+To determine $O_r$ we consider rather than the quantities (7) the likewise useful quantities
+\nequ{10}{
+\Omega_r = N_{r_1} + N_{r_2} - 1
+}
+with eigenvalues $-1,0,1$ and the associated orthogonal \?{projection operators}{Einzelgrößen}\footnote{$\Omega_r=(-1)\cdot\omega_r' + 0\cdot\omega_r'' + 1\cdot\omega_r''' = -\omega_r'+ \omega_r'''$ and $\omega_r^{(n)}\omega_r^{(m)}=\delta_{nm}\omega_r^{(n)}$.} 
+\nequ{11}{
+\omega_r' = \frac{\Omega_r(\Omega_r - 1)}{2};\quad
+\omega_r'' = 1-\Omega_r^2;\quad
+\omega_r''' = \frac{\Omega_r(\Omega_r + 1)}{2}.
+}
+With this notation, for each matrix $F$ we have
+\nequ{12}{
+O_r F = \omega_r' F \omega_r' + \omega_r'' F \omega_r'' + \omega_r''' F \omega_r'''.
+}
+
+Since now, if all four numbers $r,r',t',t$ are equal, the operator $O_l$ leaves the quantities $a_{r\varrho}^\dagger,a_{r'\varrho'}^\dagger,a_{t'\varrho'},a_{t\varrho'}$ unchanged, because $O_r^2=O_r$ we can write
+\nequ{13}{
+\overline{H}_1 = \frac{1}{2}\sum\limits_{\substack{rr'tt'\\ \varrho\varrho'}}
+H_{rr'tt'}^1 O_r O_{r'} O_t O_{t'}(a_{r\varrho}^\dagger a_{r'\varrho'}^\dagger a_{t'\varrho'} a_{t\varrho}).
+}
+
+Those summands in which (at least) \textit{one} of the numbers $r,r',t',t$ is different from all the remaining three \textit{vanish}. Then, according to the multiplication rules (6), which give $a_{t1}\Omega_t = (N_{t2} - N_{t1})a_{t1}$, and by (11), (12):
+\uequ{
+4O_t a_{t1} = &\left\{\Omega_t(\Omega_t-1)(N_{t2} - N_{t1})(N_{t2} - N_{t1} - 1)\right.\\
+&+4(1-\Omega_t^2)\left(1-(N_{t2}-N_{t1})^2\right)\\
+&\left.+ \Omega_t(\Omega_t+1)(N_{t2} - N_{t1})(N_{t2} - N_{t1} + 1)
+\right\}a_{t1}\\
+=&0.
+}
+[It is seen that $\Omega_t(N_{t_2}-N_{t_1}=0$ and $(1-\Omega_t^2)\left(1-(N_{t_2}-N_{t_1})^2\right)=0$.]
+
+Then in (13) there only remain those summands associated with the matrix elements
+\uequ{
+H_{kkkk}^1 H_{klkl}^1 H_{kllk}^1 H_{kkll}^1\quad (k\neq l),
+}
+and these simplify further:
+\nequ{14}{
+O_k(a_{k\varrho}^\dagger a_{k\varrho'}^\dagger a_{k\varrho'} a_{k\varrho}) &= a_{k\varrho}^\dagger a_{k\varrho'}^\dagger a_{k\varrho'} a_{k\varrho};\\
+O_k O_l(a_{k\varrho}^\dagger a_{l\varrho'}^\dagger a_{l\varrho'} a_{k\varrho}) &= a_{k\varrho}^\dagger a_{l\varrho'}^\dagger a_{l\varrho'} a_{k\varrho};
+}
+\nequ{15}{
+O_k O_l(a_{k\varrho}^\dagger a_{l\varrho'}^\dagger a_{k\varrho'} a_{l\varrho}) &= a_{k\varrho}^\dagger a_{l\varrho'}^\dagger a_{k\varrho'} a_{l\varrho};\\
+O_k O_l(a_{k\varrho}^\dagger a_{k\varrho'}^\dagger a_{l\varrho'} a_{l\varrho}) &= 0.
+}
+
+(15) is proven by:
+\uequ{
+O_k (a_{k\varrho}^\dagger a_{l\varrho'}^\dagger a_{k\varrho'} a_{l\varrho}) &= -\left[O_k(a_{k\varrho}^\dagger a_{k\varrho'})\right] a_{l\varrho'}^\dagger a_{l\varrho})\\
+O_k (a_{k\varrho}^\dagger a_{k\varrho'}^\dagger a_{l\varrho'} a_{l\varrho}) &= \left[O_k(a_{k\varrho}^\dagger a_{k\varrho'}^\dagger)\right] a_{l\varrho'} a_{l\varrho}).
+}
+Now, trivially for $\varrho=\varrho'$
+\nequ{16}{
+\begin{array}{lr}
+	O_k(a_{k\varrho}^\dagger a_{k\varrho'}) = a_{k\varrho}^\dagger a_{k\varrho'}, & (\varrho = \varrho')\\
+	O_k(a_{k\varrho}^\dagger a_{k\varrho'}^\dagger) = 0, & (\varrho = \varrho').\\
+\end{array}
+}
+For $\varrho\neq\varrho'$, $a_{k\varrho}^\dagger a_{k\varrho'}$ commutes with $\Omega_k$, namely
+\uequ{
+\Omega_k a_{k\varrho}^\dagger a_{k\varrho'} = a_{k\varrho}^\dagger a_{k\varrho'} \Omega_k = 0;
+}
+further
+\uequ{
+\Omega_k a_{k\varrho}^\dagger a_{k\varrho'}^\dagger = -a_{k\varrho}^\dagger a_{k\varrho'}^\dagger \Omega_k = a_{k\varrho}^\dagger a_{k\varrho'}^\dagger,
+}
+so (16) applies even for $\varrho\neq\varrho'$ and hence (15) is proven.
+
+With this, our result is
+\nequ{17}{
+\overline{H}_1 &= \frac{1}{2}\sum\limits_{\substack{kl\\ \varrho\varrho'}}
+H^1_{klkl} a_{k\varrho}^\dagger a_{l\varrho}^\dagger a_{l'\varrho} a_{k\varrho}\\
+&= \frac{1}{2}\sum\limits_{\substack{k\neq l\\ \varrho\varrho'}}
+H^1_{kllk} a_{k\varrho}^\dagger a_{l\varrho'}^\dagger a_{k\varrho'} a_{l\varrho}.
+}
+That means the same a Dirac's result (1). And indeed the part of $\overline{H}_1$ in the first line of (17) corresponds to the term $V_1$ of the Dirac formula, and the part in the second line of (17) to the term
+\uequ{
+-\frac{1}{2}\sum\limits_{r<s}V_{rs}\{1+\mathfrak{s}_r\mathfrak{s}_s\},
+}
+where the matrix elements $H_{kllk}^1$ denote the exchange energies $V_{rs}$.
+\end{paper}

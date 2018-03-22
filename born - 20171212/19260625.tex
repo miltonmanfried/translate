@@ -1,0 +1,59 @@
+\title{On the quantum mechanics of collision processes}
+\subtitle{Provisional communication\footnote{This communication was originally destined for "Naturwissenschaften", but could not be accepted there due to a lack of space. I hope its publication here will not be superfluous.}
+\publication{Zeitscrift für Physik 37}
+\date{1926/06/25}
+\author{Max Born}
+\location{Goettingen}
+\abstract{By investigating collision processes, an interpretation shall be developed such that quantum mechanics in the Schroedinger form can be used to describe not only to stationary states, but also quantum jumps.}
+
+The quantum mechanics founded by Heisenberg has up to now been applied exclusively to the calculation of stationary states and the vibration amplitudes associated with transitions (I carefully avoid the term "transition probabilities"). There, the meanwhile widely-developed formalism seems to have been borne out. But this question only treats one side of quantum-theoretical problems; besides that there is the just as important question as to the essence of the "transition" itself. In view of this point, the opinion \?{seems to be split}{scheint...geteilt zu sein}; many assume that the problem of transitions will not be understood with quantum mechanics in its present form, but rather that new conceptual pictures will be necessary. I myself arrived at the suspicion, \WTF{through the impression of the closedness} of the logical structure of quantum mechanics, that this theory is complete and the transition problem must be contained in it. I believe that I have now succeeded in proving this.
+
+Bohr has already pointed to the remarkable fact that all the principal difficulties of the quantum hypothesis that we have encountered in the emission and absorption of light by atoms also occur with the interaction of atoms at short distances, and thus in collision processes. Here one has instead to work exclusively with the still very murky wave-fields acting on systems of material particles, which underlay the formalism of quantum mechanics. Hence, I have taken up the problem of more closely investigating the interaction of a free particle (\alpha-ray or electron) and an arbitrary atom and determining whether a description of collision processes isn't possible within the confines of the current theory.
+
+Among its various forms, the Schroedinger form of the theory alone has shown itself suitable for this purpose, and on these grounds I would like to view it as the deepest version of the quantum law. The train of through of my considerations is now the following:
+
+If one wants to quantum-mechanically calculate the interaction between two systems, then it is known that one cannot, as in classical mechanics, pick out a state from one system and determine how this will be influenced by a state from the other system, but rather all states of both systems are coupled in a more complicated way. That applies even in an aperiodic process, like a collision, where one particle — say an electron — comes out from infinity and again vanishes into infinity. But here the hypothesis demands that before as well as after the collision, if the electron is sufficiently far-removed and the coupling is small, a definite state and a definite, straight-line, non-accelerating motion of the electron must be definable. The problem is to mathematically find this asymptotic behavior of the coupled particles. I have not succeeded in doing that with the matrix form of quantum mechanics, \?{though I fared better}{wohl aber} with the Schroedinger formulation.
+
+	According to Schroedinger, the atom in the \textit{n}^\text{th} quantum state is an oscillatory process of a \?{state in the whole space}{einer Zustandsgröße im ganzen Raume} with constant frequency $\frac{1}{h}W^0_n$. An electron moving in a straight line is special in such an oscillatory process, which corresponds to a plane wave. If two come into interaction, a complicated oscillation arises. But it is immediately seen that this can be determined by their asymptotic behavior at infinity. In fact one has nothing but a "\?{diffraction problem}{Beugungsproblem}", in which the plane wave incident on the  atom is diffracted or scattered; in place of the boundary conditions used in optics used for the description of \WTF{der Schirme}, here we have the potential energy of the interaction of the atom and the electron.
+	
+The plan is thus: one should solve the Schroedinger wave equation for the atom-electron combination with the boundary condition that the solution in a definite direction in the electron space goes over asymptotically into a plane wave just in this direction (the outgoing electron).  \?{In the so-identified solution}{Von der so gekennzeichneten Lösung} we are again primarily interested now in the behavior of the "scattered" waves at infinity, since this describes the behavior of the systen after the collision. We expand on this further. Let $\psi^0_1(q_k), \psi^0_2(q_k), \dots$ be the eigenfunctions of the unperturbed atom (we assume it would only have a discrete series); to the unperturbed (straight-line) electron correspond the eigenfunctions $\sin{\frac{2\pi}{\lambda}(\alpha x + \beta y + \gamma z + \delta)}$, which forms a continuous manifold of plane waves whose wavelength (following de Broglie) is connected with the energy of the translatory motion by the relation $\tau = \frac{h^2}{2\mu \lambda^2}$. The eigenfunction of the unperturbed state in which the electron comes from the $+z$ direction is then
+\math{cc 
+\psi^0_{n\tau}(q_k, z) = \psi^0_n (q_k)\sin{\frac{2\pu}{\lambda}z}.
+}
+
+Now let $V(x, y, z; q_k)$ be the potential energy of the interaction of the atom and electron. Then, with the help of a simple perturbation calculation, it can be shown that it gives a uniquely-determined solution of the Schroedinger differential equation by considering the interaction $V$ which asymptotically goes over to the above function for $z \to +\inf$.
+
+It now comes down to how the solution function behaves "after the collision".
+
+Now the calculation yields: the scattered waves arising from the perturbation have the asymptotic form at infinity:
+
+\math{
+\psi^{(1)}_{n\tau}(x,y,z,q_k) = \sum{m}{\int\int_{\alpha x + \beta_y + \gamma z > 0}d\omega \phi_{nm}(\alpha, \beta, \gamma)\sin{k_{n\tau m}(\alpha x \beta y \gamma z + \delta)\psi^0_m(q_k).
+}
+
+That means: the perturbation at infinity can be interpreted as a superposition of the unperturbed process. Now calculating the energy for wavelength $\lambda_{n\tau m}$ via the de Broglie formula given above, it is found that
+
+\math{
+W_{n\tau m} = h\nu^0_{nm} + \tau,
+}
+where $\nu^0_{nm}$ are the frequencies of the unperturbed atom.
+
+If one wants to reinterpret this result in the corpuscular picture, only one interpretation is possible: $\phi_{n\tau m}(\alpha, \beta, \gamma)$ determines the probability\footnote{Note in corrections: Closer considerations show that the probability is proportional to the square of the quantity $\phi_{n\tau m}$.} that the electron coming from the $z$-direction is scattered to the direction determined by $\alpha, \beta, \gamma$ (with a change in phase $\delta$), where its energy $\tau$ `is increased by a quantum $h\nu^0_{nm}$ at the cost of the atom's energy (collision of the first type for $W^0_n < W^0_m, h\nu^0_{nm} < 0$; collision of the second type for $W^0_n > W^0_m, h\nu^0_{m} < 0$ ).
+
+The Schroedinger quantum mechanics thus gives a totally definite answer to the question as to the effect of a collision; but there is no causal connection. There is no answer to the question "what is the state after the collision", but rather only the question "how probable is a given effect of the collision" (where naturally the quantum-mechanical energy law must he maintained).
+
+Here the whole problem of determinism arises. From the standpoint of our quantum mechanics there is no quantity that individually determines the effect of a collision; but even in experiments we have up to now no reason to believe that it gives inner properties of the atom which demand a certain result from the collision. Should we hope to discover such properties (some phases of the internal atomic motions) and determine the particular cases? Or should we believe that the correspondence between theory and experiment in the inability to specify conditions for the \?{causal course}{kausalen Ablauf}, is a pre-established harmony which is based on the non-existence of such conditions? I myself am inclined to give up determinism in the atomic world. But that is a philosophical question which is not important for the physical argument.
+
+In any case, there is in practice indeterminism for experimental as well as theoretical physicists. The \WTF{"Ausbeutefunktion"} $\Phi$ studied frequently by experimentalists is now also theoretically rigorously interpretable. It can be found from the potential energy of the interaction $V(x, y, z; q_k)$; but all of the \WTF{calculations (Rechenprozesse)} necessary for this are too complicated to be used here. I only want to expand on the significance of the function $\Phi_{n\tau m}$ with some words. If e.g. the atom is in the normal state $n=1$ before the collision, then it follows from
+\math{
+\tau + h\nu^0_{1m} = \tau - h\nu^0_{m1} = W_{1\tau m} > 0
+}
+that for an electron with energy smaller than the smallest \WTF{excitation level} of the atom, it necessary that $m=1$ also, and so we must have $W_{1\tau 1} = \tau$; thus there follows an "elastic reflection" of the electron with the \WTF{yield function - transmission ratio?}$\Phi_{1 \tau 1}$. If $\tau$ climbs over the first excitation level, then in addition to the reflection there is also excitation with yield $\Phi_{1\tau 2}$ etc. If the atom is in the excited state $n=2$ and $\tau < h\nu^0_{21}$, then it gives reflection with yield $\Phi_{2\tau 2}$ and a collision of the second type with yield,$\Phi_{2\tau 1}$. If $\tau > h\nu^0_{21}$, there is additional excitation etc.
+
+The formulae thus completely give back the qualitative behavior of collisions. The quantitative exploitation of the formulae for special cases must await a detailed investigation.
+
+It does not seem impossible that the close connection of mechanics and statistics, as seen here, will demand a revision of the fundamental thermodynamical/statistical concepts.
+
+I believe further that the problem of the emission and absorption of light must be treated in a conpletely analogous manner, as a "boundary value problem" of the wave equation, and will lead to a rational theory of damping and line-breadths in harmony with the light quantum hypothesis.
+
+An detailed presentation will appear in the next issue of this journal.
